@@ -1,0 +1,42 @@
+# Ignore the multimedia and testing directories
+multimedia/
+testing/
+.vscode
+.idea
+requests
+notes
+
+# Node.js dependencies
+**/node_modules/
+
+# Build directories
+dist/
+build/
+
+# Cache and logs
+**/var/
+**/logs/
+**/.cache/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+
+# IDE specific files
+**/.idea/
+**/.vscode/
+**/*.sublime-workspace
+**/*.sublime-project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Environment variables
+.env
+.env.*
+
