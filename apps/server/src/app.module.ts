@@ -10,6 +10,7 @@ import { UsersModule } from './modules/users/users.module.js';
     // global env file
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: [`.env.${process.env.NODE_ENV || 'development'}`, `.env`], // '.env' fallback
     }),
     DatabaseMongoModule,
     UsersModule,
