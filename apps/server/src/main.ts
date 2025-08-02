@@ -53,6 +53,7 @@ async function bootstrap() {
   // listen a port
   await app.listen(port);
   console.log(`Application is running on: http://localhost:${port}`);
+  console.log('Database connected successfully to MongoDB 🫂');
   // console.log('database:', process.env.MONGO_URI);
 }
 
