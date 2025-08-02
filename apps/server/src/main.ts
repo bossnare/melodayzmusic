@@ -15,6 +15,10 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   // port in env file and fallback
   const port = process.env.PORT ?? 5000;
+  const apiDocs =
+    process.env.NODE_ENV === 'production'
+      ? 'https://melodayzmusic-api.onrender.com/api/docs'
+      : `http://localhost:${port}/api/docs`;
 
   // public dir config, make public readable
   // const __filename = fileURLToPath(import.meta.url); //
@@ -58,19 +62,22 @@ async function bootstrap() {
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>MelodayzMusic</title>
-        </head>
-        <body style="padding: 0; margin: 0; background: rgb(3, 3, 12); 
-          font-family: 'Inter', sans-serif; display: flex; 
-          justify-content: center;">
-          <div
-            style="
+          <style>
+            #container {
               margin-top: 50px;
               width: 50%;
               display: flex;
               flex-direction: column;
               align-items: start;
               color: white;
-            "
+            }
+          </style>
+        </head>
+        <body style="padding: 0; margin: 0; background: rgb(3, 3, 12); 
+          font-family: 'Inter', sans-serif; display: flex; 
+          justify-content: center;">
+          <div
+            id="container"
           >
             <h1 style="text-align: center">Welcome to MelodayzMusic API</h1>
             <p>
@@ -97,7 +104,7 @@ async function bootstrap() {
               style="all: unset; background: #00BFFF; font-weight: 700; 
               padding: 10px 15px; border-radius: 2.5px; cursor: pointer;"
             >
-              <a style="all: unset" target="_blank" href="http://localhost:${port}/api/docs">API Docs</a>
+              <a style="all: unset" target="_blank" href=${apiDocs} >API Docs</a>
             </button>
           </div>
         </body>
@@ -109,7 +116,7 @@ async function bootstrap() {
   await app.listen(port);
   console.log(`Application is running on: http://localhost:${port}`);
   console.log('Database is connected: ON 🫂');
-  // console.log('database:', process.env.MONGO_URI);
+  console.log('MODE:', process.env.NODE_ENV);
 }
 
 // catch this error, look like very clear
