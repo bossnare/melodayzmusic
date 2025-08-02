@@ -23,4 +23,4 @@ RUN pnpm build
 
 EXPOSE 3000
 
-CMD ["node", "start:prod"]
+CMD ["node", "dist/main"]
