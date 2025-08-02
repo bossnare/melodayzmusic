@@ -6,7 +6,7 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 
 # Add package files
-COPY ./package.json ./pnpm-lock.yaml* bun.lockb ./
+COPY ./package.json ./pnpm-lock.yaml* bun.lock ./
 
 # Install dep with pnpm
 RUN pnpm install
