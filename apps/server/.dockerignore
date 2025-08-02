@@ -3,7 +3,6 @@ node_modules
 .gitignore
 .env
 dist
-.next
 build
 *.log
 .vscode
@@ -15,5 +14,3 @@ coverage
 .env.production
 .env.development
 .env.test
-
-v1
