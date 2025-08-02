@@ -41,19 +41,74 @@ async function bootstrap() {
   });
 
   // Express friendly - use getHttpAdapter() - landing page simple - motivation only 😎
+  // app.getHttpAdapter().get('/', (_, res: Response) => {
+  //   res
+  //     .json({
+  //       message: 'Hello, welcome to MelodayzMusic API.',
+  //       tag: 'Feel the beat, anywhere you go!!!',
+  //     })
+  //     .status(200);
+  // });
+
   app.getHttpAdapter().get('/', (_, res: Response) => {
-    res
-      .json({
-        message: 'Hello, welcome to MelodayzMusic API.',
-        tag: 'Feel the beat, anywhere you go!!!',
-      })
-      .status(200);
+    res.send(`
+      <!doctype html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>MelodayzMusic</title>
+        </head>
+        <body style="padding: 0; margin: 0; background: rgb(3, 3, 12); 
+          font-family: 'Inter', sans-serif; display: flex; 
+          justify-content: center;">
+          <div
+            style="
+              margin-top: 50px;
+              width: 50%;
+              display: flex;
+              flex-direction: column;
+              align-items: start;
+              color: white;
+            "
+          >
+            <h1 style="text-align: center">Welcome to MelodayzMusic API</h1>
+            <p>
+              <span style="color: #00BFFF">MelodayzMusic</span>
+              is a web application designed to provide an engaging and
+              seamless music experience for users.
+            </p>
+            <h3 style="padding: 0; margin: 2px">Features:</h3>
+            <p style="margin: 0">
+            <ol style="color: rgb(224, 224, 224)">
+              <li>Stream and discover music.</li>
+              <li>Create and manage playlists.</li>
+              <li>User-friendly interface.</li>
+              <li>Responsive design for all devices.</li>
+              <li>Challenge mode for music enthusiasts.</li>
+              <li>API independent backend for flexibility.</li>
+              <li>Built with modern technologies like Bun, React, and
+              Node.js.</li>
+              <li>Supports both frontend and backend development.</li>
+              <li>Uses Bun for dependency management.</li>
+            </ol>
+            </p>
+            <button
+              style="all: unset; background: #00BFFF; font-weight: 700; 
+              padding: 10px 15px; border-radius: 2.5px; cursor: pointer;"
+            >
+              <a style="all: unset" target="_blank" href="http://localhost:${port}/api/docs">API Docs</a>
+            </button>
+          </div>
+        </body>
+      </html>
+      `);
   });
 
   // listen a port
   await app.listen(port);
   console.log(`Application is running on: http://localhost:${port}`);
-  console.log('Database connected successfully to MongoDB 🫂');
+  console.log('Database is connected: ON 🫂');
   // console.log('database:', process.env.MONGO_URI);
 }
 

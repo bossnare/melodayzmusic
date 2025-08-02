@@ -12,7 +12,6 @@ MelodayzMusic is a web application designed to provide an engaging and seamless 
 - API independent backend for flexibility.
 - Built with modern technologies like Bun, React, and Node.js.
 - Supports both frontend and backend development.
-- Uses Bun for fast JavaScript runtime.
 - Uses Bun for dependency management.
 
 ## Installation
