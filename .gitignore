@@ -8,7 +8,7 @@ notes
 v1
 
 # Node.js dependencies
-node_modules/*
+node_modules/
 
 # Build directories
 dist/
