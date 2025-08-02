@@ -11,8 +11,8 @@ import { UsersModule } from './modules/users/users.module.js';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    UsersModule,
     DatabaseMongoModule,
+    UsersModule,
   ],
   //afaka fafaina ireto ambany miaraka amin'ny fichier controller sy services
   controllers: [AppController],
