@@ -54,11 +54,17 @@ async function bootstrap() {
           <style>
             #container {
               margin-top: 50px;
-              width: 50%;
+              width: 90%;
               display: flex;
               flex-direction: column;
               align-items: start;
               color: white;
+            }
+
+            @media (min-width: 768px) { /* Desktop (start with 768px) */
+              #container {
+                width: 50%;
+              }
             }
           </style>
         </head>
