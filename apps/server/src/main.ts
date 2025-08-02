@@ -9,16 +9,14 @@ import morgan from 'morgan';
 // import { fileURLToPath } from 'url';
 import { AppModule } from './app.module.js';
 import swaggerConfig from './configs/swagger.config.js';
+import { production, port } from './constants/env.constant.js';
 
 // App server config
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  // port in env file and fallback
-  const port = process.env.PORT ?? 5000;
-  const apiDocs =
-    process.env.NODE_ENV === 'production'
-      ? 'https://melodayzmusic-api.onrender.com/api/docs'
-      : `http://localhost:${port}/api/docs`;
+  const apiDocs = production
+    ? 'https://melodayzmusic-api.onrender.com/api/docs'
+    : `http://localhost:${port}/api/docs`;
 
   // public dir config, make public readable
   // const __filename = fileURLToPath(import.meta.url); //
@@ -44,16 +42,7 @@ async function bootstrap() {
     // credentials: true,
   });
 
-  // Express friendly - use getHttpAdapter() - landing page simple - motivation only 😎
-  // app.getHttpAdapter().get('/', (_, res: Response) => {
-  //   res
-  //     .json({
-  //       message: 'Hello, welcome to MelodayzMusic API.',
-  //       tag: 'Feel the beat, anywhere you go!!!',
-  //     })
-  //     .status(200);
-  // });
-
+  // Express friendly - use getHttpAdapter() - simple landing page - motivation only 😎
   app.getHttpAdapter().get('/', (_, res: Response) => {
     res.send(`
       <!doctype html>
@@ -114,8 +103,12 @@ async function bootstrap() {
 
   // listen a port
   await app.listen(port);
-  console.log(`Application is running on: http://localhost:${port}`);
-  console.log('Database is connected: ON 🫂');
+  console.log(
+    production
+      ? 'Application is running on: https://melodayzmusic-api.onrender.com'
+      : `Application is running on: http://localhost:${port}`,
+  );
+  console.log('Database is connected: ON 🫂❇️✅');
   console.log('MODE:', process.env.NODE_ENV);
 }
 
