@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
-import { UsersModule } from './modules/users/users.module.js';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
@@ -11,7 +11,7 @@ import { UsersModule } from './modules/users/users.module.js';
       isGlobal: true,
       envFilePath: [`.env.${process.env.NODE_ENV || 'development'}`, `.env`], // '.env' fallback
     }),
-    UsersModule,
+    PrismaModule,
   ],
   //afaka fafaina ireto ambany miaraka amin'ny fichier controller sy services
   controllers: [AppController],
