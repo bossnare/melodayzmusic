@@ -17,7 +17,7 @@ WORKDIR /app
 COPY bun.lock package.json ./
 
 # Install deps (cached)
-RUN bun install --frozen-lockfile --production
+RUN bun install
 
 # if installation passed, COPY all source code
 COPY . .
