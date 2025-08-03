@@ -17,13 +17,12 @@ WORKDIR /app
 COPY bun.lock package.json ./
 
 # Install deps (cached)
-RUN bun install
+RUN bun install && \
+    bunx prisma generate && \
+    echo "Bun dependencies installed successfully."
 
 # if installation passed, COPY all source code
 COPY . .
-
-# Prisma generate before
-RUN npx prisma generate
 
 # Build app
 RUN bun run build
