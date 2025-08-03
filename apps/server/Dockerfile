@@ -24,7 +24,7 @@ RUN bun install && \
 COPY prisma ./prisma
 
 # Prisma generate before
-RUN bunx prisma generate && \
+RUN npx prisma generate && \
     echo 'Prisma generated successfully. ✅'
 
 # copy the rest
