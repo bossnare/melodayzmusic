@@ -71,15 +71,11 @@ COPY . .
 RUN npx prisma generate && \
     echo 'Prisma generated successfully. ✅'
 
-# Ensure ./src/generated/prisma (debug)
-RUN ls -al ./src/generated/prisma
+# Re-COPY the rest of the application
+COPY . .
 
 # Build app
-RUN pnpm build && \
-    echo 'App built successfully. ✅'
-
-# Ensure ./src/generated/prisma (debug)
-RUN ls -al ./src/generated/prisma
+RUN pnpm build
 
 # Just declare it
 EXPOSE 5000
