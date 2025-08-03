@@ -3,7 +3,7 @@ FROM node:20-alpine
 
 # RUN corepack enable && corepack prepare pnpm@latest --activate
 # ----- Bun installation ------
-RUN apk add --no-cache curl && \
+RUN apk update && apk add --no-cache curl bash git && \
     curl -fsSL https://bun.sh/install | bash
 
 # Add Bun in PATH
