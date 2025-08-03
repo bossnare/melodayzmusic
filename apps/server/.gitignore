@@ -40,4 +40,5 @@ ehthumbs.db
 .env
 .env.*
 
-src/generated
+src/generated/prisma
+
