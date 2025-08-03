@@ -44,7 +44,7 @@ export const landingPage = `
     <div id="container">
     <h1 style="margin-top: 0; padding: 0">Welcome to MelodayzMusic API</h1>
     <p>
-        <span style="color: #00BFFF">MelodayzMusic</span>
+        <a style="all: unset; color: #00BFFF" target="_blank" href=${apiDocs} >API Docs</a>
         is a web application designed to provide an engaging and
         seamless music experience for users.
     </p>
