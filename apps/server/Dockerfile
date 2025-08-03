@@ -48,25 +48,42 @@
 
 # --------------- WITH pnpm ----------------
 
-FROM node:lts-alpine AS dependencies
+FROM node:lts-alpine AS base
+
 RUN corepack enable && corepack prepare pnpm@latest --activate
+
 WORKDIR /app
+
+# Copy package files
 COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install
 
-FROM dependencies AS generate
+# Install ALL dependencies (including dev deps for build)
+RUN pnpm install --frozen-lockfile && \
+    echo "✅ Dependencies installed"
+
+# Copy Prisma schema
 COPY prisma ./prisma
-RUN npx prisma generate
 
-FROM generate AS build
+# Clean any existing generated files and regenerate
+RUN rm -rf node_modules/.prisma node_modules/@prisma/client/.prisma && \
+    npx prisma generate && \
+    echo "✅ Prisma client generated"
+
+# Verify Prisma client exists
+RUN ls -la node_modules/.prisma/client/ && \
+    echo "✅ Prisma client files verified"
+
+# Copy source code
 COPY . .
-RUN pnpm build
 
-FROM node:lts-alpine AS runtime
-RUN corepack enable && corepack prepare pnpm@latest --activate
-WORKDIR /app
-COPY --from=dependencies /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/package.json ./
+# Debug: Check if types are available
+RUN echo "Checking Prisma types..." && \
+    node -e "console.log(require('@prisma/client'))" || echo "❌ Prisma client not found"
+
+# Build
+RUN pnpm build && \
+    echo "✅ Build completed"
+
 EXPOSE 5000
+
 CMD ["node", "dist/main"]
