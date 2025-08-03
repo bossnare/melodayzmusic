@@ -56,7 +56,7 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml bun.lock ./
+COPY package.json pnpm-lock.yaml* bun.lock ./
 
 RUN pnpm install --frozen-lockfile && \
     echo "pnpm dependencies installed successfully. ✅"
