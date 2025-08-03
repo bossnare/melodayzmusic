@@ -20,7 +20,7 @@ COPY bun.lock package.json ./
 RUN bun install
 
 # Prisma generate before
-RUN bunx prisma generate
+RUN npx prisma generate
 
 # if installation passed, COPY all source code
 COPY . .
