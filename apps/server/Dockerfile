@@ -48,35 +48,25 @@
 
 # --------------- WITH pnpm ----------------
 
-FROM node:lts-alpine AS base
-
-# --------- pnpm installation ----------
+FROM node:lts-alpine AS dependencies
 RUN corepack enable && corepack prepare pnpm@latest --activate
-
 WORKDIR /app
-
-# Copy package files first
 COPY package.json pnpm-lock.yaml* ./
+RUN pnpm install
 
-# Install dependencies including Prisma
-RUN pnpm install && \
-    echo "pnpm dependencies installed successfully. ✅"
-
-# Copy Prisma schema BEFORE copying other files
+FROM dependencies AS generate
 COPY prisma ./prisma
+RUN npx prisma generate
 
-# Generate Prisma client BEFORE copying source code
-RUN npx prisma generate && \
-    echo 'Prisma generated successfully. ✅'
-
-# Now copy the rest of the application
+FROM generate AS build
 COPY . .
-
-# Build app (Prisma client is already generated)
 RUN pnpm build
 
-# Expose port
+FROM node:lts-alpine AS runtime
+RUN corepack enable && corepack prepare pnpm@latest --activate
+WORKDIR /app
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/package.json ./
 EXPOSE 5000
-
-# Run app
 CMD ["node", "dist/main"]
