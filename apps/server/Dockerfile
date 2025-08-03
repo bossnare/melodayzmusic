@@ -18,17 +18,22 @@ COPY bun.lock package.json ./
 
 # Install deps (cached)
 RUN bun install && \
-    bunx prisma generate && \
-    echo "Bun dependencies installed successfully."
+    echo "Bun dependencies installed successfully. ✅"
 
 # if installation passed, COPY all source code
 COPY . .
 
+# Prisma generate before
+RUN bunx prisma generate && \
+    echo 'Prisma generated successfully. ✅'
+
 # Build app
 RUN bun run build
 
+# just declare it
 EXPOSE 5000
 
+# Run app
 CMD ["node", "dist/main"]
 
 # --------------- WITH pnpm ----------------
