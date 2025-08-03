@@ -19,11 +19,11 @@ COPY bun.lock package.json ./
 # Install deps (cached)
 RUN bun install
 
-# Prisma generate before
-RUN npx prisma generate
-
 # if installation passed, COPY all source code
 COPY . .
+
+# Prisma generate before
+RUN npx prisma generate
 
 # Build app
 RUN bun run build
