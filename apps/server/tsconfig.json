@@ -11,7 +11,6 @@
     "target": "ESNext",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "src",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
@@ -19,8 +18,9 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["src/*"]
       // "@configs/*": ["configs/*"],
       // "@database/*": ["database/*"],
       // "@users/*": ["modules/users/*"],
