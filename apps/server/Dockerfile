@@ -67,12 +67,12 @@ COPY prisma ./prisma
 # Copy the rest of the application
 COPY . .
 
+RUN pnpm install -D prisma && \
+    pnpm install @prisma/client
+
 # Prisma generate before build
 RUN npx prisma generate && \
     echo 'Prisma generated successfully. ✅'
-
-# Re-COPY the rest of the application
-COPY . .
 
 # Build app
 RUN pnpm build
