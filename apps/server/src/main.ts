@@ -25,7 +25,6 @@ async function bootstrap() {
   app.use(helmet());
   // Morgan middleware for logging HTTP requests
   app.use(morgan('dev'));
-
   // Set global API prefix
   app.setGlobalPrefix('api/v1');
 

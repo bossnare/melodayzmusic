@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
-import { DatabaseMongoModule } from './database/database.mongo.module.js';
 import { UsersModule } from './modules/users/users.module.js';
 
 @Module({
@@ -12,7 +11,6 @@ import { UsersModule } from './modules/users/users.module.js';
       isGlobal: true,
       envFilePath: [`.env.${process.env.NODE_ENV || 'development'}`, `.env`], // '.env' fallback
     }),
-    DatabaseMongoModule,
     UsersModule,
   ],
   //afaka fafaina ireto ambany miaraka amin'ny fichier controller sy services
