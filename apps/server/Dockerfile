@@ -19,6 +19,9 @@ COPY bun.lock package.json ./
 # Install deps (cached)
 RUN bun install
 
+# Prisma generate before
+RUN bunx prisma generate
+
 # if installation passed, COPY all source code
 COPY . .
 

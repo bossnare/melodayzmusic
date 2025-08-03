@@ -12,6 +12,7 @@
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules && bun i",
+    "postinstall": "prisma generate",
     "build": "nest build",
     "format": "prettier --write . \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
