@@ -23,7 +23,7 @@ RUN bun install
 COPY . .
 
 # Build app
-RUN npm run build
+RUN bun run build
 
 EXPOSE 5000
 
