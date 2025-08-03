@@ -58,7 +58,7 @@ WORKDIR /app
 
 COPY package.json pnpm-lock.yaml* bun.lock ./
 
-RUN pnpm install --frozen-lockfile && \
+RUN pnpm install && \
     echo "pnpm dependencies installed successfully. ✅"
 
 # Copy Prisma schema
