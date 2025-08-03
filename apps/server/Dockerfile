@@ -55,28 +55,27 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml* bun.lock ./
+# Copy package files first
+COPY package.json pnpm-lock.yaml* ./
 
+# Install dependencies including Prisma
 RUN pnpm install && \
     echo "pnpm dependencies installed successfully. ✅"
 
-# Copy Prisma schema
+# Copy Prisma schema BEFORE copying other files
 COPY prisma ./prisma
 
-# Copy the rest of the application
-COPY . .
-
-# Prisma generate before build
+# Generate Prisma client BEFORE copying source code
 RUN npx prisma generate && \
     echo 'Prisma generated successfully. ✅'
 
-RUN pnpm install -D prisma && \
-    pnpm install @prisma/client
+# Now copy the rest of the application
+COPY . .
 
-# Build app
+# Build app (Prisma client is already generated)
 RUN pnpm build
 
-# Just declare it
+# Expose port
 EXPOSE 5000
 
 # Run app
