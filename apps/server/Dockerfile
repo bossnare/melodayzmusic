@@ -7,7 +7,7 @@ RUN apk update && apk add --no-cache curl bash git && \
     curl -fsSL https://bun.sh/install | bash
 
 # Add Bun in PATH
-ENV PATH="/root/.bun/bin:$PATH"
+ENV PATH="$HOME/.bun/bin:$PATH"
 
 # --- Create app directory
 WORKDIR /app
