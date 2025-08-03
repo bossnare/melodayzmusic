@@ -31,8 +31,9 @@ export const landingPage = `
 
     .box {
       flex-grow: 1;
-      height: 100vh !important;
-      border: 1px solid rgb(224, 224, 224);
+      height: 100vh;
+      border-left: 1px solid rgb(224, 224, 224);
+      border-right: 1px solid rgb(224, 224, 224);
     }
     </style>
 </head>
