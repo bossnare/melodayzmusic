@@ -1,7 +1,6 @@
 # --------------- WITH Bun ----------------
 
-# direct: Stage Prod
-FROM node:20-alpine
+# direct: Stage Prod 
 # FROM node:lts-alpine AS base
 # # RUN corepack enable && corepack prepare pnpm@latest --activate
 # # ----- Bun installation ------
@@ -67,12 +66,12 @@ COPY prisma ./prisma
 # Copy the rest of the application
 COPY . .
 
-RUN pnpm install -D prisma && \
-    pnpm install @prisma/client
-
 # Prisma generate before build
 RUN npx prisma generate && \
     echo 'Prisma generated successfully. ✅'
+
+RUN pnpm install -D prisma && \
+    pnpm install @prisma/client
 
 # Build app
 RUN pnpm build
