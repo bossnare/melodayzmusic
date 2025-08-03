@@ -23,15 +23,21 @@ RUN bun install && \
 # Copy Prisma schema
 COPY prisma ./prisma
 
-# Prisma generate before
-RUN npx prisma generate && \
-    echo 'Prisma generated successfully. ✅'
-
 # copy the rest
 COPY . .
 
+# Prisma generate before build
+RUN npx prisma generate && \
+    echo 'Prisma generated successfully. ✅'
+
+# ensure ./src/generated/prisma  (debug)
+RUN ls -al ./src/generated/prisma
+
 # Build app
 RUN bun run build
+
+# ensure ./src/generated/prisma (debug)
+RUN ls -al ./src/generated/prisma
 
 # just declare it
 EXPOSE 5000

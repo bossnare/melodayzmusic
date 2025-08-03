@@ -9,9 +9,6 @@ build
 tests
 coverage
 
-!.prisma
-!node_modules/.prisma
-
 .env
 .env.local
 .env.production
