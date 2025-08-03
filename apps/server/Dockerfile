@@ -58,7 +58,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml* ./
 
 # Install dependencies
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 
 # Manually install Prisma if not present
 RUN pnpm add @prisma/client && \
