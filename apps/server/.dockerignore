@@ -8,6 +8,7 @@ build
 .vscode
 tests
 coverage
+generated
 
 .env
 .env.local
