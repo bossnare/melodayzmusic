@@ -24,7 +24,7 @@ COPY . .
 # Build app
 RUN bun run build
 
-EXPOSE 4000
+EXPOSE 5000
 
 CMD ["node", "dist/main"]
 
