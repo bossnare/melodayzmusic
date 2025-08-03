@@ -3,6 +3,6 @@ import { PrismaService } from './prisma.service';
 
 @Module({
   providers: [PrismaService],
-  exports: [PrismaService], // atao export: mba ho azo @ module rehetra alaina
+  exports: [PrismaService], // atao export: mba ho azo import manerana app
 })
 export class PrismaModule {}
