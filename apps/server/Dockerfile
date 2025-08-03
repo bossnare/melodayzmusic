@@ -51,6 +51,9 @@ FROM node:20-alpine
 
 FROM node:lts-alpine AS base
 
+# --------- pnpm installation ----------
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml bun.lock ./
