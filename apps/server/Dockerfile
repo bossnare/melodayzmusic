@@ -20,12 +20,15 @@ COPY bun.lock package.json ./
 RUN bun install && \
     echo "Bun dependencies installed successfully. ✅"
 
-# if installation passed, COPY all source code
-COPY . .
+# Copy Prisma schema
+COPY prisma ./prisma
 
 # Prisma generate before
 RUN bunx prisma generate && \
     echo 'Prisma generated successfully. ✅'
+
+# copy the rest
+COPY . .
 
 # Build app
 RUN bun run build
