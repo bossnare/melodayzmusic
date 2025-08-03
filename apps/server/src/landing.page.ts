@@ -1,4 +1,4 @@
-import { port, production } from './constants/env.constant';
+import { production, port } from './constants/env.constant.js';
 
 const apiDocs = production
   ? 'https://melodayzmusic-api.onrender.com/api/docs'
@@ -19,6 +19,7 @@ export const landingPage = `
         flex-direction: column;
         align-items: start;
         color: white;
+        border: 1px solid rgb(224, 224, 224);
     }
 
     @media (min-width: 768px) { /* Desktop (start with 768px) */
@@ -26,15 +27,24 @@ export const landingPage = `
         width: 50%;
         }
     }
+
+    .box {
+      flex-grow: 1;
+      height: 100%;
+      background: red;
+      min-width: 20%;
+      border-right: 1px solid rgb(224, 224, 224);
+    }
     </style>
 </head>
 <body style="padding: 0; margin: 0; background: rgb(3, 3, 12); 
     font-family: 'Inter', sans-serif; display: flex; 
     justify-content: center;">
+    <div class="box"></div>
     <div
     id="container"
     >
-    <h1 style="text-align: center">Welcome to MelodayzMusic API</h1>
+    <h1 style="margin-top: 0; padding-top: 0">Welcome to MelodayzMusic API</h1>
     <p>
         <span style="color: #00BFFF">MelodayzMusic</span>
         is a web application designed to provide an engaging and
@@ -62,6 +72,7 @@ export const landingPage = `
         <a style="all: unset" target="_blank" href=${apiDocs} >API Docs</a>
     </button>
     </div>
+    <div class="box">Melodayz</div>
 </body>
 </html>
 `;
