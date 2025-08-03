@@ -4,10 +4,11 @@ FROM node:20-alpine
 # RUN corepack enable && corepack prepare pnpm@latest --activate
 # ----- Bun installation ------
 RUN apk update && apk add --no-cache curl bash git && \
-    curl -fsSL https://bun.sh/install | bash
-
-# Add Bun in PATH
-ENV PATH="$HOME/.bun/bin:$PATH"
+    curl -fsSL https://bun.sh/install | bash && \
+    export BUN_INSTALL="/root/.bun" && \
+    export PATH="$BUN_INSTALL/bin:$PATH" && \
+    ln -s "$BUN_INSTALL/bin/bun" /usr/local/bin/bun && \
+    bun --version
 
 # --- Create app directory
 WORKDIR /app
