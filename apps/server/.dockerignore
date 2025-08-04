@@ -1,4 +1,4 @@
-node_modules
+node_modules/
 .git
 .gitignore
 .env
@@ -8,7 +8,6 @@ build
 .vscode
 tests
 coverage
-src/generated/prisma
 
 .env
 .env.local
