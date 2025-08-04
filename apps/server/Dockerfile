@@ -70,9 +70,9 @@ RUN npm run build
 FROM node:22-alpine AS prod
 WORKDIR /app
 # Mitaky libssl ho an’ny Prisma runtime
-RUN apt-get update \
-  && apt-get install -y libssl-dev dumb-init \
-  && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update \
+#   && apt-get install -y libssl-dev dumb-init \
+#   && rm -rf /var/lib/apt/lists/*
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=prisma_generate /app/dist ./dist
