@@ -1,21 +1,21 @@
 # --------------- WITH Bun ----------------
 
 # STAGE 1: Install dependencies and generate prisma
-FROM node:18 AS builder
+FROM node:18
 
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm install
 
 COPY . .
+
 RUN npx prisma generate
-
-# STAGE 2: Create final image
-FROM node:18
-
-WORKDIR /app
-COPY --from=builder /app ./
 RUN npm run build
+
+RUN echo "Jereo ilay app 🕵🏻‍♂️" && \
+    ls -la /app && \
+    ls -la dist
 
 CMD ["node", "dist/main"]
 
