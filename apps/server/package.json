@@ -11,7 +11,6 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "postinstall": "npx prisma generate",
     "clean": "rm -rf node_modules && bun i",
     "build": "nest build",
     "format": "prettier --write . \"src/**/*.ts\" \"test/**/*.ts\"",

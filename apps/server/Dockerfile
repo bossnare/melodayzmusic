@@ -49,28 +49,25 @@
 # --------------- WITH pnpm ----------------
 
 # Build Stage
-FROM node:18 AS builder
+FROM node:lts-alpine AS builder
 WORKDIR /app
 COPY package*.json bun.lock ./
-COPY prisma ./prisma
 RUN npm install
 COPY . .
 # Mamorona Prisma client alohan’ny build
+RUN npx prisma generate
 RUN npm run build
 
 # Production Stage
-FROM node:18-slim AS runner
+FROM node:lts-slim AS runner
 WORKDIR /app
 # Mitaky libssl ho an’ny Prisma runtime
 RUN apt-get update \
   && apt-get install -y libssl-dev dumb-init \
   && rm -rf /var/lib/apt/lists/*
-COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/src/generated ./src/generated
-COPY --from=builder /app/src/prisma ./src/prisma
-ENV NODE_ENV production
+ENV NODE_ENV=production
 EXPOSE 5000
-CMD ["dumb-init", "node", "dist/main"]
+CMD ["node", "dist/main"]
