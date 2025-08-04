@@ -48,34 +48,26 @@
 
 # --------------- WITH pnpm ----------------
 
-FROM node:lts-slim AS base
-
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
-WORKDIR /app
-
-# Copy package files
-COPY package.json pnpm-lock.yaml* ./
-
-# Install dependencies
-RUN pnpm install
-
-# Manually install Prisma if not present
-RUN pnpm add @prisma/client && \
-    pnpm add -D prisma
-
-# Copy Prisma schema
-COPY prisma ./prisma
-
-# Generate Prisma client with explicit paths
-RUN npx prisma generate && \
-    echo "✅ Prisma client generated"
-
-# Copy source code
+# Build Stage
+FROM node:18 AS builder
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
 COPY . .
-
-# Build
+# Mamorona Prisma client alohan’ny build
+RUN npx prisma generate
 RUN npm run build
 
+# Production Stage
+FROM node:18-slim AS runner
+WORKDIR /usr/src/app
+# Mitaky libssl ho an’ny Prisma runtime
+RUN apt-get update \
+  && apt-get install -y libssl-dev dumb-init \
+  && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /usr/src/app/package*.json ./
+COPY --from=builder /usr/src/app/node_modules/.prisma/client ./node_modules/.prisma/client
+COPY --from=builder /usr/src/app/dist ./dist
+ENV NODE_ENV production
 EXPOSE 5000
-CMD ["node", "dist/main"]
+CMD ["dumb-init", "node", "dist/main.js"]
