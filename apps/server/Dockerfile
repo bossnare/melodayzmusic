@@ -37,7 +37,7 @@ COPY --from=prisma_generate /app/dist ./dist
 
 ENV NODE_ENV production
 EXPOSE 5000
-CMD ["bun", "run", "start:prod"]
+CMD ["npm", "run", "start:prod"]
 
 # --------------- WITH npm ----------------
 
