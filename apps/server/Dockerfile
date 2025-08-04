@@ -52,6 +52,7 @@
 FROM node:18 AS builder
 WORKDIR /app
 COPY package*.json ./
+COPY prisma ./prisma
 RUN npm install
 COPY . .
 # Mamorona Prisma client alohan’ny build
