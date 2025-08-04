@@ -32,6 +32,7 @@ RUN bun run build && \
 RUN echo "📋 Final check:" && \
     ls -la node_modules/.prisma/ && \
     ls -la dist/ && \
+    ls -la src/generated && \
     echo "Ready to start!"
 
 ENV NODE_ENV=production
