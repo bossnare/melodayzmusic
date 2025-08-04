@@ -13,9 +13,8 @@ COPY . .
 RUN npx prisma generate
 RUN npm run build
 
-RUN echo "Jereo ilay app 🕵🏻‍♂️" && \
-    ls -la /app && \
-    ls -la dist
+RUN echo "Jereo ilay prisma �🔥🔥�🏻‍♂️" && \
+    ls -la node_modules/@prisma
 
 CMD ["node", "dist/main"]
 
