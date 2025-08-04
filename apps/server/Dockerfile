@@ -48,7 +48,7 @@
 
 # --------------- WITH pnpm ----------------
 
-FROM node:lts-alpine AS base
+FROM node:lts-slim AS base
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
