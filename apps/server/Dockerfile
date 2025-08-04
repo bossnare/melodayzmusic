@@ -68,14 +68,14 @@ RUN pnpm add @prisma/client && \
 COPY prisma ./prisma
 
 # Generate Prisma client with explicit paths
-RUN PRISMA_CLI_QUERY_ENGINE_TYPE=binary npx prisma generate && \
+RUN npx prisma generate && \
     echo "✅ Prisma client generated"
 
 # Copy source code
 COPY . .
 
 # Build
-RUN pnpm build
+RUN npm run build
 
 EXPOSE 5000
 CMD ["node", "dist/main"]
