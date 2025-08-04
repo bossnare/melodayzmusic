@@ -32,8 +32,11 @@ RUN bun run build && \
 RUN echo "📋 Final check:" && \
     ls -la node_modules/.prisma/ && \
     ls -la dist/ && \
-    ls -la src/generated && \
     echo "Ready to start!"
+
+RUN echo "Check @prisma: 😳☠️" && \
+    ls -la node_modules/@prisma && \
+    ls -la src/generated/prisma
 
 ENV NODE_ENV=production
 EXPOSE 4000
