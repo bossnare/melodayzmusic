@@ -52,8 +52,8 @@
 FROM node:18 AS builder
 WORKDIR /app
 COPY package*.json ./
-COPY . .
 RUN npm install
+COPY . .
 # Mamorona Prisma client alohan’ny build
 RUN npx prisma generate
 RUN npm run build
