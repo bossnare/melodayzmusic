@@ -55,6 +55,7 @@ COPY package*.json bun.lock ./
 COPY prisma ./prisma/
 COPY tsconfig.json ./
 COPY src ./src
+COPY . .
 
 # =========== DEPENDENCIES ===========
 FROM base AS deps
@@ -78,8 +79,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY --from=prisma_generate /app/dist ./dist
 COPY --from=prisma_generate /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=prisma_generate /app/node_modules/@prisma ./node_modules/@prisma
-COPY prisma ./prisma
-COPY . .
+COPY --from=prisma_generate /app/prisma ./prisma
 
 ENV NODE_ENV=production
 EXPOSE 5000
