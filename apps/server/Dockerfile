@@ -1,7 +1,7 @@
 # --------------- WITH Bun ----------------
 
 # direct: Stage Prod 
-# FROM node:lts-alpine AS base
+# FROM node:22-alpine AS base
 # # RUN corepack enable && corepack prepare pnpm@latest --activate
 # # ----- Bun installation ------
 # RUN apk update && apk add --no-cache curl bash git && \
@@ -46,28 +46,40 @@
 # # Run app
 # CMD ["node", "dist/main"]
 
-# --------------- WITH pnpm ----------------
+# --------------- WITH npm ----------------
 
-# Build Stage
-FROM node:lts-alpine AS builder
+# =========== BASE ===========
+FROM node:22-alpine AS base
 WORKDIR /app
 COPY package*.json bun.lock ./
+COPY prisma ./prisma/
+COPY tsconfig.json ./
+COPY src ./src
+
+# =========== DEPENDENCIES ===========
+FROM base AS deps
+RUN npm install --omit=dev
+
+# =========== BUILD PRISMA CLIENT ===========
+FROM base AS prisma_generate
 RUN npm install
-COPY . .
-# Mamorona Prisma client alohan’ny build
 RUN npx prisma generate
 RUN npm run build
 
-# Production Stage
-FROM node:lts-slim AS runner
+# =========== BASE ===========
+FROM node:22-alpine AS prod
 WORKDIR /app
 # Mitaky libssl ho an’ny Prisma runtime
 RUN apt-get update \
   && apt-get install -y libssl-dev dumb-init \
   && rm -rf /var/lib/apt/lists/*
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/prisma ./prisma
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=prisma_generate /app/dist ./dist
+COPY --from=prisma_generate /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=prisma_generate /app/node_modules/@prisma ./node_modules/@prisma
+COPY prisma ./prisma
+
 ENV NODE_ENV=production
 EXPOSE 5000
 CMD ["node", "dist/main"]
