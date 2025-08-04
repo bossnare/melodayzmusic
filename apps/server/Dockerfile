@@ -11,32 +11,42 @@ RUN apk update && apk add --no-cache curl bash git && \
     bun --version
 
 WORKDIR /app
+
+# =========== DEPENDENCIES & BUILD ===========
+FROM base AS build
 COPY package*.json bun.lock ./
 COPY prisma ./prisma
-COPY . .
 
-# =========== DEPENDENCIES ===========
-FROM base AS deps
-RUN bun install --omit=dev
-
-# =========== BUILD PRISMA CLIENT ===========
-FROM base AS prisma_generate
+# Installer toutes les dépendances (dev et prod) pour la génération Prisma et le build
 RUN bun install
-RUN bun i -D prisma && bun install @prisma/client
+
+# Générer le client Prisma
 RUN npx prisma generate
+
+# Copier le code source et builder
+COPY . .
 RUN bun run build
 
 # =========== PRODUCTION ===========
 FROM node:22-alpine AS prod
 WORKDIR /app
 
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=prisma_generate /app/prisma ./prisma
-COPY --from=prisma_generate /app/package.json ./
-COPY --from=prisma_generate /app/dist ./dist
+# Installer seulement les dépendances de production avec npm (plus stable pour la prod)
+COPY package*.json ./
+RUN npm ci --only=production && npm cache clean --force
 
-ENV NODE_ENV production
+# Copier les fichiers nécessaires depuis l'étape build
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/prisma ./prisma
+COPY --from=build /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=build /app/node_modules/@prisma ./node_modules/@prisma
+
+# Régénérer le client Prisma en production (important !)
+RUN npx prisma generate
+
+ENV NODE_ENV=production
 EXPOSE 5000
+
 CMD ["npm", "run", "start:prod"]
 
 # --------------- WITH npm ----------------
