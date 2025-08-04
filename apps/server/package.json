@@ -1,5 +1,5 @@
 {
-  "name": "melodayz",
+  "name": "melodayzmusic",
   "version": "1.0.0",
   "description": "The API for Melodayz, a music streaming platform.",
   "main": "dist/main.js",
@@ -11,9 +11,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "postinstall": "npx prisma generate",
+    "postinstall": "prisma generate",
     "clean": "rm -rf node_modules && bun i",
-    "build": "nest build",
+    "build": "prisma generate && nest build",
     "format": "prettier --write . \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "NODE_ENV=development nest start --watch",
