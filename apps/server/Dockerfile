@@ -29,21 +29,7 @@ RUN bun run build
 
 # =========== PRODUCTION ===========
 FROM node:22-alpine AS prod
-
-# Installer Bun dans l'étape de production aussi
-RUN apk update && apk add --no-cache curl bash && \
-    curl -fsSL https://bun.sh/install | bash && \
-    export BUN_INSTALL="/root/.bun" && \
-    export PATH="$BUN_INSTALL/bin:$PATH" && \
-    ln -s "$BUN_INSTALL/bin/bun" /usr/local/bin/bun
-
 WORKDIR /app
-
-# Copier les fichiers de configuration
-COPY package*.json bun.lock ./
-
-# Installer seulement les dépendances de production avec Bun
-RUN bun install --production
 
 # Copier les fichiers nécessaires depuis l'étape build
 COPY --from=build /app/dist ./dist
@@ -52,7 +38,7 @@ COPY --from=build /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=build /app/node_modules/@prisma ./node_modules/@prisma
 
 # Régénérer le client Prisma en production (important !)
-RUN npx prisma generate
+# RUN npx prisma generate
 
 ENV NODE_ENV=production
 EXPOSE 5000

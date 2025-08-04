@@ -42,3 +42,6 @@ ehthumbs.db
 
 src/generated/prisma
 
+# Custom ignore
+Dockerfile.copie
+
