@@ -8,6 +8,7 @@ build
 .vscode
 tests
 coverage
+src/generated/prisma
 
 .env
 .env.local
