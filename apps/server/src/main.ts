@@ -45,7 +45,7 @@ async function bootstrap() {
   });
 
   // listen a port
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
   console.log(
     production
       ? 'Application is running on: https://melodayzmusic-api.onrender.com'
