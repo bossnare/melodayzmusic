@@ -29,11 +29,21 @@ RUN bun run build
 
 # =========== PRODUCTION ===========
 FROM node:22-alpine AS prod
+
+# Installer Bun dans l'étape de production aussi
+RUN apk update && apk add --no-cache curl bash && \
+    curl -fsSL https://bun.sh/install | bash && \
+    export BUN_INSTALL="/root/.bun" && \
+    export PATH="$BUN_INSTALL/bin:$PATH" && \
+    ln -s "$BUN_INSTALL/bin/bun" /usr/local/bin/bun
+
 WORKDIR /app
 
-# Installer seulement les dépendances de production avec npm (plus stable pour la prod)
-COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+# Copier les fichiers de configuration
+COPY package*.json bun.lock ./
+
+# Installer seulement les dépendances de production avec Bun
+RUN bun install --production
 
 # Copier les fichiers nécessaires depuis l'étape build
 COPY --from=build /app/dist ./dist
@@ -48,7 +58,6 @@ ENV NODE_ENV=production
 EXPOSE 5000
 
 CMD ["npm", "run", "start:prod"]
-
 # --------------- WITH npm ----------------
 
 # =========== BASE ===========
