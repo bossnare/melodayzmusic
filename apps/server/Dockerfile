@@ -1,49 +1,44 @@
 # --------------- WITH Bun ----------------
 
-# =========== BASE ===========
-FROM node:22-alpine AS base
-# # # Bun installation # # #
+FROM node:22-alpine
+
+# Installer Bun et les outils de debug
 RUN apk update && apk add --no-cache curl bash git && \
     curl -fsSL https://bun.sh/install | bash && \
     export BUN_INSTALL="/root/.bun" && \
     export PATH="$BUN_INSTALL/bin:$PATH" && \
-    ln -s "$BUN_INSTALL/bin/bun" /usr/local/bin/bun && \
-    bun --version
+    ln -s "$BUN_INSTALL/bin/bun" /usr/local/bin/bun
 
 WORKDIR /app
 
-# =========== DEPENDENCIES & BUILD ===========
-FROM base AS build
-COPY package*.json bun.lock ./
-COPY prisma ./prisma
+# Copier tous les fichiers
+COPY . .
 
-# Installer toutes les dépendances (dev et prod) pour la génération Prisma et le build
+# Installer les dépendances
 RUN bun install
 
-# Générer le client Prisma
-RUN npx prisma generate
+# Générer le client Prisma avec debug
+RUN npx prisma generate && \
+    echo "✅ Prisma client generated" && \
+    ls -la node_modules/.prisma/ && \
+    ls -la node_modules/@prisma/
 
-# Copier le code source et builder
-COPY . .
-RUN bun run build
+# Builder l'application
+RUN bun run build && \
+    echo "✅ Build completed" && \
+    ls -la dist/
 
-# =========== PRODUCTION ===========
-FROM node:22-alpine AS prod
-WORKDIR /app
-
-# Copier les fichiers nécessaires depuis l'étape build
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/prisma ./prisma
-COPY --from=build /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=build /app/node_modules/@prisma ./node_modules/@prisma
-
-# Régénérer le client Prisma en production (important !)
-# RUN npx prisma generate
+# Vérifier que tout est en place avant le démarrage
+RUN echo "📋 Final check:" && \
+    ls -la node_modules/.prisma/ && \
+    ls -la dist/ && \
+    echo "Ready to start!"
 
 ENV NODE_ENV=production
-EXPOSE 5000
+EXPOSE 4000
 
-CMD ["npm", "run", "start:prod"]
+CMD ["node", "dist/main.js"]
+
 # --------------- WITH npm ----------------
 
 # =========== BASE ===========
