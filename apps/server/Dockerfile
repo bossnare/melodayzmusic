@@ -79,6 +79,7 @@ COPY --from=prisma_generate /app/dist ./dist
 COPY --from=prisma_generate /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=prisma_generate /app/node_modules/@prisma ./node_modules/@prisma
 COPY prisma ./prisma
+COPY . .
 
 ENV NODE_ENV=production
 EXPOSE 5000
