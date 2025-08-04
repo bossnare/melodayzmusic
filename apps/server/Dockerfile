@@ -1,47 +1,23 @@
 # --------------- WITH Bun ----------------
 
-FROM node:22-alpine
-
-# Installer Bun et les outils de debug
-RUN apk update && apk add --no-cache curl bash git && \
-    curl -fsSL https://bun.sh/install | bash && \
-    export BUN_INSTALL="/root/.bun" && \
-    export PATH="$BUN_INSTALL/bin:$PATH" && \
-    ln -s "$BUN_INSTALL/bin/bun" /usr/local/bin/bun
+# STAGE 1: Install dependencies and generate prisma
+FROM node:18 AS builder
 
 WORKDIR /app
+COPY package*.json ./
+RUN npm install
 
-# Copier tous les fichiers
 COPY . .
+RUN npx prisma generate
 
-# Installer les dépendances
-RUN bun install
+# STAGE 2: Create final image
+FROM node:18
 
-# Générer le client Prisma avec debug
-RUN npx prisma generate && \
-    echo "✅ Prisma client generated" && \
-    ls -la node_modules/.prisma/ && \
-    ls -la node_modules/@prisma/
+WORKDIR /app
+COPY --from=builder /app ./
+RUN npm run build
 
-# Builder l'application
-RUN bun run build && \
-    echo "✅ Build completed" && \
-    ls -la dist/
-
-# Vérifier que tout est en place avant le démarrage
-RUN echo "📋 Final check:" && \
-    ls -la node_modules/.prisma/ && \
-    ls -la dist/ && \
-    echo "Ready to start!"
-
-RUN echo "Check @prisma: 😳☠️" && \
-    ls -la node_modules/@prisma && \
-    ls -la src/generated/prisma
-
-ENV NODE_ENV=production
-EXPOSE 4000
-
-CMD ["node", "dist/main.js"]
+CMD ["node", "dist/main"]
 
 # --------------- WITH npm ----------------
 
