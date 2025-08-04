@@ -68,6 +68,7 @@ RUN apt-get update \
 COPY --from=builder /usr/src/app/package*.json ./
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 COPY --from=builder /usr/src/app/dist ./dist
+COPY --from=builder /usr/src/app/prisma ./prisma
 ENV NODE_ENV production
 EXPOSE 5000
 CMD ["dumb-init", "node", "dist/main"]
