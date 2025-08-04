@@ -66,8 +66,9 @@ RUN apt-get update \
   && apt-get install -y libssl-dev dumb-init \
   && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /usr/src/app/package*.json ./
+COPY --from=builder /usr/node_modules ./node_modules
 COPY --from=builder /usr/src/app/node_modules/.prisma/client ./node_modules/.prisma/client
 COPY --from=builder /usr/src/app/dist ./dist
 ENV NODE_ENV production
 EXPOSE 5000
-CMD ["dumb-init", "node", "dist/main.js"]
+CMD ["dumb-init", "node", "dist/main"]
