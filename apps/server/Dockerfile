@@ -51,12 +51,11 @@
 # Build Stage
 FROM node:18 AS builder
 WORKDIR /app
-COPY package*.json ./
+COPY package*.json bun.lock ./
 COPY prisma ./prisma
 RUN npm install
 COPY . .
 # Mamorona Prisma client alohan’ny build
-RUN npx prisma generate
 RUN npm run build
 
 # Production Stage
@@ -69,6 +68,9 @@ RUN apt-get update \
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/src/generated ./src/generated
+COPY --from=builder /app/src/prisma ./src/prisma
 ENV NODE_ENV production
 EXPOSE 5000
 CMD ["dumb-init", "node", "dist/main"]
