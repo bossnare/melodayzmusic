@@ -12,7 +12,10 @@
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules && bun i",
-    "prisma:push": "prisma db push",
+    "db:push": "prisma db push",
+    "db:reset": "prisma migrate reset",
+    "db:seed": "prisma db seed",
+    "prisma:push": "bun run db:push && bun run db:seed",
     "prisma:migrate": "prisma migrate dev --name init",
     "dev:init": "bun run prisma:push && bun run start:dev",
     "build": "prisma generate && nest build",
