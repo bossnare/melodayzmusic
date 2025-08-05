@@ -1,8 +1,19 @@
-import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common';
+import {
+  INestApplication,
+  Injectable,
+  Logger,
+  OnModuleDestroy,
+  OnModuleInit,
+} from '@nestjs/common';
 import { PrismaClient } from '../generated/prisma/client.js';
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit {
+export class PrismaService
+  extends PrismaClient
+  implements OnModuleInit, OnModuleDestroy
+{
+  private readonly logger = new Logger(PrismaService.name);
+
   async onModuleInit() {
     try {
       // Ensure env var don't exists..
@@ -10,20 +21,23 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
         throw new Error('DATABASE_URL environment variable is not set 📛');
       }
       await this.$connect();
-      console.log('✔ Connected to PostgreSQL via Prisma ✅');
+      this.logger.log('✔ Connected to PostgreSQL via Prisma ✅.');
     } catch (err) {
-      console.error('Failed to connect to PostgreSQL ❌📛', err);
+      this.logger.error('❌ Failed to connect to PostgreSQL.', err);
     }
   }
 
-  // async enableShutdownHooks(app: INestApplication) {
-  //   this.$on('beforeExit', async () => {
-  //     await app.close();
-  //   });
-  // }
-
   async onModuleDestroy() {
     await this.$disconnect();
-    console.log('Disconnected from PostgreSQL ♾️');
+    this.logger.warn('🛑 Prisma disconnected cleanly.');
+  }
+
+  async enableShutdownHooks(app: INestApplication) {
+    // eslint-disable-next-line
+    await (this as any).$on('beforeExit', async () => {
+      this.logger.warn('⚠️ Prisma "beforeExit" trigged. Closing app...');
+      await app.close();
+    });
+    this.logger.log('❇️ Shutdown hook enabled on PrismaService.');
   }
 }

@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 // import { dirname, join } from 'path';
 // import { fileURLToPath } from 'url';
+import { Logger } from '@nestjs/common';
 import { AppModule } from './app.module.js';
 import swaggerConfig from './configs/swagger.config.js';
 import { port, production } from './constants/env.constant.js';
@@ -14,6 +15,7 @@ import { landingPage } from './landing.page.js';
 
 // App server config
 async function bootstrap() {
+  const logger = new Logger('Bootstrap');
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   // public dir config, make public readable
@@ -46,16 +48,16 @@ async function bootstrap() {
 
   // listen a port
   await app.listen(port, '0.0.0.0');
-  console.log(
+  logger.log(
     production
-      ? 'Application is running on: https://melodayzmusic-api.onrender.com ❇️'
-      : `Application is running on: http://localhost:${port}: Press ctrl + click`,
+      ? '🚀 Application is running on: https://melodayzmusic-api.onrender.com ❇️.'
+      : `🚀 Application is running on: http://localhost:${port}`,
   );
-  console.log('✔ MODE:', process.env.NODE_ENV, '✅');
+  console.log('✔ MODE:', process.env.NODE_ENV, '🪄 ✅');
 }
 
 // catch this error, look like very clear
 bootstrap().catch((err: unknown) => {
-  console.error('❌ Failed to start application:', err);
+  Logger.error('❌ Failed to start application:', err);
   process.exit(1);
 });
