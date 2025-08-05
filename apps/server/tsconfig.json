@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -18,6 +17,17 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    // alias paths
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+      // "@configs/*": ["configs/*"],
+      // "@database/*": ["database/*"],
+      // "@users/*": ["modules/users/*"],
+      // "@songs/*": ["modules/songs/*"],
+      // "@services/*": ["services/*"],
+      // "@common/*": ["common/*"]
+    }
   }
 }
