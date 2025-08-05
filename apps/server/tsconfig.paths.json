@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+      // "@configs/*": ["configs/*"],
+      // "@database/*": ["database/*"],
+      // "@users/*": ["modules/users/*"],
+      // "@songs/*": ["modules/songs/*"],
+      // "@services/*": ["services/*"],
+      // "@common/*": ["common/*"]
+    }
+  }
+}
