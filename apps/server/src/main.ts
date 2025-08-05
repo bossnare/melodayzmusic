@@ -48,10 +48,10 @@ async function bootstrap() {
   await app.listen(port, '0.0.0.0');
   console.log(
     production
-      ? 'Application is running on: https://melodayzmusic-api.onrender.com'
-      : `Application is running on: http://localhost:${port}`,
+      ? 'Application is running on: https://melodayzmusic-api.onrender.com ❇️'
+      : `Application is running on: http://localhost:${port}: Press ctrl + click =>`,
   );
-  console.log('MODE:', process.env.NODE_ENV);
+  console.log('MODE:', process.env.NODE_ENV, '✅');
 }
 
 // catch this error, look like very clear

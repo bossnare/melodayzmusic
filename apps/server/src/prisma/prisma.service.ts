@@ -1,5 +1,5 @@
 import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
-import { PrismaClient } from '@/generated/prisma/client.js';
+import { PrismaClient } from '../generated/prisma/client.js';
 
 @Injectable()
 export class PrismaService
@@ -13,7 +13,7 @@ export class PrismaService
         throw new Error('DATABASE_URL environment variable is not set 📛');
       }
       await this.$connect();
-      console.log('Connected to PostgreSQL via Prisma ✅');
+      console.log('✔ Connected to PostgreSQL via Prisma ✅');
     } catch (err) {
       console.error('Failed to connect to PostgreSQL ❌📛', err);
     }

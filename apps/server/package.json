@@ -12,6 +12,9 @@
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules && bun i",
+    "prisma:push": "prisma db push",
+    "prisma:migrate": "prisma migrate dev --name init",
+    "dev:init": "bun run prisma:push && bun run start:dev",
     "build": "prisma generate && nest build",
     "format": "prettier --write . \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
