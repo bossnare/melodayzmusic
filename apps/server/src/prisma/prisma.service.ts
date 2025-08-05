@@ -1,11 +1,8 @@
-import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common';
 import { PrismaClient } from '../generated/prisma/client.js';
 
 @Injectable()
-export class PrismaService
-  extends PrismaClient
-  implements OnModuleInit, OnModuleDestroy
-{
+export class PrismaService extends PrismaClient implements OnModuleInit {
   async onModuleInit() {
     try {
       // Ensure env var don't exists..
@@ -18,6 +15,12 @@ export class PrismaService
       console.error('Failed to connect to PostgreSQL ❌📛', err);
     }
   }
+
+  // async enableShutdownHooks(app: INestApplication) {
+  //   this.$on('beforeExit', async () => {
+  //     await app.close();
+  //   });
+  // }
 
   async onModuleDestroy() {
     await this.$disconnect();
