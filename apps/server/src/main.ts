@@ -13,9 +13,10 @@ import swaggerConfig from './configs/swagger.config.js';
 import { port, production } from './constants/env.constant.js';
 import { landingPage } from './landing.page.js';
 
+const logger = new Logger('Bootstrap');
+
 // App server config
 async function bootstrap() {
-  const logger = new Logger('Bootstrap');
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   // public dir config, make public readable
@@ -56,8 +57,8 @@ async function bootstrap() {
   console.log('✔ MODE:', process.env.NODE_ENV, '🪄 ✅');
 }
 
-// catch this error, look like very clear
+// catch this error, and kill process
 bootstrap().catch((err: unknown) => {
-  Logger.error('❌ Failed to start application:', err);
+  logger.error('❌ Failed to start application:', err);
   process.exit(1);
 });
