@@ -1,8 +1,4 @@
-import { clientUrl, port, production } from './constants/env.constant.js';
-
-const apiDocs = production
-  ? 'https://melodayzmusic-api.onrender.com/api/docs'
-  : `http://localhost:${port}/api/docs`;
+import { apiDocs, clientUrl } from './constants/env.constant.js';
 
 export const landingPage = `
 <!doctype html>

@@ -9,7 +9,7 @@ import morgan from 'morgan';
 // import { fileURLToPath } from 'url';
 import { AppModule } from './app.module.js';
 import swaggerConfig from './configs/swagger.config.js';
-import { production, port } from './constants/env.constant.js';
+import { port, production } from './constants/env.constant.js';
 import { landingPage } from './landing.page.js';
 
 // App server config
