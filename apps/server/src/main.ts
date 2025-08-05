@@ -49,13 +49,13 @@ async function bootstrap() {
   console.log(
     production
       ? 'Application is running on: https://melodayzmusic-api.onrender.com ❇️'
-      : `Application is running on: http://localhost:${port}: Press ctrl + click =>`,
+      : `Application is running on: http://localhost:${port}: Press ctrl + click`,
   );
-  console.log('MODE:', process.env.NODE_ENV, '✅');
+  console.log('✔ MODE:', process.env.NODE_ENV, '✅');
 }
 
 // catch this error, look like very clear
 bootstrap().catch((err: unknown) => {
-  console.error('Failed to start application:', err);
+  console.error('❌ Failed to start application:', err);
   process.exit(1);
 });
