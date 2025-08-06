@@ -45,10 +45,10 @@ export class AuthService {
       where: { email: loginDto.email },
     });
 
-    if (!user) throw new ForbiddenException('Access denied');
+    if (!user) throw new ForbiddenException('Access denied: this account is not exist');
 
     const pwMatches = await argon2.verify(user.password, loginDto.password);
-    if (!pwMatches) throw new ForbiddenException('Invalid credentials');
+    if (!pwMatches) throw new ForbiddenException('Invalid password');
 
     return this.signToken(user.id, user.email);
   }
