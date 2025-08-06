@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   ForbiddenException,
   Injectable,
   NotFoundException,
@@ -10,6 +11,7 @@ import dayjs from 'dayjs';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
+import { ResetPasswordDto } from './dto/reset-password.dto.js';
 
 @Injectable()
 export class AuthService {
@@ -60,6 +62,9 @@ export class AuthService {
     return this.signToken(user.id, user.email, user.name);
   }
 
+  // change password
+  async changePassword() {}
+
   // forgot-password request
   async forgotPassword(email: string) {
     const user = await this.prisma.user.findUnique({
@@ -71,15 +76,50 @@ export class AuthService {
     const token = crypto.randomUUID();
     const hashedToken = await argon2.hash(token); // hash this token (security)
 
-    return this.prisma.user.update({
+    await this.prisma.user.update({
       where: { email: email },
       data: {
         resetToken: hashedToken,
         resetTokenExp: dayjs().add(15, 'minutes').toDate(), //new Date(Date.now() + 1000 * 60 * 15)
       },
     });
+
+    // return URL or send mail
+    const resetUrl = `https://melodayzmusic-api.onrender.com/api/v1/auth/reset-password?token=${token}&email=${email}`;
+
+    return {
+      url: resetUrl,
+    };
   }
 
   // reset password
-  async resetPassword() {}
+  async resetPassword(resetPasswordDto: ResetPasswordDto) {
+    const { email, token, newPassword } = resetPasswordDto;
+
+    const user = await this.prisma.user.findUnique({
+      where: { email: email },
+    });
+
+    if (!user || !user.resetToken || !user.resetTokenExp) {
+      throw new BadRequestException('Invalid or expired reset token');
+    }
+
+    const isValid = await argon2.verify(user.resetToken, token);
+
+    if (!isValid || dayjs().isAfter(user.resetTokenExp)) {
+      throw new BadRequestException('Invalid token or expired');
+    }
+
+    // if passed
+    const newHashedPassword = await argon2.hash(newPassword);
+
+    await this.prisma.user.update({
+      where: { email: resetPasswordDto.email },
+      data: {
+        password: newHashedPassword,
+        resetToken: null,
+        resetTokenExp: null,
+      },
+    });
+  }
 }
