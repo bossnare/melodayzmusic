@@ -54,7 +54,7 @@ async function bootstrap() {
       ? '🚀 Application is running on: https://melodayzmusic-api.onrender.com ❇️.'
       : `🚀 Application is running on: http://localhost:${port}`,
   );
-  console.log('✔ MODE:', process.env.NODE_ENV, '🪄 ✅');
+  console.log('✔ MODE:', process.env.NODE_ENV, '🪄  ✅');
 }
 
 // catch this error, and kill process
