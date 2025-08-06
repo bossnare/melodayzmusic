@@ -1,7 +1,12 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
+import * as dayjs from 'dayjs';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
@@ -53,5 +58,25 @@ export class AuthService {
     if (!pwMatches) throw new ForbiddenException('Invalid password');
 
     return this.signToken(user.id, user.email, user.name);
+  }
+
+  // Reset-password
+  async forgotPassword(email: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { email: email },
+    });
+
+    if (!user) throw new NotFoundException('User not found!');
+    // get random uuid
+    const token = crypto.randomUUID();
+    const hashedToken = await argon2.hash(token); // hash this token (security)
+
+    return this.prisma.user.update({
+      where: { email: email },
+      data: {
+        resetToken: hashedToken,
+        resetTokenExp: dayjs().add(15, 'minutes').toDate(), //new Date(Date.now() + 1000 * 60 * 15)
+      },
+    });
   }
 }
