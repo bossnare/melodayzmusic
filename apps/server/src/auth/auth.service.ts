@@ -6,7 +6,7 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
@@ -60,7 +60,7 @@ export class AuthService {
     return this.signToken(user.id, user.email, user.name);
   }
 
-  // Reset-password
+  // forgot-password request
   async forgotPassword(email: string) {
     const user = await this.prisma.user.findUnique({
       where: { email: email },
@@ -79,4 +79,7 @@ export class AuthService {
       },
     });
   }
+
+  // reset password
+  async resetPassword() {}
 }
