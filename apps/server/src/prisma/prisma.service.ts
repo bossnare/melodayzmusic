@@ -21,7 +21,7 @@ export class PrismaService
         throw new Error('DATABASE_URL environment variable is not set 📛');
       }
       await this.$connect();
-      this.logger.log('✔ Connected to PostgreSQL via Prisma ✅.');
+      this.logger.log('✔ Connected to PostgreSQL via Prisma ✅ 🪄.');
     } catch (err) {
       this.logger.error('❌ Failed to connect to PostgreSQL.', err);
     }

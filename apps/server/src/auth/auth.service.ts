@@ -14,10 +14,11 @@ export class AuthService {
     private config: ConfigService,
   ) {}
 
-  private async signToken(userId: string, email: string) {
+  private async signToken(userId: string, email: string, name: string) {
     const payload = {
       sub: userId,
       email: email,
+      name: name,
     };
 
     const token = await this.jwt.signAsync(payload, {
@@ -45,11 +46,12 @@ export class AuthService {
       where: { email: loginDto.email },
     });
 
-    if (!user) throw new ForbiddenException('Access denied: this account is not exist');
+    if (!user)
+      throw new ForbiddenException("Access denied: account doesn't exist");
 
     const pwMatches = await argon2.verify(user.password, loginDto.password);
     if (!pwMatches) throw new ForbiddenException('Invalid password');
 
-    return this.signToken(user.id, user.email);
+    return this.signToken(user.id, user.email, user.name);
   }
 }
