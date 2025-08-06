@@ -1,9 +1,9 @@
 import { DocumentBuilder } from '@nestjs/swagger';
 
 const swaggerConfig = new DocumentBuilder()
-  .setTitle('MeloDayz API')
-  .setDescription('The MeloDayz REST API documentation')
-  .setVersion('1.0')
+  .setTitle('MelodayzMusic API')
+  .setDescription('The MelodayzMusic REST API documentation')
+  .setVersion('1.0.0')
   .addBearerAuth()
   .build();
 
