@@ -5,6 +5,7 @@ import { AppService } from './app.service.js';
 import { PrismaModule } from './prisma/prisma.module.js';
 import { UserModule } from './user/user.module.js';
 import { SongModule } from './song/song.module.js';
+import { AuthModule } from './auth/auth.module.js';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { SongModule } from './song/song.module.js';
     PrismaModule,
     UserModule,
     SongModule,
+    AuthModule,
   ],
   //afaka fafaina ireto ambany miaraka amin'ny fichier controller sy services
   controllers: [AppController],
