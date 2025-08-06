@@ -9,6 +9,7 @@ import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
 import dayjs from 'dayjs';
 import { PrismaService } from '../prisma/prisma.service.js';
+import { ChangePasswordDto } from './dto/change-password.dto.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
@@ -63,7 +64,27 @@ export class AuthService {
   }
 
   // change password
-  async changePassword() {}
+  async changePassword(id: string, changePasswordDto: ChangePasswordDto) {
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+    });
+    const { oldPassword, newPassword } = changePasswordDto;
+
+    if (!user) throw new NotFoundException('User Not Found');
+
+    // compare two password: password typed by user and on db
+    const isValidPassword = await argon2.verify(user.password, oldPassword);
+    if (!isValidPassword)
+      throw new ForbiddenException('Invalid actual password');
+
+    const newHashedPassword = await argon2.hash(newPassword);
+    return this.prisma.user.update({
+      where: { id },
+      data: {
+        password: newHashedPassword,
+      },
+    });
+  }
 
   // forgot-password request
   async forgotPassword(email: string) {
@@ -77,7 +98,7 @@ export class AuthService {
     const hashedToken = await argon2.hash(token); // hash this token (security)
 
     await this.prisma.user.update({
-      where: { email: email },
+      where: { email },
       data: {
         resetToken: hashedToken,
         resetTokenExp: dayjs().add(15, 'minutes').toDate(), //new Date(Date.now() + 1000 * 60 * 15)
