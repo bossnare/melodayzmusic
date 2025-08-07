@@ -5,6 +5,7 @@ import * as argon2 from 'argon2';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
+import { Role } from '../generated/prisma/enums.js';
 
 @Injectable()
 export class AuthService {
@@ -14,10 +15,11 @@ export class AuthService {
     private config: ConfigService,
   ) {}
 
-  private async signToken(userId: string, email: string) {
+  private async signToken(userId: string, email: string, role: Role) {
     const payload = {
       sub: userId,
       email: email,
+      role: role,
     };
 
     const token = await this.jwt.signAsync(payload, {
@@ -50,6 +52,6 @@ export class AuthService {
     const pwMatches = await argon2.verify(user.password, loginDto.password);
     if (!pwMatches) throw new ForbiddenException('Invalid credentials');
 
-    return this.signToken(user.id, user.email);
+    return this.signToken(user.id, user.email, user.role);
   }
 }
