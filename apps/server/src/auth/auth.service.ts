@@ -52,6 +52,7 @@ export class AuthService {
         email: registerDto.email,
         firstName: registerDto.firstName,
         lastName: registerDto.lastName,
+        username: '@' + registerDto.firstName.toLowerCase(),
         password: hashed,
       },
     });
@@ -114,7 +115,7 @@ export class AuthService {
     });
 
     // return URL or send mail
-    const resetUrl = `https://melodayzmusic-api.onrender.com/api/v1/auth/reset-password?token=${token}&email=${email}`;
+    const resetUrl = `https://melodayzmusic.vercel.app/auth/reset-password?token=${token}&email=${email}`;
 
     return {
       url: resetUrl,

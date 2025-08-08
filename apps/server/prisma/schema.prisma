@@ -34,7 +34,7 @@ model User {
   email         String    @unique
   firstName     String
   lastName      String
-  username      String    @unique @default("@melodayzmusic")
+  username      String    @unique
   password      String
   role          Role      @default(USER)
   resetToken    String?
