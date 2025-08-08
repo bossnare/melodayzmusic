@@ -1,4 +1,4 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule } from '@nestjs/swagger';
 // import { Console } from 'console';
@@ -9,6 +9,7 @@ import morgan from 'morgan';
 // import { fileURLToPath } from 'url';
 import { Logger } from '@nestjs/common';
 import { AppModule } from './app.module.js';
+import { JwtAuthGuard } from './auth/guards/jwt-auth.guard.js';
 import swaggerConfig from './configs/swagger.config.js';
 import { port, production } from './constants/env.constant.js';
 import { landingPage } from './landing.page.js';
@@ -23,6 +24,10 @@ async function bootstrap() {
   // const __filename = fileURLToPath(import.meta.url); //
   // const __dirname = dirname(__filename);
   // app.useStaticAssets(join(__dirname, '..', 'public'));
+
+  // jwt guards
+  const reflector = app.get(Reflector);
+  app.useGlobalGuards(new JwtAuthGuard(reflector));
 
   // Helmet middleware for security headers
   app.use(helmet());
