@@ -8,12 +8,12 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
 import dayjs from 'dayjs';
+import { Role } from '../generated/prisma/enums.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { ChangePasswordDto } from './dto/change-password.dto.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
-import { Role } from '../generated/prisma/enums.js';
 
 @Injectable()
 export class AuthService {
@@ -24,13 +24,13 @@ export class AuthService {
   ) {}
 
   private async signToken(
-    userId: string,
+    id: string,
     email: string,
     username: string,
     role: Role,
   ) {
     const payload = {
-      sub: userId,
+      sub: id,
       email: email,
       role: role,
       username: username,
@@ -46,29 +46,33 @@ export class AuthService {
 
   async register(registerDto: RegisterDto) {
     // hashing this plainpassword
-    const hashed = await argon2.hash(registerDto.password);
+    const hashedPassword = await argon2.hash(registerDto.password);
     return this.prisma.user.create({
       data: {
         email: registerDto.email,
         firstName: registerDto.firstName,
         lastName: registerDto.lastName,
         username: '@' + registerDto.firstName.toLowerCase(),
-        password: hashed,
+        password: hashedPassword,
       },
     });
   }
 
+  // user login
   async login(loginDto: LoginDto) {
-    const user = await this.prisma.user.findUnique({
-      where: { email: loginDto.email },
+    // find user with unique email or username
+    const user = await this.prisma.user.findFirst({
+      where: {
+        OR: [{ email: loginDto.email }, { username: loginDto.username }],
+      },
     });
 
     if (!user)
-      throw new ForbiddenException("Access denied: account doesn't exist");
+      throw new ForbiddenException("Access denied, account doesn't exist");
 
     const pwMatches = await argon2.verify(user.password, loginDto.password);
     if (!pwMatches) throw new ForbiddenException('Invalid password');
-
+    // create user jwt token
     return this.signToken(user.id, user.email, user.username, user.role);
   }
 
@@ -98,7 +102,7 @@ export class AuthService {
   // forgot-password request
   async forgotPassword(email: string) {
     const user = await this.prisma.user.findUnique({
-      where: { email: email },
+      where: { email },
     });
 
     if (!user) throw new NotFoundException('User not found!');
@@ -127,7 +131,7 @@ export class AuthService {
     const { email, token, newPassword } = resetPasswordDto;
 
     const user = await this.prisma.user.findUnique({
-      where: { email: email },
+      where: { email },
     });
 
     if (!user || !user.resetToken || !user.resetTokenExp) {
