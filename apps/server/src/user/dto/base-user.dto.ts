@@ -11,6 +11,9 @@ export class BaseUserDto {
   lastName: string;
 
   @IsString()
+  username: string;
+
+  @IsString()
   @MinLength(6)
   password: string;
 }
