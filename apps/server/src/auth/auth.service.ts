@@ -13,6 +13,7 @@ import { ChangePasswordDto } from './dto/change-password.dto.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
+import { Role } from '../generated/prisma/enums.js';
 
 @Injectable()
 export class AuthService {
@@ -22,11 +23,17 @@ export class AuthService {
     private config: ConfigService,
   ) {}
 
-  private async signToken(userId: string, email: string, name: string) {
+  private async signToken(
+    userId: string,
+    email: string,
+    username: string,
+    role: Role,
+  ) {
     const payload = {
       sub: userId,
       email: email,
-      name: name,
+      role: role,
+      username: username,
     };
 
     const token = await this.jwt.signAsync(payload, {
@@ -43,7 +50,8 @@ export class AuthService {
     return this.prisma.user.create({
       data: {
         email: registerDto.email,
-        name: registerDto.name,
+        firstName: registerDto.firstName,
+        lastName: registerDto.lastName,
         password: hashed,
       },
     });
@@ -60,7 +68,7 @@ export class AuthService {
     const pwMatches = await argon2.verify(user.password, loginDto.password);
     if (!pwMatches) throw new ForbiddenException('Invalid password');
 
-    return this.signToken(user.id, user.email, user.name);
+    return this.signToken(user.id, user.email, user.username, user.role);
   }
 
   // change password
