@@ -5,7 +5,10 @@ export class BaseUserDto {
   email: string;
 
   @IsString()
-  name: string;
+  firstName: string;
+
+  @IsString()
+  lastName: string;
 
   @IsString()
   @MinLength(6)
