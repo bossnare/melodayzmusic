@@ -9,9 +9,12 @@ export class StorageService {
     private s3: S3,
   ) {
     this.s3 = new S3({
+      region: 'us-east-005',
       endpoint: 'https://s3.us-east-005.backblazeb2.com',
-      accessKeyId: this.configService.get('B2_KEY_ID'),
-      secretAccessKey: this.configService.get('B2_APP_KEY'),
+      credentials: {
+        accessKeyId: this.configService.get<string>('B2_KEY_ID')!,
+        secretAccessKey: this.configService.get<string>('B2_APP_KEY')!,
+      },
       s3ForcePathStyle: true,
       signatureVersion: 'v4',
     });
