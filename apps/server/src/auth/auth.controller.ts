@@ -1,11 +1,14 @@
-import { Body, Controller, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Patch, Post } from '@nestjs/common';
+import { Request } from 'express';
+import { User as UserEntity } from '../generated/prisma/client.js';
 import { AuthService } from './auth.service.js';
+import { Public } from './decorators/public.decorator.js';
 import { ChangePasswordDto } from './dto/change-password.dto.js';
 import { ForgotPasswordDto } from './dto/forgot-password.dto.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
-import { Public } from './decorators/public.decorator.js';
+import { User } from './decorators/user.decorator.js';
 
 @Controller('auth')
 export class AuthController {
@@ -33,11 +36,12 @@ export class AuthController {
     return this.authService.resetPassword(resetPasswordDto);
   }
 
-  @Patch('change-password/:id')
+  @Patch('me/change-password')
   changePassword(
-    @Param('id') id: string,
+    @User() user: UserEntity,
     @Body() changePasswordDto: ChangePasswordDto,
   ) {
-    return this.authService.changePassword(id, changePasswordDto);
+    const userId = user && user.id;
+    return this.authService.changePassword(userId, changePasswordDto);
   }
 }
