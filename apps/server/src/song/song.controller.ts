@@ -1,19 +1,33 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Patch,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  UploadedFile,
+  UseInterceptors,
 } from '@nestjs/common';
-import { SongService } from './song.service.js';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateSongDto } from './dto/create-song.dto.js';
 import { UpdateSongDto } from './dto/update-song.dto.js';
+import { SongService } from './song.service.js';
+import { Public } from '../auth/decorators/public.decorator.js';
 
 @Controller('song')
 export class SongController {
   constructor(private readonly songService: SongService) {}
+
+  @Public()
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadSong(@UploadedFile() file: Express.Multer.File) {
+    console.log(file);
+    return {
+      message: file.originalname,
+    };
+  }
 
   @Post()
   create(@Body() createSongDto: CreateSongDto) {
