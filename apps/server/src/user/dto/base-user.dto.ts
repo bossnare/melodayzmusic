@@ -1,4 +1,4 @@
-import { IsEmail, IsString, MinLength } from 'class-validator';
+import { IsEmail, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class BaseUserDto {
   @IsEmail()
@@ -10,6 +10,7 @@ export class BaseUserDto {
   @IsString()
   lastName: string;
 
+  @IsOptional()
   @IsString()
   username: string;
 

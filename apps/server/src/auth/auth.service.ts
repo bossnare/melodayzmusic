@@ -4,7 +4,6 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
 import dayjs from 'dayjs';
@@ -19,8 +18,7 @@ import { ResetPasswordDto } from './dto/reset-password.dto.js';
 export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
-    private jwt: JwtService,
-    private config: ConfigService,
+    private jwtService: JwtService,
   ) {}
 
   private async signToken(
@@ -36,7 +34,7 @@ export class AuthService {
       username: username,
     };
 
-    const token = await this.jwt.signAsync(payload);
+    const token = await this.jwtService.signAsync(payload);
 
     return { access_token: token };
   }
@@ -86,7 +84,7 @@ export class AuthService {
     const isValidPassword = await argon2.verify(user.password, oldPassword);
     if (!isValidPassword)
       throw new ForbiddenException('Invalid actual password');
-
+    // hash newPass
     const newHashedPassword = await argon2.hash(newPassword);
     return this.prisma.user.update({
       where: { id },
