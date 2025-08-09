@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 // import { dirname, join } from 'path';
 // import { fileURLToPath } from 'url';
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module.js';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard.js';
 import swaggerConfig from './configs/swagger.config.js';
@@ -27,6 +27,15 @@ async function bootstrap() {
   // jwt guards
   const reflector = app.get(Reflector);
   app.useGlobalGuards(new JwtAuthGuard(reflector));
+
+  // ValidationPipe for DTO and class-validator
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // Manala champs tsy ao @ DTO
+      forbidNonWhitelisted: true, // manome error raha tsy mifanaraka validation
+      transform: true, // avadika ho type mety instaed
+    }),
+  );
 
   // Helmet middleware for security headers
   app.use(helmet());
