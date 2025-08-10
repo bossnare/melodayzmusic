@@ -7,6 +7,7 @@ import { PrismaModule } from './prisma/prisma.module.js';
 import { SongModule } from './song/song.module.js';
 import { UserModule } from './user/user.module.js';
 import Joi from 'joi';
+import { StorageModule } from './storage/storage.module.js';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import Joi from 'joi';
     }),
     PrismaModule,
     UserModule,
+    StorageModule,
     SongModule,
     AuthModule,
   ],
