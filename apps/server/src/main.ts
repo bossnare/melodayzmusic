@@ -37,12 +37,14 @@ async function bootstrap() {
     }),
   );
 
-  // Helmet middleware for security headers
-  app.use(helmet());
-  // Morgan middleware for logging HTTP requests
-  app.use(morgan('dev'));
-  // Set global API prefix
-  app.setGlobalPrefix('api/v1');
+  // async function rejection
+  process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  });
+
+  app.use(helmet()); // Helmet middleware for security headers
+  app.use(morgan('dev')); // Morgan middleware for logging HTTP requests
+  app.setGlobalPrefix('api/v1'); // Set global API prefix
 
   // Swagger documentation setup
   const document = SwaggerModule.createDocument(app, swaggerConfig);
