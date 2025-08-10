@@ -10,20 +10,25 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { Public } from '../auth/decorators/public.decorator.js';
+import { StorageService } from './../storage/storage.service.js';
 import { CreateSongDto } from './dto/create-song.dto.js';
 import { UpdateSongDto } from './dto/update-song.dto.js';
 import { SongService } from './song.service.js';
-import { Public } from '../auth/decorators/public.decorator.js';
 
 @Controller('song')
 export class SongController {
-  constructor(private readonly songService: SongService) {}
+  constructor(
+    private readonly songService: SongService,
+    private readonly storageService: StorageService,
+  ) {}
 
   @Public()
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
-  uploadSong(@UploadedFile() file: Express.Multer.File) {
+  async uploadSong(@UploadedFile() file: Express.Multer.File) {
     console.log(file);
+    await this.storageService.uploadFile(file);
     return {
       message: file.originalname,
     };
