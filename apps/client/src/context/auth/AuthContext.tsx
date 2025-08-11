@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import jwtDecode from 'jwt-decode';
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({});
 
 const AuthProvider = ({ children }: any) => {
   const [userToken, setUserToken] = useState<any>(null);
@@ -54,12 +54,11 @@ const AuthProvider = ({ children }: any) => {
   };
 
   return (
-    // <AuthContext
-    //   value={{ userToken, login, logout, authLoading, isAuthenticated, user }}
-    // >
-    //   {children}
-    // </AuthContext>
-    'null'
+    <AuthContext
+      value={{ userToken, login, logout, authLoading, isAuthenticated, user }}
+    >
+      {children}
+    </AuthContext>
   );
 };
 
