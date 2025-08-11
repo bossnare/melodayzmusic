@@ -18,11 +18,10 @@ export const SongCard = ({ song }: any) => {
     return useContext(AuthContext);
   };
   // const { playTrack, currentTrack, isPlaying } = useAudioStore();
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const [activeDrop, setIsActiveDrop] = useState(null);
   const isOpen = activeDrop === song.id;
-  const isOwner = user.id === song?.userOwner?.id;
-
+  // const isOwner = user.id === song?.userOwner?.id;
   // const commentClick = () => {
   //   navigate(`/dashboard/song/${song.id}`);
   // };
@@ -83,7 +82,7 @@ export const SongCard = ({ song }: any) => {
                 <Playing />
               </div>
               <span className="absolute bottom-0 right-0 bg-black/5 left-0 text-right px-2 text-gray-50">
-                {format(song?.fileDuration)}
+                {format(song?.duration)}
               </span>
             </div>
           }
@@ -135,8 +134,8 @@ export const SongCard = ({ song }: any) => {
               }  ease-in duration-200 transition-all shadow-lg absolute top-6 divide-y-1 divide-gray-400 bg-gray-100 w-full left-0 rounded-b-sm z-2 overflow-hidden *:text-left *:px-2 *:active:bg-gray-300/70 *:hover:bg-gray-200 *:py-2 *:w-full `}
             >
               <button>Ajouter à la playlist</button>
-              {isOwner && <button>Modifier</button>}
-              {isOwner && (
+              {/* {isOwner && <button>Modifier</button>} */}
+              {/* {isOwner && (
                 <button
                   onClick={() => {
                     deleteSong(song.id);
@@ -144,7 +143,7 @@ export const SongCard = ({ song }: any) => {
                 >
                   Supprimer
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         </div>
