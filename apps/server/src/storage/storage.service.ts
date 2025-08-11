@@ -1,7 +1,7 @@
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { getEnvVar } from '../../utils/env.var.js';
+import { getEnvVar } from '../utils/env.var.js';
 @Injectable()
 export class StorageService {
   private readonly storeMode = getEnvVar('STORE_MODE');
