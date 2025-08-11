@@ -7,10 +7,11 @@ import morgan from 'morgan';
 // import { dirname, join } from 'path';
 // import { fileURLToPath } from 'url';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { getEnvVar } from '../utils/env.var.js';
 import { AppModule } from './app.module.js';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard.js';
 import swaggerConfig from './configs/swagger.config.js';
-import { port, production } from './constants/env.constant.js';
+import { production } from './constants/env.constant.js';
 import { landingPage } from './landing.page.js';
 
 const logger = new Logger('Bootstrap');
@@ -18,6 +19,8 @@ const logger = new Logger('Bootstrap');
 // App server config
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const storeMode = getEnvVar('STORE_MODE');
+  const port = getEnvVar('PORT', '5000');
 
   // public dir config, make public readable
   // const __filename = fileURLToPath(import.meta.url); //
@@ -36,11 +39,6 @@ async function bootstrap() {
       transform: true, // avadika ho type mety instaed
     }),
   );
-
-  // async function rejection
-  process.on('unhandledRejection', (reason, promise) => {
-    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-  });
 
   app.use(helmet()); // Helmet middleware for security headers
   app.use(morgan('dev')); // Morgan middleware for logging HTTP requests
@@ -69,7 +67,12 @@ async function bootstrap() {
       ? '🚀 Application is running on: https://melodayzmusic-api.onrender.com ❇️.'
       : `🚀 Application is running on: http://localhost:${port}`,
   );
-  console.log('✔ MODE:', process.env.NODE_ENV, '🪄  ✅');
+  console.log(
+    '✔ MODE:',
+    process.env.NODE_ENV,
+    '🪄  ✅',
+    ` - Store: ${storeMode} 🚀`,
+  );
 }
 
 // catch this error, and kill process
