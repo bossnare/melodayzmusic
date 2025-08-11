@@ -7,12 +7,12 @@ import morgan from 'morgan';
 // import { dirname, join } from 'path';
 // import { fileURLToPath } from 'url';
 import { Logger, ValidationPipe } from '@nestjs/common';
-import { getEnvVar } from '../utils/env.var.js';
 import { AppModule } from './app.module.js';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard.js';
 import swaggerConfig from './configs/swagger.config.js';
 import { production } from './constants/env.constant.js';
 import { landingPage } from './landing.page.js';
+import { getEnvVar } from './utils/env.var.js';
 
 const logger = new Logger('Bootstrap');
 
@@ -71,7 +71,7 @@ async function bootstrap() {
     '✔ MODE:',
     process.env.NODE_ENV,
     '🪄  ✅',
-    ` - Store: ${storeMode} 🚀`,
+    ` - Storage: ${storeMode} 🚀`,
   );
 }
 
