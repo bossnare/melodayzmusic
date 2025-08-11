@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 // import { DashboardSkeleton } from '../skeleton/DashboardSkeleton';
-import apis from '@/libs/api';
+import api from '@/libs/api';
 // import { UserProfileOverlay } from './overlay/UserProfileOverlay';
 // import { SongCard } from './Userapi/SongCard';
 import { useEffect } from 'react';
@@ -10,10 +10,10 @@ import { SongCard } from './songs/SongCard';
 
 export const Dashboard = () => {
   const fetchNewsFeed = async () => {
-    const response = await apis.get('/api/songs', { timeout: 10000 });
+    const response = await api.get('/song', { timeout: 10000 });
     console.log(response.data);
-    const { member } = response.data;
-    return member;
+    const data = response.data;
+    return data;
   };
 
   const options = {
