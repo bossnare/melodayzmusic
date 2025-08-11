@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import Joi from 'joi';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { AuthModule } from './auth/auth.module.js';
 import { PrismaModule } from './prisma/prisma.module.js';
 import { SongModule } from './song/song.module.js';
-import { UserModule } from './user/user.module.js';
-import Joi from 'joi';
 import { StorageModule } from './storage/storage.module.js';
+import { UserModule } from './user/user.module.js';
 
 @Module({
   imports: [

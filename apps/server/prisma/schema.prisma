@@ -49,6 +49,7 @@ model Song {
   id        String   @id @default(uuid())
   title     String
   artist    String?
+  genre     String?
   audioUrl  String?
   duration  Int?
   createdAt DateTime @default(now())

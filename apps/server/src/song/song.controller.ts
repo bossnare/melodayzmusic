@@ -24,14 +24,22 @@ export class SongController {
   ) {}
 
   @Public()
+  @Get('testing-conn')
+  testing() {
+    return this.storageService.testConnection();
+  }
+
+  @Public()
   @Post('upload')
-  @UseInterceptors(FileInterceptor('file'))
-  async uploadSong(@UploadedFile() file: Express.Multer.File) {
-    console.log(file);
-    await this.storageService.uploadFile(file);
-    return {
-      message: file.originalname,
-    };
+  @UseInterceptors(
+    FileInterceptor('file', {
+      limits: {
+        fileSize: 50 * 1024 * 1024, // 50MB
+      },
+    }),
+  )
+  uploadSong(@UploadedFile() file: Express.Multer.File) {
+    return this.songService.uploadSong(file);
   }
 
   @Post()
