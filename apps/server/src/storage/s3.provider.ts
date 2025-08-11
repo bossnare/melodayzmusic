@@ -1,6 +1,6 @@
 import { S3Client } from '@aws-sdk/client-s3';
 import { Provider } from '@nestjs/common';
-import { getEnvVar } from '../../utils/env.var.js';
+import { getEnvVar } from '../utils/env.var.js';
 const storeMode = getEnvVar('STORE_MODE');
 
 export const s3Provider: Provider = {

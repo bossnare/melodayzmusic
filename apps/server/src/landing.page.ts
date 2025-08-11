@@ -1,4 +1,4 @@
-import { getEnvVar } from '../utils/env.var.js';
+import { getEnvVar } from './utils/env.var.js';
 
 const clientUrl = getEnvVar('CLIENT_URL', 'https://melodayzmusic.vercel.app');
 const apiDocs = getEnvVar('API_DOCS_URL');
