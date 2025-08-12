@@ -62,7 +62,7 @@ export const SongCard = ({ song }: any) => {
             // playTrack(song, navigate);
           }}
         >
-          <figure className="bg-gray-100 shrink h-50 md:w-full w-full md:h-40 xl:h-30">
+          <figure className="bg-gray-100 shrink h-50 w-full md:h-40 xl:h-30">
             <Image
               src={song?.songCover?.coverUrl || song.defaultCover}
               alt="cover"
