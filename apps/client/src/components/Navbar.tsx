@@ -27,7 +27,7 @@ export const NavBar = () => {
       </Button>
       <div className="flex-1 grow prose mdhidden">
         <h1 className=" font-black text-blue-500 flex items-center gap-1.5 text-sm md:text-2xl">
-          <MusicIcon className="text-3xl" /> <span>Melodayz</span>
+          <MusicIcon className="text-3xl" /> <span>MelodayzMusic</span>
         </h1>
       </div>
       <div className="flex-1 md:flex-2 !grid !grid-cols-2">
