@@ -1,6 +1,7 @@
 import { Button } from '@/animations/motion/motionButton';
-import { List, GlassesIcon, X, MusicIcon } from 'lucide-react';
+import { Columns2, GlassesIcon, X } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export const NavBar = () => {
   const [isNull, setIsNull] = useState(true);
@@ -16,19 +17,34 @@ export const NavBar = () => {
   };
 
   return (
-    <nav className="flex flex-wrap justify items-center p-1 gap-0 md:gap-4 *:min-w-10 *:p-1  *:flex *:items-center *:flex-wrap  *:min-h-0">
+    <nav className="flex flex-wrap justify items-center gap-0 md:gap-4 *:min-w-10 *:p-1  *:flex *:items-center *:flex-wrap  *:min-h-0">
       {/* mampiasa end, inona? raha samy misy dashboard ilay route dia ilay active foana active fa tsy miaraka index */}
       <Button
         classname={
-          'block lg:hidden rounded-full bg-black/5 border-gray-300 border font-black'
+          '!hidden rounded-full bg-black/5 border-gray-300 border font-black'
         }
       >
-        <List size={30} />
+        <Columns2 size={30} />
       </Button>
       <div className="flex-1 grow prose mdhidden">
-        <h1 className=" font-black text-blue-500 flex items-center gap-1.5 text-sm md:text-2xl">
-          <MusicIcon className="text-3xl" /> <span>MelodayzMusic</span>
-        </h1>
+        <figure className=" font-black text-blue-500 flex items-center gap-2 text-sm md:text-2xl">
+          <Image
+            className="w-10"
+            alt="meloicon"
+            src={'/img/meloicon_x65.svg'}
+            loading="lazy"
+            width={200}
+            height={200}
+          />
+          <Image
+            className="w-40"
+            alt="melodayzmusic"
+            src={'/img/melodayzmusic.svg'}
+            loading="lazy"
+            width={200}
+            height={200}
+          />
+        </figure>
       </div>
       <div className="flex-1 md:flex-2 !grid !grid-cols-2">
         <div className="col-start-2 md:col-span-2 lg:col-start-2 input-text flex rounded-full overflow-hidden justify-end md:justify-center items-center *:h-12 *:flex *:justify-center *:active:bg-gray-200">

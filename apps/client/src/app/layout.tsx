@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'MelodayzMusic',
+  icons: '/img/meloicon_x65.svg',
   description:
     'MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users',
 };

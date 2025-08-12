@@ -4,7 +4,7 @@ import { Playing } from '@/animations/motion/Playing';
 // import api from '@/libs/api';
 import { formatDuration as format } from '@/libs/formatDuration';
 import timeAgo from '@/libs/timeAgo';
-import { Heart, Ellipsis } from 'lucide-react';
+import { Heart, Ellipsis, Disc3 } from 'lucide-react';
 import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
 
@@ -82,9 +82,12 @@ export const SongCard = ({ song }: any) => {
             {/* <Waveform className="text-violet-600 text-5xl md:text-3xl lg:text-5xl" /> */}
             <Playing />
           </div>
-          <span className="absolute bottom-0 right-0 bg-black/5 left-0 text-right px-2 text-gray-50">
+          <span className="absolute bottom-0 right-0 left-0 text-right px-2 text-gray-50">
             {format(song?.duration)}
           </span>
+          <div className="absolute inset-0 flex justify-center items-center">
+            <Disc3 className="text-white size-12 drop-shadow-2xl lg:size-10" />
+          </div>
         </div>
         <div className="grow p-2 sm:flex-1/2 flex flex-wrap gap-2">
           <div className="size-10 md:size-7 shrink-0 outline-hidden rounded-full overflow-hidden border-gray-200 border-2 ">
@@ -100,20 +103,20 @@ export const SongCard = ({ song }: any) => {
               height={1200}
             />
           </div>
-          <span className=" md:w-[calc(100%-170px)] truncate text-nowrap md:text-sm shrink-0 w-[calc(100%-200px)] mt-1 md:mt-0 inline-block font-semibold line-clamp-1 grow h-10 md:h-auto">
+          <span className=" md:w-[calc(100%-170px)] truncate text-nowrap md:text-sm shrink-0 w-[calc(100%-200px)] mt-1 md:mt-0 inline-block font-bold line-clamp-1 grow h-10 md:h-auto">
             {song?.userOwner?.username}
           </span>
           <span className="w-auto lg:w-20 text-xs pt-2 md:pt-1 text-[#777777] font-semibold text-right">
             {timeAgo(song.createdAt)}
           </span>
-          <p className="w-full text-nowrap truncate text-gray-800 font-bold">
+          <p className="w-full text-nowrap truncate text-gray-900 font-bold">
             {song.title}
           </p>
-          <p className="truncate text-wrap w-full text-sm h-10 flex-none md:line-clamp-2 text-gray-600 font-[400] cursor-pointer">
+          <p className="truncate text-wrap w-full text-sm h-10 flex-none md:line-clamp-2 font-medium cursor-pointer">
             {song?.description}
           </p>
         </div>
-        <div className="flex grow flex-none py-2 md:py-0 gap-2 px-2  *:flex  *:p-1 justify-center md:rounded-b-lg border-1 border-gray-300 text-gray-600 items-center">
+        <div className="flex grow flex-none py-2 md:py-0 gap-2 px-2  *:flex  *:p-1 justify-center md:rounded-b-lg border-1 border-gray-300 items-center">
           <div className="gap-5 flex-1/4  *:!bg-black/4 *:hover:!bg-black/10 *:!p-1.5 *:!rounded-full *:active:!bg-black/20">
             <Button
             // eventHandler={commentClick}
