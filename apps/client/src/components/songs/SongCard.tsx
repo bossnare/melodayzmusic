@@ -40,16 +40,16 @@ export const SongCard = ({ song }: any) => {
   //   }
   // };
 
-  useEffect(() => {
-    const handleClickOutside = (event: Event) => {
-      if (!event?.target?.closest('.drop-down')) {
-        setIsActiveDrop(null);
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (event: Event) => {
+  //     if (!event?.target?.closest('.drop-down')) {
+  //       setIsActiveDrop(null);
+  //     }
+  //   };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, []);
+  //   document.addEventListener('click', handleClickOutside);
+  //   return () => document.removeEventListener('click', handleClickOutside);
+  // }, []);
 
   return (
     <div className="col-span-1 hover:bg-gray-50 bg-white rounded-md">
