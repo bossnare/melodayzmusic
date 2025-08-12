@@ -18,9 +18,6 @@ export const SongCardSkeleton = () => {
 
           {/* Date Skeleton */}
           <span className="w-30 lg:w-full py-4 h-3 bg-gray-300 rounded" />
-
-          {/* Description Skeleton */}
-          <p className="w-full h-6 bg-gray-200 rounded"></p>
         </div>
 
         {/* Action Buttons Skeleton */}
