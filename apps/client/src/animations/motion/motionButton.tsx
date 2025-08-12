@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 interface ButtonInterface {
   classname?: string;
-  children?: any;
+  children?: React.ReactNode;
   eventHandler?: () => void;
   disabled?: true;
   type?: any;
@@ -10,7 +10,7 @@ interface ButtonInterface {
 
 interface DivInterface {
   classname?: string;
-  children?: any;
+  children?: React.ReactNode;
   eventHandler?: () => void;
 }
 
