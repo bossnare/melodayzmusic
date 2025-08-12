@@ -6,15 +6,17 @@ const mockSongs = [
     title: 'Footbal Africa',
     artist: 'kingpin',
     duration: 210,
+    description:
+      'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: 'null',
+      coverUrl: '/img/p2.jpeg',
     },
     defaultCover: 'null',
     userOwner: {
-      username: 'Donald',
+      username: 'Yblack J.',
       activateProfilePicture: {
-        pictureUrl: 'null',
+        pictureUrl: '/img/p1.jpg',
       },
       defaultPicture: 'null',
     },
@@ -24,15 +26,17 @@ const mockSongs = [
     title: 'Life war',
     artist: 'kingpin',
     duration: 210,
+    description:
+      'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: 'null',
+      coverUrl: '/img/p1.jpg',
     },
     defaultCover: 'null',
     userOwner: {
       username: 'Donald',
       activateProfilePicture: {
-        pictureUrl: 'null',
+        pictureUrl: '/img/p2.jpeg',
       },
       defaultPicture: 'null',
     },
@@ -42,17 +46,19 @@ const mockSongs = [
     title: 'Next on my posh',
     artist: 'kingpin',
     duration: 210,
+    description:
+      'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: 'null',
+      coverUrl: '/img/p3.jpg',
     },
     defaultCover: 'null',
     userOwner: {
       username: 'Chris G',
       activateProfilePicture: {
-        pictureUrl: 'null',
+        pictureUrl: '/img/p1.jpg',
       },
-      defaultPicture: 'null',
+      defaultPicture: '/img/p2.jpeg',
     },
   },
   {
@@ -60,17 +66,19 @@ const mockSongs = [
     title: 'Everyday',
     artist: 'Chris G feat. ChatGPT',
     duration: 310,
+    description:
+      'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: './img/p1.jpg',
+      coverUrl: '/img/p1.jpg',
     },
-    defaultCover: './img/p1.jpg',
+    defaultCover: '/img/p2.jpeg',
     userOwner: {
       username: 'RioDinary',
       activateProfilePicture: {
-        pictureUrl: './img/p1.jpg',
+        pictureUrl: '/img/p3.jpg',
       },
-      defaultPicture: './img/p1.jpg',
+      defaultPicture: '/img/p1.jpg',
     },
   },
 ];
