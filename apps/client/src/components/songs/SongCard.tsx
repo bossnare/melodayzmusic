@@ -52,13 +52,13 @@ export const SongCard = ({ song }: any) => {
   // }, []);
 
   return (
-    <div className="col-span-1 hover:bg-gray-50 bg-white rounded-md">
+    <div className="col-span-1 hover:bg-gray-50 bg-white md:rounded-md">
       <div
         className={`flex-col sm:flex sm:flex-row sm:flex-wrap sm:items-start md:flex-nowrap md:items-stretch md:flex-col border-gray-900/80 `}
       >
         <Div>
           <div
-            className="sm:flex-1/3 shrink-0 cursor-pointer relative overflow-hidden rounded-t-lg"
+            className="sm:flex-1/3 shrink-0 cursor-pointer relative overflow-hidden md:rounded-t-lg"
             onClick={() => {
               // playTrack(song, navigate);
             }}
@@ -117,7 +117,7 @@ export const SongCard = ({ song }: any) => {
             {song?.description}
           </p>
         </div>
-        <div className="flex grow flex-none py-2 md:py-0 gap-2 px-2  *:flex  *:p-1 justify-center rounded-b-lg border-1 border-gray-300  items-center">
+        <div className="flex grow flex-none py-2 md:py-0 gap-2 px-2  *:flex  *:p-1 justify-center md:rounded-b-lg border-1 border-gray-300  items-center">
           <div className="gap-5 flex-1/4  *:!bg-black/4 *:hover:!bg-black/10 *:!p-1 *:!rounded-full *:active:!bg-black/20">
             <Button
             // eventHandler={commentClick}
