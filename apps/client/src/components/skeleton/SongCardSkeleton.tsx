@@ -5,7 +5,7 @@ export const SongCardSkeleton = () => {
       <div className="flex-col sm:flex sm:flex-row sm:flex-wrap sm:items-start md:flex-nowrap md:items-stretch md:flex-col border-gray-900/80">
         {/* Image Skeleton */}
         <div className="sm:flex-1/3 shrink-0 cursor-pointer relative overflow-hidden rounded-t-md">
-          <figure className="bg-gray-300 shrink h-40 sm:h-50 md:w-full w-full md:h-40 lg:h-40 xl:h-34" />
+          <figure className="bg-gray-300 shrink h-50 w-full md:h-40 lg:h-40 xl:h-34" />
         </div>
 
         {/* Info Skeleton */}
