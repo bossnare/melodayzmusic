@@ -130,18 +130,10 @@
   .input-text {
     @apply ring-0 outline-hidden border-gray-300 border focus:border-gray-400 transition-all duration-200 ease-in-out;
   }
-  .cta {
-    @apply bg-gradient-to-br from-[#8E44AD] hover:opacity-80 transition-opacity duration-300 to-[#00BFFF];
-  }
 }
 
 /* CSS Vanilla Class */
 @layer utilities {
-  .container {
-    margin-inline: auto;
-    padding-inline: 2rem;
-    margin: 0 auto;
-  }
   /* animate rolling */
   #roller {
     width: 8px;

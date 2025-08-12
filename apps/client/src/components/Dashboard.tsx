@@ -64,7 +64,7 @@ export const Dashboard = () => {
   }
 
   return (
-    <section className="pb-70 pt-7 container ">
+    <section className="pb-70 pt-7 bg-gray-200 w-full container">
       <h1 className="text-lg sm:text-2xl md:text-xl lg:text-4xl font-bold pb-2">
         Discover
       </h1>
@@ -74,7 +74,7 @@ export const Dashboard = () => {
         <div></div>
         <div></div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 border-t-gray-200 border-t pt-2">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 border-t-gray-200 border-t">
         {songs.map((song: any) => (
           <SongCard key={song?.id} song={song} />
         ))}
