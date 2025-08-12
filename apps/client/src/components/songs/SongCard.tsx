@@ -1,10 +1,10 @@
-import { Button, Div } from '@/animations/motion/motionButton';
+import { Button } from '@/animations/motion/motionButton';
 import { Playing } from '@/animations/motion/Playing';
 // import { AuthContext } from '@/context/auth/AuthContext';
 // import api from '@/libs/api';
 import { formatDuration as format } from '@/libs/formatDuration';
 import timeAgo from '@/libs/timeAgo';
-import { ChartArea, DotSquare } from 'lucide-react';
+import { Heart, Ellipsis } from 'lucide-react';
 import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
 
@@ -56,52 +56,48 @@ export const SongCard = ({ song }: any) => {
       <div
         className={`flex-col sm:flex sm:flex-row sm:flex-wrap sm:items-start md:flex-nowrap md:items-stretch md:flex-col border-gray-900/80 `}
       >
-        <Div>
+        <div
+          className="sm:flex-1/3 shrink-0 cursor-pointer relative overflow-hidden md:rounded-t-lg"
+          onClick={() => {
+            // playTrack(song, navigate);
+          }}
+        >
+          <figure className="bg-gray-100 shrink h-50 md:w-full w-full md:h-40 xl:h-30">
+            <Image
+              src={song?.songCover?.coverUrl || song.defaultCover}
+              alt="cover"
+              className="object-cover h-full w-full"
+              loading="lazy"
+              width={1200}
+              height={1200}
+            />
+          </figure>
           <div
-            className="sm:flex-1/3 shrink-0 cursor-pointer relative overflow-hidden md:rounded-t-lg"
-            onClick={() => {
-              // playTrack(song, navigate);
-            }}
-          >
-            <figure className="bg-gray-100 shrink h-40 sm:h-50 md:w-full w-full md:h-40 lg:h-40 xl:h-30">
-              <Image
-                // src={song?.songCover?.coverUrl || song.defaultCover}
-                src={'/img/p1.jpg'}
-                alt="cover"
-                className="object-cover h-full w-full"
-                loading="lazy"
-                width={100}
-                height={100}
-              />
-            </figure>
-            <div
-              className={`
+            className={`
                   // isPlaying && currentTrack.id === song.id
                     // ? 'opacity-100'
                     // : 'opacity-0'
                  bg-black/12 absolute top-0 w-full h-full left-0 p-2 transition-opacity duration-400 ease-in-out`}
-            >
-              {/* <Waveform className="text-violet-600 text-5xl md:text-3xl lg:text-5xl" /> */}
-              <Playing />
-            </div>
-            <span className="absolute bottom-0 right-0 bg-black/5 left-0 text-right px-2 text-gray-50">
-              {format(song?.duration)}
-            </span>
+          >
+            {/* <Waveform className="text-violet-600 text-5xl md:text-3xl lg:text-5xl" /> */}
+            <Playing />
           </div>
-        </Div>
+          <span className="absolute bottom-0 right-0 bg-black/5 left-0 text-right px-2 text-gray-50">
+            {format(song?.duration)}
+          </span>
+        </div>
         <div className="grow p-2 sm:flex-1/2 flex flex-wrap gap-2">
           <div className="size-10 md:size-7 shrink-0 outline-hidden rounded-full overflow-hidden border-gray-200 border-2 ">
             <Image
-              // src={
-              //   song?.userOwner?.activateProfilePicture?.pictureUrl ||
-              //   song?.userOwner?.defaultPicture
-              // }
-              src={'/img/p1.jpg'}
+              src={
+                song?.userOwner?.activateProfilePicture?.pictureUrl ||
+                song?.userOwner?.defaultPicture
+              }
               alt="photoDP"
               loading="lazy"
               className="object-cover h-full w-full"
-              width={100}
-              height={100}
+              width={1200}
+              height={1200}
             />
           </div>
           <span className=" md:w-[calc(100%-170px)] truncate text-nowrap md:text-sm shrink-0 w-[calc(100%-200px)] mt-1 md:mt-0 inline-block font-semibold line-clamp-1 grow h-10 md:h-auto">
@@ -113,16 +109,16 @@ export const SongCard = ({ song }: any) => {
           <p className="w-full text-nowrap truncate text-gray-800 font-bold">
             {song.title}
           </p>
-          <p className="truncate text-wrap w-full text-sm font-normal h-10 flex-none md:line-clamp-2 text-gray-500 cursor-pointer">
+          <p className="truncate text-wrap w-full text-sm h-10 flex-none md:line-clamp-2 text-gray-600 font-[400] cursor-pointer">
             {song?.description}
           </p>
         </div>
-        <div className="flex grow flex-none py-2 md:py-0 gap-2 px-2  *:flex  *:p-1 justify-center md:rounded-b-lg border-1 border-gray-300  items-center">
-          <div className="gap-5 flex-1/4  *:!bg-black/4 *:hover:!bg-black/10 *:!p-1 *:!rounded-full *:active:!bg-black/20">
+        <div className="flex grow flex-none py-2 md:py-0 gap-2 px-2  *:flex  *:p-1 justify-center md:rounded-b-lg border-1 border-gray-300 text-gray-600 items-center">
+          <div className="gap-5 flex-1/4  *:!bg-black/4 *:hover:!bg-black/10 *:!p-1.5 *:!rounded-full *:active:!bg-black/20">
             <Button
             // eventHandler={commentClick}
             >
-              <ChartArea className="text-2xl md:text-xl" />
+              <Heart className="text-2xl md:text-xl" />
             </Button>
           </div>
           <div className="drop-down justify-end flex-1/2 relative  *:hover:bg-gray-100 *:active:bg-gray-300">
@@ -132,7 +128,7 @@ export const SongCard = ({ song }: any) => {
             //   setIsActiveDrop(isOpen ? null : song.id);
             // }}
             >
-              <DotSquare className="text-2xl md:text-xl" />
+              <Ellipsis className="text-2xl md:text-xl" />
             </Button>
             {/* dropdown menu */}
             <div

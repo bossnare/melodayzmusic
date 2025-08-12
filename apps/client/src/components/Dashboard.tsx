@@ -1,11 +1,10 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-// import { DashboardSkeleton } from '../skeleton/DashboardSkeleton';
 import api from '@/libs/api';
-// import { UserProfileOverlay } from './overlay/UserProfileOverlay';
+import { useQuery } from '@tanstack/react-query';
 // import { SongCard } from './Userapi/SongCard';
 import { useEffect } from 'react';
+import { DashboardSkeleton } from './skeleton/DashboardSkeleton';
 import { SongCard } from './songs/SongCard';
 
 export const Dashboard = () => {
@@ -55,8 +54,7 @@ export const Dashboard = () => {
   }
 
   if (isPending) {
-    return <div>Loading...</div>;
-    // return <DashboardSkeleton />;
+    return <DashboardSkeleton />;
   }
 
   if (error) {
@@ -64,8 +62,8 @@ export const Dashboard = () => {
   }
 
   return (
-    <section className="pb-70 pt-7 bg-gray-200 w-full">
-      <h1 className="text-lg sm:text-2xl md:text-xl lg:text-4xl font-bold pb-2">
+    <section className="pb-70 pt-20 bg-gray-50 w-full md:px-4">
+      <h1 className="text-lg px-2 sm:text-2xl md:text-xl lg:text-4xl font-bold pb-2">
         Discover
       </h1>
       <div className="w-full overflow-x-auto md:overflow-x-hidden bg-gray-50 h-40 lg:h-40 flex-nowrap mb-10 p-2 flex items-center *:h-full *:min-w-[calc(100%/2-4px)] *:lg:min-w-[calc(100%/3-6px)] *:bg-gray-100 gap-4 *:rounded-lg">
@@ -74,7 +72,7 @@ export const Dashboard = () => {
         <div></div>
         <div></div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 border-t-gray-200 border-t">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {songs.map((song: any) => (
           <SongCard key={song?.id} song={song} />
         ))}
