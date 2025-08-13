@@ -2,7 +2,6 @@
 
 import api from '@/libs/api';
 import { useQuery } from '@tanstack/react-query';
-// import { SongCard } from './Userapi/SongCard';
 import { useEffect } from 'react';
 import { DashboardSkeleton } from './skeleton/DashboardSkeleton';
 import { SongCard } from './songs/SongCard';
@@ -62,7 +61,7 @@ export const Dashboard = () => {
   }
 
   return (
-    <section className="pb-70 pt-10 bg-gray-50 w-full sm:px-6 md:px-4">
+    <section className="pb-40 pt-20 bg-gray-50 w-full sm:px-6 md:px-4">
       <h1 className="text-lg px-2 sm:text-2xl md:text-xl lg:text-4xl font-bold pb-2">
         Discover
       </h1>
