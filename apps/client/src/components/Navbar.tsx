@@ -27,7 +27,7 @@ export const NavBar = () => {
         <Columns2 size={30} />
       </Button>
       <div className="flex-1 grow prose mdhidden">
-        <figure className=" font-black text-blue-500 flex items-center gap-4 text-sm md:text-2xl">
+        <figure className=" font-black text-blue-500 flex items-center gap-2 md:gap-4 text-sm md:text-2xl">
           <Image
             className="w-8"
             alt="meloicon"
