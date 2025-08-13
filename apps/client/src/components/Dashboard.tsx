@@ -62,7 +62,7 @@ export const Dashboard = () => {
   }
 
   return (
-    <section className="pb-70 pt-20 bg-gray-50 w-full md:px-4">
+    <section className="pb-70 pt-20 bg-gray-50 w-full sm:px-6 md:px-4">
       <h1 className="text-lg px-2 sm:text-2xl md:text-xl lg:text-4xl font-bold pb-2">
         Discover
       </h1>

@@ -4,9 +4,9 @@ import { Playing } from '@/animations/motion/Playing';
 // import api from '@/libs/api';
 import { formatDuration as format } from '@/libs/formatDuration';
 import timeAgo from '@/libs/timeAgo';
-import { Heart, Ellipsis, Disc3 } from 'lucide-react';
+import { Disc3, Ellipsis, Heart } from 'lucide-react';
 import Image from 'next/image';
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // import { Button, Div } from "../../motion/motionButton";
 // import timeAgo from "../services/api/date";
@@ -116,15 +116,15 @@ export const SongCard = ({ song }: any) => {
             {song?.description}
           </p>
         </div>
-        <div className="flex grow flex-none py-2 md:py-0 gap-2 px-2  *:flex  *:p-1 justify-center md:rounded-b-lg border-1 border-gray-300 items-center">
-          <div className="gap-5 flex-1/4  *:!bg-black/4 *:hover:!bg-black/10 *:!p-1.5 *:!rounded-full *:active:!bg-black/20">
+        <div className="flex grow flex-none py-2 md:py-0 gap-2 px-2  *:flex  *:p-1 justify-center md:rounded-b-lg items-center">
+          <div className="gap-5 flex-1/4  *:hover:!bg-black/4 *:!p-1.5 *:!rounded-full *:active:!bg-black/10">
             <Button
             // eventHandler={commentClick}
             >
-              <Heart className="text-2xl md:text-xl" />
+              <Heart className="text-2xl text-gray-600 md:text-xl" />
             </Button>
           </div>
-          <div className="drop-down justify-end flex-1/2 relative  *:hover:bg-gray-100 *:active:bg-gray-300">
+          <div className="drop-down justify-end flex-1/2 relative *:rounded-md *:hover:bg-gray-100 *:p-1 *:active:bg-gray-300">
             <Button
             // eventHandler={(e) => {
             //   e.stopPropagation();

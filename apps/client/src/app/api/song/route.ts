@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 const mockSongs = [
   {
     id: 'un1',
-    title: 'Footbal Africa',
+    title: 'Kingpin - Footbal Africa',
     artist: 'kingpin',
     duration: 210,
     description:
@@ -23,7 +23,7 @@ const mockSongs = [
   },
   {
     id: 'three3',
-    title: 'Life war',
+    title: 'Kingpin - Life war',
     artist: 'kingpin',
     duration: 210,
     description:
