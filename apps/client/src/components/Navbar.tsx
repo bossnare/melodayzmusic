@@ -29,20 +29,20 @@ export const NavBar = () => {
       <div className="flex-1 grow prose mdhidden">
         <figure className=" font-black text-blue-500 flex items-center gap-2 text-sm md:text-2xl">
           <Image
-            className="w-10"
+            className="w-8"
             alt="meloicon"
-            src={'/img/meloicon_x65.svg'}
+            src={'/icons/meloicon_x65.svg'}
             loading="lazy"
-            width={200}
-            height={200}
+            width={100}
+            height={100}
           />
           <Image
             className="w-40"
             alt="melodayzmusic"
-            src={'/img/melodayzmusic.svg'}
+            src={'/icons/melodayzmusic.svg'}
             loading="lazy"
-            width={200}
-            height={200}
+            width={100}
+            height={100}
           />
         </figure>
       </div>

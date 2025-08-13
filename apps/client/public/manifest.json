@@ -1,0 +1,22 @@
+{
+  "name": "MelodayzMusic",
+  "short-name": "Melodayz",
+  "description": "MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff0055",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/meloicon.svg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/meloicon.svg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

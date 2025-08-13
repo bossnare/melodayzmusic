@@ -14,7 +14,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Atsahatra tanteraka ny lint amin'ny build
   },
-  swcManify: true,
+  // swcManify: true,
 } satisfies NextConfig; // ** type-safe with TS
 
 export default withPWA(nextConfig);
