@@ -17,7 +17,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'MelodayzMusic - Feel the Beat, Anywhere You Go',
-  manifest: '/manifest.json',
   icons: [
     {
       rel: 'icon',
@@ -31,6 +30,18 @@ export const metadata: Metadata = {
   ],
   description:
     'MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users',
+  manifest: '/manifest.json',
+  keywords: [
+    'MelodayzMusic',
+    'music',
+    'web application',
+    'streaming',
+    'audio',
+    'playlist',
+    'user experience',
+    'music discovery',
+    'music player',
+  ],
 };
 
 export default function RootLayout({
