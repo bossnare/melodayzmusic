@@ -36,7 +36,7 @@ export const NavBar = () => {
             width={100}
             height={100}
           />
-          <h2 className="text-gradient fon font-extrabold text-lg lg:text-2xl">
+          <h2 className="text-gradient fon font-extrabold text-2xl">
             MelodayzMusic
           </h2>
         </figure>
