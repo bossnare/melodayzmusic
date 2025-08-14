@@ -15,7 +15,7 @@ const withPWA = withPWAInit({
   },
 });
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   /* config options here */
   eslint: {
     ignoreDuringBuilds: true, // Atsahatra tanteraka ny lint amin'ny build
@@ -35,6 +35,6 @@ const nextConfig = {
       },
     ];
   },
-} satisfies NextConfig; // ** type-safe with TS
+}; // satisfies NextConfig // // ** type-safe with TS
 
 export default withPWA(nextConfig);

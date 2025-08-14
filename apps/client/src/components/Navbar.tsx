@@ -26,8 +26,8 @@ export const NavBar = () => {
       >
         <Columns2 size={30} />
       </Button>
-      <div className="flex-1 grow prose mdhidden">
-        <figure className=" font-black text-blue-500 flex items-center gap-2 md:gap-4 text-sm md:text-2xl">
+      <div className="flex-1 grow">
+        <figure className="flex items-center gap-2">
           <Image
             className="w-8"
             alt="meloicon"
@@ -36,14 +36,9 @@ export const NavBar = () => {
             width={100}
             height={100}
           />
-          <Image
-            className="w-40"
-            alt="melodayzmusic"
-            src={'/icons/melodayzmusic.svg'}
-            loading="lazy"
-            width={100}
-            height={100}
-          />
+          <h2 className="text-gradient fon font-extrabold text-lg lg:text-2xl">
+            MelodayzMusic
+          </h2>
         </figure>
       </div>
       <div className="flex-1 md:flex-2 !grid !grid-cols-2">

@@ -82,9 +82,9 @@ export const SongCard = ({ song }: any) => {
             {/* <Waveform className="text-violet-600 text-5xl md:text-3xl lg:text-5xl" /> */}
             <Playing />
           </div>
-          <span className="absolute bottom-0 right-0 left-0 text-right px-2 text-gray-50">
+          <code className="absolute bottom-0 right-0 left-0 text-right text-sm px-2 text-gray-50">
             {format(song?.duration)}
-          </span>
+          </code>
           <div className="absolute inset-0 flex justify-center items-center">
             <Disc3 className="text-white size-12 drop-shadow-2xl lg:size-10" />
           </div>

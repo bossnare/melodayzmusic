@@ -29,7 +29,7 @@ body {
 } */
 
 :root {
-  --inter-font: var(--font-inter);
+  --font-inter: 'Inter', sans-serif;
   --font-geist-sans: var(--font-geist-sans);
   --font-geist-mono: var(--font-geist-mono);
 }
@@ -37,7 +37,7 @@ body {
 @layer base {
   /* for body, content, text */
   body {
-    font-family: var(--inter-font), Arial, sans-serif;
+    font-family: var(--font-inter), Arial;
     @apply bg-[#F7F7F7] text-[#333333];
   }
   /* for headings */
@@ -51,7 +51,7 @@ body {
   }
   code,
   pre {
-    font-family: var(--font-geist-mono), 'Courier New', monospace;
+    font-family: var(--font-geist-mono), monospace;
   }
   /* default button */
   button {
@@ -69,6 +69,9 @@ body {
 
 @layer components {
   .cta {
-    @apply bg-gradient-to-br from-[#8E44AD] hover:opacity-80 transition-opacity duration-300 to-[#00BFFF];
+    @apply bg-gradient-to-br from-[#9D50BB] hover:opacity-80 transition-opacity duration-300 to-[#00D4FF];
+  }
+  .text-gradient {
+    @apply bg-gradient-to-br text-transparent bg-clip-text from-[#9D50BB] to-[#00D4FF];
   }
 }
