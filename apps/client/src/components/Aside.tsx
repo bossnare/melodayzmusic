@@ -15,7 +15,7 @@ export const Aside = () => {
   return (
     <aside
       id="side-bar"
-      className="hidden lg:block bg-white overflow-y-auto top-16 h-[calc(100vh-4rem)] z-10 fixed w-1/6"
+      className="-translate-x-full fixed md:sticky md:translate-x-0 bg-white overflow-y-auto top-0 left-0 h-[calc(100vh-4rem)] z-10 w-8/9 md:w-64 xl:flex-none"
     >
       <div className="relative h-full select-none">
         <div
@@ -66,7 +66,7 @@ export const Aside = () => {
         {/* <a className={` sticky container right-0 flex justify-center bg-gray-100/50 items-center bottom-0 h-14 w-full font-bold`}>
           <button
             onClick={logout}
-            className=" py-2 rounded-md w-48"
+            className="w-48 py-2 rounded-md "
           >
             Deconnexion
           </button>
