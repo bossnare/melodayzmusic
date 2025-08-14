@@ -2,12 +2,12 @@ import { SongCardSkeleton } from './SongCardSkeleton';
 
 export const DashboardSkeleton = () => {
   return (
-    <section className="pb-70 pt-20 md:px-4 animate-pulse">
+    <section className="pt-10 pb-10 md:px-4 animate-pulse bg-gray-50">
       {/* Title */}
-      <h1 className="text-lg sm:text-2xl md:text-xl lg:text-4xl font-bold pb-2 ml-2 bg-gray-300 h-6 w-40 rounded"></h1>
+      <h1 className="w-40 h-6 pb-2 ml-2 text-lg font-bold bg-gray-300 rounded sm:text-2xl md:text-xl lg:text-4xl"></h1>
 
       {/* Discover Scrollable Items */}
-      <div className="w-full overflow-x-auto md:overflow-x-hidden bg-gray-50 h-40 lg:h-50 flex-nowrap mb-10 p-2 flex items-center gap-4">
+      <div className="flex items-center w-full h-40 gap-4 p-2 mb-10 overflow-x-auto md:overflow-x-hidden bg-gray-50 lg:h-50 flex-nowrap">
         {[...Array(4)].map((_, index) => (
           <div
             key={index}
@@ -17,7 +17,7 @@ export const DashboardSkeleton = () => {
       </div>
 
       {/* Grid Skeleton */}
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 border-t-gray-200 border-t pt-2">
+      <div className="grid grid-cols-1 gap-4 pt-2 border-t sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 border-t-gray-200">
         {[...Array(8)].map((_, index) => (
           <SongCardSkeleton key={index} />
         ))}

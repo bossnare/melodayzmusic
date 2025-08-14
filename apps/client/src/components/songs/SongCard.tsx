@@ -52,21 +52,21 @@ export const SongCard = ({ song }: any) => {
   // }, []);
 
   return (
-    <div className="col-span-1 hover:bg-gray-50 bg-white md:rounded-md">
+    <div className="col-span-1 bg-white hover:bg-gray-50 md:rounded-md">
       <div
         className={`flex-col sm:flex sm:flex-row sm:flex-wrap sm:items-start md:flex-nowrap md:items-stretch md:flex-col border-gray-900/80 `}
       >
         <div
-          className="sm:flex-1/3 shrink-0 cursor-pointer relative overflow-hidden md:rounded-t-lg"
+          className="relative overflow-hidden cursor-pointer sm:flex-1/3 shrink-0 md:rounded-t-lg"
           onClick={() => {
             // playTrack(song, navigate);
           }}
         >
-          <figure className="bg-gray-100 shrink h-50 w-full md:h-40 xl:h-30">
+          <figure className="w-full bg-gray-100 shrink-0 h-60 md:h-40 xl:h-30">
             <Image
               src={song?.songCover?.coverUrl || song.defaultCover}
               alt="cover"
-              className="object-cover h-full w-full"
+              className="object-cover w-full h-full"
               loading="lazy"
               width={1200}
               height={1200}
@@ -79,18 +79,18 @@ export const SongCard = ({ song }: any) => {
                     // : 'opacity-0'
                  bg-black/12 absolute top-0 w-full h-full left-0 p-2 transition-opacity duration-400 ease-in-out`}
           >
-            {/* <Waveform className="text-violet-600 text-5xl md:text-3xl lg:text-5xl" /> */}
+            {/* <Waveform className="text-5xl text-violet-600 md:text-3xl lg:text-5xl" /> */}
             <Playing />
           </div>
-          <code className="absolute bottom-0 right-0 left-0 text-right text-sm px-2 text-gray-50">
+          <span className="absolute bottom-0 left-0 right-0 px-2 text-sm text-right lg:text-xs text-gray-50">
             {format(song?.duration)}
-          </code>
-          <div className="absolute inset-0 flex justify-center items-center">
+          </span>
+          <div className="absolute inset-0 flex items-center justify-center">
             <Disc3 className="text-white size-12 drop-shadow-2xl lg:size-10" />
           </div>
         </div>
-        <div className="grow p-2 sm:flex-1/2 flex flex-wrap gap-2">
-          <div className="size-10 md:size-7 shrink-0 outline-hidden rounded-full overflow-hidden border-gray-200 border-2 ">
+        <div className="flex flex-wrap gap-2 p-2 grow sm:flex-1/2">
+          <div className="overflow-hidden border-2 border-gray-200 rounded-full size-10 md:size-7 shrink-0 outline-hidden ">
             <Image
               src={
                 song?.userOwner?.activateProfilePicture?.pictureUrl ||
@@ -98,7 +98,7 @@ export const SongCard = ({ song }: any) => {
               }
               alt="photoDP"
               loading="lazy"
-              className="object-cover h-full w-full"
+              className="object-cover w-full h-full"
               width={1200}
               height={1200}
             />
@@ -109,10 +109,10 @@ export const SongCard = ({ song }: any) => {
           <span className="w-auto lg:w-20 text-xs pt-2 md:pt-1 text-[#777777] font-semibold text-right">
             {timeAgo(song.createdAt)}
           </span>
-          <p className="w-full text-nowrap truncate text-gray-900 font-bold">
+          <h3 className="w-full font-bold text-gray-900 truncate text-nowrap">
             {song.title}
-          </p>
-          <p className="truncate text-wrap w-full text-sm h-10 flex-none md:line-clamp-2 font-medium cursor-pointer">
+          </h3>
+          <p className="flex-none w-full h-10 text-sm font-medium truncate cursor-pointer text-wrap md:line-clamp-2">
             {song?.description}
           </p>
         </div>
@@ -121,7 +121,7 @@ export const SongCard = ({ song }: any) => {
             <Button
             // eventHandler={commentClick}
             >
-              <Heart className="text-2xl text-gray-600 md:text-xl" />
+              <Heart className="text-2xl text-gray-700 md:text-xl" />
             </Button>
           </div>
           <div className="drop-down justify-end flex-1/2 relative *:rounded-md *:hover:bg-gray-100 *:p-1 *:active:bg-gray-300">
@@ -131,7 +131,7 @@ export const SongCard = ({ song }: any) => {
             //   setIsActiveDrop(isOpen ? null : song.id);
             // }}
             >
-              <Ellipsis className="text-2xl md:text-xl" />
+              <Ellipsis className="text-2xl text-gray-700 md:text-xl" />
             </Button>
             {/* dropdown menu */}
             <div

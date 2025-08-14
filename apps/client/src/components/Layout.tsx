@@ -6,12 +6,14 @@ import { NavBottom } from './NavBottom';
 export const DashboardLayout = () => {
   // const { toasts } = useToast();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 relative bg-white">
+    <div className="relative flex bg-white">
       <Aside />
-      <div className="col-span-1 md:col-start-3 md:col-span-full items-start min-h-screen">
+      <div className="w-full transition-all duration-200 md:grow">
         <Header />
         {/* <MaintContent /> */}
-        <Dashboard />
+        <main className="min-h-dvh">
+          <Dashboard />
+        </main>
         <NavBottom />
       </div>
       {/* modal */}

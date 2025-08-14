@@ -81,6 +81,26 @@ const mockSongs = [
       defaultPicture: '/img/p1.jpg',
     },
   },
+  {
+    id: 'six6',
+    title: 'Kingpin - Footbal Africa',
+    artist: 'kingpin',
+    duration: 210,
+    description:
+      'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
+    createdAt: new Date(Date.now()),
+    songCover: {
+      coverUrl: '/img/p3.jpg',
+    },
+    defaultCover: 'null',
+    userOwner: {
+      username: 'Yblack J.',
+      activateProfilePicture: {
+        pictureUrl: '/img/p1.jpg',
+      },
+      defaultPicture: 'null',
+    },
+  },
 ];
 
 export async function GET() {
