@@ -1,7 +1,7 @@
 import { Button } from '@/animations/motion/motionButton';
 // import { Playing } from '@/animations/motion/Playing';
 // import { formatDuration as format } from '@/libs/formatDuration';
-import timeAgo from '@/libs/timeAgo';
+// import timeAgo from '@/libs/timeAgo';
 import type { SongProps } from '@/types/songs/song.interface';
 import { Ellipsis, Heart, Play } from 'lucide-react';
 import Image from 'next/image';
@@ -16,7 +16,7 @@ export const SongCard = ({ song }: SongProps) => {
       //   // playTrack(song, navigate);
       // }}
     >
-      <div className="absolute top-0 left-0 flex w-full px-2 py-2 text-white z-5">
+      <div className="absolute top-0 left-0 flex w-full px-4 py-2 text-white z-5">
         <Button classname="flex items-center gap-2">
           <Ellipsis className="p-1 rounded-md size-8 bg-black/10 hover:bg-black/20" />
           {/* {format(song.duration)} */}
@@ -49,14 +49,18 @@ export const SongCard = ({ song }: SongProps) => {
 
       <div className="absolute inset-0 flex items-center justify-center text-white z-3">
         <Button>
-          <Play className="p-2 rounded-md size-12 sm:size-10 bg-black/10 backdrop-blur-sm" />
+          <Play className="p-2 rounded-md size-16 sm:size-12 bg-black/40 backdrop-blur-sm" />
         </Button>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-2 px-2 pt-4 pb-2 z-4 bg-gradient-to-b from-black/1 to-black/70 text-gray-50">
+      <div className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-2 px-4 pt-4 pb-2 sm:px-2 z-4 bg-gradient-to-b from-black/1 to-black/80 text-gray-50">
         <h4 className="w-full pb-1 text-sm font-semibold text-white truncate text-nowrap">
           {song.title}
+          {/* <span className="w-auto text-xs text-right lg:w-20 text-white/80">
+            {timeAgo(song.createdAt)}
+          </span> */}
         </h4>
+
         <div className="overflow-hidden border-2 border-gray-100 rounded-full size-8 sm:size-7 shrink-0 ">
           <Image
             src={
@@ -70,11 +74,8 @@ export const SongCard = ({ song }: SongProps) => {
             height={1200}
           />
         </div>
-        <span className="w-[calc(100%-170px)] truncate text-nowrap text-sm opacity-90 shrink-0 mt-0 inline-block font-medium line-clamp-1 grow h-6">
+        <span className="w-[calc(100%-170px)] truncate text-nowrap text-sm opacity-90 shrink-0 mt-0 inline-block font-semibold line-clamp-1 grow h-6">
           {song.userOwner.username}
-        </span>
-        <span className="w-auto text-xs text-right lg:w-20 text-white/80">
-          {timeAgo(song.createdAt)}
         </span>
         <p className="flex-none w-full text-sm truncate cursor-pointer text-wrap line-clamp-2 lg:line-clamp-1">
           {song.description}
