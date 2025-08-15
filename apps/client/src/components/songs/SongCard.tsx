@@ -112,7 +112,7 @@ export const SongCard = ({ song }: any) => {
           <h3 className="w-full font-bold text-gray-900 truncate text-nowrap">
             {song.title}
           </h3>
-          <p className="flex-none w-full h-6 text-sm font-medium truncate cursor-pointer text-wrap md:line-clamp-1">
+          <p className="flex-none w-full h-6 text-sm font-medium truncate cursor-pointer text-wrap line-clamp-1">
             {song?.description}
           </p>
         </div>
