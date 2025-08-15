@@ -15,12 +15,12 @@ export const Aside = () => {
   return (
     <aside
       id="side-bar"
-      className="-translate-x-full fixed md:sticky md:translate-x-0 bg-white overflow-y-auto top-0 left-0 h-[calc(100vh-4rem)] z-10 w-8/9 md:w-64 xl:flex-none"
+      className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-black/98 h-dvh w-8/9 md:w-64 xl:flex-none"
     >
       <div className="relative h-full select-none">
         <div
           className="*:py-3 *:px-1 *:min-w-10 *:text-left *:rounded-md flex flex-col *:flex *:gap-2 
-        *:items-center *:font-semibold *:hover:bg-gray-100 *:transition-all *:duration-200 
+        *:items-center *:font-semibold *:hover:bg-gray-100 dark:*:hover:bg-gray-900 *:transition-all *:duration-200 
         *:ease-in gap-1 pt-2 pb-10 px-4"
         >
           <div className="flex flex-col *:px-2 *:flex !p-0 *:py-3 *:w-full overflow-hidden !gap-0">
@@ -37,9 +37,9 @@ export const Aside = () => {
               </Button>
             </div>
             <ul
-              className={`flex-col bg-gray-50 gap-4 *:hover:!bg-gray-100 *:text-gray-700
+              className={`flex-col bg-gray-50 dark:bg-gray-900 dark:*:hover:!bg-gray-900 gap-4 *:hover:!bg-gray-100 *:text-gray-700 dark:*:text-gray-300
                 *:!bg-transparent **:bg-transparent *:flex **:flex **:items-center *:items-center *:gap-2 
-                **:gap-2 !px-2 !py-0 border border-gray-200 rounded-md rounded-t-none overflow-hidden 
+                **:gap-2 !px-2 !py-0 border border-gray-200 dark:border-gray-800 rounded-md rounded-t-none overflow-hidden 
                 transition-opacity ease-in-out duration-500 will-change-auto ${
                   isDown
                     ? 'min-h-20 !pt-2 !pb-2 opacity-100'

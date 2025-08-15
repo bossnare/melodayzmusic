@@ -1,7 +1,7 @@
 @layer base {
   /* for body, content, text */
   body {
-    @apply bg-[#F7F7F7] text-[#333333];
+    @apply bg-[#F7F7F7] text-[#333333] dark:text-[#f7f7f7] dark:bg-[#333333];
   }
 }
 
@@ -15,9 +15,9 @@
 
 @layer components {
   .cta {
-    @apply bg-gradient-to-br from-[#9D50BB] hover:opacity-80 transition-opacity duration-300 to-[#00D4FF];
+    @apply bg-gradient-to-r from-[#9D50BB] hover:opacity-80 transition-opacity duration-300 to-[#00D4FF];
   }
   .text-gradient {
-    @apply bg-gradient-to-br text-transparent bg-clip-text from-[#9D50BB] to-[#00D4FF];
+    @apply bg-gradient-to-r text-transparent bg-clip-text from-[#9D50BB] to-[#00D4FF];
   }
 }

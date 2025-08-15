@@ -63,11 +63,11 @@ export const Dashboard = () => {
   }
 
   return (
-    <section className="pt-10 pb-20 bg-gray-50 sm:px-6 md:px-4">
+    <section className="pt-10 pb-20 bg-gray-50 dark:bg-gray-950 sm:px-6 md:px-4">
       <h2 className="flex !items-center gap-2 px-2 mb-2 font-bold text-2xl">
         <span>Top Charts</span> <ChartArea />
       </h2>
-      <div className="w-full overflow-x-auto md:overflow-x-hidden bg-gray-50 h-40 lg:h-40 flex-nowrap mb-10 p-2 flex items-center *:h-full *:min-w-[calc(100%/2-4px)] *:lg:min-w-[calc(100%/3-6px)] *:bg-gray-100 gap-4 *:rounded-lg">
+      <div className="w-full overflow-x-auto md:overflow-x-hidden h-40 lg:h-40 flex-nowrap mb-10 p-2 flex items-center *:h-full *:min-w-[calc(100%/2-4px)] *:lg:min-w-[calc(100%/3-6px)] *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-lg">
         <div></div>
         <div>{/* <Roller /> */}</div>
         <div></div>
