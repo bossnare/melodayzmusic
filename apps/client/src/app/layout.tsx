@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   title: 'MelodayzMusic - Feel the Beat, Anywhere You Go',
   description:
     'MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users',
-  manifest: '/manifest.json',
   keywords: [
     'MelodayzMusic',
     'music',

@@ -10,7 +10,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: '/img/p2.jpeg',
+      coverUrl: '/img/p4.webp',
     },
     defaultCover: 'null',
     userOwner: {
@@ -30,33 +30,33 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: '/img/p1.jpg',
+      coverUrl: '/img/p7.jpg',
     },
     defaultCover: 'null',
     userOwner: {
-      username: 'Donald',
+      username: 'XxxTentacion',
       activateProfilePicture: {
-        pictureUrl: '/img/p2.jpeg',
+        pictureUrl: '/img/p5.jpg',
       },
       defaultPicture: 'null',
     },
   },
   {
     id: 'four4',
-    title: 'Next on my posh',
+    title: 'XxxTentacion - Next on my posh',
     artist: 'kingpin',
     duration: 210,
     description:
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: '/img/p3.jpg',
+      coverUrl: '/img/p8.png',
     },
     defaultCover: 'null',
     userOwner: {
       username: 'Chris G',
       activateProfilePicture: {
-        pictureUrl: '/img/p1.jpg',
+        pictureUrl: '/img/p6.jpg',
       },
       defaultPicture: '/img/p2.jpeg',
     },
@@ -70,11 +70,11 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: '/img/p1.jpg',
+      coverUrl: '/img/p5.jpg',
     },
     defaultCover: '/img/p2.jpeg',
     userOwner: {
-      username: 'RioDinary',
+      username: 'Travis Scott',
       activateProfilePicture: {
         pictureUrl: '/img/p3.jpg',
       },
@@ -90,7 +90,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: '/img/p3.jpg',
+      coverUrl: '/img/p6.jpg',
     },
     defaultCover: 'null',
     userOwner: {

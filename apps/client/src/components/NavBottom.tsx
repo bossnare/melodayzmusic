@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@/animations/motion/motionButton';
 import { Activity, House, HeartPlus, Plus, UserCircle } from 'lucide-react';
 import Link from 'next/link';
+import { Button } from './ui/button';
 
 export const NavBottom = () => {
   const nav = [
@@ -39,8 +39,8 @@ export const NavBottom = () => {
             className="relative flex items-center justify-center px-4 text-white w-30 md:w-70 text-md md:text-lg lg:text-xl"
           >
             <Button
-              classname={
-                'cta absolute drop-shadow-md py-2.5 md:py-2 text-center font-medium w-22 flex justify-center items-center gap-1 md:gap-2 md:w-1/2 border-gray-200 border-1  rounded-lg'
+              className={
+                'cta absolute drop-shadow-md py-2.5 md:py-2 text-center font-medium w-22 flex justify-center items-center gap-1 md:gap-2 md:w-1/2 border-gray-200 border-1'
               }
             >
               <>
