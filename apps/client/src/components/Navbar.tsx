@@ -1,5 +1,5 @@
 import { Button } from '@/animations/motion/motionButton';
-import { Columns2, GlassesIcon, X } from 'lucide-react';
+import { Columns2, Headset, X } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -36,7 +36,7 @@ export const NavBar = () => {
             width={100}
             height={100}
           />
-          <h2 className="text-gradient fon font-extrabold text-2xl">
+          <h2 className="text-2xl font-extrabold text-gradient fon">
             MelodayzMusic
           </h2>
         </figure>
@@ -47,7 +47,7 @@ export const NavBar = () => {
             onChange={handleChange}
             type="text"
             name="querySearch"
-            className="hidden md:block bg-transparent ring-0 border-0 grow px-4"
+            className="hidden px-4 bg-transparent border-0 md:block ring-0 grow"
           />
           <div
             role="search-button"
@@ -62,10 +62,10 @@ export const NavBar = () => {
           </div>
           <div
             role="search-button"
-            className="shrink w-10 text-2xl items-center  bg-transparent border-r-0 border-b-0 border-t-0 input-text rounded-r-full text-gray-400 hover:text-gray-500"
+            className="items-center w-10 text-2xl text-gray-400 bg-transparent border-t-0 border-b-0 border-r-0 rounded-r-full shrink input-text hover:text-gray-500"
           >
             <Button>
-              <GlassesIcon />
+              <Headset />
             </Button>
           </div>
         </div>

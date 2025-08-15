@@ -3,7 +3,8 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Inter } from 'next/font/google';
-import './globals.css';
+import '../styles/globals.css';
+import './custom.css';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -22,17 +23,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'MelodayzMusic - Feel the Beat, Anywhere You Go',
-  icons: [
-    {
-      rel: 'icon',
-      url: '/icons/icon_x32_dark.svg',
-    },
-    {
-      rel: 'apple-touch-icon',
-      url: '/icons/icon_x192.png',
-      sizes: '192x192',
-    },
-  ],
   description:
     'MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users',
   manifest: '/manifest.json',

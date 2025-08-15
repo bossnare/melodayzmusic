@@ -31,7 +31,7 @@ export const Aside = () => {
               }}
             >
               <ShieldUser className="text-xl" />{' '}
-              <span className="hidden lg:block">Profil</span>
+              <span className="hidden lg:block">Profile</span>
               <Button classname={'ml-auto text-xl'}>
                 {isDown ? <ChevronUp /> : <ChevronDown />}
               </Button>

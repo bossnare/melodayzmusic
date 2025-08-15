@@ -4,7 +4,7 @@ import { Playing } from '@/animations/motion/Playing';
 // import api from '@/libs/api';
 import { formatDuration as format } from '@/libs/formatDuration';
 import timeAgo from '@/libs/timeAgo';
-import { Disc3, Ellipsis, Heart } from 'lucide-react';
+import { Disc3, AudioLines, Ellipsis, Heart } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -82,8 +82,8 @@ export const SongCard = ({ song }: any) => {
             {/* <Waveform className="text-5xl text-violet-600 md:text-3xl lg:text-5xl" /> */}
             <Playing />
           </div>
-          <span className="absolute bottom-0 left-0 right-0 px-2 text-sm text-right lg:text-xs text-gray-50">
-            {format(song?.duration)}
+          <span className="absolute bottom-0 left-0 right-0 flex items-center justify-end gap-2 px-2 py-1 text-sm text-right lg:text-xs text-gray-50">
+            <AudioLines /> {format(song?.duration)}
           </span>
           <div className="absolute inset-0 flex items-center justify-center">
             <Disc3 className="text-white size-12 drop-shadow-2xl lg:size-10" />
@@ -112,7 +112,7 @@ export const SongCard = ({ song }: any) => {
           <h3 className="w-full font-bold text-gray-900 truncate text-nowrap">
             {song.title}
           </h3>
-          <p className="flex-none w-full h-10 text-sm font-medium truncate cursor-pointer text-wrap md:line-clamp-2">
+          <p className="flex-none w-full h-6 text-sm font-medium truncate cursor-pointer text-wrap md:line-clamp-1">
             {song?.description}
           </p>
         </div>
