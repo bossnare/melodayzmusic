@@ -1,0 +1,23 @@
+@layer base {
+  /* for body, content, text */
+  body {
+    @apply bg-[#F7F7F7] text-[#333333];
+  }
+}
+
+/* @layer utilities {
+  .container {
+    margin-inline: auto;
+    padding-inline: 2rem;
+    margin: 0 auto;
+  }
+} */
+
+@layer components {
+  .cta {
+    @apply bg-gradient-to-br from-[#9D50BB] hover:opacity-80 transition-opacity duration-300 to-[#00D4FF];
+  }
+  .text-gradient {
+    @apply bg-gradient-to-br text-transparent bg-clip-text from-[#9D50BB] to-[#00D4FF];
+  }
+}
