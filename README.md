@@ -1,4 +1,4 @@
-# MelodayzMusic Version 1.0.0 Web Application
+# MelodayzMusic - Version Web Application
 
 MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users.
 
@@ -19,21 +19,21 @@ MelodayzMusic is a web application designed to provide an engaging and seamless 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/bossnare/MELODAYZ.git
+git clone https://github.com/bossnare/melodayzmusic.git
 
 ```
 
 1. Navigate to the project directory
 
 ```bash
-cd MelodayzWeb
-cd backend or frontend or nodebackend
+cd apps/client
+cd apps/server
 ```
 
 1. Install dependencies
 
 ```bash
-pnpm install or composer install 
+bun install
 ```
 
 ## Usage
