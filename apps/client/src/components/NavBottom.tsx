@@ -29,7 +29,7 @@ export const NavBottom = () => {
   ];
 
   return (
-    <nav className="sticky bottom-0 left-0 right-0 flex items-center justify-center w-full gap-6 px-2 text-sm border-t border-t-gray-200 md:text-base sm:px-0 h-18 md:h-14 bg-gray-50 md:gap-5 md:py-5 lg:gap-2">
+    <nav className="sticky bottom-0 left-0 right-0 flex items-center justify-center w-full gap-6 px-2 text-sm border-t z-6 border-t-gray-200 md:text-base sm:px-0 h-18 md:h-14 bg-gray-50 md:gap-5 md:py-5 lg:gap-2">
       {/* mampiasa end, inona? raha samy misy dashboard ilay route dia ilay active foana active fa tsy miaraka index */}
 
       {nav.map((tab) =>
