@@ -5,10 +5,12 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { DashboardSkeleton } from './skeleton/DashboardSkeleton';
 import { SongCard } from './songs/SongCard';
+import { SongInterface } from '@/types/songs/song.interface';
+import { Star } from 'lucide-react';
 
 export const Dashboard = () => {
   const fetchNewsFeed = async () => {
-    const response = await api.get('/song', { timeout: 10000 });
+    const response = await api.get('/song', { timeout: 5000 });
     console.log(response.data);
     const data = response.data;
     return data;
@@ -62,8 +64,8 @@ export const Dashboard = () => {
 
   return (
     <section className="pt-10 pb-20 bg-gray-50 sm:px-6 md:px-4">
-      <h2 className="px-2 pb-2 text-lg font-bold sm:text-2xl md:text-xl lg:text-4xl">
-        Discover
+      <h2 className="flex !items-center gap-2 px-2 mb-2 text-lg font-bold sm:text-2xl md:text-xl lg:text-4xl">
+        <span>Top Charts</span> <Star />
       </h2>
       <div className="w-full overflow-x-auto md:overflow-x-hidden bg-gray-50 h-40 lg:h-40 flex-nowrap mb-10 p-2 flex items-center *:h-full *:min-w-[calc(100%/2-4px)] *:lg:min-w-[calc(100%/3-6px)] *:bg-gray-100 gap-4 *:rounded-lg">
         <div></div>
@@ -71,8 +73,8 @@ export const Dashboard = () => {
         <div></div>
         <div></div>
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-        {songs.map((song: any) => (
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {songs.map((song: SongInterface) => (
           <SongCard key={song?.id} song={song} />
         ))}
       </div>
