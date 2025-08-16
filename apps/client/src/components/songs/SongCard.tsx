@@ -54,7 +54,7 @@ export const SongCard = ({ song }: SongProps) => {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-2 px-4 pt-4 pb-2 sm:px-2 z-4 bg-gradient-to-b from-black/1 to-black/80 text-gray-50">
-        <h4 className="w-full pb-1 text-lg sm:text-sm font-semibold text-white truncate text-nowrap">
+        <h4 className="w-full pb-1 text-lg sm:text-sm md:text-md font-semibold text-white truncate text-nowrap">
           {song.title}
           {/* <span className="w-auto text-xs text-right lg:w-20 text-white/80">
             {timeAgo(song.createdAt)}
