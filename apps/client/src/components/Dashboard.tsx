@@ -67,7 +67,11 @@ export const Dashboard = () => {
       <h2 className="flex !items-center gap-2 px-2 mb-2 font-bold text-2xl">
         <span>Top Charts</span> <ChartArea />
       </h2>
-      <div className="w-full overflow-x-auto md:overflow-x-hidden h-40 lg:h-40 flex-nowrap mb-10 p-2 flex items-center *:h-full *:min-w-[calc(100%/2-4px)] *:lg:min-w-[calc(100%/3-6px)] *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-lg">
+      <div
+        className="w-full overflow-x-hidden h-40 flex-nowrap 
+      mb-10 p-2 flex items-center *:h-full *:min-w-[calc(100%/2-4px)] *:lg:min-w-[calc(100%/3-6px)] 
+      *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-lg"
+      >
         <div></div>
         <div>{/* <Roller /> */}</div>
         <div></div>
