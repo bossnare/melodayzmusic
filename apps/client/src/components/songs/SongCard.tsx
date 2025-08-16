@@ -18,13 +18,13 @@ export const SongCard = ({ song }: SongProps) => {
     >
       <div className="absolute top-0 left-0 flex w-full px-4 py-2 text-white z-5">
         <Button classname="flex items-center gap-2">
-          <Ellipsis className="p-1 rounded-md size-8 bg-black/10 hover:bg-black/20" />
+          <Ellipsis className="p-1 rounded-md size-12 sm:size-8 bg-black/10 hover:bg-black/20" />
           {/* {format(song.duration)} */}
         </Button>
         <span className="flex items-center gap-4 ml-auto">
           {/* <Play className="text-white transition-all duration-100 ease-in-out drop-shadow-2xl lg:text-2xl " /> */}
           <Button classname="p-1 rounded-full bg-black/10 hover:bg-black/20">
-            <Heart />
+            <Heart className="size-12 sm:size-8 lg:size-6 xl:size-8" />
           </Button>
         </span>
       </div>
@@ -49,12 +49,15 @@ export const SongCard = ({ song }: SongProps) => {
 
       <div className="absolute inset-0 flex items-center justify-center text-white z-3">
         <Button>
-          <Play className="p-2 rounded-md size-16 sm:size-12 bg-black/40 backdrop-blur-sm" />
+          <Play className="p-2 rounded-md size-16 sm:size-12 lg:size-10 xl:size-12 bg-black/40 backdrop-blur-sm" />
         </Button>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-2 px-4 pt-4 pb-2 sm:px-2 z-4 bg-gradient-to-b from-black/1 to-black/80 text-gray-50">
-        <h4 className="w-full pb-1 text-lg sm:text-sm md:text-md font-semibold text-white truncate text-nowrap">
+      <div
+        className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-2 px-4 pt-4 lg:pb-0.5 lg:pt-1 xl:pt-4 xl:pb-2 pb-2 sm:px-2 z-4 
+      bg-gradient-to-b from-black/1 to-black/80 text-gray-50"
+      >
+        <h4 className="w-full pb-1 text-lg font-semibold text-white truncate sm:text-sm md:text-md lg:text-xs xl:text-md text-nowrap">
           {song.title}
           {/* <span className="w-auto text-xs text-right lg:w-20 text-white/80">
             {timeAgo(song.createdAt)}
@@ -74,7 +77,10 @@ export const SongCard = ({ song }: SongProps) => {
             height={1200}
           />
         </div>
-        <span className="w-[calc(100%-170px)] truncate text-nowrap text-sm opacity-90 shrink-0 mt-0 inline-block font-semibold line-clamp-1 grow h-6">
+        <span
+          className="w-[calc(100%-170px)] truncate text-nowrap text-md sm:text-sm 
+        opacity-90 shrink-0 mt-0 inline-block font-semibold line-clamp-1 grow h-6"
+        >
           {song.userOwner.username}
         </span>
         <p className="flex-none w-full text-sm truncate cursor-pointer text-wrap line-clamp-2 sm:line-clamp-1">
