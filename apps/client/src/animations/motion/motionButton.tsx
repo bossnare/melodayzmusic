@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 interface ButtonInterface {
   classname?: string;
   children?: React.ReactNode;
-  eventHandler?: () => void;
+  onClick?: () => void;
   disabled?: true;
   type?: any;
 }
@@ -17,7 +17,7 @@ interface DivInterface {
 export const Button = ({
   classname,
   children,
-  eventHandler,
+  onClick,
   disabled,
   type,
 }: ButtonInterface) => {
@@ -26,7 +26,7 @@ export const Button = ({
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.95 }}
       className={classname}
-      onClick={eventHandler}
+      onClick={onClick}
       type={type}
       disabled={disabled}
     >

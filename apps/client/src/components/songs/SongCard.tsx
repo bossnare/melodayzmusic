@@ -3,11 +3,13 @@ import { Button } from '@/animations/motion/motionButton';
 // import { formatDuration as format } from '@/libs/formatDuration';
 // import timeAgo from '@/libs/timeAgo';
 import type { SongProps } from '@/types/songs/song.interface';
-import { Ellipsis, Heart, Play } from 'lucide-react';
+import { Ellipsis, Heart, Play, Pause } from 'lucide-react';
 import Image from 'next/image';
 import { AspectRatio } from '../ui/aspect-ratio';
+import { useState } from 'react';
 
 export const SongCard = ({ song }: SongProps) => {
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <AspectRatio
       ratio={1 / 1}
@@ -48,8 +50,15 @@ export const SongCard = ({ song }: SongProps) => {
       </div>
 
       <div className="absolute inset-0 flex items-center justify-center text-white z-3">
-        <Button>
-          <Play className="p-2 rounded-md size-16 sm:size-12 lg:size-10 xl:size-12 bg-black/40 backdrop-blur-sm" />
+        <Button
+          classname="p-2 rounded-md bg-black/40 backdrop-blur-sm"
+          onClick={() => setIsPlaying(!isPlaying)}
+        >
+          {isPlaying ? (
+            <Pause className="size-16 sm:size-12 lg:size-6 xl:size-8" />
+          ) : (
+            <Play className="size-16 sm:size-12 lg:size-6 xl:size-8" />
+          )}
         </Button>
       </div>
 
