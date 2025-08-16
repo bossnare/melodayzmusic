@@ -18,13 +18,13 @@ export const SongCard = ({ song }: SongProps) => {
     >
       <div className="absolute top-0 left-0 flex w-full px-4 py-2 text-white z-5">
         <Button classname="flex items-center gap-2">
-          <Ellipsis className="p-1 rounded-md size-12 sm:size-8 bg-black/10 hover:bg-black/20" />
+          <Ellipsis className="p-1 rounded-md size-10 sm:size-8 bg-black/10 hover:bg-black/20" />
           {/* {format(song.duration)} */}
         </Button>
         <span className="flex items-center gap-4 ml-auto">
           {/* <Play className="text-white transition-all duration-100 ease-in-out drop-shadow-2xl lg:text-2xl " /> */}
           <Button classname="p-1 rounded-full bg-black/10 hover:bg-black/20">
-            <Heart className="size-12 sm:size-8 lg:size-6 xl:size-8" />
+            <Heart className="size-10 sm:size-8 lg:size-6 xl:size-8" />
           </Button>
         </span>
       </div>
@@ -55,7 +55,7 @@ export const SongCard = ({ song }: SongProps) => {
 
       <div
         className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-2 px-4 pt-4 lg:pb-0.5 lg:pt-1 xl:pt-4 xl:pb-2 pb-2 sm:px-2 z-4 
-      bg-gradient-to-b from-black/1 to-black/80 text-gray-50"
+      bg-gradient-to-b from-black/1 to-black/90 text-gray-50"
       >
         <h4 className="w-full pb-1 text-lg font-semibold text-white truncate sm:text-sm md:text-md lg:text-xs xl:text-md text-nowrap">
           {song.title}
@@ -64,7 +64,7 @@ export const SongCard = ({ song }: SongProps) => {
           </span> */}
         </h4>
 
-        <div className="overflow-hidden border-2 border-gray-100 rounded-full size-8 sm:size-7 shrink-0 ">
+        <div className="overflow-hidden border-2 border-gray-100 rounded-full size-10 sm:size-7 shrink-0 ">
           <Image
             src={
               song.userOwner.activateProfilePicture?.pictureUrl ||
