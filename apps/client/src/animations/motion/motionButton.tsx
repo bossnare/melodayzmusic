@@ -5,7 +5,7 @@ interface ButtonInterface {
   children?: React.ReactNode;
   onClick?: () => void;
   disabled?: true;
-  type?: any;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 interface DivInterface {

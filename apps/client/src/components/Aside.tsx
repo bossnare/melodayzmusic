@@ -20,7 +20,7 @@ export const Aside = () => {
       <div className="relative h-full select-none">
         <div
           className="*:py-3 *:px-1 *:min-w-10 *:text-left *:rounded-md flex flex-col *:flex *:gap-2 
-        *:items-center *:font-semibold *:hover:bg-gray-100 dark:*:hover:bg-gray-900 *:transition-all *:duration-200 
+        *:items-center *:hover:bg-gray-100 dark:*:hover:bg-gray-900 *:transition-all *:duration-200 
         *:ease-in gap-1 pt-2 pb-10 px-4"
         >
           <div className="flex flex-col *:px-2 *:flex !p-0 *:py-3 *:w-full overflow-hidden !gap-0">
@@ -31,7 +31,7 @@ export const Aside = () => {
               }}
             >
               <ShieldUser className="text-xl" />{' '}
-              <span className="hidden lg:block">Profile</span>
+              <span className="hidden lg:block font-semibold">Profile</span>
               <Button classname={'ml-auto text-xl'}>
                 {isDown ? <ChevronUp /> : <ChevronDown />}
               </Button>
