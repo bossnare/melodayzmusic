@@ -16,9 +16,11 @@ const formatDateAgo = (date: string) => {
     .replace("jour", "j")
     .replace("jours", "j")
     .replace("il y a moins d’une min", "Tout juste")
-    .replace("environ", "").replace("il y a", "");
+    .replace("environ", "").replace("il y a", "")
+    .replace("dans moins d'une min", "Tout juste");
 
   return shortTime;
 };
 
 export default formatDateAgo;
+
