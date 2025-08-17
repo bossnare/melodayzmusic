@@ -1,8 +1,12 @@
-// import Image from 'next/image';
 'use client';
 
-import { DashboardLayout } from '@/components/Layout';
+import Link from 'next/link';
 
 export default function Page() {
-  return <DashboardLayout />;
+  return (
+    <div>
+      <Link href="/dashboard">Go to your Dashboard</Link>
+      <p>Manifestation</p>
+    </div>
+  );
 }

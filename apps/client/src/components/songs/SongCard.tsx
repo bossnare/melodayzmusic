@@ -61,7 +61,7 @@ export const SongCard = ({ song }: SongProps) => {
       {/* <Playing /> */}
       {/* </div> */}
 
-      <div className="absolute inset-0 flex items-center justify-center z-3">
+      <div className="absolute inset-0 flex items-center justify-center z-4">
         <Button
           classname="p-2 rounded-md bg-black/40 backdrop-blur-sm"
           onClick={() => setIsPlaying(!isPlaying)}
@@ -75,7 +75,7 @@ export const SongCard = ({ song }: SongProps) => {
       </div>
 
       <div
-        className="absolute bottom-0 left-0 pointer-events-none right-0 flex flex-wrap gap-2 px-4 pt-4 lg:pb-0.5 lg:pt-1 xl:pb-2 pb-2 sm:px-2 z-4 
+        className="absolute bottom-0 left-0 pointer-events-none right-0 flex flex-wrap gap-2 px-4 pt-4 lg:pb-0.5 lg:pt-1 xl:pb-2 pb-2 sm:px-2 z-3 
       bg-gradient-to-b from-black/1 to-black/90"
       >
         <div className="flex items-center w-full mb-0">

@@ -1,6 +1,6 @@
 import { SongCardSkeleton } from './SongCardSkeleton';
 
-export const DashboardSkeleton = () => {
+export const DashboardHomeSkeleton = () => {
   return (
     <section className="pt-10 pb-10 md:px-4 *:animate-pulse bg-gray-50 dark:bg-gray-950">
       {/* Title */}

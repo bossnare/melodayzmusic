@@ -3,13 +3,13 @@
 import api from '@/libs/api';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { DashboardSkeleton } from './skeleton/DashboardSkeleton';
-import { SongCard } from './songs/SongCard';
+import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
+import { SongCard } from './SongCard';
 import { SongInterface as Song } from '@/types/songs/song.interface';
 import { ChartArea } from 'lucide-react';
 
-export const Dashboard = () => {
-  const fetchNewsFeed = async () => {
+export const ContentStream = () => {
+  const fetchContentStream = async () => {
     const response = await api.get('/song', { timeout: 5000 });
     console.log(response.data);
     const data = response.data;
@@ -18,7 +18,7 @@ export const Dashboard = () => {
 
   const options = {
     queryKey: ['songs'],
-    queryFn: fetchNewsFeed,
+    queryFn: fetchContentStream,
     refetchOnReconnect: true,
     refetchOnMount: true,
     refetchOnWindowsFocus: true,
@@ -29,7 +29,6 @@ export const Dashboard = () => {
     const savedScroll = sessionStorage.getItem(`scroll-${navTarget}`);
     if (savedScroll) {
       window.scrollTo(0, parseInt(savedScroll));
-      console.log('yaaa: ', savedScroll);
     }
   }, []);
 
@@ -54,7 +53,7 @@ export const Dashboard = () => {
   }
 
   if (isPending) {
-    return <DashboardSkeleton />;
+    return <DashboardHomeSkeleton />;
   }
 
   return (

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ChevronDown,
   ShieldUser,
@@ -15,7 +17,7 @@ export const Aside = () => {
   return (
     <aside
       id="side-bar"
-      className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-black/98 h-dvh w-8/9 md:w-64 xl:flex-none"
+      className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-gray-950/98 h-dvh w-8/9 md:w-64 xl:flex-none"
     >
       <div className="relative h-full select-none">
         <div
@@ -31,7 +33,7 @@ export const Aside = () => {
               }}
             >
               <ShieldUser className="text-xl" />{' '}
-              <span className="hidden lg:block font-semibold">Profile</span>
+              <span className="hidden font-semibold lg:block">Profile</span>
               <Button classname={'ml-auto text-xl'}>
                 {isDown ? <ChevronUp /> : <ChevronDown />}
               </Button>

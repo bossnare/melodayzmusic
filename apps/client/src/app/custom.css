@@ -1,7 +1,7 @@
 @layer base {
   /* for body, content, text */
   body {
-    @apply bg-[#F7F7F7] text-[#333333] dark:text-[#f7f7f7] dark:bg-[#333333] scroll-smooth;
+    @apply scroll-smooth;
   }
 }
 

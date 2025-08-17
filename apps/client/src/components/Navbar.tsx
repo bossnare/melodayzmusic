@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@/animations/motion/motionButton';
 import { Columns2, Headset, X } from 'lucide-react';
 import { useState } from 'react';
