@@ -1,14 +1,8 @@
-
 import { Activity, House, HeartPlus, Plus, UserCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/button';
 
-export const NavBottom: {
-  id?: number;
-  label?: string;
-  href?: string;
-  icon?: React.ReactNode;
-}[] = () => {
+export const NavBottom = () => {
   const nav = [
     { id: 1, label: 'Accueil', href: '/dashboard', icon: <House /> },
     {
