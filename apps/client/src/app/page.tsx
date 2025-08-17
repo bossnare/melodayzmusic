@@ -10,9 +10,15 @@ export default function Page() {
         className="dark:invert size-30 sm:size-32"
         src="/icons/icon_512x512.png"
         alt="skeleton_temp_icon"
+        loading="lazy"
         width={1000}
         height={1000}
       />
+      <p className='w-[80%] sm:w-[60%] lg:w-[40%] text-center'>
+        Our app is currently in development. Some features may not be fully
+        available or may change frequently. Thank you for your patience and
+        understanding as we work to improve your experience!
+      </p>
       <Button>
         <Link href="/dashboard">Go to your Dashboard</Link>
       </Button>
