@@ -7,9 +7,12 @@ import { Ellipsis, Heart, Play, Pause } from 'lucide-react';
 import Image from 'next/image';
 import { AspectRatio } from '../ui/aspect-ratio';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 export const SongCard = ({ song }: SongProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
   return (
     <AspectRatio
       ratio={1 / 1}
@@ -18,15 +21,22 @@ export const SongCard = ({ song }: SongProps) => {
       //   // playTrack(song, navigate);
       // }}
     >
-      <div className="absolute top-0 left-0 flex w-full px-4 py-2 text-white z-5">
+      <div className="absolute top-0 left-0 flex w-full px-4 py-2 z-5">
         <Button classname="flex items-center gap-2">
           <Ellipsis className="p-1 rounded-md size-10 sm:size-8 bg-black/10 hover:bg-black/20" />
           {/* {format(song.duration)} */}
         </Button>
         <span className="flex items-center gap-4 ml-auto">
           {/* <Play className="text-white transition-all duration-100 ease-in-out drop-shadow-2xl lg:text-2xl " /> */}
-          <Button classname="p-1 rounded-full bg-black/10 hover:bg-black/20">
-            <Heart className="size-10 sm:size-8 lg:size-6 xl:size-8" />
+          <Button
+            classname="p-1 rounded-full bg-black/10 hover:bg-black/20"
+            onClick={() => setIsFavorite(!isFavorite)}
+          >
+            <Heart
+              className={clsx(`size-10 sm:size-8 lg:size-6 xl:size-8`, {
+                'fill-[#f7f7f7]': isFavorite,
+              })}
+            />
           </Button>
         </span>
       </div>
@@ -73,7 +83,7 @@ export const SongCard = ({ song }: SongProps) => {
           </span> */}
         </h4>
 
-        <div className="overflow-hidden border-2 border-gray-100 rounded-full size-10 sm:size-7 shrink-0 ">
+        <div className="overflow-hidden border-2 border-gray-100 rounded-full dark:border-gray-400 size-10 sm:size-7 shrink-0 ">
           <Image
             src={
               song.userOwner.activateProfilePicture?.pictureUrl ||
