@@ -1,10 +1,10 @@
-import { Activity, House, HeartPlus, Plus, UserCircle } from 'lucide-react';
+import { ListMusic, Infinity, HeartPlus, Plus, User } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/button';
 
 export const NavBottom = () => {
   const nav = [
-    { id: 1, label: 'Accueil', href: '/dashboard', icon: <House /> },
+    { id: 1, label: 'Flow', href: '/dashboard', icon: <Infinity /> },
     {
       id: 4,
       label: 'Favoris',
@@ -14,20 +14,22 @@ export const NavBottom = () => {
     { id: 3, label: 'button' },
     {
       id: 2,
-      label: 'Activité',
-      href: '/dashboard/activity',
-      icon: <Activity />,
+      label: 'Ma vibe',
+      href: '/dashboard/myvibe',
+      icon: <ListMusic />,
     },
     {
       id: 5,
-      label: 'Profile',
-      href: '/dashboard/profile',
-      icon: <UserCircle />,
+      label: 'Moi',
+      href: '/dashboard/moi',
+      icon: <User />,
     },
   ];
 
   return (
-    <nav className="sticky overflow-hidden bottom-0 left-0 flex items-center justify-center w-full gap-6 px-2 text-sm border-t z-6 border-t-gray-200 dark:border-t-gray-800 md:text-base sm:px-0 h-18 md:h-14 bg-gray-50 dark:bg-gray-950 md:gap-5 md:py-5 lg:gap-2">
+    <nav className="sticky bottom-0 left-0 flex items-center justify-center 
+    w-full gap-6 px-2 text-sm border-t z-6 border-t-gray-200 dark:border-t-gray-800 
+    md:text-base sm:px-0 h-18 md:h-14 bg-gray-50 dark:bg-gray-950 md:gap-5 md:py-5 lg:gap-2">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {nav.map((tab) =>

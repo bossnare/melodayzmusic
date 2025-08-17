@@ -15,7 +15,7 @@ const formatDateAgo = (date: string) => {
     .replace("heures", "h")
     .replace("jour", "j")
     .replace("jours", "j")
-    .replace("il y a moins d’une min", "A l'instant")
+    .replace("il y a moins d’une min", "Tout juste")
     .replace("environ", "").replace("il y a", "");
 
   return shortTime;

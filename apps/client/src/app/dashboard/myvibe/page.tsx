@@ -1,6 +1,6 @@
 'use client';
 
-export default function ActivityPage() {
+export default function PlaylistPage() {
   return (
     <div>
       <p>Manifestation</p>

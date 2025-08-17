@@ -4,7 +4,7 @@ import {
   ChevronDown,
   ShieldUser,
   Power,
-  UserCog,
+  Settings,
   ChevronUp,
 } from 'lucide-react';
 import { useState } from 'react';
@@ -33,7 +33,7 @@ export const Aside = () => {
               }}
             >
               <ShieldUser className="text-xl" />{' '}
-              <span className="hidden font-semibold lg:block">Profile</span>
+              <span className="hidden font-semibold lg:block">Moi</span>
               <Button classname={'ml-auto text-xl'}>
                 {isDown ? <ChevronUp /> : <ChevronDown />}
               </Button>
@@ -49,11 +49,8 @@ export const Aside = () => {
                 }`}
             >
               <Link href="">
-                <UserCog />
+                <Settings />
                 <span>Paramètres</span>
-              </Link>
-              <Link href="">
-                <Power /> <span>Se déconnecter</span>
               </Link>
             </ul>
           </div>

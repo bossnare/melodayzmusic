@@ -3,14 +3,14 @@ import { NextResponse } from 'next/server';
 const mockSongs = [
   {
     id: 'un1',
-    title: 'Kingpin - Footbal Africa',
+    title: 'Speedy - I saw the TV glow',
     artist: 'kingpin',
     duration: 210,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: '/img/p4.webp',
+      coverUrl: '/img/p5.jpg',
     },
     defaultCover: 'null',
     userOwner: {
@@ -70,7 +70,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date(Date.now()),
     songCover: {
-      coverUrl: '/img/p5.jpg',
+      coverUrl: '/img/p4.webp',
     },
     defaultCover: '/img/p2.jpeg',
     userOwner: {
