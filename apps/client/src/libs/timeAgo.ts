@@ -12,11 +12,12 @@ const timeAgo = (date: string) => {
     .replace('minute', 'min')
     .replace('minutes', 'mn')
     .replace('heure', 'h')
-    .replace('heures', 'h')
-    .replace('jour', 'j')
-    .replace('jours', 'j')
+    .replace('heures', 'hs')
+    .replace('jour', 'jr')
+    .replace('jours', 'jrs')
     .replace('il y a moins d’une min', "A l'instant")
-    .replace('environ', '');
+    .replace('environ', '')
+    .replace('il y a', '');
 
   return shortTime;
 };

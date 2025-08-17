@@ -1,13 +1,14 @@
 import { Button } from '@/animations/motion/motionButton';
 // import { Playing } from '@/animations/motion/Playing';
 // import { formatDuration as format } from '@/libs/formatDuration';
-// import timeAgo from '@/libs/timeAgo';
+import timeAgo from '@/libs/timeAgo';
 import type { SongProps } from '@/types/songs/song.interface';
 import { Ellipsis, Heart, Play, Pause } from 'lucide-react';
 import Image from 'next/image';
 import { AspectRatio } from '../ui/aspect-ratio';
 import { useState } from 'react';
 import clsx from 'clsx';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 export const SongCard = ({ song }: SongProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -16,7 +17,7 @@ export const SongCard = ({ song }: SongProps) => {
   return (
     <AspectRatio
       ratio={1 / 1}
-      className="relative overflow-hidden shrink-0 sm:rounded-lg"
+      className="relative overflow-hidden sm:rounded-lg"
       // onClick={() => {
       //   // playTrack(song, navigate);
       // }}
@@ -48,60 +49,62 @@ export const SongCard = ({ song }: SongProps) => {
         width={1200}
         height={1200}
       />
-      <div
-        className={`
+      {/* <div */}
+      {/* // className= */}
+      {`
                   // isPlaying && currentTrack.id === song.id
                     // ? 'opacity-100'
                     // : 'opacity-0'
-                 bg-black/12 absolute top-0 w-full h-full left-0 p-2 transition-opacity duration-400 ease-in-out`}
-      >
-        {/* <Waveform className="text-5xl text-violet-600 md:text-3xl lg:text-5xl" /> */}
-        {/* <Playing /> */}
-      </div>
+                //  bg-black/12 absolute top-0 w-full h-full left-0 p-2 transition-opacity duration-400 ease-in-out`}
+      {/* > */}
+      {/* <Waveform className="text-5xl text-violet-600 md:text-3xl lg:text-5xl" /> */}
+      {/* <Playing /> */}
+      {/* </div> */}
 
-      <div className="absolute inset-0 flex items-center justify-center text-white z-3">
+      <div className="absolute inset-0 flex items-center justify-center z-3">
         <Button
           classname="p-2 rounded-md bg-black/40 backdrop-blur-sm"
           onClick={() => setIsPlaying(!isPlaying)}
         >
           {isPlaying ? (
-            <Pause className="size-16 sm:size-12 lg:size-6 xl:size-8" />
+            <Pause className="size-16 sm:size-12 lg:size-6 xl:size-7" />
           ) : (
-            <Play className="size-16 sm:size-12 lg:size-6 xl:size-8" />
+            <Play className="size-16 sm:size-12 lg:size-6 xl:size-7" />
           )}
         </Button>
       </div>
 
       <div
-        className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-2 px-4 pt-4 lg:pb-0.5 lg:pt-1 xl:pt-4 xl:pb-2 pb-2 sm:px-2 z-4 
-      bg-gradient-to-b from-black/1 to-black/90 text-gray-50"
+        className="absolute bottom-0 left-0 pointer-events-none right-0 flex flex-wrap gap-2 px-4 pt-4 lg:pb-0.5 lg:pt-1 xl:pb-2 pb-2 sm:px-2 z-4 
+      bg-gradient-to-b from-black/1 to-black/90"
       >
-        <h4 className="w-full pb-1 text-lg font-semibold text-white truncate sm:text-sm md:text-md lg:text-xs xl:text-md text-nowrap">
-          {song.title}
-          {/* <span className="w-auto text-xs text-right lg:w-20 text-white/80">
+        <div className="flex items-center w-full mb-0">
+          <h4 className="text-lg font-semibold truncate sm:text-md md:text-lg lg:text-xs xl:text-md xl:font-bold text-nowrap">
+            {song.title}
+          </h4>
+          <span className="ml-auto text-xs text-right w-18 lg:w-20 text-white/90">
             {timeAgo(song.createdAt)}
-          </span> */}
-        </h4>
-
-        <div className="overflow-hidden border-2 border-gray-100 rounded-full dark:border-gray-400 size-10 sm:size-7 shrink-0 ">
-          <Image
-            src={
-              song.userOwner.activateProfilePicture?.pictureUrl ||
-              song.userOwner.defaultPicture
-            }
-            alt="photoDP"
-            loading="lazy"
-            className="object-cover w-full h-full"
-            width={1200}
-            height={1200}
-          />
+          </span>
         </div>
-        <span
-          className="w-[calc(100%-170px)] truncate text-nowrap text-md sm:text-sm 
-        opacity-90 shrink-0 mt-0 inline-block font-semibold line-clamp-1 grow h-6"
-        >
-          {song.userOwner.username}
-        </span>
+
+        <div className="flex items-center w-full gap-1">
+          <Avatar className="border-2 border-gray-100 dark:border-gray-200">
+            <AvatarImage
+              src={
+                song.userOwner.activateProfilePicture?.pictureUrl ||
+                song.userOwner.defaultPicture
+              }
+              alt="photoDP"
+            />
+            <AvatarFallback>
+              <div className="bg-gray-200 dark:bg-gray-100 animate-spin"></div>
+            </AvatarFallback>
+          </Avatar>
+          <span className="w-full h-6 font-semibold truncate text-nowrap text-md sm:text-sm opacity-90 line-clamp-1 grow">
+            {song.userOwner.username}
+          </span>
+        </div>
+
         <p className="flex-none w-full text-sm truncate cursor-pointer text-wrap line-clamp-2 sm:line-clamp-1">
           {song.description}
         </p>
