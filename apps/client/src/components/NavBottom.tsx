@@ -51,7 +51,8 @@ export const NavBottom = () => {
           </div>
         ) : (
           <Link
-            className="flex flex-col items-center justify-center gap-1 py-1 text-xs font-semibold md:gap-2 md:flex-row bg-amber-20 md:text-base w-22 md:w-40 min-h-14 max-h-14"
+            className="flex flex-col items-center justify-center gap-1 py-1 text-xs font-semibold 
+            md:gap-2 md:flex-row bg-amber-20 md:text-base w-22 md:w-40 min-h-14 max-h-14"
             href={tab.href as string}
             key={tab.id}
           >

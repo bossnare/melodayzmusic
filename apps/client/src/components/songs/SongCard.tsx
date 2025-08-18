@@ -17,18 +17,16 @@ export const SongCard = ({ song }: SongProps) => {
   return (
     <AspectRatio
       ratio={1 / 1}
-      className="relative overflow-hidden sm:rounded-lg"
+      className="relative overflow-hidden"
       // onClick={() => {
       //   // playTrack(song, navigate);
       // }}
     >
-      <div className="absolute top-0 left-0 flex w-full px-4 py-2 z-5">
+      {/* <div className="absolute top-0 left-0 flex w-full px-4 py-2 z-5">
         <Button classname="flex items-center gap-2">
           <Ellipsis className="p-1 rounded-md size-10 sm:size-8 bg-black/10 hover:bg-black/20" />
-          {/* {format(song.duration)} */}
         </Button>
         <span className="flex items-center gap-4 ml-auto">
-          {/* <Play className="text-white transition-all duration-100 ease-in-out drop-shadow-2xl lg:text-2xl " /> */}
           <Button
             classname="p-1 rounded-full bg-black/10 hover:bg-black/20"
             onClick={() => setIsFavorite(!isFavorite)}
@@ -40,7 +38,7 @@ export const SongCard = ({ song }: SongProps) => {
             />
           </Button>
         </span>
-      </div>
+      </div> */}
       <Image
         src={song.songCover.coverUrl || song.defaultCover}
         alt={song.title}
@@ -61,19 +59,6 @@ export const SongCard = ({ song }: SongProps) => {
       {/* <Playing /> */}
       {/* </div> */}
 
-      <div className="absolute inset-0 flex items-center justify-center z-4">
-        <Button
-          classname="p-2 rounded-md bg-black/40 backdrop-blur-sm"
-          onClick={() => setIsPlaying(!isPlaying)}
-        >
-          {isPlaying ? (
-            <Pause className="size-16 sm:size-12 lg:size-6 xl:size-7" />
-          ) : (
-            <Play className="size-16 sm:size-12 lg:size-6 xl:size-7" />
-          )}
-        </Button>
-      </div>
-
       <div
         className="absolute bottom-0 left-0 pointer-events-none right-0 flex flex-wrap gap-2 px-4 pt-4 lg:pb-0.5 lg:pt-1 xl:pb-2 pb-2 sm:px-2 z-3 
       bg-gradient-to-b from-black/1 to-black/90"
@@ -87,7 +72,7 @@ export const SongCard = ({ song }: SongProps) => {
           </span>
         </div>
 
-        <div className="flex items-center w-full gap-1">
+        {/* <div className="flex items-center w-full gap-1">
           <Avatar className="border-2 border-gray-100 dark:border-gray-200">
             <AvatarImage
               src={
@@ -103,11 +88,21 @@ export const SongCard = ({ song }: SongProps) => {
           <span className="w-full h-6 font-semibold truncate text-nowrap text-md sm:text-sm opacity-90 line-clamp-1 grow">
             {song.userOwner.username}
           </span>
-        </div>
+        </div> */}
 
-        <p className="flex-none w-full text-sm truncate cursor-pointer text-wrap line-clamp-2 sm:line-clamp-1">
+        {/* <p className="flex-none w-full text-sm truncate cursor-pointer text-wrap line-clamp-2 sm:line-clamp-1">
           {song.description}
-        </p>
+        </p> */}
+        <Button
+          classname="p-2 rounded-md bg-black/40 backdrop-blur-sm"
+          onClick={() => setIsPlaying(!isPlaying)}
+        >
+          {isPlaying ? (
+            <Pause className="size-12 sm:size-10 lg:size-6" />
+          ) : (
+            <Play className="size-12 sm:size-10 lg:size-6" />
+          )}
+        </Button>
       </div>
     </AspectRatio>
   );

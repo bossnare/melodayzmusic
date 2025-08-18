@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 const mockSongs = [
   {
     id: 'un1',
-    title: 'Speedy - I saw the TV glow',
+    title: 'I saw the TV glow',
     artist: 'kingpin',
     duration: 210,
     description:
@@ -23,7 +23,7 @@ const mockSongs = [
   },
   {
     id: 'three3',
-    title: 'Kingpin - Life war',
+    title: 'Life war',
     artist: 'kingpin',
     duration: 210,
     description:
@@ -43,7 +43,7 @@ const mockSongs = [
   },
   {
     id: 'four4',
-    title: 'XxxTentacion - Next on my posh',
+    title: 'Next on my posh',
     artist: 'kingpin',
     duration: 210,
     description:
@@ -83,7 +83,7 @@ const mockSongs = [
   },
   {
     id: 'six6',
-    title: 'Kingpin - Footbal Africa',
+    title: 'Footbal Africa',
     artist: 'kingpin',
     duration: 210,
     description:

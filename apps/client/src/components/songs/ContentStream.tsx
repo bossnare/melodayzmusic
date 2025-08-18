@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
 import { SongCard } from './SongCard';
 import { SongInterface as Song } from '@/types/songs/song.interface';
-import { ChartArea } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 export const ContentStream = () => {
   const fetchContentStream = async () => {
@@ -59,7 +59,7 @@ export const ContentStream = () => {
   return (
     <section className="pt-10 pb-20 bg-gray-50 dark:bg-gray-950 sm:px-6 md:px-4">
       <h2 className="flex !items-center gap-2 px-2 mb-2 font-bold text-2xl md:text-3xl">
-        <span>Top Charts</span> <ChartArea />
+        <span>Top Artists</span> <Star />
       </h2>
       <div
         className="w-full overflow-x-hidden h-40 flex-nowrap 
