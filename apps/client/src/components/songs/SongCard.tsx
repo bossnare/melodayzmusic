@@ -23,7 +23,7 @@ export const SongCard = ({ song }: SongProps) => {
 
   return (
     <Card className="p-0 bg-transparent border-none rounded-none">
-      <CardContent className="relative p-0 rounded-none md:rounded-xs">
+      <CardContent className="relative p-0 md:rounded-xs">
         <AspectRatio
           ratio={1}
           className="overflow-hidden rounded-sm"
@@ -81,7 +81,7 @@ export const SongCard = ({ song }: SongProps) => {
         </Button>
       </CardContent>
 
-      <CardFooter className="flex flex-col items-start gap-2 p-0">
+      <CardFooter className="flex flex-col items-start gap-2 px-2 sm:p-0">
         <CardTitle className="truncate">{song.title}</CardTitle>
         <CardDescription className="truncate text-wrap line-clamp-1">
           {song.description}
