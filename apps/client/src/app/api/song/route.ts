@@ -64,7 +64,7 @@ const mockSongs = [
   {
     id: 'deux2',
     title: 'Zombie',
-    artist: 'Chris G feat. ChatGPT',
+    artist: 'Joeboy',
     duration: 310,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
@@ -91,6 +91,26 @@ const mockSongs = [
     createdAt: new Date(Date.now()),
     songCover: {
       coverUrl: '/img/p6.jpg',
+    },
+    defaultCover: 'null',
+    userOwner: {
+      username: 'Yblack J.',
+      activateProfilePicture: {
+        pictureUrl: '/img/p1.jpg',
+      },
+      defaultPicture: 'null',
+    },
+  },
+  {
+    id: 'dix10',
+    title: 'All my life',
+    artist: 'J. Cole feat. Lil Durk',
+    duration: 210,
+    description:
+      'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
+    createdAt: new Date(Date.now()),
+    songCover: {
+      coverUrl: '/img/p9.jpg',
     },
     defaultCover: 'null',
     userOwner: {

@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { AspectRatio } from '../ui/aspect-ratio';
 import { useState } from 'react';
 import clsx from 'clsx';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+// import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import {
   Card,
   CardDescription,
@@ -19,7 +19,7 @@ import {
 
 export const SongCard = ({ song }: SongProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <Card className="p-0 bg-transparent border-none rounded-none">
@@ -31,23 +31,7 @@ export const SongCard = ({ song }: SongProps) => {
           //   // playTrack(song, navigate);
           // }}
         >
-          {/* <div className="absolute top-0 left-0 flex w-full px-4 py-2 z-5">
-        <Button classname="flex items-center gap-2">
-          <Ellipsis className="p-1 rounded-md size-10 sm:size-8 bg-black/10 hover:bg-black/20" />
-        </Button>
-        <span className="flex items-center gap-4 ml-auto">
-          <Button
-            classname="p-1 rounded-full bg-black/10 hover:bg-black/20"
-            onClick={() => setIsFavorite(!isFavorite)}
-          >
-            <Heart
-              className={clsx(`size-10 sm:size-8 lg:size-6 xl:size-8`, {
-                'fill-[#f7f7f7]': isFavorite,
-              })}
-            />
-          </Button>
-        </span>
-      </div> */}
+          <div className="absolute bottom-0 left-0 flex w-full px-4 py-2 z-5"></div>
           <Image
             src={song.songCover.coverUrl || song.defaultCover}
             alt={song.title}
@@ -70,7 +54,7 @@ export const SongCard = ({ song }: SongProps) => {
         </AspectRatio>
 
         <Button
-          classname="absolute p-2 rounded-full bg-black/40 backdrop-blur-sm right-2 bottom-2"
+          classname="absolute p-2 rounded-full bg-black/20 hover:*:fill-muted-foreground hover:*:stroke-muted-foreground backdrop-blur-sm right-2 bottom-2"
           onClick={() => setIsPlaying(!isPlaying)}
         >
           {isPlaying ? (
@@ -85,12 +69,15 @@ export const SongCard = ({ song }: SongProps) => {
         <CardTitle className="text-xl capitalize truncate line-clamp-1 sm:text-base">
           {song.title}
         </CardTitle>
-        <CardDescription
-          className="font-medium capitalize truncate transition-colors duration-200 cursor-pointer hover:text-accent-foreground text-md sm:text-sm text-wrap line-clamp-1"
-        >
-          {song.artist}
+        <CardDescription className="flex items-center justify-between w-full">
+          <span className="font-medium capitalize min-w-auto max-w-[70%] sm:max-w-[60%] truncate transition-colors duration-200 cursor-pointer select-none hover:text-accent-foreground text-md sm:text-sm text-wrap line-clamp-1">
+            {song.artist}
+          </span>
+          <span className="text-xs sm:text-[10px] text-right truncate line-clamp-1 mr-2">
+            {timeAgo(song.createdAt)}
+          </span>
         </CardDescription>
-        <CardDescription className="truncate first-letter:capitalize text-wrap line-clamp-1">
+        <CardDescription className="truncate first-letter:capitalize text-wrap line-clamp-1 text-md sm:text-sm">
           {song.description}
         </CardDescription>
       </CardFooter>
