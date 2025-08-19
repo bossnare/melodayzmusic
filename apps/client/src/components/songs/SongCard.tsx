@@ -80,7 +80,7 @@ export const SongCard = ({ song }: SongProps) => {
             {timeAgo(song.createdAt)}
           </span>
         </CardDescription>
-        <CardDescription className="w-full truncate first-letter:capitalize line-clamp-2">
+        <CardDescription className="w-full text-base sm:text-sm truncate first-letter:capitalize line-clamp-1">
           {song.description}
         </CardDescription>
       </CardFooter>
