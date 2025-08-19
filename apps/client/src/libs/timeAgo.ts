@@ -10,9 +10,9 @@ const timeAgo = (date: string) => {
   // mamadika ho fohy
   const shortTime = timeAgo
     .replace('minute', 'min')
-    .replace('minutes', 'mn')
+    .replace('mins', 'min')
     .replace('heure', 'h')
-    .replace('heures', 'hs')
+    .replace('hs', 'h')
     .replace('jour', 'jr')
     .replace('jours', 'jrs')
     .replace('il y a moins d’une min', 'Tout juste')

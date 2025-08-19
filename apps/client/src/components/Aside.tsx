@@ -1,9 +1,9 @@
 'use client';
 
-import { ChevronDown, ShieldUser, Settings, ChevronUp } from 'lucide-react';
-import { useState } from 'react';
-import { Button } from '@/animations/motion/motionButton';
+import { ChevronDown, ChevronUp, Settings, ShieldUser } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
+import Image from 'next/image';
 
 export const Aside = () => {
   const [isDown, setIsDown] = useState(true);
@@ -11,8 +11,23 @@ export const Aside = () => {
   return (
     <aside
       id="side-bar"
-      className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-gray-950/98 h-dvh w-8/9 md:w-64 xl:flex-none"
+      className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-gray-950 h-dvh w-8/9 md:w-64 xl:flex-none"
     >
+      <div className="hidden lg:block px-2 py-4">
+        <figure className="flex items-center gap-2">
+          <Image
+            className="w-8"
+            alt="meloicon"
+            src={'/icons/meloicon_x65.svg'}
+            loading="lazy"
+            width={100}
+            height={100}
+          />
+          <h2 className="text-2xl font-extrabold text-gradient fon">
+            MelodayzMusic
+          </h2>
+        </figure>
+      </div>
       <div className="relative h-full select-none">
         <div
           className="*:py-3 *:px-1 *:min-w-10 *:text-left *:rounded-md flex flex-col *:flex *:gap-2 
@@ -28,9 +43,9 @@ export const Aside = () => {
             >
               <ShieldUser className="text-xl" />{' '}
               <span className="hidden font-semibold lg:block">Moi</span>
-              <Button classname={'ml-auto text-xl'}>
+              <button className={'ml-auto'}>
                 {isDown ? <ChevronUp /> : <ChevronDown />}
-              </Button>
+              </button>
             </div>
             <ul
               className={`flex-col bg-gray-50 dark:bg-gray-900 dark:*:hover:!bg-gray-900 gap-4 *:hover:!bg-gray-100 *:text-gray-700 dark:*:text-gray-300

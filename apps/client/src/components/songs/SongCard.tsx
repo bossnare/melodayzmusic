@@ -1,20 +1,21 @@
-import { Button } from '@/animations/motion/motionButton';
+'use client';
+
+import { MotionButton } from '@/components/motions/motionButton';
 // import { Playing } from '@/animations/motion/Playing';
 // import { formatDuration as format } from '@/libs/formatDuration';
 import timeAgo from '@/libs/timeAgo';
 import type { SongProps } from '@/types/songs/song.interface';
-import { Ellipsis, Heart, Play, Pause } from 'lucide-react';
+import { Pause, Play } from 'lucide-react';
 import Image from 'next/image';
-import { AspectRatio } from '../ui/aspect-ratio';
 import { useState } from 'react';
-import clsx from 'clsx';
+import { AspectRatio } from '../ui/aspect-ratio';
 // import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import {
   Card,
-  CardDescription,
-  CardTitle,
   CardContent,
+  CardDescription,
   CardFooter,
+  CardTitle,
 } from '../ui/card';
 
 export const SongCard = ({ song }: SongProps) => {
@@ -53,16 +54,18 @@ export const SongCard = ({ song }: SongProps) => {
           {/* </div> */}
         </AspectRatio>
 
-        <Button
-          classname="absolute p-2 rounded-full bg-black/20 hover:*:fill-muted-foreground hover:*:stroke-muted-foreground backdrop-blur-sm right-2 bottom-2"
-          onClick={() => setIsPlaying(!isPlaying)}
-        >
-          {isPlaying ? (
-            <Pause className="size-10 sm:size-6 lg:size-6 fill-accent-foreground" />
-          ) : (
-            <Play className="size-10 sm:size-6 lg:size-6 fill-accent-foreground" />
-          )}
-        </Button>
+        <div className="absolute right-2 bottom-2">
+          <MotionButton
+            className="bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsPlaying(!isPlaying)}
+          >
+            {isPlaying ? (
+              <Pause className="size-10 lg:size-6 fill-accent-foreground" />
+            ) : (
+              <Play className="size-10 lg:size-6 fill-accent-foreground" />
+            )}
+          </MotionButton>
+        </div>
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 px-2 sm:p-0">
@@ -70,14 +73,14 @@ export const SongCard = ({ song }: SongProps) => {
           {song.title}
         </CardTitle>
         <CardDescription className="flex items-center justify-between w-full">
-          <span className="font-medium capitalize min-w-auto max-w-[70%] sm:max-w-[60%] truncate transition-colors duration-200 cursor-pointer select-none hover:text-accent-foreground text-md sm:text-sm line-clamp-1">
+          <span className="font-medium capitalize min-w-auto max-w-[70%] sm:max-w-[60%] truncate transition-colors duration-200 cursor-pointer select-none hover:text-accent-foreground text-base sm:text-sm line-clamp-1">
             {song.artist}
           </span>
           <span className="mr-2 text-xs lg:text-[10px] text-right truncate line-clamp-1">
             {timeAgo(song.createdAt)}
           </span>
         </CardDescription>
-        <CardDescription className="w-full truncate first-letter:capitalize line-clamp-2 text-md sm:text-sm">
+        <CardDescription className="w-full truncate first-letter:capitalize line-clamp-2">
           {song.description}
         </CardDescription>
       </CardFooter>
