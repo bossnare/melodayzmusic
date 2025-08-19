@@ -70,14 +70,14 @@ export const SongCard = ({ song }: SongProps) => {
           {song.title}
         </CardTitle>
         <CardDescription className="flex items-center justify-between w-full">
-          <span className="font-medium capitalize min-w-auto max-w-[70%] sm:max-w-[60%] truncate transition-colors duration-200 cursor-pointer select-none hover:text-accent-foreground text-md sm:text-sm text-wrap line-clamp-1">
+          <span className="font-medium capitalize min-w-auto max-w-[70%] sm:max-w-[60%] truncate transition-colors duration-200 cursor-pointer select-none hover:text-accent-foreground text-md sm:text-sm line-clamp-1">
             {song.artist}
           </span>
           <span className="mr-2 text-xs lg:text-[10px] text-right truncate line-clamp-1">
             {timeAgo(song.createdAt)}
           </span>
         </CardDescription>
-        <CardDescription className="w-full truncate first-letter:capitalize text-wrap line-clamp-1 text-md sm:text-sm">
+        <CardDescription className="w-full truncate first-letter:capitalize line-clamp-2 text-md sm:text-sm">
           {song.description}
         </CardDescription>
       </CardFooter>
