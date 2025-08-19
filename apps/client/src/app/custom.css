@@ -15,9 +15,9 @@
 
 @layer components {
   .cta {
-    @apply bg-gradient-to-r from-[#8E24AA] hover:opacity-80 transition-opacity duration-300 to-[#00D4FF];
+    @apply bg-gradient-to-r from-[#8a2be2] hover:opacity-80 transition-opacity duration-300 to-[#00D4FF];
   }
   .text-gradient {
-    @apply bg-gradient-to-r text-transparent bg-clip-text from-[#8E24AA] to-[#00D4FF];
+    @apply bg-gradient-to-r text-transparent bg-clip-text from-[#8a2be2] to-[#00D4FF];
   }
 }
