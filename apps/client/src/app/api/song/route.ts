@@ -63,7 +63,7 @@ const mockSongs = [
   },
   {
     id: 'deux2',
-    title: 'Everyday',
+    title: 'Zombie',
     artist: 'Chris G feat. ChatGPT',
     duration: 310,
     description:
@@ -83,8 +83,8 @@ const mockSongs = [
   },
   {
     id: 'six6',
-    title: 'Footbal Africa',
-    artist: 'kingpin',
+    title: 'Ill come back to you',
+    artist: 'Powfu',
     duration: 210,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',

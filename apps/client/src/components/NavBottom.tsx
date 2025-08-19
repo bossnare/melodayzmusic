@@ -38,7 +38,7 @@ export const NavBottom = () => {
           >
             <Button
               className={
-                'cta absolute text-white dark:text-white drop-shadow-md py-2.5 md:py-2 text-center font-medium w-22 flex justify-center items-center gap-1 md:gap-2 md:w-1/2'
+                'cta absolute text-accent-foreground dark:text-accent-foreground drop-shadow-md py-2.5 md:py-2 text-center font-medium w-22 flex justify-center items-center gap-1 md:gap-2 md:w-1/2'
               }
             >
               <>

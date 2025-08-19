@@ -58,12 +58,12 @@ export const ContentStream = () => {
 
   return (
     <section className="w-full pt-10 pb-20 min-h-dvh bg-gray-50 dark:bg-gray-950 sm:px-4">
-      <h2 className="flex !items-center gap-2 px-2 mb-2 font-bold text-2xl md:text-3xl">
+      <h2 className="flex !items-center gap-2 px-2 mb-4 font-bold text-2xl md:text-3xl">
         <span>Top Artists</span> <Star />
       </h2>
       <div
         className="max-w-full h-20 flex-nowrap overflow-x-hidden
-      mb-10 px-2 flex items-center *:w-20 *:h-20
+      mb-10 px-2 flex items-center *:size-20
       *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-full"
       >
         <div></div>

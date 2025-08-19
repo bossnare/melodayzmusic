@@ -59,7 +59,7 @@ export const Aside = () => {
         {/* <a className={` sticky container right-0 flex justify-center bg-gray-100/50 items-center bottom-0 h-14 w-full font-bold`}>
           <button
             onClick={logout}
-            className="w-48 py-2 rounded-md "
+            className="w-48 py-2 rounded-md"
           >
             Deconnexion
           </button>

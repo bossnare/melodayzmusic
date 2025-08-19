@@ -82,10 +82,15 @@ export const SongCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 px-2 sm:p-0">
-        <CardTitle className="truncate line-clamp-1 text-xl sm:text-base">
+        <CardTitle className="text-xl capitalize truncate line-clamp-1 sm:text-base">
           {song.title}
         </CardTitle>
-        <CardDescription className="truncate text-wrap line-clamp-2 sm:line-clamp-1">
+        <CardDescription
+          className="font-medium capitalize truncate transition-colors duration-200 cursor-pointer hover:text-accent-foreground text-md sm:text-sm text-wrap line-clamp-1"
+        >
+          {song.artist}
+        </CardDescription>
+        <CardDescription className="truncate first-letter:capitalize text-wrap line-clamp-1">
           {song.description}
         </CardDescription>
       </CardFooter>
