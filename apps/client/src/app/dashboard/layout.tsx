@@ -13,7 +13,7 @@ export default function DashboardLayout({
       <div className="w-full transition-all duration-200 md:grow">
         <Header />
         {/* <MaintContent /> */}
-        <main>{children}</main>
+        <main className="min-h-dvh dark:bg-gray-950">{children}</main>
         <NavBottom />
       </div>
       {/* modal */}
