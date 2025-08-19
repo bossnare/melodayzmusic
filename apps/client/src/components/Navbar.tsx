@@ -1,9 +1,9 @@
 'use client';
 
-import { Button } from '@/animations/motion/motionButton';
+import { MotionButton } from '@/components/motions/motionButton';
 import { Columns2, Headset, X } from 'lucide-react';
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export const NavBar = () => {
   const [isNull, setIsNull] = useState(true);
@@ -19,16 +19,16 @@ export const NavBar = () => {
   };
 
   return (
-    <nav className="flex flex-wrap justify items-center gap-0 md:gap-4 *:min-w-10 *:p-1  *:flex *:items-center *:flex-wrap  *:min-h-0">
+    <nav className="flex flex-wrap justify items-center gap-0 md:gap-4 *:min-w-10 *:p-1  *:flex *:items-center *:flex-wrap *:min-h-0">
       {/* mampiasa end, inona? raha samy misy dashboard ilay route dia ilay active foana active fa tsy miaraka index */}
-      <Button
-        classname={
+      <button
+        className={
           '!hidden rounded-full bg-black/5 border-gray-300 border font-black'
         }
       >
         <Columns2 size={30} />
-      </Button>
-      <div className="flex-1 grow">
+      </button>
+      <div className="flex-1 grow lg:!hidden">
         <figure className="flex items-center gap-2">
           <Image
             className="w-8"
@@ -57,18 +57,18 @@ export const NavBar = () => {
               isNull ? 'w-0 opacity-0 rotate-90' : 'w-10 rotate-0 opacity-100'
             } items-center transition-all duration-150 ease-in-out text-xl  input-tex border-r-0 border-b-0 border-t-0 text-gray-400 hover:text-gray-500`}
           >
-            <Button>
+            <MotionButton>
               {' '}
               <X />{' '}
-            </Button>
+            </MotionButton>
           </div>
           <div
             role="search-button"
             className="items-center w-10 text-2xl text-gray-400 bg-transparent border-t-0 border-b-0 border-r-0 rounded-r-full shrink input-text hover:text-gray-500"
           >
-            <Button>
-              <Headset />
-            </Button>
+            <MotionButton>
+              <Headset className="size-auto" />
+            </MotionButton>
           </div>
         </div>
       </div>
