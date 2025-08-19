@@ -23,8 +23,8 @@ const mockSongs = [
   },
   {
     id: 'three3',
-    title: 'Life war',
-    artist: 'kingpin',
+    title: 'Hope',
+    artist: 'XXXTentacion',
     duration: 210,
     description:
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
@@ -43,8 +43,8 @@ const mockSongs = [
   },
   {
     id: 'four4',
-    title: 'Next on my posh',
-    artist: 'kingpin',
+    title: 'Phenomena',
+    artist: 'BNXN',
     duration: 210,
     description:
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
