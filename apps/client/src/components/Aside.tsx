@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  ChevronDown,
-  ShieldUser,
-  Power,
-  Settings,
-  ChevronUp,
-} from 'lucide-react';
+import { ChevronDown, ShieldUser, Settings, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/animations/motion/motionButton';
 import Link from 'next/link';
