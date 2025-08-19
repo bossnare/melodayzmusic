@@ -21,7 +21,7 @@ export const NavBottom = () => {
     {
       id: 5,
       label: 'Moi',
-      href: '/dashboard/moi',
+      href: '/dashboard/profile',
       icon: <User />,
     },
   ];

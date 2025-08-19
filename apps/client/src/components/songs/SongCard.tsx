@@ -23,10 +23,10 @@ export const SongCard = ({ song }: SongProps) => {
 
   return (
     <Card className="p-0 bg-transparent border-none rounded-none">
-      <CardContent className="relative p-0 md:rounded-xs">
+      <CardContent className="relative p-0">
         <AspectRatio
           ratio={1}
-          className="overflow-hidden rounded-sm"
+          className="overflow-hidden"
           // onClick={() => {
           //   // playTrack(song, navigate);
           // }}
@@ -74,9 +74,9 @@ export const SongCard = ({ song }: SongProps) => {
           onClick={() => setIsPlaying(!isPlaying)}
         >
           {isPlaying ? (
-            <Pause className="size-10 sm:size-6 lg:size-6 fill-accent" />
+            <Pause className="size-10 sm:size-6 lg:size-6 fill-accent-foreground" />
           ) : (
-            <Play className="size-10 sm:size-6 lg:size-6 fill-accent" />
+            <Play className="size-10 sm:size-6 lg:size-6 fill-accent-foreground" />
           )}
         </Button>
       </CardContent>
