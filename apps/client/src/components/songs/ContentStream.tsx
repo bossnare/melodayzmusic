@@ -57,23 +57,23 @@ export const ContentStream = () => {
   }
 
   return (
-    <section className="pt-10 pb-20 bg-gray-50 dark:bg-gray-950 sm:px-4">
+    <section className="w-full pt-10 pb-20 min-h-dvh bg-gray-50 dark:bg-gray-950 sm:px-4">
       <h2 className="flex !items-center gap-2 px-2 mb-2 font-bold text-2xl md:text-3xl">
         <span>Top Artists</span> <Star />
       </h2>
       <div
-        className="w-full overflow-x-hidden h-40 flex-nowrap 
-      mb-10 p-2 flex items-center *:h-full *:min-w-[calc(100%/2-4px)] *:lg:min-w-[calc(100%/3-6px)] 
-      *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-lg"
+        className="max-w-full h-20 flex-nowrap overflow-x-hidden
+      mb-10 px-2 flex items-center *:w-20 *:h-20
+      *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-full"
       >
         <div></div>
-        <div>{/* <Roller /> */}</div>
+        <div></div>
         <div></div>
         <div></div>
       </div>
       <div className="grid grid-cols-1 gap-8 sm:gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {songs.map((song) => (
-          <SongCard key={song?.id} song={song} />
+          <SongCard key={song.id} song={song} />
         ))}
       </div>
     </section>
