@@ -43,7 +43,7 @@ export const NavBar = () => {
           </h2>
         </figure>
       </div>
-      <div className="w-auto lg:w-[60%]">
+      <div className="w-auto lg:w-[40%] lg:my-2">
         <div
           className="
           flex items-center transition-all lg:h-13 overflow-hidden duration-200 lg:border-2 border-gray-800
@@ -53,7 +53,7 @@ export const NavBar = () => {
           <input
             onChange={handleChange}
             type="text"
-            name="querySearch "
+            name="querySearch"
             placeholder="Artist, Song, Albums, Flow..."
             className="!hidden w-full px-2 bg-transparent border-0 outline-0 lg:!block"
           />

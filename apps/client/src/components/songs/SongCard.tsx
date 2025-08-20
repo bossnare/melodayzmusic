@@ -60,15 +60,15 @@ export const SongCard = ({ song }: SongProps) => {
             onClick={() => setIsPlaying(!isPlaying)}
           >
             {isPlaying ? (
-              <Pause className="size-10 lg:size-6 fill-accent-foreground" />
+              <Pause className="size-9 lg:size-6 fill-accent-foreground" />
             ) : (
-              <Play className="size-10 lg:size-6 fill-accent-foreground" />
+              <Play className="size-9 lg:size-6 fill-accent-foreground" />
             )}
           </MotionButton>
         </div>
       </CardContent>
 
-      <CardFooter className="flex flex-col items-start gap-2 px-2 sm:p-0">
+      <CardFooter className="flex flex-col items-start gap-2 p-0">
         <CardTitle className="text-xl capitalize truncate line-clamp-1 sm:text-base">
           {song.title}
         </CardTitle>
@@ -83,7 +83,7 @@ export const SongCard = ({ song }: SongProps) => {
             {timeAgo(song.createdAt)}
           </span>
         </CardDescription>
-        <CardDescription className="w-full text-base truncate sm:text-sm first-letter:capitalize line-clamp-1">
+        <CardDescription className="!hidden w-full text-base truncate sm:!block sm:text-sm first-letter:capitalize line-clamp-1">
           {song.description}
         </CardDescription>
       </CardFooter>

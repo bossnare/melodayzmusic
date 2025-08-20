@@ -13,7 +13,7 @@ export const Aside = () => {
       id="side-bar"
       className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-gray-950/98 h-dvh w-8/9 md:w-64 xl:flex-none"
     >
-      <div className="hidden px-2 py-4 lg:block">
+      <div className="hidden px-2 pt-4 pb-2 lg:block">
         <figure className="flex items-center gap-2">
           <Image
             className="w-8"
