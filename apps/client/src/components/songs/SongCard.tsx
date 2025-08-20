@@ -60,16 +60,16 @@ export const SongCard = ({ song }: SongProps) => {
             onClick={() => setIsPlaying(!isPlaying)}
           >
             {isPlaying ? (
-              <Pause className="size-9 lg:size-6 fill-accent-foreground" />
+              <Pause className="size-8 lg:size-6 fill-accent-foreground" />
             ) : (
-              <Play className="size-9 lg:size-6 fill-accent-foreground" />
+              <Play className="size-8 lg:size-6 fill-accent-foreground" />
             )}
           </MotionButton>
         </div>
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="text-xl capitalize truncate line-clamp-1 sm:text-base">
+        <CardTitle className="text-lg w-full capitalize truncate line-clamp-1 sm:text-base">
           {song.title}
         </CardTitle>
         <CardDescription className="flex items-center justify-between w-full">
