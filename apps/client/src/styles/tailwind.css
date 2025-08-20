@@ -24,17 +24,6 @@
     @apply select-none;
   }
 
-  body {
-    /* font-family: 'Inter', sans-serif;
-    font-optical-sizing: auto;
-    font-synthesis: none; */
-    overflow-y: scroll;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    @apply bg-[#F7F7F7] text-[#333333];
-  }
-
   /* manala default */
   body::-webkit-scrollbar {
     background: transparent;

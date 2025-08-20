@@ -1,7 +1,7 @@
 'use client';
 
 import { MotionButton } from '@/components/motions/motionButton';
-import { Columns2, Headset, X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -19,55 +19,56 @@ export const NavBar = () => {
   };
 
   return (
-    <nav className="flex flex-wrap justify items-center gap-0 md:gap-4 *:min-w-10 *:p-1  *:flex *:items-center *:flex-wrap *:min-h-0">
+    <nav className="flex items-center justify-between justify lg:gap-4">
       {/* mampiasa end, inona? raha samy misy dashboard ilay route dia ilay active foana active fa tsy miaraka index */}
-      <button
+      {/* <button
         className={
           '!hidden rounded-full bg-black/5 border-gray-300 border font-black'
         }
       >
         <Columns2 size={30} />
-      </button>
-      <div className="flex-1 grow lg:!hidden">
+      </button> */}
+      <div className="lg:!hidden">
         <figure className="flex items-center gap-2">
           <Image
             className="w-8"
             alt="meloicon"
             src={'/icons/meloicon_x65.svg'}
             loading="lazy"
-            width={100}
-            height={100}
+            width={1000}
+            height={1000}
           />
-          <h2 className="text-2xl font-extrabold text-gradient fon">
+          <h2 className="text-2xl font-extrabold select-none text-gradient">
             MelodayzMusic
           </h2>
         </figure>
       </div>
-      <div className="flex-1 md:flex-2 !grid !grid-cols-2">
-        <div className="col-start-2 md:col-span-2 lg:col-start-2 input-text flex rounded-full overflow-hidden justify-end md:justify-center items-center *:h-12 *:flex *:justify-center *:active:bg-gray-200">
+      <div className="w-auto lg:w-[60%]">
+        <div
+          className="
+          flex items-center transition-all lg:h-13 overflow-hidden duration-200 lg:border-2 border-gray-800
+          rounded-sm
+        lg:has-[input:active]:bg-gray-900 lg:has-[input:focus]:ring-ring lg:has-[input:focus]:ring-2 shadow-sm"
+        >
           <input
             onChange={handleChange}
             type="text"
-            name="querySearch"
-            className="hidden px-4 bg-transparent border-0 md:block ring-0 grow"
+            name="querySearch "
+            placeholder="Artist, Song, Albums, Flow..."
+            className="!hidden w-full px-2 bg-transparent border-0 outline-0 lg:!block"
           />
           <div
-            role="search-button"
-            className={`shrink ${
-              isNull ? 'w-0 opacity-0 rotate-90' : 'w-10 rotate-0 opacity-100'
-            } items-center transition-all duration-150 ease-in-out text-xl  input-tex border-r-0 border-b-0 border-t-0 text-gray-400 hover:text-gray-500`}
+            className={`${
+              isNull ? 'scale-0 opacity-0 w-0' : 'scale-100 w-auto opacity-100'
+            }  transition-transform duration-150 ease-in-out !hidden lg:!block`}
           >
             <MotionButton>
-              {' '}
-              <X />{' '}
+              <X className="size-auto" />
             </MotionButton>
           </div>
-          <div
-            role="search-button"
-            className="items-center w-10 text-2xl text-gray-400 bg-transparent border-t-0 border-b-0 border-r-0 rounded-r-full shrink input-text hover:text-gray-500"
-          >
+          <div role="search-button" className="lg:mr-1">
             <MotionButton>
-              <Headset className="size-auto" />
+              <Search className="stroke-accent-foreground size-auto" />
             </MotionButton>
           </div>
         </div>

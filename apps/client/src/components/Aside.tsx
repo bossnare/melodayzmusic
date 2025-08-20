@@ -11,9 +11,9 @@ export const Aside = () => {
   return (
     <aside
       id="side-bar"
-      className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-gray-950 h-dvh w-8/9 md:w-64 xl:flex-none"
+      className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-gray-950/98 h-dvh w-8/9 md:w-64 xl:flex-none"
     >
-      <div className="hidden lg:block px-2 py-4">
+      <div className="hidden px-2 py-4 lg:block">
         <figure className="flex items-center gap-2">
           <Image
             className="w-8"
@@ -23,7 +23,7 @@ export const Aside = () => {
             width={100}
             height={100}
           />
-          <h2 className="text-2xl font-extrabold text-gradient fon">
+          <h2 className="text-2xl font-extrabold select-none text-gradient">
             MelodayzMusic
           </h2>
         </figure>
@@ -32,7 +32,7 @@ export const Aside = () => {
         <div
           className="*:py-3 *:px-1 *:min-w-10 *:text-left *:rounded-md flex flex-col *:flex *:gap-2 
         *:items-center *:hover:bg-gray-100 dark:*:hover:bg-gray-900 *:transition-all *:duration-200 
-        *:ease-in gap-1 pt-2 pb-10 px-4"
+        *:ease-in gap-1 pt-2 pb-10 px-2"
         >
           <div className="flex flex-col *:px-2 *:flex !p-0 *:py-3 *:w-full overflow-hidden !gap-0">
             <div

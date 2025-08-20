@@ -1,6 +1,9 @@
+'use client';
+
 import { ListMusic, Infinity, HeartPlus, Plus, User } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/button';
+import { usePathname } from 'next/navigation';
 
 export const NavBottom = () => {
   const nav = [
@@ -34,30 +37,33 @@ export const NavBottom = () => {
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="relative flex items-center justify-center px-4 w-30 md:w-70 text-md md:text-lg lg:text-xl"
+            className="relative flex items-center justify-center px-4 bg-red-200 w-30 md:w-70 text-md md:text-lg lg:text-xl"
           >
             <Button
               className={
-                'cta absolute text-accent-foreground dark:text-accent-foreground drop-shadow-md py-2.5 md:py-2 text-center font-medium w-22 flex justify-center items-center gap-1 md:gap-2 md:w-1/2'
+                'cta absolute text-accent-foreground select-none dark:text-accent-foreground drop-shadow-md py-2.5 md:py-2 text-center font-medium w-22 flex justify-center items-center gap-1 md:gap-2 md:w-1/2'
               }
             >
               <>
-                <Plus className="size-6" />
+                <Plus strokeWidth={2.5} className="size-6" />
                 <span>Créer</span>
               </>
             </Button>
           </div>
         ) : (
-          <Link
-            className="flex flex-col items-center justify-center gap-1 py-1 text-xs font-semibold md:gap-2 md:flex-row bg-amber-20 md:text-base w-22 md:w-40 min-h-14 max-h-14"
-            href={tab.href as string}
+          <div
+            className="flex items-center justify-center py-1 text-xs font-semibold md:text-base w-22 md:w-40 min-h-14 max-h-14"
             key={tab.id}
           >
             <>
-              {tab.icon}
-              <span className={`select-none`}>{tab.label}</span>
+              <Link
+                href={tab.href as string}
+                className={`select-none flex flex-col items-center hover:text-muted-foreground justify-center gap-1 md:gap-2 md:flex-row`}
+              >
+                {tab.icon} {tab.label}
+              </Link>
             </>
-          </Link>
+          </div>
         )
       )}
     </nav>
