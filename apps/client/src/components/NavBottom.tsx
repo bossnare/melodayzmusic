@@ -81,7 +81,7 @@ export const NavBottom = () => {
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="relative flex items-center justify-center w-20 md:w-70"
+            className="relative flex items-center justify-center w-22 md:w-70"
           >
             <Button
               size="icon"
@@ -111,6 +111,7 @@ export const NavBottom = () => {
     </nav>
   );
 };
+
 
 
 
