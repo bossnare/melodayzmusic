@@ -36,7 +36,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
           pathname === href
             ? 'font-medium text-accent-foreground'
             : 'font-normal text-muted-foreground hover:text-foreground'
-        } select-none flex flex-col items-center justify-center gap-1 md:gap-2 md:flex-row`}
+        } select-none flex flex-col px-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
         <span className={`${pathname === href ? '*:fill-accent-foreground' : ''}`}>
           {isLoading ? <LoaderCircle className="animate-spin" /> : icon}
@@ -111,6 +111,7 @@ export const NavBottom = () => {
     </nav>
   );
 };
+
 
 
 
