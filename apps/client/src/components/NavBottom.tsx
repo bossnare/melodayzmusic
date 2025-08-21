@@ -1,11 +1,10 @@
 'use client';
 
-import { Heart, Infinity, ListMusic, Plus, User } from 'lucide-react';
+import { Heart, Infinity, LoaderCircle, ListMusic, Plus, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
-import { Loader } from './motions/Loader';
 
 interface Tab {
   href: string;
@@ -39,13 +38,12 @@ const NavTab = ({ href, icon, label }: Tab) => {
         } select-none flex flex-col items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
         <span className={`${pathname === href ? '*:fill-[#8A2BE2]' : ''}`}>
-          {isLoading ? <Loader /> : icon}
+          {isLoading ? <LoaderCircle className="animate-spin" /> : icon}
         </span>
         <span>{label}</span>
       </Link>
 
       {/* Overlay */}
-      {isLoading}
     </>
   );
 };
@@ -112,3 +110,4 @@ export const NavBottom = () => {
     </nav>
   );
 };
+
