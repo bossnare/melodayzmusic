@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gray-950">
       <Image
-        className="dark:invert size-30 sm:size-32"
+        className="dark:invert size-25 sm:size-30"
         src="/icons/icon_512x512.png"
         alt="skeleton_temp_icon"
         loading="lazy"
@@ -26,4 +26,5 @@ export default function Page() {
     </div>
   );
 }
+
 
