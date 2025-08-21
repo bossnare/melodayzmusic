@@ -8,7 +8,7 @@ import { useState } from 'react';
 export const NavBar = () => {
   const [isNull, setIsNull] = useState(true);
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     console.log(value);
     if (value === '') {

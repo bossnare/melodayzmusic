@@ -148,4 +148,8 @@
   .text-gradient {
     @apply bg-gradient-to-r text-transparent bg-clip-text from-[#8a2be2] to-[#00D4FF];
   }
+
+  .active-tab {
+    @apply text-[#8A2BE2];
+  }
 }
