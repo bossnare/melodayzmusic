@@ -70,9 +70,9 @@ export const NavBottom = () => {
                 <span
                   className={`${
                     pathname === tab.href
-                      ? 'bg-gray-950/90 px-5 md:px-0 md:p-8 rounded-full'
+                      ? 'bg-gray-950/90 p-2 md:p-8 rounded-full'
                       : ''
-                  } py-1 md:py-0 shrink-0 transition-all duration-100 ease-in`}
+                  } py-2 md:py-0 shrink-0 transition-all duration-100 ease-in`}
                 >
                   {tab.icon}
                 </span>{' '}
