@@ -1,6 +1,6 @@
 'use client';
 
-import { ListMusic, Infinity, HeartPlus, Plus, User } from 'lucide-react';
+import { ListMusic, Infinity, Heart, Plus, User } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { usePathname } from 'next/navigation';
@@ -14,12 +14,12 @@ export const NavBottom = () => {
       id: 4,
       label: 'Favoris',
       href: '/dashboard/favoris',
-      icon: <HeartPlus />,
+      icon: <Heart />,
     },
     { id: 3, label: 'button' },
     {
       id: 2,
-      label: 'Vibe',
+      label: 'MyVibe',
       href: '/dashboard/myvibe',
       icon: <ListMusic />,
     },
@@ -63,16 +63,16 @@ export const NavBottom = () => {
                 href={tab.href as string}
                 className={`${
                   pathname === tab.href
-                    ? 'font-bold active-tab text-[#8A2BE2]'
+                    ? 'font-extrabold active-tab text-[#8A2BE2]'
                     : 'font-semibold hover:text-muted-foreground'
                 } select-none flex flex-col items-center justify-center gap-1 md:gap-2 md:flex-row`}
               >
                 <span
                   className={`${
                     pathname === tab.href
-                      ? 'bg-gray-950/90 p-2 md:p-8 rounded-full'
+                      ? 'bg-gray-950/90 p-2 md:p-0 rounded-full *:fill-[#8A2BE2]'
                       : ''
-                  } py-2 md:py-0 shrink-0 transition-all duration-100 ease-in`}
+                  } py-2 md:py-0 shrink-0`}
                 >
                   {tab.icon}
                 </span>{' '}
@@ -85,6 +85,3 @@ export const NavBottom = () => {
     </nav>
   );
 };
-
-
-
