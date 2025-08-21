@@ -1,6 +1,6 @@
 'use client';
 
-import { Heart, Infinity, LoaderCircle, ListMusic, Plus, User } from 'lucide-react';
+import { Heart, Home, LoaderCircle, ListMusic, Plus, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -51,7 +51,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
 
 export const NavBottom = () => {
   const navs = [
-    { id: 1, label: 'Flow', href: '/dashboard', icon: <Infinity /> },
+    { id: 1, label: 'Flow', href: '/dashboard', icon: <Home /> },
     {
       id: 4,
       label: 'Favoris',
@@ -111,5 +111,6 @@ export const NavBottom = () => {
     </nav>
   );
 };
+
 
 
