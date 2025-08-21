@@ -32,19 +32,19 @@ export const NavBottom = () => {
   ];
 
   return (
-    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-1 sm:px-2 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-18 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-7 md:gap-8 md:py-5">
+    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-2 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-15 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-7 sm:gap-8 md:py-5">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {nav.map((tab) =>
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="relative flex items-center justify-center px-4 w-30 md:w-70"
+            className="relative flex items-center justify-center w-22 md:w-70"
           >
             <Button
-              size="lg"
+              size="icon"
               className={
-                'cta absolute text-accent-foreground rounded-full shadow-sm select-none dark:text-accent-foreground drop-shadow-md text-center font-medium w-25 flex justify-center items-center gap-1 text-base md:gap-2 md:w-1/2'
+                'cta absolute text-accent-foreground rounded-full shadow-sm select-none dark:text-accent-foreground font-medium w-full flex justify-center items-center gap-1 text-sm md:text-base md:gap-2 md:w-7/8'
               }
             >
               <>
@@ -55,7 +55,7 @@ export const NavBottom = () => {
           </div>
         ) : (
           <div
-            className="flex items-center justify-center py-1 text-xs md:text-base w-22 md:w-40 min-h-14 max-h-14"
+            className="flex items-center justify-center py-1 text-xs md:text-base md:w-40 min-h-14 max-h-14"
             key={tab.id}
           >
             <>
@@ -64,15 +64,15 @@ export const NavBottom = () => {
                 className={`${
                   pathname === tab.href
                     ? 'font-extrabold active-tab text-[#8A2BE2]'
-                    : 'font-semibold hover:text-muted-foreground'
+                    : 'font-semibold text-muted-foreground hover:text-foreground'
                 } select-none flex flex-col items-center justify-center gap-1 md:gap-2 md:flex-row`}
               >
                 <span
                   className={`${
                     pathname === tab.href
-                      ? 'bg-gray-950/90 p-2 md:p-0 rounded-full *:fill-[#8A2BE2]'
+                      ? 'bg-gray-950/90 rounded-full *:fill-[#8A2BE2]'
                       : ''
-                  } py-2 md:py-0 shrink-0`}
+                  }`}
                 >
                   {tab.icon}
                 </span>{' '}
