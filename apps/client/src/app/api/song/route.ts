@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server';
 const mockSongs = [
   {
     id: 'un1',
-    title: 'I saw the TV glow',
-    artist: 'kingpin',
+    title: 'Treasure',
+    artist: 'Vasa',
     duration: 210,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
@@ -12,6 +12,7 @@ const mockSongs = [
     songCover: {
       coverUrl: '/img/p5.jpg',
     },
+    audioUrl: '/audio/vasa_treasure_mp3_26698.mp3',
     defaultCover: 'null',
     userOwner: {
       username: 'Yblack J.',
@@ -23,8 +24,8 @@ const mockSongs = [
   },
   {
     id: 'three3',
-    title: 'Hope',
-    artist: 'XXXTentacion',
+    title: 'Arms around you',
+    artist: 'XXXTentacion, swae lee',
     duration: 210,
     description:
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
@@ -32,6 +33,8 @@ const mockSongs = [
     songCover: {
       coverUrl: '/img/p7.jpg',
     },
+    audioUrl:
+      '/audio/xxxtentacion_lil_pump_arms_around_you_lyrics_ft._maluma_swae_lee_mp3_52702.mp3',
     defaultCover: 'null',
     userOwner: {
       username: 'XxxTentacion',
@@ -52,6 +55,7 @@ const mockSongs = [
     songCover: {
       coverUrl: '/img/p8.png',
     },
+    audioUrl: '/audio/bnxn_phenomena_official_video_mp3_37814.mp3',
     defaultCover: 'null',
     userOwner: {
       username: 'Chris G',
@@ -72,6 +76,7 @@ const mockSongs = [
     songCover: {
       coverUrl: '/img/p4.webp',
     },
+    audioUrl: '/audio/zombie_mp3_73210.mp3',
     defaultCover: '/img/p2.jpeg',
     userOwner: {
       username: 'Travis Scott',
@@ -92,6 +97,8 @@ const mockSongs = [
     songCover: {
       coverUrl: '/img/p6.jpg',
     },
+    audioUrl:
+      '/audio/powfu_death_bed_feat._beabadoobee_prod._otterpop_lyrics_lyric_video_mp3_40760.mp3',
     defaultCover: 'null',
     userOwner: {
       username: 'Yblack J.',
@@ -112,6 +119,7 @@ const mockSongs = [
     songCover: {
       coverUrl: '/img/p9.jpg',
     },
+    audioUrl: '/audio/lil_durk_all_my_life_ft._j._cole_mp3_38751.mp3',
     defaultCover: 'null',
     userOwner: {
       username: 'Yblack J.',
