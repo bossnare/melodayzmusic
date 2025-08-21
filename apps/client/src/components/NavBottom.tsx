@@ -32,7 +32,7 @@ export const NavBottom = () => {
   ];
 
   return (
-    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-1 sm:px-2 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-18 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-8 md:gap-8 md:py-5">
+    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-1 sm:px-2 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-18 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-7 md:gap-8 md:py-5">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {nav.map((tab) =>
