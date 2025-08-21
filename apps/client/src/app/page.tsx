@@ -1,11 +1,12 @@
 'use client';
+
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-dvh">
+    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gray-950">
       <Image
         className="dark:invert size-30 sm:size-32"
         src="/icons/icon_512x512.png"
@@ -20,8 +21,9 @@ export default function Page() {
         understanding as we work to improve your experience!
       </p>
       <Button>
-        <Link href="/dashboard">Go to your Dashboard</Link>
+        <Link href="/dashboard">Let's go</Link>
       </Button>
     </div>
   );
 }
+
