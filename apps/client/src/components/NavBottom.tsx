@@ -42,7 +42,7 @@ export const NavBottom = () => {
             <Button
               size="lg"
               className={
-                'cta absolute text-accent-foreground rounded-full shadow-sm select-none dark:text-accent-foreground drop-shadow-md text-center font-medium w-26 flex justify-center items-center gap-1 text-base md:gap-2 md:w-1/2'
+                'cta absolute text-accent-foreground rounded-full shadow-sm select-none dark:text-accent-foreground drop-shadow-md text-center font-medium w-25 flex justify-center items-center gap-1 text-base md:gap-2 md:w-1/2'
               }
             >
               <>
@@ -70,6 +70,7 @@ export const NavBottom = () => {
     </nav>
   );
 };
+
 
 
 
