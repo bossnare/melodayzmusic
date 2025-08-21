@@ -1,14 +1,57 @@
 'use client';
 
-import { ListMusic, Infinity, Heart, Plus, User } from 'lucide-react';
+import { Heart, Infinity, ListMusic, Plus, User } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
-import { usePathname } from 'next/navigation';
+import { Loader } from './motions/Loader';
+
+interface Tab {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+}
+
+const NavTab = ({ href, icon, label }: Tab) => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    router.push(href);
+  };
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [pathname]);
+
+  return (
+    <>
+      <Link
+        onClick={handleClick}
+        href={href}
+        className={`${
+          pathname === href
+            ? 'font-extrabold active-tab text-[#8A2BE2]'
+            : 'font-semibold text-muted-foreground hover:text-foreground'
+        } select-none flex flex-col items-center justify-center gap-1 md:gap-2 md:flex-row`}
+      >
+        <span className={`${pathname === href ? '*:fill-[#8A2BE2]' : ''}`}>
+          {isLoading ? <Loader /> : icon}
+        </span>
+        <span>{label}</span>
+      </Link>
+
+      {/* Overlay */}
+      {isLoading}
+    </>
+  );
+};
 
 export const NavBottom = () => {
-  const pathname = usePathname();
-
-  const nav = [
+  const navs = [
     { id: 1, label: 'Flow', href: '/dashboard', icon: <Infinity /> },
     {
       id: 4,
@@ -35,7 +78,7 @@ export const NavBottom = () => {
     <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-2 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-15 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-7 sm:gap-8 md:py-5">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
-      {nav.map((tab) =>
+      {navs.map((tab) =>
         tab.label === 'button' ? (
           <div
             key={tab.id}
@@ -44,7 +87,7 @@ export const NavBottom = () => {
             <Button
               size="icon"
               className={
-                'cta absolute text-accent-foreground rounded-full shadow-sm select-none dark:text-accent-foreground font-medium w-full flex justify-center items-center gap-1 text-sm md:text-base md:gap-2 md:w-7/8'
+                'cta absolute text-accent-foreground rounded-full shadow-sm select-none dark:text-accent-foreground font-medium w-full flex justify-center items-center gap-1 text-sm md:text-base md:gap-2 md:w-1/2'
               }
             >
               <>
@@ -55,30 +98,14 @@ export const NavBottom = () => {
           </div>
         ) : (
           <div
-            className="flex items-center justify-center py-1 text-xs md:text-base md:w-40 min-h-14 max-h-14"
+            className="flex items-center justify-center py-1 text-xs md:text-base md:w-40"
             key={tab.id}
           >
-            <>
-              <Link
-                href={tab.href as string}
-                className={`${
-                  pathname === tab.href
-                    ? 'font-extrabold active-tab text-[#8A2BE2]'
-                    : 'font-semibold text-muted-foreground hover:text-foreground'
-                } select-none flex flex-col items-center justify-center gap-1 md:gap-2 md:flex-row`}
-              >
-                <span
-                  className={`${
-                    pathname === tab.href
-                      ? 'bg-gray-950/90 rounded-full *:fill-[#8A2BE2]'
-                      : ''
-                  }`}
-                >
-                  {tab.icon}
-                </span>{' '}
-                <span>{tab.label}</span>
-              </Link>
-            </>
+            <NavTab
+              href={tab.href as string}
+              icon={tab.icon}
+              label={tab.label}
+            />
           </div>
         )
       )}
