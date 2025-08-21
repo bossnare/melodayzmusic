@@ -32,14 +32,14 @@ export const NavBottom = () => {
   ];
 
   return (
-    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-2 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-18 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-3 md:gap-8 md:py-5">
+    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-2 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-18 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-6 md:gap-8 md:py-5">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {nav.map((tab) =>
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="relative flex items-center justify-center px-4 w-50 md:w-70"
+            className="relative flex items-center justify-center px-4 w-40 md:w-70"
           >
             <Button
               size="lg"
@@ -85,3 +85,4 @@ export const NavBottom = () => {
     </nav>
   );
 };
+
