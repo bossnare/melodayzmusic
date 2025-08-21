@@ -18,6 +18,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = () => {
+    if (pathname === href) return;
     setIsLoading(true);
     router.push(href);
   };
@@ -33,11 +34,11 @@ const NavTab = ({ href, icon, label }: Tab) => {
         href={href}
         className={`${
           pathname === href
-            ? 'font-extrabold active-tab text-[#8A2BE2]'
-            : 'font-semibold text-muted-foreground hover:text-foreground'
+            ? 'font-medium text-accent-foreground'
+            : 'font-normal text-muted-foreground hover:text-foreground'
         } select-none flex flex-col items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
-        <span className={`${pathname === href ? '*:fill-[#8A2BE2]' : ''}`}>
+        <span className={`${pathname === href ? '*:fill-accent-foreground' : ''}`}>
           {isLoading ? <LoaderCircle className="animate-spin" /> : icon}
         </span>
         <span>{label}</span>
@@ -110,4 +111,5 @@ export const NavBottom = () => {
     </nav>
   );
 };
+
 
