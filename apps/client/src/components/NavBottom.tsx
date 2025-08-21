@@ -36,7 +36,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
           pathname === href
             ? 'font-medium text-accent-foreground'
             : 'font-normal text-muted-foreground hover:text-foreground'
-        } select-none flex flex-col px-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
+        } select-none flex flex-col px-1 items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
         <span className={`${pathname === href ? '*:fill-accent-foreground' : ''}`}>
           {isLoading ? <LoaderCircle className="animate-spin" /> : icon}
@@ -74,14 +74,14 @@ export const NavBottom = () => {
   ];
 
   return (
-    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-1 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-15 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-8 sm:gap-8 md:py-5">
+    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full px-1 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-15 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-6 sm:gap-8 md:py-5">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {navs.map((tab) =>
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="relative flex items-center justify-center w-22 md:w-70"
+            className="relative flex items-center justify-center w-20 md:w-70"
           >
             <Button
               size="icon"
@@ -111,6 +111,7 @@ export const NavBottom = () => {
     </nav>
   );
 };
+
 
 
 
