@@ -40,9 +40,9 @@ export const SongCard = ({ song }: SongProps) => {
             width={1200}
             height={1200}
           />
-          <div className="absolute right-2 bottom-2">
+          <div className="absolute flex justify-end bottom-2 right-2">
             <MotionButton
-              className="bg-black/20 backdrop-blur-sm"
+              className="bg-black/20 shrink-0 backdrop-blur-sm"
               onClick={() => setIsPlaying(!isPlaying)}
             >
               {isPlaying ? (

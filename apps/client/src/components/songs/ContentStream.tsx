@@ -57,8 +57,8 @@ export const ContentStream = () => {
   }
 
   return (
-    <section className="pt-5 sm:pt-8 pb-30">
-      <h2 className="flex !items-center gap-2 sm:px-1 mb-4 font-bold text-xl md:text-3xl">
+    <section className="pt-10 pb-60 md:pb-50">
+      <h2 className="flex items-center gap-2 mb-4 text-2xl font-bold sm:px-1 md:text-3xl">
         <span>Top Artists</span> <Star className="fill-accent-foreground" />
       </h2>
       <div
