@@ -23,7 +23,7 @@ export const Aside = () => {
             width={100}
             height={100}
           />
-          <h2 className="text-2xl font-extrabold select-none text-gradient">
+          <h2 className="text-xl font-extrabold select-none text-gradient">
             MelodayzMusic
           </h2>
         </figure>

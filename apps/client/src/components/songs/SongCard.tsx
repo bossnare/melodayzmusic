@@ -72,7 +72,7 @@ export const SongCard = ({ song }: SongProps) => {
         <CardTitle className="text-lg w-full capitalize truncate line-clamp-1 sm:text-base">
           {song.title}
         </CardTitle>
-        <CardDescription className="flex flex-col gap-1 sm:gap-0 sm:flex-row sm:items-center justify-between w-full">
+        <CardDescription className="flex flex-col gap-2 sm:gap-0 sm:flex-row sm:items-center justify-between w-full">
           <span
             className="font-medium capitalize min-w-auto sm:max-w-[60%] 
           truncate transition-colors duration-100 ease-in cursor-pointer select-none hover:text-accent-foreground text-base sm:text-sm line-clamp-1"

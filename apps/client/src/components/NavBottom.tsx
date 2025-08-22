@@ -36,7 +36,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
           pathname === href
             ? 'font-medium text-accent-foreground'
             : 'font-normal text-muted-foreground hover:text-foreground'
-        } select-none transition-transform duration-200 ease-in-out flex flex-col px-1 items-center justify-center gap-1 md:gap-2 md:flex-row`}
+        } select-none transition-transform duration-200 ease-in-out flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
         <span
           className={`${pathname === href ? '*:fill-accent-foreground' : ''}`}
@@ -76,30 +76,27 @@ export const NavBottom = () => {
   ];
 
   return (
-    <nav className="sticky bottom-0 left-0 flex items-center pb-12 md:pb-auto justify-center w-full px-1 border-t z-6 border-t-gray-200 dark:border-t-gray-800 h-auto sm:h-16 bg-gray-50 dark:bg-gray-950 gap-7 sm:gap-8 md:py-5">
+    <nav className="sticky bottom-0 left-0 flex items-center justify-center w-full h-auto px-2 pb-10 border-t md:pb-auto z-6 border-t-gray-200 dark:border-t-gray-800 sm:h-16 bg-gray-50 dark:bg-gray-950 gap-7 sm:gap-8 md:py-5">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {navs.map((tab) =>
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="relative flex items-center justify-center w-22 md:w-70"
+            className="relative flex flex-col items-center justify-center px-4"
           >
             <Button
               size="icon"
               className={
-                'cta absolute text-accent-foreground rounded-full shadow-sm select-none dark:text-accent-foreground font-medium w-full flex justify-center items-center gap-1 text-sm md:text-base md:gap-2 md:w-1/2'
+                '!text-muted-foreground absolute hover:text-accent p-4 hover:bg-gray-900 bg-gray-900 rounded-full shadow-sm select-none dark:text-accent-foreground font-medium flex justify-center items-center gap-1 text-sm md:text-base md:gap-2'
               }
             >
-              <>
-                <Plus strokeWidth={2.6} className="size-6" />
-                <span>Créer</span>
-              </>
+              <Plus strokeWidth={2} className="size-7" />
             </Button>
           </div>
         ) : (
           <div
-            className="flex items-center justify-center py-1 text-xs md:text-base md:w-40"
+            className="flex items-center justify-center text-xs md:text-base grow"
             key={tab.id}
           >
             <NavTab
