@@ -16,9 +16,4 @@
   html {
     @apply scroll-smooth;
   }
-
-  #main-content {
-    scroll-snap-type: mandatory;
-    overscroll-behavior: contain;
-  }
 }

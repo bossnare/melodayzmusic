@@ -23,7 +23,7 @@ export default function DashboardLayout({
       <motion.div
         style={{ y: smoothY }}
         id="main-content"
-        className="flex-1 overflow-y-auto transition-all duration-200 ease-in-out will-will-change-transform dark:bg-gray-950 h-dvh xl:ml-64"
+        className="flex-1 overflow-y-auto scroll-snap-y scroll-snap-mandatory transition-all duration-200 ease-in-out will-will-change-transform dark:bg-gray-950 h-dvh xl:ml-64"
       >
         <Header />
         {/* Main content */}
