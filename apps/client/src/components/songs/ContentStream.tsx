@@ -10,7 +10,7 @@ import { Star } from 'lucide-react';
 
 export const ContentStream = () => {
   const fetchContentStream = async () => {
-    const response = await api.get('/song', { timeout: 5000 });
+    const response = await api.get('/song', { timeout: 10000 });
     console.log(response.data);
     const data = response.data;
     return data;
