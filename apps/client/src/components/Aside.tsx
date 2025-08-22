@@ -11,7 +11,7 @@ export const Aside = () => {
   return (
     <aside
       id="side-bar"
-      className="fixed top-0 left-0 z-10 overflow-y-auto -translate-x-full bg-white md:sticky md:translate-x-0 dark:bg-gray-950/98 h-dvh w-8/9 md:w-64 xl:flex-none"
+      className="fixed top-0 left-0 flex-none overflow-y-auto -translate-x-full bg-white z-6 xl:translate-x-0 dark:bg-gray-950/98 h-dvh"
     >
       <div className="hidden px-2 pt-4 pb-2 lg:block">
         <figure className="flex items-center gap-2">

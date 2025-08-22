@@ -10,11 +10,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="relative flex w-full">
+    <div className="flex justify-center">
       <Aside />
-      <div className="w-full transition-all duration-200 md:grow">
+      <div className="flex-1 max-w-screen-xl overflow-y-auto transition-all duration-200 ease-in-out transform-none max-h-dvh xl:ml-64">
         <Header />
-        <main className="dark:bg-gray-950 px-4 sm:px-6 *:min-h-dvh">
+        <main className="px-4 dark:bg-gray-950 sm:px-6 *:h-full">
           {children}
         </main>
         <NavBottom />
