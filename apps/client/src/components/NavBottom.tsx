@@ -38,7 +38,9 @@ const NavTab = ({ href, icon, label }: Tab) => {
             : 'font-normal text-muted-foreground hover:text-foreground'
         } select-none transition-transform duration-200 ease-in-out flex flex-col px-1 items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
-        <span className={`${pathname === href ? '*:fill-accent-foreground' : ''}`}>
+        <span
+          className={`${pathname === href ? '*:fill-accent-foreground' : ''}`}
+        >
           {isLoading ? <LoaderCircle className="animate-spin" /> : icon}
         </span>
         <span>{label}</span>
@@ -111,14 +113,3 @@ export const NavBottom = () => {
     </nav>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
