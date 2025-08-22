@@ -35,7 +35,7 @@ export const SongCard = ({ song }: SongProps) => {
           <Image
             src={song.songCover.coverUrl || song.defaultCover}
             alt={song.title}
-            className="object-cover w-full h-full"
+            className="object-cover size-full"
             loading="lazy"
             width={1200}
             height={1200}
