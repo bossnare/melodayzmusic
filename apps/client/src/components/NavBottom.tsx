@@ -4,7 +4,7 @@ import { Heart, Home, LoaderCircle, ListMusic, Plus, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Button } from './ui/button';
+import { MotionButton } from './motions/motionButton';
 
 interface Tab {
   href: string;
@@ -83,16 +83,16 @@ export const NavBottom = () => {
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="relative flex flex-col items-center justify-center px-4"
+            className="flex flex-col items-center justify-center px-4"
           >
-            <Button
+            <MotionButton
               size="icon"
               className={
-                '!text-muted-foreground absolute hover:text-accent p-4 hover:bg-gray-900 bg-gray-900 rounded-full shadow-sm select-none dark:text-accent-foreground font-medium flex justify-center items-center gap-1 text-sm md:text-base md:gap-2'
+                'dark:hover:text-accent-foreground hover:bg-gray-900 bg-gray-900 shadow-sm select-none dark:text-muted-foreground font-medium flex justify-center items-center gap-1 text-sm md:text-base md:gap-2'
               }
             >
               <Plus strokeWidth={2} className="size-7" />
-            </Button>
+            </MotionButton>
           </div>
         ) : (
           <div
