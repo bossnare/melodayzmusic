@@ -3,16 +3,28 @@
 import { Aside } from '@/components/Aside';
 import { Header } from '@/components/Header';
 import { NavBottom } from '@/components/NavBottom';
+import { motion, useScroll, useSpring } from 'motion/react';
 
 export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { scrollY } = useScroll();
+  const smoothY = useSpring(scrollY, {
+    damping: 25,
+    stiffness: 120,
+    mass: 0.5,
+  });
+
   return (
     <div className="flex justify-center">
       <Aside />
-      <div className="flex-1 overflow-y-auto transition-all duration-200 ease-in-out dark:bg-gray-950 h-dvh xl:ml-64">
+      <motion.div
+        style={{ y: smoothY }}
+        id="main-content"
+        className="flex-1 overflow-y-auto transition-all duration-200 ease-in-out will-will-change-transform dark:bg-gray-950 h-dvh xl:ml-64"
+      >
         <Header />
         {/* Main content */}
         <main className="h-full px-4 sm:px-6">{children}</main>
@@ -23,7 +35,7 @@ export default function DashboardLayout({
         >
           <NavBottom />
         </nav>
-      </div>
+      </motion.div>
 
       {/* modal */}
       {/* <Player />
