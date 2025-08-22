@@ -57,7 +57,7 @@ export const ContentStream = () => {
   }
 
   return (
-    <section className="w-full pt-5 sm:pt-8 pb-30 bg-gray-50 dark:bg-gray-950">
+    <section className="pt-5 sm:pt-8 pb-30">
       <h2 className="flex !items-center gap-2 sm:px-1 mb-4 font-bold text-xl md:text-3xl">
         <span>Top Artists</span> <Star className="fill-accent-foreground" />
       </h2>
@@ -71,7 +71,7 @@ export const ContentStream = () => {
         <div></div>
         <div></div>
       </div>
-      <div className="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {songs.map((song) => (
           <SongCard key={song.id} song={song} />
         ))}

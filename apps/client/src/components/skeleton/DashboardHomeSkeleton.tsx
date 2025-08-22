@@ -2,7 +2,7 @@ import { SongCardSkeleton } from './SongCardSkeleton';
 
 export const DashboardHomeSkeleton = () => {
   return (
-    <section className="pt-10 pb-10 md:px-4 *:animate-pulse bg-gray-50 dark:bg-gray-950">
+    <section className="pt-10 pb-10 *:animate-pulse bg-gray-50 dark:bg-gray-950">
       {/* Title */}
       <h1 className="w-40 h-8 pb-2 ml-2 text-lg font-bold bg-gray-300 rounded dark:bg-gray-700 sm:text-2xl md:text-xl lg:text-4xl"></h1>
 
