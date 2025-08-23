@@ -34,8 +34,8 @@ const NavTab = ({ href, icon, label }: Tab) => {
         href={href}
         className={`${
           pathname === href
-            ? 'font-medium text-accent-foreground'
-            : 'font-normal text-muted-foreground hover:text-foreground'
+            ? 'font-medium text-accent-foreground text-sm'
+            : 'font-normal text-muted-foreground hover:text-foreground text-xs'
         } select-none transition-transform duration-200 ease-in-out flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
         <span
@@ -96,7 +96,7 @@ export const NavBottom = () => {
           </div>
         ) : (
           <div
-            className="flex items-center justify-center text-sm md:text-base grow"
+            className="flex items-center justify-center md:text-base grow"
             key={tab.id}
           >
             <NavTab
@@ -110,4 +110,5 @@ export const NavBottom = () => {
     </div>
   );
 };
+
 
