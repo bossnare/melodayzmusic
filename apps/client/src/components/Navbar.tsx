@@ -62,7 +62,7 @@ export const NavBar = () => {
               isNull ? 'scale-0 opacity-0 w-0' : 'scale-100 w-auto opacity-100'
             }  transition-transform duration-150 ease-in-out !hidden lg:!block`}
           >
-            <MotionButton>
+            <MotionButton className="text-muted-foreground">
               <X className="size-auto" />
             </MotionButton>
           </div>
