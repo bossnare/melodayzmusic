@@ -76,7 +76,7 @@ export const NavBottom = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center pb-10 md:py-2 gap-7 sm:gap-8 md:gap-2 lg:hidden">
+    <div className="flex items-center justify-center pb-10 md:py-2 gap-7 sm:gap-8 md:gap-0 lg:hidden">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {navs.map((tab) =>
@@ -96,7 +96,7 @@ export const NavBottom = () => {
           </div>
         ) : (
           <div
-            className="flex items-center justify-center text-xs md:text-base grow"
+            className="flex items-center justify-center text-sm md:text-base grow"
             key={tab.id}
           >
             <NavTab
