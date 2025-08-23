@@ -72,7 +72,7 @@ export const ContentStream = () => {
         <div></div>
       </div>
       <h3 className="mb-4 text-2xl font-poppins font-bold">Tube</h3>
-      <div className="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid grid-cols-2 gap-5 sm:gap-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {songs.map((song) => (
           <SongCard key={song.id} song={song} />
         ))}
