@@ -83,7 +83,7 @@ export const NavBottom = () => {
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="flex flex-col items-center justify-center px-4 max-w-[10%]"
+            className="flex flex-col items-center justify-center px-4 max-w-[12%]"
           >
             <MotionButton
               size="icon"
@@ -110,3 +110,4 @@ export const NavBottom = () => {
     </div>
   );
 };
+
