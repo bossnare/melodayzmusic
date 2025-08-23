@@ -55,7 +55,7 @@ export const NavBar = () => {
             type="text"
             name="querySearch"
             placeholder="Artist, Song, Albums, Flow..."
-            className="!hidden w-full px-2 bg-transparent border-0 outline-0 lg:!block"
+            className="!hidden w-full px-2 bg-transparent placeholder:text-sm border-0 outline-0 lg:!block"
           />
           <div
             className={`${
@@ -67,8 +67,8 @@ export const NavBar = () => {
             </MotionButton>
           </div>
           <div role="search-button" className="lg:mr-1">
-            <MotionButton>
-              <Search className="stroke-accent-foreground size-auto" />
+            <MotionButton className="text-muted-foreground">
+              <Search className="size-auto" />
             </MotionButton>
           </div>
         </div>
