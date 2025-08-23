@@ -6,7 +6,6 @@ import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import '../styles/globals.css';
 import './custom.css';
 import { ThemeProvider } from 'next-themes';
-import Head from 'next/head';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -47,10 +46,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-            <Head>
-              <meta name='viewport' content='viewport-fit=cover' />
-            </Head>
-
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
