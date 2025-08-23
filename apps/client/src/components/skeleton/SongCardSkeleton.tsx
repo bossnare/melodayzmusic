@@ -3,7 +3,7 @@ import { Skeleton } from '../ui/skeleton';
 
 export const SongCardSkeleton = () => {
   return (
-    <div className="flex flex-col space-y-3">
+    <div className="flex flex-col space-y-4">
       <AspectRatio ratio={1}>
         <Skeleton className="size-full dark:bg-gray-700 rounded-xl" />
       </AspectRatio>
