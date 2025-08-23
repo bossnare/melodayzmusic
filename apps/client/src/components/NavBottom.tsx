@@ -76,7 +76,7 @@ export const NavBottom = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center pb-10 md:pb-auto gap-7 sm:gap-8 md:hidden">
+    <div className="flex items-center justify-center pb-10 md:py-2 gap-7 sm:gap-8 lg:hidden">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {navs.map((tab) =>
