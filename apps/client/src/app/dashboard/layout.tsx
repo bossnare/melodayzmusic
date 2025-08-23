@@ -32,7 +32,7 @@ export default function DashboardLayout({
       {/* NavBottom -- Player and Navigation on mobile */}
       <nav
         className="fixed inset-x-0 bottom-0 h-auto px-2 border-t 
-        z-8 border-t-gray-200 dark:border-t-gray-800 md:h-20 bg-gray-50 dark:bg-gray-950"
+        z-8 border-t-gray-200 dark:border-t-gray-800 lg:h-20 bg-gray-50 dark:bg-gray-950"
       >
         <NavBottom />
       </nav>
