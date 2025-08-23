@@ -34,8 +34,8 @@ const NavTab = ({ href, icon, label }: Tab) => {
         href={href}
         className={`${
           pathname === href
-            ? 'font-medium text-accent-foreground text-sm'
-            : 'font-normal text-muted-foreground hover:text-foreground text-xs'
+            ? 'font-medium text-accent-foreground'
+            : 'font-normal text-muted-foreground hover:text-foreground'
         } select-none transition-transform duration-200 ease-in-out flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
         <span
@@ -76,14 +76,14 @@ export const NavBottom = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center pb-10 md:py-2 gap-7 sm:gap-8 md:gap-0 lg:hidden">
+    <div className="flex items-center justify-center pb-8 md:py-2 gap-6 sm:gap-8 md:gap-0 lg:hidden">
       {/* mampiasa end, inona? raha samy misy dashboard ilay href dia ilay active foana active fa tsy miaraka index */}
 
       {navs.map((tab) =>
         tab.label === 'button' ? (
           <div
             key={tab.id}
-            className="flex flex-col items-center justify-center px-4 max-w-[12%]"
+            className="flex flex-col items-center justify-center px-4 max-w-[10%]"
           >
             <MotionButton
               size="icon"
@@ -96,7 +96,7 @@ export const NavBottom = () => {
           </div>
         ) : (
           <div
-            className="flex items-center justify-center md:text-base grow"
+            className="flex items-center justify-center text-sm md:text-base grow"
             key={tab.id}
           >
             <NavTab
@@ -110,5 +110,6 @@ export const NavBottom = () => {
     </div>
   );
 };
+
 
 
