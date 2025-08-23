@@ -4,6 +4,7 @@ import { PauseCircle, PlayCircle, SkipBack, SkipForward } from 'lucide-react';
 import { MotionButton } from './motions/motionButton';
 import { useState } from 'react';
 import Image from 'next/image';
+import { Slider } from './ui/slider';
 
 const Player = () => {
   const [isGo, setIsGo] = useState(false);
@@ -23,23 +24,27 @@ const Player = () => {
         </div>
       </div>
       {/* for minimal info and controls */}
-      <div className="flex items-center justify-center h-full space-x-4 grow">
-        <MotionButton className="text-muted-foreground">
-          <SkipBack className="size-auto" />
-        </MotionButton>
-        <MotionButton
-          className="text-muted-foreground"
-          onClick={() => setIsGo(!isGo)}
-        >
-          {isGo ? (
-            <PauseCircle className="size-12" />
-          ) : (
-            <PlayCircle className="size-12" />
-          )}
-        </MotionButton>
-        <MotionButton className="text-muted-foreground">
-          <SkipForward className="size-auto" />
-        </MotionButton>
+      <div className="flex items-center justify-center flex-col flex-wrap h-full space-y-3 grow">
+        {/* forward and back, pause/play controls */}
+        <div className="space-x-4 w-full flex items-center justify-center">
+          <MotionButton className="text-muted">
+            <SkipBack className="size-auto" />
+          </MotionButton>
+          <MotionButton className="text-muted" onClick={() => setIsGo(!isGo)}>
+            {isGo ? (
+              <PauseCircle className="size-11" />
+            ) : (
+              <PlayCircle className="size-11" />
+            )}
+          </MotionButton>
+          <MotionButton className="text-muted">
+            <SkipForward className="size-auto" />
+          </MotionButton>
+        </div>
+        {/* Slider control */}
+        <div className="w-[30%] pb-3">
+          <Slider />
+        </div>
       </div>
     </div>
   );

@@ -2,14 +2,20 @@ import ReactQueryProvider from '@/libs/react-query/ReactQueryProvider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Inter } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
+import { Geist, Geist_Mono, Inter, Poppins } from 'next/font/google';
 import '../styles/globals.css';
 import './custom.css';
-import { ThemeProvider } from 'next-themes';
 
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
+});
+
+const poppins = Poppins({
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '900'],
 });
 
 const geistSans = Geist({
@@ -47,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <ReactQueryProvider>{children}</ReactQueryProvider>

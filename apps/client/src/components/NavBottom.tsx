@@ -53,7 +53,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
 
 export const NavBottom = () => {
   const navs = [
-    { id: 1, label: 'Flow', href: '/dashboard', icon: <Home /> },
+    { id: 1, label: 'Accueil', href: '/dashboard', icon: <Home /> },
     {
       id: 4,
       label: 'Favoris',
