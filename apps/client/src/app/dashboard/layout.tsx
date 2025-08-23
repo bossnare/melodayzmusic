@@ -27,13 +27,10 @@ export default function DashboardLayout({
       >
         <Header />
         {/* Main content */}
-        <main className="px-4 sm:px-6 h-auto">{children}</main>
+        <main className="h-auto px-4 sm:px-6">{children}</main>
       </motion.div>
       {/* NavBottom -- Player and Navigation on mobile */}
-      <nav
-        className="fixed inset-x-0 bottom-0 h-auto px-2 border-t 
-        z-8 border-t-gray-200 dark:border-t-gray-800 lg:h-20 bg-gray-50 dark:bg-gray-950"
-      >
+      <nav className="fixed inset-x-0 bottom-0 h-auto px-2 border-t z-8 border-t-gray-200 dark:border-t-gray-800 lg:h-20 bg-gray-50 dark:bg-gray-950">
         <NavBottom />
       </nav>
 
