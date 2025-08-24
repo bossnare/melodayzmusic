@@ -1,11 +1,12 @@
 'use client';
 
 import api from '@/libs/api';
+import { SongInterface as Song } from '@/types/songs/song.interface';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
 import { SongCard } from './SongCard';
-import { SongInterface as Song } from '@/types/songs/song.interface';
+import ChevronControl from './ChevronControl';
 
 export const ContentStream = () => {
   const fetchContentStream = async () => {
@@ -73,21 +74,27 @@ export const ContentStream = () => {
         </div>
       </section>
       {/* Vibes card */}
-      <section className="relative overflow-x-auto scrollbar-none">
-        <h3 className="sticky left-0 text-section">Fresh Vibes</h3>
-        <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
-          {songs.map((song) => (
-            <SongCard key={song.id} song={song} />
-          ))}
+      <section className="relative">
+        <ChevronControl />
+        <h3 className="text-section">Fresh Vibes</h3>
+        <div className="overflow-y-hidden overflow-x-auto scrollbar-none">
+          <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
+            {songs.map((song) => (
+              <SongCard key={song.id} song={song} />
+            ))}
+          </div>
         </div>
       </section>
       {/* Albums card */}
-      <section className="relative overflow-x-auto scrollbar-none">
-        <h3 className="sticky left-0 text-section">Albums</h3>
-        <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/3)] lg:auto-cols-[calc(100vw/6)] gap-5 sm:gap-6">
-          {songs.reverse().map((song) => (
-            <SongCard key={song.id} song={song} />
-          ))}
+      <section className="relative">
+        <ChevronControl />
+        <h3 className="text-section">Albums</h3>
+        <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
+          <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
+            {songs.reverse().map((song) => (
+              <SongCard key={song.id} song={song} />
+            ))}
+          </div>
         </div>
       </section>
     </div>

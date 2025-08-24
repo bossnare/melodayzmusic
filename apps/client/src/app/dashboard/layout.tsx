@@ -20,12 +20,12 @@ export default function DashboardLayout({
   });
 
   return (
-    <div className="flex ">
+    <div className="flex justify-center">
       <Aside />
       <motion.div
         style={{ y: smoothY }}
         id="main-content"
-        className="flex-1 overflow-y-auto scrollbar-none [scroll-gutter:stable] [scroll-snap-type:x_mandatory] transition-all duration-200 ease-in-out will-will-change-transform dark:bg-gray-950  h-dvh xl:ml-64"
+        className="flex-1 overflow-y-auto scrollbar-none [scroll-gutter:stable] [scroll-snap-type:x_mandatory] transition-all duration-200 ease-in-out will-change-transform dark:bg-gray-950  h-dvh xl:ml-64"
       >
         <Header />
         <NavMobile />

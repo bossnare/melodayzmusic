@@ -61,7 +61,7 @@ export const SongCard = ({ song }: SongProps) => {
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-full gap-2 sm:gap-0 sm:flex-row sm:items-center">
           <span
-            className="font-medium capitalize min-w-auto sm:max-w-[60%] 
+            className="font-medium capitalize min-w-auto sm:max-w-[70%] 
           truncate transition-colors duration-100 ease-in cursor-pointer select-none hover:text-accent-foreground sm:text-sm line-clamp-1"
           >
             {song.artist}
