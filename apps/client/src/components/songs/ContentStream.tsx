@@ -56,7 +56,7 @@ export const ContentStream = () => {
   }
 
   return (
-    <section className="pt-8 pb-60 md:pb-50">
+    <div className="pt-8 pb-60 md:pb-50">
       <h2 className="flex items-center gap-2 text-section sm:px-1">
         Top Artists
       </h2>
@@ -71,12 +71,23 @@ export const ContentStream = () => {
         <div></div>
       </div>
       <h3 className="text-section">Fresh Vibes</h3>
-      <div className="grid grid-cols-2 gap-5 sm:gap-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {songs.map((song) => (
-          <SongCard key={song.id} song={song} />
-        ))}
-      </div>
-      <h3 className="text-section mt-6">Albums</h3>
-    </section>
+      {/* Vibes card */}
+      <section className="overflow-x-auto scrollbar-none">
+        <div className="grid grid-flow-col auto-cols-[calc(100vw/3)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/6)] gap-5 sm:gap-6">
+          {songs.map((song) => (
+            <SongCard key={song.id} song={song} />
+          ))}
+        </div>
+      </section>
+      {/* Albums card */}
+      <h3 className="mt-10 text-section">Albums</h3>
+      <section className="overflow-x-auto scrollbar-none">
+        <div className="grid grid-flow-col auto-cols-[calc(100vw/3)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/6)] gap-5 sm:gap-6">
+          {songs.reverse().map((song) => (
+            <SongCard key={song.id} song={song} />
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };

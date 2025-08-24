@@ -33,9 +33,9 @@ const NavTab = ({ href, icon, label }: Tab) => {
         href={href}
         className={`${
           pathname === href
-            ? 'font-medium text-accent-foreground'
-            : 'font-normal text-muted-foreground hover:text-foreground'
-        } select-none transition-transform duration-200 ease-in-out flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
+            ? 'font-semibold text-accent-foreground'
+            : 'font-medium text-muted-foreground hover:text-foreground'
+        } select-none transition-all duration-200 ease-in-out flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
         <span
           className={`${pathname === href ? '*:fill-accent-foreground' : ''}`}
@@ -74,10 +74,10 @@ export const NavBottom = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center pb-8 md:py-2 gap-10 sm:gap-8 md:gap-0 lg:hidden">
+    <div className="flex items-center justify-center pb-8 md:py-2 gap-10 sm:gap-8 md:gap-4 lg:hidden">
       {navs.map((tab) => (
         <div
-          className="flex items-center justify-center font-poppins text-sm sm:text-base grow"
+          className="flex items-center justify-center font-poppins text-sm sm:text-base flex-1"
           key={tab.id}
         >
           <NavTab href={tab.href as string} icon={tab.icon} label={tab.label} />

@@ -19,6 +19,7 @@
 
   section {
     scroll-snap-align: start;
+    scroll-behavior: smooth;
   }
 }
 
