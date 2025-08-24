@@ -155,6 +155,6 @@
   }
 
   .text-section {
-    @apply mb-4 text-xl font-bold md:text-3xl font-poppins;
+    @apply mb-4 lg:mb-6 text-xl font-bold md:text-2xl font-poppins;
   }
 }

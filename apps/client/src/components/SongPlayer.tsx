@@ -43,7 +43,7 @@ const Player = () => {
         </div>
         {/* Slider control */}
         <div className="w-[30%] pb-3">
-          <Slider />
+          <Slider /> 
         </div>
       </div>
     </div>

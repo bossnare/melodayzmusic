@@ -2,24 +2,33 @@
 
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-import { Button, type ButtonProps } from '../ui/button';
-import { type ReactNode } from 'react';
+import { Button } from '../ui/button';
+import { type MotionButtonProps } from '@/types/motions/motionButton.interface';
 
-interface MotionButtonProps extends ButtonProps {
-  className?: string;
-  children: ReactNode;
-}
+const MotionButton = ({ children, className, ...props }: MotionButtonProps) => {
+  return (
+    <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.95 }}>
+      <Button
+        variant="ghost"
+        size="icon"
+        className={cn('p-2 shadow-none size-auto rounded-full', className)}
+        {...props}
+      >
+        {children}
+      </Button>
+    </motion.div>
+  );
+};
 
-export const MotionButton = ({
+const MotionButtonLeft = ({
   children,
   className,
   ...props
 }: MotionButtonProps) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.01 }}
-      whileTap={{ scale: 0.95 }}
-      // transition={{ type: 'spring', stiffness: 300 }}
+      whileHover={{ x: 1.01, scale: 1.01 }}
+      whileTap={{ x: 20, scale: 0.95 }}
     >
       <Button
         variant="ghost"
@@ -32,3 +41,5 @@ export const MotionButton = ({
     </motion.div>
   );
 };
+
+export { MotionButton, MotionButtonLeft };
