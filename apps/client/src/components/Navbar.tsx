@@ -38,7 +38,7 @@ export const NavBar = () => {
             width={1000}
             height={1000}
           />
-          <h2 className="text-2xl font-black font-poppins select-none text-gradient">
+          <h2 className="text-2xl font-black select-none font-poppins text-gradient">
             MelodayzMusic
           </h2>
         </figure>

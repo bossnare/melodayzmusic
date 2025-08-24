@@ -56,23 +56,25 @@ export const ContentStream = () => {
   }
 
   return (
-    <div className="pt-8 pb-60 md:pb-50">
-      <h2 className="flex items-center gap-2 text-section sm:px-1">
-        Top Artists
-      </h2>
-      <div
-        className="max-w-full h-20 flex-nowrap overflow-x-hidden
-      mb-10 flex items-center sm:px-1 *:size-16 md:*:size-20
+    <div className="flex flex-col pt-8 space-y-10 lg:space-y-15 pb-60 md:pb-50">
+      <section>
+        <h2 className="flex items-center gap-2 text-section sm:px-1">
+          Top Artists
+        </h2>
+        <div
+          className="max-w-full h-20 flex-nowrap overflow-x-hidden
+         flex items-center sm:px-1 *:size-16 md:*:size-20
       *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-full"
-      >
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <h3 className="text-section">Fresh Vibes</h3>
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </section>
       {/* Vibes card */}
-      <section className="overflow-x-auto scrollbar-none">
+      <section className="relative overflow-x-auto scrollbar-none">
+        <h3 className="sticky left-0 text-section">Fresh Vibes</h3>
         <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
           {songs.map((song) => (
             <SongCard key={song.id} song={song} />
@@ -80,8 +82,8 @@ export const ContentStream = () => {
         </div>
       </section>
       {/* Albums card */}
-      <h3 className="mt-10 text-section">Albums</h3>
-      <section className="overflow-x-auto scrollbar-none">
+      <section className="relative overflow-x-auto scrollbar-none">
+        <h3 className="sticky left-0 text-section">Albums</h3>
         <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/3)] lg:auto-cols-[calc(100vw/6)] gap-5 sm:gap-6">
           {songs.reverse().map((song) => (
             <SongCard key={song.id} song={song} />
