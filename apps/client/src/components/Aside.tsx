@@ -13,7 +13,7 @@ export const Aside = () => {
           <Image
             className="w-8"
             alt="meloicon"
-            src={'/icons/meloicon_x65.svg'}
+            src={'/icons/icon_x32.svg'}
             loading="lazy"
             width={100}
             height={100}
