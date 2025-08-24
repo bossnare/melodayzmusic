@@ -33,7 +33,7 @@ export const NavBar = () => {
           <Image
             className="w-8"
             alt="meloicon"
-            src={'/icons/meloicon_x65.svg'}
+            src={'/icons/icon_x32.svg'}
             loading="lazy"
             width={1000}
             height={1000}

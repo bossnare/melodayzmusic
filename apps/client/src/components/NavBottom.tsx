@@ -77,7 +77,7 @@ export const NavBottom = () => {
     <div className="flex items-center justify-center pb-8 md:py-2 gap-10 sm:gap-8 md:gap-0 lg:hidden">
       {navs.map((tab) => (
         <div
-          className="flex items-center justify-center text-sm sm:text-base grow"
+          className="flex items-center justify-center font-poppins text-sm sm:text-base grow"
           key={tab.id}
         >
           <NavTab href={tab.href as string} icon={tab.icon} label={tab.label} />
