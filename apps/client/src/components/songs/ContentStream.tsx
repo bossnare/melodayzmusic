@@ -73,7 +73,7 @@ export const ContentStream = () => {
       <h3 className="text-section">Fresh Vibes</h3>
       {/* Vibes card */}
       <section className="overflow-x-auto scrollbar-none">
-        <div className="grid grid-flow-col auto-cols-[calc(100vw/3)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/6)] gap-5 sm:gap-6">
+        <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
           {songs.map((song) => (
             <SongCard key={song.id} song={song} />
           ))}
@@ -82,7 +82,7 @@ export const ContentStream = () => {
       {/* Albums card */}
       <h3 className="mt-10 text-section">Albums</h3>
       <section className="overflow-x-auto scrollbar-none">
-        <div className="grid grid-flow-col auto-cols-[calc(100vw/3)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/6)] gap-5 sm:gap-6">
+        <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/3)] lg:auto-cols-[calc(100vw/6)] gap-5 sm:gap-6">
           {songs.reverse().map((song) => (
             <SongCard key={song.id} song={song} />
           ))}
