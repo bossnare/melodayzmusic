@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
 import { SongCard } from './SongCard';
 import { SongInterface as Song } from '@/types/songs/song.interface';
-import { Star } from 'lucide-react';
 
 export const ContentStream = () => {
   const fetchContentStream = async () => {
@@ -58,8 +57,8 @@ export const ContentStream = () => {
 
   return (
     <section className="pt-10 pb-60 md:pb-50">
-      <h2 className="flex items-center gap-2 mb-4 text-2xl font-poppins font-bold sm:px-1 md:text-3xl">
-        <span>Top Artists</span> <Star className="fill-accent-foreground" />
+      <h2 className="flex items-center gap-2 mb-4 text-lg md:text-xl font-poppins font-bold sm:px-1">
+        Top Artists
       </h2>
       <div
         className="max-w-full h-20 flex-nowrap overflow-x-hidden
@@ -71,12 +70,13 @@ export const ContentStream = () => {
         <div></div>
         <div></div>
       </div>
-      <h3 className="mb-4 text-2xl font-poppins font-bold">Tube</h3>
+      <h3 className="text-section">Fresh Vibes</h3>
       <div className="grid grid-cols-2 gap-5 sm:gap-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {songs.map((song) => (
           <SongCard key={song.id} song={song} />
         ))}
       </div>
+      <h3 className="text-section mt-6">Albums</h3>
     </section>
   );
 };

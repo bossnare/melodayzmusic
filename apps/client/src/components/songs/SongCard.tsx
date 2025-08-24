@@ -56,7 +56,7 @@ export const SongCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-full text-lg capitalize truncate line-clamp-1 sm:text-base">
+        <CardTitle className="w-full capitalize truncate line-clamp-1 sm:text-base">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-full gap-2 sm:gap-0 sm:flex-row sm:items-center">
