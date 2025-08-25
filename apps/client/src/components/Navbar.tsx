@@ -3,19 +3,21 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { Search, X } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 export const NavBar = () => {
   const [isNull, setIsNull] = useState(true);
+  const [notHome, setNotHome] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setNotHome(pathname !== '/dashboard');
+  }, [pathname]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    console.log(value);
-    if (value === '') {
-      setIsNull(true);
-    } else {
-      setIsNull(false);
-    }
+    setIsNull(value === '');
   };
 
   return (
@@ -31,14 +33,18 @@ export const NavBar = () => {
       <div className="lg:!hidden">
         <figure className="flex items-center gap-2">
           <Image
-            className="w-8"
+            className={`${notHome && '!w-6'} w-8`}
             alt="meloicon"
             src={'/icons/icon_x32.svg'}
             loading="lazy"
             width={1000}
             height={1000}
           />
-          <h2 className="text-2xl font-black select-none font-poppins text-gradient">
+          <h2
+            className={`${
+              notHome && 'text-xl'
+            } text-2xl font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins text-gradient`}
+          >
             MelodayzMusic
           </h2>
         </figure>

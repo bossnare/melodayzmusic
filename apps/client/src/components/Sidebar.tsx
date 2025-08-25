@@ -9,7 +9,8 @@ export const Sidebar = () => {
       {/* sidebar desktop */}
       <aside
         id="side-bar"
-        className="fixed lg:w-64 top-0 left-0 flex-none overflow-y-auto hidden bg-white z-6 lg:block dark:bg-gray-950/90 md:h-[calc(100dvh-5rem)]"
+        className="fixed lg:w-64 top-0 left-0 flex-none overflow-y-auto hidden bg-white 
+        z-6 lg:block dark:bg-gray-950/90 md:h-[calc(100dvh-5rem)]"
       >
         <div className="hidden px-2 pt-4 pb-2 lg:block">
           <figure className="flex items-center gap-2">
@@ -29,9 +30,9 @@ export const Sidebar = () => {
       </aside>
 
       {/* sidebar mobile  */}
-      <div className="lg:hidden">
-        <SheetContent side="left" className="bg-gray-950">
-          <SheetTitle>Bienvenue</SheetTitle>
+      <div className="block lg:!hidden">
+        <SheetContent side="left" className="bg-gray-950 dark:border-gray-800">
+          <SheetTitle></SheetTitle>
         </SheetContent>
       </div>
     </>

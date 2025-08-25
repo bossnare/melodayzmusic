@@ -1,6 +1,6 @@
 'use client';
 
-import { Heart, Home, LoaderCircle, ListMusic, User } from 'lucide-react';
+import { Heart, Compass, LoaderCircle, ListMusic, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -37,9 +37,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
             : 'font-normal text-muted-foreground hover:text-foreground'
         } select-none flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
       >
-        <span
-          className={`${pathname === href ? '*:fill-accent-foreground' : ''}`}
-        >
+        <span>
           {isLoading ? <LoaderCircle className="animate-spin" /> : icon}
         </span>
         <span>{label}</span>
@@ -52,7 +50,12 @@ const NavTab = ({ href, icon, label }: Tab) => {
 
 export const NavBottom = () => {
   const navs = [
-    { id: 1, label: 'Home', href: '/dashboard', icon: <Home /> },
+    {
+      id: 1,
+      label: 'Explorer',
+      href: '/dashboard',
+      icon: <Compass />,
+    },
     {
       id: 4,
       label: 'Favoris',
@@ -61,7 +64,7 @@ export const NavBottom = () => {
     },
     {
       id: 2,
-      label: 'MyVibe',
+      label: 'MyVibes',
       href: '/dashboard/myvibe',
       icon: <ListMusic />,
     },
