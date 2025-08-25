@@ -3,16 +3,13 @@
 import api from '@/libs/api';
 import { SongInterface as Song } from '@/types/songs/song.interface';
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useRef, useState } from 'react';
 import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
 import { SongCard } from './SongCard';
-import ChevronControl from './ChevronControl';
-import SoftFade from './SoftFade';
+import AlbumStream from './ui/AlbumStream';
+import { useEffect } from 'react';
+import VibeStream from './ui/VibeStream';
 
 export const ContentStream = () => {
-  const [atStart, setAtStart] = useState(false);
-  const [atEnd, setAtEnd] = useState(false);
-
   const fetchContentStream = async () => {
     const response = await api.get('/song', { timeout: 10000 });
     console.log(response.data);
@@ -42,18 +39,6 @@ export const ContentStream = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current!;
-    const handleScroll = () => {
-      setAtStart(el.scrollLeft === 0);
-      setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth);
-    };
-
-    el.addEventListener('scroll', handleScroll);
-    return () => el.removeEventListener('scroll', handleScroll);
   }, []);
 
   const {
@@ -90,38 +75,17 @@ export const ContentStream = () => {
         </div>
       </section>
       {/* Vibes card */}
-      <section>
-        <h3 className="text-section">Fresh Vibes</h3>
-        <div className="relative">
-          <ChevronControl />
-          <div
-            ref={ref}
-            className="overflow-x-auto overflow-y-hidden scrollbar"
-          >
-            <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
-              {songs.map((song) => (
-                <SongCard key={song.id} song={song} />
-              ))}
-            </div>
-          </div>
-          {atStart && <SoftFade />}
-        </div>
-      </section>
+      <VibeStream>
+        {songs.map((song) => (
+          <SongCard key={song.id} song={song} />
+        ))}
+      </VibeStream>
       {/* Albums card */}
-      <section>
-        <h3 className="text-section">Albums</h3>
-        <div className="relative">
-          <ChevronControl />
-          <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
-            <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
-              {songs.reverse().map((song) => (
-                <SongCard key={song.id} song={song} />
-              ))}
-            </div>
-          </div>
-          <SoftFade />
-        </div>
-      </section>
+      <AlbumStream>
+        {songs.reverse().map((song) => (
+          <SongCard key={song.id} song={song} />
+        ))}
+      </AlbumStream>
     </div>
   );
 };
