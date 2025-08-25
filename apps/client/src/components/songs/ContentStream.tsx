@@ -75,29 +75,33 @@ export const ContentStream = () => {
         </div>
       </section>
       {/* Vibes card */}
-      <section className="relative">
-        <ChevronControl />
+      <section>
         <h3 className="text-section">Fresh Vibes</h3>
-        <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
-          <div className="relative grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
-            {songs.map((song) => (
-              <SongCard key={song.id} song={song} />
-            ))}
-            <SoftFade />
+        <div className="relative">
+          <ChevronControl />
+          <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
+            <div className=" grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
+              {songs.map((song) => (
+                <SongCard key={song.id} song={song} />
+              ))}
+            </div>
           </div>
+          <SoftFade />
         </div>
       </section>
       {/* Albums card */}
-      <section className="relative">
-        <ChevronControl />
+      <section>
         <h3 className="text-section">Albums</h3>
-        <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
-          <div className="grid relative grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
-            {songs.reverse().map((song) => (
-              <SongCard key={song.id} song={song} />
-            ))}
-            <SoftFade />
+        <div className="relative">
+          <ChevronControl />
+          <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
+            <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
+              {songs.reverse().map((song) => (
+                <SongCard key={song.id} song={song} />
+              ))}
+            </div>
           </div>
+          <SoftFade />
         </div>
       </section>
     </div>
