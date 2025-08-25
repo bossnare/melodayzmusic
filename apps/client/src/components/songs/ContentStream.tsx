@@ -63,8 +63,8 @@ export const ContentStream = () => {
           Top Artists
         </h2>
         <div
-          className="max-w-full h-20 flex-nowrap overflow-x-hidden
-         flex items-center sm:px-1 *:size-16 md:*:size-20
+          className="max-w-full h-20 flex-nowrap
+         flex items-center sm:px-1 *:size-16 md:*:size-22
       *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-full"
         >
           <div></div>
@@ -77,7 +77,7 @@ export const ContentStream = () => {
       <section className="relative">
         <ChevronControl />
         <h3 className="text-section">Fresh Vibes</h3>
-        <div className="overflow-y-hidden overflow-x-auto scrollbar-none">
+        <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
           <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
             {songs.map((song) => (
               <SongCard key={song.id} song={song} />
