@@ -3,7 +3,7 @@ import { MotionButtonLeft } from './motions/motionButton';
 
 const NavMobile = () => {
   return (
-    <nav className="sticky inset-x-0 px-1 top-0 left-0 py-1 flex md:hidden">
+    <nav className="sticky inset-x-0 top-0 left-0 flex px-1 py-1 sm:px-6 lg:hidden">
       <MotionButtonLeft>
         <AlignLeft className="size-auto" />
       </MotionButtonLeft>
