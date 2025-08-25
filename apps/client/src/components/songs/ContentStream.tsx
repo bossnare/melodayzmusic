@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
 import { SongCard } from './SongCard';
 import ChevronControl from './ChevronControl';
+import SoftFade from './SoftFade';
 
 export const ContentStream = () => {
   const fetchContentStream = async () => {
@@ -78,10 +79,11 @@ export const ContentStream = () => {
         <ChevronControl />
         <h3 className="text-section">Fresh Vibes</h3>
         <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
-          <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
+          <div className="relative grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
             {songs.map((song) => (
               <SongCard key={song.id} song={song} />
             ))}
+            <SoftFade />
           </div>
         </div>
       </section>
@@ -90,10 +92,11 @@ export const ContentStream = () => {
         <ChevronControl />
         <h3 className="text-section">Albums</h3>
         <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
-          <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
+          <div className="grid relative grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
             {songs.reverse().map((song) => (
               <SongCard key={song.id} song={song} />
             ))}
+            <SoftFade />
           </div>
         </div>
       </section>
