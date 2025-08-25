@@ -46,9 +46,9 @@ export const SongCard = ({ song }: SongProps) => {
               onClick={() => setIsPlaying(!isPlaying)}
             >
               {isPlaying ? (
-                <Pause className="size-7 sm:size-5 lg:size-6 fill-accent-foreground" />
+                <Pause className="size-7 sm:size-5 md:size-7 lg:size-6 fill-accent-foreground" />
               ) : (
-                <Play className="size-7 sm:size-5 lg:size-6 fill-accent-foreground" />
+                <Play className="size-7 sm:size-5 md:size-7 lg:size-6 fill-accent-foreground" />
               )}
             </MotionButton>
           </div>

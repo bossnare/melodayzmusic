@@ -6,9 +6,9 @@ import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gray-950">
+    <div className="flex flex-col items-center justify-center gap-4 h-dvh dark:bg-gray-950">
       <Image
-        className="dark:invert size-25 sm:size-30"
+        className="dark:invert size-25 sm:size-28"
         src="/icons/icon_512x512.png"
         alt="skeleton_temp_icon"
         loading="lazy"
