@@ -3,13 +3,16 @@
 import api from '@/libs/api';
 import { SongInterface as Song } from '@/types/songs/song.interface';
 import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
 import { SongCard } from './SongCard';
 import ChevronControl from './ChevronControl';
 import SoftFade from './SoftFade';
 
 export const ContentStream = () => {
+  const [atStart, setAtStart] = useState(false);
+  const [atEnd, setAtEnd] = useState(false);
+
   const fetchContentStream = async () => {
     const response = await api.get('/song', { timeout: 10000 });
     console.log(response.data);
@@ -39,6 +42,18 @@ export const ContentStream = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current!;
+    const handleScroll = () => {
+      setAtStart(el.scrollLeft === 0);
+      setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth);
+    };
+
+    el.addEventListener('scroll', handleScroll);
+    return () => el.removeEventListener('scroll', handleScroll);
   }, []);
 
   const {
@@ -79,14 +94,17 @@ export const ContentStream = () => {
         <h3 className="text-section">Fresh Vibes</h3>
         <div className="relative">
           <ChevronControl />
-          <div className="overflow-x-auto overflow-y-hidden scrollbar-none">
-            <div className=" grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
+          <div
+            ref={ref}
+            className="overflow-x-auto overflow-y-hidden scrollbar"
+          >
+            <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
               {songs.map((song) => (
                 <SongCard key={song.id} song={song} />
               ))}
             </div>
           </div>
-          <SoftFade />
+          {atStart && <SoftFade />}
         </div>
       </section>
       {/* Albums card */}
