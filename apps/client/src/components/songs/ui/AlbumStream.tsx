@@ -1,6 +1,6 @@
-import ChevronControl from '../ChevronControl';
+import ChevronControl from './ChevronControl';
 import { useEffect, useRef, useState } from 'react';
-import SoftFade from '../SoftFade';
+import SoftFade from './SoftFade';
 
 interface AlbumProps {
   children: React.ReactNode;

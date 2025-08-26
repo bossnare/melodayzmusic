@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { MotionButton } from '../motions/motionButton';
+import { MotionButton } from '../../motions/motionButton';
 
 const ChevronControl = () => {
   return (

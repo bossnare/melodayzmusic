@@ -1,13 +1,13 @@
 'use client';
 
-import { Sidebar } from '@/components/Sidebar';
 import { Header } from '@/components/Header';
-import { NavBottom } from '@/components/NavBottom';
-import Player from '@/components/SongPlayer';
-import { motion, useScroll, useSpring } from 'motion/react';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
-import { AlignLeft } from 'lucide-react';
+import { NavBottom } from '@/components/NavBottom';
+import { Sidebar } from '@/components/Sidebar';
+import Player from '@/components/songs/ui/SongPlayer';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
+import { AlignLeft } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'motion/react';
 
 export default function DashboardLayout({
   children,
