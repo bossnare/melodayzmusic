@@ -1,14 +1,13 @@
 'use client';
 
-import { MotionButton } from '@/components/motions/motionButton';
 import { cn } from '@/lib/utils';
-import { Search, X } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import SearchBar from './SeachBar';
 
 export const NavBar = () => {
-  const [isNull, setIsNull] = useState(true);
   const [notHome, setNotHome] = useState(false);
   const pathname = usePathname();
 
@@ -16,13 +15,8 @@ export const NavBar = () => {
     setNotHome(pathname !== '/dashboard');
   }, [pathname]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setIsNull(value === '');
-  };
-
   return (
-    <nav className="flex items-center justify-between justify lg:gap-4">
+    <nav className="flex items-center gap-2 lg:gap-4">
       {/* mampiasa end, inona? raha samy misy dashboard ilay route dia ilay active foana active fa tsy miaraka index */}
       {/* <button
         className={
@@ -31,7 +25,7 @@ export const NavBar = () => {
       >
         <Columns2 size={30} />
       </button> */}
-      <div className="lg:!hidden">
+      <div className="lg:!hidden grow">
         <figure className="flex items-center gap-2">
           <Image
             className={cn(notHome && '!w-6', 'w-8')}
@@ -51,37 +45,13 @@ export const NavBar = () => {
           </h2>
         </figure>
       </div>
-      <div className="w-auto lg:w-[40%] lg:my-2">
-        <div
-          className="
-          flex items-center transition-all lg:h-13 overflow-hidden duration-200 lg:border-2 border-gray-800
-          rounded-sm
-        lg:has-[input:active]:bg-gray-900 lg:has-[input:focus]:ring-ring lg:has-[input:focus]:ring-2 shadow-sm"
-        >
-          <input
-            onChange={handleChange}
-            type="text"
-            name="querySearch"
-            placeholder="Artist, Song, Albums, Flow..."
-            className="!hidden w-full px-2 bg-transparent placeholder:text-sm border-0 outline-0 lg:!block"
-          />
-          <div
-            className={cn(
-              isNull ? 'scale-0 opacity-0 w-0' : 'scale-100 w-auto opacity-100',
-              'transition-transform duration-150 ease-in-out !hidden lg:!block'
-            )}
-          >
-            <MotionButton className="text-muted-foreground">
-              <X className="size-auto" />
-            </MotionButton>
-          </div>
-          <div role="search-button" className="lg:mr-1">
-            <MotionButton className="text-muted-foreground">
-              <Search className="size-auto" />
-            </MotionButton>
-          </div>
-        </div>
-      </div>
+      <SearchBar />
+      <Avatar className="ml-auto">
+        <AvatarImage></AvatarImage>
+        <AvatarFallback>
+          <span className="text-xs">US</span>
+        </AvatarFallback>
+      </Avatar>
     </nav>
   );
 };
