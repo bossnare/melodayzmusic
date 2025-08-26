@@ -6,7 +6,7 @@ const TopArtist = ({ children }: TopArtistProps) => {
       <h2 className="flex items-center gap-2 text-section">Top Artists</h2>
       <div
         className="h-20 flex-nowrap
-             flex items-center *:size-16 md:*:size-22
+             flex items-center *:size-16 md:*:size-18 lg:*:size-22
           *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-full"
       >
         {children}

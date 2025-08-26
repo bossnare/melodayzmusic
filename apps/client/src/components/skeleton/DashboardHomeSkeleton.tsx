@@ -12,7 +12,7 @@ export const DashboardHomeSkeleton = () => {
         {[...Array(4)].map((_, index) => (
           <Skeleton
             key={index}
-            className="rounded-full size-16 md:size-22 dark:bg-gray-700"
+            className="rounded-full size-16 md:size-18 lg:size-22 dark:bg-gray-700"
           />
         ))}
       </div>
