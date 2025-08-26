@@ -1,16 +1,13 @@
 import ChevronControl from './ChevronControl';
 import { useEffect, useRef, useState } from 'react';
 import SoftFade from './SoftFade';
-
-interface AlbumProps {
-  children: React.ReactNode;
-}
+import { type AlbumProps } from '@/types/songs/stream.interface';
 
 const AlbumStream = ({ children }: AlbumProps) => {
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
-
   const albumRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const el = albumRef.current;
     if (!el) return;

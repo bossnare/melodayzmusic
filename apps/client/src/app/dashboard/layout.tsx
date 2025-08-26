@@ -1,9 +1,9 @@
 'use client';
 
-import { Header } from '@/components/Header';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
-import { NavBottom } from '@/components/NavBottom';
-import { Sidebar } from '@/components/Sidebar';
+import { Header } from '@/components/navigation/Header';
+import { NavBottom } from '@/components/navigation/NavBottom';
+import { Sidebar } from '@/components/navigation/Sidebar';
 import Player from '@/components/songs/ui/SongPlayer';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { AlignLeft } from 'lucide-react';
@@ -39,18 +39,14 @@ export default function DashboardLayout({
             </SheetTrigger>
           </nav>
           {/* Main content */}
-          <main className="h-auto px-4 sm:px-6">{children}</main>
+          <main className="h-full px-4 sm:px-6">{children}</main>
         </motion.div>
         {/* SheetContent */}
         <Sidebar />
       </Sheet>
 
       {/* NavBottom -- Player and Navigation on mobile */}
-      <nav
-        className="fixed inset-x-0 bottom-0 h-auto px-2 border-t 
-      border-gray-200 lg:px-4 z-8 dark:border-gray-800 lg:h-25 
-      bg-gray-50 dark:bg-gray-950"
-      >
+      <nav className="fixed inset-x-0 bottom-0 h-auto px-2 border-t border-gray-200 lg:px-4 z-8 dark:border-gray-800 lg:h-25 bg-gray-50 dark:bg-gray-950">
         <NavBottom />
         <Player />
       </nav>

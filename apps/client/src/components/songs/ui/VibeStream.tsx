@@ -1,16 +1,13 @@
 import ChevronControl from './ChevronControl';
 import { useEffect, useRef, useState } from 'react';
 import SoftFade from './SoftFade';
+import { type VibeProps } from '@/types/songs/stream.interface';
 
-interface AlbumProps {
-  children: React.ReactNode;
-}
-
-const VibeStream = ({ children }: AlbumProps) => {
+const VibeStream = ({ children }: VibeProps) => {
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
-
   const vibeRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const el = vibeRef.current;
     if (!el) return;

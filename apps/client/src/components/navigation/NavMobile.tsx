@@ -1,5 +1,5 @@
 import { AlignLeft } from 'lucide-react';
-import { MotionButtonLeft } from './motions/motionButton';
+import { MotionButtonLeft } from '../motions/motionButton';
 
 const NavMobile = () => {
   return (

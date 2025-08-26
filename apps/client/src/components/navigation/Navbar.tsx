@@ -1,6 +1,7 @@
 'use client';
 
 import { MotionButton } from '@/components/motions/motionButton';
+import { cn } from '@/lib/utils';
 import { Search, X } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -33,7 +34,7 @@ export const NavBar = () => {
       <div className="lg:!hidden">
         <figure className="flex items-center gap-2">
           <Image
-            className={`${notHome && '!w-6'} w-8`}
+            className={cn(notHome && '!w-6', 'w-8')}
             alt="meloicon"
             src={'/icons/icon_x32.svg'}
             loading="lazy"
@@ -41,9 +42,10 @@ export const NavBar = () => {
             height={1000}
           />
           <h2
-            className={`${
-              notHome && 'text-xl'
-            } text-2xl font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins text-gradient`}
+            className={cn(
+              notHome && 'text-xl',
+              'text-2xl font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins text-gradient'
+            )}
           >
             MelodayzMusic
           </h2>
@@ -64,9 +66,10 @@ export const NavBar = () => {
             className="!hidden w-full px-2 bg-transparent placeholder:text-sm border-0 outline-0 lg:!block"
           />
           <div
-            className={`${
-              isNull ? 'scale-0 opacity-0 w-0' : 'scale-100 w-auto opacity-100'
-            }  transition-transform duration-150 ease-in-out !hidden lg:!block`}
+            className={cn(
+              isNull ? 'scale-0 opacity-0 w-0' : 'scale-100 w-auto opacity-100',
+              'transition-transform duration-150 ease-in-out !hidden lg:!block'
+            )}
           >
             <MotionButton className="text-muted-foreground">
               <X className="size-auto" />
