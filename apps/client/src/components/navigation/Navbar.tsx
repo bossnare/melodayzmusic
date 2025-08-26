@@ -46,7 +46,7 @@ export const NavBar = () => {
         </figure>
       </div>
       <SearchBar />
-      <Avatar className="ml-auto">
+      <Avatar className="ml-auto xl:size-10">
         <AvatarImage></AvatarImage>
         <AvatarFallback>
           <span className="text-xs">US</span>
