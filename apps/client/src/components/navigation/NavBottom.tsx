@@ -53,7 +53,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
 
 export const NavBottom = () => {
   return (
-    <div className="flex items-center justify-center gap-4 pb-8 transition-all duration-300 ease-in-out md:py-2 sm:gap-2 md:gap-0 lg:hidden">
+    <div className="flex items-center justify-center gap-2 pb-8 transition-all duration-300 ease-in-out md:py-2 sm:gap-0 lg:hidden">
       {navs.map((tab) => (
         <div
           className="flex items-center justify-center w-[calc(100%/4)] md:w-[calc(100%/4-6px)] shrink-0 text-sm font-poppins"
