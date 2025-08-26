@@ -1,9 +1,11 @@
 'use client';
 
-import { Heart, Compass, LoaderCircle, ListMusic, User } from 'lucide-react';
+import { LoaderCircle } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { navs } from './navigation.link';
+import { cn } from '@/lib/utils';
 
 interface Tab {
   href: string;
@@ -31,11 +33,12 @@ const NavTab = ({ href, icon, label }: Tab) => {
       <Link
         onClick={handleClick}
         href={href}
-        className={`${
+        className={cn(
           pathname === href
-            ? 'font-medium text-accent-foreground'
-            : 'font-normal text-muted-foreground hover:text-foreground'
-        } select-none flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row`}
+            ? 'font-semibold text-accent-foreground'
+            : 'font-medium text-muted-foreground hover:text-foreground',
+          'select-none flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row'
+        )}
       >
         <span>
           {isLoading ? <LoaderCircle className="animate-spin" /> : icon}
@@ -49,33 +52,6 @@ const NavTab = ({ href, icon, label }: Tab) => {
 };
 
 export const NavBottom = () => {
-  const navs = [
-    {
-      id: 1,
-      label: 'Explorer',
-      href: '/dashboard',
-      icon: <Compass />,
-    },
-    {
-      id: 4,
-      label: 'Favoris',
-      href: '/dashboard/favoris',
-      icon: <Heart />,
-    },
-    {
-      id: 2,
-      label: 'MyVibes',
-      href: '/dashboard/myvibe',
-      icon: <ListMusic />,
-    },
-    {
-      id: 5,
-      label: 'Moi',
-      href: '/dashboard/profile',
-      icon: <User />,
-    },
-  ];
-
   return (
     <div className="flex items-center justify-center gap-10 pb-8 md:py-2 sm:gap-8 md:gap-4 lg:hidden">
       {navs.map((tab) => (
@@ -89,14 +65,3 @@ export const NavBottom = () => {
     </div>
   );
 };
-
-{
-  /* <MotionButton
-             size="icon"
-              className={
-                 'dark:hover:text-accent-foreground hover:bg-gray-900 bg-gray-900 shadow-sm select-none dark:text-muted-foreground font-medium flex justify-center items-center gap-1 text-sm md:text-base md:gap-2'
-              }
-            >
-              <Plus strokeWidth={2} className="size-7" />
-             </MotionButton> */
-}

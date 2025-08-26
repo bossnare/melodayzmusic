@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { SheetContent, SheetTitle } from './ui/sheet';
+import { SheetContent, SheetTitle } from '../ui/sheet';
 
 export const Sidebar = () => {
   return (

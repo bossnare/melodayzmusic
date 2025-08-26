@@ -8,6 +8,7 @@ import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
 import AlbumStream from './ui/AlbumStream';
 import { SongCard } from './ui/SongCard';
 import VibeStream from './ui/VibeStream';
+import TopArtist from './ui/TopArtist';
 
 export const ContentStream = () => {
   const fetchContentStream = async () => {
@@ -59,21 +60,13 @@ export const ContentStream = () => {
 
   return (
     <div className="flex flex-col pt-8 space-y-10 lg:space-y-15 pb-60 md:pb-50">
-      <section>
-        <h2 className="flex items-center gap-2 text-section sm:px-1">
-          Top Artists
-        </h2>
-        <div
-          className="max-w-full h-20 flex-nowrap
-         flex items-center sm:px-1 *:size-16 md:*:size-22
-      *:bg-gray-100 dark:*:bg-gray-900 gap-4 *:rounded-full"
-        >
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </section>
+      {/* Top Artists */}
+      <TopArtist>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </TopArtist>
       {/* Vibes card */}
       <VibeStream>
         {songs.map((song) => (
