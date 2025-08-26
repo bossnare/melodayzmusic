@@ -12,7 +12,7 @@ export const Sidebar = () => {
         className="fixed lg:w-64 top-0 left-0 flex-none overflow-y-auto hidden bg-white 
         z-6 lg:block dark:bg-gray-950/90 md:h-[calc(100dvh-5rem)]"
       >
-        <div className="hidden px-2 pt-4 pb-2 lg:block">
+        <div className="hidden px-3 pt-4 pb-2 lg:block">
           <figure className="flex items-center gap-2">
             <Image
               className="w-8"
