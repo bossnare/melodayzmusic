@@ -1,25 +1,25 @@
 import { cn } from '@/lib/utils';
 
 interface SoftFadeProps {
-  atStart: boolean;
-  atEnd: boolean;
+  showFadeStart: boolean;
+  showFadeEnd: boolean;
 }
 
-const SoftFade = ({ atStart, atEnd }: SoftFadeProps) => {
+const SoftFade = ({ showFadeStart, showFadeEnd }: SoftFadeProps) => {
   return (
     <>
       {/* left overlay */}
       <div
         className={cn(
           'absolute inset-y-0 left-0 w-10 transition-opacity duration-300 ease-in-out pointer-events-none sm:w-12 bg-gradient-to-r from-gray-950/65 to-transparent z-2',
-          atStart && 'opacity-0'
+          !showFadeStart && 'opacity-0'
         )}
       ></div>
       {/* right overlay */}
       <div
         className={cn(
           'absolute inset-y-0 right-0 transition-opacity duration-300 ease-in-out w-10 pointer-events-none sm:w-12 bg-gradient-to-l from-gray-950/65 to-transparent z-2',
-          atEnd && 'opacity-0'
+          !showFadeEnd && 'opacity-0'
         )}
       ></div>
     </>

@@ -2,19 +2,24 @@ import ChevronControl from './ChevronControl';
 import { useEffect, useRef, useState } from 'react';
 import SoftFade from './SoftFade';
 import { type VibeProps } from '@/types/songs/stream.interface';
+import useEmblaCarousel from 'embla-carousel-react';
 
 const VibeStream = ({ children }: VibeProps) => {
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
+  const [showFadeStart, setShowFadeStart] = useState(false);
+  const [showFadeEnd, setShowFadeEnd] = useState(true);
   const vibeRef = useRef<HTMLDivElement>(null);
+  const [emblaRef] = useEmblaCarousel({
+    dragFree: true,
+    containScroll: 'trimSnaps',
+  });
 
   useEffect(() => {
     const el = vibeRef.current;
     if (!el) return;
 
     const handleScroll = () => {
-      setAtStart(el.scrollLeft === 0);
-      setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth);
+      setShowFadeStart(el.scrollLeft > 0);
+      setShowFadeEnd(el.scrollLeft + el.clientWidth < el.scrollWidth);
     };
 
     el.addEventListener('scroll', handleScroll);
@@ -27,14 +32,17 @@ const VibeStream = ({ children }: VibeProps) => {
       <div className="relative">
         <ChevronControl />
         <div
-          ref={vibeRef}
-          className="overflow-x-auto scroll-smooth overflow-y-hidden scrollbar-none"
+          ref={(node) => {
+            emblaRef(node);
+            vibeRef.current = node;
+          }}
+          className="overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-none"
         >
           <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
             {children}
           </div>
         </div>
-        <SoftFade atStart={atStart} atEnd={atEnd} />
+        <SoftFade showFadeStart={showFadeStart} showFadeEnd={showFadeEnd} />
       </div>
     </section>
   );
