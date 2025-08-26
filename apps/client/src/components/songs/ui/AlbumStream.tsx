@@ -5,8 +5,8 @@ import { type AlbumProps } from '@/types/songs/stream.interface';
 import useEmblaCarousel from 'embla-carousel-react';
 
 const AlbumStream = ({ children }: AlbumProps) => {
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
+  const [showFadeStart, setShowFadeStart] = useState(false);
+  const [showFadeEnd, setShowFadeEnd] = useState(true);
   const albumRef = useRef<HTMLDivElement>(null);
   const [emblaRef] = useEmblaCarousel({
     dragFree: true,
@@ -18,8 +18,8 @@ const AlbumStream = ({ children }: AlbumProps) => {
     if (!el) return;
 
     const handleScroll = () => {
-      setAtStart(el.scrollLeft === 0);
-      setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth);
+      setShowFadeStart(el.scrollLeft > 0);
+      setShowFadeEnd(el.scrollLeft + el.clientWidth < el.scrollWidth);
     };
 
     el.addEventListener('scroll', handleScroll);
@@ -42,7 +42,7 @@ const AlbumStream = ({ children }: AlbumProps) => {
             {children}
           </div>
         </div>
-        <SoftFade atStart={atStart} atEnd={atEnd} />
+        <SoftFade showFadeStart={showFadeStart} showFadeEnd={showFadeEnd} />
       </div>
     </section>
   );
