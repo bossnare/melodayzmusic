@@ -43,7 +43,7 @@ export const NavBar = () => {
           />
           <h2
             className={cn(
-              notHome && 'text-xl',
+              notHome && '!text-xl',
               'text-2xl font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins text-gradient'
             )}
           >
