@@ -15,14 +15,14 @@ export const Sidebar = () => {
         <div className="hidden px-3 pt-4 pb-2 lg:block">
           <figure className="flex items-center gap-2">
             <Image
-              className="w-8"
+              className="w-7"
               alt="meloicon"
               src={'/icons/icon_x32.svg'}
               loading="lazy"
               width={100}
               height={100}
             />
-            <h2 className="text-2xl font-black select-none font-poppins text-gradient">
+            <h2 className="text-[22px] font-black select-none font-poppins text-gradient">
               MelodayzMusic
             </h2>
           </figure>
