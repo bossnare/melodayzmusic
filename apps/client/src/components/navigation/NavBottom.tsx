@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { navs } from './navigation.link';
 import { cn } from '@/lib/utils';
+import { useActivePath } from '@/hooks/useActivePath';
 
 interface Tab {
   href: string;
@@ -17,6 +18,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
   const pathname = usePathname();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const isActive = useActivePath(href);
 
   const handleClick = () => {
     if (pathname === href) return;
@@ -34,7 +36,7 @@ const NavTab = ({ href, icon, label }: Tab) => {
         onClick={handleClick}
         href={href}
         className={cn(
-          pathname === href
+          isActive
             ? 'font-semibold text-accent-foreground'
             : 'font-medium text-muted-foreground hover:text-foreground',
           'select-none flex flex-col p-2 items-center justify-center gap-1 md:gap-2 md:flex-row'
