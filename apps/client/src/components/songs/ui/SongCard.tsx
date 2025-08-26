@@ -8,7 +8,7 @@ import type { SongProps } from '@/types/songs/song.interface';
 import { Pause, Play } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
-import { AspectRatio } from '../ui/aspect-ratio';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 // import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import {
   Card,
@@ -16,7 +16,7 @@ import {
   CardDescription,
   CardFooter,
   CardTitle,
-} from '../ui/card';
+} from '@/components/ui/card';
 
 export const SongCard = ({ song }: SongProps) => {
   const [isPlaying, setIsPlaying] = useState(false);

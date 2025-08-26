@@ -1,10 +1,10 @@
 'use client';
 
 import { PauseCircle, PlayCircle, SkipBack, SkipForward } from 'lucide-react';
-import { MotionButton } from './motions/motionButton';
-import { useState } from 'react';
 import Image from 'next/image';
-import { Slider } from './ui/slider';
+import { useState } from 'react';
+import { MotionButton } from '../../motions/motionButton';
+import { Slider } from '../../ui/slider';
 
 const Player = () => {
   const [isGo, setIsGo] = useState(false);
@@ -43,7 +43,7 @@ const Player = () => {
         </div>
         {/* Slider control */}
         <div className="w-[30%] pb-3">
-          <Slider /> 
+          <Slider />
         </div>
       </div>
     </div>

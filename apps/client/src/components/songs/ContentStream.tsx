@@ -3,10 +3,10 @@
 import api from '@/libs/api';
 import { SongInterface as Song } from '@/types/songs/song.interface';
 import { useQuery } from '@tanstack/react-query';
-import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
-import { SongCard } from './SongCard';
-import AlbumStream from './ui/AlbumStream';
 import { useEffect } from 'react';
+import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
+import AlbumStream from './ui/AlbumStream';
+import { SongCard } from './ui/SongCard';
 import VibeStream from './ui/VibeStream';
 
 export const ContentStream = () => {
