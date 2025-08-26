@@ -53,10 +53,10 @@ const NavTab = ({ href, icon, label }: Tab) => {
 
 export const NavBottom = () => {
   return (
-    <div className="flex items-center justify-center gap-10 pb-8 md:py-2 sm:gap-8 md:gap-4 lg:hidden">
+    <div className="flex items-center justify-center gap-10 pb-8 transition-all duration-300 ease-in-out md:py-2 sm:gap-8 md:gap-4 lg:hidden">
       {navs.map((tab) => (
         <div
-          className="flex items-center justify-center flex-1 text-sm font-poppins sm:text-base"
+          className="flex items-center justify-center w-[calc(100%/4)] text-sm font-poppins sm:text-base"
           key={tab.id}
         >
           <NavTab href={tab.href as string} icon={tab.icon} label={tab.label} />

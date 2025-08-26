@@ -39,7 +39,7 @@ export default function DashboardLayout({
             </SheetTrigger>
           </nav>
           {/* Main content */}
-          <main className="h-full px-4 sm:px-6">{children}</main>
+          <main className="px-4 sm:px-6">{children}</main>
         </motion.div>
         {/* SheetContent */}
         <Sidebar />
