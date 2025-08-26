@@ -1,4 +1,4 @@
-import { Heart, Compass, ListMusic, User } from 'lucide-react';
+import { Heart, Compass, ListMusic, SparkleIcon } from 'lucide-react';
 
 export const navs = [
   {
@@ -21,8 +21,8 @@ export const navs = [
   },
   {
     id: 5,
-    label: 'Moi',
-    href: '/dashboard/profile',
-    icon: <User />,
+    label: 'Discover',
+    href: '/dashboard/discover',
+    icon: <SparkleIcon />,
   },
 ];
