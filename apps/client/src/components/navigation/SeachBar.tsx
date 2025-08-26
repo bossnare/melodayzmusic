@@ -37,7 +37,7 @@ const SearchBar = () => {
           </MotionButton>
         </div>
         <div role="search-button" className="lg:mr-1">
-          <MotionButton className="text-muted-foreground">
+          <MotionButton className="p-[6px] text-muted-foreground lg:p-2">
             <Search className="size-auto" />
           </MotionButton>
         </div>
