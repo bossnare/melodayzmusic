@@ -16,7 +16,7 @@ export const NavBar = () => {
   }, [pathname]);
 
   return (
-    <nav className="flex items-center gap-2 lg:gap-4">
+    <nav className="flex items-center gap-3 lg:gap-4">
       {/* mampiasa end, inona? raha samy misy dashboard ilay route dia ilay active foana active fa tsy miaraka index */}
       {/* <button
         className={
@@ -46,7 +46,7 @@ export const NavBar = () => {
         </figure>
       </div>
       <SearchBar />
-      <Avatar className="ml-auto xl:size-9">
+      <Avatar className="ml-auto border xl:size-9">
         <AvatarImage
           className="object-cover"
           alt="fallback"
