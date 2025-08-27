@@ -11,7 +11,7 @@ export const Sidebar = () => {
       <aside
         id="side-bar"
         className="fixed lg:w-62 xl:w-64 top-0 left-0 overflow-y-auto hidden bg-white 
-        z-6 lg:block dark:bg-gray-950/98 md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-gray-800"
+        z-6 lg:block dark:bg-sidebar md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-border"
       >
         <div className="hidden px-2 py-4 lg:block">
           <figure className="flex items-center gap-2">
@@ -35,7 +35,7 @@ export const Sidebar = () => {
 
       {/* sidebar mobile  */}
       <div className="block lg:!hidden">
-        <SheetContent side="left" className="bg-gray-950 dark:border-gray-800">
+        <SheetContent side="left" className="dark:border-gray-800">
           <SheetTitle></SheetTitle>
         </SheetContent>
       </div>

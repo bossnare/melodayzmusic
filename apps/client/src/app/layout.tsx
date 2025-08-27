@@ -53,8 +53,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased relative dark:bg-background`}
       >
+        {/* ambiance overlay */}
+        <div className="absolute inset-0 z-1 bg-gradient-to-br from-[#8a2be2]/1 to-[#00D4FF]/1"></div>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <ReactQueryProvider>{children}</ReactQueryProvider>
           <Analytics />
