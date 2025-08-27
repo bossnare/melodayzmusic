@@ -1,9 +1,8 @@
 'use client';
 
 import { LoaderCircle } from 'lucide-react';
-import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useTransition } from 'react';
 import { navs } from './navigation.link';
 import { cn } from '@/lib/utils';
 import { useActivePath } from '@/hooks/useActivePath';
@@ -17,24 +16,21 @@ interface Tab {
 const NavTab = ({ href, icon, label }: Tab) => {
   const pathname = usePathname();
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const isActive = useActivePath(href);
 
-  const handleClick = () => {
-    if (pathname === href) return;
-    setIsLoading(true);
-    router.push(href);
+  const handleClickNav = () => {
+    startTransition(() => {
+      if (pathname === href) return;
+      router.push(href);
+    });
   };
-
-  useEffect(() => {
-    setIsLoading(false);
-  }, [pathname]);
 
   return (
     <>
-      <Link
-        onClick={handleClick}
-        href={href}
+      <button
+        disabled={isPending}
+        onClick={handleClickNav}
         className={cn(
           isActive
             ? 'font-semibold text-accent-foreground'
@@ -43,10 +39,10 @@ const NavTab = ({ href, icon, label }: Tab) => {
         )}
       >
         <span>
-          {isLoading ? <LoaderCircle className="animate-spin" /> : icon}
+          {isPending ? <LoaderCircle className="animate-spin" /> : icon}
         </span>
         <span>{label}</span>
-      </Link>
+      </button>
 
       {/* Overlay */}
     </>
@@ -55,15 +51,15 @@ const NavTab = ({ href, icon, label }: Tab) => {
 
 export const NavBottom = () => {
   return (
-    <div className="flex items-center justify-center gap-2 pb-8 transition-all duration-300 ease-in-out md:py-2 sm:gap-0 lg:hidden">
+    <ul className="flex items-center justify-center gap-2 pb-8 transition-all duration-300 ease-in-out md:py-2 sm:gap-0 lg:hidden">
       {navs.map((tab) => (
-        <div
+        <li
           className="flex items-center justify-center w-[calc(100%/4)] md:w-[calc(100%/4-6px)] shrink-0 text-sm font-poppins"
           key={tab.id}
         >
           <NavTab href={tab.href as string} icon={tab.icon} label={tab.label} />
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
