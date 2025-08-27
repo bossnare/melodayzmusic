@@ -5,14 +5,14 @@ export const DashboardHomeSkeleton = () => {
   return (
     <div className="pt-10 pb-20">
       {/* Title */}
-      <Skeleton className="w-40 h-8 mb-4 bg-gray-300 rounded-xl dark:bg-primary-foreground/70" />
+      <Skeleton className="w-40 h-8 mb-4 bg-gray-300 rounded-xl dark:bg-primary-foreground" />
 
       {/* Top Artists Items */}
       <div className="flex items-center w-full gap-4 mb-10 flex-nowrap">
         {[...Array(4)].map((_, index) => (
           <Skeleton
             key={index}
-            className="rounded-full size-16 md:size-18 lg:size-22 dark:bg-primary-foreground/70"
+            className="rounded-full size-16 md:size-18 lg:size-22 dark:bg-primary-foreground"
           />
         ))}
       </div>
@@ -26,4 +26,5 @@ export const DashboardHomeSkeleton = () => {
     </div>
   );
 };
+
 
