@@ -35,10 +35,11 @@ export const Sidebar = () => {
 
       {/* sidebar mobile  */}
       <div className="block lg:!hidden">
-        <SheetContent side="left" className="dark:border-gray-800">
+        <SheetContent side="left">
           <SheetTitle></SheetTitle>
         </SheetContent>
       </div>
     </>
   );
 };
+
