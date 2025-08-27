@@ -1,12 +1,10 @@
 'use client';
 
 import { LoaderCircle } from 'lucide-react';
-import { usePathname, useRouter } from 'next/navigation';
-import { useTransition } from 'react';
 import { navs } from './navigation.link';
 import { cn } from '@/lib/utils';
 import { useActivePath } from '@/hooks/useActivePath';
-
+import { useLoadingPath } from '@/hooks/useLoadingPath';
 interface Tab {
   href: string;
   icon: React.ReactNode;
@@ -14,17 +12,8 @@ interface Tab {
 }
 
 const NavTab = ({ href, icon, label }: Tab) => {
-  const pathname = usePathname();
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
   const isActive = useActivePath(href);
-
-  const handleClickNav = () => {
-    startTransition(() => {
-      if (pathname === href) return;
-      router.push(href);
-    });
-  };
+  const { isPending, handleClickNav } = useLoadingPath(href);
 
   return (
     <>
