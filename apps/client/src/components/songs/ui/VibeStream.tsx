@@ -13,9 +13,9 @@ const VibeStream = ({ children }: VibeProps) => {
         <ChevronControl />
         <div
           ref={emblaRef}
-          className="overflow-x-auto overflow-hidden scroll-smooth scrollbar-none"
+          className="overflow-hidden overflow-x-auto scroll-smooth scrollbar-none"
         >
-          <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4)] lg:auto-cols-[calc(100vw/7)] gap-5 sm:gap-6">
+          <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/5)] lg:auto-cols-[calc(100vw/8)] gap-4 lg:gap-5">
             {children}
           </div>
         </div>

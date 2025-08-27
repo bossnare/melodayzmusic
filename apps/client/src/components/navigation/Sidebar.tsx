@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { SheetContent, SheetTitle } from '../ui/sheet';
+import { SidebarContentDesktop } from './SidebarContentDesktop';
 
 export const Sidebar = () => {
   return (
@@ -9,10 +10,10 @@ export const Sidebar = () => {
       {/* sidebar desktop */}
       <aside
         id="side-bar"
-        className="fixed lg:w-64 top-0 left-0 flex-none overflow-y-auto hidden bg-white 
-        z-6 lg:block dark:bg-gray-950/90 md:h-[calc(100dvh-5rem)]"
+        className="fixed lg:w-62 xl:w-64 top-0 left-0 overflow-y-auto hidden bg-white 
+        z-6 lg:block dark:bg-gray-950/98 md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-gray-800"
       >
-        <div className="hidden px-3 pt-4 pb-2 lg:block">
+        <div className="hidden px-2 py-4 lg:block">
           <figure className="flex items-center gap-2">
             <Image
               className="w-7"
@@ -27,6 +28,9 @@ export const Sidebar = () => {
             </h2>
           </figure>
         </div>
+
+        {/* content */}
+        <SidebarContentDesktop />
       </aside>
 
       {/* sidebar mobile  */}

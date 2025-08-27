@@ -27,7 +27,7 @@ export const SongCard = ({ song }: SongProps) => {
       <CardContent className="p-0">
         <AspectRatio
           ratio={1}
-          className="relative overflow-hidden rounded-sm sm:rounded-md"
+          className="relative overflow-hidden rounded-sm"
           // onClick={() => {
           //   // playTrack(song, navigate);
           // }}
@@ -46,9 +46,9 @@ export const SongCard = ({ song }: SongProps) => {
               onClick={() => setIsPlaying(!isPlaying)}
             >
               {isPlaying ? (
-                <Pause className="size-7 sm:size-5 md:size-7 lg:size-6 fill-accent-foreground" />
+                <Pause className="size-7 sm:size-5 md:size-7 lg:size-5 fill-accent-foreground" />
               ) : (
-                <Play className="size-7 sm:size-5 md:size-7 lg:size-6 fill-accent-foreground" />
+                <Play className="size-7 sm:size-5 md:size-7 lg:size-5 fill-accent-foreground" />
               )}
             </MotionButton>
           </div>
@@ -56,13 +56,13 @@ export const SongCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-full capitalize truncate line-clamp-1 sm:text-base">
+        <CardTitle className="w-full capitalize truncate line-clamp-1 sm:text-base lg:text-sm">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-full gap-2 sm:gap-0 sm:flex-row sm:items-center">
           <span
             className="font-medium capitalize min-w-auto sm:max-w-[70%] 
-          truncate transition-colors duration-100 ease-in cursor-pointer select-none hover:text-accent-foreground sm:text-sm line-clamp-1"
+          truncate transition-colors duration-100 ease-in cursor-pointer select-none hover:text-accent-foreground sm:text-sm lg:text-xs line-clamp-1"
           >
             {song.artist}
           </span>
@@ -70,7 +70,7 @@ export const SongCard = ({ song }: SongProps) => {
             {timeAgo(song.createdAt)}
           </span>
         </CardDescription>
-        <CardDescription className="!hidden w-full text-base truncate sm:!block sm:text-sm first-letter:capitalize line-clamp-1">
+        <CardDescription className="!hidden w-full text-base truncate lg:!block sm:text-sm lg:text-xs first-letter:capitalize line-clamp-1">
           {song.description}
         </CardDescription>
       </CardFooter>

@@ -6,12 +6,12 @@ export function useLoadingPath(href: string) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleClickNav = () => {
+  const handleClickTab = () => {
     startTransition(() => {
       if (pathname === href) return;
       router.push(href);
     });
   };
 
-  return { isPending, handleClickNav };
+  return { isPending, handleClickTab };
 }
