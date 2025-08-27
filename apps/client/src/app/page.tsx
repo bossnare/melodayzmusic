@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-dvh dark:bg-gray-950">
+    <div className="flex flex-col items-center justify-center gap-4 h-dvh dark:bg-background">
       <Image
         className="dark:invert size-25 sm:size-28"
         src="/icons/icon_512x512.png"
@@ -26,3 +26,4 @@ export default function Page() {
     </div>
   );
 }
+
