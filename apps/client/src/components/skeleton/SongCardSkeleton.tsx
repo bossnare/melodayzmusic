@@ -5,11 +5,11 @@ export const SongCardSkeleton = () => {
   return (
     <div className="flex flex-col space-y-4">
       <AspectRatio ratio={1}>
-        <Skeleton className="size-full dark:bg-primary-foreground/70 rounded-xl" />
+        <Skeleton className="size-full dark:bg-primary-foreground rounded-xl" />
       </AspectRatio>
       <div className="space-y-2">
-        <Skeleton className="h-4 dark:bg-primary-foreground/70 w-[80%]" />
-        <Skeleton className="h-4 dark:bg-primary-foreground/70 w-[60%]" />
+        <Skeleton className="h-4 dark:bg-primary-foreground w-[80%]" />
+        <Skeleton className="h-4 dark:bg-primary-foreground w-[60%]" />
       </div>
     </div>
   );
