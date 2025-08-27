@@ -15,7 +15,7 @@ export const Tabs = ({ href, icon, label }: TabProps) => {
         onClick={handleClickTab}
         className={cn(
           isActive
-            ? 'font-semibold text-accent-foreground dark:lg:bg-gray-900'
+            ? 'font-semibold text-accent-foreground dark:lg:bg-primary-foreground/25'
             : 'font-medium text-muted-foreground hover:text-foreground',
           'select-none flex flex-col p-2 lg:w-full rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
