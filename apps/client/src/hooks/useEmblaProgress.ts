@@ -21,8 +21,6 @@ const useEmblaProgress = () => {
 
     emblaApi.on('scroll', updateProgress);
     emblaApi.on('reInit', updateProgress);
-
-    updateProgress();
   }, [emblaApi, progress]);
 
   return { emblaRef, progress, emblaApi, showFadeStart, showFadeEnd };
