@@ -28,12 +28,15 @@ export default function DashboardLayout({
         <motion.div
           style={{ y: smoothY }}
           id="main-content"
-          className="flex-1 overflow-y-auto scrollbar-none [scroll-gutter:stable] [scroll-snap-type:x_mandatory] transition-all duration-200 ease-in-out will-change-transform dark:bg-gray-950 h-dvh lg:ml-64"
+          className="flex-1 overflow-y-auto scrollbar-none [scroll-gutter:stable] [scroll-snap-type:x_mandatory] transition-all duration-200 ease-in-out will-change-transform dark:bg-gray-950 h-dvh lg:ml-62 xl:ml-64"
         >
           <Header />
-          <nav className="sticky inset-x-0 top-0 left-0 flex px-1 py-1 sm:px-6 lg:hidden">
+          <nav className="sticky inset-x-0 top-0 left-0 flex px-3 py-2 sm:px-5 lg:hidden">
             <SheetTrigger asChild>
-              <MotionButtonLeft type="button">
+              <MotionButtonLeft
+                className="p-0 hover:!bg-transparent hover:text-muted-foreground"
+                type="button"
+              >
                 <AlignLeft className="size-auto" />
               </MotionButtonLeft>
             </SheetTrigger>

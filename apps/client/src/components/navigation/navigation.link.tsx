@@ -1,6 +1,6 @@
 import { Heart, Compass, ListMusic, SparkleIcon } from 'lucide-react';
 
-export const navs = [
+export const navLabels = [
   {
     id: 1,
     label: 'Explorer',

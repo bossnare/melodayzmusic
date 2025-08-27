@@ -8,7 +8,7 @@ const mockSongs = [
     duration: 210,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
-    createdAt: new Date(Date.now()),
+    createdAt: new Date().toISOString(),
     songCover: {
       coverUrl: '/img/p5.jpg',
     },
@@ -29,7 +29,7 @@ const mockSongs = [
     duration: 210,
     description:
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
-    createdAt: new Date(Date.now()),
+    createdAt: new Date().toISOString(),
     songCover: {
       coverUrl: '/img/p7.jpg',
     },
@@ -51,7 +51,7 @@ const mockSongs = [
     duration: 210,
     description:
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
-    createdAt: new Date(Date.now()),
+    createdAt: new Date().toISOString(),
     songCover: {
       coverUrl: '/img/p8.png',
     },
@@ -72,7 +72,7 @@ const mockSongs = [
     duration: 310,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
-    createdAt: new Date(Date.now()),
+    createdAt: new Date().toISOString(),
     songCover: {
       coverUrl: '/img/p4.webp',
     },
@@ -93,7 +93,7 @@ const mockSongs = [
     duration: 210,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
-    createdAt: new Date(Date.now()),
+    createdAt: new Date().toISOString(),
     songCover: {
       coverUrl: '/img/p6.jpg',
     },
@@ -115,7 +115,7 @@ const mockSongs = [
     duration: 210,
     description:
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
-    createdAt: new Date(Date.now()),
+    createdAt: new Date().toISOString(),
     songCover: {
       coverUrl: '/img/p9.jpg',
     },
