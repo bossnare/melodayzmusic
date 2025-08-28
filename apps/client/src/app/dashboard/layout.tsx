@@ -22,7 +22,7 @@ export default function DashboardLayout({
   });
 
   return (
-    <div className="relative flex justify-center z-2">
+    <div className="flex justify-center">
       <Sheet>
         {/* Main Layout */}
         <motion.div

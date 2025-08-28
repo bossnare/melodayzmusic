@@ -17,7 +17,7 @@ const SearchBar = () => {
         className="
           flex items-center transition-all lg:h-12 overflow-hidden duration-200 lg:border border-input
           rounded-sm
-        lg:has-[input:active]:bg-primary-foreground lg:has-[input:focus]:ring-ring lg:has-[input:focus]:ring"
+        lg:has-[input:active]:bg-primary-foreground/5 lg:has-[input:focus]:ring-ring lg:has-[input:focus]:ring"
       >
         <input
           onChange={handleChange}

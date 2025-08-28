@@ -5,7 +5,7 @@ export const DashboardHomeSkeleton = () => {
   return (
     <div className="pt-10 pb-20">
       {/* Title */}
-      <Skeleton className="w-40 h-8 mb-4 bg-gray-300 rounded-xl dark:bg-skeleton" />
+      <Skeleton className="w-40 h-8 mb-4 bg-gray-300 rounded-xl dark:bg-popover" />
 
       {/* Top Artists Items */}
       <div className="flex items-center w-full gap-4 mb-10 flex-nowrap">
@@ -26,6 +26,3 @@ export const DashboardHomeSkeleton = () => {
     </div>
   );
 };
-
-
-

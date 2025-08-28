@@ -46,7 +46,7 @@ export const NavBar = () => {
         </figure>
       </div>
       <SearchBar />
-      <Avatar className="ml-auto ring-2 ring-muted shadow-2xs">
+      <Avatar className="ml-auto ring-2 ring-border shadow-2xs">
         <AvatarImage
           className="object-cover"
           alt="fallback"
