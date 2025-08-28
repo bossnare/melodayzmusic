@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-dvh dark:bg-background">
+    <div className="flex flex-col items-center justify-center gap-4 h-dvh dark:bg-sidebar">
       <Image
         className="dark:invert size-25 sm:size-28"
         src="/icons/icon_512x512.png"
@@ -20,10 +20,9 @@ export default function Page() {
         available or may change frequently. Thank you for your patience and
         understanding as we work to improve your experience!
       </p>
-      <Button>
+      <Button variant="secondary">
         <Link href="/dashboard">Let&apos;s go</Link>
       </Button>
     </div>
   );
 }
-

@@ -27,7 +27,7 @@ export const SongCard = ({ song }: SongProps) => {
       <CardContent className="p-0">
         <AspectRatio
           ratio={1}
-          className="relative overflow-hidden rounded-xs"
+          className="relative overflow-hidden rounded-sm lg:rounded-xs"
           // onClick={() => {
           //   // playTrack(song, navigate);
           // }}

@@ -13,6 +13,7 @@ const MotionButton = ({ children, className, ...props }: MotionButtonProps) => {
       // transition={{ type: 'spring', stiffness: 200 }}
     >
       <Button
+      variant="ghost"
         size="icon"
         className={cn(
           'p-2 shadow-none bg-transparent size-auto rounded-full',
@@ -38,6 +39,8 @@ const MotionButtonLeft = ({
       transition={{ type: 'spring', stiffness: 200 }}
     >
       <Button
+            variant="ghost"
+
         size="icon"
         className={cn(
           'p-2 shadow-none bg-transparent size-auto rounded-full',

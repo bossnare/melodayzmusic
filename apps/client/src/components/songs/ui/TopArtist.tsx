@@ -7,7 +7,7 @@ const TopArtist = ({ children }: TopArtistProps) => {
       <div
         className="h-20 flex-nowrap
              flex items-center *:size-16 md:*:size-18 lg:*:size-20
-          *:bg-gray-100 dark:*:bg-primary-foreground/10 gap-4 *:rounded-full"
+          *:bg-gray-100 dark:*:bg-primary-foreground/15 gap-4 *:rounded-full"
       >
         {children}
       </div>
