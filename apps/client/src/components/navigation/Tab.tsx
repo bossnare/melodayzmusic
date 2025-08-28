@@ -13,11 +13,12 @@ export const Tabs = ({ href, icon, label }: TabProps) => {
       <button
         disabled={isPending}
         onClick={handleClickTab}
+        translate="no"
         className={cn(
           isActive
-            ? 'font-semibold text-accent-foreground dark:lg:bg-primary-foreground/5'
-            : 'font-medium hover:text-muted-foreground',
-          'select-none flex flex-col p-2 lg:w-full rounded-xs items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
+            ? 'font-semibold text-accent-foreground dark:bg-primary-foreground/3 backdrop-blur-xs'
+            : 'font-medium hover:text-muted-foreground text-foreground/80',
+          'select-none flex flex-col p-1 md:p-2 w-[80%] lg:w-full rounded-md lg:rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
         <span>
