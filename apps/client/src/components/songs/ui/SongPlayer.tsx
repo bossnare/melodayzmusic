@@ -27,17 +27,20 @@ const Player = () => {
       <div className="flex flex-col flex-wrap items-center justify-center h-full space-y-3 grow">
         {/* forward and back, pause/play controls */}
         <div className="flex items-center justify-center w-full space-x-4">
-          <MotionButton className="text-muted">
+          <MotionButton className="text-muted-foreground">
             <SkipBack className="size-auto" />
           </MotionButton>
-          <MotionButton className="text-muted" onClick={() => setIsGo(!isGo)}>
+          <MotionButton
+            className="text-muted-foreground"
+            onClick={() => setIsGo(!isGo)}
+          >
             {isGo ? (
               <PauseCircle className="size-11" />
             ) : (
               <PlayCircle className="size-11" />
             )}
           </MotionButton>
-          <MotionButton className="text-muted">
+          <MotionButton className="text-muted-foreground">
             <SkipForward className="size-auto" />
           </MotionButton>
         </div>

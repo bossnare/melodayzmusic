@@ -49,7 +49,7 @@ export default function DashboardLayout({
       </Sheet>
 
       {/* NavBottom -- Player and Navigation on mobile */}
-      <nav className="fixed inset-x-0 bottom-0 h-auto px-2 border-t border-gray-200 lg:px-4 z-8 dark:border-border lg:h-25 bg-gray-50 dark:bg-background">
+      <nav className="fixed inset-x-0 bottom-0 h-auto px-2 border-t lg:px-4 z-8 dark:border-border lg:h-25 bg-gray-50 dark:bg-nav">
         <NavBottom />
         <Player />
       </nav>

@@ -13,9 +13,11 @@ const MotionButton = ({ children, className, ...props }: MotionButtonProps) => {
       // transition={{ type: 'spring', stiffness: 200 }}
     >
       <Button
-        variant="ghost"
         size="icon"
-        className={cn('p-2 shadow-none size-auto rounded-full', className)}
+        className={cn(
+          'p-2 shadow-none bg-transparent size-auto rounded-full',
+          className
+        )}
         {...props}
       >
         {children}
@@ -36,9 +38,11 @@ const MotionButtonLeft = ({
       transition={{ type: 'spring', stiffness: 200 }}
     >
       <Button
-        variant="ghost"
         size="icon"
-        className={cn('p-2 shadow-none size-auto rounded-full', className)}
+        className={cn(
+          'p-2 shadow-none bg-transparent size-auto rounded-full',
+          className
+        )}
         {...props}
       >
         {children}
