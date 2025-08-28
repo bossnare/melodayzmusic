@@ -59,14 +59,7 @@ export const ContentStream = () => {
   }
 
   return (
-    <div className="flex flex-col pt-8 space-y-10 lg:space-y-15 pb-60 md:pb-50">
-      {/* Top Artists */}
-      <TopArtist>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </TopArtist>
+    <div className="flex flex-col pt-6 space-y-10 lg:space-y-15 pb-60 md:pb-50">
       {/* Vibes card */}
       <VibeStream>
         {songs.map((song) => (
@@ -79,6 +72,15 @@ export const ContentStream = () => {
           <SongCard key={song.id} song={song} />
         ))}
       </AlbumStream>
+      {/* Top Artists */}
+      <TopArtist>
+        {[...Array(12)].map((_, index) => (
+          <div
+            key={index}
+            className="border-2 rounded-full aspect-square border-foreground dark:bg-primary-foreground/5"
+          ></div>
+        ))}
+      </TopArtist>
     </div>
   );
 };
