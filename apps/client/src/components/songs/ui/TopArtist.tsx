@@ -7,9 +7,10 @@ const TopArtist = ({ children }: TopArtistProps) => {
   return (
     <section>
       <h2 className="flex items-center gap-2 text-section">Top Artists</h2>
-      <div className="overflow-hidden overflow-x-auto scroll-smooth scrollbar-none">
+      <div 
+        ref={emblaRef}
+        className="overflow-hidden overflow-x-auto scroll-smooth scrollbar-none">
         <div
-          ref={emblaRef}
           className="grid grid-flow-col auto-cols-[calc(100vw/4)] sm:auto-cols-[calc(100vw/8)] 
         lg:auto-cols-[calc(100vw/12)] gap-4 lg:gap-5"
         >
