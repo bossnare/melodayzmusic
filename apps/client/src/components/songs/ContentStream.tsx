@@ -77,7 +77,7 @@ export const ContentStream = () => {
         {[...Array(12)].map((_, index) => (
           <div
             key={index}
-            className="border-2 rounded-full aspect-square border-foreground dark:bg-primary-foreground/5"
+            className="border-2 rounded-full aspect-square border-muted-foreground dark:bg-primary-foreground/5"
           ></div>
         ))}
       </TopArtist>
