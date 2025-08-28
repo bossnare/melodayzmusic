@@ -26,7 +26,7 @@ export const NavBar = () => {
         <Columns2 size={30} />
       </button> */}
       <div className="lg:!hidden grow">
-        <figure className="flex items-center gap-2">
+        <figure className="flex items-center gap-1">
           <Image
             className={cn(notHome && '!w-6', 'w-7')}
             alt="meloicon"

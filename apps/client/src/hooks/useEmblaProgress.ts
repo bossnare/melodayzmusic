@@ -6,9 +6,9 @@ const useEmblaProgress = () => {
   const [showFadeEnd, setShowFadeEnd] = useState(true);
   const [progress, setProgress] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    dragFree: false,
-    watchDrag: false,
-    align: 'center',
+    dragFree: true,
+    slidesToScroll: 2,
+    inViewThreshold: 0.6,
     containScroll: 'trimSnaps',
   });
 

@@ -14,7 +14,7 @@ export const Sidebar = () => {
         z-6 lg:block dark:bg-sidebar md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-border"
       >
         <div className="hidden px-2 py-4 lg:block">
-          <figure className="flex items-center gap-2">
+          <figure className="flex items-center gap-1">
             <Image
               className="w-7"
               alt="meloicon"
