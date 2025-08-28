@@ -5,7 +5,7 @@ import { Tabs } from './Tab';
 
 export const NavBottom = () => {
   return (
-    <ul className="flex items-center justify-center gap-2 pt-1 transition-all duration-300 ease-in-out pb-9 sm:pb-6 sm:gap-0 lg:hidden">
+    <ul className="flex items-center justify-center gap-2 pt-1 pb-10 transition-all duration-300 ease-in-out sm:pb-6 sm:gap-0 lg:hidden">
       {navLabels.map((tab) => (
         <li
           className="flex items-center justify-center w-[calc(100%/4)] md:w-[calc(100%/4-6px)] shrink-0 text-xs"

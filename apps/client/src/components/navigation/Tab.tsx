@@ -16,7 +16,7 @@ export const Tabs = ({ href, icon, label }: TabProps) => {
         translate="no"
         className={cn(
           isActive
-            ? 'font-semibold text-accent-foreground dark:bg-primary-foreground/3 backdrop-blur-xs'
+            ? 'font-semibold text-accent-foreground dark:bg-primary-foreground/4 backdrop-blur-xs'
             : 'font-medium hover:text-muted-foreground text-foreground/80',
           'select-none flex flex-col p-1 md:p-2 w-[80%] lg:w-full rounded-md lg:rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
