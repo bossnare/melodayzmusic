@@ -21,7 +21,13 @@ export const Tabs = ({ href, icon, label }: TabProps) => {
           'select-none flex flex-col p-1 md:p-2 w-[80%] lg:w-full rounded-md lg:rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
-        <span>
+        <span
+          className={cn(
+            isActive && label !== 'Explorer' && label !== 'Discover'
+              ? '*:fill-accent-foreground'
+              : ''
+          )}
+        >
           {isPending ? <LoaderCircle className="animate-spin" /> : icon}
         </span>
         <span>{label}</span>
