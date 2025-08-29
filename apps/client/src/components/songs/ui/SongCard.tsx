@@ -67,9 +67,6 @@ const VibeCard = ({ song }: SongProps) => {
           >
             {song.artist}
           </span>
-          <span className="mr-2 text-xs lg:text-[10px] sm:text-right truncate line-clamp-1">
-            {timeAgo(song.createdAt)}
-          </span>
         </CardDescription>
         <CardDescription className="!hidden w-full text-base truncate lg:!block sm:text-sm lg:text-xs first-letter:capitalize line-clamp-1">
           {song.description}
