@@ -13,7 +13,7 @@ const MotionButton = ({ children, className, ...props }: MotionButtonProps) => {
       // transition={{ type: 'spring', stiffness: 200 }}
     >
       <Button
-      variant="ghost"
+        variant="ghost"
         size="icon"
         className={cn(
           'p-2 shadow-none bg-transparent size-auto rounded-full',
@@ -35,12 +35,11 @@ const MotionButtonLeft = ({
   return (
     <motion.div
       whileHover={{ x: 1.01, scale: 1.01 }}
-      whileTap={{ x: 20, scale: 0.95 }}
+      whileTap={{ x: 10, scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 200 }}
     >
       <Button
-            variant="ghost"
-
+        variant="ghost"
         size="icon"
         className={cn(
           'p-2 shadow-none bg-transparent size-auto rounded-full',
