@@ -14,7 +14,7 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
       wheelMultiplier: 1.5,
       smoothWheel: true,
       lerp: 0.01,
-      syncTouch: true,
+      syncTouchLerp: 0.075,
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
