@@ -10,6 +10,7 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
       wrapper: document.querySelector('#main-content') as HTMLDivElement,
       content: document.querySelector('#main-content') as HTMLDivElement,
       duration: 1,
+      touchMultiplier: 1,
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
       orientation: 'vertical',
     });
