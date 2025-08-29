@@ -12,7 +12,7 @@ const TopArtist = ({ children }: TopArtistProps) => {
         className="overflow-hidden overflow-x-auto scroll-smooth scrollbar-none"
       >
         <div
-          className="grid grid-flow-col auto-cols-[calc(100vw/5)] sm:auto-cols-[calc(100vw/8)] 
+          className="grid grid-flow-col auto-cols-[calc(100vw/6)] sm:auto-cols-[calc(100vw/8)] 
         lg:auto-cols-[calc(100vw/12)] gap-4 lg:gap-5"
         >
           {children}
