@@ -4,7 +4,11 @@ import { type AlbumProps } from '@/types/songs/stream.interface';
 import { useEmblaProgress } from '@/hooks/useEmblaProgress';
 
 const AlbumStream = ({ children }: AlbumProps) => {
-  const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress();
+  const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
+    false,
+    1,
+    0.6
+  );
 
   return (
     <section>

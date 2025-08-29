@@ -4,7 +4,7 @@ import SoftFade from './SoftFade';
 import { type VibeProps } from '@/types/songs/stream.interface';
 
 const VibeStream = ({ children }: VibeProps) => {
-  const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress();
+  const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(true, 2, 1);
 
   return (
     <section>
@@ -15,7 +15,7 @@ const VibeStream = ({ children }: VibeProps) => {
           ref={emblaRef}
           className="overflow-hidden overflow-x-auto scroll-smooth scrollbar-none"
         >
-          <div className="grid grid-flow-col auto-cols-[calc(100vw/3)] sm:auto-cols-[calc(100vw/6)] lg:auto-cols-[calc(100vw/8)] gap-4 lg:gap-5">
+          <div className="grid grid-flow-col auto-cols-[calc(100vw/2.5)] sm:auto-cols-[calc(100vw/5)] lg:auto-cols-[calc(100vw/8)] gap-4 lg:gap-5">
             {children}
           </div>
         </div>
