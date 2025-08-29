@@ -5,7 +5,7 @@ const useEmblaProgress = (
   dragFree: boolean,
   slidesScroll: number,
   threshold: number,
-  align: string
+  align: 'start' | 'center' | 'end'
 ) => {
   const [showFadeStart, setShowFadeStart] = useState(false);
   const [showFadeEnd, setShowFadeEnd] = useState(true);
