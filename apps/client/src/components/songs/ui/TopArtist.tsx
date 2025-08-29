@@ -2,7 +2,7 @@ import { useEmblaProgress } from '@/hooks/useEmblaProgress';
 import { type TopArtistProps } from '@/types/songs/stream.interface';
 
 const TopArtist = ({ children }: TopArtistProps) => {
-  const { emblaRef } = useEmblaProgress(true, 2, 1);
+  const { emblaRef } = useEmblaProgress(true, 2, 1, 'center');
 
   return (
     <section>

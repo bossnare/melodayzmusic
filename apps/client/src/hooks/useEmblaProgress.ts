@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 const useEmblaProgress = (
   dragFree: boolean,
   slidesScroll: number,
-  threshold: number
+  threshold: number,
+  align: string
 ) => {
   const [showFadeStart, setShowFadeStart] = useState(false);
   const [showFadeEnd, setShowFadeEnd] = useState(true);
@@ -13,6 +14,7 @@ const useEmblaProgress = (
     dragFree: dragFree,
     slidesToScroll: slidesScroll,
     inViewThreshold: threshold,
+    align: align,
     containScroll: 'trimSnaps',
   });
 
