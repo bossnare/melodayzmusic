@@ -7,29 +7,18 @@ import { Sidebar } from '@/components/navigation/Sidebar';
 import Player from '@/components/songs/ui/SongPlayer';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { AlignLeft } from 'lucide-react';
-import { motion, useScroll, useSpring } from 'motion/react';
+import SmoothScrollLayout from './SmoothScrollLayout';
 
 export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { scrollY } = useScroll();
-  const smoothY = useSpring(scrollY, {
-    damping: 25,
-    stiffness: 120,
-    mass: 0.5,
-  });
-
   return (
     <div className="flex justify-center">
       <Sheet>
         {/* Main Layout */}
-        <motion.div
-          style={{ y: smoothY }}
-          id="main-content"
-          className="flex-1 overflow-y-auto scrollbar-none [scroll-snap-type:x_mandatory] transition-all duration-200 ease-in-out will-change-transform h-dvh lg:ml-62 xl:ml-64"
-        >
+        <SmoothScrollLayout>
           <Header />
           <nav className="sticky inset-x-0 top-0 left-0 flex px-3 py-2 sm:px-5 lg:hidden">
             <SheetTrigger asChild>
@@ -43,7 +32,8 @@ export default function DashboardLayout({
           </nav>
           {/* Main content */}
           <main className="px-4 sm:px-6">{children}</main>
-        </motion.div>
+        </SmoothScrollLayout>
+
         {/* SheetContent */}
         <Sidebar />
       </Sheet>

@@ -1,6 +1,4 @@
-interface BaseProps {
-  children: React.ReactNode;
-}
+import type { BaseProps } from '../base.interface';
 
 type AlbumProps = BaseProps;
 type VibeProps = BaseProps;
