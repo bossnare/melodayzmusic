@@ -1,28 +1,28 @@
-import { Heart, Compass, ListMusic, SparkleIcon } from 'lucide-react';
+import { Heart, Compass, ListMusic, SparkleIcon, Home } from 'lucide-react';
 
 export const navLabels = [
   {
     id: 1,
-    label: 'Explorer',
+    label: 'Accueil',
     href: '/dashboard',
-    icon: <Compass />,
+    icon: <Home />,
   },
   {
     id: 4,
-    label: 'Favoris',
+    label: 'Explorer',
     href: '/dashboard/favoris',
-    icon: <Heart />,
-  },
-  {
-    id: 2,
-    label: 'MyVibes',
-    href: '/dashboard/myvibe',
-    icon: <ListMusic />,
+    icon: <Compass />,
   },
   {
     id: 5,
     label: 'Discover',
     href: '/dashboard/discover',
     icon: <SparkleIcon />,
+  },
+  {
+    id: 2,
+    label: 'MyVibes',
+    href: '/dashboard/myvibe',
+    icon: <ListMusic />,
   },
 ];
