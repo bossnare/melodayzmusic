@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
 import AlbumStream from './ui/AlbumStream';
-import { SongCard } from './ui/SongCard';
+import { VibeCard, AlbumCard } from './ui/SongCard';
 import VibeStream from './ui/VibeStream';
 import TopArtist from './ui/TopArtist';
 
@@ -63,13 +63,13 @@ export const ContentStream = () => {
       {/* Vibes card */}
       <VibeStream>
         {songs.map((song) => (
-          <SongCard key={song.id} song={song} />
+          <VibeCard key={song.id} song={song} />
         ))}
       </VibeStream>
       {/* Albums card */}
       <AlbumStream>
         {songs.reverse().map((song) => (
-          <SongCard key={song.id} song={song} />
+          <AlbumCard key={song.id} song={song} />
         ))}
       </AlbumStream>
       {/* Top Artists */}
