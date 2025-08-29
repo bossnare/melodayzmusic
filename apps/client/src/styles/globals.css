@@ -243,6 +243,6 @@
   }
 
   .text-section {
-    @apply mb-2 text-lg font-bold text-primary-foreground/80 lg:mb-4 lg:text-xl font-poppins;
+    @apply mb-2 text-lg font-bold text-primary-foreground/90 lg:mb-4 lg:text-xl font-poppins;
   }
 }
