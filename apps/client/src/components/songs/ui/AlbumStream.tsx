@@ -7,7 +7,7 @@ const AlbumStream = ({ children }: AlbumProps) => {
   const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
     true,
     1,
-    0.2,
+    0.6,
     'start'
   );
 
@@ -20,7 +20,7 @@ const AlbumStream = ({ children }: AlbumProps) => {
           ref={emblaRef}
           className="overflow-hidden overflow-x-auto scroll-smooth scrollbar-none"
         >
-          <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/5)] lg:auto-cols-[calc(100vw/8)] gap-4 lg:gap-5">
+          <div className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4.6)] lg:auto-cols-[calc(100vw/8)] gap-4 lg:gap-5">
             {children}
           </div>
         </div>
