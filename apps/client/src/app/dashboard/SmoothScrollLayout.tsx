@@ -9,10 +9,16 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
     const lenis = new Lenis({
       wrapper: document.querySelector('#main-content') as HTMLDivElement,
       content: document.querySelector('#main-content') as HTMLDivElement,
-      duration: 1,
+      duration: 1.2,
       touchMultiplier: 1,
+      wheelMultiplier: 1.5,
+      smoothWheel: true,
+      lerp: 0.08,
+      syncTouch: true,
+      syncTouchLerp: 0.75,
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
       orientation: 'vertical',
+      gestureOrientation: 'vertical',
     });
 
     function raf(time: number) {
@@ -27,7 +33,7 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
   return (
     <div
       id="main-content"
-      className="flex-1 overflow-y-auto scrollbar-none transition-all duration-200 ease-in-out will-change-transform h-dvh lg:ml-62 xl:ml-64"
+      className="flex-1 overflow-y-auto touch-pan-y scrollbar-none overflow-hidden transition-all duration-200 ease-in-out will-change-transform h-dvh lg:ml-62 xl:ml-64"
     >
       {children}
     </div>
