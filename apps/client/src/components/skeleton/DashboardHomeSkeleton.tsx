@@ -3,7 +3,7 @@ import { SongCardSkeleton } from './SongCardSkeleton';
 
 export const DashboardHomeSkeleton = () => {
   return (
-    <div className="pt-6 pb-20">
+    <div className="pt-6 pb-20 space-y-12 lg:space-y-14">
       {/* Title */}
       {/* <Skeleton className="w-40 h-8 mb-4 bg-gray-300 lg:mb-5 rounded-xl dark:bg-primary-foreground/20" /> */}
 
@@ -18,13 +18,29 @@ export const DashboardHomeSkeleton = () => {
       </div> */}
 
       {/* Grid Skeleton */}
-      <Skeleton className="w-40 h-8 mb-4 bg-gray-300 lg:mb-5 rounded-xl dark:bg-primary-foreground/20" />
-      <div className="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-        {[...Array(8)].map((_, index) => (
-          <SongCardSkeleton key={index} />
-        ))}
+      <div>
+        <Skeleton className="w-40 h-6 mb-4 bg-gray-300 lg:mb-5 rounded-xl dark:bg-primary-foreground/20" />
+        <div
+          className="grid grid-flow-col auto-cols-[calc(100vw/2.2)] sm:auto-cols-[calc(100vw/4.5)] 
+        lg:auto-cols-[calc(100vw/9)] xl:auto-cols-[calc(100vw/8.5)] gap-4 lg:gap-5"
+        >
+          {[...Array(10)].map((_, index) => (
+            <SongCardSkeleton key={index} />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <Skeleton className="w-40 h-6 mb-4 bg-gray-300 lg:mb-5 rounded-xl dark:bg-primary-foreground/20" />
+        <div
+          className="grid grid-flow-col auto-cols-[calc(100vw/2.2)] sm:auto-cols-[calc(100vw/4.5)] 
+        lg:auto-cols-[calc(100vw/9)] xl:auto-cols-[calc(100vw/8.5)] gap-4 lg:gap-5"
+        >
+          {[...Array(10)].map((_, index) => (
+            <SongCardSkeleton key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );
 };
-
