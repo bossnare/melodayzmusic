@@ -46,8 +46,8 @@ export default function LoginPage() {
     },
   });
   return (
-    <Card className="w-full md:w-3/4 p-4 space-y-4">
-      <CardTitle className="flex gap-1 justify-center items-center">
+    <Card className="w-full p-4 space-y-4 md:w-3/4">
+      <CardTitle className="flex items-center justify-center gap-1">
         <Image
           src="/icons/icon_512x512.png"
           className="dark:invert w-7"
@@ -55,12 +55,12 @@ export default function LoginPage() {
           height={1000}
           width={1000}
         />
-        <span className="font-poppins text-xl font-bold">MelodayzMusic</span>
+        <span className="text-xl font-bold font-poppins">MelodayzMusic</span>
       </CardTitle>
       {/* Form Content */}
-      <CardContent className="flex flex-col gap-6 md:gap-10 md:flex-row p-1">
+      <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
         <Form {...form}>
-          <form action="" className="flex flex-col gap-4 flex-1">
+          <form action="" className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
               name="email"
@@ -98,7 +98,7 @@ export default function LoginPage() {
                 </FormItem>
               )}
             ></FormField>
-            <Button disabled={true} type="submit">
+            <Button className="cta" disabled={true} type="submit">
               Se connecter
             </Button>
           </form>
@@ -108,12 +108,12 @@ export default function LoginPage() {
         <div className="bg-border h-[1px] md:w-[1px] md:h-auto"></div>
 
         {/* login providers */}
-        <ul className="space-y-3 md:flex md:justify-center md:items-center md:flex-col md:flex-1 px-2 md:p-0">
+        <ul className="px-2 space-y-3 md:flex md:justify-center md:items-center md:flex-col md:flex-1 md:p-0">
           {providerLabels.map((provider) => (
             <li key={provider.id}>
               <Button
                 variant="secondary"
-                className="w-full md:w-auto rounded-full"
+                className="w-full rounded-full md:w-auto"
               >
                 <Image
                   src={provider.icon}
