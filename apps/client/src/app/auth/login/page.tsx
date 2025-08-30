@@ -78,7 +78,7 @@ export default function LoginPage() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>E-mail</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -97,7 +97,7 @@ export default function LoginPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Mot de passe</FormLabel>
                   <FormControl>
                     <Input type="password" className="py-6" {...field} />
                   </FormControl>
@@ -108,6 +108,7 @@ export default function LoginPage() {
             ></FormField>
             <Button
               onClick={handleClick}
+              size="lg"
               className="rounded-full cta"
               type="submit"
             >
