@@ -106,7 +106,7 @@ export default function LoginPage() {
                 </FormItem>
               )}
             ></FormField>
-            <Button className="cta" disabled={true} type="submit">
+            <Button className="cta rounded-full" disabled={true} type="submit">
               Se connecter
             </Button>
           </form>
