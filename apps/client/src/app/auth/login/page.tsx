@@ -56,12 +56,14 @@ export default function LoginPage() {
       <CardTitle className="flex items-center justify-center gap-1">
         <Image
           src="/icons/icon_512x512.png"
-          className="dark:invert w-7"
+          className="w-6 dark:invert md:w-7"
           alt="meloicon"
           height={1000}
           width={1000}
         />
-        <span className="text-xl font-bold font-poppins">MelodayzMusic</span>
+        <span className="text-[18px] md:text-xl font-bold font-poppins">
+          MelodayzMusic
+        </span>
       </CardTitle>
       {/* Form Content */}
       <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
@@ -72,7 +74,7 @@ export default function LoginPage() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="mb-2">Email</FormLabel>
+                  <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -91,7 +93,7 @@ export default function LoginPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="mb-2">Password</FormLabel>
+                  <FormLabel>Password</FormLabel>
                   <FormControl>
                     <Input
                       type="password"
