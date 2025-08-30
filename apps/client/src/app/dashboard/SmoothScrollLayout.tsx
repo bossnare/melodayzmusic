@@ -13,8 +13,10 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
       content: wrapper,
       autoRaf: true,
       duration: 1.2,
+      easing: (t: number) => 1 - Math.pow(2, -10 * t),
       orientation: 'vertical',
       smoothTouch: true,
+      touchInertiaMultiplier: 35,
       gestureOrientation: 'vertical',
     });
 
