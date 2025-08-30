@@ -44,6 +44,10 @@ const providerLabels = [
 ];
 
 export default function LoginPage() {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -78,7 +82,7 @@ export default function LoginPage() {
                   <FormControl>
                     <Input
                       type="email"
-                      className="py-5 lg:py-6"
+                      className="py-6"
                       placeholder="you@example.com"
                       {...field}
                     />
@@ -95,18 +99,18 @@ export default function LoginPage() {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input
-                      type="password"
-                      className="py-5 lg:py-6"
-                      {...field}
-                    />
+                    <Input type="password" className="py-6" {...field} />
                   </FormControl>
                   <FormDescription />
                   <FormMessage />
                 </FormItem>
               )}
             ></FormField>
-            <Button className="cta rounded-full" disabled={true} type="submit">
+            <Button
+              onClick={handleClick}
+              className="rounded-full cta"
+              type="submit"
+            >
               Se connecter
             </Button>
           </form>
