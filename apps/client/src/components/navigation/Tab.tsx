@@ -18,7 +18,7 @@ export const Tabs = ({ href, icon, label }: TabProps) => {
           isActive
             ? 'font-semibold text-accent-foreground dark:bg-primary-foreground/4 backdrop-blur-xs'
             : 'font-medium hover:text-muted-foreground text-foreground/80',
-          'select-none flex flex-col p-1 md:p-2 w-[80%] lg:w-full rounded-sm lg:rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
+          'select-none flex flex-col p-1 md:p-2 w-[80%] lg:w-full rounded-sm lg:rounded-md items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
         <span
