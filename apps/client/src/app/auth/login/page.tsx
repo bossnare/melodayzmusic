@@ -127,8 +127,8 @@ export default function LoginPage() {
                   src={provider.icon}
                   className="w-4"
                   alt={provider.label}
-                  height={500}
-                  width={500}
+                  height={1000}
+                  width={1000}
                 />{' '}
                 Continuer avec {provider.label}
               </Button>
