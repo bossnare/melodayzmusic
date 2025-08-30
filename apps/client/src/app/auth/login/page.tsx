@@ -35,6 +35,12 @@ const providerLabels = [
     icon: '/icons/facebook.svg',
     color: '#0866FF',
   },
+  {
+    id: 3,
+    label: 'tiktok',
+    icon: '/icons/tiktok.svg',
+    color: '#0866FF',
+  },
 ];
 
 export default function LoginPage() {
@@ -46,7 +52,7 @@ export default function LoginPage() {
     },
   });
   return (
-    <Card className="w-full p-4 space-y-4 md:w-3/4">
+    <Card className="w-full p-4 space-y-4 md:p-6 md:w-3/4">
       <CardTitle className="flex items-center justify-center gap-1">
         <Image
           src="/icons/icon_512x512.png"
