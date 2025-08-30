@@ -21,7 +21,7 @@ export default function Page() {
         understanding as we work to improve your experience!
       </p>
       <Button variant="secondary">
-        <Link href="/dashboard">Let&apos;s go</Link>
+        <Link href="/auth/login">Login</Link>
       </Button>
     </div>
   );
