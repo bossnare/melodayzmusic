@@ -2,6 +2,7 @@ import { Search, X } from 'lucide-react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Input } from '../ui/input';
 
 const SearchBar = () => {
   const [isNull, setIsNull] = useState(true);
@@ -16,15 +17,15 @@ const SearchBar = () => {
       <div
         className="
           flex items-center transition-all lg:h-12 overflow-hidden duration-200 lg:border border-input
-          rounded-sm
-        lg:has-[input:active]:bg-primary-foreground/4 dark:bg-input/20 lg:has-[input:focus]:ring-ring lg:has-[input:focus]:ring"
+          rounded-sm lg:p-1
+        lg:has-[input:active]:bg-primary-foreground/4 dark:bg-input/20 lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] lg:has-[input:focus]:border-ring"
       >
-        <input
+        <Input
           onChange={handleChange}
           type="text"
           name="querySearch"
           placeholder="Artist, Song, Albums, Flow..."
-          className="!hidden w-full px-2 bg-transparent placeholder:text-sm border-0 outline-0 lg:!block"
+          className="!hidden w-full px-2 placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0"
         />
         <div
           className={cn(
@@ -36,7 +37,7 @@ const SearchBar = () => {
             <X className="size-auto" />
           </MotionButton>
         </div>
-        <div className="lg:mr-1">
+        <div>
           <MotionButton className="p-[6px] text-muted-foreground lg:p-2">
             <Search className="stroke-2 size-auto" />
           </MotionButton>
