@@ -11,8 +11,8 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
     const lenis = new Lenis({
       wrapper,
       content: wrapper,
-      autoRaf: true,
-      duration: 1.2,
+      duration: 10,
+      lerp: 0.5,
       easing: (t: number) => 1 - Math.pow(2, -10 * t),
       orientation: 'vertical',
       smoothTouch: true,
