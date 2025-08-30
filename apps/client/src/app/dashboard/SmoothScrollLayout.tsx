@@ -11,20 +11,14 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
     const lenis = new Lenis({
       wrapper,
       content: wrapper,
-      duration: 10,
+      autoRaf: true,
+      duration: 0.5,
       lerp: 0.5,
       easing: (t: number) => 1 - Math.pow(2, -10 * t),
       orientation: 'vertical',
-      smoothTouch: true,
-      touchInertiaMultiplier: 35,
       gestureOrientation: 'vertical',
+      syncTouch: true,
     });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
 
     return () => lenis.destroy();
   }, []);
