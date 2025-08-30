@@ -1,4 +1,4 @@
-import { Compass, ListMusic, SparkleIcon, Home } from 'lucide-react';
+import { Compass, ListMusic, SparkleIcon, Home, Plus } from 'lucide-react';
 
 export const navLabels = [
   {
@@ -12,6 +12,12 @@ export const navLabels = [
     label: 'Explorer',
     href: '/dashboard/favoris',
     icon: <Compass />,
+  },
+  {
+    id: 6,
+    label: 'create',
+    href: '/dashboard/create',
+    icon: <Plus />,
   },
   {
     id: 5,
