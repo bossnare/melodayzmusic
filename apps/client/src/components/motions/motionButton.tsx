@@ -53,4 +53,25 @@ const MotionButtonLeft = ({
   );
 };
 
-export { MotionButton, MotionButtonLeft };
+const MotionTab = ({ children, className, ...props }: MotionButtonProps) => {
+  return (
+    <motion.div
+      whileTap={{ scale: 0.98 }}
+      // transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <Button
+        variant="ghost"
+        size="icon"
+        className={cn(
+          'p-2 shadow-none bg-transparent size-auto hover:!bg-transparent rounded-full',
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </Button>
+    </motion.div>
+  );
+};
+
+export { MotionButton, MotionButtonLeft, MotionTab };

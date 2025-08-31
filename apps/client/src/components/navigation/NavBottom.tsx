@@ -9,7 +9,7 @@ export const NavBottom = () => {
     <ul className="flex items-center justify-center pt-1 pb-10 transition-all duration-300 ease-in-out sm:pb-6 sm:gap-0 md:py-2 lg:hidden">
       {navLabels.map((tab) => (
         <li
-          className="flex items-center justify-center w-[calc(100%/5)] md:w-[calc(100%/4-6px)] shrink-0 text-xs"
+          className="flex items-center justify-center w-[calc(100%/5)] md:w-[calc(100%/4-6px)] shrink-0"
           key={tab.id}
         >
           {tab.label === 'create' ? (
