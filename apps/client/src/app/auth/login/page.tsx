@@ -109,16 +109,25 @@ export default function LoginPage() {
             <Button
               onClick={handleClick}
               size="lg"
-              className="rounded-full cta"
+              className="rounded-full cta relative overflow-hidden"
               type="submit"
             >
               Se connecter
+              {/* grain overlay */}
+              <span
+                className="absolute inset-0 opacity-25 pointer-events-none 
+               mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
+              ></span>
             </Button>
           </form>
         </Form>
 
         {/* divide */}
-        <div className="bg-border h-[1px] md:w-[1px] md:h-auto"></div>
+        <div className="flex md:flex-col items-center justify-center gap-2">
+          <div className="bg-border h-[1px] md:w-[1px] grow"></div>
+          <span className="text-muted-foreground">ou</span>
+          <div className="bg-border h-[1px] md:w-[1px] grow"></div>
+        </div>
 
         {/* login providers */}
         <ul className="px-2 space-y-3 md:flex md:justify-center md:items-center md:flex-col md:flex-1 md:p-0">
