@@ -63,7 +63,7 @@ const MotionTab = ({ children, className, ...props }: MotionButtonProps) => {
         variant="ghost"
         size="icon"
         className={cn(
-          'p-2 shadow-none bg-transparent size-auto hover:!bg-transparent rounded-full',
+          'p-2 shadow-none transition-none bg-transparent size-auto rounded-full',
           className
         )}
         {...props}
