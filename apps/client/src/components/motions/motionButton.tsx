@@ -53,23 +53,17 @@ const MotionButtonLeft = ({
   );
 };
 
-const MotionTab = ({ children, className, ...props }: MotionButtonProps) => {
+const MotionTab = ({
+  children,
+  className,
+  ...props
+}: {
+  children: React.ReactNode;
+  className: string;
+}) => {
   return (
-    <motion.div
-      whileTap={{ scale: 0.98 }}
-      // transition={{ type: 'spring', stiffness: 200 }}
-    >
-      <Button
-        variant="ghost"
-        size="icon"
-        className={cn(
-          'p-2 shadow-none transition-none bg-transparent size-auto rounded-full',
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </Button>
+    <motion.div whileTap={{ scale: 0.95 }} className={className} {...props}>
+      {children}
     </motion.div>
   );
 };

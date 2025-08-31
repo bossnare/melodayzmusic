@@ -11,18 +11,18 @@ export const Tabs = ({ href, icon, label }: TabProps) => {
 
   return (
     <>
-      <MotionTab
+      <button
         disabled={isPending}
         onClick={handleClickTab}
         translate="no"
         className={cn(
           isActive
-            ? 'font-semibold text-accent-foreground dark:bg-primary-foreground/4 dark:hover:bg-primary-foreground/4 backdrop-blur-xs'
-            : 'font-medium hover:text-muted-foreground text-foreground/80 hover:!bg-transparent',
-          'select-none flex flex-col p-1 md:p-2 w-full text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
+            ? 'font-semibold text-accent-foreground dark:bg-primary-foreground/4 backdrop-blur-xs'
+            : 'font-medium hover:text-muted-foreground text-foreground/80',
+          'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-full text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
-        <span
+        <MotionTab
           className={cn(
             isActive && label !== 'Explorer' && label !== 'Discover'
               ? '*:fill-accent-foreground '
@@ -33,9 +33,9 @@ export const Tabs = ({ href, icon, label }: TabProps) => {
           )}
         >
           {isPending ? <LoaderCircle className="animate-spin" /> : icon}
-        </span>
+        </MotionTab>
         <span>{label}</span>
-      </MotionTab>
+      </button>
 
       {/* Overlay */}
     </>
