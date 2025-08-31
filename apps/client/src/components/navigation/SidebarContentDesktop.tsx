@@ -6,7 +6,7 @@ const SidebarContentDesktop = () => {
     <ul className="flex flex-col">
       {navLabels.map((tab) => (
         <li key={tab.id}>
-          <Tabs href={tab.href} icon={tab.icon} label={tab.label} />
+          <Tabs href={tab.href} Icon={tab.icon} label={tab.label} />
         </li>
       ))}
     </ul>

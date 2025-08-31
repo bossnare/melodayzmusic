@@ -14,12 +14,12 @@ export const NavBottom = () => {
         >
           {tab.label === 'create' ? (
             <div>
-              <MotionButton className="*:!size-auto *:stroke-2 *:stroke-current text-foreground/80 hover:text-muted-foreground hover:!bg-transparent p-[10px] border-border border">
-                {tab.icon}
+              <MotionButton className="*:stroke-2 *:size-6 *:stroke-current hover:text-muted-foreground hover:!bg-transparent p-[12px] border-border border">
+                <tab.icon />
               </MotionButton>
             </div>
           ) : (
-            <Tabs href={tab.href as string} icon={tab.icon} label={tab.label} />
+            <Tabs href={tab.href as string} Icon={tab.icon} label={tab.label} />
           )}
         </li>
       ))}

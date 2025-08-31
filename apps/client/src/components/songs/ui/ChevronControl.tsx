@@ -6,13 +6,13 @@ const ChevronControl = () => {
     <>
       {/* Prev */}
       <div className="absolute -left-2 z-3 top-[30%] hidden lg:block -translate-y-1/2">
-        <MotionButton className="bg-black/50">
+        <MotionButton className="bg-black/50 hover:text-primary-foreground/80">
           <ChevronLeft className="size-10" />
         </MotionButton>
       </div>
       {/* Next */}
       <div className="absolute -right-2 z-3 top-[30%] hidden lg:block -translate-y-1/2">
-        <MotionButton className="bg-black/50">
+        <MotionButton className="bg-black/50 hover:text-primary-foreground/80">
           <ChevronRight className="size-10" />
         </MotionButton>
       </div>
