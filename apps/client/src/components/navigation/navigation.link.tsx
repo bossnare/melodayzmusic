@@ -1,23 +1,29 @@
-import { Compass, ListMusic, SparkleIcon, Home, Plus } from 'lucide-react';
+import {
+  CompassIcon,
+  PlaylistIcon,
+  SparkleIcon,
+  HouseIcon,
+  PlusIcon,
+} from '@phosphor-icons/react';
 
 export const navLabels = [
   {
     id: 1,
     label: 'Accueil',
     href: '/dashboard',
-    icon: <Home />,
+    icon: <HouseIcon />,
   },
   {
     id: 4,
     label: 'Explorer',
     href: '/dashboard/favoris',
-    icon: <Compass />,
+    icon: <CompassIcon />,
   },
   {
     id: 6,
     label: 'create',
     href: '/dashboard/create',
-    icon: <Plus />,
+    icon: <PlusIcon />,
   },
   {
     id: 5,
@@ -29,6 +35,6 @@ export const navLabels = [
     id: 2,
     label: 'MyVibes',
     href: '/dashboard/myvibe',
-    icon: <ListMusic />,
+    icon: <PlaylistIcon />,
   },
 ];
