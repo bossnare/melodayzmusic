@@ -1,10 +1,13 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { useLoadingPath } from '@/hooks/useLoadingPath';
+import { LoaderCircle } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function Page() {
+  const { isPending, handleClickTab } = useLoadingPath('/auth/login');
+
   return (
     <div className="flex flex-col items-center justify-center gap-4 h-dvh dark:bg-sidebar">
       <Image
@@ -21,7 +24,13 @@ export default function Page() {
         understanding as we work to improve your experience!
       </p>
       <Button variant="secondary">
-        <Link href="/auth/login">Login</Link>
+        {isPending ? (
+          <>
+            <LoaderCircle className="animate-spin" /> <span>loading...</span>
+          </>
+        ) : (
+          'Login'
+        )}
       </Button>
     </div>
   );

@@ -1,6 +1,6 @@
 interface TabProps {
   href: string;
-  icon: React.ReactNode;
+  Icon: React.ElementType;
   label: string;
 }
 

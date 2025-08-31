@@ -5,7 +5,7 @@ import { LoaderCircle } from 'lucide-react';
 import type { TabProps } from '@/types/navigation/tab.interface';
 import { MotionTab } from '../motions/motionButton';
 
-export const Tabs = ({ href, icon, label }: TabProps) => {
+export const Tabs = ({ href, Icon, label }: TabProps) => {
   const isActive = useActivePath(href);
   const { isPending, handleClickTab } = useLoadingPath(href);
 
@@ -17,22 +17,17 @@ export const Tabs = ({ href, icon, label }: TabProps) => {
         translate="no"
         className={cn(
           isActive
-            ? 'font-semibold text-accent-foreground dark:bg-primary-foreground/4 backdrop-blur-xs'
-            : 'font-medium hover:text-muted-foreground text-foreground/80',
-          'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-full text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
+            ? 'font-semibold dark:lg:bg-primary-foreground/2 backdrop-blur-xs'
+            : 'font-medium hover:text-muted-foreground text-foreground/60',
+          'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[95%] text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
-        <MotionTab
-          className={cn(
-            isActive && label !== 'Explorer' && label !== 'Discover'
-              ? '*:fill-accent-foreground '
-              : isActive && label === 'Accueil'
-              ? '*:!stroke-0'
-              : '',
-            '*:!size-auto'
+        <MotionTab className="*:!size-6">
+          {isPending ? (
+            <LoaderCircle className="animate-spin" />
+          ) : (
+            <Icon weight={isActive ? 'fill' : 'regular'} />
           )}
-        >
-          {isPending ? <LoaderCircle className="animate-spin" /> : icon}
         </MotionTab>
         <span>{label}</span>
       </button>
