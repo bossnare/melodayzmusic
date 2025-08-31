@@ -23,7 +23,7 @@ export default function Page() {
         available or may change frequently. Thank you for your patience and
         understanding as we work to improve your experience!
       </p>
-      <Button variant="secondary">
+      <Button variant="secondary" onClick={handleClickTab} size="lg">
         {isPending ? (
           <>
             <LoaderCircle className="animate-spin" /> <span>loading...</span>
