@@ -162,7 +162,7 @@ export default function LoginPage() {
         </motion.div>
       </AnimatePresence>
       {/* Sign up */}
-      <div className="py-3 text-xs">Feel the Beat, Anywhere You Go.</div>
+      <div className="pb-10 text-xs">Feel the Beat, Anywhere You Go.</div>
     </>
   );
 }
