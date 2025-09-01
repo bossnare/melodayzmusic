@@ -18,7 +18,7 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
         className={cn(
           isActive
             ? 'font-semibold dark:lg:bg-primary-foreground/2 backdrop-blur-xs'
-            : 'font-medium hover:text-muted-foreground text-foreground/60',
+            : 'font-medium hover:text-muted-foreground text-foreground/80',
           'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[95%] text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
@@ -26,7 +26,7 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
           {isPending ? (
             <LoaderCircle className="animate-spin" />
           ) : (
-            <Icon weight={isActive ? 'fill' : 'regular'} />
+            <Icon weight={isActive ? 'fill' : 'bold'} />
           )}
         </MotionTab>
         <span>{label}</span>

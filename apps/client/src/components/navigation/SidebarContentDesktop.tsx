@@ -1,5 +1,5 @@
 import { Tabs } from './Tab';
-import { navLabels } from './navigation.link';
+import { navLabels } from './labels/navigation.link';
 
 const SidebarContentDesktop = () => {
   return (

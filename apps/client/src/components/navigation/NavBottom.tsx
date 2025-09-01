@@ -1,7 +1,7 @@
 'use client';
 
 import { MotionButton } from '../motions/motionButton';
-import { navLabels } from './navigation.link';
+import { navLabels } from './labels/navigation.link';
 import { Tabs } from './Tab';
 
 export const NavBottom = () => {
@@ -15,7 +15,7 @@ export const NavBottom = () => {
           {tab.label === 'create' ? (
             <div>
               <MotionButton className="*:stroke-2 *:size-6 *:stroke-current hover:text-muted-foreground hover:!bg-transparent p-[12px] border-border border">
-                <tab.icon />
+                <tab.icon weight="bold" />
               </MotionButton>
             </div>
           ) : (
