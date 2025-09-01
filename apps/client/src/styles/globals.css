@@ -236,7 +236,7 @@
 
 @layer components {
   .cta {
-    @apply bg-gradient-to-r from-[#8a2be2] via-[#8a2be2]/95 hover:opacity-90 transition to-[#00D4FF];
+    @apply bg-gradient-to-r from-[#8a2be2] via-blue-500 hover:opacity-90 transition to-[#00D4FF];
   }
   .text-gradient {
     @apply bg-gradient-to-r text-transparent bg-clip-text from-[#8a2be2] to-[#00D4FF];
