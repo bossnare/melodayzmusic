@@ -113,7 +113,7 @@ export default function LoginPage() {
                             <span className="absolute right-4 top-1/2 -translate-y-1/2">
                               <MotionButton
                                 type="button"
-                                className="*:size-4"
+                                className="*:!size-5 lg:*:!size-4"
                                 onClick={() => setShowPassword(!showPassword)}
                               >
                                 {showPassword ? <EyeOffIcon /> : <EyeIcon />}
