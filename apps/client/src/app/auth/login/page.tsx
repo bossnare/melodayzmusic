@@ -43,7 +43,7 @@ export default function LoginPage() {
     <>
       {/* Sign up */}
       <div className="flex items-center justify-between w-full gap-12 py-3">
-        <p className="text-xs lg:text-sm">
+        <p className="text-sm">
           Connectez-vous pour découvrir vos vibes
         </p>
         <Button variant="outline" size="lg" className="rounded-full">
