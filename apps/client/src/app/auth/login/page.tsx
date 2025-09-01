@@ -42,11 +42,18 @@ export default function LoginPage() {
   return (
     <>
       {/* Sign up */}
-      <div className="py-3"></div>
+      <div className="flex items-center justify-between w-full gap-12 py-3">
+        <p className="text-xs lg:text-sm">
+          Connectez-vous pour découvrir vos vibes
+        </p>
+        <Button variant="outline" size="lg" className="rounded-full">
+          Créer un compte
+        </Button>
+      </div>
       <AnimatePresence mode="wait">
         <motion.div
           key={pathname}
-          className="md:w-3/4 w-full"
+          className="w-full lg:w-3/4"
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
@@ -62,7 +69,7 @@ export default function LoginPage() {
                 height={1000}
                 width={1000}
               />
-              <span className="text-[18px] md:text-xl font-bold font-poppins">
+              <span className="text-[18px] select-none hover:text-primary-foreground/90 md:text-xl font-bold font-poppins">
                 MelodayzMusic
               </span>
             </CardTitle>
@@ -80,7 +87,7 @@ export default function LoginPage() {
                           <Input
                             type="email"
                             className="py-6"
-                            placeholder="you@example.com"
+                            placeholder="vous@exemple.com"
                             {...field}
                           />
                         </FormControl>
@@ -106,7 +113,7 @@ export default function LoginPage() {
                   <Button
                     onClick={handleClick}
                     size="lg"
-                    className="rounded-full cta relative overflow-hidden"
+                    className="relative overflow-hidden rounded-full cta"
                     type="submit"
                   >
                     Se connecter
@@ -120,7 +127,7 @@ export default function LoginPage() {
               </Form>
 
               {/* divide */}
-              <div className="flex md:flex-col items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-2 md:flex-col">
                 <div className="bg-border h-[1px] md:w-[1px] grow"></div>
                 <span className="text-muted-foreground">ou</span>
                 <div className="bg-border h-[1px] md:w-[1px] grow"></div>

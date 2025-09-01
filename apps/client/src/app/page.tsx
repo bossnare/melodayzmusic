@@ -1,8 +1,8 @@
 'use client';
 
+import { Loader } from '@/components/motions/Loader';
 import { Button } from '@/components/ui/button';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
-import { LoaderCircle } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Page() {
@@ -23,10 +23,16 @@ export default function Page() {
         available or may change frequently. Thank you for your patience and
         understanding as we work to improve your experience!
       </p>
-      <Button className="min-w-20" variant="secondary" onClick={handleClickTab} size="sm">
+      <Button
+        disabled={isPending}
+        className="min-w-20"
+        variant="secondary"
+        onClick={handleClickTab}
+        size="sm"
+      >
         {isPending ? (
           <>
-            <LoaderCircle className="animate-spin" />
+            <Loader className="dark:border-secondary-foreground size-5" />
           </>
         ) : (
           'Get started'
@@ -35,7 +41,3 @@ export default function Page() {
     </div>
   );
 }
-
-
-
-

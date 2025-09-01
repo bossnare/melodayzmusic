@@ -1,9 +1,9 @@
 import { cn } from '@/lib/utils';
 import { useActivePath } from '@/hooks/useActivePath';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
-import { LoaderCircle } from 'lucide-react';
 import type { TabProps } from '@/types/navigation/tab.interface';
 import { MotionTab } from '../motions/motionButton';
+import { Loader } from '../motions/Loader';
 
 export const Tabs = ({ href, Icon, label }: TabProps) => {
   const isActive = useActivePath(href);
@@ -24,7 +24,7 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
       >
         <MotionTab className="*:!size-6">
           {isPending ? (
-            <LoaderCircle className="animate-spin" />
+            <Loader className="dark:border-primary-foreground/80 size-5" />
           ) : (
             <Icon weight={isActive ? 'fill' : 'bold'} />
           )}
