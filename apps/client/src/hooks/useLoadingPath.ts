@@ -13,5 +13,5 @@ export function useLoadingPath(href: string) {
     });
   };
 
-  return { isPending, handleClickTab };
+  return { isPending, handleClickTab, pathname };
 }
