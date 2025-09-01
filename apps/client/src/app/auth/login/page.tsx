@@ -43,9 +43,7 @@ export default function LoginPage() {
     <>
       {/* Sign up */}
       <div className="flex items-center justify-between w-full gap-12 py-3">
-        <p className="text-sm">
-          Vos vibes n’attendent que vous
-        </p>
+        <p className="text-sm">Vos vibes n’attendent que vous</p>
         <Button variant="outline" size="lg" className="rounded-full">
           Créer un compte
         </Button>
@@ -162,7 +160,9 @@ export default function LoginPage() {
         </motion.div>
       </AnimatePresence>
       {/* Sign up */}
-      <div className="pb-10 text-xs">Feel the Beat, Anywhere You Go.</div>
+      <div className="sticky bottom-6 inset-x-0 text-center text-xs">
+        Feel the Beat, Anywhere You Go.
+      </div>
     </>
   );
 }
