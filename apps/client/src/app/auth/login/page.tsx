@@ -160,7 +160,7 @@ export default function LoginPage() {
         </motion.div>
       </AnimatePresence>
       {/* Sign up */}
-      <div className="sticky bottom-6 inset-x-0 text-center text-xs">
+      <div className="sticky bottom-15 inset-x-0 text-center text-xs">
         Feel the Beat, Anywhere You Go.
       </div>
     </>
