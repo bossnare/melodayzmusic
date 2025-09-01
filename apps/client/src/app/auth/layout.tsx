@@ -4,7 +4,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex items-center flex-col justify-between px-4 overflow-y-auto h-dvh scroll-smooth scrollbar-none">
+    <div className="relative flex items-center flex-col justify-between px-4 overflow-y-auto h-dvh scroll-smooth scrollbar-none">
       {children}
     </div>
   );
