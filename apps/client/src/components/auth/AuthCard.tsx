@@ -47,7 +47,7 @@ function LoginCard() {
     <section className="flex items-center flex-col justify-between gap-2 h-full pb-6 md:pb-4">
       {/* Sign up */}
       <div className="flex items-center justify-between w-full gap-12 py-3">
-        <p className="text-sm">Vos vibes n’attendent que vous.</p>
+        <p className="text-sm">Vos vibes n&apos;attendent que vous.</p>
         <Button variant="outline" size="lg" className="rounded-full shadow-sm">
           Créer un compte
         </Button>
