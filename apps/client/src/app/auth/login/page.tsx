@@ -48,7 +48,7 @@ export default function LoginPage() {
       {/* Sign up */}
       <div className="flex items-center justify-between w-full gap-12 py-3">
         <p className="text-sm">Vos vibes n’attendent que vous.</p>
-        <Button variant="outline" size="lg" className="rounded-full">
+        <Button variant="outline" size="lg" className="rounded-full shadow-sm">
           Créer un compte
         </Button>
       </div>
