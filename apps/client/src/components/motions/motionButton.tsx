@@ -16,7 +16,7 @@ const MotionButton = ({ children, className, ...props }: MotionButtonProps) => {
         variant="ghost"
         size="icon"
         className={cn(
-          'p-2 shadow-none bg-transparent size-auto rounded-full',
+          'p-2 shadow-none bg-transparent size-auto hover:text-inherit rounded-full',
           className
         )}
         {...props}

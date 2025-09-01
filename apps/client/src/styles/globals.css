@@ -228,6 +228,10 @@
   button {
     cursor: pointer;
   }
+
+  input {
+    @apply placeholder:text-sm;
+  }
 }
 
 @layer components {
