@@ -19,6 +19,9 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
 import { providerLabels } from '@/components/navigation/labels/label.provider';
+import { EyeIcon, EyeOffIcon } from 'lucide-react';
+import { useState } from 'react';
+import { MotionButton } from '@/components/motions/motionButton';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -26,6 +29,7 @@ const loginSchema = z.object({
 });
 
 export default function LoginPage() {
+  const [showPassword, setShowPassword] = useState(false);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
   };
@@ -55,7 +59,6 @@ export default function LoginPage() {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
-          // transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
           transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         >
           <Card className="p-4 space-y-4 md:p-6 ">
@@ -101,7 +104,22 @@ export default function LoginPage() {
                       <FormItem>
                         <FormLabel>Mot de passe</FormLabel>
                         <FormControl>
-                          <Input type="password" className="py-6" {...field} />
+                          <div className="relative">
+                            <Input
+                              type={showPassword ? 'text' : 'password'}
+                              className="py-6"
+                              {...field}
+                            />
+                            <span className="absolute right-4 top-1/2 -translate-y-1/2">
+                              <MotionButton
+                                type="button"
+                                className="*:size-4"
+                                onClick={() => setShowPassword(!showPassword)}
+                              >
+                                {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+                              </MotionButton>
+                            </span>
+                          </div>
                         </FormControl>
                         <FormDescription />
                         <FormMessage />
@@ -160,7 +178,7 @@ export default function LoginPage() {
         </motion.div>
       </AnimatePresence>
       {/* Sign up */}
-      <div className="sticky bottom-15 md:bottom-4 inset-x-0 text-center text-xs">
+      <div className="pb-14 md:pb-4 text-xs">
         Feel the Beat, Anywhere You Go.
       </div>
     </>

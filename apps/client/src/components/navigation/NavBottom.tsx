@@ -14,7 +14,7 @@ export const NavBottom = () => {
         >
           {tab.label === 'create' ? (
             <div>
-              <MotionButton className="*:stroke-2 *:size-6 *:stroke-current hover:text-muted-foreground hover:!bg-transparent p-[12px] border-border border">
+              <MotionButton className="*:stroke-2 *:size-7 *:stroke-current hover:text-muted-foreground hover:!bg-transparent p-[12px] border-border border">
                 <tab.icon weight="bold" />
               </MotionButton>
             </div>
