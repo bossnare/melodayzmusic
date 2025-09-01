@@ -53,7 +53,7 @@
   --card-foreground: oklch(0.1884 0.0128 248.5103);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.1884 0.0128 248.5103);
-  --primary: oklch(0.6277 0.2303 297.02);
+  --primary: oklch(0.4907 0.2412 292.58); /* #9B5CFF */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.1884 0.0128 248.5103);
   --secondary-foreground: oklch(1 0 0);
@@ -104,7 +104,7 @@
   --card-foreground: oklch(0.8853 0 0);
   --popover: oklch(0 0 0);
   --popover-foreground: oklch(0.9328 0.0025 228.7857);
-  --primary: oklch(0.5338 0.2503 301.375);
+  --primary: oklch(0.4907 0.2412 292.58); /* #6D28D9 */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.9622 0.0035 219.5331);
   --secondary-foreground: oklch(0.1884 0.0128 248.5103);
@@ -236,10 +236,10 @@
 
 @layer components {
   .cta {
-    @apply bg-gradient-to-r from-[#8a2be2] via-blue-500 hover:opacity-85 transition to-[#00D4FF];
+    @apply bg-gradient-to-r from-[#6D28D9] via-blue-500 hover:opacity-85 transition to-[#00D4FF];
   }
   .text-gradient {
-    @apply bg-gradient-to-r text-transparent bg-clip-text via-blue-500 from-[#8a2be2] to-[#00D4FF];
+    @apply bg-gradient-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
   }
 
   .text-section {
