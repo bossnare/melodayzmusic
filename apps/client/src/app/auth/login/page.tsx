@@ -16,7 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardTitle, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import { usePathname } from 'next/navigation';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -64,6 +65,7 @@ const providerLabels = [
 ];
 
 export default function LoginPage() {
+  const pathname = usePathname();
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
   };
@@ -76,112 +78,116 @@ export default function LoginPage() {
     },
   });
   return (
-    <motion.div
-      className="md:w-3/4 w-full"
-      initial={{ y: 80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      // transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-    >
-      <Card className="p-4 space-y-4 md:p-6 ">
-        <CardTitle className="flex items-center justify-center gap-1">
-          <Image
-            src="/icons/icon_512x512.png"
-            className="w-6 dark:invert md:w-7"
-            alt="meloicon"
-            height={1000}
-            width={1000}
-          />
-          <span className="text-[18px] md:text-xl font-bold font-poppins">
-            MelodayzMusic
-          </span>
-        </CardTitle>
-        {/* Form Content */}
-        <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
-          <Form {...form}>
-            <form action="" className="flex flex-col flex-1 gap-4">
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>E-mail</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="email"
-                        className="py-6"
-                        placeholder="you@example.com"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                  </FormItem>
-                )}
-              ></FormField>
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Mot de passe</FormLabel>
-                    <FormControl>
-                      <Input type="password" className="py-6" {...field} />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                  </FormItem>
-                )}
-              ></FormField>
-              <Button
-                onClick={handleClick}
-                size="lg"
-                className="rounded-full cta relative overflow-hidden"
-                type="submit"
-              >
-                Se connecter
-                {/* grain overlay */}
-                <span
-                  className="absolute inset-0 opacity-20 pointer-events-none 
-               mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
-                ></span>
-              </Button>
-            </form>
-          </Form>
-
-          {/* divide */}
-          <div className="flex md:flex-col items-center justify-center gap-2">
-            <div className="bg-border h-[1px] md:w-[1px] grow"></div>
-            <span className="text-muted-foreground">ou</span>
-            <div className="bg-border h-[1px] md:w-[1px] grow"></div>
-          </div>
-
-          {/* login providers */}
-          <ul className="px-2 space-y-3 md:flex md:justify-center md:items-center md:flex-col md:flex-1 md:p-0">
-            {providerLabels.map((provider) => (
-              <li key={provider.id}>
-                <Button
-                  variant="secondary"
-                  className="w-full rounded-full md:w-auto"
-                >
-                  {provider.label === 'Google' ? (
-                    <Image
-                      src={provider.icon as string}
-                      alt={provider.label}
-                      className="w-4 lg:w-5"
-                      height={500}
-                      width={500}
-                    />
-                  ) : (
-                    provider.icon
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={pathname} // animate if route change
+        className="md:w-3/4 w-full"
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -80, opacity: 0 }}
+        // transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+      >
+        <Card className="p-4 space-y-4 md:p-6 ">
+          <CardTitle className="flex items-center justify-center gap-1">
+            <Image
+              src="/icons/icon_512x512.png"
+              className="w-6 dark:invert md:w-7"
+              alt="meloicon"
+              height={1000}
+              width={1000}
+            />
+            <span className="text-[18px] md:text-xl font-bold font-poppins">
+              MelodayzMusic
+            </span>
+          </CardTitle>
+          {/* Form Content */}
+          <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
+            <Form {...form}>
+              <form action="" className="flex flex-col flex-1 gap-4">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>E-mail</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          className="py-6"
+                          placeholder="you@example.com"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription />
+                      <FormMessage />
+                    </FormItem>
                   )}
-                  Continuer avec {provider.label}
+                ></FormField>
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Mot de passe</FormLabel>
+                      <FormControl>
+                        <Input type="password" className="py-6" {...field} />
+                      </FormControl>
+                      <FormDescription />
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                ></FormField>
+                <Button
+                  onClick={handleClick}
+                  size="lg"
+                  className="rounded-full cta relative overflow-hidden"
+                  type="submit"
+                >
+                  Se connecter
+                  {/* grain overlay */}
+                  <span
+                    className="absolute inset-0 opacity-20 pointer-events-none 
+               mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
+                  ></span>
                 </Button>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
-    </motion.div>
+              </form>
+            </Form>
+
+            {/* divide */}
+            <div className="flex md:flex-col items-center justify-center gap-2">
+              <div className="bg-border h-[1px] md:w-[1px] grow"></div>
+              <span className="text-muted-foreground">ou</span>
+              <div className="bg-border h-[1px] md:w-[1px] grow"></div>
+            </div>
+
+            {/* login providers */}
+            <ul className="px-2 space-y-3 md:flex md:justify-center md:items-center md:flex-col md:flex-1 md:p-0">
+              {providerLabels.map((provider) => (
+                <li key={provider.id}>
+                  <Button
+                    variant="secondary"
+                    className="w-full rounded-full md:w-auto"
+                  >
+                    {provider.label === 'Google' ? (
+                      <Image
+                        src={provider.icon as string}
+                        alt={provider.label}
+                        className="w-4 lg:w-5"
+                        height={500}
+                        width={500}
+                      />
+                    ) : (
+                      provider.icon
+                    )}
+                    Continuer avec {provider.label}
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </AnimatePresence>
   );
 }
