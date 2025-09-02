@@ -6,7 +6,7 @@ import { type VibeProps } from '@/types/songs/stream.interface';
 const VibeStream = ({ children }: VibeProps) => {
   const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
     false,
-    2,
+    1,
     1,
     'start'
   );
