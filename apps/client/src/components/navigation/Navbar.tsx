@@ -6,10 +6,12 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import SearchBar from './SeachBar';
+import { useLoadingPath } from '@/hooks/useLoadingPath';
 
 export const NavBar = () => {
   const [notHome, setNotHome] = useState(false);
   const pathname = usePathname();
+  const { isPending, handleClickTab } = useLoadingPath('/dashboard/profile');
 
   useEffect(() => {
     setNotHome(pathname !== '/dashboard');
@@ -46,7 +48,10 @@ export const NavBar = () => {
         </figure>
       </div>
       <SearchBar />
-      <Avatar className="ml-auto ring-2 ring-border shadow-2xs">
+      <Avatar
+        onClick={handleClickTab}
+        className="ml-auto cursor-pointer hover:opacity-90 ring-2 ring-border shadow-2xs"
+      >
         <AvatarImage
           className="object-cover"
           alt="fallback"

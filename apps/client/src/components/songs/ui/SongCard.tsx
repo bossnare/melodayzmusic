@@ -28,7 +28,7 @@ const VibeCard = ({ song }: SongProps) => {
       <CardContent className="p-0">
         <AspectRatio
           ratio={1}
-          className="relative overflow-hidden rounded-xs"
+          className="relative overflow-hidden rounded-md"
           // onClick={() => {
           //   // playTrack(song, navigate);
           // }}
@@ -41,15 +41,15 @@ const VibeCard = ({ song }: SongProps) => {
             width={1200}
             height={1200}
           />
-          <div className="absolute flex justify-end bottom-2 right-2">
+          <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton
               className="bg-gradient-to-t from-black/60 to-transparent shrink-0"
               onClick={() => setIsPlaying(!isPlaying)}
             >
               {isPlaying ? (
-                <Pause className="stroke-0 size-5 md:size-6 lg:size-5 fill-foreground" />
+                <Pause className="stroke-0 size-6 lg:size-5 fill-foreground" />
               ) : (
-                <Play className="stroke-0 size-5 md:size-6 lg:size-5 fill-foreground" />
+                <Play className="stroke-0 size-6 lg:size-5 fill-foreground" />
               )}
             </MotionButton>
           </div>
@@ -78,7 +78,7 @@ const VibeCard = ({ song }: SongProps) => {
 
 // Album Card
 const AlbumCard = ({ song }: SongProps) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
@@ -86,7 +86,7 @@ const AlbumCard = ({ song }: SongProps) => {
       <CardContent className="p-0">
         <AspectRatio
           ratio={1}
-          className="relative overflow-hidden rounded-xs"
+          className="relative overflow-hidden rounded-lg"
           // onClick={() => {
           //   // playTrack(song, navigate);
           // }}
@@ -99,7 +99,7 @@ const AlbumCard = ({ song }: SongProps) => {
             width={1200}
             height={1200}
           />
-          <div className="absolute flex justify-end bottom-2 left-2">
+          {/* <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton
               className="bg-gradient-to-t from-black/60 to-transparent shrink-0"
               onClick={() => setIsPlaying(!isPlaying)}
@@ -110,7 +110,7 @@ const AlbumCard = ({ song }: SongProps) => {
                 <Play className="stroke-0 size-7 sm:size-5 md:size-7 lg:size-5 fill-foreground" />
               )}
             </MotionButton>
-          </div>
+          </div> */}
         </AspectRatio>
       </CardContent>
 
