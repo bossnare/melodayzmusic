@@ -28,7 +28,7 @@ export const NavBar = () => {
       <div className="lg:!hidden grow">
         <figure className="flex items-center gap-1">
           <Image
-            className={cn(notHome && '!w-6', 'w-7')}
+            className={cn(notHome && '!w-5', 'w-6')}
             alt="meloicon"
             src={'/icons/icon_x32.svg'}
             loading="lazy"
@@ -37,8 +37,8 @@ export const NavBar = () => {
           />
           <h2
             className={cn(
-              notHome && '!text-xl',
-              'text-[22px] font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins text-gradient'
+              notHome && '!text-lg',
+              'text-xl font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins text-gradient'
             )}
           >
             MelodayzMusic

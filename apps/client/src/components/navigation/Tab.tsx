@@ -8,6 +8,7 @@ import { Loader } from '../motions/Loader';
 export const Tabs = ({ href, Icon, label }: TabProps) => {
   const isActive = useActivePath(href);
   const { isPending, handleClickTab } = useLoadingPath(href);
+  console.log(isPending);
 
   return (
     <>
@@ -17,14 +18,14 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
         translate="no"
         className={cn(
           isActive
-            ? 'dark:lg:bg-primary-foreground/2 backdrop-blur-xs'
-            : 'font-medium hover:text-primary-foreground/50 text-muted-foreground',
-          'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[95%] text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
+            ? 'dark:lg:bg-primary-foreground/2 backdrop-blur-xs text-primary-foreground'
+            : 'hover:text-primary-foreground/50 text-muted-foreground',
+          'select-none flex flex-col p-1 md:p-2 w-[75%] font-medium md:w-[95%] text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
         <MotionTab className="*:!size-6">
           {isPending && !isActive ? (
-            <Loader className="dark:border-primary-foreground/90 size-3" />
+            <Loader className="dark:border-primary-foreground/90 !size-4" />
           ) : (
             <Icon weight={isActive ? 'fill' : 'bold'} />
           )}
