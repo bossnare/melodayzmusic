@@ -8,7 +8,7 @@ const VibeStream = ({ children }: VibeProps) => {
     false,
     2,
     1,
-    'center'
+    'start'
   );
 
   return (
