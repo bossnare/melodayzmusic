@@ -3,7 +3,7 @@ import { Play, Music, Heart, SkipBack, SkipForward } from 'lucide-react';
 
 const SongPlayerMobile = () => {
   return (
-    <div className="fixed inset-x-0 flex items-center h-16 gap-2 px-2 py-2 lg:hidden bottom-16 dark:bg-nav">
+    <div className="fixed inset-x-0 flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-16 dark:bg-nav">
       <div className="p-1 border rounded-md shadow-sm border-secondary-foreground">
         <Music className="size-10 text-muted-foreground" />
       </div>
@@ -15,7 +15,7 @@ const SongPlayerMobile = () => {
         <MotionButton>
           <SkipBack className="size-auto" />
         </MotionButton>
-        <MotionButton>
+        <MotionButton className="dark:bg-background>
           <Play className="fill-current size-8" />
         </MotionButton>
         <MotionButton>
