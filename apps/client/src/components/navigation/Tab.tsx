@@ -18,7 +18,7 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
         className={cn(
           isActive
             ? 'dark:lg:bg-primary-foreground/2 backdrop-blur-xs'
-            : 'font-medium hover:text-muted-foreground text-foreground/80',
+            : 'font-medium hover:text-primary-foreground/50 text-muted-foreground',
           'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[95%] text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
