@@ -21,7 +21,7 @@ export const DashboardHomeSkeleton = () => {
       <div>
         <Skeleton className="w-40 h-6 mb-2 bg-gray-300 lg:mb-3 rounded-xl dark:bg-primary-foreground/20" />
         <div
-          className="grid grid-flow-col auto-cols-[calc(100vw/2.2)] sm:auto-cols-[calc(100vw/4.5)] 
+          className="grid grid-flow-col auto-cols-[calc(100vw/2.3)] sm:auto-cols-[calc(100vw/4.5)] 
         lg:auto-cols-[calc(100vw/9)] xl:auto-cols-[calc(100vw/8.5)] gap-4 lg:gap-5"
         >
           {[...Array(10)].map((_, index) => (
