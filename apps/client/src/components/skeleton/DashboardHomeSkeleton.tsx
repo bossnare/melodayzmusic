@@ -24,7 +24,7 @@ export const DashboardHomeSkeleton = () => {
           className="grid grid-flow-col auto-cols-[calc(100vw/2.3)] sm:auto-cols-[calc(100vw/4.5)] 
         lg:auto-cols-[calc(100vw/9)] xl:auto-cols-[calc(100vw/8.5)] gap-4 lg:gap-5"
         >
-          {[...Array(10)].map((_, index) => (
+          {[...Array(8)].map((_, index) => (
             <SongCardSkeleton key={index} />
           ))}
         </div>
@@ -36,7 +36,7 @@ export const DashboardHomeSkeleton = () => {
           className="grid grid-flow-col auto-cols-[calc(100vw/2.3)] sm:auto-cols-[calc(100vw/4.5)] 
         lg:auto-cols-[calc(100vw/9)] xl:auto-cols-[calc(100vw/8.5)] gap-4 lg:gap-5"
         >
-          {[...Array(10)].map((_, index) => (
+          {[...Array(8)].map((_, index) => (
             <SongCardSkeleton key={index} />
           ))}
         </div>
@@ -44,4 +44,3 @@ export const DashboardHomeSkeleton = () => {
     </div>
   );
 };
-

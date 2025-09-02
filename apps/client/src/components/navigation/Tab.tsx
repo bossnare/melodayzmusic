@@ -8,7 +8,6 @@ import { Loader } from '../motions/Loader';
 export const Tabs = ({ href, Icon, label }: TabProps) => {
   const isActive = useActivePath(href);
   const { isPending, handleClickTab } = useLoadingPath(href);
-  console.log(isPending);
 
   return (
     <>
