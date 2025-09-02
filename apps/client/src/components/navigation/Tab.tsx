@@ -18,13 +18,13 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
         className={cn(
           isActive
             ? 'font-semibold dark:lg:bg-primary-foreground/2 backdrop-blur-xs'
-            : 'font-medium hover:text-muted-foreground text-foreground/80',
+            : 'font-medium hover:text-muted-foreground text-foreground/70',
           'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[95%] text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
         <MotionTab className="*:!size-6">
           {isPending ? (
-            <Loader className="dark:border-primary-foreground/80 size-3" />
+            <Loader className="dark:border-primary-foreground/90 size-3" />
           ) : (
             <Icon weight={isActive ? 'fill' : 'bold'} />
           )}
