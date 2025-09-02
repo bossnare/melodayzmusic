@@ -8,6 +8,7 @@ import Player from '@/components/songs/ui/SongPlayer';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { AlignLeft } from 'lucide-react';
 import SmoothScrollLayout from './SmoothScrollLayout';
+import { SongPlayerMobile } from '@/components/songs/ui/SongPlayerMobile';
 
 export default function DashboardLayout({
   children,
@@ -39,7 +40,8 @@ export default function DashboardLayout({
       </Sheet>
 
       {/* NavBottom -- Player and Navigation on mobile */}
-      <nav className="fixed inset-x-0 bottom-0 h-auto px-2 border-t lg:px-4 z-8 dark:border-border lg:h-25 bg-gray-50 dark:bg-nav">
+      <SongPlayerMobile />
+      <nav className="fixed inset-x-0 bottom-0 h-16 px-2 border-t lg:px-4 z-8 dark:border-border lg:h-25 bg-gray-50 dark:bg-nav">
         <NavBottom />
         <Player />
       </nav>

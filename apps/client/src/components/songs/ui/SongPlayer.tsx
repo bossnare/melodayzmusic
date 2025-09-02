@@ -1,6 +1,6 @@
 'use client';
 
-import { PauseCircle, PlayCircle, SkipBack, SkipForward } from 'lucide-react';
+import { Pause, Play, SkipBack, SkipForward } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
@@ -14,7 +14,7 @@ const Player = () => {
       <div className="xl:w-64">
         <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
           <Image
-            src="/img/p6.jpg"
+            src="/img/p9.jpg"
             alt="coverImage"
             className="object-cover size-full"
             height={1000}
@@ -31,14 +31,10 @@ const Player = () => {
             <SkipBack className="size-auto" />
           </MotionButton>
           <MotionButton
-            className="text-muted-foreground"
+            className="text-muted-foreground dark:bg-background *:stroke-0 *:fill-current"
             onClick={() => setIsGo(!isGo)}
           >
-            {isGo ? (
-              <PauseCircle className="size-11" />
-            ) : (
-              <PlayCircle className="size-11" />
-            )}
+            {isGo ? <Pause className="size-8" /> : <Play className="size-8" />}
           </MotionButton>
           <MotionButton className="text-muted-foreground">
             <SkipForward className="size-auto" />
