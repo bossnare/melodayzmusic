@@ -7,7 +7,7 @@ const AlbumStream = ({ children }: AlbumProps) => {
   const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
     false,
     1,
-    1,
+    0.6,
     'start'
   );
 
