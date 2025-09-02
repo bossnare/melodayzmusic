@@ -57,7 +57,7 @@ const VibeCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-full capitalize truncate line-clamp-1 text-[1rem] lg:text-sm">
+        <CardTitle className="w-full capitalize truncate line-clamp-1 text-xs lg:text-sm">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-full gap-2 sm:gap-0 sm:flex-row sm:items-center">
