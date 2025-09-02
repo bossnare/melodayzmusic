@@ -8,7 +8,7 @@ const AlbumStream = ({ children }: AlbumProps) => {
     true,
     1,
     0.6,
-    'start'
+    'center'
   );
 
   return (
