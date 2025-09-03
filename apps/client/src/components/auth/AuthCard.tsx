@@ -22,7 +22,7 @@ import { providerLabels } from '@/components/navigation/labels/label.provider';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
-import { AuthHeaderSwitch } from './AuthHeaderSwitch AuthHeaderSwitch';
+import { AuthHeaderSwitch } from './AuthHeaderSwitch';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -108,7 +108,7 @@ function LoginCard() {
                               className="py-6"
                               {...field}
                             />
-                            <span className="absolute right-4 top-1/2 -translate-y-1/2">
+                            <span className="absolute right-2 top-1/2 -translate-y-1/2">
                               <MotionButton
                                 type="button"
                                 className="*:!size-5 lg:*:!size-4"
