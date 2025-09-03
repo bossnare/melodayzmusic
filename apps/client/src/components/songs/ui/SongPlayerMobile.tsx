@@ -9,7 +9,7 @@ const SongPlayerMobile = () => {
       </div>
       {/* info */}
       <div className="flex flex-col items-start justify-center gap-1 text-muted-foreground">
-        <p>Aucune lecture</p>
+        <p>Pas en lecture</p>
       </div>
       <div className="flex items-center gap-1 *:text-muted-foreground ml-auto">
         <MotionButton>

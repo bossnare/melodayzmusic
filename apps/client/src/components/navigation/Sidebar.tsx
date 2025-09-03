@@ -10,7 +10,7 @@ export const Sidebar = () => {
       {/* sidebar desktop */}
       <aside
         id="side-bar"
-        className="fixed lg:w-62 xl:w-64 top-0 left-0 overflow-y-auto hidden bg-white 
+        className="fixed lg:w-62 top-0 left-0 overflow-y-auto hidden bg-white 
         z-6 lg:block dark:bg-sidebar md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-border"
       >
         <div className="hidden px-2 py-2 lg:block">
