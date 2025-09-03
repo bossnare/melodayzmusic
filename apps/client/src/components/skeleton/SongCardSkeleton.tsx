@@ -9,7 +9,7 @@ export const SongCardSkeleton = () => {
           <Skeleton className="size-full dark:bg-primary-foreground/10 rounded-xl" />
         </AspectRatio>
         <div className="space-y-2">
-          <Skeleton className="h-4 dark:bg-primary-foreground/15 w-[80%]" />
+          <Skeleton className="h-4 dark:bg-primary-foreground/12 w-[80%]" />
           <Skeleton className="h-4 dark:bg-primary-foreground/10 w-[60%]" />
         </div>
       </div>
