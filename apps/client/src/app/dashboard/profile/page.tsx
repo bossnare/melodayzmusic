@@ -38,7 +38,7 @@ export default function ProfilePage() {
             <Star
               className={cn(
                 isStar && 'fill-current stroke-0',
-                'size-auto lg:size-8'
+                'size-8 lg:size-10'
               )}
             />
           </MotionButton>
@@ -54,3 +54,4 @@ export default function ProfilePage() {
     </section>
   );
 }
+
