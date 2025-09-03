@@ -1,7 +1,7 @@
 import {
   CompassIcon,
   PlaylistIcon,
-  SparkleIcon,
+  UserIcon,
   HouseIcon,
   PlusIcon,
 } from '@phosphor-icons/react';
@@ -35,6 +35,6 @@ export const navLabels = [
     id: 5,
     label: 'Moi',
     href: '/dashboard/profile',
-    icon: User,
+    icon: UserIcon,
   },
 ];
