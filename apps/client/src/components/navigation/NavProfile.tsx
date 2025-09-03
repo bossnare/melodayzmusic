@@ -6,7 +6,7 @@ const NavProfile = () => {
     <nav className="flex justify-between py-1">
       <div>
         <MotionButton className="text-muted-foreground">
-          <ChevronLeft className="size-auto lg:size-10" />
+          <ChevronLeft className="size-10 lg:size-10" />
         </MotionButton>
       </div>
     </nav>
