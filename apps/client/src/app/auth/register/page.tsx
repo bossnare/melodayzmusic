@@ -71,7 +71,7 @@ export default function RegisterPage() {
                       <FormLabel>Mot de passe</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Input className="py-6" {...field} />
+                          <Input type="password" className="py-6" {...field} />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2">
                             {/* <MotionButton
                             type="button"
