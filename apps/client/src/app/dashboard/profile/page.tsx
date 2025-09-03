@@ -4,9 +4,13 @@ import { MotionButton } from '@/components/motions/motionButton';
 import NavProfile from '@/components/navigation/NavProfile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 import { Star } from 'lucide-react';
+import { useState } from 'react';
 
 export default function ProfilePage() {
+  const [isStar, setIsStar] = useState(false);
+
   return (
     <section>
       <NavProfile />
@@ -30,8 +34,13 @@ export default function ProfilePage() {
         </div>
         {/* btn action */}
         <div className="ml-auto">
-          <MotionButton>
-            <Star className="size-auto lg:size-8" />
+          <MotionButton onClick={() => setIsStar(!isStar)}>
+            <Star
+              className={cn(
+                isStar && 'fill-current stroke-0',
+                'size-auto lg:size-8'
+              )}
+            />
           </MotionButton>
         </div>
       </div>
