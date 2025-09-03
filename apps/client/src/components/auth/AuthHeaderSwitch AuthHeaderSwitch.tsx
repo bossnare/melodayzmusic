@@ -1,3 +1,4 @@
+import { Loader } from '../motions/Loader';
 import { Button } from '../ui/button';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 
@@ -26,7 +27,22 @@ const AuthHeaderSwitch = ({
           </Button>
         </>
       ) : (
-        ''
+        <>
+          <p className="text-sm">Créez vos vibes.</p>
+          <Button
+            onClick={handleClickTab}
+            disabled={isPending}
+            variant="outline"
+            size="lg"
+            className="rounded-full shadow-sm"
+          >
+            {isPending ? (
+              <Loader className="size-4 lg:size-6 dark:border-secondary" />
+            ) : (
+              'Connectez-vous'
+            )}
+          </Button>
+        </>
       )}
     </nav>
   );
