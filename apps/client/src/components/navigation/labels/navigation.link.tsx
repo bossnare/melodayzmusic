@@ -14,27 +14,27 @@ export const navLabels = [
     icon: HouseIcon,
   },
   {
-    id: 4,
+    id: 2,
     label: 'Explorer',
     href: '/dashboard/favoris',
     icon: CompassIcon,
   },
   {
-    id: 6,
+    id: 3,
     label: 'create',
     href: '/dashboard/create',
     icon: PlusIcon,
   },
   {
-    id: 5,
-    label: 'Discover',
-    href: '/dashboard/discover',
-    icon: SparkleIcon,
-  },
-  {
-    id: 2,
+    id: 4,
     label: 'MyVibes',
     href: '/dashboard/myvibe',
     icon: PlaylistIcon,
+  },
+  {
+    id: 5,
+    label: 'Moi',
+    href: '/dashboard/profile',
+    icon: User,
   },
 ];
