@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { Loader } from '../motions/Loader';
 import { Button } from '../ui/button';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
@@ -21,7 +22,10 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className="rounded-full shadow-sm"
+            className={cn(
+              isPending && 'text-primary-foreground',
+              'rounded-full shadow-sm'
+            )}
           >
             {isPending ? 'Création en cours...' : 'Créer un compte'}
           </Button>
@@ -34,7 +38,10 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className="rounded-full shadow-sm"
+            className={cn(
+              isPending && 'text-primary-foreground',
+              'rounded-full shadow-sm'
+            )}
           >
             {isPending ? (
               <Loader className="size-4 lg:size-6 dark:border-secondary" />

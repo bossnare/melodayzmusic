@@ -35,7 +35,7 @@ export default function RegisterPage() {
   return (
     <>
       <AuthHeaderSwitch type="register" href="/auth/login" />
-      <div className="h-dvh flex items-center gap-2 *:flex-1 *:p-4 *:h-2/3">
+      <div className="h-dvh flex items-center gap-2 *:w-full *:p-4 *:h-2/3">
         <Card>
           <CardTitle className="text-center">
             Entrez vos infos d&apos;accès
