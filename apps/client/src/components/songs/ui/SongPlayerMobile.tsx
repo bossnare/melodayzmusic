@@ -13,13 +13,13 @@ const SongPlayerMobile = () => {
       </div>
       <div className="flex items-center gap-1 *:text-muted-foreground ml-auto">
         <MotionButton>
-          <SkipBack className="size-auto" />
+          <SkipBack className="fill-current size-auto" />
         </MotionButton>
         <MotionButton className="dark:bg-background">
           <Play className="fill-current size-8" />
         </MotionButton>
         <MotionButton>
-          <SkipForward className="size-auto" />
+          <SkipForward className="fill-current size-auto" />
         </MotionButton>
       </div>
     </div>
