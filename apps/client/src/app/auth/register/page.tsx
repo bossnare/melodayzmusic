@@ -21,7 +21,7 @@ import { providerLabels } from '@/components/navigation/labels/label.provider';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
-import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch AuthHeaderSwitch';
+import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 
 export default function RegisterPage() {
   const form = useForm({
@@ -37,7 +37,7 @@ export default function RegisterPage() {
       <AuthHeaderSwitch type="register" href="/auth/login" />
       <div className="h-dvh flex items-center gap-2 *:w-full *:p-4 *:h-2/3">
         <Card>
-          <CardTitle className="text-center">
+          <CardTitle className="text-center text-lg">
             Entrez vos infos d&apos;accès
           </CardTitle>
           {/* Form Content */}
@@ -103,7 +103,7 @@ export default function RegisterPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        {/* <Card>
           <CardTitle></CardTitle>
           <CardContent></CardContent>
         </Card>
@@ -111,7 +111,7 @@ export default function RegisterPage() {
         <Card>
           <CardTitle></CardTitle>
           <CardContent></CardContent>
-        </Card>
+        </Card> */}
       </div>
     </>
   );
