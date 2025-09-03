@@ -50,12 +50,15 @@ export const NavBar = () => {
       <SearchBar />
       <Avatar
         onClick={handleClickTab}
-        className="ml-auto cursor-pointer hover:opacity-90 ring-2 ring-border shadow-2xs"
+        className={cn(
+          isPending && 'animate-pulse',
+          'ml-auto cursor-pointer hover:opacity-80 ring-2 ring-border shadow-2xs'
+        )}
       >
         <AvatarImage
           className="object-cover"
           alt="fallback"
-          src="/img/fallback.jpeg"
+          src="/img/profil/lil-durk.jpg"
         />
         <AvatarFallback>
           <span className="text-xs">US</span>
