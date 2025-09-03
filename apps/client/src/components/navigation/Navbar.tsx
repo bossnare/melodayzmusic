@@ -48,7 +48,7 @@ export const NavBar = () => {
         </figure>
       </div>
       <SearchBar />
-      <Avatar
+      {/* <Avatar
         onClick={handleClickTab}
         className={cn(
           isPending && 'animate-pulse',
@@ -63,7 +63,8 @@ export const NavBar = () => {
         <AvatarFallback>
           <span className="text-xs">US</span>
         </AvatarFallback>
-      </Avatar>
+      </Avatar>*/}
     </nav>
   );
 };
+
