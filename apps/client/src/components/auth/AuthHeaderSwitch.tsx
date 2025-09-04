@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils';
 import { Loader } from '../motions/Loader';
 import { Button } from '../ui/button';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
+import { MelodayzMusic } from '../branding/logo';
 
 const AuthHeaderSwitch = ({
   href,
@@ -32,7 +33,7 @@ const AuthHeaderSwitch = ({
         </>
       ) : (
         <>
-          <p className="text-sm">Créez vos vibes.</p>
+          <MelodayzMusic />
           <Button
             onClick={handleClickTab}
             disabled={isPending}

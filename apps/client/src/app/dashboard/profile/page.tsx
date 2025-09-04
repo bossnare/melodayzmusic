@@ -17,7 +17,7 @@ export default function ProfilePage() {
 
       {/* Profile content */}
       <div className="py-2 flex gap-4 items-center">
-        <Avatar className="size-30 lg:size-38 ring-4 ring-muted ">
+        <Avatar className="size-30 lg:size-38 border dark:border-primary-foreground ring-4 ring-muted ">
           <AvatarImage
             className="object-cover"
             alt="lildurk"
@@ -54,4 +54,3 @@ export default function ProfilePage() {
     </section>
   );
 }
-
