@@ -23,6 +23,7 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { AuthHeaderSwitch } from './AuthHeaderSwitch';
+import { MelodayzMusic } from '../branding/logo';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -60,17 +61,8 @@ function LoginCard() {
           transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         >
           <Card className="p-4 space-y-4 md:p-6 ">
-            <CardTitle className="flex items-center justify-center gap-1">
-              <Image
-                src="/icons/icon_512x512.png"
-                className="w-6 dark:invert md:w-7"
-                alt="meloicon"
-                height={1000}
-                width={1000}
-              />
-              <span className="text-[18px] select-none hover:text-primary-foreground/90 md:text-xl font-bold font-poppins">
-                MelodayzMusic
-              </span>
+            <CardTitle>
+              <MelodayzMusic />
             </CardTitle>
             {/* Form Content */}
             <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
