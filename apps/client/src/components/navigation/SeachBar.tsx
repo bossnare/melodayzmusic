@@ -39,7 +39,7 @@ const SearchBar = () => {
         </div>
         <div>
           <MotionButton className="p-[6px] text-muted-foreground lg:p-2">
-            <Search className="stroke-2 size-auto" />
+            <Search weight={'bold'} className="stroke-2 size-8 lg:size-auto" />
           </MotionButton>
         </div>
       </div>
