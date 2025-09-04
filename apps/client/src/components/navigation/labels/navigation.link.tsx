@@ -1,6 +1,6 @@
 import {
   CompassIcon,
-  PackageIcon,
+  BooksIcon,
   UserIcon,
   HouseIcon,
   PlusIcon,
@@ -29,7 +29,7 @@ export const navLabels = [
     id: 4,
     label: 'MyVibes',
     href: '/dashboard/myvibe',
-    icon: PackageIcon,
+    icon: BooksIcon,
   },
   {
     id: 5,
