@@ -1,4 +1,5 @@
-import { Search, X } from 'lucide-react';
+import { X } from 'lucide-react';
+import { MagnifyingGlassIcon } from '@phosphor-icons/react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -39,7 +40,10 @@ const SearchBar = () => {
         </div>
         <div>
           <MotionButton className="p-[6px] text-muted-foreground lg:p-2">
-            <Search weight={'bold'} className="stroke-2 size-8 lg:size-auto" />
+            <MagnifyingGlassIcon
+              weight={'bold'}
+              className="size-8 lg:size-auto"
+            />
           </MotionButton>
         </div>
       </div>
