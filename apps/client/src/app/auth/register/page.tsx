@@ -22,13 +22,13 @@ export default function RegisterPage() {
   const form = useForm({
     // resolver: zodResolver(loginSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      pseudo: '',
+      username: '',
     },
   });
 
   return (
-    <section className="flex flex-col items-center justify-between gap-2 pb-6 h-dvh md:pb-4">
+    <section className="flex flex-col items-center justify-between h-screen gap-2 pb-6 md:pb-4">
       {/* header */}
       <AuthHeaderSwitch type="register" href="/auth/login" />
       {/* content */}
@@ -36,15 +36,15 @@ export default function RegisterPage() {
         className="flex flex-col justify-center items-center gap-2 
       w-full *:w-full md:*:w-2/3 lg:*:w-[42%]"
       >
-        <div className="flex items-center justify-between gap-4 pb-6 capitalize md:pb-4">
-          <MotionButton>
+        <nav className="flex items-center justify-between gap-4 pb-6 md:pb-4">
+          <MotionButton className="dark:text-muted-foreground text-primary-foreground">
             <ChevronLeft className="size-8" />
           </MotionButton>
-          <span className="text-lg font-medium">étape 1</span>
-          <MotionButton>
+          <span className="text-lg font-medium capitalize">étape 1</span>
+          <MotionButton className="dark:text-muted-foreground text-primary-foreground">
             <ChevronRight className="size-8" />
           </MotionButton>
-        </div>
+        </nav>
         {/* Step Card */}
         <Card className="p-4 dark:bg-transparent lg:p-6">
           <CardTitle className="text-lg text-center">
@@ -56,7 +56,7 @@ export default function RegisterPage() {
               <form action="" className="flex flex-col flex-1 gap-4">
                 <FormField
                   control={form.control}
-                  name="firstName"
+                  name="pseudo"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Ton pseudo</FormLabel>
@@ -75,7 +75,7 @@ export default function RegisterPage() {
                 ></FormField>
                 <FormField
                   control={form.control}
-                  name="lastName"
+                  name="username"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Identifiant unique</FormLabel>
