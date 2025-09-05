@@ -22,39 +22,49 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function RegisterPage() {
   const form = useForm({
     // resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: '',
-      password: '',
+      firstName: '',
+      lastName: '',
     },
   });
 
   return (
     <>
       <AuthHeaderSwitch type="register" href="/auth/login" />
-      <div className="h-dvh flex items-center gap-2 *:w-full *:p-4 md:*:w-1/2">
-        <Card>
-          <CardTitle className="text-center text-lg">
-            Entrez vos infos d&apos;accès
+      <div className="flex items-center flex-col justify-center gap-2 *:w-full *:p-4 lg:*:p-6 md:*:w-2/3 lg:*:w-[42%]">
+        <div className="flex items-center justify-between gap-4 capitalize pt-14 md:pt-4">
+          <MotionButton>
+            <ChevronLeft className="size-8" />
+          </MotionButton>
+          <span className="text-lg font-medium">étape 1</span>
+          <MotionButton>
+            <ChevronRight className="size-8" />
+          </MotionButton>
+        </div>
+        <Card className="dark:bg-transparent">
+          <CardTitle className="text-lg text-center">
+            Crée ton identité
           </CardTitle>
           {/* Form Content */}
-          <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
+          <CardContent className="flex flex-col gap-8 p-1 md:gap-10 md:flex-row">
             <Form {...form}>
               <form action="" className="flex flex-col flex-1 gap-4">
                 <FormField
                   control={form.control}
-                  name="email"
+                  name="firstName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>E-mail</FormLabel>
+                      <FormLabel>Ton pseudo</FormLabel>
                       <FormControl>
                         <Input
-                          type="email"
+                          type="text"
                           className="py-6"
-                          placeholder="vous@exemple.com"
+                          placeholder="VibeQueen"
                           {...field}
                         />
                       </FormControl>
@@ -65,14 +75,19 @@ export default function RegisterPage() {
                 ></FormField>
                 <FormField
                   control={form.control}
-                  name="password"
+                  name="lastName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Mot de passe</FormLabel>
+                      <FormLabel>Identifiant unique</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Input type="password" className="py-6" {...field} />
-                          <span className="absolute right-4 top-1/2 -translate-y-1/2">
+                          <Input
+                            placeholder="@flowpower8k"
+                            type="text"
+                            className="py-6"
+                            {...field}
+                          />
+                          <span className="absolute -translate-y-1/2 right-4 top-1/2">
                             {/* <MotionButton
                             type="button"
                             className="*:!size-5 lg:*:!size-4"
