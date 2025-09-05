@@ -24,6 +24,7 @@ import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { AuthHeaderSwitch } from './AuthHeaderSwitch';
 import { MelodayzMusic } from '../branding/logo';
+import { Tagline } from '../branding/tagline';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -47,7 +48,7 @@ function LoginCard() {
   const pathname = usePathname();
 
   return (
-    <section className="flex items-center flex-col justify-between gap-2 h-full pb-6 md:pb-4">
+    <section className="flex flex-col items-center justify-between h-full gap-2 pb-6 md:pb-4">
       {/* Header */}
       <AuthHeaderSwitch href="/auth/register" type="login" />
 
@@ -100,7 +101,7 @@ function LoginCard() {
                               className="py-6"
                               {...field}
                             />
-                            <span className="absolute right-2 top-1/2 -translate-y-1/2">
+                            <span className="absolute -translate-y-1/2 right-2 top-1/2">
                               <MotionButton
                                 type="button"
                                 className="*:!size-5 lg:*:!size-4"
@@ -168,7 +169,7 @@ function LoginCard() {
         </motion.div>
       </AnimatePresence>
       {/* Sign up */}
-      <div className="text-xs">Feel the Beat, Anywhere You Go.</div>
+      <Tagline />
     </section>
   );
 }
