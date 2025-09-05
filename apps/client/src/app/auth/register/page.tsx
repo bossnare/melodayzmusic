@@ -27,7 +27,7 @@ export default function RegisterPage() {
   });
 
   return (
-    <section className="flex flex-col items-center justify-between h-screen pb-6 md:pb-4">
+    <section className="flex flex-col items-center justify-between h-dvh pb-6 md:pb-4">
       {/* header */}
       <AuthHeaderSwitch type="register" href="/auth/login" />
       {/* content */}

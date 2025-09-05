@@ -48,7 +48,7 @@ function LoginCard() {
   const pathname = usePathname();
 
   return (
-    <section className="flex flex-col items-center justify-between h-screen gap-2 pb-6 md:pb-4">
+    <section className="flex flex-col items-center justify-between gap-2 pb-6 h-dvh md:pb-4">
       {/* Header */}
       <AuthHeaderSwitch href="/auth/register" type="login" />
 
