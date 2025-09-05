@@ -16,7 +16,7 @@ export const StepNavigation = ({ step }: { step: number }) => {
           <ChevronRight className="size-8" />
         </MotionButton>
       </div>
-      <Progress value={0} className="w-[20%]" />
+      <Progress value={0} className="w-[25%]" />
     </nav>
   );
 };
