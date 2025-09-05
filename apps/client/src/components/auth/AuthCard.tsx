@@ -79,7 +79,7 @@ function LoginCard() {
                           <Input
                             type="email"
                             className="py-6"
-                            placeholder="vous@exemple.com"
+                            placeholder="Entrez votre e-mail ou nom d'utilisateur"
                             {...field}
                           />
                         </FormControl>
