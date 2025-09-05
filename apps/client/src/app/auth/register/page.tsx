@@ -33,17 +33,21 @@ export default function RegisterPage() {
       <AuthHeaderSwitch type="register" href="/auth/login" />
       {/* content */}
       <div
-        className="flex flex-col justify-center items-center gap-2 
+        className="flex flex-col justify-center items-center gap-1 
       w-full *:w-full md:*:w-2/3 lg:*:w-[42%]"
       >
-        <nav className="flex items-center justify-between gap-4 pb-6 md:pb-4">
-          <MotionButton className="text-muted-foreground hover:text-primary-foreground">
-            <ChevronLeft className="size-8" />
-          </MotionButton>
-          <span className="text-lg font-medium capitalize">étape 1</span>
-          <MotionButton className="text-muted-foreground hover:text-primary-foreground">
-            <ChevronRight className="size-8" />
-          </MotionButton>
+        <nav className="flex flex-col items-center justify-center gap-2 pb-4">
+          <span>1/3</span>
+          {/* step navigation */}
+          <div className="flex items-center justify-between w-full gap-4">
+            <MotionButton className="text-muted-foreground hover:text-primary-foreground">
+              <ChevronLeft className="size-8" />
+            </MotionButton>
+            <span className="text-lg font-medium capitalize">étape 1</span>
+            <MotionButton className="text-muted-foreground hover:text-primary-foreground">
+              <ChevronRight className="size-8" />
+            </MotionButton>
+          </div>
         </nav>
         {/* Step Card */}
         <Card className="p-4 dark:bg-transparent lg:p-6">
