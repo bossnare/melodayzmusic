@@ -5,7 +5,8 @@ const useEmblaProgress = (
   dragFree: boolean,
   slidesScroll: number,
   threshold: number,
-  align: 'start' | 'center' | 'end'
+  align: 'start' | 'center' | 'end',
+  skipSnaps: boolean
 ) => {
   const [showFadeStart, setShowFadeStart] = useState(false);
   const [showFadeEnd, setShowFadeEnd] = useState(true);
@@ -16,7 +17,7 @@ const useEmblaProgress = (
     inViewThreshold: threshold,
     align: align,
     containScroll: 'trimSnaps',
-    skipSnaps: true,
+    skipSnaps: skipSnaps,
   });
 
   useEffect(() => {
