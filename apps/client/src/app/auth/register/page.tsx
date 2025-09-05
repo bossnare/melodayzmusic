@@ -9,20 +9,14 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardTitle, CardContent } from '@/components/ui/card';
-import Image from 'next/image';
-import { AnimatePresence, motion } from 'motion/react';
-import { providerLabels } from '@/components/navigation/labels/label.provider';
-import { EyeIcon, EyeOffIcon } from 'lucide-react';
-import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Tagline } from '@/components/branding/tagline';
 
 export default function RegisterPage() {
   const form = useForm({
@@ -34,10 +28,15 @@ export default function RegisterPage() {
   });
 
   return (
-    <>
+    <section className="flex flex-col items-center justify-between gap-2 pb-6 h-dvh md:pb-4">
+      {/* header */}
       <AuthHeaderSwitch type="register" href="/auth/login" />
-      <div className="flex items-center flex-col justify-center gap-2 *:w-full *:p-4 lg:*:p-6 md:*:w-2/3 lg:*:w-[42%]">
-        <div className="flex items-center justify-between gap-4 capitalize pt-14 md:pt-4">
+      {/* content */}
+      <div
+        className="flex flex-col justify-center items-center gap-2 
+      w-full *:w-full md:*:w-2/3 lg:*:w-[42%]"
+      >
+        <div className="flex items-center justify-between gap-4 pb-6 capitalize md:pb-4">
           <MotionButton>
             <ChevronLeft className="size-8" />
           </MotionButton>
@@ -46,12 +45,13 @@ export default function RegisterPage() {
             <ChevronRight className="size-8" />
           </MotionButton>
         </div>
-        <Card className="dark:bg-transparent">
+        {/* Step Card */}
+        <Card className="p-4 dark:bg-transparent lg:p-6">
           <CardTitle className="text-lg text-center">
             Crée ton identité
           </CardTitle>
           {/* Form Content */}
-          <CardContent className="flex flex-col gap-8 p-1 md:gap-10 md:flex-row">
+          <CardContent className="flex flex-col gap-10 p-1 md:flex-row">
             <Form {...form}>
               <form action="" className="flex flex-col flex-1 gap-4">
                 <FormField
@@ -128,6 +128,8 @@ export default function RegisterPage() {
           <CardContent></CardContent>
         </Card> */}
       </div>
-    </>
+      {/* tag */}
+      <Tagline />
+    </section>
   );
 }
