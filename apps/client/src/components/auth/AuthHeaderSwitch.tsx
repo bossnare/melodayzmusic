@@ -23,12 +23,13 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className={cn(
-              isPending && 'text-primary-foreground',
-              'rounded-full shadow-sm'
-            )}
+            className={cn('rounded-full shadow-sm')}
           >
-            {isPending ? 'Création en cours...' : 'Créer un compte'}
+            {isPending ? (
+              <Loader className="size-4 lg:size-6 dark:border-secondary" />
+            ) : (
+              'Créer un compte'
+            )}
           </Button>
         </>
       ) : (
@@ -39,10 +40,7 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className={cn(
-              isPending && 'text-primary-foreground',
-              'rounded-full shadow-sm'
-            )}
+            className={cn('rounded-full shadow-sm')}
           >
             {isPending ? (
               <Loader className="size-4 lg:size-6 dark:border-secondary" />
