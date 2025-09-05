@@ -74,7 +74,7 @@ function LoginCard() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>E-mail</FormLabel>
+                        <FormLabel>E-mail ou nom d&apos;utilisateur</FormLabel>
                         <FormControl>
                           <Input
                             type="email"

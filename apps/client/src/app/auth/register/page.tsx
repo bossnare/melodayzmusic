@@ -68,7 +68,7 @@ export default function RegisterPage() {
                           {...field}
                         />
                       </FormControl>
-                      <FormDescription />
+                      <FormDescription></FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -82,7 +82,7 @@ export default function RegisterPage() {
                       <FormControl>
                         <div className="relative">
                           <Input
-                            placeholder="@flowpower8k"
+                            placeholder="@vibequeen848"
                             type="text"
                             className="py-6"
                             {...field}
@@ -95,7 +95,9 @@ export default function RegisterPage() {
                           </span>
                         </div>
                       </FormControl>
-                      <FormDescription />
+                      <FormDescription className="text-xs">
+                        Ton identifiant sera visible par tous
+                      </FormDescription>{' '}
                       <FormMessage />
                     </FormItem>
                   )}
