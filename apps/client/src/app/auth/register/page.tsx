@@ -37,11 +37,11 @@ export default function RegisterPage() {
       w-full *:w-full md:*:w-2/3 lg:*:w-[42%]"
       >
         <nav className="flex items-center justify-between gap-4 pb-6 md:pb-4">
-          <MotionButton className="dark:text-muted-foreground text-primary-foreground">
+          <MotionButton className="text-muted-foreground hover:text-primary-foreground">
             <ChevronLeft className="size-8" />
           </MotionButton>
           <span className="text-lg font-medium capitalize">étape 1</span>
-          <MotionButton className="dark:text-muted-foreground text-primary-foreground">
+          <MotionButton className="text-muted-foreground hover:text-primary-foreground">
             <ChevronRight className="size-8" />
           </MotionButton>
         </nav>
