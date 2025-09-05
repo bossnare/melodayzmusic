@@ -13,10 +13,9 @@ import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardTitle, CardContent } from '@/components/ui/card';
-import { MotionButton } from '@/components/motions/motionButton';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Tagline } from '@/components/branding/tagline';
+import { StepNavigation } from '@/components/auth/StepNavigation';
 
 export default function RegisterPage() {
   const form = useForm({
@@ -28,7 +27,7 @@ export default function RegisterPage() {
   });
 
   return (
-    <section className="flex flex-col items-center justify-between h-screen gap-2 pb-6 md:pb-4">
+    <section className="flex flex-col items-center justify-between h-screen pb-6 md:pb-4">
       {/* header */}
       <AuthHeaderSwitch type="register" href="/auth/login" />
       {/* content */}
@@ -36,19 +35,7 @@ export default function RegisterPage() {
         className="flex flex-col justify-center items-center gap-1 
       w-full *:w-full md:*:w-2/3 lg:*:w-[42%]"
       >
-        <nav className="flex flex-col items-center justify-center gap-2 pb-4">
-          <span>1/3</span>
-          {/* step navigation */}
-          <div className="flex items-center justify-between w-full gap-4">
-            <MotionButton className="text-muted-foreground hover:text-primary-foreground">
-              <ChevronLeft className="size-8" />
-            </MotionButton>
-            <span className="text-lg font-medium capitalize">étape 1</span>
-            <MotionButton className="text-muted-foreground hover:text-primary-foreground">
-              <ChevronRight className="size-8" />
-            </MotionButton>
-          </div>
-        </nav>
+        <StepNavigation step={1} />
         {/* Step Card */}
         <Card className="p-4 dark:bg-transparent lg:p-6">
           <CardTitle className="text-lg text-center">
