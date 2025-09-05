@@ -54,7 +54,7 @@ function LoginCard() {
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={pathname}
+          key={pathname + 'login'}
           className="w-full lg:w-3/4"
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -174,4 +174,196 @@ function LoginCard() {
   );
 }
 
-export { LoginCard };
+// register card
+const StepOneCard = () => {
+  const form = useForm({
+    // resolver: zodResolver(loginSchema),
+    defaultValues: {
+      pseudo: '',
+      username: '',
+    },
+  });
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={'step1'}
+        className="w-full lg:w-3/4"
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 100, opacity: 0 }}
+        transition={{ type: 'spring', stiffness: 600, damping: 30 }}
+      >
+        <Card className="p-4 dark:bg-transparent lg:p-5">
+          <CardTitle className="text-base text-center">
+            Crée ton identité
+          </CardTitle>
+          {/* Form Content */}
+          <CardContent className="flex flex-col p-1 md:flex-row">
+            <Form {...form}>
+              <form action="" className="flex flex-col flex-1 gap-5">
+                <FormField
+                  control={form.control}
+                  name="pseudo"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Ton pseudo</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="text"
+                          className="py-6"
+                          placeholder="VibeQueen"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription></FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                ></FormField>
+                <FormField
+                  control={form.control}
+                  name="username"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Identifiant unique</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input
+                            placeholder="@vibequeen848"
+                            type="text"
+                            className="py-6"
+                            {...field}
+                          />
+                          <span className="absolute -translate-y-1/2 right-4 top-1/2">
+                            {/* <MotionButton
+                            type="button"
+                            className="*:!size-5 lg:*:!size-4"
+                          ></MotionButton> */}
+                          </span>
+                        </div>
+                      </FormControl>
+                      <FormDescription className="text-xs">
+                        Ton identifiant sera visible par tous
+                      </FormDescription>{' '}
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                ></FormField>
+                <Button
+                  // onClick={handleClick}
+                  size="lg"
+                  className="relative overflow-hidden rounded-full cta"
+                  type="submit"
+                >
+                  Continuer
+                  {/* grain overlay */}
+                  <span
+                    className="absolute inset-0 opacity-20 pointer-events-none 
+                         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
+                  ></span>
+                </Button>
+              </form>
+            </Form>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+const StepTwoCard = () => {
+  const form = useForm({
+    // resolver: zodResolver(loginSchema),
+    defaultValues: {
+      password: '',
+      repeatPassword: '',
+    },
+  });
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={'step2'}
+        className="w-full lg:w-3/4"
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 100, opacity: 0 }}
+        transition={{ type: 'spring', stiffness: 600, damping: 30 }}
+      >
+        <Card className="p-4 dark:bg-transparent lg:p-5">
+          <CardTitle className="text-base text-center">
+            Un mot de passe qui suit ton rythme
+          </CardTitle>
+          {/* Form Content */}
+          <CardContent className="flex flex-col p-1 md:flex-row">
+            <Form {...form}>
+              <form action="" className="flex flex-col flex-1 gap-5">
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Mot de passe</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="text"
+                          className="py-6"
+                          placeholder="Crée ton mot de passe béton"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription></FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                ></FormField>
+                <FormField
+                  control={form.control}
+                  name="repeatPassword"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Confirmation</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input
+                            placeholder="Confirme ton mot de passe béton"
+                            type="text"
+                            className="py-6"
+                            {...field}
+                          />
+                          <span className="absolute -translate-y-1/2 right-4 top-1/2">
+                            {/* <MotionButton
+                            type="button"
+                            className="*:!size-5 lg:*:!size-4"
+                          ></MotionButton> */}
+                          </span>
+                        </div>
+                      </FormControl>
+                      <FormDescription></FormDescription> <FormMessage />
+                    </FormItem>
+                  )}
+                ></FormField>
+                <Button
+                  // onClick={handleClick}
+                  size="lg"
+                  className="relative overflow-hidden rounded-full cta"
+                  type="submit"
+                >
+                  Continuer
+                  {/* grain overlay */}
+                  <span
+                    className="absolute inset-0 opacity-20 pointer-events-none 
+                         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
+                  ></span>
+                </Button>
+              </form>
+            </Form>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+export { LoginCard, StepOneCard, StepTwoCard };
