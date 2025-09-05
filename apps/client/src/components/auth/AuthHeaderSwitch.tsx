@@ -45,7 +45,7 @@ const AuthHeaderSwitch = ({
             {isPending ? (
               <Loader className="size-4 lg:size-6 dark:border-secondary" />
             ) : (
-              'Connectez-vous'
+              'Déjà inscrit'
             )}
           </Button>
         </>
