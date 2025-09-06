@@ -230,7 +230,7 @@
   }
 
   input {
-    @apply placeholder:text-sm;
+    @apply text-sm placeholder:text-sm;
   }
 }
 

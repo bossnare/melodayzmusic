@@ -47,7 +47,7 @@ function LoginCard() {
           exit={{ y: -80, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         >
-          <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/90">
+          <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>

@@ -28,7 +28,7 @@ export const PasswordInput = (
         <span className="absolute -translate-y-1/2 right-2 top-1/2">
           <MotionButton
             type="button"
-            className="*:!size-5 lg:*:!size-4"
+            className="*:!size-5 p-3 lg:p-2 lg:*:!size-4"
             onMouseDown={(e) => e.preventDefault()}
             onClick={toggleShow}
           >
