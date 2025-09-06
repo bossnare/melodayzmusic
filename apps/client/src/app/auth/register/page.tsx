@@ -1,29 +1,21 @@
 'use client';
 
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
-import { Tagline } from '@/components/branding/tagline';
-import { StepNavigation } from '@/components/auth/StepNavigation';
-import { StepOneCard, StepTwoCard } from '@/components/auth/AuthCard';
-import { useState } from 'react';
+import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
+import { Loader } from '@/components/motions/Loader';
+// import {usePreviousRoute} from '@/hooks/usePreviousRoute'
 
 export default function RegisterPage() {
-  const [step, setStep] = useState(1);
+  // const prevRoute = usePreviousRoute()
 
   return (
-    <section className="flex flex-col items-center justify-between pb-6 h-dvh md:pb-4">
-      {/* header */}
-      <AuthHeaderSwitch type="register" href="/auth/login" />
-      {/* content */}
-      <div
-        className="flex flex-col justify-center items-center gap-1 
-      w-full *:w-full md:*:w-2/3 lg:*:w-[42%]"
-      >
-        <StepNavigation setStep={setStep} step={step} />
-        {/* Step Card */}
-        {step === 1 ? <StepOneCard /> : <StepTwoCard />}
+    <AuthPageWrapper>
+      <AuthHeaderSwitch href={"/auth/login"} type="back" />
+      <div className="flex flex-col items-center gap-2">
+        <Loader className="size-8 lg:size-10 dark:border-secondary" />
+        <span>Page en construction</span>
       </div>
-      {/* tag */}
-      <Tagline />
-    </section>
+      <div>Loading...</div>
+    </AuthPageWrapper>
   );
 }

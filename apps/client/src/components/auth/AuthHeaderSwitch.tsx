@@ -3,19 +3,21 @@ import { Loader } from '../motions/Loader';
 import { Button } from '../ui/button';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { MelodayzMusic } from '../branding/logo';
+import { ArrowLeft } from 'lucide-react';
+import { MotionButton } from '../motions/motionButton';
 
 const AuthHeaderSwitch = ({
   href,
   type,
 }: {
   href: string;
-  type: 'login' | 'register';
+  type: 'login' | 'register' | 'back';
 }) => {
   const { isPending, handleClickTab } = useLoadingPath(href);
 
   return (
     <nav className="flex items-center justify-between w-full gap-12 py-3">
-      {type === 'login' ? (
+      {type === 'login' && (
         <>
           <p className="text-sm">Vos vibes n&apos;attendent que vous.</p>
           <Button
@@ -23,16 +25,18 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className={cn('rounded-full shadow-sm')}
+            className={cn('rounded-full')}
           >
             {isPending ? (
-              <Loader className="size-4 lg:size-6 dark:border-secondary" />
+              <Loader className="size-5 lg:size-6 dark:border-secondary" />
             ) : (
               'Créer un compte'
             )}
           </Button>
         </>
-      ) : (
+      )}
+
+      {type === 'register' && (
         <>
           <MelodayzMusic />
           <Button
@@ -40,14 +44,30 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className={cn('rounded-full shadow-sm')}
+            className={cn('rounded-full')}
           >
             {isPending ? (
-              <Loader className="size-4 lg:size-6 dark:border-secondary" />
+              <Loader className="size-5 lg:size-6 dark:border-secondary" />
             ) : (
               'Déjà inscrit'
             )}
           </Button>
+        </>
+      )}
+
+      {type === 'back' && (
+        <>
+          <MotionButton
+            className="hover:text-muted-foreground shadow-sm"
+            onClick={handleClickTab}
+            disabled={isPending}
+          >
+            {isPending ? (
+              <Loader className="size-5 lg:size-6 dark:border-secondary" />
+            ) : (
+              <ArrowLeft className="size-auto lg:size-8" />
+            )}
+          </MotionButton>
         </>
       )}
     </nav>
