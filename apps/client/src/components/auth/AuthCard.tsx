@@ -192,7 +192,7 @@ const StepOneCard = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: 100, opacity: 0 }}
-        transition={{ type: 'spring', stiffness: 600, damping: 30 }}
+        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
       >
         <Card className="p-4 dark:bg-transparent lg:p-5">
           <CardTitle className="text-base text-center">
@@ -289,7 +289,7 @@ const StepTwoCard = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: 100, opacity: 0 }}
-        transition={{ type: 'spring', stiffness: 600, damping: 30 }}
+        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
       >
         <Card className="p-4 dark:bg-transparent lg:p-5">
           <CardTitle className="text-base text-center">
