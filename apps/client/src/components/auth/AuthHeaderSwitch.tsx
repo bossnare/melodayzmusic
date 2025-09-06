@@ -58,15 +58,11 @@ const AuthHeaderSwitch = ({
       {type === 'back' && (
         <>
           <MotionButton
-            className="hover:text-muted-foreground shadow-sm"
+            className="shadow-sm hover:text-muted-foreground"
             onClick={handleClickTab}
             disabled={isPending}
           >
-            {isPending ? (
-              <Loader className="size-5 lg:size-6 dark:border-primary-foreground" />
-            ) : (
-              <ArrowLeft className="size-auto lg:size-8" />
-            )}
+            <ArrowLeft className="size-auto lg:size-8" />
           </MotionButton>
         </>
       )}

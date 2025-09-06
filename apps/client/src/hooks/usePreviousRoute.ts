@@ -1,18 +1,18 @@
-/*'use client';
+// 'use client';
 
-import {usePathname, useRouter} from 'next/navigation'
-import {useEffect, useState, useRef} from 'react'
+// import { usePathname, useRouter } from 'next/navigation';
+// import { useEffect, useState, useRef } from 'react';
 
-export function usePreviousRoute() {
-  const pathname = usePathname()
-  const prevPath = useRef<string | null>(null)
-  const [previous, setPrevious] = useState(null)
+// export function usePreviousRoute() {
+//   const pathname = usePathname();
+//   const prevPath = useRef<string>(null);
+//   const [previous, setPrevious] = useState(null);
 
-  useEffect(() => {
-    setPrevious(prevPath.current)
-    prevPath.current = pathname
-  }, [pathname])
+//   useEffect(() => {
+//     setPrevious(prevPath.current);
+//     prevPath.current = pathname;
+//   }, [pathname]);
 
-  alert(previous)
-  return previous
-}*/
+//   alert(previous);
+//   return previous;
+// }
