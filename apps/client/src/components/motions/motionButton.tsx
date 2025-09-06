@@ -60,10 +60,11 @@ const MotionTab = ({
   className: string;
 }) => {
   return (
-    <motion.div whileTap={{ scale: 0.95 }} className={className} {...props}>
+    <motion.div whileTap={{ scale: 0.80 }} className={className} {...props}>
       {children}
     </motion.div>
   );
 };
 
 export { MotionButton, MotionButtonLeft, MotionTab };
+
