@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Form,
   FormControl,
@@ -15,16 +13,13 @@ import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardTitle, CardContent } from '@/components/ui/card';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-import { providerLabels } from '@/components/navigation/labels/label.provider';
-import { EyeIcon, EyeOffIcon } from 'lucide-react';
-import { useState } from 'react';
-import { MotionButton } from '@/components/motions/motionButton';
 import { AuthHeaderSwitch } from './AuthHeaderSwitch';
 import { MelodayzMusic } from '../branding/logo';
 import { Tagline } from '../branding/tagline';
+import { Provider } from './Provider';
+import { PasswordInput } from './PasswordInput';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -32,7 +27,6 @@ const loginSchema = z.object({
 });
 
 function LoginCard() {
-  const [showPassword, setShowPassword] = useState(false);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
   };
@@ -79,7 +73,7 @@ function LoginCard() {
                           <Input
                             type="email"
                             className="py-6"
-                            placeholder="Entrez votre e-mail ou nom d'utilisateur"
+                            placeholder="E-mail ou @username"
                             {...field}
                           />
                         </FormControl>
@@ -95,22 +89,7 @@ function LoginCard() {
                       <FormItem>
                         <FormLabel>Mot de passe</FormLabel>
                         <FormControl>
-                          <div className="relative">
-                            <Input
-                              type={showPassword ? 'text' : 'password'}
-                              className="py-6"
-                              {...field}
-                            />
-                            <span className="absolute -translate-y-1/2 right-2 top-1/2">
-                              <MotionButton
-                                type="button"
-                                className="*:!size-5 lg:*:!size-4"
-                                onClick={() => setShowPassword(!showPassword)}
-                              >
-                                {showPassword ? <EyeOffIcon /> : <EyeIcon />}
-                              </MotionButton>
-                            </span>
-                          </div>
+                          <PasswordInput {...field} />
                         </FormControl>
                         <FormDescription />
                         <FormMessage />
@@ -141,29 +120,7 @@ function LoginCard() {
               </div>
 
               {/* login providers */}
-              <ul className="px-2 space-y-3 md:flex md:justify-center md:items-center md:flex-col md:flex-1 md:p-0">
-                {providerLabels.map((provider) => (
-                  <li key={provider.id}>
-                    <Button
-                      variant="secondary"
-                      className="w-full rounded-full md:w-auto"
-                    >
-                      {provider.label === 'Google' ? (
-                        <Image
-                          src={provider.icon as string}
-                          alt={provider.label}
-                          className="w-4 lg:w-5"
-                          height={500}
-                          width={500}
-                        />
-                      ) : (
-                        provider.icon
-                      )}
-                      Continuer avec {provider.label}
-                    </Button>
-                  </li>
-                ))}
-              </ul>
+              <Provider />
             </CardContent>
           </Card>
         </motion.div>
@@ -306,9 +263,7 @@ const StepTwoCard = () => {
                     <FormItem>
                       <FormLabel>Mot de passe</FormLabel>
                       <FormControl>
-                        <Input
-                          type="text"
-                          className="py-6"
+                        <PasswordInput
                           placeholder="Crée ton mot de passe béton"
                           {...field}
                         />
@@ -325,20 +280,10 @@ const StepTwoCard = () => {
                     <FormItem>
                       <FormLabel>Confirmation</FormLabel>
                       <FormControl>
-                        <div className="relative">
-                          <Input
-                            placeholder="Confirme ton mot de passe béton"
-                            type="text"
-                            className="py-6"
-                            {...field}
-                          />
-                          <span className="absolute -translate-y-1/2 right-4 top-1/2">
-                            {/* <MotionButton
-                            type="button"
-                            className="*:!size-5 lg:*:!size-4"
-                          ></MotionButton> */}
-                          </span>
-                        </div>
+                        <PasswordInput
+                          placeholder="Confirme ton mot de passe béton"
+                          {...field}
+                        />
                       </FormControl>
                       <FormDescription></FormDescription> <FormMessage />
                     </FormItem>
