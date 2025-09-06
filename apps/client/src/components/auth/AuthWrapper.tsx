@@ -1,5 +1,6 @@
 import { type BaseProps } from '@/types/base.interface';
 import { AnimatePresence, motion } from 'motion/react';
+import { Tagline } from '../branding/tagline';
 
 const StepCardWrapper = ({ children, key }: BaseProps & { key: string }) => {
   return (
@@ -20,8 +21,10 @@ const StepCardWrapper = ({ children, key }: BaseProps & { key: string }) => {
 
 const AuthPageWrapper = ({ children }: BaseProps) => {
   return (
-    <section className="flex flex-col items-center justify-between gap-1 pb-[env(safe-area-inset-bottom)] lg:pb-6 h-dvh md:pb-4">
+    <section className="relative flex flex-col items-center gap-1 justify-between h-[calc(100dvh-1rem)] md:pb-2">
       {children}
+      {/* tag */}
+      <Tagline />
     </section>
   );
 };

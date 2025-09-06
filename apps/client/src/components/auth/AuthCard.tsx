@@ -15,7 +15,6 @@ import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { MelodayzMusic } from '../branding/logo';
-import { Tagline } from '../branding/tagline';
 import { AuthCtaButton } from './AuthCtaButton';
 import { PasswordInput } from './PasswordInput';
 import { Provider } from './Provider';
@@ -106,8 +105,6 @@ function LoginCard() {
           </Card>
         </motion.div>
       </AnimatePresence>
-      {/* Sign up */}
-      <Tagline />
     </>
   );
 }
