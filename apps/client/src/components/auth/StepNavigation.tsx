@@ -10,9 +10,13 @@ export const StepNavigation = ({
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }) => {
+  const totalSteps = 4;
+
   return (
     <nav className="flex flex-col items-center justify-center pb-4">
-      <span>{step}/3</span>
+      <span>
+        {step}/{totalSteps}
+      </span>
       {/* step navigation */}
       <div className="flex items-center justify-between w-full">
         {/* nav left */}
@@ -20,7 +24,7 @@ export const StepNavigation = ({
           onClick={() => setStep(step - 1)}
           className={cn(
             step <= 1 && 'opacity-0 pointer-events-none',
-            'text-muted-foreground hover:text-primary-foreground'
+            'text-muted-foreground hover:text-primary-foreground p-3'
           )}
         >
           <ChevronLeft className="size-8" />
@@ -30,14 +34,14 @@ export const StepNavigation = ({
         <MotionButton
           onClick={() => setStep(step + 1)}
           className={cn(
-            step >= 3 && 'opacity-0 pointer-events-none',
-            'text-muted-foreground hover:text-primary-foreground'
+            step >= totalSteps && 'opacity-0 pointer-events-none',
+            'text-muted-foreground hover:text-primary-foreground p-3'
           )}
         >
           <ChevronRight className="size-8" />
         </MotionButton>
       </div>
-      <Progress value={(step / 3) * 100} className="w-[25%]" />
+      <Progress value={(step / totalSteps) * 100} className="w-[25%]" />
     </nav>
   );
 };
