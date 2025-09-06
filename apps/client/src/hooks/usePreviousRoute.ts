@@ -1,4 +1,4 @@
-'use client';
+/*'use client';
 
 import {usePathname, useRouter} from 'next/navigation'
 import {useEffect, useState, useRef} from 'react'
@@ -15,4 +15,4 @@ export function usePreviousRoute() {
 
   alert(previous)
   return previous
-}
+}*/
