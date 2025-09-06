@@ -18,4 +18,12 @@ const StepCardWrapper = ({ children, key }: BaseProps & { key: string }) => {
   );
 };
 
-export { StepCardWrapper };
+const AuthPageWrapper = ({ children }: BaseProps) => {
+  return (
+    <section className="flex flex-col items-center justify-between gap-1 pb-6 h-dvh md:pb-4">
+      {children}
+    </section>
+  );
+};
+
+export { StepCardWrapper, AuthPageWrapper };
