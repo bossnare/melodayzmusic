@@ -1,3 +1,4 @@
+import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import {
   Form,
   FormControl,
@@ -7,19 +8,18 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Card, CardTitle, CardContent } from '@/components/ui/card';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-import { AuthHeaderSwitch } from './AuthHeaderSwitch';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import { MelodayzMusic } from '../branding/logo';
 import { Tagline } from '../branding/tagline';
-import { Provider } from './Provider';
+import { AuthCtaButton } from './AuthCtaButton';
+import { AuthHeaderSwitch } from './AuthHeaderSwitch';
 import { PasswordInput } from './PasswordInput';
+import { Provider } from './Provider';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -27,10 +27,6 @@ const loginSchema = z.object({
 });
 
 function LoginCard() {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-  };
-
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -96,19 +92,7 @@ function LoginCard() {
                       </FormItem>
                     )}
                   ></FormField>
-                  <Button
-                    onClick={handleClick}
-                    size="lg"
-                    className="relative overflow-hidden rounded-full cta"
-                    type="submit"
-                  >
-                    Se connecter
-                    {/* grain overlay */}
-                    <span
-                      className="absolute inset-0 opacity-20 pointer-events-none 
-               mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
-                    ></span>
-                  </Button>
+                  <AuthCtaButton>Se connecter</AuthCtaButton>
                 </form>
               </Form>
 
@@ -207,19 +191,7 @@ const StepOneCard = () => {
                     </FormItem>
                   )}
                 ></FormField>
-                <Button
-                  // onClick={handleClick}
-                  size="lg"
-                  className="relative overflow-hidden rounded-full cta"
-                  type="submit"
-                >
-                  Continuer
-                  {/* grain overlay */}
-                  <span
-                    className="absolute inset-0 opacity-20 pointer-events-none 
-                         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
-                  ></span>
-                </Button>
+                <AuthCtaButton>Continuer</AuthCtaButton>
               </form>
             </Form>
           </CardContent>
@@ -289,19 +261,7 @@ const StepTwoCard = () => {
                     </FormItem>
                   )}
                 ></FormField>
-                <Button
-                  // onClick={handleClick}
-                  size="lg"
-                  className="relative overflow-hidden rounded-full cta"
-                  type="submit"
-                >
-                  Continuer
-                  {/* grain overlay */}
-                  <span
-                    className="absolute inset-0 opacity-20 pointer-events-none 
-                         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
-                  ></span>
-                </Button>
+                <AuthCtaButton>Continuer</AuthCtaButton>
               </form>
             </Form>
           </CardContent>
