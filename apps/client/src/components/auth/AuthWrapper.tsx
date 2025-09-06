@@ -21,7 +21,7 @@ const StepCardWrapper = ({ children, key }: BaseProps & { key: string }) => {
 
 const AuthPageWrapper = ({ children }: BaseProps) => {
   return (
-    <section className="relative flex flex-col items-center gap-1 justify-between h-[calc(100dvh-1rem)] md:pb-2">
+    <section className="relative flex flex-col items-center gap-1 justify-between h-[calc(100dvh-4rem)] md:h-dvh md:pb-4">
       {children}
       {/* tag */}
       <Tagline />
