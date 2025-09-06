@@ -30,7 +30,7 @@ export const NavBar = () => {
       <div className="lg:!hidden grow">
         <figure className="flex items-center gap-1">
           <Image
-            className={cn(notHome && '!w-5', 'w-6')}
+            className={cn(notHome && '!w-6', 'w-7')}
             alt="meloicon"
             src={'/icons/icon_x32.svg'}
             loading="lazy"
@@ -67,4 +67,5 @@ export const NavBar = () => {
     </nav>
   );
 };
+
 
