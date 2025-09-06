@@ -1,7 +1,6 @@
 'use client';
 
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
-import { Tagline } from '@/components/branding/tagline';
 import { StepNavigation } from '@/components/auth/StepNavigation';
 import { StepOneCard, StepTwoCard } from '@/components/auth/AuthCard';
 import { useState } from 'react';
@@ -23,8 +22,6 @@ export default function StepPage() {
         {/* Step Card */}
         {step === 1 ? <StepOneCard /> : <StepTwoCard />}
       </div>
-      {/* tag */}
-      <Tagline />
     </AuthPageWrapper>
   );
 }
