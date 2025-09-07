@@ -13,7 +13,7 @@ export const StepNavigation = ({
   const totalSteps = 4;
 
   return (
-    <nav className="flex flex-col items-center justify-center pb-4">
+    <nav className="flex flex-col items-center justify-center pb-2">
       <span>
         {step}/{totalSteps}
       </span>
