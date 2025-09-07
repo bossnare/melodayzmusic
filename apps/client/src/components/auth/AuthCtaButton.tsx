@@ -27,7 +27,7 @@ export const AuthCtaButton = ({
       type="submit"
     >
       {isPending && (
-        <Loader className="size-4 dark:border-primary-foreground" />
+        <Loader className="size-5 dark:border-primary-foreground" />
       )}
       {isPending ? 'Loading...' : children}
       {/* grain overlay */}
