@@ -19,7 +19,7 @@ export function Provider() {
             ) : (
               provider.icon
             )}
-            Continue avec {provider.label}
+            Continuer avec {provider.label}
           </Button>
         </li>
       ))}
