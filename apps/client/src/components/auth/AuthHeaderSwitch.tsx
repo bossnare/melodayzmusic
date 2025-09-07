@@ -22,7 +22,7 @@ const AuthHeaderSwitch = ({
   const router = useRouter();
 
   return (
-    <nav className="flex items-center justify-between w-full gap-12 py-3 transition-all duration-400 ease-in-out will-change-auto">
+    <nav className="flex items-center justify-between w-full gap-12 py-3">
       {type === 'login' && (
         <>
           <p className="text-sm">Vos vibes n&apos;attendent que vous.</p>
@@ -50,7 +50,10 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className={cn(step && step > 1 && 'hidden', 'rounded-full')}
+            className={cn(
+              step && step > 1 && 'pointer-events-none opacity-0',
+              'rounded-full'
+            )}
           >
             {isPending ? (
               <Loader className="size-5 lg:size-6 dark:border-primary-foreground" />
