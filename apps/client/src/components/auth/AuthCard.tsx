@@ -47,7 +47,7 @@ function LoginCard() {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+          transition={{ type: 'spring', stiffness: 350, damping: 32 }}
         >
           <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm">
             <CardTitle>
