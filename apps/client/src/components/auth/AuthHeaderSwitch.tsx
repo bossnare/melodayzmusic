@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { Loader } from '../motions/Loader';
 import { Button } from '../ui/button';
@@ -5,20 +7,22 @@ import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { MelodayzMusic } from '../branding/logo';
 import { ArrowLeft } from 'lucide-react';
 import { MotionButton } from '../motions/motionButton';
+import { useRouter } from 'next/navigation';
 
 const AuthHeaderSwitch = ({
   href,
   type,
   step,
 }: {
-  href: string;
+  href?: string;
   type: 'login' | 'register' | 'back';
   step?: number;
 }) => {
   const { isPending, handleClickTab } = useLoadingPath(href);
+  const router = useRouter();
 
   return (
-    <nav className="flex items-center justify-between w-full gap-12 py-3">
+    <nav className="flex items-center justify-between w-full gap-12 py-3 transition-all duration-200 ease-in-out will-change-auto">
       {type === 'login' && (
         <>
           <p className="text-sm">Vos vibes n&apos;attendent que vous.</p>
@@ -61,8 +65,7 @@ const AuthHeaderSwitch = ({
         <>
           <MotionButton
             className="shadow-sm hover:text-muted-foreground"
-            onClick={handleClickTab}
-            disabled={isPending}
+            onClick={() => router.back()}
           >
             <ArrowLeft className="size-auto lg:size-8" />
           </MotionButton>
