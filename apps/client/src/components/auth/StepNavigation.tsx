@@ -14,7 +14,7 @@ export const StepNavigation = ({
 
   return (
     <nav className="flex gap-0 flex-col items-center justify-center pb-2">
-      <span className="bg-red-200">
+      <span>
         {step}/{totalSteps}
       </span>
       {/* step navigation */}
