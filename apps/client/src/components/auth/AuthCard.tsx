@@ -9,6 +9,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
@@ -16,9 +17,10 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { MelodayzMusic } from '../branding/logo';
 import { AuthCtaButton } from './AuthCtaButton';
+import { StepCardWrapper } from './AuthWrapper';
+import { Divide } from './Divide';
 import { PasswordInput } from './PasswordInput';
 import { Provider } from './Provider';
-import { StepCardWrapper } from './AuthWrapper';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -47,7 +49,7 @@ function LoginCard() {
           exit={{ y: -80, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         >
-          <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm">
+          <Card className="p-4 space-y-4 md:p-6 card-gradient">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -88,16 +90,14 @@ function LoginCard() {
                       </FormItem>
                     )}
                   ></FormField>
-                  <AuthCtaButton>Se connecter</AuthCtaButton>
+                  <AuthCtaButton className="rounded-full">
+                    Se connecter
+                  </AuthCtaButton>
                 </form>
               </Form>
 
               {/* divide */}
-              <div className="flex items-center justify-center gap-2 md:flex-col">
-                <div className="bg-border h-[1px] md:w-[1px] grow"></div>
-                <span className="text-muted-foreground">ou</span>
-                <div className="bg-border h-[1px] md:w-[1px] grow"></div>
-              </div>
+              <Divide />
 
               {/* login providers */}
               <Provider />
@@ -110,6 +110,36 @@ function LoginCard() {
 }
 
 // register card
+const RegisterCard = () => {
+  const { isPending, handleClickTab } = useLoadingPath('/auth/register/step');
+
+  return (
+    <StepCardWrapper key="createWithChoice">
+      <Card className="bg-transparent p-4 md:p-10">
+        <CardTitle className="pb-4">
+          <MelodayzMusic />
+        </CardTitle>
+
+        <div className="flex flex-col md:flex-row gap-6">
+          <CardContent className="flex flex-col items-center justify-center gap-2 md:w-[45%]">
+            <AuthCtaButton
+              isPending={isPending}
+              handleClickTab={handleClickTab}
+              className=""
+            >
+              Créer avec E-mail
+            </AuthCtaButton>
+          </CardContent>
+
+          {/* divide */}
+          <Divide />
+          <Provider />
+        </div>
+      </Card>
+    </StepCardWrapper>
+  );
+};
+
 const StepOneCard = () => {
   const form = useForm({
     // resolver: zodResolver(loginSchema),
@@ -169,7 +199,7 @@ const StepOneCard = () => {
                   </FormItem>
                 )}
               ></FormField>
-              <AuthCtaButton>Continuer</AuthCtaButton>
+              <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
             </form>
           </Form>
         </CardContent>
@@ -230,7 +260,7 @@ const StepTwoCard = () => {
                   </FormItem>
                 )}
               ></FormField>
-              <AuthCtaButton>Continuer</AuthCtaButton>
+              <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
             </form>
           </Form>
         </CardContent>
@@ -290,7 +320,7 @@ const StepThreeCard = () => {
                   </FormItem>
                 )}
               ></FormField> */}
-              <AuthCtaButton>Continuer</AuthCtaButton>
+              <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
             </form>
           </Form>
         </CardContent>
@@ -299,4 +329,4 @@ const StepThreeCard = () => {
   );
 };
 
-export { LoginCard, StepOneCard, StepTwoCard, StepThreeCard };
+export { LoginCard, RegisterCard, StepOneCard, StepThreeCard, StepTwoCard };
