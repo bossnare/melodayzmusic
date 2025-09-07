@@ -44,10 +44,10 @@ function LoginCard() {
         <motion.div
           key={pathname + 'login'}
           className="w-full lg:w-3/4"
-          initial={{ y: 80, opacity: 0 }}
+          initial={{ y: 90, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -80, opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+          exit={{ y: -90, opacity: 0 }}
+          transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
           <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm">
             <CardTitle>
