@@ -7,7 +7,7 @@ const StepCardWrapper = ({ children, key }: BaseProps & { key: string }) => {
     <AnimatePresence mode="wait">
       <motion.div
         key={key}
-        className="w-full lg:w-3/4"
+        className="w-full"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: 100, opacity: 0 }}

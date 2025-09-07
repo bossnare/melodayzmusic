@@ -242,6 +242,10 @@
     @apply bg-gradient-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
   }
 
+  .card-gradient {
+    @apply bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm;
+  }
+
   .text-section {
     @apply mb-3 text-lg font-semibold text-primary-foreground/90 lg:mb-4 lg:text-xl font-poppins;
   }
