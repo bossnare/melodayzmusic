@@ -25,7 +25,7 @@ export const PasswordInput = (
         {...props}
       />
       {focused && (
-        <span className="absolute -translate-y-1/2 right-2 top-1/2">
+        <span className="absolute -translate-y-1/2 right-1 lg:right-2 top-1/2">
           <MotionButton
             type="button"
             className="*:!size-5 p-3 lg:p-2 lg:*:!size-4"

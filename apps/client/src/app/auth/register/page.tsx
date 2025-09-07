@@ -10,12 +10,11 @@ export default function RegisterPage() {
 
   return (
     <AuthPageWrapper>
-      <AuthHeaderSwitch href={"/auth/login"} type="back" />
+      <AuthHeaderSwitch href={'/auth/login'} type="back" />
       <div className="flex flex-col items-center gap-2">
         <Loader className="size-8 lg:size-10 dark:border-secondary" />
         <span>Page en construction</span>
       </div>
-      <div>Loading...</div>
     </AuthPageWrapper>
   );
 }
