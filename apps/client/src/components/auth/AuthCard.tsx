@@ -49,7 +49,7 @@ function LoginCard() {
           exit={{ y: -80, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         >
-          <Card className="p-4 space-y-4 md:p-6 card-gradient">
+          <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -115,12 +115,12 @@ const RegisterCard = () => {
 
   return (
     <StepCardWrapper key="createWithChoice">
-      <Card className="bg-transparent p-4 md:p-10">
+      <Card className="p-4 bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm md:p-10">
         <CardTitle className="pb-4">
           <MelodayzMusic />
         </CardTitle>
 
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex flex-col gap-6 md:flex-row">
           <CardContent className="flex flex-col items-center justify-center gap-2 md:w-[45%]">
             <AuthCtaButton
               isPending={isPending}
