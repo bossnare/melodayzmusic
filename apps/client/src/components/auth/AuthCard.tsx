@@ -21,6 +21,7 @@ import { StepCardWrapper } from './AuthWrapper';
 import { Divide } from './Divide';
 import { PasswordInput } from './PasswordInput';
 import { Provider } from './Provider';
+import { Tickets } from 'lucide-react';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -62,12 +63,12 @@ function LoginCard() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>E-mail ou nom d&apos;utilisateur</FormLabel>
+                        <FormLabel>Email ou nom d&apos;utilisateur</FormLabel>
                         <FormControl>
                           <Input
                             type="email"
                             className="py-6"
-                            placeholder="E-mail ou @username"
+                            placeholder="Email ou @username"
                             {...field}
                           />
                         </FormControl>
@@ -193,7 +194,7 @@ const StepOneCard = () => {
                       />
                     </FormControl>
                     <FormDescription className="text-xs">
-                      Ton identifiant sera visible par tous
+                      Ton identifiant sera visible par tous.
                     </FormDescription>{' '}
                     <FormMessage />
                   </FormItem>
@@ -280,7 +281,9 @@ const StepThreeCard = () => {
   return (
     <StepCardWrapper key="step3">
       <Card className="p-4 dark:bg-transparent lg:p-5">
-        <CardTitle className="text-base text-center">Votre e-mail</CardTitle>
+        <CardTitle className="text-base text-center">
+          Ton email, ton VIP <Tickets />
+        </CardTitle>
         {/* Form Content */}
         <CardContent className="flex flex-col p-1 md:flex-row">
           <Form {...form}>
@@ -290,36 +293,23 @@ const StepThreeCard = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>E-mail</FormLabel>
+                    <FormLabel>Adresse email</FormLabel>
                     <FormControl>
                       <Input
                         type="email"
                         className="py-6"
-                        placeholder="Entez e-mail lié à ce compte"
+                        placeholder="Email associé à ce compte"
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription></FormDescription>
+                    <FormDescription className="text-xs">
+                      Ton email nous permet de sécuriser ton compte et de
+                      t&apos;identifier facilement.
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               ></FormField>
-              {/* <FormField
-                control={form.control}
-                name="confirmPassword"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Confirmation</FormLabel>
-                    <FormControl>
-                      <PasswordInput
-                        placeholder="Confirme ton mot de passe en béton"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription></FormDescription> <FormMessage />
-                  </FormItem>
-                )}
-              ></FormField> */}
               <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
             </form>
           </Form>
@@ -329,4 +319,4 @@ const StepThreeCard = () => {
   );
 };
 
-export { LoginCard, RegisterCard, StepOneCard, StepThreeCard, StepTwoCard };
+export { LoginCard, RegisterCard, StepOneCard, StepTwoCard, StepThreeCard };
