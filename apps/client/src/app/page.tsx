@@ -9,7 +9,7 @@ export default function Page() {
   const { isPending, handleClickTab } = useLoadingPath('/auth/login');
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-dvh dark:bg-background">
+    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-card/30 dark:via-card/10 dark:to-card/80 backdrop-blur-sm">
       <Image
         className="dark:invert size-25 sm:size-28"
         src="/icons/icon_512x512.png"
@@ -26,13 +26,12 @@ export default function Page() {
       <Button
         disabled={isPending}
         className="min-w-20"
-        variant="secondary"
         onClick={handleClickTab}
         size="sm"
       >
         {isPending ? (
           <>
-            <Loader className="dark:border-secondary-foreground size-5" />
+            <Loader className="dark:border-primary-foreground size-5" />
           </>
         ) : (
           'Get started'
