@@ -29,7 +29,7 @@ export const StepNavigation = ({
         >
           <ChevronLeft className="size-8" />
         </MotionButton>
-        <span className="text-lg font-medium capitalize">étape {step}</span>
+        <span className="text-lg font-bold capitalize">étape {step}</span>
         {/* nav right */}
         <MotionButton
           onClick={() => setStep(step + 1)}
