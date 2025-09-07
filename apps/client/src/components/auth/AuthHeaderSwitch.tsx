@@ -9,9 +9,11 @@ import { MotionButton } from '../motions/motionButton';
 const AuthHeaderSwitch = ({
   href,
   type,
+  step,
 }: {
   href: string;
   type: 'login' | 'register' | 'back';
+  step?: number;
 }) => {
   const { isPending, handleClickTab } = useLoadingPath(href);
 
@@ -44,7 +46,7 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className={cn('rounded-full')}
+            className={cn(step && step > 1 && 'hidden', 'rounded-full')}
           >
             {isPending ? (
               <Loader className="size-5 lg:size-6 dark:border-primary-foreground" />
