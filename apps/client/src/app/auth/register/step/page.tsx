@@ -2,7 +2,11 @@
 
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import { StepNavigation } from '@/components/auth/StepNavigation';
-import { StepOneCard, StepTwoCard } from '@/components/auth/AuthCard';
+import {
+  StepOneCard,
+  StepThreeCard,
+  StepTwoCard,
+} from '@/components/auth/AuthCard';
 import { useState } from 'react';
 import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
 
@@ -20,7 +24,9 @@ export default function StepPage() {
       >
         <StepNavigation setStep={setStep} step={step} />
         {/* Step Card */}
-        {step === 1 ? <StepOneCard /> : <StepTwoCard />}
+        {step === 1 && <StepOneCard />}
+        {step === 2 && <StepTwoCard />}
+        {step === 3 && <StepThreeCard />}
       </div>
     </AuthPageWrapper>
   );
