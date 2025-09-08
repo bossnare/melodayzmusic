@@ -6,7 +6,7 @@ import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
 import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { useState } from 'react';
 
 export default function LoginPage() {
@@ -20,21 +20,20 @@ export default function LoginPage() {
     },
   });
 
-  const router = useRouter();
-
   const handleLogin = async (data: loginFormType) => {
     try {
       setIsPending(true);
-      const res = await fetch(
-        'https://melodayzmusic-api.onrender.com/api/v1/auth/login',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        }
-      );
-      if (res.ok) router.push('/dashboard');
-      else return;
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) redirect('/dashboard');
+      else {
+        return form.setError('root', {
+          message: 'Identifiants invalides, Erreur serveur.',
+        });
+      }
     } catch (e) {
       console.log(e);
     } finally {

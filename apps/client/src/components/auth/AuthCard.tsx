@@ -26,11 +26,11 @@ import { type loginFormType } from '@/schemas/login';
 function LoginCard({
   form,
   handleLogin,
-  isPending
+  isPending,
 }: {
   form: UseFormReturn<loginFormType>;
   handleLogin: (data: loginFormType) => Promise<void>;
-  isPending: boolean
+  isPending: boolean;
 }) {
   const pathname = usePathname();
 
@@ -54,7 +54,7 @@ function LoginCard({
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(handleLogin)}
-                  className="flex flex-col flex-1 gap-3"
+                  className="flex flex-col flex-1 gap-3 lg:gap-4"
                 >
                   <FormField
                     control={form.control}
