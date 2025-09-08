@@ -10,11 +10,8 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { MelodayzMusic } from '../branding/logo';
 import { AuthCtaButton } from './AuthCtaButton';
 import { StepCardWrapper } from './AuthWrapper';
@@ -23,21 +20,16 @@ import { PasswordInput } from './PasswordInput';
 import { Provider } from './Provider';
 import { Button } from '../ui/button';
 import { Mail } from 'lucide-react';
+import { UseFormReturn, useForm } from 'react-hook-form';
+import { type loginFormType } from '@/schemas/login';
 
-const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
-});
-
-function LoginCard() {
-  const form = useForm({
-    resolver: zodResolver(loginSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  });
-
+function LoginCard({
+  form,
+  handleLogin,
+}: {
+  form: UseFormReturn<loginFormType>;
+  handleLogin: (data: loginFormType) => Promise<void>;
+}) {
   const pathname = usePathname();
 
   return (
@@ -58,7 +50,10 @@ function LoginCard() {
             {/* Form Content */}
             <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
               <Form {...form}>
-                <form action="" className="flex flex-col flex-1 gap-3">
+                <form
+                  onSubmit={form.handleSubmit(handleLogin)}
+                  className="flex flex-col flex-1 gap-3"
+                >
                   <FormField
                     control={form.control}
                     name="email"
@@ -95,7 +90,7 @@ function LoginCard() {
                   <AuthCtaButton className="rounded-full">
                     Se connecter
                   </AuthCtaButton>
-                  <div className="flex justify-end">
+                  <div>
                     <Button
                       type="button"
                       variant="link"
