@@ -46,9 +46,9 @@ export class AuthService {
     return this.prisma.user.create({
       data: {
         email: registerDto.email,
-        firstName: registerDto.firstName,
-        lastName: registerDto.lastName,
-        username: '@' + registerDto.firstName.toLowerCase(),
+        pseudo: registerDto.pseudo,
+        artistName: registerDto.artistName,
+        username: '@' + registerDto.pseudo.toLowerCase(),
         password: hashedPassword,
       },
     });
