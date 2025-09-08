@@ -4,11 +4,13 @@ export class BaseUserDto {
   @IsEmail()
   email: string;
 
+  @IsOptional()
   @IsString()
-  firstName: string;
+  pseudo: string;
 
+  @IsOptional()
   @IsString()
-  lastName: string;
+  artistName: string;
 
   @IsOptional()
   @IsString()
