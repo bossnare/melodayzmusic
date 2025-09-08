@@ -7,8 +7,11 @@ import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function LoginPage() {
+  const [isPending, setIsPending] = useState(false);
+
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -21,6 +24,7 @@ export default function LoginPage() {
 
   const handleLogin = async (data: loginFormType) => {
     try {
+      setIsPending(true);
       const res = await fetch(
         'https://melodayzmusic-api.onrender.com/api/v1/auth/login',
         {
@@ -30,9 +34,11 @@ export default function LoginPage() {
         }
       );
       if (res.ok) router.push('/dashboard');
-      else alert('Aza tia hosoka');
+      else return;
     } catch (e) {
       console.log(e);
+    } finally {
+      setIsPending(false);
     }
   };
 
@@ -41,7 +47,7 @@ export default function LoginPage() {
       {/* Header */}
       <AuthHeaderSwitch href="/auth/register" type="login" />
       {/* card */}
-      <LoginCard form={form} handleLogin={handleLogin} />
+      <LoginCard form={form} isPending={isPending} handleLogin={handleLogin} />
     </AuthPageWrapper>
   );
 }

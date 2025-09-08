@@ -26,9 +26,11 @@ import { type loginFormType } from '@/schemas/login';
 function LoginCard({
   form,
   handleLogin,
+  isPending
 }: {
   form: UseFormReturn<loginFormType>;
   handleLogin: (data: loginFormType) => Promise<void>;
+  isPending: boolean
 }) {
   const pathname = usePathname();
 
@@ -87,7 +89,7 @@ function LoginCard({
                       </FormItem>
                     )}
                   ></FormField>
-                  <AuthCtaButton className="rounded-full">
+                  <AuthCtaButton ispending={isPending} className="rounded-full">
                     Se connecter
                   </AuthCtaButton>
                   <div>
