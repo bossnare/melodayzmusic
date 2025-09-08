@@ -89,7 +89,7 @@ function LoginCard({
                       </FormItem>
                     )}
                   ></FormField>
-                  <AuthCtaButton ispending={isPending} className="rounded-full">
+                  <AuthCtaButton isPending={isPending} className="rounded-full">
                     Se connecter
                   </AuthCtaButton>
                   <div>
