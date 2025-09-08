@@ -13,7 +13,7 @@ export const StepNavigation = ({
   const totalSteps = 4;
 
   return (
-    <nav className="flex flex-col items-center justify-center pb-4">
+    <nav className="flex gap-0 flex-col items-center justify-center pb-2">
       <span>
         {step}/{totalSteps}
       </span>
@@ -29,7 +29,7 @@ export const StepNavigation = ({
         >
           <ChevronLeft className="size-8" />
         </MotionButton>
-        <span className="text-lg font-medium capitalize">étape {step}</span>
+        <span className="text-lg font-bold capitalize">étape {step}</span>
         {/* nav right */}
         <MotionButton
           onClick={() => setStep(step + 1)}

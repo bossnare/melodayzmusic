@@ -21,8 +21,8 @@ import { StepCardWrapper } from './AuthWrapper';
 import { Divide } from './Divide';
 import { PasswordInput } from './PasswordInput';
 import { Provider } from './Provider';
-import { Tickets } from 'lucide-react';
 import { Button } from '../ui/button';
+import { Mail } from 'lucide-react';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -292,7 +292,7 @@ const StepThreeCard = () => {
     <StepCardWrapper key="step3">
       <Card className="p-4 dark:bg-transparent lg:p-5">
         <CardTitle className="text-base text-center">
-          Ton email, ton VIP <Tickets />
+          Ton email, ton VIP <Mail />
         </CardTitle>
         {/* Form Content */}
         <CardContent className="flex flex-col p-1 md:flex-row">
