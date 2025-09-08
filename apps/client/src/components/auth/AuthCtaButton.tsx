@@ -12,8 +12,7 @@ export const AuthCtaButton = ({
   isPending?: boolean;
   handleClickTab?: () => void;
 }) => {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleClick = () => {
     if (!handleClickTab) return;
     handleClickTab();
   };
