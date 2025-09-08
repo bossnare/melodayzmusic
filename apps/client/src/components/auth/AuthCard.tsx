@@ -22,6 +22,7 @@ import { Divide } from './Divide';
 import { PasswordInput } from './PasswordInput';
 import { Provider } from './Provider';
 import { Tickets } from 'lucide-react';
+import { Button } from '../ui/button';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -57,7 +58,7 @@ function LoginCard() {
             {/* Form Content */}
             <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
               <Form {...form}>
-                <form action="" className="flex flex-col flex-1 gap-4">
+                <form action="" className="flex flex-col flex-1 gap-3">
                   <FormField
                     control={form.control}
                     name="email"
@@ -94,6 +95,15 @@ function LoginCard() {
                   <AuthCtaButton className="rounded-full">
                     Se connecter
                   </AuthCtaButton>
+                  <div className="flex justify-end">
+                    <Button
+                      type="button"
+                      variant="link"
+                      className="p-0 h-auto w-auto dark:text-muted-foreground"
+                    >
+                      Mot de passe oublié ?
+                    </Button>
+                  </div>
                 </form>
               </Form>
 
