@@ -51,7 +51,7 @@ async function bootstrap() {
   // Enable CORS with credentials
   app.enableCors({
     // tsy atao "*" raha miaraka amin'ny credentials, atao mazava ilay origin
-    origin: ['https://melodayzmusic.vercel.app'],
+    origin: ['https://melodayzmusic.vercel.app', 'http://localhost:3000'],
     credentials: true,
   });
 
