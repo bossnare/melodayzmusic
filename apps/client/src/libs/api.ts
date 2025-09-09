@@ -13,7 +13,6 @@ api.interceptors.request.use(
       ).Authorization = `Bearer ${token}`;
     }
 
-    // raha mampiasa symfony na node ny url dia apetraka ny baseURL mifanaraka
     config.baseURL = process.env.NEXT_PUBLIC_MOCK_API;
 
     return config;

@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
+import api from '@/libs/api';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
@@ -23,13 +24,12 @@ export default function LoginPage() {
   const handleLogin = async (data: loginFormType) => {
     try {
       setIsPending(true);
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+      const res = await api.post('/auth/login', {
+        data,
       });
-      if (res.ok) redirect('/dashboard');
-      else {
+      if (res.data.access_token) {
+        redirect('/dashboard');
+      } else {
         return form.setError('root', {
           message: 'Identifiants invalides, Erreur serveur.',
         });
