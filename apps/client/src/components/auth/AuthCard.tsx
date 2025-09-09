@@ -288,7 +288,7 @@ const StepThreeCard = () => {
   return (
     <StepCardWrapper key="step3">
       <Card className="p-4 dark:bg-transparent lg:p-5">
-        <CardTitle className="text-base text-center">
+        <CardTitle className="text-base text-center flex gap-1">
           Ton email, ton VIP <Mail />
         </CardTitle>
         {/* Form Content */}
