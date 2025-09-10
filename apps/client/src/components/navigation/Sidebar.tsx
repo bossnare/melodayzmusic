@@ -35,11 +35,12 @@ export const Sidebar = () => {
 
       {/* sidebar mobile  */}
       <div className="block bg-sidebar lg:!hidden">
-        <SheetContent side="left" className="w-9/8">
+        <SheetContent side="left" className="w-8/9">
           <SheetTitle></SheetTitle>
         </SheetContent>
       </div>
     </>
   );
 };
+
 
