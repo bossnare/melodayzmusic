@@ -24,9 +24,8 @@ export default function LoginPage() {
   const handleLogin = async (data: loginFormType) => {
     try {
       setIsPending(true);
-      const res = await api.post('/auth/login', {
-        data,
-      });
+      const res = await api.post('/auth/login', 
+        data);
       if (res.data.access_token) {
         redirect('/dashboard');
       } else {
