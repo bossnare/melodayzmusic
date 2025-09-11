@@ -45,7 +45,7 @@ function LoginCard({
           exit={{ y: -90, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
-          <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm">
+          <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/80 backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -54,7 +54,7 @@ function LoginCard({
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(handleLogin)}
-                  className="flex flex-col flex-1 gap-3 lg:gap-4"
+                  className="flex flex-col flex-1 gap-3"
                 >
                   <FormField
                     control={form.control}
@@ -123,7 +123,7 @@ const RegisterCard = () => {
 
   return (
     <StepCardWrapper key="createWithChoice">
-      <Card className="p-4 bg-gradient-to-br from-card/40 via-card/10 to-card/90 backdrop-blur-sm md:p-10">
+      <Card className="p-4 bg-gradient-to-br from-card/40 via-card/10 to-card/80 backdrop-blur-sm md:p-10">
         <CardTitle className="pb-4">
           <MelodayzMusic />
         </CardTitle>
