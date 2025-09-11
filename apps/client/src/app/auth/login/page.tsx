@@ -6,13 +6,13 @@ import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
 import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import api from '@/libs/api';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(loginSchema),
@@ -25,8 +25,7 @@ export default function LoginPage() {
   const handleLogin = async (data: loginFormType) => {
     try {
       setIsPending(true);
-      const res = await api.post('/auth/login', 
-        data);
+      const res = await api.post('/auth/login', data);
       if (res.data.access_token) {
         router.push('/dashboard');
       } else {
