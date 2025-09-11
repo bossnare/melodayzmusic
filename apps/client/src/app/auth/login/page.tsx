@@ -27,7 +27,7 @@ export default function LoginPage() {
       setIsPending(true);
       const res = await api.post('/auth/login', data);
       if (res.data.access_token) {
-        router.push('/dashboard');
+        router.replace('/dashboard');
       } else {
         return form.setError('root', {
           message: 'Identifiants invalides, Erreur serveur.',

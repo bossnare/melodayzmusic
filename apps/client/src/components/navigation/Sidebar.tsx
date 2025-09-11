@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { SheetContent, SheetTitle } from '../ui/sheet';
+import { SheetContent, SheetTitle, SheetDescription } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
 
 export const Sidebar = () => {
@@ -37,10 +37,9 @@ export const Sidebar = () => {
       <div className="block bg-sidebar lg:!hidden">
         <SheetContent side="left" className="w-8/9">
           <SheetTitle></SheetTitle>
+          <SheetDescription></SheetDescription>
         </SheetContent>
       </div>
     </>
   );
 };
-
-

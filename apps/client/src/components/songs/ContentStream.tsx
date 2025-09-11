@@ -1,18 +1,22 @@
 'use client';
 
-import api from '@/libs/api';
+// import api from '@/libs/api';
 import { SongInterface as Song } from '@/types/songs/song.interface';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { DashboardHomeSkeleton } from '../skeleton/DashboardHomeSkeleton';
+import { DashboardHomeSkeleton } from '@/components/skeleton/DashboardHomeSkeleton';
 import AlbumStream from './ui/AlbumStream';
 import { VibeCard, AlbumCard } from './ui/SongCard';
 import VibeStream from './ui/VibeStream';
 import TopArtist from './ui/TopArtist';
+import axios from 'axios';
 
 export const ContentStream = () => {
   const fetchContentStream = async () => {
-    const response = await api.get('/song', { timeout: 10000 });
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_MOCK_API}/song`,
+      { timeout: 10000 }
+    );
     console.log(response.data);
     const data = response.data;
     return data;
