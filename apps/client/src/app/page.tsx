@@ -9,7 +9,7 @@ export default function Page() {
   const { isPending, handleClickTab } = useLoadingPath('/auth/login');
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-primary/10 dark:via-card/10 dark:to-ring/10 backdrop-blur-sm">
+    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-primary/10 dark:via-card/4 dark:to-ring/10">
       <Image
         className="dark:invert size-25 sm:size-28"
         src="/icons/icon_512x512.png"
@@ -18,7 +18,7 @@ export default function Page() {
         width={1000}
         height={1000}
       />
-      <span className="text-xl select-none hover:text-primary-foreground/90 text-primary-foreground lg:text-2xl font-bold font-poppins">
+      <span className="text-xl font-bold select-none hover:text-primary-foreground/90 text-primary-foreground lg:text-2xl font-poppins">
         MelodayzMusic
       </span>
       <p className="w-[80%] sm:w-[60%] lg:w-[40%] text-center text-muted-foreground">
