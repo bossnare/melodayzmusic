@@ -13,7 +13,7 @@ api.interceptors.request.use(
       ).Authorization = `Bearer ${token}`;
     }
 
-    config.baseURL = process.env.NEXT_PUBLIC_MOCK_API;
+    config.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
     return config;
   },

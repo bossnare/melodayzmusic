@@ -9,7 +9,7 @@ export default function Page() {
   const { isPending, handleClickTab } = useLoadingPath('/auth/login');
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-card/30 dark:via-card/10 dark:to-card/80 backdrop-blur-sm">
+    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-primary/10 dark:via-card/10 dark:to-ring/10 backdrop-blur-sm">
       <Image
         className="dark:invert size-25 sm:size-28"
         src="/icons/icon_512x512.png"
@@ -18,7 +18,10 @@ export default function Page() {
         width={1000}
         height={1000}
       />
-      <p className="w-[80%] sm:w-[60%] lg:w-[40%] text-center">
+      <span className="text-xl select-none hover:text-primary-foreground/90 text-primary-foreground lg:text-2xl font-bold font-poppins">
+        MelodayzMusic
+      </span>
+      <p className="w-[80%] sm:w-[60%] lg:w-[40%] text-center text-muted-foreground">
         Our app is currently in development. Some features may not be fully
         available or may change frequently. Thank you for your patience and
         understanding as we work to improve your experience!
@@ -27,12 +30,11 @@ export default function Page() {
         disabled={isPending}
         className="min-w-20"
         onClick={handleClickTab}
-        size="sm"
+        variant="outline"
+        size="lg"
       >
         {isPending ? (
-          <>
-            <Loader className="dark:border-primary-foreground size-5" />
-          </>
+          <Loader className="dark:border-primary-foreground size-5" />
         ) : (
           'Get started'
         )}
