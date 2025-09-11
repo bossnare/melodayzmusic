@@ -9,7 +9,7 @@ export default function Page() {
   const { isPending, handleClickTab } = useLoadingPath('/auth/login');
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-primary/10 dark:via-card/4 dark:to-ring/10 backdrop-blur-sm">
+    <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-primary/10 dark:via-card/4 dark:to-ring/10">
       <Image
         className="dark:invert size-25 sm:size-28"
         src="/icons/icon_512x512.png"
