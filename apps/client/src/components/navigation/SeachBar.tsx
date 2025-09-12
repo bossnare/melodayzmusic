@@ -18,15 +18,21 @@ const SearchBar = () => {
       <div
         className="
           flex items-center transition-all lg:h-12 overflow-hidden duration-200 lg:border border-input
-          rounded-sm lg:p-1
-        lg:has-[input:active]:bg-primary-foreground/4 dark:lg:bg-input/20 lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] lg:has-[input:focus]:border-ring"
+          rounded-full lg:p-1
+        lg:has-[input:active]:bg-primary-foreground/4 lg:bg-input/20 lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] lg:has-[input:focus]:border-ring"
       >
+        <span className="hidden lg:block ml-2">
+          <MagnifyingGlassIcon
+            weight={'bold'}
+            className="lg:size-6 rotate-90 text-muted-foreground"
+          />
+        </span>
         <Input
           onChange={handleChange}
           type="text"
           name="querySearch"
-          placeholder="Artist, Song, Albums, Flow..."
-          className="!hidden w-full px-2 placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0"
+          placeholder="Artist, Song, Albums, Vibe..."
+          className="!hidden w-full px-1 !bg-transparent placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0"
         />
         <div
           className={cn(
@@ -39,7 +45,7 @@ const SearchBar = () => {
           </MotionButton>
         </div>
         <div>
-          <MotionButton className="p-[6px] text-foreground/50 bg-sidebar lg:bg-transparent lg:p-2">
+          <MotionButton className="p-[6px] text-foreground/50 lg:hidden bg-sidebar lg:bg-transparent lg:p-2">
             <MagnifyingGlassIcon weight={'bold'} className="size-7 lg:size-6" />
           </MotionButton>
         </div>

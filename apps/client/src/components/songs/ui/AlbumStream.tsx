@@ -16,7 +16,7 @@ const AlbumStream = ({ children }: AlbumProps) => {
     <section>
       <h3 className="text-section">Albums</h3>
       <div className="relative">
-        <ChevronControl />
+        <ChevronControl className="top-[39%]" />
         <div
           ref={emblaRef}
           className="overflow-hidden scroll-smooth scrollbar-none"
