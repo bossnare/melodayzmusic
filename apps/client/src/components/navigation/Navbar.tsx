@@ -4,9 +4,9 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import SearchBar from './SeachBar';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
+import { ModeToggle } from '../themes/mode-toggle';
 
 export const NavBar = () => {
   const [notHome, setNotHome] = useState(false);
@@ -19,14 +19,6 @@ export const NavBar = () => {
 
   return (
     <nav className="flex items-center gap-3 lg:gap-4">
-      {/* mampiasa end, inona? raha samy misy dashboard ilay route dia ilay active foana active fa tsy miaraka index */}
-      {/* <button
-        className={
-          '!hidden rounded-full bg-black/5 border-gray-300 border font-black'
-        }
-      >
-        <Columns2 size={30} />
-      </button> */}
       <div className="lg:!hidden grow">
         <figure className="flex items-center gap-1">
           <Image
@@ -48,24 +40,11 @@ export const NavBar = () => {
         </figure>
       </div>
       <SearchBar />
-      {/* <Avatar
-        onClick={handleClickTab}
-        className={cn(
-          isPending && 'animate-pulse',
-          'ml-auto cursor-pointer hover:opacity-80 ring-2 ring-border shadow-2xs'
-        )}
-      >
-        <AvatarImage
-          className="object-cover"
-          alt="fallback"
-          src="/img/profil/lil-durk.jpg"
-        />
-        <AvatarFallback>
-          <span className="text-xs">US</span>
-        </AvatarFallback>
-      </Avatar>*/}
+
+      {/* theme toggle */}
+      <div className="ml-auto">
+        <ModeToggle />
+      </div>
     </nav>
   );
 };
-
-

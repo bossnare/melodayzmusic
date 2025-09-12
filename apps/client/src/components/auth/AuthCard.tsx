@@ -45,7 +45,7 @@ function LoginCard({
           exit={{ y: -90, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
-          <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br from-card/40 via-card/10 to-card/80 backdrop-blur-sm">
+          <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br dark:from-card/40 dark:via-card/10 dark:to-card/80 from-card/80 via-card/10 to-card/90 backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -96,7 +96,7 @@ function LoginCard({
                     <Button
                       type="button"
                       variant="link"
-                      className="p-0 h-auto w-auto dark:text-muted-foreground"
+                      className="w-auto h-auto p-0 dark:text-muted-foreground"
                     >
                       Mot de passe oublié ?
                     </Button>
@@ -288,7 +288,7 @@ const StepThreeCard = () => {
   return (
     <StepCardWrapper key="step3">
       <Card className="p-4 dark:bg-transparent lg:p-5">
-        <CardTitle className="text-base flex justify-center gap-1">
+        <CardTitle className="flex justify-center gap-1 text-base">
           Ton email, ton VIP <Mail />
         </CardTitle>
         {/* Form Content */}

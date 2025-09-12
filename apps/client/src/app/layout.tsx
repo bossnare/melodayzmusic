@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased dark:bg-background`}
+        className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
       >
         {/* ambiance overlay */}
         <ThemeProvider
