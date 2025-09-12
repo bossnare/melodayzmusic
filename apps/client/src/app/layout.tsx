@@ -53,14 +53,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
+        className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-300 ease-in-out bg-background`}
       >
         {/* ambiance overlay */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
+          // disableTransitionOnChange
         >
           <ReactQueryProvider>{children}</ReactQueryProvider>
           <Analytics />

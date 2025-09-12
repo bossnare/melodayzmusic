@@ -3,7 +3,6 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import NavProfile from '@/components/navigation/NavProfile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { Star } from 'lucide-react';
 import { useState } from 'react';

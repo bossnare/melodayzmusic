@@ -24,7 +24,7 @@ const Player = () => {
         </div>
       </div>
       {/* for minimal info and controls */}
-      <div className="flex flex-col flex-wrap items-center justify-center h-full space-y-3 grow">
+      <div className="flex flex-col flex-wrap items-center justify-center h-full space-y-4 grow">
         {/* forward and back, pause/play controls */}
         <div className="flex items-center justify-center w-full space-x-4">
           <MotionButton className="text-muted-foreground">

@@ -9,7 +9,7 @@ const TopArtist = ({ children }: TopArtistProps) => {
       <h2 className="flex items-center gap-2 text-section pb-4">Top Artists</h2>
       <div
         ref={emblaRef}
-        className="overflow-hidden scroll-smooth scrollbar-none"
+        className="overflow-hidden scroll-smooth scrollbar-none p-1"
       >
         <div
           className="grid grid-flow-col auto-cols-[calc(100vw/6)] sm:auto-cols-[calc(100vw/8)] 
