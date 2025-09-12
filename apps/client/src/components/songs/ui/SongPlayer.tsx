@@ -31,7 +31,7 @@ const Player = () => {
             <SkipBack className="size-auto" />
           </MotionButton>
           <MotionButton
-            className="text-muted-foreground dark:bg-background *:stroke-0 *:fill-current"
+            className="text-muted-foreground bg-background *:stroke-0 *:fill-current"
             onClick={() => setIsGo(!isGo)}
           >
             {isGo ? <Pause className="size-8" /> : <Play className="size-8" />}
@@ -41,7 +41,7 @@ const Player = () => {
           </MotionButton>
         </div>
         {/* Slider control */}
-        <div className="w-[25%] pb-3">
+        <div className="w-[20%] pb-3">
           <Slider />
         </div>
       </div>

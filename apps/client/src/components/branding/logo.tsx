@@ -10,7 +10,7 @@ export const MelodayzMusic = () => {
         height={1000}
         width={1000}
       />
-      <span className="text-[18px] select-none hover:text-primary-foreground/90 text-primary-foreground md:text-xl font-bold font-poppins">
+      <span className="text-[18px] select-none hover:text-foreground/90 text-foreground dark:text-primary-foreground md:text-xl font-bold font-poppins">
         MelodayzMusic
       </span>
     </div>

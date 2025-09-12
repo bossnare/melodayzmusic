@@ -60,11 +60,12 @@
   --muted: oklch(0.9222 0.0013 286.3737);
   --muted-foreground: oklch(0.1884 0.0128 248.5103);
   --accent: oklch(0.9392 0.0166 250.8453);
-  --accent-foreground: oklch(0.6723 0.1606 244.9955);
+  --accent-foreground: oklch(0.4907 0.2412 292.58);
+  /* --accent-foreground: oklch(0.6723 0.1606 244.9955); */
   --destructive: oklch(0.6188 0.2376 25.7658);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9317 0.0118 231.6594);
-  --input: oklch(0.9809 0.0025 228.7836);
+  --border: oklch(86.496% 0.01042 229.278);
+  --input: oklch(77.26% 0.00189 248.904);
   --ring: oklch(0.6818 0.1584 243.354);
   --chart-1: oklch(0.6723 0.1606 244.9955);
   --chart-2: oklch(0.6907 0.1554 160.3454);
@@ -95,6 +96,7 @@
   --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
+  --nav: oklch(93.93% 0.00111 202.448);
 }
 
 .dark {
@@ -236,13 +238,13 @@
 
 @layer components {
   .cta {
-    @apply bg-gradient-to-r from-[#6D28D9] via-blue-500 hover:opacity-85 shadow-[#00D4FF] transition to-[#00D4FF];
+    @apply bg-gradient-to-r from-[#6D28D9] via-blue-500 hover:opacity-90 shadow-[#00D4FF] transition to-[#00D4FF];
   }
   .text-gradient {
     @apply bg-gradient-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
   }
 
   .text-section {
-    @apply mb-3 text-lg font-semibold text-primary-foreground/90 lg:mb-4 lg:text-xl font-poppins;
+    @apply mb-3 text-lg font-semibold dark:text-primary-foreground/90 lg:mb-4 lg:text-xl font-poppins;
   }
 }

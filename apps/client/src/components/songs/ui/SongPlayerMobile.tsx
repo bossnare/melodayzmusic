@@ -1,5 +1,5 @@
 import { MotionButton } from '@/components/motions/motionButton';
-import { Play, Music, Heart, SkipBack, SkipForward } from 'lucide-react';
+import { Play, Music, SkipBack, SkipForward } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const SongPlayerMobile = () => {
@@ -11,9 +11,9 @@ const SongPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed inset-x-0 flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-16 dark:bg-nav"
+        className="fixed inset-x-0 flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-16 bg-nav"
       >
-        <div className="p-1 border rounded-md shadow-sm border-secondary-foreground">
+        <div className="p-1 border rounded-md shadow-sm border-foreground dark:border-secondary-foreground">
           <Music className="size-10 text-muted-foreground" />
         </div>
         {/* info */}
