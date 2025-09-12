@@ -34,7 +34,7 @@ const AuthHeaderSwitch = ({
             className={cn('rounded-full')}
           >
             {isPending ? (
-              <Loader className="size-5 lg:size-6 dark:border-primary-foreground" />
+              <Loader className="size-5 lg:size-6 border-foreground" />
             ) : (
               'Créer un compte'
             )}
@@ -56,7 +56,7 @@ const AuthHeaderSwitch = ({
             )}
           >
             {isPending ? (
-              <Loader className="size-5 lg:size-6 dark:border-primary-foreground" />
+              <Loader className="size-5 lg:size-6 border-foreground" />
             ) : (
               'Déjà inscrit'
             )}
