@@ -70,7 +70,7 @@ const AuthHeaderSwitch = ({
             className="shadow-sm hover:text-muted-foreground active:text-muted-foreground"
             onClick={() => router.back()}
           >
-            <ArrowLeft className="size-auto lg:size-8" />
+            <ArrowLeft className="size-7 lg:size-8" />
           </MotionButton>
         </>
       )}
