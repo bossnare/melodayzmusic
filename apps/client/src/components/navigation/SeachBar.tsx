@@ -39,7 +39,7 @@ const SearchBar = () => {
           </MotionButton>
         </div>
         <div>
-          <MotionButton className="p-[6px] dark:text-primary-foreground/50 bg-nav dark:lg:bg-transparent lg:p-2">
+          <MotionButton className="p-[6px] text-foreground/50 bg-sidebar lg:bg-transparent lg:p-2">
             <MagnifyingGlassIcon weight={'bold'} className="size-7 lg:size-6" />
           </MotionButton>
         </div>
