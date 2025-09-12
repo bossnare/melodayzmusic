@@ -2,10 +2,10 @@ import ReactQueryProvider from '@/libs/react-query/ReactQueryProvider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import { ThemeProvider } from 'next-themes';
 import { Geist, Geist_Mono, Inter, Poppins } from 'next/font/google';
 import '../styles/globals.css';
 import './custom.css';
+import { ThemeProvider } from '@/components/themes/theme-provider';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -51,12 +51,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased dark:bg-background`}
       >
         {/* ambiance overlay */}
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <ReactQueryProvider>{children}</ReactQueryProvider>
           <Analytics />
           <SpeedInsights />
