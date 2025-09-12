@@ -34,7 +34,7 @@ const AuthHeaderSwitch = ({
             className={cn('rounded-full')}
           >
             {isPending ? (
-              <Loader className="size-5 lg:size-6 dark:border-foreground" />
+              <Loader className="size-5 lg:size-6 border-foreground" />
             ) : (
               'Créer un compte'
             )}
@@ -56,7 +56,7 @@ const AuthHeaderSwitch = ({
             )}
           >
             {isPending ? (
-              <Loader className="size-5 lg:size-6 dark:border-foreground" />
+              <Loader className="size-5 lg:size-6 border-foreground" />
             ) : (
               'Déjà inscrit'
             )}
@@ -67,7 +67,7 @@ const AuthHeaderSwitch = ({
       {type === 'back' && (
         <>
           <MotionButton
-            className="shadow-sm hover:text-muted-foreground/80 dark:hover:text-muted-foreground active:text-muted-foreground/80 dark:active:text-muted-foreground"
+            className="shadow-sm hover:text-muted-foreground active:text-muted-foreground"
             onClick={() => router.back()}
           >
             <ArrowLeft className="size-auto lg:size-8" />

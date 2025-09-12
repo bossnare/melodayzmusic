@@ -24,7 +24,7 @@ export const StepNavigation = ({
           onClick={() => setStep(step - 1)}
           className={cn(
             step <= 1 && 'opacity-0 pointer-events-none',
-            'text-muted-foreground/80 dark:text-muted-foreground hover:text-foreground p-3'
+            'text-muted-foreground hover:text-foreground p-3'
           )}
         >
           <ChevronLeft className="size-8" />
@@ -35,7 +35,7 @@ export const StepNavigation = ({
           onClick={() => setStep(step + 1)}
           className={cn(
             step >= totalSteps && 'opacity-0 pointer-events-none',
-            'text-muted-foreground/80 dark:text-muted-foreground hover:text-foreground p-3'
+            'text-muted-foreground hover:text-foreground p-3'
           )}
         >
           <ChevronRight className="size-8" />
