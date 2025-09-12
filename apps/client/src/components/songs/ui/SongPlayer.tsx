@@ -31,10 +31,10 @@ const Player = () => {
             <SkipBack className="size-auto" />
           </MotionButton>
           <MotionButton
-            className="text-muted-foreground bg-background *:stroke-0 *:fill-current"
+            className="text-muted-foreground bg-muted *:stroke-0 *:fill-current"
             onClick={() => setIsGo(!isGo)}
           >
-            {isGo ? <Pause className="size-8" /> : <Play className="size-8" />}
+            {isGo ? <Pause className="size-9" /> : <Play className="size-9" />}
           </MotionButton>
           <MotionButton className="text-muted-foreground">
             <SkipForward className="size-auto" />
