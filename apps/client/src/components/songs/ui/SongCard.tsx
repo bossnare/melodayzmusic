@@ -3,7 +3,7 @@
 import { MotionButton } from '@/components/motions/motionButton';
 // import { Playing } from '@/animations/motion/Playing';
 // import { formatDuration as format } from '@/libs/formatDuration';
-import timeAgo from '@/libs/timeAgo';
+// import timeAgo from '@/libs/timeAgo';
 import type { SongProps } from '@/types/songs/song.interface';
 import { Pause, Play } from 'lucide-react';
 import Image from 'next/image';
@@ -47,9 +47,9 @@ const VibeCard = ({ song }: SongProps) => {
               onClick={() => setIsPlaying(!isPlaying)}
             >
               {isPlaying ? (
-                <Pause className="stroke-0 size-6 lg:size-5 fill-foreground" />
+                <Pause className="stroke-0 size-6 lg:size-5 fill-white dark:fill-foreground" />
               ) : (
-                <Play className="stroke-0 size-6 lg:size-5 fill-foreground" />
+                <Play className="stroke-0 size-6 lg:size-5 fill-white dark:fill-foreground" />
               )}
             </MotionButton>
           </div>
@@ -115,7 +115,7 @@ const AlbumCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-full capitalize text-foreground truncate line-clamp-1 sm:text-base lg:text-sm">
+        <CardTitle className="w-full capitalize truncate text-foreground line-clamp-1 sm:text-base lg:text-sm">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-full gap-2 sm:gap-0 sm:flex-row sm:items-center">
