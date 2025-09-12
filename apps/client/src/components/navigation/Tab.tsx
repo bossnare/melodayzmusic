@@ -17,7 +17,7 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
         translate="no"
         className={cn(
           isActive
-            ? 'lg:bg-foreground/2 text-foreground'
+            ? 'lg:bg-foreground/4 text-foreground'
             : 'hover:text-foreground/50 text-foreground/80',
           'select-none flex flex-col p-1 md:p-2 w-[75%] font-semibold md:w-[95%] text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
