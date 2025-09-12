@@ -160,7 +160,7 @@ const StepOneCard = () => {
   return (
     <StepCardWrapper key="step1">
       <Card className="p-4 dark:bg-transparent lg:p-5">
-        <CardTitle className="text-base text-center">
+        <CardTitle className="text-base text-center text-foreground">
           Crée ton identité
         </CardTitle>
         {/* Form Content */}
@@ -228,7 +228,7 @@ const StepTwoCard = () => {
   return (
     <StepCardWrapper key="step2">
       <Card className="p-4 dark:bg-transparent lg:p-5">
-        <CardTitle className="text-base text-center">
+        <CardTitle className="text-base text-center text-foreground">
           Un mot de passe qui suit ton rythme
         </CardTitle>
         {/* Form Content */}
@@ -288,7 +288,7 @@ const StepThreeCard = () => {
   return (
     <StepCardWrapper key="step3">
       <Card className="p-4 dark:bg-transparent lg:p-5">
-        <CardTitle className="flex justify-center gap-1 text-base">
+        <CardTitle className="flex justify-center gap-1 text-base text-foreground">
           Ton email, ton VIP <Mail />
         </CardTitle>
         {/* Form Content */}

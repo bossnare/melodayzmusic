@@ -13,7 +13,7 @@ export const StepNavigation = ({
   const totalSteps = 4;
 
   return (
-    <nav className="flex gap-0 flex-col items-center justify-center pb-2">
+    <nav className="flex flex-col items-center justify-center gap-0 pb-2">
       <span>
         {step}/{totalSteps}
       </span>
@@ -24,7 +24,7 @@ export const StepNavigation = ({
           onClick={() => setStep(step - 1)}
           className={cn(
             step <= 1 && 'opacity-0 pointer-events-none',
-            'text-muted-foreground hover:text-primary-foreground p-3'
+            'text-muted-foreground/80 dark:text-muted-foreground hover:text-foreground p-3'
           )}
         >
           <ChevronLeft className="size-8" />
@@ -35,7 +35,7 @@ export const StepNavigation = ({
           onClick={() => setStep(step + 1)}
           className={cn(
             step >= totalSteps && 'opacity-0 pointer-events-none',
-            'text-muted-foreground hover:text-primary-foreground p-3'
+            'text-muted-foreground/80 dark:text-muted-foreground hover:text-foreground p-3'
           )}
         >
           <ChevronRight className="size-8" />
