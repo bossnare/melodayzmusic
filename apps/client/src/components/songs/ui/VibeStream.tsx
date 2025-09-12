@@ -16,7 +16,7 @@ const VibeStream = ({ children }: VibeProps) => {
     <section>
       <h3 className="text-section">Fresh Vibes</h3>
       <div className="relative">
-        <ChevronControl />
+        <ChevronControl className="top-[30%]" />
         <div
           ref={emblaRef}
           className="overflow-hidden scroll-smooth scrollbar-none"
