@@ -41,7 +41,7 @@ export const providerLabels = [
     label: 'X',
     icon: (
       <svg
-        fill="#000000"
+        fill="currentColor"
         className="size-3 lg:size-4"
         role="img"
         viewBox="0 0 24 24"
