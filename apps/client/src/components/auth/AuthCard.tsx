@@ -40,9 +40,9 @@ function LoginCard({
         <motion.div
           key={pathname + 'login'}
           className="w-full lg:w-3/4"
-          initial={{ y: 90, opacity: 0 }}
+          initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -90, opacity: 0 }}
+          exit={{ y: -100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
           <Card className="p-4 space-y-4 md:p-6 bg-gradient-to-br dark:from-card/40 dark:via-card/10 dark:to-card/80 from-card/80 via-card/10 to-card/90 backdrop-blur-sm">
@@ -64,6 +64,8 @@ function LoginCard({
                         <FormLabel>Email ou nom d&apos;utilisateur</FormLabel>
                         <FormControl>
                           <Input
+                            spellCheck="false"
+                            autoCorrect="off"
                             type="email"
                             className="py-6"
                             placeholder="Email ou @username"
@@ -123,7 +125,7 @@ const RegisterCard = () => {
 
   return (
     <StepCardWrapper key="createWithChoice">
-      <Card className="p-4 bg-gradient-to-br from-card/40 via-card/10 to-card/80 backdrop-blur-sm md:p-10">
+      <Card className="p-4 bg-gradient-to-br from-card/40 dark:via-card/10 via-transparent to-card/80 backdrop-blur-sm md:p-10">
         <CardTitle className="pb-4">
           <MelodayzMusic />
         </CardTitle>
@@ -159,7 +161,7 @@ const StepOneCard = () => {
 
   return (
     <StepCardWrapper key="step1">
-      <Card className="p-4 dark:bg-transparent lg:p-5">
+      <Card className="p-4 bg-card/6 backdrop-blur-sm lg:p-5">
         <CardTitle className="text-base text-center text-foreground">
           Crée ton identité
         </CardTitle>
@@ -227,7 +229,7 @@ const StepTwoCard = () => {
 
   return (
     <StepCardWrapper key="step2">
-      <Card className="p-4 dark:bg-transparent lg:p-5">
+      <Card className="p-4 bg-card/6 backdrop-blur-sm lg:p-5">
         <CardTitle className="text-base text-center text-foreground">
           Un mot de passe qui suit ton rythme
         </CardTitle>
@@ -287,7 +289,7 @@ const StepThreeCard = () => {
 
   return (
     <StepCardWrapper key="step3">
-      <Card className="p-4 dark:bg-transparent lg:p-5">
+      <Card className="p-4 bg-card/6 backdrop-blur-sm lg:p-5">
         <CardTitle className="flex justify-center gap-1 text-base text-foreground">
           Ton email, ton VIP <Mail />
         </CardTitle>
@@ -306,6 +308,8 @@ const StepThreeCard = () => {
                         type="email"
                         className="py-6"
                         placeholder="Email associé à ce compte"
+                        spellCheck="false"
+                        autoCorrect="off"
                         {...field}
                       />
                     </FormControl>
