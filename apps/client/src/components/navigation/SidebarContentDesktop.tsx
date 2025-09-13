@@ -3,7 +3,7 @@ import { navLabels } from './labels/navigation.link';
 
 const SidebarContentDesktop = () => {
   return (
-    <ul className="flex flex-col">
+    <ul className="flex flex-col mt-2">
       {navLabels.map((tab) => (
         <li key={tab.id}>
           <Tabs href={tab.href} Icon={tab.icon} label={tab.label} />

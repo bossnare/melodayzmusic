@@ -1,12 +1,17 @@
 import { X } from 'lucide-react';
 import { MagnifyingGlassIcon } from '@phosphor-icons/react';
 import { MotionButton } from '@/components/motions/motionButton';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Input } from '../ui/input';
 
-const SearchBar = () => {
-  const [isNull, setIsNull] = useState(true);
+const SearchBar = ({
+  isNull,
+  setIsNull,
+}: {
+  isNull: boolean;
+  setIsNull: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClickX = () => {
@@ -18,23 +23,24 @@ const SearchBar = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setIsNull(value === '');
+    const value = e.target.value.trim();
+    setIsNull(!value);
   };
 
   return (
     <div className="w-auto ml-auto lg:ml-0 lg:w-[40%]">
       <div
         className="
-          flex items-center transition-all lg:h-12 overflow-hidden duration-200 lg:border border-input
-          rounded-lg lg:p-1
-        lg:has-[input:active]:bg-primary-foreground/4 lg:bg-input/20 lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] lg:has-[input:focus]:border-ring"
+          flex items-center transition-all lg:h-12 overflow-hidden duration-200 has-[input:focus]:ring has-[input:focus]:ring-input
+          lg:rounded-md rounded-full lg:p-1
+        has-[input:active]:bg-primary-foreground/4 lg:bg-input/50 has-[input:focus]:bg-input/16 has-[input:focus]:shadow-xs"
       >
+        {/* lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] */}
         {isNull && (
-          <span className="hidden lg:block ml-1">
+          <span className="hidden ml-1 lg:block">
             <MagnifyingGlassIcon
               weight={'bold'}
-              className="lg:size-6 rotate-90 text-muted-foreground"
+              className="lg:size-6 size-5 text-muted-foreground"
             />
           </span>
         )}
@@ -61,7 +67,7 @@ const SearchBar = () => {
         </div>
         <div>
           <MotionButton
-            className={`p-[6px] text-foreground/50 lg:${
+            className={`p-[6px] text-foreground/70 lg:${
               isNull && 'hidden'
             } bg-sidebar lg:bg-transparent lg:p-2`}
           >

@@ -15,7 +15,7 @@ export default function ProfilePage() {
       <NavProfile />
 
       {/* Profile content */}
-      <div className="py-2 flex gap-4 items-center">
+      <div className="py-2 flex gap-4 items-center mt-16">
         <Avatar className="size-30 lg:size-38 border dark:border-primary-foreground ring-4 ring-muted ">
           <AvatarImage
             className="object-cover"
