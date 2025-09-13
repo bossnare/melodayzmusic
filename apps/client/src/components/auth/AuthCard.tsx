@@ -161,7 +161,7 @@ const StepOneCard = () => {
 
   return (
     <StepCardWrapper key="step1">
-      <Card className="p-4 bg-card/6 backdrop-blur-sm lg:p-5">
+      <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
         <CardTitle className="text-base text-center text-foreground">
           Crée ton identité
         </CardTitle>
@@ -222,14 +222,14 @@ const StepTwoCard = () => {
   const form = useForm({
     // resolver: zodResolver(loginSchema),
     defaultValues: {
-      password: '',
+      newPassword: '',
       confirmPassword: '',
     },
   });
 
   return (
     <StepCardWrapper key="step2">
-      <Card className="p-4 bg-card/6 backdrop-blur-sm lg:p-5">
+      <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
         <CardTitle className="text-base text-center text-foreground">
           Un mot de passe qui suit ton rythme
         </CardTitle>
@@ -239,7 +239,7 @@ const StepTwoCard = () => {
             <form action="" className="flex flex-col flex-1 gap-5">
               <FormField
                 control={form.control}
-                name="password"
+                name="newPassword"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Mot de passe</FormLabel>
@@ -289,7 +289,7 @@ const StepThreeCard = () => {
 
   return (
     <StepCardWrapper key="step3">
-      <Card className="p-4 bg-card/6 backdrop-blur-sm lg:p-5">
+      <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
         <CardTitle className="flex justify-center gap-1 text-base text-foreground">
           Ton email, ton VIP <Mail />
         </CardTitle>

@@ -45,6 +45,9 @@ const AuthHeaderSwitch = ({
       {type === 'register' && (
         <>
           <MelodayzMusic />
+          <h3 className="hidden text-lg font-bold md:block">
+            Création du compte
+          </h3>
           <Button
             onClick={handleClickTab}
             disabled={isPending}
