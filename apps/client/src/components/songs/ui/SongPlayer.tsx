@@ -28,16 +28,16 @@ const Player = () => {
         {/* forward and back, pause/play controls */}
         <div className="flex items-center justify-center w-full space-x-4">
           <MotionButton className="text-muted-foreground">
-            <SkipBack className="size-auto" />
+            <SkipBack className="size-auto fill-current" />
           </MotionButton>
           <MotionButton
-            className="text-muted-foreground bg-muted *:stroke-0 *:fill-current"
+            className="text-foreground bg-muted *:stroke-0 *:fill-current"
             onClick={() => setIsGo(!isGo)}
           >
             {isGo ? <Pause className="size-9" /> : <Play className="size-9" />}
           </MotionButton>
           <MotionButton className="text-muted-foreground">
-            <SkipForward className="size-auto" />
+            <SkipForward className="size-auto fill-current" />
           </MotionButton>
         </div>
         {/* Slider control */}
