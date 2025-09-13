@@ -25,14 +25,12 @@ export const AuthCtaButton = ({
       className={`relative overflow-hidden ${className} cta`}
       type="submit"
     >
-      {isPending && (
-        <Loader className="size-5 dark:border-primary-foreground" />
-      )}
+      {isPending && <Loader className="size-5 dark:border-foreground" />}
       {isPending ? 'Loading...' : children}
       {/* grain overlay */}
       <span
         className="absolute inset-0 opacity-20 pointer-events-none 
-                         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
+        mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
       ></span>
     </Button>
   );
