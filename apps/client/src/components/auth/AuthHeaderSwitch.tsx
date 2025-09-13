@@ -22,7 +22,7 @@ const AuthHeaderSwitch = ({
   const router = useRouter();
 
   return (
-    <nav className="flex items-center justify-between w-full gap-12 py-3">
+    <nav className="flex items-center justify-between w-full gap-12 py-2">
       {type === 'login' && (
         <>
           <p className="text-sm">Vos vibes n&apos;attendent que vous.</p>
