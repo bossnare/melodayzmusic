@@ -72,7 +72,6 @@ function LoginCard({
                             {...field}
                           />
                         </FormControl>
-                        <FormDescription />
                         <FormMessage />
                       </FormItem>
                     )}
@@ -86,7 +85,6 @@ function LoginCard({
                         <FormControl>
                           <PasswordInput {...field} />
                         </FormControl>
-                        <FormDescription />
                         <FormMessage />
                       </FormItem>
                     )}
