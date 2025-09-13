@@ -181,7 +181,6 @@ const StepOneCard = () => {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription></FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -202,7 +201,7 @@ const StepOneCard = () => {
                     </FormControl>
                     <FormDescription className="text-xs">
                       Ton identifiant sera visible par tous.
-                    </FormDescription>{' '}
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -247,7 +246,6 @@ const StepTwoCard = () => {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription></FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -264,7 +262,7 @@ const StepTwoCard = () => {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription></FormDescription> <FormMessage />
+                    <FormMessage />
                   </FormItem>
                 )}
               ></FormField>
