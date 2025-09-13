@@ -20,7 +20,7 @@ const SongPlayerMobile = () => {
         <div className="flex flex-col items-start justify-center gap-1 text-muted-foreground">
           <p>Pas en lecture</p>
         </div>
-        <div className="flex items-center gap-1 *:text-foreground ml-auto">
+        <div className="flex items-center gap-1 *:text-muted-foreground ml-auto">
           <MotionButton>
             <SkipBack className="fill-current size-auto" />
           </MotionButton>
