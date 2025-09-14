@@ -11,7 +11,7 @@ const Player = () => {
   return (
     <div className="items-center justify-center hidden w-full h-full gap-4 py-1 lg:flex">
       {/* for image cover */}
-      <div className="xl:w-64">
+      <div className="flex items-center gap-2 xl:min-w-64">
         <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
           <Image
             src="/img/p9.jpg"
@@ -22,13 +22,15 @@ const Player = () => {
             loading="lazy"
           />
         </div>
+        {/* Title & other */}
+        <h3>Pas en lecture</h3>
       </div>
       {/* for minimal info and controls */}
       <div className="flex flex-col flex-wrap items-center justify-center h-full space-y-4 grow">
         {/* forward and back, pause/play controls */}
         <div className="flex items-center justify-center w-full space-x-4">
           <MotionButton className="text-muted-foreground">
-            <SkipBack className="size-auto fill-current" />
+            <SkipBack className="fill-current size-auto" />
           </MotionButton>
           <MotionButton
             className="text-foreground bg-muted *:stroke-0 *:fill-current"
@@ -37,7 +39,7 @@ const Player = () => {
             {isGo ? <Pause className="size-9" /> : <Play className="size-9" />}
           </MotionButton>
           <MotionButton className="text-muted-foreground">
-            <SkipForward className="size-auto fill-current" />
+            <SkipForward className="fill-current size-auto" />
           </MotionButton>
         </div>
         {/* Slider control */}
