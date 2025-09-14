@@ -6,7 +6,7 @@ const TopArtist = ({ children }: TopArtistProps) => {
 
   return (
     <section>
-      <h2 className="flex items-center gap-2 text-section pb-4">Top Artists</h2>
+      <h3 className="flex items-center gap-2 text-section pb-4">Top Artists</h3>
       <div
         ref={emblaRef}
         className="overflow-hidden scroll-smooth scrollbar-none p-1"
