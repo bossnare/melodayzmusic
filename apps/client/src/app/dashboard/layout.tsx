@@ -55,7 +55,7 @@ export default function DashboardLayout({
 
       {/* NavBottom -- Player and Navigation on mobile */}
       <SongPlayerMobile />
-      <nav className="fixed inset-x-0 bottom-0 h-16 px-2 border-t lg:px-4 z-8 border-border lg:h-25 bg-nav">
+      <nav className="fixed inset-x-0 bottom-0 h-16 px-2 border-t lg:px-4 z-8 border-border lg:h-25 bg-nav shadow-lg">
         <NavBottom />
         <Player />
       </nav>
