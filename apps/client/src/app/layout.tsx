@@ -2,7 +2,7 @@ import ReactQueryProvider from '@/libs/react-query/ReactQueryProvider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Inter, Poppins } from 'next/font/google';
+import { Geist, Geist_Mono, Inter, Montserrat } from 'next/font/google';
 import '../styles/globals.css';
 import './custom.css';
 import { ThemeProvider } from '@/components/themes/theme-provider';
@@ -12,10 +12,9 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
-const poppins = Poppins({
-  variable: '--font-poppins',
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
   subsets: ['latin'],
-  weight: ['400', '600', '700', '900'],
 });
 
 const geistSans = Geist({
@@ -53,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
+        className={`${inter.variable} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
       >
         {/* ambiance overlay */}
         <ThemeProvider

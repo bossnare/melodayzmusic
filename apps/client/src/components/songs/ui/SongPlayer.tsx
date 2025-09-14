@@ -11,10 +11,10 @@ const Player = () => {
   return (
     <div className="items-center justify-center hidden w-full h-full gap-4 py-1 lg:flex">
       {/* for image cover */}
-      <div className="flex items-center gap-2 xl:min-w-64">
+      <div className="flex items-center gap-6 xl:min-w-64">
         <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
           <Image
-            src="/img/p9.jpg"
+            src="/img/p4.webp"
             alt="coverImage"
             className="object-cover size-full"
             height={1000}
@@ -33,11 +33,15 @@ const Player = () => {
             <SkipBack className="fill-current stroke-0 size-8" />
           </MotionButton>
           <MotionButton
-          disabled={true}
+            disabled={true}
             className="bg-muted *:stroke-0 *:fill-current"
             onClick={() => setIsGo(!isGo)}
           >
-            {isGo ? <Pause className="size-10" /> : <Play className="size-10" />}
+            {isGo ? (
+              <Pause className="size-10" />
+            ) : (
+              <Play className="size-10" />
+            )}
           </MotionButton>
           <MotionButton disabled={true}>
             <SkipForward className="fill-current stroke-0 size-8" />

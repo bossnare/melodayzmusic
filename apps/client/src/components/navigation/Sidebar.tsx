@@ -10,7 +10,7 @@ export const Sidebar = () => {
       {/* sidebar desktop */}
       <aside
         id="side-bar"
-        className="fixed lg:w-62 top-0 left-0 overflow-y-auto hidden 
+        className="fixed lg:w-64 top-0 left-0 overflow-y-auto hidden 
         z-6 lg:block bg-sidebar md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-border"
       >
         <div className="hidden px-2 py-2 lg:block">
@@ -23,8 +23,8 @@ export const Sidebar = () => {
               width={1000}
               height={1000}
             />
-            <h2 className="text-[22px] font-black select-none font-poppins">
-              MelodayzMusic
+            <h2 className="text-xl font-black select-none font-montserrat">
+              MELODAYZMUSIC
             </h2>
           </figure>
         </div>
