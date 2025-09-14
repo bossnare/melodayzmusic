@@ -23,23 +23,24 @@ const Player = () => {
           />
         </div>
         {/* Title & other */}
-        <h3>Pas en lecture</h3>
+        <span className="text-muted-foreground">Pas en lecture</span>
       </div>
       {/* for minimal info and controls */}
       <div className="flex flex-col flex-wrap items-center justify-center h-full space-y-4 grow">
         {/* forward and back, pause/play controls */}
-        <div className="flex items-center justify-center w-full space-x-4">
-          <MotionButton className="text-muted-foreground">
-            <SkipBack className="fill-current size-auto" />
+        <div className="flex items-center justify-center *:text-muted-foreground w-full space-x-4">
+          <MotionButton disabled={true}>
+            <SkipBack className="fill-current stroke-0 size-8" />
           </MotionButton>
           <MotionButton
-            className="text-foreground bg-muted *:stroke-0 *:fill-current"
+          disabled={true}
+            className="bg-muted *:stroke-0 *:fill-current"
             onClick={() => setIsGo(!isGo)}
           >
-            {isGo ? <Pause className="size-9" /> : <Play className="size-9" />}
+            {isGo ? <Pause className="size-10" /> : <Play className="size-10" />}
           </MotionButton>
-          <MotionButton className="text-muted-foreground">
-            <SkipForward className="fill-current size-auto" />
+          <MotionButton disabled={true}>
+            <SkipForward className="fill-current stroke-0 size-8" />
           </MotionButton>
         </div>
         {/* Slider control */}
