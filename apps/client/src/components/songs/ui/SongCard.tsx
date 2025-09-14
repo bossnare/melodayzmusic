@@ -1,13 +1,12 @@
 'use client';
 
-import { MotionButton } from '@/components/motions/motionButton';
+// import { MotionButton } from '@/components/motions/motionButton';
 // import { Playing } from '@/animations/motion/Playing';
 // import { formatDuration as format } from '@/libs/formatDuration';
 // import timeAgo from '@/libs/timeAgo';
 import type { SongProps } from '@/types/songs/song.interface';
-import { Pause, Play } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 // import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import {
@@ -20,11 +19,11 @@ import {
 
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none shadow-none">
+    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:bg-accent">
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
@@ -82,7 +81,7 @@ const AlbumCard = ({ song }: SongProps) => {
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none shadow-none">
+    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:bg-accent">
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
