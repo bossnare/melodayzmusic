@@ -260,6 +260,6 @@
   }
 
   .text-section {
-    @apply mb-3 text-lg font-semibold dark:text-primary-foreground/90 lg:mb-4 lg:text-xl font-poppins;
+    @apply mb-3 text-lg font-semibold dark:text-secondary lg:mb-4 lg:text-xl font-poppins;
   }
 }
