@@ -25,9 +25,12 @@ export const NavBar = () => {
         <div className="lg:!hidden grow">
           <figure className="flex items-center gap-1">
             <Image
-              className={cn(notHome && '!w-6', 'w-7 drop-shadow-md')}
-              alt="meloicon"
-              src={'/icons/icon_x32.svg'}
+              className={cn(
+                notHome && '!w-6',
+                'w-7 drop-shadow-md invert dark:invert-0'
+              )}
+              alt="MelodayzMusic"
+              src={'/icons/icon_x32_dark.svg'}
               loading="lazy"
               width={1000}
               height={1000}
@@ -35,7 +38,7 @@ export const NavBar = () => {
             <h2
               className={cn(
                 notHome && '!text-lg',
-                'text-xl font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins text-gradient'
+                'text-xl font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins'
               )}
             >
               MelodayzMusic

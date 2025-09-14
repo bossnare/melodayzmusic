@@ -16,14 +16,14 @@ export const Sidebar = () => {
         <div className="hidden px-2 py-2 lg:block">
           <figure className="flex items-center gap-1">
             <Image
-              className="w-7 drop-shadow-md"
-              alt="meloicon"
-              src={'/icons/icon_x32.svg'}
+              className="w-7 drop-shadow-md invert dark:invert-0"
+              alt="MelodayzMusic"
+              src={'/icons/icon_x32_dark.svg'}
               loading="lazy"
-              width={100}
-              height={100}
+              width={1000}
+              height={1000}
             />
-            <h2 className="text-[22px] font-black select-none font-poppins text-gradient">
+            <h2 className="text-[22px] font-black select-none font-poppins">
               MelodayzMusic
             </h2>
           </figure>
