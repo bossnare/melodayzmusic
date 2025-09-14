@@ -38,10 +38,10 @@ export const NavBar = () => {
             <h2
               className={cn(
                 notHome && '!text-lg',
-                'text-xl font-black will-change-auto transition-all ease-in-out duration-100 select-none font-poppins'
+                'text-xl font-black will-change-auto transition-all tracking-wide ease-in-out duration-100 select-none font-montserrat'
               )}
             >
-              MelodayzMusic
+              MELODAYZMUSIC
             </h2>
           </figure>
         </div>
