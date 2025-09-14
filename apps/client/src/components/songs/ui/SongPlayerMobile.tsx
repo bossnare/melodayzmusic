@@ -6,12 +6,13 @@ const SongPlayerMobile = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        style={{ boxShadow: '0 -4px 6px -1px rgba(0, 0, 0, 0.09)' }}
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] rounded-md left-[2%] flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-17 bg-gradient-to-br from-secondary to-secondary/90 backdrop-blur-sm shadow-lg"
+        className="fixed w-[96%] rounded-lg left-[2%] flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-17 bg-gradient-to-br from-secondary to-secondary/90 backdrop-blur-sm"
       >
         <div className="p-1 border rounded-md shadow-sm bg-muted border-muted-foreground">
           <Music className="size-10 text-muted-foreground" />
