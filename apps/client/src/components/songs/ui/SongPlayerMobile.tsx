@@ -6,7 +6,7 @@ const SongPlayerMobile = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        style={{ boxShadow: '0 -4px 6px -1px rgba(0, 0, 0, 0.05)' }}
+        style={{ boxShadow: '0 -4px 6px -1px rgba(0, 0, 0, 0.06)' }}
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -20, opacity: 0 }}
