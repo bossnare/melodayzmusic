@@ -19,7 +19,7 @@ export default function Page() {
           width={1000}
           height={1000}
         />
-        <span className="text-xl font-bold select-none hover:text-foreground/90 text-foreground dark:text-primary-foreground lg:text-2xl font-montserrat">
+        <span className="text-xl font-extrabold select-none hover:text-foreground/90 text-foreground dark:text-primary-foreground lg:text-2xl font-montserrat">
           MelodayzMusic
         </span>
       </div>

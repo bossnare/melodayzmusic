@@ -228,7 +228,10 @@
   }
 
   /* for headings */
-  h1,
+  h1 {
+    @apply font-montserrat;
+  }
+
   h2,
   h3,
   h4,
@@ -253,7 +256,7 @@
 
 @layer components {
   .cta {
-    @apply bg-gradient-to-r from-[#6D28D9] via-blue-500 hover:opacity-90 shadow-[#00D4FF] transition to-[#00D4FF];
+    @apply bg-gradient-to-r from-[#6D28D9] via-blue-500 hover:opacity-90 shadow-[#00D4FF] transition font-montserrat to-[#00D4FF];
   }
   .text-gradient {
     @apply bg-gradient-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
