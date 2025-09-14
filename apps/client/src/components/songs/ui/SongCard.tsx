@@ -24,7 +24,7 @@ const VibeCard = ({ song }: SongProps) => {
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent border-none shadow-none rounded-none">
+    <Card className="p-0 bg-transparent border-none rounded-none shadow-none">
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
@@ -41,7 +41,7 @@ const VibeCard = ({ song }: SongProps) => {
             width={1200}
             height={1200}
           />
-          <div className="absolute flex justify-end bottom-2 left-2">
+          {/* <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton
               className="bg-gradient-to-t from-black/60 to-transparent shrink-0"
               onClick={() => setIsPlaying(!isPlaying)}
@@ -52,7 +52,7 @@ const VibeCard = ({ song }: SongProps) => {
                 <Play className="stroke-0 size-6 lg:size-5 fill-white dark:fill-foreground" />
               )}
             </MotionButton>
-          </div>
+          </div> */}
         </AspectRatio>
       </CardContent>
 
@@ -82,7 +82,7 @@ const AlbumCard = ({ song }: SongProps) => {
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent shadow-none border-none rounded-none">
+    <Card className="p-0 bg-transparent border-none rounded-none shadow-none">
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
