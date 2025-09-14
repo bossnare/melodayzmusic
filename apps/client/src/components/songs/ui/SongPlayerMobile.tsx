@@ -11,7 +11,7 @@ const SongPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] rounded-md left-[2%] flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-17 bg-nav shadow-lg"
+        className="fixed w-[96%] rounded-md left-[2%] flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-17 bg-gradient-to-br from-secondary to-secondary/90 backdrop-blur-sm shadow-lg"
       >
         <div className="p-1 border rounded-md shadow-sm bg-muted border-muted-foreground">
           <Music className="size-10 text-muted-foreground" />
