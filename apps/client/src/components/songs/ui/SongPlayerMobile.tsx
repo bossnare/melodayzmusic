@@ -24,7 +24,7 @@ const SongPlayerMobile = () => {
           <MotionButton>
             <SkipBack className="fill-current size-auto" />
           </MotionButton>
-          <MotionButton className="bg-muted">
+          <MotionButton className="bg-foreground/18">
             <Play className="fill-current size-8" />
           </MotionButton>
           <MotionButton>
