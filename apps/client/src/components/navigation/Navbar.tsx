@@ -25,7 +25,7 @@ export const NavBar = () => {
         <div className="lg:!hidden grow">
           <figure className="flex items-center gap-1">
             <Image
-              className={cn(notHome && '!w-6', 'w-7')}
+              className={cn(notHome && '!w-6', 'w-7 drop-shadow-md')}
               alt="meloicon"
               src={'/icons/icon_x32.svg'}
               loading="lazy"

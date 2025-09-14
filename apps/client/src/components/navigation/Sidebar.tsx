@@ -16,7 +16,7 @@ export const Sidebar = () => {
         <div className="hidden px-2 py-2 lg:block">
           <figure className="flex items-center gap-1">
             <Image
-              className="w-7"
+              className="w-7 drop-shadow-md"
               alt="meloicon"
               src={'/icons/icon_x32.svg'}
               loading="lazy"

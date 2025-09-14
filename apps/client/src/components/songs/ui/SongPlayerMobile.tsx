@@ -12,24 +12,24 @@ const SongPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] rounded-lg left-[2%] flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-17 bg-gradient-to-br from-secondary to-secondary/90 backdrop-blur-sm"
+        className="fixed w-[96%] rounded-lg left-[2%] flex items-center h-20 gap-2 px-2 py-2 lg:hidden bottom-17 bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
       >
-        <div className="p-1 border rounded-md shadow-sm bg-muted border-muted-foreground">
+        <div className="p-1 border rounded-md shadow-sm bg-gradient-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
           <Music className="size-10 text-muted-foreground" />
         </div>
         {/* info */}
         <div className="flex flex-col items-start justify-center gap-1 text-muted-foreground">
           <p>Pas en lecture</p>
         </div>
-        <div className="flex items-center gap-1 *:text-muted-foreground ml-auto">
-          <MotionButton>
-            <SkipBack className="fill-current size-auto" />
+        <div className="flex items-center gap-1 *:text-muted-foreground/80 ml-auto">
+          <MotionButton disabled={true}>
+            <SkipBack className="fill-current stroke-0 size-7" />
           </MotionButton>
-          <MotionButton className="bg-foreground/18">
-            <Play className="fill-current size-8" />
+          <MotionButton disabled={true} className="bg-foreground/18">
+            <Play className="fill-current stroke-0 size-8" />
           </MotionButton>
-          <MotionButton>
-            <SkipForward className="fill-current size-auto" />
+          <MotionButton disabled={true}>
+            <SkipForward className="fill-current stroke-0 size-7" />
           </MotionButton>
         </div>
       </motion.div>
