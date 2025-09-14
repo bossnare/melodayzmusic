@@ -50,7 +50,7 @@ const SearchBar = ({
           }}
           className={`p-[6px] text-foreground/70 bg-sidebar lg:hidden`}
         >
-          <ChevronLeft className="size-7 lg:size-6" />
+          <ChevronLeft className="size-8" />
         </MotionButton>
       )}
       <div
