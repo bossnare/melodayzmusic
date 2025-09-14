@@ -31,7 +31,7 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p7.jpg',
+      coverUrl: '/img/p1.jpg',
     },
     audioUrl:
       '/audio/xxxtentacion_lil_pump_arms_around_you_lyrics_ft._maluma_swae_lee_mp3_52702.mp3',
@@ -39,7 +39,7 @@ const mockSongs = [
     userOwner: {
       username: 'XxxTentacion',
       activateProfilePicture: {
-        pictureUrl: '/img/p5.jpg',
+        pictureUrl: '/img/p3.jpg',
       },
       defaultPicture: 'null',
     },
@@ -53,7 +53,7 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p8.png',
+      coverUrl: '/img/p4.webp',
     },
     audioUrl: '/audio/bnxn_phenomena_official_video_mp3_37814.mp3',
     defaultCover: 'null',
@@ -74,10 +74,10 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p4.webp',
+      coverUrl: '/img/p2.jpg',
     },
     audioUrl: '/audio/zombie_mp3_73210.mp3',
-    defaultCover: '/img/p2.jpeg',
+    defaultCover: '/img/p2.jpg',
     userOwner: {
       username: 'Travis Scott',
       activateProfilePicture: {
@@ -95,7 +95,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p6.jpg',
+      coverUrl: '/img/p3.jpg',
     },
     audioUrl:
       '/audio/powfu_death_bed_feat._beabadoobee_prod._otterpop_lyrics_lyric_video_mp3_40760.mp3',
@@ -117,7 +117,7 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p9.jpg',
+      coverUrl: '/img/p6.jpg',
     },
     audioUrl: '/audio/lil_durk_all_my_life_ft._j._cole_mp3_38751.mp3',
     defaultCover: 'null',
