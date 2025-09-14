@@ -22,7 +22,7 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
           'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[50%] font-semibold text-xs lg:text-sm rounded-sm items-center font-poppins justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
-        <MotionTab className="*:!size-8">
+        <MotionTab className="*:!size-7 lg:*:!size-6">
           {isPending && !isActive ? (
             <Loader className="border-foreground/90 !size-4" />
           ) : (

@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 export const MelodayzMusic = () => {
   return (
-    <div className="flex items-center justify-center gap-1 shadow-sm">
+    <div className="flex items-center justify-center gap-1">
       <Image
         src="/icons/icon_512x512.png"
-        className="w-6 dark:invert md:w-7"
+        className="w-6 dark:invert md:w-7 drop-shadow-sm"
         alt="meloicon"
         height={1000}
         width={1000}

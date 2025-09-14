@@ -55,7 +55,7 @@ const SearchBar = ({
       )}
       <div
         className={cn(
-          'grow flex items-center transition-all lg:h-12 overflow-hidden duration-200 has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full p-[1px] lg:p-1 has-[input:active]:bg-primary-foreground/4 bg-input/50 has-[input:focus]:bg-input/16 has-[input:focus]:shadow-xs'
+          'grow flex items-center transition-all lg:h-12 overflow-hidden duration-200 has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full p-[1px] lg:p-1 has-[input:active]:bg-primary-foreground/4 bg-input/50 has-[input:focus]:bg-input/16 has-[input:focus]:shadow-sm'
         )}
       >
         {/* lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] */}
@@ -75,7 +75,7 @@ const SearchBar = ({
           placeholder="Artist, Song, Albums, Vibe..."
           className={cn(
             !openSearch && '!hidden',
-            'w-full ml-2 lg:ml-0 px-1 !bg-transparent placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0'
+            'w-full ml-2 lg:ml-0 px-1 !bg-transparent shadow-none placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0'
           )}
         />
         <div
@@ -98,7 +98,8 @@ const SearchBar = ({
             className={`p-[6px] text-foreground/70 ${
               isNull ? 'hidden' : 'block'
             } bg-sidebar ${!openSearch && 'hidden'} lg:${
-              isNull ? 'hidden' : 'block'} lg:bg-transparent lg:p-2`}
+              isNull ? 'hidden' : 'block'
+            } lg:bg-transparent lg:p-2`}
           >
             <MagnifyingGlassIcon weight={'bold'} className="size-7 lg:size-6" />
           </MotionButton>
