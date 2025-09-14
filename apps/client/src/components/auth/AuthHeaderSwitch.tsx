@@ -31,7 +31,7 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="outline"
             size="lg"
-            className={cn('rounded-full')}
+            className={cn('rounded-full font-montserrat')}
           >
             {isPending ? (
               <Loader className="size-5 lg:size-6 border-foreground" />
@@ -55,7 +55,7 @@ const AuthHeaderSwitch = ({
             size="lg"
             className={cn(
               step && step > 1 && 'pointer-events-none opacity-0',
-              'rounded-full'
+              'rounded-full font-montserrat'
             )}
           >
             {isPending ? (
