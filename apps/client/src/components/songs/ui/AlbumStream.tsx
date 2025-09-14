@@ -19,7 +19,7 @@ const AlbumStream = ({ children }: AlbumProps) => {
         <ChevronControl className="top-[39%]" />
         <div
           ref={emblaRef}
-          className="overflow-hidden scroll-smooth scrollbar-none"
+          className="overflow-hidden scroll-smooth scrollbar-none pb-1"
         >
           <div className="grid grid-flow-col auto-cols-[calc(100vw/1.5)] sm:auto-cols-[calc(100vw/4.6)] lg:auto-cols-[calc(100vw/7)] gap-4 lg:gap-5">
             {children}

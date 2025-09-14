@@ -24,7 +24,7 @@ const VibeCard = ({ song }: SongProps) => {
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none">
+    <Card className="p-0 bg-transparent border-none shadow-2xs rounded-none">
       <CardContent className="p-0">
         <AspectRatio
           ratio={1}
@@ -82,7 +82,7 @@ const AlbumCard = ({ song }: SongProps) => {
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none">
+    <Card className="p-0 bg-transparent shadow-2xs border-none rounded-none">
       <CardContent className="p-0">
         <AspectRatio
           ratio={1}
