@@ -10,18 +10,20 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
   useEffect(() => {
     if (!scrollRef.current) return;
 
-    const scrollbar = Scrollbar.init(scrollRef.current, {
+    if (window.innerWidth >= 768) {
+     Scrollbar.init(scrollRef.current, {
       damping: 0.06, // inertia feel
       continuousScrolling: true,
       renderByPixels: true,
       alwaysShowTracks: false,
     });
+    }
 
-    return () => scrollbar.destroy();
+    // return () => scrollbar.destroy();
   }, []);
 
   return (
-    <div ref={scrollRef} id="main-scroll" className="h-dvh">
+    <div style={{ WebkitOverflowScrolling: 'touch' }} ref={scrollRef} id="main-scroll" className="h-dvh overflow-auto touch-pan-y">
       {children}
     </div>
   );
