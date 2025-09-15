@@ -38,7 +38,7 @@ export default function DashboardLayout({
                     className="p-0 hover:!bg-transparent hover:text-muted-foreground"
                     type="button"
                   >
-                    <AlignLeft className="size-auto" />
+                    <AlignLeft className="size-7 stroke-3 stroke-current" />
                   </MotionButtonLeft>
                 </SheetTrigger>
               </nav>
