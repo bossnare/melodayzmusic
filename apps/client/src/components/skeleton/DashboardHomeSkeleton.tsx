@@ -19,7 +19,7 @@ export const DashboardHomeSkeleton = () => {
 
       {/* Grid Skeleton */}
       <div>
-        <Skeleton className="w-40 h-6 mb-2 lg:mb-3 rounded-xl bg-foreground/25" />
+        <Skeleton className="w-30 h-6 mb-2 lg:mb-3 rounded-xl bg-foreground/25" />
         <div
           className="grid grid-flow-col auto-cols-[calc(100vw/2.5)] sm:auto-cols-[calc(100vw/4.5)] 
         lg:auto-cols-[calc(100vw/9)] xl:auto-cols-[calc(100vw/8.5)] gap-4 lg:gap-5"
@@ -44,3 +44,4 @@ export const DashboardHomeSkeleton = () => {
     </div>
   );
 };
+
