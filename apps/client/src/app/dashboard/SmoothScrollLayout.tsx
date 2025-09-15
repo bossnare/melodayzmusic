@@ -12,6 +12,9 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
 
     const scrollbar = Scrollbar.init(scrollRef.current, {
       damping: 0.08, // inertia feel
+      renderByPixels: true,
+      continuousScrolling: true,
+      delegateTo: document,
       alwaysShowTracks: false,
     });
 
@@ -19,7 +22,11 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
   }, []);
 
   return (
-    <div ref={scrollRef} id="main-content" className="h-dvh">
+    <div
+      ref={scrollRef}
+      id="main-content"
+      className="h-full overflow-hidden scrollbar-none"
+    >
       {children}
     </div>
   );
