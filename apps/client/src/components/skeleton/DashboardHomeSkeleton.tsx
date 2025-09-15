@@ -19,9 +19,9 @@ export const DashboardHomeSkeleton = () => {
 
       {/* Grid Skeleton */}
       <div>
-        <Skeleton className="w-40 h-6 mb-2 lg:mb-3 rounded-xl bg-foreground/30" />
+        <Skeleton className="w-40 h-6 mb-2 lg:mb-3 rounded-xl bg-foreground/25" />
         <div
-          className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4.5)] 
+          className="grid grid-flow-col auto-cols-[calc(100vw/2.5)] sm:auto-cols-[calc(100vw/4.5)] 
         lg:auto-cols-[calc(100vw/9)] xl:auto-cols-[calc(100vw/8.5)] gap-4 lg:gap-5"
         >
           {[...Array(8)].map((_, index) => (
@@ -31,9 +31,9 @@ export const DashboardHomeSkeleton = () => {
       </div>
 
       <div>
-        <Skeleton className="h-6 mb-2 w-35 lg:mb-3 rounded-xl bg-foreground/30" />
+        <Skeleton className="h-6 mb-2 w-35 lg:mb-3 rounded-xl bg-foreground/25" />
         <div
-          className="grid grid-flow-col auto-cols-[calc(100vw/1.4)] sm:auto-cols-[calc(100vw/4.5)] 
+          className="grid grid-flow-col auto-cols-[calc(100vw/2)] sm:auto-cols-[calc(100vw/4.5)] 
         lg:auto-cols-[calc(100vw/9)] xl:auto-cols-[calc(100vw/8.5)] gap-4 lg:gap-5"
         >
           {[...Array(8)].map((_, index) => (

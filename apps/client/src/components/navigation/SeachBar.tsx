@@ -73,7 +73,7 @@ const SearchBar = ({
           onChange={handleChange}
           type="text"
           name="querySearch"
-          placeholder="Artist, Song, Albums, Vibe..."
+          placeholder="Rechercher une vibe, un album ou une artiste..."
           className={cn(
             !openSearch && '!hidden',
             'w-full',
