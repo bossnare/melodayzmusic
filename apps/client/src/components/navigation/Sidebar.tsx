@@ -35,7 +35,7 @@ export const Sidebar = () => {
 
       {/* sidebar mobile  */}
       <div className="block bg-sidebar lg:!hidden">
-        <SheetContent side="left" className="w-8/9">
+        <SheetContent side="left" className="w-7/8">
           <SheetTitle></SheetTitle>
           <SheetDescription></SheetDescription>
         </SheetContent>
