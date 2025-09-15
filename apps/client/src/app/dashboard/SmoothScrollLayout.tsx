@@ -21,7 +21,7 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
   }, []);
 
   return (
-    <div ref={scrollRef} id="main-content" className="h-dvh">
+    <div ref={scrollRef} id="main-scroll" className="h-dvh">
       {children}
     </div>
   );

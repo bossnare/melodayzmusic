@@ -12,6 +12,7 @@ export default function ProfilePage() {
 
   return (
     <section>
+      {/* navigation */}
       <NavProfile />
 
       {/* Profile content */}
@@ -43,13 +44,6 @@ export default function ProfilePage() {
           </MotionButton>
         </div>
       </div>
-      {/* About */}
-      {/* <Card className="p-0 border-none">
-        <CardContent>
-          <p>Artist</p>
-        </CardContent>
-        <CardTitle>ArtistName</CardTitle>
-      </Card> */}
     </section>
   );
 }
