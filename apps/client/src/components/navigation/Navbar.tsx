@@ -64,7 +64,7 @@ export const NavBar = () => {
           !openSearch ? 'hidden' : 'flex'
         } absolute z-20 flex-col gap-1 items-center 
           lg:justify-center justify-start w-full px-2 py-10 lg:rounded-xl shadow-xl h-[calc(100dvh-5rem)] top-[54px] 
-          lg:top-[50px] lg:w-6/7 bg-background lg:bg-muted/95 backdrop-blur-sm lg:h-80`}
+          lg:top-[54px] lg:w-6/7 bg-background lg:bg-muted/95 backdrop-blur-sm lg:h-80`}
       >
         <SearchIcon className="size-15 lg:size-20" />
         <span className="text-muted-foreground">Rechercher avec ta vibe.</span>
