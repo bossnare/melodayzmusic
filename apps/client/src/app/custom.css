@@ -25,6 +25,6 @@
 
 @layer utilities {
   .scrollbar-none::-webkit-scrollbar {
-    display: none;
+    display: none !important;
   }
 }

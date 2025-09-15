@@ -29,7 +29,7 @@ export default function DashboardLayout({
     <div className="flex justify-center">
       <Sheet>
         {/* real wrapper */}
-        <div className="flex-1 overflow-hidden transition-all duration-200 ease-in-out lg:ml-64 will-change-transform">
+        <div className="flex-1 overflow-hidden transition-all duration-200 ease-in-out h-dvh lg:ml-64 will-change-transform">
           <header
             className={cn(
               isAtProfil && 'hidden',
@@ -53,7 +53,7 @@ export default function DashboardLayout({
           {/* Main Layout */}
           <SmoothScrollLayout>
             {/* Main content */}
-            <main className="px-4 sm:px-6">{children}</main>
+            <main className="px-4 sm:px-6 pb-100 lg:pb-90">{children}</main>
           </SmoothScrollLayout>
         </div>
 
