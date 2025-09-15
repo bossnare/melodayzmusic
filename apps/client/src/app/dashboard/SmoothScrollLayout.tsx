@@ -1,14 +1,25 @@
 'use client';
 
 import type { BaseProps } from '@/types/base.interface';
+import { useEffect, useRef } from 'react';
+import Scrollbar from 'smooth-scrollbar';
 
 const SmoothScrollLayout = ({ children }: BaseProps) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+
+    const scrollbar = Scrollbar.init(scrollRef.current, {
+      damping: 0.08, // inertia feel
+      alwaysShowTracks: false,
+    });
+
+    return () => scrollbar.destroy();
+  }, []);
+
   return (
-    <div
-      id="main-content"
-      className="flex-1 overflow-y-auto transition-all duration-200 ease-in-out scrollbar-none will-change-transform h-dvh lg:ml-64
-      "
-    >
+    <div ref={scrollRef} id="main-content" className="h-dvh">
       {children}
     </div>
   );
