@@ -3,8 +3,11 @@
 import Image from 'next/image';
 import { SheetContent, SheetTitle, SheetDescription } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
+import { useRouter } from 'next/navigation';
 
 export const Sidebar = () => {
+  const router = useRouter();
+
   return (
     <>
       {/* sidebar desktop */}
@@ -13,7 +16,10 @@ export const Sidebar = () => {
         className="fixed lg:w-64 top-0 left-0 overflow-y-auto hidden 
         z-6 lg:block bg-sidebar md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-border"
       >
-        <div className="hidden px-2 py-2 lg:block">
+        <div
+          onClick={() => router.refresh()}
+          className="hidden px-2 py-2 lg:block"
+        >
           <figure className="flex items-center gap-1">
             <Image
               className="w-7 drop-shadow-md invert dark:invert-0"

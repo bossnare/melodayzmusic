@@ -7,7 +7,7 @@ import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from '@/libs/api';
 
 export default function LoginPage() {
@@ -39,6 +39,11 @@ export default function LoginPage() {
       setIsPending(false);
     }
   };
+
+  useEffect(() => {
+    // prefetch the dashboard page
+    router.prefetch('/dashboard');
+  }, [router]);
 
   return (
     <AuthPageWrapper>
