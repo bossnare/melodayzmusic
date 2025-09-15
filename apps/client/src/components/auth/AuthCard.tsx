@@ -96,7 +96,7 @@ function LoginCard({
                     <Button
                       type="button"
                       variant="link"
-                      className="w-auto h-auto p-0 text-muted-foreground"
+                      className="w-auto h-auto p-0 text-muted-foreground font-montserrat"
                     >
                       Mot de passe oublié ?
                     </Button>
