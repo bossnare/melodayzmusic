@@ -11,21 +11,20 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    @apply overflow-y-hidden;
   }
   html {
     @apply scroll-smooth;
   }
 
-  section {
-    scroll-behavior: smooth;
-    scroll-snap-align: start;
+  html,
+  body {
+    @apply h-full overflow-hidden;
   }
 }
 
 @layer utilities {
   .scrollbar-none::-webkit-scrollbar {
-    display: none !important;
+    display: none;
   }
 
   /* for smooth-scrollbar js plugin */

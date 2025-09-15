@@ -63,7 +63,9 @@ export default function DashboardLayout({
 
       {/* NavBottom -- Player and Navigation on mobile */}
       <SongPlayerMobile />
-      <nav className="fixed inset-x-0 bottom-0 z-10 h-16 px-2 border-t shadow-lg lg:px-4 border-border lg:h-25 bg-nav">
+      <nav 
+      style={{ boxShadow: '0 -8px 8px -5px rgba(0, 0, 0, 0.06)' }}
+      className="fixed inset-x-0 bottom-0 z-10 h-16 px-2 border-t shadow-lg lg:px-4 border-border lg:h-25 bg-background dark:bg-nav backrop-blur-sm">
         <NavBottom />
         <Player />
       </nav>

@@ -34,13 +34,13 @@ const Player = () => {
           </MotionButton>
           <MotionButton
             disabled={true}
-            className="bg-muted *:stroke-0 *:fill-current"
+            className="bg-muted-foreground/40 *:stroke-0 *:fill-current shadow-xs"
             onClick={() => setIsGo(!isGo)}
           >
             {isGo ? (
-              <Pause className="size-10" />
+              <Pause className="size-9" />
             ) : (
-              <Play className="size-10" />
+              <Play className="size-9" />
             )}
           </MotionButton>
           <MotionButton disabled={true}>
@@ -49,7 +49,7 @@ const Player = () => {
         </div>
         {/* Slider control */}
         <div className="w-[20%] pb-3">
-          <Slider />
+          <Slider className="shadow-xs" />
         </div>
       </div>
     </div>
