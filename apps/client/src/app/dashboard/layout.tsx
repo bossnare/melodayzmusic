@@ -53,7 +53,7 @@ export default function DashboardLayout({
           {/* Main Layout */}
           <SmoothScrollLayout>
             {/* Main content */}
-            <main className="px-4 sm:px-6 pb-100 lg:pb-90">{children}</main>
+            <main className="px-4 sm:px-6 pb-[50rem] lg:pb-90">{children}</main>
           </SmoothScrollLayout>
         </div>
 
