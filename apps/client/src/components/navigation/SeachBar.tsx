@@ -76,7 +76,9 @@ const SearchBar = ({
           placeholder="Artist, Song, Albums, Vibe..."
           className={cn(
             !openSearch && '!hidden',
-            'w-full ml-2 lg:ml-0 px-1 !bg-transparent shadow-none placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0'
+            'w-full',
+            !isNull && 'ml-3',
+            'lg:ml-0 px-1 rounded-full lg:rounded-md !bg-transparent shadow-none placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0'
           )}
         />
         <div
