@@ -10,12 +10,14 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
   useEffect(() => {
     if (!scrollRef.current) return;
 
-    Scrollbar.init(scrollRef.current, {
-      damping: 0.05, // inertia feel
-      // continuousScrolling: true,
+    const scrollbar = Scrollbar.init(scrollRef.current, {
+      damping: 0.06, // inertia feel
+      continuousScrolling: true,
       renderByPixels: true,
       alwaysShowTracks: false,
     });
+
+    return () => scrollbar.destroy();
   }, []);
 
   return (
