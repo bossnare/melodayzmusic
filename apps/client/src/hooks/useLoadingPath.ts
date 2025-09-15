@@ -11,7 +11,7 @@ export function useLoadingPath(href?: string) {
       if (pathname === href) return;
       if (!href) return;
 
-      router.push(href);
+      router.push(href, undefined, {shallow: true}); // shallow: no reload route of switching
     });
   };
 
