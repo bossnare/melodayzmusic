@@ -27,4 +27,10 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none !important;
   }
+
+  /* for smooth-scrollbar js plugin */
+  .scrollbar-track,
+  .scrollbar-thumb {
+    display: none !important;
+  }
 }

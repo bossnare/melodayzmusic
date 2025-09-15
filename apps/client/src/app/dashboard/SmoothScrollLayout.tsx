@@ -10,23 +10,16 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
   useEffect(() => {
     if (!scrollRef.current) return;
 
-    const scrollbar = Scrollbar.init(scrollRef.current, {
-      damping: 0.08, // inertia feel
+    Scrollbar.init(scrollRef.current, {
+      damping: 0.02, // inertia feel
       renderByPixels: true,
       continuousScrolling: true,
-      delegateTo: document,
       alwaysShowTracks: false,
     });
-
-    return () => scrollbar.destroy();
   }, []);
 
   return (
-    <div
-      ref={scrollRef}
-      id="main-content"
-      className="h-full overflow-hidden scrollbar-none"
-    >
+    <div ref={scrollRef} id="main-content" className="h-full">
       {children}
     </div>
   );
