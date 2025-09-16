@@ -23,7 +23,7 @@ const Logo = ({ onClick }: { onClick: () => void }) => {
       onClick={onClick}
       className="lg:!hidden grow cursor-pointer active:opacity-80 lg:hover:opacity-80"
     >
-      <figure className="flex items-center gap-1">
+      <figure className="flex items-center gap-1 relative">
         <Image
           className="w-7 drop-shadow-md invert dark:invert-0"
           alt="MelodayzMusic"

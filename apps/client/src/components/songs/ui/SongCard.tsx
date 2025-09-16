@@ -6,7 +6,7 @@
 // import timeAgo from '@/libs/timeAgo';
 import type { SongProps } from '@/types/songs/song.interface';
 import Image from 'next/image';
-// import { useState } from 'react';
+import { useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 // import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import {
@@ -19,11 +19,11 @@ import {
 
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
-  // const [isPlaying, setIsPlaying] = useState(false);
+  const [imgLoading, setImgLoading] = useState(true);
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:bg-accent/50">
+    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer lg:hover:bg-muted/30 active:bg-accent/50">
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
@@ -35,11 +35,16 @@ const VibeCard = ({ song }: SongProps) => {
           <Image
             src={song.songCover.coverUrl || song.defaultCover}
             alt={song.title}
+            onLoad={() => setImgLoading(false)}
             className="object-cover size-full"
             loading="lazy"
             width={1200}
             height={1200}
           />
+          {/* shimmer loader */}
+          {imgLoading && (
+            <div className="absolute inset-0 bg-gradient-to-br from-foreground/70 via-foreground/50 to-foreground/70 animate-pulse"></div>
+          )}
           {/* <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton
               className="bg-gradient-to-t from-black/60 to-transparent shrink-0"
@@ -59,9 +64,9 @@ const VibeCard = ({ song }: SongProps) => {
         <CardTitle className="w-full capitalize text-foreground truncate line-clamp-1 text-[14px] lg:text-sm">
           {song.title}
         </CardTitle>
-        <CardDescription className="flex flex-col justify-between w-full gap-2 sm:gap-0 sm:flex-row sm:items-center">
+        <CardDescription className="flex flex-col justify-between w-auto max-w-[90%] gap-2 sm:gap-0 sm:flex-row sm:items-center">
           <span
-            className="font-medium capitalize min-w-auto sm:max-w-[70%] 
+            className="font-medium capitalize
           truncate transition-colors duration-100 ease-in cursor-pointer select-none hover:text-foreground text-xs lg:text-xs line-clamp-1"
           >
             {song.artist}
@@ -77,11 +82,11 @@ const VibeCard = ({ song }: SongProps) => {
 
 // Album Card
 const AlbumCard = ({ song }: SongProps) => {
-  // const [isPlaying, setIsPlaying] = useState(false);
+  const [imgLoading, setImgLoading] = useState(true);
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:bg-accent/50">
+    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer lg:hover:bg-muted/30 active:bg-accent/50">
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
@@ -94,15 +99,16 @@ const AlbumCard = ({ song }: SongProps) => {
           <Image
             src={song.songCover.coverUrl || song.defaultCover}
             alt={song.title}
+            onLoad={() => setImgLoading(false)}
             className="object-cover size-full"
             loading="lazy"
             width={1200}
             height={1200}
           />
           {/* shimmer loader */}
-          <div className="absolute inset-0">
-            <div className="shimmer-strong"></div>
-          </div>
+          {imgLoading && (
+            <div className="absolute inset-0 bg-gradient-to-br from-foreground/70 via-foreground/50 to-foreground/70 animate-pulse"></div>
+          )}
           {/* <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton
               className="bg-gradient-to-t from-black/60 to-transparent shrink-0"
@@ -122,9 +128,9 @@ const AlbumCard = ({ song }: SongProps) => {
         <CardTitle className="w-full text-sm capitalize truncate text-foreground line-clamp-1 sm:text-[14px] md:text-base lg:text-sm">
           {song.title}
         </CardTitle>
-        <CardDescription className="flex flex-col justify-between w-full gap-2 sm:gap-0 sm:flex-row sm:items-center">
+        <CardDescription className="flex flex-col justify-between w-auto max-w-[90%] gap-2 sm:gap-0 sm:flex-row sm:items-center">
           <span
-            className="font-medium capitalize min-w-auto sm:max-w-[70%] 
+            className="font-medium capitalize 
           truncate transition-colors duration-100 ease-in cursor-pointer select-none hover:text-foreground sm:text-sm lg:text-xs line-clamp-1"
           >
             {song.artist}
