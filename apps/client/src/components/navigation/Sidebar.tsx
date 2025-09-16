@@ -42,11 +42,11 @@ export const Sidebar = () => {
 
       {/*  mobile sidebar  */}
       <div className="block bg-sidebar lg:!hidden">
-        <SheetContent side="left" className="p-4 w-6/7">
-          <SheetTitle>
+        <SheetContent side="left" className="w-6/7">
+          <SheetTitle className="p-2">
             <Logo onClick={() => router.push('/dashboard')} />
           </SheetTitle>
-          <SheetDescription>This a sidebar</SheetDescription>
+          <SheetDescription className="p-4">This a sidebar</SheetDescription>
         </SheetContent>
       </div>
     </>
