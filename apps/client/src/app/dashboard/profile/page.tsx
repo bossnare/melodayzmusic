@@ -12,7 +12,7 @@ export default function ProfilePage() {
   return (
     <section>
       {/* Profile content */}
-      <div className="flex items-center gap-4 py-2 mt-16">
+      <div className="flex items-center gap-4 py-2 mt-10">
         <Avatar className="border size-30 lg:size-38 dark:border-primary-foreground ring-4 ring-muted ">
           <AvatarImage
             className="object-cover"
