@@ -32,7 +32,9 @@ export const NavBar = () => {
       />
 
       {/* theme toggle */}
-      <div className={cn(openSearch ? 'hidden' : 'block', 'lg:block ml-auto')}>
+      <div
+        className={cn(openSearch ? 'hidden' : 'block', 'lg:block lg:ml-auto')}
+      >
         <ModeToggle />
       </div>
       {/* for search recommendation */}

@@ -21,7 +21,7 @@ const Logo = ({ onClick }: { onClick: () => void }) => {
   return (
     <div
       onClick={onClick}
-      className="lg:!hidden grow cursor-pointer active:opacity-80 lg:hover:opacity-80"
+      className="lg:!hidden w-auto cursor-pointer active:opacity-80 lg:hover:opacity-80"
     >
       <figure className="flex items-center gap-1 relative">
         <Image
