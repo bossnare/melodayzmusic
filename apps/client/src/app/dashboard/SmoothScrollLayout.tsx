@@ -23,7 +23,7 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
   }, []);
 
   return (
-    <div ref={scrollRef} id="main-scroll" className="h-dvh overflow-y-auto scrollbar-none touch-pan-y">
+    <div style={{ WebkitOverflowScrolling: 'touch' }}  ref={scrollRef} id="main-scroll" className="h-dvh overflow-auto scrollbar-none touch-pan-y">
       {children}
     </div>
   );
