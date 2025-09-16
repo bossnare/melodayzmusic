@@ -11,14 +11,10 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    @apply overflow-hidden;
   }
   html {
     @apply scroll-smooth;
-  }
-
-  html,
-  body {
-    @apply h-full overflow-hidden;
   }
 }
 
