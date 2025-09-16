@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import SearchBar from './SeachBar';
 import { ModeToggle } from '../themes/mode-toggle';
@@ -10,7 +10,6 @@ import { SearchIcon } from 'lucide-react';
 
 export const NavBar = () => {
   const [notHome, setNotHome] = useState(false);
-  const router = useRouter();
   // for search bar behavior
   const [isNull, setIsNull] = useState(true);
   const [openSearch, setOpenSearch] = useState(false);
@@ -23,7 +22,7 @@ export const NavBar = () => {
   return (
     <nav className="relative flex items-center gap-3 lg:gap-4">
       {!openSearch && (
-        <div onClick={() => router.refresh()} className="lg:!hidden grow">
+        <div className="lg:!hidden grow cursor-pointer active:opacity-80 hover:opacity-80">
           <figure className="flex items-center gap-1">
             <Image
               className={cn(
