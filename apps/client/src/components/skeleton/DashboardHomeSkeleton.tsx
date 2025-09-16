@@ -3,7 +3,7 @@ import { SongCardSkeleton } from './SongCardSkeleton';
 
 export const DashboardHomeSkeleton = () => {
   return (
-    <div className="pt-6 pb-20 space-y-12 lg:space-y-14">
+    <div className="pt-6 pb-20 space-y-16 lg:space-y-16">
       {/* Title */}
       {/* <Skeleton className="w-40 h-8 mb-4 bg-gray-300 lg:mb-5 rounded-xl dark:bg-primary-foreground/20" /> */}
 
@@ -44,4 +44,5 @@ export const DashboardHomeSkeleton = () => {
     </div>
   );
 };
+
 
