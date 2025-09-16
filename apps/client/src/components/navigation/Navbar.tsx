@@ -25,7 +25,7 @@ export const NavBar = () => {
       {!openSearch && (
         <div
           onClick={() => router.push('/dashboard')}
-          className="lg:!hidden grow cursor-pointer active:opacity-80 hover:opacity-80"
+          className="lg:!hidden grow cursor-pointer active:opacity-80 lg:hover:opacity-80"
         >
           <figure className="flex items-center gap-1">
             <Image
