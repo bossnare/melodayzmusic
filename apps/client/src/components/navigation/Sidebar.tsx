@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { SheetContent, SheetTitle, SheetDescription } from '../ui/sheet';
+import { useRouter } from 'next/navigation';
+import { SheetContent, SheetDescription, SheetTitle } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
 
 export const Sidebar = () => {
