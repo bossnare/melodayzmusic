@@ -99,6 +99,10 @@ const AlbumCard = ({ song }: SongProps) => {
             width={1200}
             height={1200}
           />
+          {/* shimmer loader */}
+          <div className="absolute inset-0">
+            <div className="shimmer-strong"></div>
+          </div>
           {/* <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton
               className="bg-gradient-to-t from-black/60 to-transparent shrink-0"
