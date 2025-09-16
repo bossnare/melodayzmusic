@@ -37,8 +37,8 @@ const SearchBar = ({
   return (
     <div
       className={cn(
-        openSearch ? 'w-full flex space-x-2' : 'w-auto',
-        'ml-auto lg:ml-0 lg:w-[40%] transition-all duration-300 ease-in'
+        openSearch ? 'w-full flex space-x-2' : 'w-13',
+        'ml-auto lg:ml-0 lg:w-[40%] transition-all duration-200 ease-in-out will-change-auto'
       )}
     >
       {/* for mobile only */}
@@ -56,7 +56,8 @@ const SearchBar = ({
       <div
         className={cn(
           openSearch && 'bg-input/50',
-          'grow flex items-center transition-all lg:h-12 overflow-hidden duration-200 has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full p-[1px] lg:p-1 has-[input:active]:bg-primary-foreground/4 lg:bg-input/50 has-[input:focus]:bg-input/16 has-[input:focus]:shadow-sm'
+          isNull && 'px-2',
+          'grow flex items-center transition-all lg:h-12 overflow-hidden duration-100 ease-in-out will-change-auto has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full lg:p-1 has-[input:active]:bg-primary-foreground/4 lg:bg-input/50 has-[input:focus]:bg-input/16 has-[input:focus]:shadow-sm'
         )}
       >
         {/* lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] */}
