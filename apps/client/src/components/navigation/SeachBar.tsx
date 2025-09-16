@@ -51,7 +51,7 @@ const SearchBar = ({
             setIsNull(true);
             if (inputRef.current) inputRef.current.value = ""
           }}
-          className={`p-[6px] text-foreground/70 bg-sidebar lg:hidden`}
+          className={`p-[6px] text-foreground/80 active:bg-accent bg-sidebar lg:hidden`}
         >
           <ChevronLeft className="size-8" />
         </MotionButton>
