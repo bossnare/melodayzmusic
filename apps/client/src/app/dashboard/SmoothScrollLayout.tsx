@@ -11,19 +11,24 @@ const SmoothScrollLayout = ({ children }: BaseProps) => {
     if (!scrollRef.current) return;
 
     if (window.innerWidth >= 768) {
-     Scrollbar.init(scrollRef.current, {
-      damping: 0.06, // inertia feel
-      continuousScrolling: true,
-      renderByPixels: true,
-      alwaysShowTracks: false,
-    });
+      Scrollbar.init(scrollRef.current, {
+        damping: 0.06, // inertia feel
+        continuousScrolling: true,
+        renderByPixels: true,
+        alwaysShowTracks: false,
+      });
     }
 
     // return () => scrollbar.destroy();
   }, []);
 
   return (
-    <div style={{ WebkitOverflowScrolling: 'touch' }}  ref={scrollRef} id="main-scroll" className="h-dvh overflow-auto scrollbar-none touch-pan-y">
+    <div
+      style={{ WebkitOverflowScrolling: 'touch' }}
+      ref={scrollRef}
+      id="main-scroll"
+      className="overflow-auto h-dvh scrollbar-none touch-pan-y"
+    >
       {children}
     </div>
   );

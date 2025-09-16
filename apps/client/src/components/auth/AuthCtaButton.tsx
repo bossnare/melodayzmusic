@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import type { BaseProps } from '@/types/base.interface';
 import { Loader } from '../motions/Loader';
+import { cn } from '@/lib/utils';
 
 export const AuthCtaButton = ({
   children,
@@ -20,9 +21,12 @@ export const AuthCtaButton = ({
   return (
     <Button
       onClick={handleClick}
-      disabled={isPending}
       size="lg"
-      className={`relative overflow-hidden ${className} cta`}
+      className={cn(
+        isPending && 'pointer-events-none',
+        'relative overflow-hidden cta',
+        className
+      )}
       type="submit"
     >
       {isPending && <Loader className="size-5 dark:border-foreground" />}
