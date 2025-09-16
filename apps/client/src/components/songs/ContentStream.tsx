@@ -63,7 +63,7 @@ export const ContentStream = () => {
   }
 
   return (
-    <div className="flex flex-col pt-6 space-y-14 lg:space-y-16">
+    <div className="flex flex-col pt-6 space-y-14 lg:space-y-16 pb-[60rem] lg:pb-80">
       {/* Vibes card */}
       <VibeStream>
         {songs.map((song) => (

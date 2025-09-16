@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { Logo } from '../branding/logo';
 import { SheetContent, SheetDescription, SheetTitle } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
 
@@ -10,7 +11,7 @@ export const Sidebar = () => {
 
   return (
     <>
-      {/* sidebar desktop */}
+      {/* desktop sidebar */}
       <aside
         id="side-bar"
         className="fixed lg:w-64 top-0 left-0 overflow-y-auto hidden 
@@ -39,11 +40,13 @@ export const Sidebar = () => {
         <SidebarContentDesktop />
       </aside>
 
-      {/* sidebar mobile  */}
+      {/*  mobile sidebar  */}
       <div className="block bg-sidebar lg:!hidden">
-        <SheetContent side="left" className="w-6/7">
-          <SheetTitle></SheetTitle>
-          <SheetDescription></SheetDescription>
+        <SheetContent side="left" className="p-4 w-6/7">
+          <SheetTitle>
+            <Logo onClick={() => router.push('/dashboard')} />
+          </SheetTitle>
+          <SheetDescription>This a sidebar</SheetDescription>
         </SheetContent>
       </div>
     </>

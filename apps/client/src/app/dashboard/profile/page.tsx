@@ -1,7 +1,6 @@
 'use client';
 
 import { MotionButton } from '@/components/motions/motionButton';
-import NavProfile from '@/components/navigation/NavProfile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 import { Star } from 'lucide-react';
@@ -12,9 +11,6 @@ export default function ProfilePage() {
 
   return (
     <section>
-      {/* navigation */}
-      <NavProfile />
-
       {/* Profile content */}
       <div className="flex items-center gap-4 py-2 mt-16">
         <Avatar className="border size-30 lg:size-38 dark:border-primary-foreground ring-4 ring-muted ">

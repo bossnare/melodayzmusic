@@ -115,7 +115,7 @@ const AlbumCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-full capitalize truncate text-foreground line-clamp-1 text-sm sm:text-base lg:text-sm">
+        <CardTitle className="w-full text-sm capitalize truncate text-foreground line-clamp-1 sm:text-[14px] md:text-base lg:text-sm">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-full gap-2 sm:gap-0 sm:flex-row sm:items-center">

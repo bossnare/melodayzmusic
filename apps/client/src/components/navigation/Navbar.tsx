@@ -1,55 +1,27 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import SearchBar from './SeachBar';
 import { ModeToggle } from '../themes/mode-toggle';
 import { SearchIcon } from 'lucide-react';
+import { Logo } from '../branding/logo';
 
 export const NavBar = () => {
-  const [notHome, setNotHome] = useState(false);
+  // const [notHome, setNotHome] = useState(false);
   const router = useRouter();
   // for search bar behavior
   const [isNull, setIsNull] = useState(true);
   const [openSearch, setOpenSearch] = useState(false);
-  const pathname = usePathname();
 
-  useEffect(() => {
-    setNotHome(pathname !== '/dashboard');
-  }, [pathname]);
+  // useEffect(() => {
+  //   setNotHome(pathname !== '/dashboard');
+  // }, [pathname]);
 
   return (
     <nav className="relative flex items-center gap-3 lg:gap-4">
-      {!openSearch && (
-        <div
-          onClick={() => router.push('/dashboard')}
-          className="lg:!hidden grow cursor-pointer active:opacity-80 lg:hover:opacity-80"
-        >
-          <figure className="flex items-center gap-1">
-            <Image
-              className={cn(
-                notHome && '!w-6',
-                'w-7 drop-shadow-md invert dark:invert-0'
-              )}
-              alt="MelodayzMusic"
-              src={'/icons/icon_x32_dark.svg'}
-              loading="lazy"
-              width={1000}
-              height={1000}
-            />
-            <h2
-              className={cn(
-                notHome && '!text-lg',
-                'text-xl font-black will-change-auto transition-all tracking-wide ease-in-out duration-100 select-none font-montserrat'
-              )}
-            >
-              MELODAYZMUSIC
-            </h2>
-          </figure>
-        </div>
-      )}
+      {!openSearch && <Logo onClick={() => router.push('/dashboard')} />}
       {/* for search */}
       <SearchBar
         isNull={isNull}
