@@ -37,8 +37,8 @@ const SearchBar = ({
   return (
     <div
       className={cn(
-        openSearch ? 'w-full flex space-x-2' : 'w-13',
-        'ml-auto lg:ml-0 lg:w-[40%] transition-all duration-200 ease-in-out will-change-auto'
+        openSearch ? 'w-full flex space-x-2' : 'w-12',
+        'ml-auto lg:ml-0 lg:w-[40%] transition-all duration-100 ease-in-out will-change-auto'
       )}
     >
       {/* for mobile only */}
