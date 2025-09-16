@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export const MelodayzMusic = () => {
+const MelodayzMusic = () => {
   return (
     <div className="flex items-center justify-center gap-1">
       <Image
@@ -16,3 +16,28 @@ export const MelodayzMusic = () => {
     </div>
   );
 };
+
+const Logo = ({ onClick }: { onClick: () => void }) => {
+  return (
+    <div
+      onClick={onClick}
+      className="lg:!hidden grow cursor-pointer active:opacity-80 lg:hover:opacity-80"
+    >
+      <figure className="flex items-center gap-1">
+        <Image
+          className="w-7 drop-shadow-md invert dark:invert-0"
+          alt="MelodayzMusic"
+          src={'/icons/icon_x32_dark.svg'}
+          loading="lazy"
+          width={1000}
+          height={1000}
+        />
+        <h2 className="text-xl font-black tracking-wide transition-all duration-100 ease-in-out select-none will-change-auto font-montserrat">
+          MELODAYZMUSIC
+        </h2>
+      </figure>
+    </div>
+  );
+};
+
+export { MelodayzMusic, Logo };
