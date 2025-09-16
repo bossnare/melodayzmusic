@@ -17,7 +17,7 @@ export const Sidebar = () => {
         z-6 lg:block bg-sidebar md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-border"
       >
         <div
-          className="hidden px-2 py-2 cursor-pointer lg:block active:opacity-80 hover:opacity-80"
+          className="hidden px-2 py-2 cursor-pointer lg:block active:opacity-80 lg:hover:opacity-80"
           onClick={() => router.push('/dashboard')}
         >
           <figure className="flex items-center gap-1">

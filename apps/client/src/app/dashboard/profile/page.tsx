@@ -16,8 +16,8 @@ export default function ProfilePage() {
       <NavProfile />
 
       {/* Profile content */}
-      <div className="py-2 flex gap-4 items-center mt-16">
-        <Avatar className="size-30 lg:size-38 border dark:border-primary-foreground ring-4 ring-muted ">
+      <div className="flex items-center gap-4 py-2 mt-16">
+        <Avatar className="border size-30 lg:size-38 dark:border-primary-foreground ring-4 ring-muted ">
           <AvatarImage
             className="object-cover"
             alt="lildurk"
@@ -27,17 +27,17 @@ export default function ProfilePage() {
         </Avatar>
         {/* name */}
         <div className="space-y-1">
-          <h3 className="text-2xl lg:text-3xl font-bold capitalize">
+          <h3 className="text-2xl font-bold capitalize lg:text-3xl">
             Lil Durk
           </h3>
-          <p className="text-muted-foreground text-base lg:text-lg">Artiste</p>
+          <p className="text-base text-muted-foreground lg:text-lg">Artiste</p>
         </div>
         {/* btn action */}
         <div className="ml-auto">
           <MotionButton onClick={() => setIsStar(!isStar)}>
             <Star
               className={cn(
-                isStar && 'fill-current stroke-0',
+                isStar && 'fill-current stroke-current',
                 'size-8 lg:size-10'
               )}
             />
