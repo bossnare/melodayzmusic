@@ -11,7 +11,7 @@ export const providerLabels = [
       <svg
         fill="#0866FF"
         role="img"
-        className="size-4 lg:size-5"
+        className="size-5 lg:size-6"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -27,7 +27,7 @@ export const providerLabels = [
   //     <svg
   //       fill="#000000"
   //       role="img"
-  //       className="size-4 lg:size-5"
+  //       className="size-5 lg:size-6"
   //       viewBox="0 0 24 24"
   //       xmlns="http://www.w3.org/2000/svg"
   //     >
@@ -42,7 +42,7 @@ export const providerLabels = [
     icon: (
       <svg
         fill="currentColor"
-        className="size-3 lg:size-4"
+        className="size-5 lg:size-6"
         role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"

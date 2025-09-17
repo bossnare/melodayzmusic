@@ -11,7 +11,7 @@ type Props = { songs: Song[] };
 
 export const ContentStream = ({ songs }: Props) => {
   return (
-    <div className="flex flex-col space-y-16 lg:space-y-16 pb-[30rem] lg:pb-80">
+    <div className="flex flex-col space-y-16 lg:space-y-16 pb-[30rem] pt-8 lg:pb-80">
       {/* Vibes card */}
       <VibeStream>
         {songs.map((song) => (
