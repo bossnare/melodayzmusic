@@ -1,6 +1,7 @@
 import { MotionButton } from '@/components/motions/motionButton';
-import { Play, Music, SkipBack, SkipForward } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { PlayIcon, SkipBackIcon, SkipForwardIcon } from '@phosphor-icons/react';
+import { Music } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 
 const SongPlayerMobile = () => {
   return (
@@ -12,7 +13,7 @@ const SongPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-lg left-[2%] h-20 lg:hidden bottom-17 bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
+        className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-lg left-[2%] h-16 lg:hidden bottom-17 bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
       >
         <section className="relative flex items-center gap-2 px-2 py-2 size-full">
           {/* grain */}
@@ -27,15 +28,15 @@ const SongPlayerMobile = () => {
           <div className="flex flex-col items-start justify-center gap-1 text-muted-foreground">
             <p>Pas en lecture</p>
           </div>
-          <div className="flex items-center gap-1 *:text-muted-foreground/80 ml-auto">
+          <div className="flex opacit items-center gap-1 *:text-muted-foreground/80 ml-auto">
             <MotionButton disabled={true}>
-              <SkipBack className="fill-current stroke-0 size-7" />
+              <SkipBackIcon weight={'fill'} className="size-7" />
             </MotionButton>
             <MotionButton disabled={true} className="bg-foreground/18">
-              <Play className="fill-current stroke-0 size-8" />
+              <PlayIcon weight={'fill'} className="size-8" />
             </MotionButton>
             <MotionButton disabled={true}>
-              <SkipForward className="fill-current stroke-0 size-7" />
+              <SkipForwardIcon weight={'fill'} className="size-7" />
             </MotionButton>
           </div>
         </section>
