@@ -14,7 +14,7 @@ export const NavBottom = () => {
         >
           {tab.label === 'create' ? (
             <div>
-              <MotionButton className="*:stroke-2 *:!size-6 *:stroke-current hover:text-muted-foreground bg-background/80 dark:bg-nav hover:!bg-transparent p-[12px] border-border border">
+              <MotionButton className="*:stroke-2 *:!size-6 *:stroke-current hover:text-muted-foreground bg-background/40 dark:bg-nav hover:!bg-transparent p-[12px] border-border border">
                 <tab.icon weight="bold" />
               </MotionButton>
             </div>
@@ -26,4 +26,3 @@ export const NavBottom = () => {
     </ul>
   );
 };
-

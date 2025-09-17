@@ -13,7 +13,7 @@ const SongPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-lg left-[2%] h-16 lg:hidden bottom-17 bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
+        className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-xl left-[2%] h-16 lg:hidden bottom-17 bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
       >
         <section className="relative flex items-center gap-2 px-2 py-2 size-full">
           {/* grain */}
@@ -22,16 +22,19 @@ const SongPlayerMobile = () => {
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
           ></span>
           <div className="p-1 border rounded-md shadow-sm bg-gradient-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
-            <Music className="size-10 text-muted-foreground" />
+            <Music className="size-10 text-muted-foreground/80" />
           </div>
           {/* info */}
           <div className="flex flex-col items-start justify-center gap-1 text-muted-foreground">
-            <p>Pas en lecture</p>
+            <p className="font-semibold text-muted-foreground/80">
+              Pas en lecture
+            </p>
+            <p className="text-xs">Artiste inconnu</p>
           </div>
           <div className="flex opacit items-center gap-1 *:text-muted-foreground/80 ml-auto">
-            <MotionButton disabled={true}>
+            {/* <MotionButton disabled={true}>
               <SkipBackIcon weight={'fill'} className="size-7" />
-            </MotionButton>
+            </MotionButton> */}
             <MotionButton disabled={true} className="bg-foreground/18">
               <PlayIcon weight={'fill'} className="size-8" />
             </MotionButton>
