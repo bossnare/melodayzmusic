@@ -1,6 +1,12 @@
 'use client';
 
-import { Pause, Play, SkipBack, SkipForward } from 'lucide-react';
+import {
+  PauseIcon,
+  PlayIcon,
+  SkipBackIcon,
+  SkipForwardIcon,
+} from '@phosphor-icons/react';
+
 import Image from 'next/image';
 import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
@@ -30,21 +36,21 @@ const Player = () => {
         {/* forward and back, pause/play controls */}
         <div className="flex items-center justify-center *:text-muted-foreground w-full space-x-4">
           <MotionButton disabled={true}>
-            <SkipBack className="fill-current stroke-0 size-8" />
+            <SkipBackIcon weight={'fill'} className="size-7" />
           </MotionButton>
           <MotionButton
             disabled={true}
-            className="bg-muted-foreground/40 *:stroke-0 *:fill-current shadow-xs"
+            className="bg-muted-foreground/40 shadow-xs"
             onClick={() => setIsGo(!isGo)}
           >
             {isGo ? (
-              <Pause className="size-9" />
+              <PauseIcon weight={'fill'} className="size-8" />
             ) : (
-              <Play className="size-9" />
+              <PlayIcon weight={'fill'} className="size-8" />
             )}
           </MotionButton>
           <MotionButton disabled={true}>
-            <SkipForward className="fill-current stroke-0 size-8" />
+            <SkipForwardIcon weight={'fill'} className="size-7" />
           </MotionButton>
         </div>
         {/* Slider control */}

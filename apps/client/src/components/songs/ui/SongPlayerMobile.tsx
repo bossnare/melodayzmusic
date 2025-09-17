@@ -22,7 +22,7 @@ const SongPlayerMobile = () => {
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
           ></span>
           <div className="p-1 border rounded-md shadow-sm bg-gradient-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
-            <Music className="size-10 text-muted-foreground/80" />
+            <Music className="size-8 text-muted-foreground/80" />
           </div>
           {/* info */}
           <div className="flex flex-col items-start justify-center gap-1 text-muted-foreground">
@@ -31,15 +31,15 @@ const SongPlayerMobile = () => {
             </p>
             <p className="text-xs">Artiste inconnu</p>
           </div>
-          <div className="flex opacit items-center gap-1 *:text-muted-foreground/80 ml-auto">
+          <div className="flex opacit items-center gap-2 *:text-muted-foreground/80 ml-auto">
             {/* <MotionButton disabled={true}>
-              <SkipBackIcon weight={'fill'} className="size-7" />
+              <SkipBackIcon weight={'fill'} className="size-5" />
             </MotionButton> */}
             <MotionButton disabled={true} className="bg-foreground/18">
-              <PlayIcon weight={'fill'} className="size-8" />
+              <PlayIcon weight={'fill'} className="size-7" />
             </MotionButton>
             <MotionButton disabled={true}>
-              <SkipForwardIcon weight={'fill'} className="size-7" />
+              <SkipForwardIcon weight={'fill'} className="size-5" />
             </MotionButton>
           </div>
         </section>
