@@ -34,7 +34,7 @@ const VibeCard = ({ song }: SongProps) => {
         >
           <Image
             src={song.songCover.coverUrl || song.defaultCover}
-            alt={song.title}
+            alt={song.title + song.id}
             onLoad={() => setImgLoading(false)}
             className="object-cover size-full"
             loading="lazy"
