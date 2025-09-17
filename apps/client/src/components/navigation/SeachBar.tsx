@@ -28,7 +28,7 @@ const SearchBar = ({
     setOpenSearch(true);
     setTimeout(() => {
       inputRef.current?.focus();
-    }, 100)
+    }, 100);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +49,7 @@ const SearchBar = ({
           onClick={() => {
             setOpenSearch(false);
             setIsNull(true);
-            if (inputRef.current) inputRef.current.value = ""
+            if (inputRef.current) inputRef.current.value = '';
           }}
           className={`p-[6px] text-foreground/80 active:bg-accent bg-sidebar lg:hidden`}
         >
@@ -60,7 +60,7 @@ const SearchBar = ({
         className={cn(
           openSearch && 'bg-input/50',
           isNull && 'px-2',
-          'grow flex items-center transition-all lg:h-12 overflow-hidden duration-100 ease-in-out will-change-auto has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full lg:p-1 has-[input:active]:bg-primary-foreground/4 lg:bg-input/50 has-[input:focus]:bg-input/16 has-[input:focus]:shadow-sm'
+          'grow flex items-center transition-all lg:h-12 overflow-hidden duration-100 ease-in-out will-change-auto lg:has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full lg:p-1 has-[input:active]:bg-primary-foreground/4 lg:bg-input/50 has-[input:focus]:bg-input/20 lg:has-[input:focus]:bg-input/16 lg:has-[input:focus]:shadow-sm'
         )}
       >
         {/* lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] */}
@@ -82,12 +82,17 @@ const SearchBar = ({
             !openSearch && '!hidden',
             'w-full',
             !isNull && 'ml-1',
-            'lg:ml-0 px-1 rounded-full lg:rounded-md !bg-transparent shadow-none placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0'
+            'caret-primary lg:ml-0 px-1 rounded-full lg:rounded-md !bg-transparent shadow-none placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0'
           )}
         />
         <div
           className={cn(
-            isNull ? 'scale-0 opacity-0 w-0' : 'scale-100 w-auto opacity-100',
+            isNull
+              ? 'lg:scale-0 lg:opacity-0 lg:w-0'
+              : 'lg:scale-100 lg:w-auto lg:opacity-100',
+            isNull || !openSearch
+              ? 'scale-0 opacity-0 w-0'
+              : 'scale-100 w-auto opacity-100',
             'transition-transform duration-150 ease-in-out'
           )}
         >
@@ -98,6 +103,7 @@ const SearchBar = ({
             <X className="size-auto" />
           </MotionButton>
         </div>
+
         <div>
           {/* search only */}
           <MotionButton
