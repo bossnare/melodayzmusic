@@ -7,7 +7,11 @@ export function Provider() {
     <ul className="space-y-2 md:flex md:justify-center md:items-center md:flex-col md:flex-1">
       {providerLabels.map((provider) => (
         <li key={provider.id}>
-          <Button variant="secondary" className="w-full rounded-full md:w-auto">
+          <Button
+            variant="secondary"
+            className="w-full rounded-full md:w-auto"
+            size="lg"
+          >
             {provider.label === 'Google' ? (
               <Image
                 src={provider.icon as string}
