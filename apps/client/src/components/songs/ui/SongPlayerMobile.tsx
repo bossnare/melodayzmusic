@@ -25,11 +25,11 @@ const SongPlayerMobile = () => {
             <Music className="size-8 text-muted-foreground/80" />
           </div>
           {/* info */}
-          <div className="flex flex-col items-start justify-center gap-1 text-muted-foreground">
+          <div className="flex flex-col items-start justify-center gap-[2px]">
             <p className="font-semibold text-muted-foreground/80">
               Pas en lecture
             </p>
-            <p className="text-xs">Artiste inconnu</p>
+            <p className="text-xs text-muted-foreground">Artiste inconnu</p>
           </div>
           <div className="flex opacit items-center gap-2 *:text-muted-foreground/80 ml-auto">
             {/* <MotionButton disabled={true}>
