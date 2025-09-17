@@ -7,7 +7,8 @@ import SearchBar from './SeachBar';
 import { ModeToggle } from '../themes/mode-toggle';
 import { SearchIcon } from 'lucide-react';
 import { Logo } from '../branding/logo';
-import { motion, AnimatePresence } from 'motion/react';
+// import { motion, AnimatePresence } from 'motion/react';
+import { Command, CommandItem, CommandList } from '../ui/command';
 
 export const NavBar = () => {
   // const [notHome, setNotHome] = useState(false);
@@ -38,25 +39,19 @@ export const NavBar = () => {
         <ModeToggle />
       </div>
       {/* for search recommendation */}
-      <AnimatePresence>
-        <motion.div
-          key="search-recommendation"
-          initial={{ x: -5, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: 5, opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 200, damping: 40 }}
-          className={`lg:${isNull ? 'hidden' : 'flex'} ${
-            !openSearch ? 'hidden' : 'flex'
-          } absolute z-20 flex-col gap-1 items-center 
-          lg:justify-center justify-start w-full px-2 py-10 lg:rounded-xl lg:shadow-xl h-[calc(100dvh-5rem)] top-[54px] 
-          lg:top-[54px] lg:w-6/7 bg-background lg:bg-muted/95 backdrop-blur-sm lg:h-80`}
-        >
-          <SearchIcon className="size-15 lg:size-20" />
-          <span className="text-muted-foreground">
-            Rechercher avec ta vibe.
-          </span>
-        </motion.div>
-      </AnimatePresence>
+      <Command
+        className={cn(
+          isNull ? 'lg:hidden' : 'lg:flex',
+          !openSearch ? 'hidden' : 'flex',
+          'absolute z-20 flex-col gap-1 items-center lg:justify-center justify-start w-full px-2 py-10 lg:rounded-xl lg:shadow-xl h-[calc(100dvh-5rem)] top-[54px] lg:top-[54px] lg:w-6/7 bg-background lg:bg-muted/95 backdrop-blur-sm lg:h-80'
+        )}
+      >
+        <SearchIcon className="size-15 lg:size-20" />
+        <span className="text-muted-foreground">Rechercher avec ta vibe.</span>
+        <CommandList>
+          <CommandItem>Exemple item</CommandItem>
+        </CommandList>
+      </Command>
     </nav>
   );
 };
