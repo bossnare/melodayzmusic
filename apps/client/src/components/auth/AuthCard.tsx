@@ -67,7 +67,7 @@ function LoginCard({
                             spellCheck="false"
                             autoCorrect="off"
                             type="email"
-                            className="py-6"
+                            className="py-5 lg:py-6"
                             placeholder="Email ou @username"
                             {...field}
                           />
