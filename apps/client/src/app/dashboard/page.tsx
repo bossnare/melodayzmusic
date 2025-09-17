@@ -22,9 +22,9 @@ export default function DashboardHome() {
   const options = {
     queryKey: ['songs'],
     queryFn: fetchContentStream,
-    refetchOnReconnect: true,
-    refetchOnMount: true,
-    refetchOnWindowsFocus: true,
+    // refetchOnReconnect: true,
+    // refetchOnMount: true,
+    // refetchOnWindowsFocus: true,
   };
   const navTarget = 'dashboard';
 
@@ -54,11 +54,7 @@ export default function DashboardHome() {
     return (
       <div className="flex flex-col gap-3 mx-auto justify-center items-center py-10">
         Erreur inattendue !
-        <Button
-          onClick={async () => await refetch}
-          size="lg"
-          variant="secondary"
-        >
+        <Button onClick={async () => refetch} size="lg" variant="secondary">
           Actualiser
         </Button>
       </div>
