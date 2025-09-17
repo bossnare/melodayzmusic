@@ -25,8 +25,10 @@ const SearchBar = ({
   };
 
   const handleOpenSearch = () => {
-    inputRef.current?.focus();
     setOpenSearch(true);
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100)
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,8 +49,9 @@ const SearchBar = ({
           onClick={() => {
             setOpenSearch(false);
             setIsNull(true);
+            if (inputRef.current) inputRef.current.value = ""
           }}
-          className={`p-[6px] text-foreground/70 bg-sidebar lg:hidden`}
+          className={`p-[6px] text-foreground/80 active:bg-accent bg-sidebar lg:hidden`}
         >
           <ChevronLeft className="size-8" />
         </MotionButton>
