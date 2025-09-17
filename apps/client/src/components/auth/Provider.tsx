@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export function Provider() {
   return (
-    <ul className="px-2 space-y-2 md:flex md:justify-center md:items-center md:flex-col md:flex-1 md:p-0">
+    <ul className="space-y-2 md:flex md:justify-center md:items-center md:flex-col md:flex-1">
       {providerLabels.map((provider) => (
         <li key={provider.id}>
           <Button variant="secondary" className="w-full rounded-full md:w-auto">
@@ -12,7 +12,7 @@ export function Provider() {
               <Image
                 src={provider.icon as string}
                 alt={provider.label}
-                className="w-4 lg:w-5"
+                className="w-5 lg:w-6"
                 height={500}
                 width={500}
               />
