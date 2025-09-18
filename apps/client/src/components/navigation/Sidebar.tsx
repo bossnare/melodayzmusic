@@ -23,9 +23,9 @@ export const Sidebar = () => {
         >
           <figure className="flex items-center gap-1">
             <Image
-              className="w-7 drop-shadow-md invert dark:invert-0"
+              className="w-7 drop-shadow-md dark:invert"
               alt="MelodayzMusic"
-              src={'/icons/icon_x32_dark.svg'}
+              src={'/icons/icon_x32.svg'}
               loading="lazy"
               width={1000}
               height={1000}

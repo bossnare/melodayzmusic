@@ -13,7 +13,7 @@ export default function Page() {
       <div className="flex items-center flex-col gap-2">
         <Image
           className="dark:invert size-25 sm:size-28 drop-shadow-lg"
-          src="/icons/icon_512x512.png"
+          src="/icons/icon_x32.svg"
           alt="skeleton_temp_icon"
           loading="lazy"
           width={1000}

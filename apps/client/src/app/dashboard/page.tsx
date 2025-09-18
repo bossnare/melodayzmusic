@@ -66,12 +66,12 @@ export default function DashboardHome() {
   }
 
   return (
-    <RefreshWrapper
-      onRefresh={async () => {
-        await refetch();
-      }}
-    >
-      <ContentStream songs={songs} />
-    </RefreshWrapper>
+    // <RefreshWrapper
+    //   onRefresh={async () => {
+    //     await refetch();
+    //   }}
+    // >
+    <ContentStream songs={songs} />
+    // </RefreshWrapper>
   );
 }
