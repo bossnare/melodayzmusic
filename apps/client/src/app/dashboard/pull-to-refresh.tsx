@@ -10,7 +10,7 @@ export default function RefreshWrapper({
   return (
     <PullToRefresh
       pullingContent={
-        <div className="p-4">Tirer vers le bas pour actualiser</div>
+        <div className="p-4 text-sm">Tirer vers le bas pour actualiser</div>
       }
       pullDownThreshold={80}
       resistance={2.5}
