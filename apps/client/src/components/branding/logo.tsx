@@ -6,7 +6,7 @@ const MelodayzMusic = () => {
       <Image
         src="/icons/icon_x32.svg"
         className="w-7 dark:invert md:w-8 drop-shadow-sm"
-        alt="meloicon"
+        alt="MelodayzMusic"
         height={1000}
         width={1000}
       />

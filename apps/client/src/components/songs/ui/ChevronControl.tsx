@@ -6,7 +6,7 @@ const ChevronControl = ({ className }: { className: string }) => {
     <>
       {/* Prev */}
       <div
-        className={`absolute -left-2 z-3 ${className} hidden lg:block -translate-y-1/2`}
+        className={`absolute -left-2 z-6 ${className} hidden lg:block -translate-y-1/2`}
       >
         <MotionButton className="bg-background/50 text-foreground/90 hover:text-foreground">
           <ChevronLeft className="size-10" />
@@ -14,7 +14,7 @@ const ChevronControl = ({ className }: { className: string }) => {
       </div>
       {/* Next */}
       <div
-        className={`absolute -right-2 z-3 ${className} hidden lg:block -translate-y-1/2`}
+        className={`absolute -right-2 z-6 ${className} hidden lg:block -translate-y-1/2`}
       >
         <MotionButton className="bg-background/50 text-foreground/90 hover:text-foreground">
           <ChevronRight className="size-10" />
