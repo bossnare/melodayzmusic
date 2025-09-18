@@ -64,6 +64,7 @@ function LoginCard({
                         <FormLabel>Email ou nom d&apos;utilisateur</FormLabel>
                         <FormControl>
                           <Input
+                            disabled={isPending}
                             spellCheck="false"
                             autoCorrect="off"
                             type="email"
@@ -83,7 +84,7 @@ function LoginCard({
                       <FormItem>
                         <FormLabel>Mot de passe</FormLabel>
                         <FormControl>
-                          <PasswordInput {...field} />
+                          <PasswordInput disabled={isPending} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
