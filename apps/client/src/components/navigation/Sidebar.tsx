@@ -51,7 +51,7 @@ export const Sidebar = () => {
           <SheetDescription className="p-4">
             <figure className="flex items-center w-full gap-2 mt-4 mb-3">
               <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted/80 lg:hover:bg-muted/50">
-                <Avatar className="size-10 ring-2 ring-primary">
+                <Avatar className="size-12 ring-2 ring-primary">
                   <AvatarImage />
                   <AvatarFallback>J</AvatarFallback>
                 </Avatar>
@@ -68,3 +68,4 @@ export const Sidebar = () => {
     </>
   );
 };
+
