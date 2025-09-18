@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { Logo } from '../branding/logo';
 import { SheetContent, SheetDescription, SheetTitle } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
+import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
+import { Settings2 } from 'lucide-react';
 
 export const Sidebar = () => {
   const router = useRouter();
@@ -14,16 +16,16 @@ export const Sidebar = () => {
       {/* desktop sidebar */}
       <aside
         id="side-bar"
-        className="fixed lg:w-64 top-0 left-0 overflow-y-auto hidden 
-        z-6 lg:block bg-sidebar md:h-[calc(100dvh-5rem)] px-2 border-r dark:border-border"
+        className="fixed text-sidebar-foreground lg:w-64 top-0 left-0 overflow-y-auto hidden 
+        z-6 lg:block bg-sidebar md:h-[calc(100dvh-5rem)] px-3 border-r dark:border-border"
       >
         <div
-          className="hidden px-2 py-2 cursor-pointer lg:block active:opacity-80 lg:hover:opacity-80"
+          className="hidden py-2 cursor-pointer lg:block active:opacity-80 lg:hover:opacity-80"
           onClick={() => router.push('/dashboard')}
         >
           <figure className="flex items-center gap-1">
             <Image
-              className="w-7 drop-shadow-md dark:invert"
+              className="w-8 drop-shadow-md dark:invert"
               alt="MelodayzMusic"
               src={'/icons/icon_x32.svg'}
               loading="lazy"
@@ -46,7 +48,21 @@ export const Sidebar = () => {
           <SheetTitle className="p-2">
             <Logo onClick={() => router.push('/dashboard')} />
           </SheetTitle>
-          <SheetDescription className="p-4">This a sidebar</SheetDescription>
+          <SheetDescription className="p-4">
+            <figure className="flex items-center w-full gap-2 mt-4 mb-3">
+              <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted/80 lg:hover:bg-muted/50">
+                <Avatar className="size-10 ring-2 ring-primary">
+                  <AvatarImage />
+                  <AvatarFallback>J</AvatarFallback>
+                </Avatar>
+                <div className="flex flex-col">
+                  <span className="text-base font-semibold">John Doe</span>
+                  <span className="text-xs text-muted-foreground">Fan</span>
+                </div>
+              </figcaption>
+              <Settings2 className="cursor-pointer hover:opacity-60" />
+            </figure>
+          </SheetDescription>
         </SheetContent>
       </div>
     </>

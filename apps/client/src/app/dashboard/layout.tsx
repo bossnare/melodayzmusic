@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import SmoothScrollLayout from './SmoothScrollLayout';
 import NavProfile from '@/components/navigation/NavProfile';
 import RefreshWrapper from './pull-to-refresh';
+import { cn } from '@/lib/utils';
 
 export default function DashboardLayout({
   children,
@@ -57,7 +58,14 @@ export default function DashboardLayout({
           >
             <SmoothScrollLayout>
               {/* Main content */}
-              <main className="px-4 sm:px-6">{children}</main>
+              <main
+                className={cn(
+                  !isAtProfil && 'pt-10',
+                  'px-4 pb-[30rem] sm:px-6'
+                )}
+              >
+                {children}
+              </main>
             </SmoothScrollLayout>
           </RefreshWrapper>
         </div>
