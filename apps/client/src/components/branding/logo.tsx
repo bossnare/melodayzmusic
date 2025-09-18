@@ -4,7 +4,7 @@ const MelodayzMusic = () => {
   return (
     <div className="flex items-center justify-center gap-1">
       <Image
-        src="/icons/icon_512x512.png"
+        src="/icons/icon_x32.svg"
         className="w-7 dark:invert md:w-8 drop-shadow-sm"
         alt="meloicon"
         height={1000}
@@ -25,9 +25,9 @@ const Logo = ({ onClick }: { onClick: () => void }) => {
     >
       <figure className="flex items-center gap-1 relative">
         <Image
-          className="w-7 drop-shadow-md invert dark:invert-0"
+          className="w-7 drop-shadow-md dark:invert"
           alt="MelodayzMusic"
-          src={'/icons/icon_x32_dark.svg'}
+          src={'/icons/icon_x32.svg'}
           loading="lazy"
           width={1000}
           height={1000}
