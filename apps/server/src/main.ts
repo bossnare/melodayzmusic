@@ -60,6 +60,11 @@ async function bootstrap() {
     res.send(landingPage);
   });
 
+  // uptime - just sample Robot
+  app.getHttpAdapter().get('/health', (_, res: Response) => {
+    res.json({ status: 'uptime ok' }).status(200);
+  });
+
   // listen a port
   await app.listen(port, '0.0.0.0');
   logger.log(
