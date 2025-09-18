@@ -42,7 +42,7 @@ export const providerLabels = [
     icon: (
       <svg
         fill="currentColor"
-        className="size-5 lg:size-6"
+        className="size-5"
         role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
