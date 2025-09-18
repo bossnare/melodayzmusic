@@ -1,7 +1,6 @@
 'use client';
 
 import { ContentStream } from '@/components/songs/ContentStream';
-import RefreshWrapper from './pull-to-refresh';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { DashboardHomeSkeleton } from '@/components/skeleton/DashboardHomeSkeleton';
@@ -65,13 +64,5 @@ export default function DashboardHome() {
     return <DashboardHomeSkeleton />;
   }
 
-  return (
-    // <RefreshWrapper
-    //   onRefresh={async () => {
-    //     await refetch();
-    //   }}
-    // >
-    <ContentStream songs={songs} />
-    // </RefreshWrapper>
-  );
+  return <ContentStream songs={songs} />;
 }

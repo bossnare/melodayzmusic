@@ -12,6 +12,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import SmoothScrollLayout from './SmoothScrollLayout';
 import NavProfile from '@/components/navigation/NavProfile';
+import RefreshWrapper from './pull-to-refresh';
 
 export default function DashboardLayout({
   children,
@@ -49,10 +50,16 @@ export default function DashboardLayout({
             </nav>
           </header>
           {/* Main Layout */}
-          <SmoothScrollLayout>
-            {/* Main content */}
-            <main className="px-4 sm:px-6">{children}</main>
-          </SmoothScrollLayout>
+          <RefreshWrapper
+            onRefresh={async () => {
+              alert('Refresh');
+            }}
+          >
+            <SmoothScrollLayout>
+              {/* Main content */}
+              <main className="px-4 sm:px-6">{children}</main>
+            </SmoothScrollLayout>
+          </RefreshWrapper>
         </div>
 
         {/* SheetContent */}
