@@ -7,7 +7,7 @@ import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState, useTransition } from 'react';
+import { useState, useTransition } from 'react';
 import api from '@/libs/api';
 
 export default function LoginPage() {
@@ -36,7 +36,7 @@ export default function LoginPage() {
           router.push('/dashboard');
         });
       } else {
-        return form.setError('root', {
+        form.setError('root', {
           message: 'Identifiants invalides, Erreur serveur.',
         });
       }
