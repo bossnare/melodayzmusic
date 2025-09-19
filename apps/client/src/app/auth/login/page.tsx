@@ -32,7 +32,6 @@ export default function LoginPage() {
         withCredentials: true,
       });
       if (res.data.message === 'ok') {
-        alert('ehh');
         startTransition(() => {
           router.push('/dashboard');
         });
@@ -47,11 +46,6 @@ export default function LoginPage() {
       setIsPending(false);
     }
   };
-
-  useEffect(() => {
-    // prefetch the dashboard page
-    router.prefetch('/dashboard');
-  }, [router]);
 
   return (
     <AuthPageWrapper>
