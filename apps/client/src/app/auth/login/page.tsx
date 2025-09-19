@@ -28,13 +28,14 @@ export default function LoginPage() {
   const handleLogin = async (data: loginFormType) => {
     try {
       setIsPending(true);
-      const res = await api.post('/auth/login', data);
+      const res = await api.post('/auth/login', data, {
+        withCredentials: true,
+      });
       if (res.data.message === 'ok') {
         startTransition(() => {
           router.replace('/dashboard');
         });
       } else {
-        alert('Error')
         return form.setError('root', {
           message: 'Identifiants invalides, Erreur serveur.',
         });
