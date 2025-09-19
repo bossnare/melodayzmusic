@@ -4,7 +4,7 @@ import { SwaggerModule } from '@nestjs/swagger';
 import { Response } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import * as cookieParser from 'cookie-parser'
+import cookieParser from 'cookie-parser'
 // import { dirname, join } from 'path';
 // import { fileURLToPath } from 'url';
 import { Logger, ValidationPipe } from '@nestjs/common';
