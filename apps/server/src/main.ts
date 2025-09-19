@@ -1,6 +1,7 @@
 import { NestFactory, Reflector } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule } from '@nestjs/swagger';
+import cookieParser from 'cookie-parser';
 import { Response } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
