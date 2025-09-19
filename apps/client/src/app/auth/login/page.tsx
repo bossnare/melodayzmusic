@@ -32,6 +32,7 @@ export default function LoginPage() {
         withCredentials: true,
       });
       if (res.data.message === 'ok') {
+        alert('ehh');
         startTransition(() => {
           router.push('/dashboard');
         });
