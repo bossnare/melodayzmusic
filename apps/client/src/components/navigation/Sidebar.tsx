@@ -1,12 +1,12 @@
 'use client';
 
+import { Settings2 } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Logo } from '../branding/logo';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { SheetContent, SheetDescription, SheetTitle } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
-import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
-import { Settings2 } from 'lucide-react';
 
 export const Sidebar = () => {
   const router = useRouter();
@@ -52,7 +52,7 @@ export const Sidebar = () => {
           <SheetDescription className="px-4">
             <figure className="flex items-center w-full gap-4 mt-2 mb-3">
               <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted/80 lg:hover:bg-muted/50">
-                <Avatar className="size-10 ring-2 ring-primary">
+                <Avatar className="size-12 ring-2 ring-primary">
                   <AvatarImage
                     className="object-cover"
                     alt="omahlay"
