@@ -34,6 +34,7 @@ export default function LoginPage() {
           router.replace('/dashboard');
         });
       } else {
+        alert('Error')
         return form.setError('root', {
           message: 'Identifiants invalides, Erreur serveur.',
         });
