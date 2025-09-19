@@ -1,5 +1,5 @@
-import { Body, Controller, Patch, Post } from '@nestjs/common';
-import { Request } from 'express';
+import { Body, Controller, Patch, Post, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { User as UserEntity } from '../generated/prisma/client.js';
 import { AuthService } from './auth.service.js';
 import { Public } from './decorators/public.decorator.js';
@@ -22,8 +22,21 @@ export class AuthController {
 
   @Public()
   @Post('login')
-  login(@Body() loginDto: LoginDto) {
-    return this.authService.login(loginDto);
+  async login(
+    @Body() loginDto: LoginDto,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    // set this token on cookies
+    const { access_token } = await this.authService.login(loginDto);
+
+    res.cookie('access_token', access_token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'strict',
+      maxAge: 1000 * 60 * 60 * 24,
+    });
+
+    return { message: 'ok' };
   }
 
   @Post('forgot-password')
