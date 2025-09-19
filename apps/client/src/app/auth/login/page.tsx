@@ -32,9 +32,11 @@ export default function LoginPage() {
         withCredentials: true,
       });
       if (res.data.message === 'ok') {
-        startTransition(() => {
-          router.replace('/dashboard');
-        });
+        setTimeout(() => {
+          startTransition(() => {
+            router.replace('/dashboard');
+          });
+        }, 300);
       } else {
         return form.setError('root', {
           message: 'Identifiants invalides, Erreur serveur.',
