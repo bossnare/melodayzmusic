@@ -16,8 +16,8 @@ export default function ProfilePage() {
         <Avatar className="border size-30 lg:size-38 dark:border-primary-foreground ring-4 ring-muted ">
           <AvatarImage
             className="object-cover"
-            alt="lildurk"
-            src="/img/profil/lil-durk.jpg"
+            alt="omahlay"
+            src="/img/profil/omah_lay.jpg"
           />
           <AvatarFallback>US</AvatarFallback>
         </Avatar>
