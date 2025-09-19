@@ -1,11 +1,10 @@
 import { NestFactory, Reflector } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule } from '@nestjs/swagger';
-import * as cookieParser from 'cookie-parser';
 import { Response } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import cookieParser from 'cookie-parser'
+import cookieParser from 'cookie-parser';
 // import { dirname, join } from 'path';
 // import { fileURLToPath } from 'url';
 import { Logger, ValidationPipe } from '@nestjs/common';
