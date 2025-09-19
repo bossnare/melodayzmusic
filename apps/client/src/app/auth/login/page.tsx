@@ -7,11 +7,14 @@ import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import api from '@/libs/api';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
+  const [isLoading, startTransition] = useTransition();
+  const loading = isPending || isLoading;
+
   const router = useRouter();
 
   const form = useForm({
@@ -27,7 +30,9 @@ export default function LoginPage() {
       setIsPending(true);
       const res = await api.post('/auth/login', data);
       if (res.data.access_token) {
-        router.replace('/dashboard');
+        startTransition(() => {
+          router.replace('/dashboard');
+        });
       } else {
         return form.setError('root', {
           message: 'Identifiants invalides, Erreur serveur.',
@@ -50,7 +55,7 @@ export default function LoginPage() {
       {/* Header */}
       <AuthHeaderSwitch href="/auth/register" type="login" />
       {/* card */}
-      <LoginCard form={form} isPending={isPending} handleLogin={handleLogin} />
+      <LoginCard form={form} isPending={loading} handleLogin={handleLogin} />
     </AuthPageWrapper>
   );
 }

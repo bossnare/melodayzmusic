@@ -61,8 +61,8 @@ export const Sidebar = () => {
                   <AvatarFallback>J</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
-                  <span className="text-base font-semibold">John Doe</span>
-                  <span className="text-xs text-muted-foreground">Fan</span>
+                  <span className="text-base font-semibold">Omah Lay</span>
+                  <span className="text-xs text-muted-foreground">Artiste</span>
                 </div>
               </figcaption>
               <Settings2 className="cursor-pointer hover:opacity-60" />

@@ -24,7 +24,7 @@ export default function ProfilePage() {
         {/* name */}
         <div className="space-y-1">
           <h3 className="text-2xl font-bold capitalize lg:text-3xl">
-            Lil Durk
+            Omah lay
           </h3>
           <p className="text-base text-muted-foreground lg:text-lg">Artiste</p>
         </div>
