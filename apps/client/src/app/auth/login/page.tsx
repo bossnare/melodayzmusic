@@ -29,7 +29,7 @@ export default function LoginPage() {
     try {
       setIsPending(true);
       const res = await api.post('/auth/login', data);
-      if (res.data.access_token) {
+      if (res.data.message === 'ok') {
         startTransition(() => {
           router.replace('/dashboard');
         });
