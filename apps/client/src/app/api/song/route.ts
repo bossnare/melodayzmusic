@@ -3,21 +3,21 @@ import { NextResponse } from 'next/server';
 const mockSongs = [
   {
     id: 'un1',
-    title: 'Treasure',
-    artist: 'Vasa',
+    title: 'Party no dey stop',
+    artist: 'Adekunle',
     duration: 210,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p5.jpg',
+      coverUrl: '/img/p2.jpg',
     },
     audioUrl: '/audio/vasa_treasure_mp3_26698.mp3',
     defaultCover: 'null',
     userOwner: {
       username: 'Yblack J.',
       activateProfilePicture: {
-        pictureUrl: '/img/p1.jpg',
+        pictureUrl: '/img/p3.jpg',
       },
       defaultPicture: 'null',
     },
@@ -53,7 +53,7 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p4.webp',
+      coverUrl: '/img/p3.jpg',
     },
     audioUrl: '/audio/bnxn_phenomena_official_video_mp3_37814.mp3',
     defaultCover: 'null',
@@ -74,7 +74,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p2.jpg',
+      coverUrl: '/img/p5.jpg',
     },
     audioUrl: '/audio/zombie_mp3_73210.mp3',
     defaultCover: '/img/p2.jpg',
@@ -95,7 +95,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p3.jpg',
+      coverUrl: '/img/p4.webp',
     },
     audioUrl:
       '/audio/powfu_death_bed_feat._beabadoobee_prod._otterpop_lyrics_lyric_video_mp3_40760.mp3',
