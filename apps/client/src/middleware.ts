@@ -11,7 +11,7 @@ export default function middleware(req: NextRequest) {
   const isProtectedRoute = protectedRoutes.includes(path);
 
   if (isProtectedRoute && !cookie) {
-    return NextResponse.redirect(new URL('/auth/login', req.url));
+    return NextResponse.redirect(new URL('/auth/login', req.nextUrl));
   }
 
   if (isPublicRoute && cookie) {
