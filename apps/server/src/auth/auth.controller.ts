@@ -33,6 +33,7 @@ export class AuthController {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'none',
+      domain: 'melodayzmusic.vercel.app',
       maxAge: 1000 * 60 * 60 * 24,
       path: '/',
     });
