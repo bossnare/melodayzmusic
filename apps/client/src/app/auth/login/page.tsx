@@ -34,6 +34,7 @@ export default function LoginPage() {
       if (res.data.message === 'ok') {
         startTransition(() => {
           router.push('/dashboard');
+          router.refresh();
         });
       } else {
         form.setError('root', {
