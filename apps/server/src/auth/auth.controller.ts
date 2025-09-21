@@ -32,8 +32,7 @@ export class AuthController {
     res.cookie('access_token', access_token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      domain: process.env.NODE_ENV === 'production' ? 'melodayzmusic.vercel.app' : undefined,
+      sameSite: 'lax',
       maxAge: 1000 * 60 * 60 * 24,
     });
 
