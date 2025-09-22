@@ -53,7 +53,7 @@ export default function DashboardHome() {
     return (
       <div className="flex flex-col gap-3 mx-auto justify-center items-center py-10">
         Erreur inattendue !
-        <Button onClick={async () => refetch} size="lg" variant="secondary">
+        <Button onClick={async () => refetch()} size="lg" variant="secondary">
           Actualiser
         </Button>
       </div>
