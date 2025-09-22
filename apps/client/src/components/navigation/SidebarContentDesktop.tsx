@@ -46,10 +46,6 @@ const SidebarContentDesktop = () => {
         </figcaption>
         <Settings2 className="cursor-pointer hover:opacity-60" />
       </figure>
-      {/* prov logout button */}
-      <Button onClick={logout} variant="outline">
-        {isPending ? 'Loading...' : 'Se déconnecter'}
-      </Button>
       <Separator />
       <ul className="flex flex-col w-full p-1 mt-3 rounded-md bg-background/60 dark:bg-card/50">
         {navLabels.map((tab) => (
@@ -60,6 +56,11 @@ const SidebarContentDesktop = () => {
           </li>
         ))}
       </ul>
+
+      {/* prov logout button */}
+      <Button onClick={logout} variant="outline">
+        {isPending ? 'Loading...' : 'Se déconnecter'}
+      </Button>
     </>
   );
 };
