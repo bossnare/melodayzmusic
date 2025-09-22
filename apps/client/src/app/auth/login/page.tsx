@@ -34,7 +34,7 @@ export default function LoginPage() {
         localStorage.setItem('access_token', res.data.access_token);
         // redirect to dashboard
         startTransition(() => {
-          router.push('/dashboard');
+          router.replace('/dashboard');
         });
       } else {
         form.setError('root', {

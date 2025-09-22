@@ -6,7 +6,6 @@ import { Geist, Geist_Mono, Inter, Montserrat } from 'next/font/google';
 import '../styles/globals.css';
 import './custom.css';
 import { ThemeProvider } from '@/components/themes/theme-provider';
-import AuthGuard from '@/components/auth/AuthGuard';
 
 const inter = Inter({
   variable: '--font-inter',

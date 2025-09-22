@@ -18,15 +18,15 @@ export default function AuthGuard({
     const token = localStorage.getItem('access_token');
     const isAuth = !!token && isValidToken(token);
 
-    if (requireAuth && !isAuth) router.push(redirectTo);
-    else if (!requireAuth && isAuth) router.push('/dashboard');
+    if (requireAuth && !isAuth) router.replace(redirectTo);
+    else if (!requireAuth && isAuth) router.replace('/dashboard');
     else setIsLoading(false);
   }, [redirectTo, requireAuth, router]);
 
   if (isLoading)
     return (
       <div className="flex items-center justify-center h-dvh bg-background">
-        <Loader className="border-foreground size-8" />
+        <Loader className="border-foreground/50 size-8 border-6" />
       </div>
     ); // na loader kely fotsiny
 
