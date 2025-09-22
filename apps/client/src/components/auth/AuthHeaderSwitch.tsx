@@ -25,7 +25,7 @@ const AuthHeaderSwitch = ({
     <nav className="flex items-center justify-between w-full gap-12 py-2">
       {type === 'login' && (
         <>
-          <p className="text-sm">Vos vibes n&apos;attendent que vous.</p>
+          <p className="text-sm font-montserrat">Vos vibes n&apos;attendent que vous.</p>
           <Button
             onClick={handleClickTab}
             disabled={isPending}
