@@ -31,13 +31,25 @@ export class AuthController {
 
     res.cookie('access_token', access_token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure:  process.env.NODE_ENV === 'production',
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      domain: process.env.NODE_ENV === 'production' ? 'melodayzmusic.vercel.app' : undefined,
       maxAge: 1000 * 60 * 60 * 24,
     });
 
     return { message: 'ok' };
+  }
+
+  @Post('logout')
+  logout(@User() user: UserEntity, @Res({ passthrough: true }) res: Response) {
+    const { id } = user;
+
+    res.clearCookie('access_token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    });
+
+    return this.authService.logout(id);
   }
 
   @Post('forgot-password')

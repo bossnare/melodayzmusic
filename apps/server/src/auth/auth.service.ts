@@ -72,6 +72,17 @@ export class AuthService {
     return this.signToken(user.id, user.email, user.username, user.role);
   }
 
+  // logout
+  async logout(id: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+    });
+    return {
+      message: `user ${user?.pseudo} is successfully logout`,
+      status: 'ok',
+    };
+  }
+
   // change password
   async changePassword(id: string, changePasswordDto: ChangePasswordDto) {
     const user = await this.prisma.user.findUnique({
