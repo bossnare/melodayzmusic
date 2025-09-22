@@ -46,7 +46,7 @@ export class AuthController {
     res.clearCookie('access_token', {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'none',
+      sameSite: 'none',
     });
 
     return this.authService.logout(id);
