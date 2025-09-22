@@ -4,6 +4,7 @@ import { isValidToken } from '@/libs/auth/isValidToken';
 import { type BaseProps } from '@/types/base.interface';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Loader } from '../motions/Loader';
 
 export default function AuthGuard({
   children,
@@ -22,7 +23,12 @@ export default function AuthGuard({
     else setIsLoading(false);
   }, [redirectTo, requireAuth, router]);
 
-  if (isLoading) return null; // na loader kely fotsiny
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center h-dvh bg-background">
+        <Loader className="border-foreground size-8" />
+      </div>
+    ); // na loader kely fotsiny
 
   return <>{children}</>;
 }

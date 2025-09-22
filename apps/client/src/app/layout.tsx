@@ -62,9 +62,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AuthGuard requireAuth={false}>
-            <ReactQueryProvider>{children}</ReactQueryProvider>
-          </AuthGuard>
+          {/* <AuthGuard requireAuth={false}> */}
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+          {/* </AuthGuard> */}
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>
