@@ -10,7 +10,9 @@ api.interceptors.request.use(
 
     if (!isLogin) {
       const token =
-        typeof window !== 'undefined' ? localStorage.getItem('token') : null; //apetraka type foana
+        typeof window !== 'undefined'
+          ? localStorage.getItem('access_token')
+          : null; //apetraka type foana
       // if (token && config.headers) {
       (
         config.headers as Record<string, string>
