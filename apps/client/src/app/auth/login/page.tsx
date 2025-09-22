@@ -29,7 +29,10 @@ export default function LoginPage() {
     try {
       setIsPending(true);
       const res = await api.post('/auth/login', credentials);
-      if (res.data.message === 'ok') {
+      if (res.data.success) {
+        // store token
+        localStorage.setItem('access_token', res.data.access_token);
+        // redirect to dashboard
         startTransition(() => {
           router.push('/dashboard');
         });
