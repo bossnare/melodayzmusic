@@ -25,12 +25,10 @@ export default function LoginPage() {
     },
   });
 
-  const handleLogin = async (data: loginFormType) => {
+  const handleLogin = async (credentials: loginFormType) => {
     try {
       setIsPending(true);
-      const res = await api.post('/auth/login', data, {
-        withCredentials: true,
-      });
+      const res = await api.post('/auth/login', credentials);
       if (res.data.message === 'ok') {
         startTransition(() => {
           router.push('/dashboard');

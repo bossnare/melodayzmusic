@@ -29,7 +29,7 @@ function LoginCard({
   isPending,
 }: {
   form: UseFormReturn<loginFormType>;
-  handleLogin: (data: loginFormType) => Promise<void>;
+  handleLogin: (credentials: loginFormType) => Promise<void>;
   isPending: boolean;
 }) {
   const pathname = usePathname();
