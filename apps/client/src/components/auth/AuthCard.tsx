@@ -136,7 +136,7 @@ const RegisterCard = () => {
               handleClickTab={handleClickTab}
               className=""
             >
-              Créer avec E-mail
+              Créer avec Email
             </AuthCtaButton>
           </CardContent>
 
