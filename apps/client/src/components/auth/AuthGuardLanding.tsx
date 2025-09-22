@@ -20,9 +20,13 @@ export default function AuthGuardLanding({ children }: BaseProps) {
     if (!isVisited) {
       localStorage.setItem('visited_before', 'true');
       setIsLoading(false);
+      return
     }
 
-    router.replace('/auth/login');
+    if (isVisited && !isAuth) {
+      router.replace('/auth/login');
+    }
+
   }, [router]);
 
   if (isLoading)
@@ -30,7 +34,7 @@ export default function AuthGuardLanding({ children }: BaseProps) {
       <div className="flex items-center justify-center h-dvh bg-background">
         <Loader className="border-foreground/50 size-8 border-6" />
       </div>
-    ); // na loader kely fotsiny
+    ); 
 
   return <>{children}</>;
 }
