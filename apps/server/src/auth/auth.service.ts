@@ -69,7 +69,16 @@ export class AuthService {
     const pwMatches = await argon2.verify(user.password, loginDto.password);
     if (!pwMatches) throw new ForbiddenException('Invalid password');
     // create user jwt token
-    return this.signToken(user.id, user.email, user.username, user.role);
+    // if use cookies
+    // return this.signToken(user.id, user.email, user.username, user.role);
+    const { access_token } = await this.signToken(
+      user.id,
+      user.email,
+      user.username,
+      user.role,
+    );
+
+    return { success: true, access_token: access_token };
   }
 
   // logout
