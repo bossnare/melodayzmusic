@@ -59,8 +59,6 @@ async function bootstrap() {
       production ? 'https://melodayzmusic.vercel.app' : 'http://localhost:3000',
     ],
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
   });
 
   // Express friendly - use getHttpAdapter() - simple landing page - motivation only 😎
