@@ -7,23 +7,23 @@ import { Separator } from '../ui/separator';
 import { Tabs } from './Tab';
 import { navLabels } from './labels/navigation.link';
 import api from '@/libs/api';
-import { useTransition } from 'react';
+import { useTransition, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const SidebarContentDesktop = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading]  = useState<boolean | null>(null)
   const [isPending, startTransition] = useTransition();
 
   const logout = async () => {
-    try {
-      const res = await api.get('/auth/logout', { withCredentials: true });
-      if (res.data.status === 'ok') {
-        startTransition(() => {
-          router.push('/auth/login');
-        });
-      }
-    } catch (e) {
-      console.log(e);
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 3000);
+
+    if (!isLoading) {
+      localStorage.clearItem('access_token')
+      router.replace('/auth/login')
     }
   };
 
