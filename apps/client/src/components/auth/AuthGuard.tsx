@@ -17,20 +17,12 @@ export default function AuthGuard({
     const token = localStorage.getItem('access_token');
     const isAuth = !!token && isValidToken(token);
 
-    if (requireAuth && !isAuth) {
-      router.push(redirectTo);
-      return;
-    }
+    if (requireAuth && !isAuth) router.push(redirectTo);
+    else if (!requireAuth && isAuth) router.push('/dashboard');
+    else setIsLoading(false);
+  }, [redirectTo, requireAuth, router]);
 
-    if (!requireAuth && isAuth) {
-      router.push('/dashboard');
-      return;
-    }
-
-    setIsLoading(false);
-  }, [redirectTo, requireAuth, router]); // 🔑 isAuthenticated esorina
-
-  if (isLoading) return null; // na spinner
+  if (isLoading) return null; // na loader kely fotsiny
 
   return <>{children}</>;
 }
