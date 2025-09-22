@@ -4,13 +4,13 @@ import { Loader } from '@/components/motions/Loader';
 import { Button } from '@/components/ui/button';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import Image from 'next/image';
-import AuthGuard from '@/components/auth/AuthGuard';
+import AuthGuardLanding from '@/components/auth/AuthGuardLanding';
 
 export default function Page() {
   const { isPending, handleClickTab } = useLoadingPath('/auth/login');
 
   return (
-    <AuthGuard requireAuth={false}>
+    <AuthGuardLanding>
       <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-primary/16 dark:via-card/6 dark:to-ring/16 from-primary/20 via-card/8 to-ring/20">
         <div className="flex flex-col items-center gap-2">
           <Image
@@ -44,6 +44,6 @@ export default function Page() {
           )}
         </Button>
       </div>
-    </AuthGuard>
+    </AuthGuardLanding>
   );
 }
