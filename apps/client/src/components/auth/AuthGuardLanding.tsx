@@ -20,11 +20,11 @@ export default function AuthGuardLanding({ children }: BaseProps) {
     if (!isVisited) {
       localStorage.setItem('visited_before', 'true');
       setIsLoading(false);
-      return
+      router.push('/')
     }
 
     if (isVisited && !isAuth) {
-      router.replace('/auth/login');
+      router.push('/auth/login');
     }
 
   }, [router]);
