@@ -5,14 +5,18 @@ const api: AxiosInstance = axios.create();
 
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token =
-      typeof window !== 'undefined' ? localStorage.getItem('token') : null; //apetraka type foana
-    if (token && config.headers) {
-      (
-        config.headers as Record<string, string>
-      ).Authorization = `Bearer ${token}`;
-    }
+    // const token =
+    //   typeof window !== 'undefined' ? localStorage.getItem('token') : null; //apetraka type foana
+    // // if (token && config.headers) {
+    //   (
+    //     config.headers as Record<string, string>
+    //   ).Authorization = `Bearer ${token}`;
+    // }
 
+    // credentials
+    config.withCredentials = true;
+
+    // base URL
     config.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
     return config;
