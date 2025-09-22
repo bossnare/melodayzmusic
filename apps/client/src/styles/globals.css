@@ -258,6 +258,9 @@
   .cta {
     @apply bg-gradient-to-r from-[#9B8AF0] hover:opacity-90 shadow-[#00D4FF] via-[#6D28D9] transition font-montserrat to-[#00D4FF];
   }
+  .bg-premium {
+  background: radial-gradient(circle at 30% 30%, #8a2be2 0%, #00d4ff 70%, #ff6f61 100%);
+  }
   .text-gradient {
     @apply bg-gradient-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
   }
