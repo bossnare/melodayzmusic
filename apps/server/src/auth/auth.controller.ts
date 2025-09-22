@@ -3,12 +3,12 @@ import { Response } from 'express';
 import { User as UserEntity } from '../generated/prisma/client.js';
 import { AuthService } from './auth.service.js';
 import { Public } from './decorators/public.decorator.js';
+import { User } from './decorators/user.decorator.js';
 import { ChangePasswordDto } from './dto/change-password.dto.js';
 import { ForgotPasswordDto } from './dto/forgot-password.dto.js';
 import { LoginDto } from './dto/login.dto.js';
 import { RegisterDto } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
-import { User } from './decorators/user.decorator.js';
 
 @Controller('auth')
 export class AuthController {
@@ -31,8 +31,8 @@ export class AuthController {
 
     res.cookie('access_token', access_token, {
       httpOnly: true,
-      secure:  process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
       maxAge: 1000 * 60 * 60 * 24,
     });
 
