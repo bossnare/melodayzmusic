@@ -99,7 +99,7 @@ export const Sidebar = () => {
                   <span className="text-xs text-muted-foreground">Artiste</span>
                 </div>
               </figcaption>
-              <Settings2 className="active:bg-muted size-8 cursor-pointer hover:opacity-60" />
+              <Settings2 className="active:bg-muted size-8 cursor-pointer active:opacity-60 lg:hover:opacity-60" />
             </figure>
           </SheetDescription>
           <SheetFooter>
@@ -137,7 +137,7 @@ export const Sidebar = () => {
         <div
           className={cn(
             pending && 'opacity-100 pointer-events-auto',
-            'opacity-0 bg-black/40 z-20 pointer-events-none fixed inset-O flex items-center justify-center'
+            'opacity-0 bg-black/50 z-999 pointer-events-none fixed inset-O flex items-center justify-center'
           )}
         >
           <Loader className="size-8 border-6 border-white" />
