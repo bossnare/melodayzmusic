@@ -13,7 +13,7 @@ export const StepNavigation = ({
   const totalSteps = 4;
 
   return (
-    <nav className="flex flex-col items-center justify-center gap-0 pb-2">
+    <nav className="flex flex-col items-center justify-center gap-0 pb-2 transition-all duration-300">
       <h3 className="mb-2 text-lg font-bold md:hidden">Création du compte</h3>
       <span>
         {step}/{totalSteps}
