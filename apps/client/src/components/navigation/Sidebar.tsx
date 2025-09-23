@@ -108,7 +108,7 @@ export const Sidebar = () => {
               <AlertDialogTrigger asChild>
                 <Button
                   variant="outline"
-                  className="hover:!text-inherit lg:hover:text-primary active:!text-primary"
+                  className="hover:!text-inherit lg:hover:text-primary active:!text-primary active:bg-muted"
                 >
                   <LogOut /> Quitter l&apos;espace
                 </Button>
@@ -119,8 +119,10 @@ export const Sidebar = () => {
                     Confirmation de déconnexion
                   </AlertDialogTitle>
                   <AlertDialogDescription>
-                    Tu vas couper le son et clore ta session — prêt·e à te
-                    déconnecter du groove ?
+                    Tu vas couper le son et clore ta session
+                  </AlertDialogDescription>
+                  <AlertDialogDescription>
+                    prêt(e) à te déconnecter du groove ?
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
@@ -138,10 +140,10 @@ export const Sidebar = () => {
         <Portal>
           <div
             className={cn(
-              'bg-red-500/50 z-999 fixed inset-0 flex items-center justify-center',
+              ' z-60 fixed inset-0 flex items-center justify-center',
               pending
                 ? 'opacity-100 pointer-events-auto'
-                : 'opacity-100 pointer-events-none'
+                : 'opacity-0 pointer-events-none'
             )}
           >
             <Loader className="size-8 border-6 border-white" />

@@ -93,7 +93,7 @@ function LoginCard({
                   <AuthCtaButton isPending={isPending} className="rounded-full">
                     Se connecter
                   </AuthCtaButton>
-                  <div>
+                  <div className="mx-auto lg:mx-0">
                     <Button
                       type="button"
                       variant="link"
