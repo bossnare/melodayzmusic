@@ -37,7 +37,7 @@ export default function Page() {
           size="lg"
         >
           {isPending ? (
-            <Loader className="border-foreground size-5" />
+            <Loader className="border-white size-5" />
           ) : (
             'Get started'
           )}

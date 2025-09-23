@@ -1,15 +1,43 @@
 'use client';
 
-import { Settings2 } from 'lucide-react';
+import { Settings2, LogOut } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Logo } from '../branding/logo';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { SheetContent, SheetDescription, SheetTitle } from '../ui/sheet';
+import {
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetFooter,
+} from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
+import { useTransition, useState } from 'react';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 export const Sidebar = () => {
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [isLoading, setIsLoading] = useState<boolean | null>(null);
+
+  const logout = async () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      localStorage.removeItem('access_token');
+      startTransition(() => router.replace('/auth/login'));
+    }, 3000);
+  };
 
   return (
     <>
@@ -68,6 +96,27 @@ export const Sidebar = () => {
               <Settings2 className="cursor-pointer hover:opacity-60" />
             </figure>
           </SheetDescription>
+          <SheetFooter>
+            <AlertDialog>
+              <AlertDialogTrigger>
+                <LogOut /> Quitter l&apos;espace
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>
+                    Confirmation de déconnexion
+                  </AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Veux-tu vraiment te déconnecter du groove ?
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Annuler</AlertDialogCancel>
+                  <AlertDialogAction onClick={logout}>Oui, quitter</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </SheetFooter>
         </SheetContent>
       </div>
     </>

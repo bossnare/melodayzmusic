@@ -1,32 +1,12 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import { Settings2 } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import { Tabs } from './Tab';
 import { navLabels } from './labels/navigation.link';
-import api from '@/libs/api';
-import { useTransition, useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 const SidebarContentDesktop = () => {
-  const router = useRouter();
-  const [isLoading, setIsLoading]  = useState<boolean | null>(null)
-  const [isPending, startTransition] = useTransition();
-
-  const logout = async () => {
-    setIsLoading(true)
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 3000);
-
-    if (!isLoading) {
-      localStorage.clearItem('access_token')
-      router.replace('/auth/login')
-    }
-  };
-
   return (
     <>
       <figure className="flex items-center w-full gap-2 mt-4 mb-3">
@@ -56,11 +36,6 @@ const SidebarContentDesktop = () => {
           </li>
         ))}
       </ul>
-
-      {/* prov logout button */}
-      <Button onClick={logout} variant="outline">
-        {isPending ? 'Loading...' : 'Se déconnecter'}
-      </Button>
     </>
   );
 };
