@@ -137,8 +137,8 @@ export const Sidebar = () => {
             className={cn(
               'bg-black/50 z-[999] fixed inset-0 flex items-center justify-center',
               pending
-                ? 'opacity-100 pointer-events-auto'
-                : 'opacity-0 pointer-events-none'
+                ? 'opacity-0 pointer-events-auto'
+                : 'opacity-100 pointer-events-none'
             )}
           >
             <Loader className="size-8 border-6 border-white" />
@@ -148,3 +148,4 @@ export const Sidebar = () => {
     </>
   );
 };
+
