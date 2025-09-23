@@ -45,12 +45,12 @@ function LoginCard({
           exit={{ y: -100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
-          <Card className="p-4 space-y-4 md:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/80 from-card/80 via-card/10 to-card backdrop-blur-sm">
+          <Card className="p-4 space-y-4 md:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card/80 via-card/10 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
             {/* Form Content */}
-            <CardContent className="flex flex-col gap-6 p-1 md:gap-10 md:flex-row">
+            <CardContent className="flex flex-col gap-3 p-1 md:gap-10 md:flex-row">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(handleLogin)}
@@ -136,7 +136,7 @@ const RegisterCard = () => {
               handleClickTab={handleClickTab}
               className=""
             >
-              Créer avec E-mail
+              Créer avec Email
             </AuthCtaButton>
           </CardContent>
 

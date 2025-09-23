@@ -11,7 +11,7 @@ const StepCardWrapper = ({ children, key }: BaseProps & { key: string }) => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: 100, opacity: 0 }}
-        transition={{ type: 'spring', stiffness: 350, damping: 35 }}
+        transition={{ type: 'spring', stiffness: 320, damping: 32 }}
       >
         {children}
       </motion.div>

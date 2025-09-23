@@ -23,8 +23,8 @@ export const AuthCtaButton = ({
       onClick={handleClick}
       size="lg"
       className={cn(
-        isPending && 'pointer-events-none opacity-80',
-        'relative overflow-hidden cta',
+        isPending && 'pointer-events-none opacity-95',
+        'relative overflow-hidden bg-premium',
         className
       )}
       type="submit"
@@ -33,7 +33,7 @@ export const AuthCtaButton = ({
       {isPending ? 'Loading...' : children}
       {/* grain overlay */}
       <span
-        className="absolute inset-0 opacity-20 pointer-events-none 
+        className="absolute inset-0 opacity-30 pointer-events-none 
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
       ></span>
     </Button>

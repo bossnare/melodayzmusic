@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { isValidToken } from '@/libs/auth/isValidToken';
 import type { BaseProps } from '@/types/base.interface';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import WaveLoader from '../motions/WaveLoader';
 
 export default function AuthGuardLanding({ children }: BaseProps) {
