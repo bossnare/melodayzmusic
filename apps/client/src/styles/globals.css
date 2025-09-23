@@ -264,24 +264,20 @@
 
   @keyframes l5 {
     0% {
-      box-shadow: 20px 0 rgb(var(--foreground)),
-        -20px 0 rgb(var(--foreground) / 0.2);
-      background: rgb(var(--foreground));
+      box-shadow: 20px 0 #000, -20px 0 #0002;
+      background: #000;
     }
     33% {
-      box-shadow: 20px 0 rgb(var(--foreground)),
-        -20px 0 rgb(var(--foreground) / 0.2);
-      background: rgb(var(--foreground) / 0.2);
+      box-shadow: 20px 0 #000, -20px 0 #0002;
+      background: #0002;
     }
     66% {
-      box-shadow: 20px 0 rgb(var(--foreground) / 0.2),
-        -20px 0 rgb(var(--foreground));
-      background: rgb(var(--foreground) / 0.2);
+      box-shadow: 20px 0 #0002, -20px 0 #000;
+      background: #0002;
     }
     100% {
-      box-shadow: 20px 0 rgb(var(--foreground) / 0.2),
-        -20px 0 rgb(var(--foreground));
-      background: rgb(var(--foreground));
+      box-shadow: 20px 0 #0002, -20px 0 #000;
+      background: #000;
     }
   }
 }
@@ -289,10 +285,6 @@
 @layer components {
   .cta {
     @apply bg-gradient-to-r from-[#9B8AF0] hover:opacity-90 shadow-[#00D4FF] via-[#6D28D9] transition font-montserrat to-[#00D4FF];
-  }
-  .bg-premium {
-    background: radial-gradient(circle at 30% 30%, #00ffff 0%, #00aaff 50%, #005f99 100%);
-    @apply font-montserrat lg:hover:brightness-110 active:brightness-110 transition-all duration-300
   }
   .text-gradient {
     @apply bg-gradient-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
