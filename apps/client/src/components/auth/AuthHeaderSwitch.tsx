@@ -37,7 +37,7 @@ const AuthHeaderSwitch = ({
           <Button
             onClick={handleClickTab}
             disabled={isPending}
-            variant="outline"
+            variant="ghost"
             size="lg"
             className={cn('rounded-full font-montserrat')}
           >
@@ -58,7 +58,7 @@ const AuthHeaderSwitch = ({
           <Button
             onClick={handleClickTab}
             disabled={isPending}
-            variant="outline"
+            variant="ghost"
             size="lg"
             className={cn(
               step && step > 1 && 'pointer-events-none opacity-0',
