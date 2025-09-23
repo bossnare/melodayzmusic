@@ -31,7 +31,7 @@
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-foreground: var(--secondary);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
@@ -179,7 +179,7 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-foreground: var(--secondary);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
@@ -264,19 +264,19 @@
 
   @keyframes l5 {
     0% {
-      box-shadow: 20px 0 var(--foreground), -20px 0 var(--secondary-foreground);
+      box-shadow: 20px 0 var(--foreground), -20px 0 var(--secondary);
       background: var(--foreground);
     }
     33% {
-      box-shadow: 20px 0 var(--foreground), -20px 0 var(--secondary-foreground);
-      background: var(--secondary-foreground);
+      box-shadow: 20px 0 var(--foreground), -20px 0 var(--secondary);
+      background: var(--secondary);
     }
     66% {
-      box-shadow: 20px 0 var(--secondary-foreground), -20px 0 var(--foreground);
-      background: var(--secondary-foreground);
+      box-shadow: 20px 0 var(--secondary), -20px 0 var(--foreground);
+      background: var(--secondary);
     }
     100% {
-      box-shadow: 20px 0 var(--secondary-foreground), -20px 0 var(--foreground);
+      box-shadow: 20px 0 var(--secondary), -20px 0 var(--foreground);
       background: var(--foreground);
     }
   }
