@@ -8,6 +8,7 @@ import { MelodayzMusic } from '../branding/logo';
 import { ArrowLeft } from 'lucide-react';
 import { MotionButton } from '../motions/motionButton';
 import { useRouter } from 'next/navigation';
+import { ModeToggle } from '../themes/mode-toggle';
 
 const AuthHeaderSwitch = ({
   href,
@@ -25,7 +26,14 @@ const AuthHeaderSwitch = ({
     <nav className="flex items-center justify-between w-full gap-12 py-2">
       {type === 'login' && (
         <>
-          <p className="text-sm font-montserrat">Vos vibes n&apos;attendent que vous.</p>
+          <p className="text-sm font-montserrat">
+            Vos vibes n&apos;attendent que vous.
+          </p>
+          {!isPending && (
+            <div className="hidden lg:block">
+              <ModeToggle />
+            </div>
+          )}
           <Button
             onClick={handleClickTab}
             disabled={isPending}
@@ -33,11 +41,10 @@ const AuthHeaderSwitch = ({
             size="lg"
             className={cn('rounded-full font-montserrat')}
           >
-            {isPending ? (
+            {isPending && (
               <Loader className="size-5 lg:size-6 border-foreground" />
-            ) : (
-              'Créer un compte'
             )}
+            {isPending ? 'Loading...' : 'Créer un compte'}
           </Button>
         </>
       )}
@@ -58,11 +65,10 @@ const AuthHeaderSwitch = ({
               'rounded-full font-montserrat'
             )}
           >
-            {isPending ? (
+            {isPending && (
               <Loader className="size-5 lg:size-6 border-foreground" />
-            ) : (
-              'Déjà inscrit'
             )}
+            {isPending ? 'Loading...' : 'Déjà inscrit'}
           </Button>
         </>
       )}
