@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isValidToken } from '@/libs/auth/isValidToken';
 import type { BaseProps } from '@/types/base.interface';
-import { Loader } from '../motions/Loader';
+import WaveLoader from '../motions/WaveLoader';
 
 export default function AuthGuardLanding({ children }: BaseProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,29 +12,32 @@ export default function AuthGuardLanding({ children }: BaseProps) {
 
   useEffect(() => {
     const token = localStorage.getItem('access_token');
-    const isVisited = localStorage.getItem('visited_before');
-    const isAuth = !!token && isValidToken(token);
+    const visits = parseInt(localStorage.getItem('visit_count') || '0', 10) + 1;
+    const isAuth = token && isValidToken(token);
 
-    if (isAuth) router.replace('/dashboard');
+    localStorage.setItem('visit_count', visits.toString());
 
-    if (!isVisited) {
-      localStorage.setItem('visited_before', 'true');
-      setIsLoading(false);
-      return
+    if (isAuth) {
+      router.replace('/dashboard');
+      return;
     }
 
-    if (isVisited && !isAuth) {
+    if (visits >= 3) {
       router.replace('/auth/login');
+      return;
     }
 
+    setIsLoading(false);
   }, [router]);
 
   if (isLoading)
     return (
       <div className="flex items-center justify-center h-dvh bg-background">
-        <Loader className="border-foreground/50 size-8 border-6" />
+        <div>
+          <WaveLoader />
+        </div>
       </div>
-    ); 
+    );
 
   return <>{children}</>;
 }
