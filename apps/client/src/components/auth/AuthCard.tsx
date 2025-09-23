@@ -246,6 +246,7 @@ const StepTwoCard = () => {
                     <FormLabel>Mot de passe</FormLabel>
                     <FormControl>
                       <PasswordInput
+                        autocomplete="new-password"
                         placeholder="Crée ton mot de passe en béton"
                         {...field}
                       />
@@ -262,6 +263,7 @@ const StepTwoCard = () => {
                     <FormLabel>Confirmation</FormLabel>
                     <FormControl>
                       <PasswordInput
+                        autocomplete="new-password"
                         placeholder="Confirme ton mot de passe en béton"
                         {...field}
                       />
