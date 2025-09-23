@@ -39,7 +39,9 @@ const AuthHeaderSwitch = ({
             disabled={isPending}
             variant="ghost"
             size="lg"
-            className={cn('rounded-full font-montserrat')}
+            className={cn(
+              'rounded-full font-montserrat border border-current/50'
+            )}
           >
             {isPending && (
               <Loader className="size-5 lg:size-6 border-foreground" />
@@ -52,8 +54,8 @@ const AuthHeaderSwitch = ({
       {type === 'register' && (
         <>
           <MelodayzMusic />
-          <h3 className="hidden text-lg font-bold md:block">
-            Création du compte
+          <h3 className="hidden text-base text-foreground/80 font-semibold md:block">
+            Crée ton compte et rejoins le groove
           </h3>
           <Button
             onClick={handleClickTab}
@@ -62,7 +64,7 @@ const AuthHeaderSwitch = ({
             size="lg"
             className={cn(
               step && step > 1 && 'pointer-events-none opacity-0',
-              'rounded-full font-montserrat'
+              'rounded-full font-montserrat border border-current/50'
             )}
           >
             {isPending && (
