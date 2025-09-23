@@ -167,7 +167,7 @@ const StepOneCard = () => {
         {/* Form Content */}
         <CardContent className="flex flex-col p-1 md:flex-row">
           <Form {...form}>
-            <form action="" className="flex flex-col flex-1 gap-5">
+            <form action="" className="flex flex-col flex-1 gap-4">
               <FormField
                 control={form.control}
                 name="pseudo"
@@ -234,7 +234,7 @@ const StepTwoCard = () => {
         {/* Form Content */}
         <CardContent className="flex flex-col p-1 md:flex-row">
           <Form {...form}>
-            <form action="" className="flex flex-col flex-1 gap-5">
+            <form action="" className="flex flex-col flex-1 gap-4">
               <FormField
                 control={form.control}
                 name="newPassword"
@@ -293,7 +293,7 @@ const StepThreeCard = () => {
         {/* Form Content */}
         <CardContent className="flex flex-col p-1 md:flex-row">
           <Form {...form}>
-            <form action="" className="flex flex-col flex-1 gap-5">
+            <form action="" className="flex flex-col flex-1 gap-4">
               <FormField
                 control={form.control}
                 name="email"
