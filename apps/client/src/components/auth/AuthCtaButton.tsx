@@ -23,7 +23,7 @@ export const AuthCtaButton = ({
       onClick={handleClick}
       size="lg"
       className={cn(
-        isPending && 'pointer-events-none opacity-95',
+        isPending && 'pointer-events-none',
         'relative overflow-hidden bg-premium',
         className
       )}

@@ -27,7 +27,6 @@ import {
 } from '@/components/ui/alert-dialog';
 import { cn } from '@/lib/utils';
 import { Loader } from '../motions/Loader';
-import { Portal } from '@radix-ui/react-portal';
 
 export const Sidebar = () => {
   const router = useRouter();
@@ -137,18 +136,16 @@ export const Sidebar = () => {
         </SheetContent>
 
         {/* ✅ Overlay */}
-        <Portal>
-          <div
-            className={cn(
-              'bg-black/50 z-60 fixed inset-0 flex items-center justify-center',
-              pending
-                ? 'opacity-100 pointer-events-auto'
-                : 'opacity-0 pointer-events-none'
-            )}
-          >
-            <Loader className="size-8 border-6 border-white" />
-          </div>
-        </Portal>
+        <div
+          className={cn(
+            'bg-black/50 z-60 fixed inset-0 flex items-center justify-center',
+            pending
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none'
+          )}
+        >
+          <Loader className="size-8 border-6 border-white" />
+        </div>
       </div>
     </>
   );

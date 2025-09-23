@@ -124,13 +124,16 @@ const RegisterCard = () => {
 
   return (
     <StepCardWrapper key="createWithChoice">
-      <Card className="p-4 bg-gradient-to-b lg:bg-gradient-to-br from-card/40 dark:via-card/10 via-transparent to-card/80 dark:lg:to-card/60 dark:to-card/40 backdrop-blur-sm md:p-10">
+      <h3 className="mb-2 text-base font-semibold py-4 text-center text-foreground/80">
+        Choisis ta façon de t&apos;inscrire
+      </h3>
+      <Card className="p-4 bg-gradient-to-b lg:bg-gradient-to-br from-card/40 dark:via-card/10 via-transparent to-card/80 dark:lg:to-card/60 dark:to-card/40 backdrop-blur-sm md:p-8">
         <CardTitle className="pb-4">
           <MelodayzMusic />
         </CardTitle>
 
         <div className="flex flex-col gap-6 md:flex-row">
-          <CardContent className="flex flex-col items-center justify-center gap-2 md:w-[50%]">
+          <CardContent className="flex flex-col items-center justify-center gap-2 md:w-[45%]">
             <AuthCtaButton
               isPending={isPending}
               handleClickTab={handleClickTab}
