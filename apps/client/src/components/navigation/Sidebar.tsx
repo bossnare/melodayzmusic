@@ -1,7 +1,7 @@
 'use client';
 
 import { Settings2, LogOut } from 'lucide-react';
-import {Button} from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Logo } from '../branding/logo';
@@ -80,7 +80,7 @@ export const Sidebar = () => {
           {/* content */}
           <SheetDescription className="px-4">
             <figure className="flex items-center w-full gap-4 mt-2 mb-3">
-              <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted/80 lg:hover:bg-muted/50">
+              <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted lg:hover:bg-muted/50">
                 <Avatar className="size-12 ring-2 ring-primary">
                   <AvatarImage
                     className="object-cover"
@@ -90,17 +90,22 @@ export const Sidebar = () => {
                   <AvatarFallback>J</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
-                  <span className="text-base font-semibold">Omah Lay</span>
+                  <span className="text-base font-semibold text-foreground">
+                    Omah Lay
+                  </span>
                   <span className="text-xs text-muted-foreground">Artiste</span>
                 </div>
               </figcaption>
-              <Settings2 className="cursor-pointer hover:opacity-60" />
+              <Settings2 className="active:bg-muted size-8 cursor-pointer hover:opacity-60" />
             </figure>
           </SheetDescription>
           <SheetFooter>
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button variant="outline"> <LogOut /> Quitter l&apos;espace</Button>
+                <Button variant="outline">
+                  {' '}
+                  <LogOut /> Quitter l&apos;espace
+                </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
@@ -113,7 +118,9 @@ export const Sidebar = () => {
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogCancel>Annuler</AlertDialogCancel>
-                  <AlertDialogAction onClick={logout}>Oui, quitter</AlertDialogAction>
+                  <AlertDialogAction onClick={logout}>
+                    Oui, quitter
+                  </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
