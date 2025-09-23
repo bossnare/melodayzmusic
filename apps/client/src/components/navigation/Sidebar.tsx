@@ -41,7 +41,7 @@ export const Sidebar = () => {
       setIsLoading(false);
       localStorage.removeItem('access_token');
       startTransition(() => router.replace('/auth/login'));
-    }, 3000);
+    }, 4000);
   };
 
   return (
@@ -140,7 +140,7 @@ export const Sidebar = () => {
         <Portal>
           <div
             className={cn(
-              ' z-60 fixed inset-0 flex items-center justify-center',
+              'bg-black/50 z-60 fixed inset-0 flex items-center justify-center',
               pending
                 ? 'opacity-100 pointer-events-auto'
                 : 'opacity-0 pointer-events-none'
