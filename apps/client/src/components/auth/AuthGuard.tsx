@@ -4,7 +4,7 @@ import { isValidToken } from '@/libs/auth/isValidToken';
 import { type BaseProps } from '@/types/base.interface';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Loader } from '../motions/Loader';
+import WaveLoader from '../motions/WaveLoader';
 
 export default function AuthGuard({
   children,
@@ -26,9 +26,11 @@ export default function AuthGuard({
   if (isLoading)
     return (
       <div className="flex items-center justify-center h-dvh bg-background">
-        <Loader className="border-foreground/50 size-8 border-6" />
+        <div>
+          <WaveLoader />
+        </div>
       </div>
-    ); // na loader kely fotsiny
+    ); // na Waveloader kely fotsiny
 
   return <>{children}</>;
 }
