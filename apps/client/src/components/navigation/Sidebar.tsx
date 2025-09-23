@@ -107,7 +107,7 @@ export const Sidebar = () => {
               <AlertDialogTrigger asChild>
                 <Button
                   variant="outline"
-                  className="hover:!text-inherit lg:hover:text-primary active:text-primary"
+                  className="hover:!text-inherit lg:hover:text-primary active:!text-primary"
                 >
                   <LogOut /> Quitter l&apos;espace
                 </Button>
