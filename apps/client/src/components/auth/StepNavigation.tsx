@@ -14,7 +14,7 @@ export const StepNavigation = ({
 
   return (
     <nav className="flex flex-col items-center justify-center gap-0 pb-2">
-      <h3 className="mb-2 text-base text-foreground/80 font-semibold md:hidden">
+      <h3 className="mb-4 text-base text-foreground/80 font-semibold md:hidden">
         Crée ton compte et rejoins le groove
       </h3>
       <span>
