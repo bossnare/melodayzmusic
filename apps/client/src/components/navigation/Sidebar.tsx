@@ -131,17 +131,17 @@ export const Sidebar = () => {
               </AlertDialogContent>
             </AlertDialog>
           </SheetFooter>
-        </SheetContent>
 
-        {/* Overlay */}
-        <div
-          className={cn(
-            pending && 'opacity-100 pointer-events-auto',
-            'opacity-0 bg-black/50 z-999 pointer-events-none fixed inset-O flex items-center justify-center'
-          )}
-        >
-          <Loader className="size-8 border-6 border-white" />
-        </div>
+          {/* Overlay */}
+          <div
+            className={cn(
+              pending && 'opacity-100 pointer-events-auto',
+              'opacity-0 bg-black/50 z-999 pointer-events-none fixed inset-O flex items-center justify-center'
+            )}
+          >
+            <Loader className="size-8 border-6 border-white" />
+          </div>
+        </SheetContent>
       </div>
     </>
   );
