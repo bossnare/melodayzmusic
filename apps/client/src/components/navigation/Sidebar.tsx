@@ -25,11 +25,14 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
+import { cn } from '@/lib/utils';
+import { Loader } from '../motions/Loader';
 
 export const Sidebar = () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState<boolean | null>(null);
+  const pending = isPending || isLoading;
 
   const logout = async () => {
     setIsLoading(true);
@@ -102,7 +105,10 @@ export const Sidebar = () => {
           <SheetFooter>
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button variant="outline">
+                <Button
+                  variant="outline"
+                  className="hover:!text-inherit lg:hover:text-primary active:text-primary"
+                >
                   {' '}
                   <LogOut /> Quitter l&apos;espace
                 </Button>
@@ -126,6 +132,16 @@ export const Sidebar = () => {
             </AlertDialog>
           </SheetFooter>
         </SheetContent>
+
+        {/* Overlay */}
+        <div
+          className={cn(
+            pending && 'opacity-100 pointer-events-auto',
+            'opacity-0 bg-black/40 z-20 pointer-events-none fixed inset-O flex items-center justify-center'
+          )}
+        >
+          <Loader className="size-8 border-6 border-white" />
+        </div>
       </div>
     </>
   );
