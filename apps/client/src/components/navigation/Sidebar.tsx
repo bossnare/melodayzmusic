@@ -31,7 +31,7 @@ import { Loader } from '../motions/Loader';
 export const Sidebar = () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const [isLoading, setIsLoading] = useState<boolean | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const pending = isPending || isLoading;
 
   const logout = async () => {
@@ -136,10 +136,10 @@ export const Sidebar = () => {
         {/* ✅ Overlay */}
           <div
             className={cn(
-              'bg-black/50 z-[999] fixed inset-0 flex items-center justify-center',
+              'bg-red-500/50 z-[999] fixed inset-0 flex items-center justify-center',
               pending
                 ? 'opacity-100 pointer-events-auto'
-                : 'opacity-0 pointer-events-none'
+                : 'opacity-100 pointer-events-none'
             )}
           >
             <Loader className="size-8 border-6 border-white" />
@@ -148,5 +148,6 @@ export const Sidebar = () => {
     </>
   );
 };
+
 
 
