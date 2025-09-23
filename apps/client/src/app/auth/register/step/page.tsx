@@ -20,7 +20,7 @@ export default function StepPage() {
       {/* content */}
       <div
         className="flex flex-col justify-center items-center gap-1 
-      w-full *:w-full md:*:w-2/3 lg:*:w-[42%]"
+      w-full *:w-full md:*:w-2/3 lg:*:w-[42%] transition-all duration-300"
       >
         <StepNavigation setStep={setStep} step={step} />
         {/* Step Card */}
