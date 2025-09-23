@@ -1,6 +1,7 @@
 'use client';
 
 import { Settings2, LogOut } from 'lucide-react';
+import {Button} from '@/components/ui/button'
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Logo } from '../branding/logo';
@@ -98,8 +99,8 @@ export const Sidebar = () => {
           </SheetDescription>
           <SheetFooter>
             <AlertDialog>
-              <AlertDialogTrigger>
-                <LogOut /> Quitter l&apos;espace
+              <AlertDialogTrigger asChild>
+                <Button variant="outline"> <LogOut /> Quitter l&apos;espace</Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
