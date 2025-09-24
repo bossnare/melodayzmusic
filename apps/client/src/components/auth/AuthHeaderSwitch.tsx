@@ -20,7 +20,7 @@ const AuthHeaderSwitch = ({
   href?: string;
   type: 'login' | 'register' | 'back';
   step?: number;
-  dir: 'prev' | 'next';
+  dir?: 'prev' | 'next';
 }) => {
   const { isPending, handleClickTab } = useLoadingPath(href);
   const router = useRouter();
