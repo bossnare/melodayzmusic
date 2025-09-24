@@ -9,21 +9,24 @@ import { ArrowLeft } from 'lucide-react';
 import { MotionButton } from '../motions/motionButton';
 import { useRouter } from 'next/navigation';
 import { ModeToggle } from '../themes/mode-toggle';
+import { Encouragement } from './StepNavigation';
 
 const AuthHeaderSwitch = ({
   href,
   type,
   step,
+  dir,
 }: {
   href?: string;
   type: 'login' | 'register' | 'back';
-  step?: number;
+  step?: number ;
+  dir?: 'prev' | 'next';
 }) => {
   const { isPending, handleClickTab } = useLoadingPath(href);
   const router = useRouter();
 
   return (
-    <nav className="flex items-center justify-between w-full gap-12 py-2">
+    <nav className={cn("flex items-center justify-between w-full gap-12 lg:gap-0 py-2")}>
       {type === 'login' && (
         <>
           <p className="text-sm font-montserrat">
@@ -53,17 +56,15 @@ const AuthHeaderSwitch = ({
 
       {type === 'register' && (
         <>
-          <MelodayzMusic />
-          <h3 className="hidden text-base text-foreground/80 font-medium md:block">
-            Crée ton compte et rejoins le groove
-          </h3>
-          <Button
+          <div className="lg:w-[20%] flex justify-start"><MelodayzMusic /></div>
+          <Encouragement step={step ?? 0} dir={dir ?? "prev"} className="hidden lg:block grow my-1" />
+          <div className="lg:w-[20%] flex justify-end"><Button
             onClick={handleClickTab}
             disabled={isPending}
             variant="ghost"
             size="lg"
             className={cn(
-              step && step > 1 && 'pointer-events-none opacity-0',
+              step && step > 1 && 'hidden',
               'rounded-full font-montserrat border border-current/50'
             )}
           >
@@ -71,7 +72,7 @@ const AuthHeaderSwitch = ({
               <Loader className="size-5 lg:size-6 border-foreground" />
             )}
             {isPending ? 'Loading...' : 'Déjà inscrit'}
-          </Button>
+          </Button></div>
         </>
       )}
 

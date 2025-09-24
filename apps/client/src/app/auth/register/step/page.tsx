@@ -37,7 +37,12 @@ export default function StepPage() {
   return (
     <AuthPageWrapper>
       {/* header */}
-      <AuthHeaderSwitch step={step} type="register" href="/auth/login" />
+      <AuthHeaderSwitch
+        step={step}
+        dir={dir}
+        type="register"
+        href="/auth/login"
+      />
       {/* content */}
       <div
         className="flex flex-col justify-center items-center gap-1 
