@@ -1,16 +1,21 @@
 import { type BaseProps } from '@/types/base.interface';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, type MotionProps } from 'motion/react';
 import { Tagline } from '../branding/tagline';
 
-const StepCardWrapper = ({ children, key }: BaseProps & { key: string }) => {
+const StepCardWrapper = ({
+  key,
+  children,
+  initial,
+  exit,
+}: { key: React.Key } & MotionProps) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={key}
         className="w-full"
-        initial={{ x: -100, opacity: 0 }}
+        initial={initial}
         animate={{ x: 0, opacity: 1 }}
-        exit={{ x: 100, opacity: 0 }}
+        exit={exit}
         transition={{ type: 'spring', stiffness: 320, damping: 32 }}
       >
         {children}
