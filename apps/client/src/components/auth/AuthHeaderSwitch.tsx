@@ -19,7 +19,7 @@ const AuthHeaderSwitch = ({
 }: {
   href?: string;
   type: 'login' | 'register' | 'back';
-  step?: number;
+  step?: number ;
   dir?: 'prev' | 'next';
 }) => {
   const { isPending, handleClickTab } = useLoadingPath(href);
@@ -57,7 +57,7 @@ const AuthHeaderSwitch = ({
       {type === 'register' && (
         <>
           <div className="lg:w-[20%] flex justify-start"><MelodayzMusic /></div>
-          <Encouragement step={ step && step} dir={dir} className="hidden lg:block grow my-1" />
+          <Encouragement step={step ?? 0} dir={dir} className="hidden lg:block grow my-1" />
           <div className="lg:w-[20%] flex justify-end"><Button
             onClick={handleClickTab}
             disabled={isPending}
