@@ -11,10 +11,11 @@ import {
 import { Input } from '@/components/ui/input';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { type loginFormType } from '@/schemas/login';
+import { type stepFormType } from '@/schemas/register';
 import { Mail } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-import { UseFormReturn, useForm } from 'react-hook-form';
+import { UseFormReturn } from 'react-hook-form';
 import { MelodayzMusic } from '../branding/logo';
 import { Button } from '../ui/button';
 import { AuthCtaButton } from './AuthCtaButton';
@@ -156,15 +157,7 @@ const RegisterCard = () => {
   );
 };
 
-const StepOneCard = () => {
-  const form = useForm({
-    // resolver: zodResolver(loginSchema),
-    defaultValues: {
-      pseudo: '',
-      username: '',
-    },
-  });
-
+const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
       <CardTitle className="text-base text-center text-foreground">
@@ -176,7 +169,7 @@ const StepOneCard = () => {
           <form action="" className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
-              name="pseudo"
+              name="step1.pseudo"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Ton pseudo</FormLabel>
@@ -186,6 +179,7 @@ const StepOneCard = () => {
                       className="py-6"
                       placeholder="VibeQueen"
                       {...field}
+                      {...form.register('step1.pseudo')}
                     />
                   </FormControl>
                   <FormMessage />
@@ -194,7 +188,7 @@ const StepOneCard = () => {
             ></FormField>
             <FormField
               control={form.control}
-              name="username"
+              name="step1.username"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Identifiant unique</FormLabel>
@@ -204,6 +198,7 @@ const StepOneCard = () => {
                       type="text"
                       className="py-6"
                       {...field}
+                      {...form.register('step1.username')}
                     />
                   </FormControl>
                   <FormDescription className="text-xs">
@@ -221,15 +216,7 @@ const StepOneCard = () => {
   );
 };
 
-const StepTwoCard = () => {
-  const form = useForm({
-    // resolver: zodResolver(loginSchema),
-    defaultValues: {
-      newPassword: '',
-      confirmPassword: '',
-    },
-  });
-
+const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
       <CardTitle className="text-base text-center text-foreground">
@@ -241,12 +228,13 @@ const StepTwoCard = () => {
           <form action="" className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
-              name="newPassword"
+              name="step2.newPassword"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Mot de passe</FormLabel>
                   <FormControl>
                     <PasswordInput
+                      {...form.register('step2.newPassword')}
                       autoComplete="new-password"
                       placeholder="Crée ton mot de passe en béton"
                       {...field}
@@ -258,12 +246,13 @@ const StepTwoCard = () => {
             ></FormField>
             <FormField
               control={form.control}
-              name="confirmPassword"
+              name="step2.confirmPassword"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Confirmation</FormLabel>
                   <FormControl>
                     <PasswordInput
+                      {...form.register('step2.confirmPassword')}
                       autoComplete="new-password"
                       placeholder="Confirme ton mot de passe en béton"
                       {...field}
@@ -281,14 +270,7 @@ const StepTwoCard = () => {
   );
 };
 
-const StepThreeCard = () => {
-  const form = useForm({
-    // resolver: zodResolver(loginSchema),
-    defaultValues: {
-      email: '',
-    },
-  });
-
+const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
       <CardTitle className="flex justify-center gap-1 text-base text-foreground">
@@ -300,12 +282,13 @@ const StepThreeCard = () => {
           <form action="" className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
-              name="email"
+              name="step3.email"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Adresse email</FormLabel>
                   <FormControl>
                     <Input
+                      {...form.register('step3.email')}
                       type="email"
                       className="py-6"
                       placeholder="Email associé à ce compte"
