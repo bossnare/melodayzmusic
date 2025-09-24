@@ -3,6 +3,8 @@ import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Progress } from '../ui/progress';
 
+export const totalSteps = 4;
+
 export const StepNavigation = ({
   step,
   setStep,
@@ -14,10 +16,8 @@ export const StepNavigation = ({
   setDir: React.Dispatch<React.SetStateAction<'prev' | 'next'>>;
   dir: 'prev' | 'next';
 }) => {
-  const totalSteps = 4;
-
   return (
-    <nav className="flex flex-col items-center justify-center gap-0 pb-2">
+    <nav className="flex flex-col items-center justify-center gap-0 pb-3 lg:gap-2">
       <h3 className="mb-4 text-base text-foreground/80 font-medium md:hidden">
         Crée ton compte et rejoins le groove
       </h3>
@@ -34,7 +34,7 @@ export const StepNavigation = ({
           }}
           className={cn(
             step <= 1 && 'opacity-0 pointer-events-none',
-            'text-muted-foreground hover:text-foreground p-3'
+            'text-muted-foreground hover:text-foreground p-3 lg:hidden'
           )}
         >
           <ChevronLeft className="size-8" />
@@ -48,7 +48,7 @@ export const StepNavigation = ({
           }}
           className={cn(
             step >= totalSteps && 'opacity-0 pointer-events-none',
-            'text-muted-foreground hover:text-foreground p-3'
+            'text-muted-foreground hover:text-foreground p-3 lg:hidden'
           )}
         >
           <ChevronRight className="size-8" />

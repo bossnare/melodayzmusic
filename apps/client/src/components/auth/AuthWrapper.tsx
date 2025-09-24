@@ -12,7 +12,7 @@ const StepCardWrapper = ({
     <AnimatePresence mode="wait">
       <motion.div
         key={key}
-        className="w-full"
+        className={`w-full`}
         initial={initial}
         animate={{ x: 0, opacity: 1 }}
         exit={exit}
