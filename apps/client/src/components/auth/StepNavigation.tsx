@@ -1,7 +1,7 @@
 import { MotionButton } from '@/components/motions/motionButton';
+import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Progress } from '../ui/progress';
-import { cn } from '@/lib/utils';
 
 export const StepNavigation = ({
   step,

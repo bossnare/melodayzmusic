@@ -10,18 +10,18 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
+import { type loginFormType } from '@/schemas/login';
+import { Mail } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
+import { UseFormReturn, useForm } from 'react-hook-form';
 import { MelodayzMusic } from '../branding/logo';
+import { Button } from '../ui/button';
 import { AuthCtaButton } from './AuthCtaButton';
 import { StepCardWrapper } from './AuthWrapper';
 import { Divide } from './Divide';
 import { PasswordInput } from './PasswordInput';
 import { Provider } from './Provider';
-import { Button } from '../ui/button';
-import { Mail } from 'lucide-react';
-import { UseFormReturn, useForm } from 'react-hook-form';
-import { type loginFormType } from '@/schemas/login';
 
 function LoginCard({
   form,
@@ -45,12 +45,12 @@ function LoginCard({
           exit={{ y: -100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
-          <Card className="p-4 space-y-4 md:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card/80 via-card/10 to-card backdrop-blur-sm">
+          <Card className="p-3 space-y-4 md:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card/80 via-card/10 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
             {/* Form Content */}
-            <CardContent className="flex flex-col gap-3 p-1 md:gap-10 md:flex-row">
+            <CardContent className="flex flex-col gap-4 p-1 md:gap-10 md:flex-row">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(handleLogin)}
@@ -330,4 +330,4 @@ const StepThreeCard = () => {
   );
 };
 
-export { LoginCard, RegisterCard, StepOneCard, StepTwoCard, StepThreeCard };
+export { LoginCard, RegisterCard, StepOneCard, StepThreeCard, StepTwoCard };

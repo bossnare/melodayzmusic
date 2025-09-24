@@ -27,7 +27,7 @@ const StepCardWrapper = ({
 const AuthPageWrapper = ({ children }: BaseProps) => {
   return (
     <section
-      className="relative flex flex-col items-center justify-between gap-2 px-4 bg-gradient-to-br pb-[2rem] dark:from-primary/8 
+      className="relative flex flex-col items-center justify-between gap-2 px-2 lg:px-4 bg-gradient-to-br pb-[2rem] dark:from-primary/8 
     via-transparent dark:to-ring/8 from-primary/25 to-ring/20 md:h-screen h-dvh md:pb-4"
     >
       {children}
