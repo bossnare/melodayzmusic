@@ -2,8 +2,38 @@ import { MotionButton } from '@/components/motions/motionButton';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Progress } from '../ui/progress';
+import { StepCardWrapper } from './AuthWrapper';
 
 export const totalSteps = 4;
+export const encouragements = [
+  'Crée ton compte et rejoins le groove',
+  'Trop bien, on continue',
+  'Encore un petit effort',
+  'Tu y es presque',
+];
+
+export function Encouragement({
+  step,
+  dir,
+  className
+}: {
+  step: number;
+  dir: 'prev' | 'next';
+  className: string
+}) {
+  return (
+    <StepCardWrapper
+      key={step}
+      initial={{ x: dir === 'prev' ? 100 : -100, opacity: 0 }}
+      exit={{ x: dir === 'prev' ? -100 : 100, opacity: 0 }}
+      className="!w-auto"
+    >
+      <h3 className={cn("mb-4 text-base text-foreground/80 font-medium", className)}>
+        {encouragements[step - 1]}
+      </h3>
+    </StepCardWrapper>
+  );
+}
 
 export const StepNavigation = ({
   step,
@@ -18,9 +48,7 @@ export const StepNavigation = ({
 }) => {
   return (
     <nav className="flex flex-col items-center justify-center gap-0 pb-3 lg:gap-2">
-      <h3 className="mb-4 text-base text-foreground/80 font-medium md:hidden">
-        Crée ton compte et rejoins le groove
-      </h3>
+      <Encouragement step={step} dir={dir} className="lg:hidden" />
       <span>
         {step}/{totalSteps}
       </span>

@@ -7,12 +7,13 @@ const StepCardWrapper = ({
   children,
   initial,
   exit,
-}: { key: React.Key } & MotionProps) => {
+  className,
+}: { key: React.Key; className?: string } & MotionProps) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={key}
-        className={`w-full`}
+        className={`w-full ${className}`}
         initial={initial}
         animate={{ x: 0, opacity: 1 }}
         exit={exit}
