@@ -57,7 +57,7 @@ const AuthHeaderSwitch = ({
       {type === 'register' && (
         <>
           <MelodayzMusic />
-          <Encouragement step={step ?? 0} dir={dir ?? "prev"} className="hidden lg:block lg:w-[60%] my-1 " />
+          <Encouragement step={step ?? 0} dir={dir ?? "prev"} className="hidden scale-0 lg:scale-100 lg:block lg:!w-[60%] my-1 " />
           <Button
             onClick={handleClickTab}
             disabled={isPending}
