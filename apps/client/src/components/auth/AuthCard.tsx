@@ -123,8 +123,12 @@ const RegisterCard = () => {
   const { isPending, handleClickTab } = useLoadingPath('/auth/register/step');
 
   return (
-    <StepCardWrapper key="createWithChoice">
-      <h3 className="mb-2 text-base font-semibold py-4 text-center text-foreground/80">
+    <StepCardWrapper
+      key="createWithChoice"
+      initial={{ x: -100, opacity: 0 }}
+      exit={{ x: 100, opacity: 0 }}
+    >
+      <h3 className="mb-2 text-base font-medium py-4 text-center text-foreground/80">
         Choisis ta façon de t&apos;inscrire
       </h3>
       <Card className="p-4 bg-gradient-to-b lg:bg-gradient-to-br from-card/40 dark:via-card/10 via-transparent to-card/80 dark:lg:to-card/60 dark:to-card/40 backdrop-blur-sm md:p-8">
@@ -162,60 +166,58 @@ const StepOneCard = () => {
   });
 
   return (
-    <StepCardWrapper key="step1">
-      <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
-        <CardTitle className="text-base text-center text-foreground">
-          Crée ton identité
-        </CardTitle>
-        {/* Form Content */}
-        <CardContent className="flex flex-col p-1 md:flex-row">
-          <Form {...form}>
-            <form action="" className="flex flex-col flex-1 gap-4">
-              <FormField
-                control={form.control}
-                name="pseudo"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Ton pseudo</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="text"
-                        className="py-6"
-                        placeholder="VibeQueen"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              ></FormField>
-              <FormField
-                control={form.control}
-                name="username"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Identifiant unique</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="@vibequeen848"
-                        type="text"
-                        className="py-6"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription className="text-xs">
-                      Ton identifiant sera visible par tous.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              ></FormField>
-              <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
-    </StepCardWrapper>
+    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
+      <CardTitle className="text-base text-center text-foreground">
+        Crée ton identité
+      </CardTitle>
+      {/* Form Content */}
+      <CardContent className="flex flex-col p-1 md:flex-row">
+        <Form {...form}>
+          <form action="" className="flex flex-col flex-1 gap-4">
+            <FormField
+              control={form.control}
+              name="pseudo"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Ton pseudo</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="text"
+                      className="py-6"
+                      placeholder="VibeQueen"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Identifiant unique</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="@vibequeen848"
+                      type="text"
+                      className="py-6"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription className="text-xs">
+                    Ton identifiant sera visible par tous.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+          </form>
+        </Form>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -229,53 +231,51 @@ const StepTwoCard = () => {
   });
 
   return (
-    <StepCardWrapper key="step2">
-      <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
-        <CardTitle className="text-base text-center text-foreground">
-          Un mot de passe qui suit ton rythme
-        </CardTitle>
-        {/* Form Content */}
-        <CardContent className="flex flex-col p-1 md:flex-row">
-          <Form {...form}>
-            <form action="" className="flex flex-col flex-1 gap-4">
-              <FormField
-                control={form.control}
-                name="newPassword"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Mot de passe</FormLabel>
-                    <FormControl>
-                      <PasswordInput
-                        placeholder="Crée ton mot de passe en béton"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              ></FormField>
-              <FormField
-                control={form.control}
-                name="confirmPassword"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Confirmation</FormLabel>
-                    <FormControl>
-                      <PasswordInput
-                        placeholder="Confirme ton mot de passe en béton"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              ></FormField>
-              <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
-    </StepCardWrapper>
+    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
+      <CardTitle className="text-base text-center text-foreground">
+        Un mot de passe qui suit ton rythme
+      </CardTitle>
+      {/* Form Content */}
+      <CardContent className="flex flex-col p-1 md:flex-row">
+        <Form {...form}>
+          <form action="" className="flex flex-col flex-1 gap-4">
+            <FormField
+              control={form.control}
+              name="newPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Mot de passe</FormLabel>
+                  <FormControl>
+                    <PasswordInput
+                      placeholder="Crée ton mot de passe en béton"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+            <FormField
+              control={form.control}
+              name="confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Confirmation</FormLabel>
+                  <FormControl>
+                    <PasswordInput
+                      placeholder="Confirme ton mot de passe en béton"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+          </form>
+        </Form>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -288,45 +288,43 @@ const StepThreeCard = () => {
   });
 
   return (
-    <StepCardWrapper key="step3">
-      <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
-        <CardTitle className="flex justify-center gap-1 text-base text-foreground">
-          Ton email, ton VIP <Mail />
-        </CardTitle>
-        {/* Form Content */}
-        <CardContent className="flex flex-col p-1 md:flex-row">
-          <Form {...form}>
-            <form action="" className="flex flex-col flex-1 gap-4">
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Adresse email</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="email"
-                        className="py-6"
-                        placeholder="Email associé à ce compte"
-                        spellCheck="false"
-                        autoCorrect="off"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription className="text-xs">
-                      Ton email nous permet de sécuriser ton compte et de
-                      t&apos;identifier facilement.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              ></FormField>
-              <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
-    </StepCardWrapper>
+    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
+      <CardTitle className="flex justify-center gap-1 text-base text-foreground">
+        Ton email, ton VIP <Mail />
+      </CardTitle>
+      {/* Form Content */}
+      <CardContent className="flex flex-col p-1 md:flex-row">
+        <Form {...form}>
+          <form action="" className="flex flex-col flex-1 gap-4">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Adresse email</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="email"
+                      className="py-6"
+                      placeholder="Email associé à ce compte"
+                      spellCheck="false"
+                      autoCorrect="off"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription className="text-xs">
+                    Ton email nous permet de sécuriser ton compte et de
+                    t&apos;identifier facilement.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+          </form>
+        </Form>
+      </CardContent>
+    </Card>
   );
 };
 

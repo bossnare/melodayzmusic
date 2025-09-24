@@ -54,7 +54,7 @@ const AuthHeaderSwitch = ({
       {type === 'register' && (
         <>
           <MelodayzMusic />
-          <h3 className="hidden text-base text-foreground/80 font-semibold md:block">
+          <h3 className="hidden text-base text-foreground/80 font-medium md:block">
             Crée ton compte et rejoins le groove
           </h3>
           <Button
