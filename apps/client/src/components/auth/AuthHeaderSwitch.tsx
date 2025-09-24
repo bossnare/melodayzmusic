@@ -56,9 +56,9 @@ const AuthHeaderSwitch = ({
 
       {type === 'register' && (
         <>
-          <div className="w-auto lg:w-[20%] lg:flex justify-start"><MelodayzMusic /></div>
+          <span className="lg:w-[20%] lg:flex justify-start"><MelodayzMusic /></span>
           <Encouragement step={step ?? 0} dir={dir ?? "prev"} className="hidden lg:block grow my-1" />
-          <div className="w-auto lg:w-[20%] lg:flex justify-end"><Button
+          <span className="lg:w-[20%] lg:flex justify-end"><Button
             onClick={handleClickTab}
             disabled={isPending}
             variant="ghost"
@@ -72,7 +72,7 @@ const AuthHeaderSwitch = ({
               <Loader className="size-5 lg:size-6 border-foreground" />
             )}
             {isPending ? 'Loading...' : 'Déjà inscrit'}
-          </Button></div>
+          </Button></span>
         </>
       )}
 
