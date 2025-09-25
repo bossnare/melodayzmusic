@@ -19,14 +19,18 @@ const AuthHeaderSwitch = ({
 }: {
   href?: string;
   type: 'login' | 'register' | 'back';
-  step?: number ;
+  step?: number;
   dir?: 'prev' | 'next';
 }) => {
   const { isPending, handleClickTab } = useLoadingPath(href);
   const router = useRouter();
 
   return (
-    <nav className={cn("flex items-center justify-between w-full gap-12 lg:gap-0 py-2")}>
+    <nav
+      className={cn(
+        'flex items-center justify-between w-full gap-12 lg:gap-0 py-2'
+      )}
+    >
       {type === 'login' && (
         <>
           <p className="text-sm font-montserrat">
@@ -56,23 +60,31 @@ const AuthHeaderSwitch = ({
 
       {type === 'register' && (
         <>
-          <MelodayzMusic />
-          <Encouragement step={step ?? 0} dir={dir ?? "prev"} className="hidden scale-0 lg:scale-100 lg:block lg:!w-[60%] my-1 " />
-          <Button
-            onClick={handleClickTab}
-            disabled={isPending}
-            variant="ghost"
-            size="lg"
-            className={cn(
-              step && step > 1 && 'hidden',
-              'rounded-full font-montserrat border border-current/50'
-            )}
-          >
-            {isPending && (
-              <Loader className="size-5 lg:size-6 border-foreground" />
-            )}
-            {isPending ? 'Loading...' : 'Déjà inscrit'}
-          </Button>
+          <div className="lg:w-[20%] lg:flex justify-start">
+            <MelodayzMusic />
+          </div>
+          <Encouragement
+            step={step ?? 0}
+            dir={dir ?? 'prev'}
+            className="hidden lg:block"
+          />
+          <div className="lg:w-[20%] lg:flex justify-end">
+            <Button
+              onClick={handleClickTab}
+              disabled={isPending}
+              variant="ghost"
+              size="lg"
+              className={cn(
+                step && step > 1 && 'hidden',
+                'rounded-full font-montserrat border border-current/50'
+              )}
+            >
+              {isPending && (
+                <Loader className="size-5 lg:size-6 border-foreground" />
+              )}
+              {isPending ? 'Loading...' : 'Déjà inscrit'}
+            </Button>
+          </div>
         </>
       )}
 
