@@ -28,7 +28,7 @@ const AuthHeaderSwitch = ({
   return (
     <nav
       className={cn(
-        'flex items-center justify-between w-full gap-12 lg:gap-0 py-2'
+        'flex items-center justify-between w-full gap-12 lg:gap-0 py-[6px] lg:py-2'
       )}
     >
       {type === 'login' && (
