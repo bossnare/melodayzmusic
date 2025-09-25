@@ -75,7 +75,7 @@ const AuthHeaderSwitch = ({
               variant="ghost"
               size="lg"
               className={cn(
-                step && step > 1 && 'hidden',
+                step && step > 1 && 'opacity-0 pointer-events-none',
                 'rounded-full font-montserrat border border-current/50'
               )}
             >
