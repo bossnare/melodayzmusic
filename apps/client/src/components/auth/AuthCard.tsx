@@ -274,7 +274,7 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
       <CardTitle className="flex justify-center gap-1 text-base text-foreground">
-        Ton email, ton VIP <Mail />
+        Ton email, ton pass VIP <Mail />
       </CardTitle>
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
@@ -291,15 +291,14 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                       {...form.register('step3.email')}
                       type="email"
                       className="py-6"
-                      placeholder="Email associé à ce compte"
+                      placeholder="Entre ton email magique ✨"
                       spellCheck="false"
                       autoCorrect="off"
                       {...field}
                     />
                   </FormControl>
                   <FormDescription className="text-xs">
-                    Ton email nous permet de sécuriser ton compte et de
-                    t&apos;identifier facilement.
+                    Ton email sécurise ton compte et t&apos;identifie facilement.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
