@@ -15,20 +15,20 @@ export const encouragements = [
 export function Encouragement({
   step,
   dir,
-  className
+  className,
 }: {
   step: number;
   dir: 'prev' | 'next';
-  className: string
+  className?: string;
 }) {
   return (
     <StepCardWrapper
       key={step}
       initial={{ x: dir === 'prev' ? 100 : -100, opacity: 0 }}
       exit={{ x: dir === 'prev' ? -100 : 100, opacity: 0 }}
-      className="!w-auto"
+      className={cn('!w-auto', className)}
     >
-      <h3 className={cn("mb-4 text-base text-foreground/80 font-medium", className)}>
+      <h3 className="text-base text-foreground/80 font-medium">
         {encouragements[step - 1]}
       </h3>
     </StepCardWrapper>
@@ -48,7 +48,7 @@ export const StepNavigation = ({
 }) => {
   return (
     <nav className="flex flex-col items-center justify-center gap-0 pb-3 lg:gap-2">
-      <Encouragement step={step} dir={dir} className="lg:hidden" />
+      <Encouragement step={step} dir={dir} className="lg:hidden mb-4" />
       <span>
         {step}/{totalSteps}
       </span>
