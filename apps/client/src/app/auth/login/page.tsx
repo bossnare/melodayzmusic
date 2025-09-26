@@ -38,11 +38,24 @@ export default function LoginPage() {
         });
       } else {
         form.setError('root', {
+          type: "manual",
           message: 'Identifiants invalides, Erreur serveur.',
         });
       }
     } catch (e) {
       console.log(e);
+  const res = err.response?.data
+
+  // ohatra raha manampy field ao backend ianao
+  if (res.type === "email") {
+    form.setError("email", { type: "manual", message: res.message })
+  }
+  else if (res.type === "password") {
+    form.setError("password", { type: "manual", message: res.message })
+  }
+  else {
+    form.setError("root", { type: "manual", message: res.message })
+  }
     } finally {
       setIsPending(false);
     }
