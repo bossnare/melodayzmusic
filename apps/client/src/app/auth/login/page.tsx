@@ -3,12 +3,12 @@
 import { LoginCard } from '@/components/auth/AuthCard';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
+import api from '@/libs/api';
 import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
-import api from '@/libs/api';
+import { useForm } from 'react-hook-form';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
