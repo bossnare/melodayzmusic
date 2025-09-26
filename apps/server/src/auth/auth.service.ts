@@ -64,10 +64,17 @@ export class AuthService {
     });
 
     if (!user)
-      throw new ForbiddenException("Access denied, account doesn't exist");
+      throw new ForbiddenException({
+        type: 'account',
+        message: "Access denied, account doesn't exist",
+      });
 
     const pwMatches = await argon2.verify(user.password, loginDto.password);
-    if (!pwMatches) throw new ForbiddenException('Invalid password');
+    if (!pwMatches)
+      throw new ForbiddenException({
+        type: 'password',
+        message: 'Invalid password',
+      });
     // create user jwt token
     // if use cookies
     // return this.signToken(user.id, user.email, user.username, user.role);

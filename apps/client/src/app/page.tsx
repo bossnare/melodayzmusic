@@ -32,7 +32,7 @@ export default function Page() {
         </p>
         <Button
           disabled={isPending}
-          className="min-w-20 font-montserrat bg-premium"
+          className="min-w-30 w-20 font-montserrat bg-premium"
           onClick={handleClickTab}
           size="lg"
         >
