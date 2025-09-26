@@ -29,18 +29,34 @@ export default function LoginPage() {
     try {
       setIsPending(true);
       const res = await api.post('/auth/login', credentials);
-      if (res.data.success) {
-        // store token
-        localStorage.setItem('access_token', res.data.access_token);
-        // redirect to dashboard
-        startTransition(() => {
-          router.replace('/dashboard');
-        });
-      } else {
-        form.setError('root', {
-          message: 'Identifiants invalides, Erreur serveur.',
+      const { status, data } = res;
+      console.log(status);
+      // if (res.data.success) {
+      //   // store token
+      //   localStorage.setItem('access_token', res.data.access_token);
+      //   // redirect to dashboard
+      //   startTransition(() => {
+      //     router.replace('/dashboard');
+      //   });
+      // } else {
+      //   form.setError('root', {
+      //     type: 'manual',
+      //     message: 'Identifiants invalides, Erreur serveur.',
+      //   });
+      // }
+
+      if (res.data.type === 'account') {
+        form.setError('email', {
+          type: 'manual',
+          message:
+            "Oups ! Cette adresse e-mail n'existe pas ou est mal saisie.",
         });
       }
+      if (res.data.type === 'password')
+        form.setError('password', {
+          type: 'manual',
+          message: 'Le mot de passe est incorrect. Veuillez réessayer.',
+        });
     } catch (e) {
       console.log(e);
     } finally {
