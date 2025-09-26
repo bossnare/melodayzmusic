@@ -12,18 +12,10 @@ export default function AuthGuardLanding({ children }: BaseProps) {
 
   useEffect(() => {
     const token = localStorage.getItem('access_token');
-    const visits = parseInt(localStorage.getItem('visit_count') || '0', 10) + 1;
     const isAuth = token && isValidToken(token);
-
-    localStorage.setItem('visit_count', visits.toString());
 
     if (isAuth) {
       router.replace('/dashboard');
-      return;
-    }
-
-    if (visits >= 3) {
-      router.replace('/auth/login');
       return;
     }
 
