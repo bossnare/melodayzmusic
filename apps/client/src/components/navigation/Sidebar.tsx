@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { cn } from '@/lib/utils';
 import { Loader } from '../motions/Loader';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 
 export const Sidebar = () => {
   const router = useRouter();
@@ -114,37 +114,35 @@ export const Sidebar = () => {
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
-                <AnimatePresence>
-                  <motion.div
-                    key={'logout'}
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -50, opacity: 0 }}
-                    transition={{ type: 'spring', stiffness: 500, damping: 50 }}
-                    className="space-y-4"
-                  >
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
-                        Confirmation de déconnexion
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        Tu vas couper le son et clore ta session, prêt(e) à te
-                        déconnecter du groove ?
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel className="font-montserrat">
-                        Annuler
-                      </AlertDialogCancel>
-                      <AlertDialogAction
-                        className="font-montserrat"
-                        onClick={logout}
-                      >
-                        Oui, quitter
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </motion.div>
-                </AnimatePresence>
+                <motion.div
+                  key={'logout'}
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -50, opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 50 }}
+                  className="space-y-4"
+                >
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      Confirmation de déconnexion
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Tu vas couper le son et clore ta session, prêt(e) à te
+                      déconnecter du groove ?
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel className="font-montserrat">
+                      Annuler
+                    </AlertDialogCancel>
+                    <AlertDialogAction
+                      className="font-montserrat"
+                      onClick={logout}
+                    >
+                      Oui, quitter
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </motion.div>
               </AlertDialogContent>
             </AlertDialog>
           </SheetFooter>
