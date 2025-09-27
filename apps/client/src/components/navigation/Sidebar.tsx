@@ -113,38 +113,36 @@ export const Sidebar = () => {
                   <LogOut /> Quitter l&apos;espace
                 </Button>
               </AlertDialogTrigger>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={'logout'}
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -50, opacity: 0 }}
-                  transition={{ type: 'spring', stiffness: 500, damping: 50 }}
-                >
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
-                        Confirmation de déconnexion
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        Tu vas couper le son et clore ta session, prêt(e) à te
-                        déconnecter du groove ?
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel className="font-montserrat">
-                        Annuler
-                      </AlertDialogCancel>
-                      <AlertDialogAction
-                        className="font-montserrat"
-                        onClick={logout}
-                      >
-                        Oui, quitter
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </motion.div>
-              </AnimatePresence>
+              <motion.div
+                key={'logout'}
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -50, opacity: 0 }}
+                transition={{ type: 'spring', stiffness: 500, damping: 50 }}
+              >
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      Confirmation de déconnexion
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Tu vas couper le son et clore ta session, prêt(e) à te
+                      déconnecter du groove ?
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel className="font-montserrat">
+                      Annuler
+                    </AlertDialogCancel>
+                    <AlertDialogAction
+                      className="font-montserrat"
+                      onClick={logout}
+                    >
+                      Oui, quitter
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </motion.div>
             </AlertDialog>
           </SheetFooter>
         </SheetContent>
