@@ -63,7 +63,7 @@ export default function LoginPage() {
       <AuthHeaderSwitch href="/auth/register" type="login" />
       {/* dialog for account */}
       <DialogCloseButton
-        open={isErrorCredentials}
+        open={true}
         onOpenChange={() => setIsErrorCredentials(false)}
         title="Identifiants invalides"
         description="Oups ! La combinaison email et mot se passe est incorrecte. Vérifie et réessaye."
