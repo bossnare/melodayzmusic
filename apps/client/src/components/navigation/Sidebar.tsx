@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { cn } from '@/lib/utils';
 import { Loader } from '../motions/Loader';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 
 export const Sidebar = () => {
   const router = useRouter();
@@ -113,14 +113,15 @@ export const Sidebar = () => {
                   <LogOut /> Quitter l&apos;espace
                 </Button>
               </AlertDialogTrigger>
-              <motion.div
-                key={'logout'}
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -50, opacity: 0 }}
-                transition={{ type: 'spring', stiffness: 500, damping: 50 }}
-              >
-                <AlertDialogContent>
+              <AlertDialogContent>
+                <motion.div
+                  key={'logout'}
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -50, opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 50 }}
+                  className="space-y-4"
+                >
                   <AlertDialogHeader>
                     <AlertDialogTitle>
                       Confirmation de déconnexion
@@ -141,8 +142,8 @@ export const Sidebar = () => {
                       Oui, quitter
                     </AlertDialogAction>
                   </AlertDialogFooter>
-                </AlertDialogContent>
-              </motion.div>
+                </motion.div>
+              </AlertDialogContent>
             </AlertDialog>
           </SheetFooter>
         </SheetContent>
