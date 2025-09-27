@@ -125,8 +125,13 @@ export const Sidebar = () => {
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Annuler</AlertDialogCancel>
-                  <AlertDialogAction onClick={logout}>
+                  <AlertDialogCancel className="font-montserrat">
+                    Annuler
+                  </AlertDialogCancel>
+                  <AlertDialogAction
+                    className="font-montserrat"
+                    onClick={logout}
+                  >
                     Oui, quitter
                   </AlertDialogAction>
                 </AlertDialogFooter>
