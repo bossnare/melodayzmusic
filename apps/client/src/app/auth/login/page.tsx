@@ -52,7 +52,6 @@ export default function LoginPage() {
           message: 'Le mot de passe est incorrect. Veuillez réessayer.',
         });
     } catch (e: unknown) {
-      toast({title: e.message });
       console.log(e);
     } finally {
       setIsPending(false);
