@@ -94,7 +94,7 @@ function LoginCard({
                   <AuthCtaButton isPending={isPending} className="rounded-full">
                     Se connecter
                   </AuthCtaButton>
-                  <div className="mx-auto lg:mx-0">
+                  <div className="mx-auto md:mx-0">
                     <Button
                       type="button"
                       variant="link"
@@ -298,7 +298,8 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                     />
                   </FormControl>
                   <FormDescription className="text-xs">
-                    Ton email sécurise ton compte et t&apos;identifie facilement.
+                    Ton email sécurise ton compte et t&apos;identifie
+                    facilement.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
