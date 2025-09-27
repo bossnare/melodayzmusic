@@ -118,10 +118,8 @@ export const Sidebar = () => {
                     Confirmation de déconnexion
                   </AlertDialogTitle>
                   <AlertDialogDescription>
-                    Tu vas couper le son et clore ta session
-                  </AlertDialogDescription>
-                  <AlertDialogDescription>
-                    prêt(e) à te déconnecter du groove ?
+                    Tu vas couper le son et clore ta session, prêt(e) à te
+                    déconnecter du groove ?
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
