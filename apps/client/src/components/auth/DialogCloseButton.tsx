@@ -35,7 +35,11 @@ export function DialogCloseButton({
         </DialogHeader>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
-            <Button type="button" variant="secondary">
+            <Button
+              className="font-montserrat"
+              type="button"
+              variant="secondary"
+            >
               {close}
             </Button>
           </DialogClose>
