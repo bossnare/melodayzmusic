@@ -14,8 +14,8 @@ import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
-  const [isErrorAccount, setIsErrorAccount] = useState(false);
-  const [isErrorPassword, setIsErrorPassword] = useState(false);
+  const [isErrorCredentials, setIsErrorCredentials] = useState(false);
+  // const [isErrorPassword, setIsErrorPassword] = useState(false);
 
   const [isLoading, startTransition] = useTransition();
   const loading = isPending || isLoading;
@@ -44,13 +44,13 @@ export default function LoginPage() {
     } catch (error) {
       if (error instanceof AxiosError) {
         const res = error.response?.data;
-        if (res?.type === 'account') {
-          setIsErrorAccount(true);
+        if (res?.type === 'account' || res?.type === 'password') {
+          setIsErrorCredentials(true);
         }
 
-        if (res?.type === 'password') {
-          setIsErrorPassword(true);
-        }
+        // if (res?.type === 'password') {
+        //   setIsErrorPassword(true);
+        // }
       }
     } finally {
       setIsPending(false);
@@ -63,20 +63,20 @@ export default function LoginPage() {
       <AuthHeaderSwitch href="/auth/register" type="login" />
       {/* dialog for account */}
       <DialogCloseButton
-        open={isErrorAccount}
-        onOpenChange={() => setIsErrorAccount(false)}
-        title="Erreur email"
-        description="Oups ! Cette adresse e-mail n'existe pas ou est mal saisie."
+        open={isErrorCredentials}
+        onOpenChange={() => setIsErrorCredentials(false)}
+        title="Identifiants invalides"
+        description="Oups ! La combinaison email et mot se passe est incorrecte. Vérifie et réessaye."
         close="D'accord"
       />
       {/* password dialog */}
-      <DialogCloseButton
+      {/* <DialogCloseButton
         open={isErrorPassword}
         onOpenChange={() => setIsErrorPassword(false)}
         title="Erreur mot de passe"
         description="Le mot de passe est incorrect. Veuillez réessayer."
         close="D'accord"
-      />
+      /> */}
       {/* card */}
       <LoginCard form={form} isPending={loading} handleLogin={handleLogin} />
     </AuthPageWrapper>
