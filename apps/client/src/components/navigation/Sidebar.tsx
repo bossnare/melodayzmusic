@@ -104,23 +104,23 @@ export const Sidebar = () => {
             </figure>
           </SheetDescription>
           <SheetFooter>
-            <motion.div
-              key={'logout'}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 500, damping: 50 }}
-            >
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="hover:!text-inherit lg:hover:text-primary active:!text-primary active:bg-muted"
-                  >
-                    <LogOut /> Quitter l&apos;espace
-                  </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="hover:!text-inherit lg:hover:text-primary active:!text-primary active:bg-muted"
+                >
+                  <LogOut /> Quitter l&apos;espace
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <motion.div
+                  key={'logout'}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 50 }}
+                >
                   <AlertDialogHeader>
                     <AlertDialogTitle>
                       Confirmation de déconnexion
@@ -141,9 +141,9 @@ export const Sidebar = () => {
                       Oui, quitter
                     </AlertDialogAction>
                   </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
-            </motion.div>
+                </motion.div>
+              </AlertDialogContent>
+            </AlertDialog>
           </SheetFooter>
         </SheetContent>
 
