@@ -75,6 +75,13 @@ export class AuthService {
         type: 'password',
         message: 'Invalid password',
       });
+
+    if (!user && !pwMatches) {
+      throw new ForbiddenException({
+        type: 'generic',
+        message: 'Invalid credentials, email and password',
+      });
+    }
     // create user jwt token
     // if use cookies
     // return this.signToken(user.id, user.email, user.username, user.role);
