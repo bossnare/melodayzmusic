@@ -6,6 +6,7 @@ import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
 import api from '@/libs/api';
 import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
@@ -38,21 +39,24 @@ export default function LoginPage() {
           router.replace('/dashboard');
         });
       }
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        const res = error.response?.data;
+        if (res.type === 'account') {
+          form.setError('email', {
+            type: 'manual',
+            message:
+              "Oups ! Cette adresse e-mail n'existe pas ou est mal saisie.",
+          });
+        }
 
-      if (res.data.type === 'account') {
-        form.setError('email', {
-          type: 'manual',
-          message:
-            "Oups ! Cette adresse e-mail n'existe pas ou est mal saisie.",
-        });
+        if (res.type === 'password') {
+          form.setError('password', {
+            type: 'manual',
+            message: 'Le mot de passe est incorrect. Veuillez réessayer.',
+          });
+        }
       }
-      if (res.data.type === 'password')
-        form.setError('password', {
-          type: 'manual',
-          message: 'Le mot de passe est incorrect. Veuillez réessayer.',
-        });
-    } catch (e: unknown) {
-      console.log(e);
     } finally {
       setIsPending(false);
     }
