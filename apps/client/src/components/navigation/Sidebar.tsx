@@ -113,14 +113,14 @@ export const Sidebar = () => {
                   <LogOut /> Quitter l&apos;espace
                 </Button>
               </AlertDialogTrigger>
-              <AlertDialogContent>
-                <motion.div
-                  key={'logout'}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ type: 'spring', stiffness: 500, damping: 50 }}
-                >
+              <motion.div
+                key={'logout'}
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -50, opacity: 0 }}
+                transition={{ type: 'spring', stiffness: 500, damping: 50 }}
+              >
+                <AlertDialogContent>
                   <AlertDialogHeader>
                     <AlertDialogTitle>
                       Confirmation de déconnexion
@@ -141,8 +141,8 @@ export const Sidebar = () => {
                       Oui, quitter
                     </AlertDialogAction>
                   </AlertDialogFooter>
-                </motion.div>
-              </AlertDialogContent>
+                </AlertDialogContent>
+              </motion.div>
             </AlertDialog>
           </SheetFooter>
         </SheetContent>
