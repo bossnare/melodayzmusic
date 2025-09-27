@@ -42,7 +42,7 @@ export default function LoginPage() {
     } catch (error) {
       if (error instanceof AxiosError) {
         const res = error.response?.data;
-        if (res.type === 'account') {
+        if (res?.type === 'account') {
           form.setError('email', {
             type: 'manual',
             message:
@@ -50,7 +50,7 @@ export default function LoginPage() {
           });
         }
 
-        if (res.type === 'password') {
+        if (res?.type === 'password') {
           form.setError('password', {
             type: 'manual',
             message: 'Le mot de passe est incorrect. Veuillez réessayer.',
