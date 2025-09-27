@@ -4,7 +4,7 @@ import { RegisterCard } from '@/components/auth/AuthCard';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 export default function RegisterPage() {
   return (
