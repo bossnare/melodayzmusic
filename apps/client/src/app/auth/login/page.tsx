@@ -10,13 +10,15 @@ import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
+import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
+  const [isErrorAccount, setIsErrorAccount] = useState(false);
+  const [isErrorPassword, setIsErrorPassword] = useState(false);
+
   const [isLoading, startTransition] = useTransition();
   const loading = isPending || isLoading;
-
   const router = useRouter();
 
   const form = useForm({
@@ -43,18 +45,11 @@ export default function LoginPage() {
       if (error instanceof AxiosError) {
         const res = error.response?.data;
         if (res?.type === 'account') {
-          form.setError('email', {
-            type: 'manual',
-            message:
-              "Oups ! Cette adresse e-mail n'existe pas ou est mal saisie.",
-          });
+          setIsErrorAccount(true);
         }
 
         if (res?.type === 'password') {
-          form.setError('password', {
-            type: 'manual',
-            message: 'Le mot de passe est incorrect. Veuillez réessayer.',
-          });
+          setIsErrorPassword(true);
         }
       }
     } finally {
@@ -66,6 +61,22 @@ export default function LoginPage() {
     <AuthPageWrapper>
       {/* Header */}
       <AuthHeaderSwitch href="/auth/register" type="login" />
+      {/* dialog for account */}
+      <DialogCloseButton
+        open={isErrorAccount}
+        onOpenChange={() => setIsErrorAccount(false)}
+        title="Erreur email"
+        description="Oups ! Cette adresse e-mail n'existe pas ou est mal saisie."
+        close="D'accord"
+      />
+      {/* password dialog */}
+      <DialogCloseButton
+        open={isErrorPassword}
+        onOpenChange={() => setIsErrorPassword(false)}
+        title="Erreur mot de passe"
+        description="Le mot de passe est incorrect. Veuillez réessayer."
+        close="D'accord"
+      />
       {/* card */}
       <LoginCard form={form} isPending={loading} handleLogin={handleLogin} />
     </AuthPageWrapper>
