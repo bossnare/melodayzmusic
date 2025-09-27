@@ -1,3 +1,5 @@
+'use client'
+
 import { RegisterCard } from '@/components/auth/AuthCard';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
