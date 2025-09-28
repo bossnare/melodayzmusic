@@ -46,6 +46,7 @@ export default function LoginPage() {
         const res = error.response?.data;
         if (res?.type === 'account' || res?.type === 'password') {
           setIsErrorCredentials(true);
+          if ('vibrate' in navigator) navigator.vibrate([200, 50, 200]);
         }
 
         // if (res?.type === 'password') {
