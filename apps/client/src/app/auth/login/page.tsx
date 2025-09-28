@@ -56,13 +56,13 @@ export default function LoginPage() {
         if (error && !unauthorized) {
           vibrate('medium');
           toast.custom((t) => (
-            <div className="relative flex gap-4 items-center bg-secondary p-4 rounded-md border border-border">
+            <div className="relative flex gap-4 items-center bg-background shadow-lg p-3 rounded-lg border border-border">
               <div className="h-full text-destructive inset-y-0 flex items-center justify-center">
                 <Info />
               </div>
-              <div className="flex flex-col grow text-xs lg:text-sm">
-                <span className="font-medium">Oups!</span>
-                <span>
+              <div className="flex flex-col gap-1 grow">
+                <span className="font-medium text-sm lg:text-base">Oups!</span>
+                <span className="text-xs lg:text-sm">
                   {error.message}
                   {error.code === 'ERR_NETWORK' && ', vérifier votre réseau.'}
                 </span>
@@ -74,7 +74,7 @@ export default function LoginPage() {
                 size="icon"
                 className=""
               >
-                <X />
+                <X className="size-auto" />
               </Button>
             </div>
           ));
