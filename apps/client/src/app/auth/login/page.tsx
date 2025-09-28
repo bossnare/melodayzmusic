@@ -72,7 +72,7 @@ export default function LoginPage() {
                 onClick={() => toast.dismiss(t)}
                 variant="ghost"
                 size="icon"
-                className=""
+                className="hover:text-inherit"
               >
                 <X className="size-auto" />
               </Button>

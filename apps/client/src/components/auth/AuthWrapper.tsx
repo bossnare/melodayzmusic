@@ -33,7 +33,9 @@ const AuthPageWrapper = ({ children }: BaseProps) => {
     >
       {children}
       {/* tag */}
-      <Tagline />
+      <footer className="text-xs text-muted-foreground font-montserrat flex flex-col items-center">
+        <Tagline />
+      </footer>
     </section>
   );
 };
