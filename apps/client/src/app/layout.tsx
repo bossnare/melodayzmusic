@@ -6,6 +6,7 @@ import { Geist, Geist_Mono, Inter, Montserrat } from 'next/font/google';
 import '../styles/globals.css';
 import './custom.css';
 import { ThemeProvider } from '@/components/themes/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -63,6 +64,8 @@ export default function RootLayout({
         >
           {/* <AuthGuard requireAuth={false}> */}
           <ReactQueryProvider>{children}</ReactQueryProvider>
+          {/* toast */}
+          <Toaster position="top-left" />
           {/* </AuthGuard> */}
           <Analytics />
           <SpeedInsights />
