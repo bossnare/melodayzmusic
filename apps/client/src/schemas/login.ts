@@ -3,9 +3,19 @@ import { z } from 'zod';
 export const loginSchema = z.object({
   email: z
     .string()
-    .trim()
     .refine((val) => val.trim() !== '', { message: '' })
-    .email({ message: 'Email invalide.' }),
+    .refine(
+      (data) => {
+        const value = data.trim();
+        const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+        const looksLikeUsername = /^@[a-zA-Z0-9_]{3,20}$/.test(value);
+
+        return looksLikeEmail || looksLikeUsername;
+      },
+      {
+        message: "Email ou nom d'utilisateur(@username) invalide.",
+      }
+    ),
   password: z
     .string()
     .refine((val) => val.trim() !== '', { message: '' })

@@ -33,9 +33,9 @@ const AuthHeaderSwitch = ({
     >
       {type === 'login' && (
         <>
-          <p className="text-sm font-montserrat">
+          <b className="text-sm font-medium font-montserrat">
             Vos vibes n&apos;attendent que vous.
-          </p>
+          </b>
           {!isPending && (
             <div className="hidden lg:block">
               <ModeToggle />
