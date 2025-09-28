@@ -11,6 +11,9 @@ import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
+import { toast } from 'sonner';
+import { X } from 'lucide-react';
+import { vibrate } from '@/utils/vibration';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
@@ -43,10 +46,28 @@ export default function LoginPage() {
       }
     } catch (error) {
       if (error instanceof AxiosError) {
-        const res = error.response?.data;
-        if (res?.type === 'account' || res?.type === 'password') {
+        const res = error.response;
+        console.log(error);
+
+        if (error) {
+          vibrate('medium');
+          toast('Oups!', {
+            description: (
+              <span className="text-destructive">
+                {error.message}
+                {error.code === 'ERR_NETWORK' && ', vérifier votre réseau.'}
+              </span>
+            ),
+            action: {
+              label: <X className="py-1" />,
+              onClick: () => null,
+            },
+          });
+        }
+
+        if (res?.data.type === 'account' || res?.data.type === 'password') {
           setIsErrorCredentials(true);
-          if ('vibrate' in navigator) navigator.vibrate([200, 50, 200]);
+          vibrate('soft');
         }
 
         // if (res?.type === 'password') {
