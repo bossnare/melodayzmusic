@@ -61,8 +61,8 @@ export default function LoginPage() {
                 <Info />
               </div>
               <div className="flex flex-col gap-1 grow">
-                <span className="font-medium text-sm lg:text-base">Oups!</span>
-                <span className="text-xs lg:text-sm">
+                <span className="font-medium text-sm">Oups!</span>
+                <span className="text-sm">
                   {error.message}
                   {error.code === 'ERR_NETWORK' && ', vérifier votre réseau.'}
                 </span>
@@ -74,7 +74,7 @@ export default function LoginPage() {
                 size="icon"
                 className=""
               >
-                <X className="size-auto" />
+                <X className="size-4" />
               </Button>
             </div>
           ));
