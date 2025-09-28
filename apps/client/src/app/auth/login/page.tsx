@@ -49,7 +49,10 @@ export default function LoginPage() {
         const res = error.response;
         console.log(error);
 
-        if (error) {
+        const unauthorized =
+          res?.data.type === 'account' || res?.data.type === 'password';
+
+        if (error && !unauthorized) {
           vibrate('medium');
           toast('Oups!', {
             description: (
@@ -65,7 +68,7 @@ export default function LoginPage() {
           });
         }
 
-        if (res?.data.type === 'account' || res?.data.type === 'password') {
+        if (unauthorized) {
           setIsErrorCredentials(true);
           vibrate('soft');
         }
