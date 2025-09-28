@@ -65,7 +65,7 @@ export default function RootLayout({
           {/* <AuthGuard requireAuth={false}> */}
           <ReactQueryProvider>{children}</ReactQueryProvider>
           {/* toast */}
-          <Toaster position="top-left" />
+          <Toaster richColors position="top-left" />
           {/* </AuthGuard> */}
           <Analytics />
           <SpeedInsights />

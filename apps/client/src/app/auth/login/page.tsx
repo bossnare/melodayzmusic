@@ -12,8 +12,9 @@ import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
 import { toast } from 'sonner';
-import { X } from 'lucide-react';
+import { X, Info } from 'lucide-react';
 import { vibrate } from '@/utils/vibration';
+import { Button } from '@/components/ui/button';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
@@ -54,18 +55,29 @@ export default function LoginPage() {
 
         if (error && !unauthorized) {
           vibrate('medium');
-          toast('Oups!', {
-            description: (
-              <span className="text-destructive">
-                {error.message}
-                {error.code === 'ERR_NETWORK' && ', vérifier votre réseau.'}
-              </span>
-            ),
-            action: {
-              label: <X className="py-1" />,
-              onClick: () => null,
-            },
-          });
+          toast.custom((t) => (
+            <div className="relative flex gap-4 items-center bg-secondary p-4 rounded-md border border-border">
+              <div className="h-full text-destructive inset-y-0 flex items-center justify-center">
+                <Info />
+              </div>
+              <div className="flex flex-col grow text-xs lg:text-sm">
+                <span className="font-medium">Oups!</span>
+                <span>
+                  {error.message}
+                  {error.code === 'ERR_NETWORK' && ', vérifier votre réseau.'}
+                </span>
+              </div>
+
+              <Button
+                onClick={() => toast.dismiss(t)}
+                variant="ghost"
+                size="icon"
+                className=""
+              >
+                <X />
+              </Button>
+            </div>
+          ));
         }
 
         if (unauthorized) {
