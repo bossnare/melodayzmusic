@@ -62,7 +62,7 @@ export default function LoginPage() {
               </span>
             ),
             action: {
-              label: <X className="py-2" />,
+              label: <X className="py-1" />,
               onClick: () => null,
             },
           });
