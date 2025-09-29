@@ -142,7 +142,7 @@ const RegisterCard = () => {
             <AuthCtaButton
               isPending={isPending}
               handleClickTab={handleClickTab}
-              className=""
+              className="rounded-lg"
             >
               Créer avec Email
             </AuthCtaButton>
