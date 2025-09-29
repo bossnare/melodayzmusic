@@ -24,7 +24,7 @@ export const AuthCtaButton = ({
       size="lg"
       className={cn(
         isPending && 'pointer-events-none',
-        'relative overflow-hidden bg-premium py-4 lg:py-5',
+        'relative overflow-hidden bg-premium py-6 lg:py-8',
         className
       )}
       type="submit"

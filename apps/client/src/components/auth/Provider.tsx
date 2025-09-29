@@ -9,7 +9,7 @@ export function Provider() {
         <li key={provider.id}>
           <Button
             variant="secondary"
-            className="w-full rounded-full md:w-auto py-4 lg:py-5"
+            className="w-full rounded-full md:w-auto py-6 lg:py-8"
             size="lg"
           >
             {provider.label === 'Google' ? (
