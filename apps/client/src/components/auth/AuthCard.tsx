@@ -88,7 +88,7 @@ function LoginCard({
                         <FormControl>
                           <PasswordInput
                             autoComplete="current-password"
-                            className="rounded-xl"
+                            className="rounded-xl py-6"
                             disabled={isPending}
                             {...field}
                           />
