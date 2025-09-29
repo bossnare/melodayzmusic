@@ -67,8 +67,9 @@ function LoginCard({
                           <Input
                             disabled={isPending}
                             spellCheck="false"
+                            autoComplete="username"
                             autoCorrect="off"
-                            type="email"
+                            type="text"
                             className="py-6"
                             placeholder="Email ou @username"
                             {...field}
@@ -85,7 +86,11 @@ function LoginCard({
                       <FormItem>
                         <FormLabel>Mot de passe</FormLabel>
                         <FormControl>
-                          <PasswordInput disabled={isPending} {...field} />
+                          <PasswordInput
+                            autoComplete="current-password"
+                            disabled={isPending}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
