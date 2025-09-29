@@ -21,10 +21,10 @@ export const AuthCtaButton = ({
   return (
     <Button
       onClick={handleClick}
-      size="lg"
+      size="xl"
       className={cn(
         isPending && 'pointer-events-none',
-        'relative overflow-hidden bg-premium py-5 lg:py-6',
+        'relative overflow-hidden bg-premium',
         className
       )}
       type="submit"
