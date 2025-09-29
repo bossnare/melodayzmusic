@@ -31,9 +31,9 @@ export function DialogCloseButton({
       <DialogContent className="sm:max-w-md">
         <motion.div
           key={'login-dialog'}
-          initial={{ y: 25, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -25, opacity: 0 }}
+          exit={{ y: -20, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 500, damping: 50 }}
           className="space-y-4"
         >
