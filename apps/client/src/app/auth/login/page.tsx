@@ -103,7 +103,7 @@ export default function LoginPage() {
         open={isErrorCredentials}
         onOpenChange={() => setIsErrorCredentials(false)}
         title="Identifiants invalides"
-        description="Oups ! La combinaison email et mot se passe est incorrecte. Vérifie et réessaye."
+        description="Oups ! La combinaison email et mot de passe est incorrecte. Vérifie et réessaye."
         close="D'accord"
       />
       {/* password dialog */}
