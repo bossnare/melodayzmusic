@@ -70,7 +70,7 @@ function LoginCard({
                             autoComplete="username"
                             autoCorrect="off"
                             type="text"
-                            className="py-6 rounded-xl"
+                            className="py-7 md:py-6 rounded-xl"
                             placeholder="Email ou @username"
                             {...field}
                           />
@@ -88,7 +88,7 @@ function LoginCard({
                         <FormControl>
                           <PasswordInput
                             autoComplete="current-password"
-                            className="rounded-xl py-6"
+                            className="rounded-xl py-7 md:py-6"
                             disabled={isPending}
                             {...field}
                           />
