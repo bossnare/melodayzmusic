@@ -98,6 +98,7 @@ function LoginCard({
                     )}
                   ></FormField>
                   <AuthCtaButton
+                    size="xl"
                     type="submit"
                     isPending={isPending}
                     className="rounded-2xl"
@@ -218,7 +219,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>
@@ -272,7 +273,7 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>
@@ -315,7 +316,7 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>
