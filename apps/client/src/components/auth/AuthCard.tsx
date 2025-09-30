@@ -46,7 +46,7 @@ function LoginCard({
           exit={{ y: -100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
-          <Card className="p-3 space-y-4 md:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
+          <Card className="p-3 space-y-4 md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -70,7 +70,7 @@ function LoginCard({
                             autoComplete="username"
                             autoCorrect="off"
                             type="text"
-                            className="py-6 rounded-xl"
+                            className="py-7 md:py-6 rounded-xl"
                             placeholder="Email ou @username"
                             {...field}
                           />
@@ -88,7 +88,7 @@ function LoginCard({
                         <FormControl>
                           <PasswordInput
                             autoComplete="current-password"
-                            className="rounded-xl py-6"
+                            className="rounded-xl py-7 md:py-6"
                             disabled={isPending}
                             {...field}
                           />
