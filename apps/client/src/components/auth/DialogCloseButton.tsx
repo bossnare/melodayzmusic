@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { motion } from 'motion/react';
-import { AlertTriangle } from 'lucide-react';
+import { MessageCircleWarning } from 'lucide-react';
 
 export function DialogCloseButton({
   title,
@@ -39,7 +39,7 @@ export function DialogCloseButton({
         >
           <DialogHeader>
             {error && (
-              <AlertTriangle className="text-destructive mx-auto md:mx-0 mb-2" />
+              <MessageCircleWarning className="text-destructive mx-auto md:mx-0 mb-2" />
             )}
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>{description}</DialogDescription>
