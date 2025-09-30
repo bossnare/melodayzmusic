@@ -12,7 +12,7 @@ import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
 import { toast } from 'sonner';
-import { X, Info } from 'lucide-react';
+import { X, CircleAlert } from 'lucide-react';
 import { vibrate } from '@/utils/vibration';
 import { Button } from '@/components/ui/button';
 
@@ -56,9 +56,9 @@ export default function LoginPage() {
         if (error && !unauthorized) {
           vibrate('medium');
           toast.custom((t) => (
-            <div className="relative flex gap-4 items-center bg-background shadow-lg p-3 rounded-lg border border-border">
+            <div className="relative flex gap-4 items-center bg-destructive-soft text-destructive-soft-foreground shadow-lg p-3 rounded-xl border border-destructive-soft/80">
               <div className="h-full text-destructive inset-y-0 flex items-center justify-center">
-                <Info />
+                <CircleAlert />
               </div>
               <div className="flex flex-col gap-1 grow">
                 <span className="font-medium text-sm">Oups!</span>

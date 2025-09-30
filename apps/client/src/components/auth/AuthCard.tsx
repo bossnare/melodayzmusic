@@ -70,7 +70,7 @@ function LoginCard({
                             autoComplete="username"
                             autoCorrect="off"
                             type="text"
-                            className="py-[26px] border-[1.4px] md:py-6 rounded-xl"
+                            className="py-[26px] border-[1.4px] md:py-6 rounded-xl md:rounded-lg"
                             placeholder="Email ou @username"
                             {...field}
                           />
@@ -88,7 +88,7 @@ function LoginCard({
                         <FormControl>
                           <PasswordInput
                             autoComplete="current-password"
-                            className="rounded-xl border-[1.4px] py-[26px] md:py-6"
+                            className="rounded-xl md:rounded-lg border-[1.4px] py-[26px] md:py-6"
                             disabled={isPending}
                             {...field}
                           />
@@ -97,7 +97,11 @@ function LoginCard({
                       </FormItem>
                     )}
                   ></FormField>
-                  <AuthCtaButton isPending={isPending} className="rounded-2xl">
+                  <AuthCtaButton
+                    type="submit"
+                    isPending={isPending}
+                    className="rounded-2xl"
+                  >
                     Se connecter
                   </AuthCtaButton>
                   <div className="mx-auto md:mx-0">
