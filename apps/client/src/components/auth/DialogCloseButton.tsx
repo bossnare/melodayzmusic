@@ -39,7 +39,7 @@ export function DialogCloseButton({
         >
           <DialogHeader>
             {error && (
-              <AlertTriangle className="text-destructive mx-auto mb-2" />
+              <AlertTriangle className="text-destructive mx-auto md:mx-0 mb-2" />
             )}
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>{description}</DialogDescription>
