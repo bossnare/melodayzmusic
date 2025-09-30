@@ -46,7 +46,7 @@ function LoginCard({
           exit={{ y: -100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
-          <Card className="p-3 space-y-4 md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
+          <Card className="p-3 rounded-3xl space-y-4 md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -98,6 +98,7 @@ function LoginCard({
                     )}
                   ></FormField>
                   <AuthCtaButton
+                    size="xl"
                     type="submit"
                     isPending={isPending}
                     className="rounded-2xl"
@@ -218,7 +219,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>
@@ -272,7 +273,7 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>
@@ -315,7 +316,7 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
+            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>

@@ -9,11 +9,13 @@ export const AuthCtaButton = ({
   isPending,
   handleClickTab,
   type = 'button',
+  size = 'lg',
 }: BaseProps & {
   className: string;
   isPending?: boolean;
   handleClickTab?: () => void;
   type?: 'button' | 'submit' | 'reset';
+  size?: 'lg' | 'xl';
 }) => {
   const handleClick = () => {
     if (!handleClickTab) return;
@@ -23,7 +25,7 @@ export const AuthCtaButton = ({
   return (
     <Button
       onClick={handleClick}
-      size="xl"
+      size={size}
       className={cn(
         isPending && 'pointer-events-none',
         'relative overflow-hidden bg-premium',
