@@ -51,7 +51,7 @@ function LoginCard({
               <MelodayzMusic />
             </CardTitle>
             {/* Form Content */}
-            <CardContent className="flex flex-col gap-4 p-1 md:gap-10 md:flex-row">
+            <CardContent className="flex flex-col gap-3 p-1 md:gap-10 md:flex-row">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(handleLogin)}
