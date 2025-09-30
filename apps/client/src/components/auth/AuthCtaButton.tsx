@@ -8,10 +8,12 @@ export const AuthCtaButton = ({
   className,
   isPending,
   handleClickTab,
+  type = 'button',
 }: BaseProps & {
   className: string;
   isPending?: boolean;
   handleClickTab?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }) => {
   const handleClick = () => {
     if (!handleClickTab) return;
@@ -27,7 +29,7 @@ export const AuthCtaButton = ({
         'relative overflow-hidden bg-premium',
         className
       )}
-      type="submit"
+      type={type}
     >
       {isPending && (
         <Loader className="size-6 border-white dark:border-foreground" />

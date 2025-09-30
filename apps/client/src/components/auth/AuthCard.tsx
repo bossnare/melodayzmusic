@@ -97,7 +97,11 @@ function LoginCard({
                       </FormItem>
                     )}
                   ></FormField>
-                  <AuthCtaButton isPending={isPending} className="rounded-2xl">
+                  <AuthCtaButton
+                    type="submit"
+                    isPending={isPending}
+                    className="rounded-2xl"
+                  >
                     Se connecter
                   </AuthCtaButton>
                   <div className="mx-auto md:mx-0">
