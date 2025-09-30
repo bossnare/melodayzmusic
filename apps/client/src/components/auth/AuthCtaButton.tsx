@@ -11,7 +11,7 @@ export const AuthCtaButton = ({
   type = 'button',
   size = 'lg',
 }: BaseProps & {
-  className: string;
+  className?: string;
   isPending?: boolean;
   handleClickTab?: () => void;
   type?: 'button' | 'submit' | 'reset';

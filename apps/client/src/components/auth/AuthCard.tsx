@@ -46,7 +46,7 @@ function LoginCard({
           exit={{ y: -100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 350, damping: 35 }}
         >
-          <Card className="p-3 rounded-3xl space-y-4 md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
+          <Card className="p-3 space-y-4 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -121,7 +121,7 @@ function LoginCard({
               <Divide />
 
               {/* login providers */}
-              <Provider />
+              <Provider size="xl" />
             </CardContent>
           </Card>
         </motion.div>
@@ -140,10 +140,10 @@ const RegisterCard = () => {
       initial={{ x: -100, opacity: 0 }}
       exit={{ x: 100, opacity: 0 }}
     >
-      <h3 className="mb-2 text-base font-medium py-4 text-center text-foreground/80">
+      <h3 className="py-4 mb-2 text-base font-medium text-center text-foreground/80">
         Choisis ta façon de t&apos;inscrire
       </h3>
-      <Card className="p-4 bg-gradient-to-b lg:bg-gradient-to-br from-card/40 dark:via-card/10 via-transparent to-card/80 dark:lg:to-card/60 dark:to-card/40 backdrop-blur-sm md:p-8">
+      <Card className="p-4 rounded-2xl bg-gradient-to-b lg:bg-gradient-to-br from-card/40 dark:via-card/10 via-transparent to-card/80 dark:lg:to-card/60 dark:to-card/40 backdrop-blur-sm md:p-8">
         <CardTitle className="pb-4">
           <MelodayzMusic />
         </CardTitle>
@@ -153,7 +153,6 @@ const RegisterCard = () => {
             <AuthCtaButton
               isPending={isPending}
               handleClickTab={handleClickTab}
-              className="rounded-lg"
             >
               Créer avec Email
             </AuthCtaButton>

@@ -2,7 +2,7 @@ import { providerLabels } from '../navigation/labels/label.provider';
 import { Button } from '../ui/button';
 import Image from 'next/image';
 
-export function Provider() {
+export function Provider({ size = 'lg' }: { size?: 'lg' | 'xl' }) {
   return (
     <ul className="space-y-2 md:flex md:justify-center md:items-center md:flex-col md:flex-1">
       {providerLabels.map((provider) => (
@@ -10,7 +10,7 @@ export function Provider() {
           <Button
             variant="secondary"
             className="w-full rounded-full md:w-auto"
-            size="xl"
+            size={size}
           >
             {provider.label === 'Google' ? (
               <Image
