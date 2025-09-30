@@ -7,18 +7,18 @@ export const Tagline = () => {
         <ModeToggle />
       </div>
       <div className="hidden md:block">
-        copyright &copy; {new Date().getFullYear()} |{' '}
+        &copy; {new Date().getFullYear()} |{' '}
         <span className="text-foreground/90">
-          Feel the Beat, Anywhere You Go.
+          MelodayzMusic - Feel the Beat, Anywhere You Go.
         </span>{' '}
-        | All Rights Reserved.
+        | Tous Droits Réservés.
       </div>
 
       <div className="md:hidden flex flex-col gap-1 justify-center items-center">
         <span className="text-foreground/90">
-          Feel the Beat, Anywhere You Go.
+          MelodayzMusic - Feel the Beat, Anywhere You Go.
         </span>{' '}
-        copyright &copy; 2025 | All Rights Reserved.
+        &copy; 2025 | Tous Droits Réservés.
       </div>
     </>
   );
