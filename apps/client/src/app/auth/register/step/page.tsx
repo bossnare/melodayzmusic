@@ -72,15 +72,17 @@ export default function StepPage() {
 
         {/* Step Card */}
         <FormProvider {...form}>
-          <StepCardWrapper
-            key={step}
-            initial={{ x: dir === 'next' ? 100 : -100, opacity: 0 }}
-            exit={{ x: dir === 'next' ? -100 : 100, opacity: 0 }}
-          >
-            {step === 1 && <StepOneCard form={form} />}
-            {step === 2 && <StepTwoCard form={form} />}
-            {step === 3 && <StepThreeCard form={form} />}
-          </StepCardWrapper>
+          <form action="">
+            <StepCardWrapper
+              key={step}
+              initial={{ x: dir === 'next' ? 100 : -100, opacity: 0 }}
+              exit={{ x: dir === 'next' ? -100 : 100, opacity: 0 }}
+            >
+              {step === 1 && <StepOneCard form={form} />}
+              {step === 2 && <StepTwoCard form={form} />}
+              {step === 3 && <StepThreeCard form={form} />}
+            </StepCardWrapper>
+          </form>
         </FormProvider>
 
         <div className="absolute !size-10 right-14 hidden lg:block">

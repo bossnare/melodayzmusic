@@ -172,7 +172,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
-          <form action="" className="flex flex-col flex-1 gap-4">
+          <div className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
               name="step1.pseudo"
@@ -215,7 +215,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
               )}
             ></FormField>
             <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
-          </form>
+          </div>
         </Form>
       </CardContent>
     </Card>
@@ -231,7 +231,7 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
-          <form action="" className="flex flex-col flex-1 gap-4">
+          <div className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
               name="step2.newPassword"
@@ -269,7 +269,7 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
               )}
             ></FormField>
             <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
-          </form>
+          </div>
         </Form>
       </CardContent>
     </Card>
@@ -285,7 +285,7 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
-          <form action="" className="flex flex-col flex-1 gap-4">
+          <div className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
               name="step3.email"
@@ -312,7 +312,7 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
               )}
             ></FormField>
             <AuthCtaButton className="rounded-full">Continuer</AuthCtaButton>
-          </form>
+          </div>
         </Form>
       </CardContent>
     </Card>
