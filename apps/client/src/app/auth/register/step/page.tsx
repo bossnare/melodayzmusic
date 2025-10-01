@@ -13,28 +13,23 @@ import {
   StepCardWrapper,
 } from '@/components/auth/AuthWrapper';
 import { MotionButton } from '@/components/motions/motionButton';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, type stepFormType } from '@/schemas/register';
 import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 
+const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
+  1: 'step1',
+  2: 'step2',
+  3: 'step3',
+};
+
 export default function StepPage() {
   const [step, setStep] = useState(1);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
-
-  const handleClickNext = () => {
-    if (step < totalSteps) {
-      setIsLoadingNext(true);
-      setTimeout(() => {
-        setStep((step) => step + 1);
-        setDir('next');
-        setIsLoadingNext(false);
-      }, 1200);
-    }
-  };
 
   const form = useForm({
     resolver: zodResolver(registerSchema),
@@ -47,6 +42,20 @@ export default function StepPage() {
       },
     },
   });
+
+  const handleClickNext = async () => {
+    const isValidStep = await form.trigger(stepFields[step]);
+    if (step < totalSteps && isValidStep) {
+      setIsLoadingNext(true);
+      setTimeout(() => {
+        setStep((step) => step + 1);
+        setDir('next');
+        setIsLoadingNext(false);
+      }, 1200);
+    }
+  };
+
+  // const { formState } = useFormContext();
 
   return (
     <AuthPageWrapper>
@@ -109,21 +118,6 @@ export default function StepPage() {
             </AuthCtaButton>
           </form>
         </FormProvider>
-
-        <div className="absolute !size-10 right-14 hidden lg:block">
-          <MotionButton
-            onClick={() => {
-              setStep((step) => step + 1);
-              setDir('next');
-            }}
-            className={cn(
-              step >= totalSteps && 'opacity-0 pointer-events-none',
-              'text-foreground/80 hover:text-foreground p-3'
-            )}
-          >
-            <ChevronRight className="size-10" />
-          </MotionButton>
-        </div>
       </div>
     </AuthPageWrapper>
   );

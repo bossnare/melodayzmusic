@@ -1,8 +1,8 @@
 'use client';
 
 import { MotionButton } from '@/components/motions/motionButton';
-import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { CircleCheckBig, EyeIcon, EyeOffIcon } from 'lucide-react';
 import { useState } from 'react';
 
 export const PasswordInput = (
@@ -34,6 +34,31 @@ export const PasswordInput = (
           >
             {showPassword ? <EyeOffIcon /> : <EyeIcon />}
           </MotionButton>
+        </span>
+      )}
+    </div>
+  );
+};
+
+type UsernameInputProps = {
+  usernameVerified?: boolean;
+} & React.InputHTMLAttributes<HTMLInputElement>;
+
+export const UsernameInput = ({
+  usernameVerified,
+  ...props
+}: UsernameInputProps) => {
+  return (
+    <div className="relative">
+      <Input
+        placeholder="@vibequeen848"
+        type="text"
+        className="py-6"
+        {...props}
+      />
+      {usernameVerified && (
+        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full bg-chart-4">
+          <CircleCheckBig className="size-[18px]" />
         </span>
       )}
     </div>
