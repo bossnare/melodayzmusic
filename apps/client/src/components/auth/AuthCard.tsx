@@ -169,7 +169,7 @@ const RegisterCard = () => {
 
 const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
-    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
+    <Card className="p-3 dark:bg-card/6 dark:backdrop-blur-sm lg:p-4">
       <CardTitle className="text-base text-center text-foreground">
         Crée ton identité
       </CardTitle>
@@ -218,7 +218,6 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>
@@ -228,7 +227,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
 
 const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
-    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
+    <Card className="p-3 dark:bg-card/6 dark:backdrop-blur-sm lg:p-4">
       <CardTitle className="text-base text-center text-foreground">
         Un mot de passe qui suit ton rythme
       </CardTitle>
@@ -272,7 +271,6 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>
@@ -282,9 +280,9 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
 
 const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
-    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm lg:p-5">
-      <CardTitle className="flex justify-center gap-1 text-base text-foreground">
-        Ton email, ton pass VIP <Mail />
+    <Card className="p-3 dark:bg-card/6 dark:backdrop-blur-sm lg:p-4">
+      <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
+        Ton email, ton pass VIP <Mail className="size-4 lg:size-5" />
       </CardTitle>
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
@@ -315,7 +313,6 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 </FormItem>
               )}
             ></FormField>
-            <AuthCtaButton className="rounded-full">Suivant</AuthCtaButton>
           </div>
         </Form>
       </CardContent>
