@@ -86,7 +86,7 @@
   --sidebar-accent-foreground: oklch(0.6723 0.1606 244.9955);
   --sidebar-border: oklch(0.9271 0.0101 238.5177);
   --sidebar-ring: oklch(0.6818 0.1584 243.354);
-  --radius: 0.6rem;
+  --radius: 1.3rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
   --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
   --shadow-sm: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
@@ -157,7 +157,7 @@
   --sidebar-border: oklch(0.3795 0.022 240.5943);
   --sidebar-ring: oklch(0.6818 0.1584 243.354);
   --nav: oklch(0.12 0.0062 214.41);
-  --radius: 0.6rem;
+  --radius: 1.3rem;
   --spacing: 0.25rem;
 
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
@@ -306,7 +306,7 @@
       #00aaff 50%,
       #005f99 100%
     );
-    @apply font-montserrat lg:hover:brightness-110 active:brightness-110 transition-all duration-300;
+    @apply transition-all duration-300 font-montserrat lg:hover:brightness-110 active:brightness-110;
   }
   .text-gradient {
     @apply bg-gradient-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
