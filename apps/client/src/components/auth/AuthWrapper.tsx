@@ -29,11 +29,11 @@ const AuthPageWrapper = ({ children }: BaseProps) => {
   return (
     <section
       className="relative flex flex-col items-center justify-between gap-2 px-2 md:px-10 lg:px-4 bg-gradient-to-br pb-[2rem] dark:from-primary/8 
-    via-transparent dark:to-ring/8 from-primary/25 to-ring/20 md:h-screen h-dvh md:pb-4"
+    via-transparent dark:to-ring/8 from-primary/25 to-ring/20 sm:h-auto lg:h-dvh h-dvh md:pb-4"
     >
       {children}
       {/* tag */}
-      <footer className="text-xs text-muted-foreground font-montserrat flex flex-col items-center">
+      <footer className="flex flex-col items-center text-xs text-muted-foreground font-montserrat">
         <Tagline />
       </footer>
     </section>
