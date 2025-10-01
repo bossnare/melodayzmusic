@@ -7,19 +7,19 @@ export const AuthCtaButton = ({
   children,
   className,
   isPending,
-  handleClickTab,
+  onClick,
   type = 'button',
   size = 'lg',
 }: BaseProps & {
   className?: string;
   isPending?: boolean;
-  handleClickTab?: () => void;
+  onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   size?: 'lg' | 'xl';
 }) => {
   const handleClick = () => {
-    if (!handleClickTab) return;
-    handleClickTab();
+    if (!onClick) return;
+    onClick();
   };
 
   return (

@@ -33,7 +33,7 @@ const MotionButtonLeft = ({
   return (
     <motion.div
       whileHover={{ x: 1.01, scale: 1.01 }}
-      whileTap={{ x: 5, scale: 0.95 }}
+      whileTap={{ x: 4, scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 200 }}
     >
       <Button
