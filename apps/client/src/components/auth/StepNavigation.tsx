@@ -47,8 +47,8 @@ export const StepNavigation = ({
   dir: 'prev' | 'next';
 }) => {
   return (
-    <nav className="flex flex-col items-center justify-center gap-3 pb-3 lg:gap-2">
-      <Encouragement step={step} dir={dir} className="lg:hidden" />
+    <nav className="flex flex-col items-center justify-center pb-3 gap-2">
+      <Encouragement step={step} dir={dir} className="mb-2 lg:hidden" />
       <span>
         {step}/{totalSteps}
       </span>
