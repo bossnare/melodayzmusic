@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { type loginFormType } from '@/schemas/login';
 import { type stepFormType } from '@/schemas/register';
-import { Mail, CircleCheckBig } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
 import { UseFormReturn } from 'react-hook-form';
@@ -21,7 +21,7 @@ import { Button } from '../ui/button';
 import { AuthCtaButton } from './AuthCtaButton';
 import { StepCardWrapper } from './AuthWrapper';
 import { Divide } from './Divide';
-import { PasswordInput } from './PasswordInput';
+import { PasswordInput, UsernameInput } from './PasswordInput';
 import { Provider } from './Provider';
 
 function LoginCard({
@@ -206,20 +206,11 @@ const StepOneCard = ({
                 <FormItem>
                   <FormLabel>Identifiant unique</FormLabel>
                   <FormControl>
-                    <div className="relative">
-                      <Input
-                        placeholder="@vibequeen848"
-                        type="text"
-                        className="py-6"
-                        {...field}
-                        {...form.register('step1.username')}
-                      />
-                      {usernameVerified && (
-                        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-1 rounded-full bg-chart-4">
-                          <CircleCheckBig className="size-[18px]" />
-                        </span>
-                      )}
-                    </div>
+                    <UsernameInput
+                      usernameVerified={usernameVerified}
+                      {...field}
+                      {...form.register('step1.username')}
+                    />
                   </FormControl>
                   <FormDescription className="text-xs">
                     Ton identifiant sera visible par tous.
