@@ -18,6 +18,7 @@ import { cn } from '@/lib/utils';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, type stepFormType } from '@/schemas/register';
+import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 
 export default function StepPage() {
   const [step, setStep] = useState(1);
@@ -46,7 +47,7 @@ export default function StepPage() {
       {/* content */}
       <div
         className="flex flex-col justify-center items-center gap-1 
-      w-full *:w-full md:*:w-2/3 lg:*:w-1/2 xl:*:w-[42%] transition-all duration-300 relative"
+      w-full *:w-full md:*:w-2/3 lg:*:w-1/2 xl:*:w-[42%] min-h-[50%] md:min-h-[65%] transition-all duration-300 relative"
       >
         <div className="absolute left-8 !size-10 hidden lg:block">
           <MotionButton
@@ -72,7 +73,10 @@ export default function StepPage() {
 
         {/* Step Card */}
         <FormProvider {...form}>
-          <form action="">
+          <form
+            action=""
+            className="flex flex-col justify-between space-y-3 grow"
+          >
             <StepCardWrapper
               key={step}
               initial={{ x: dir === 'next' ? 100 : -100, opacity: 0 }}
@@ -82,6 +86,12 @@ export default function StepPage() {
               {step === 2 && <StepTwoCard form={form} />}
               {step === 3 && <StepThreeCard form={form} />}
             </StepCardWrapper>
+            <AuthCtaButton
+              type={step >= totalSteps ? 'submit' : 'button'}
+              className="block mx-auto rounded-full w-8/9 sm:w-2/3"
+            >
+              {step >= totalSteps ? 'Créer mon compte' : 'Suivant'}
+            </AuthCtaButton>
           </form>
         </FormProvider>
 

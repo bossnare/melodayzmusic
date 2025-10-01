@@ -28,7 +28,7 @@ export function Encouragement({
       exit={{ x: dir === 'prev' ? -100 : 100, opacity: 0 }}
       className={cn('!w-auto', className)}
     >
-      <h3 className="text-base text-foreground/80 font-medium">
+      <h3 className="text-base font-medium text-foreground/80">
         {encouragements[step - 1]}
       </h3>
     </StepCardWrapper>
@@ -48,7 +48,7 @@ export const StepNavigation = ({
 }) => {
   return (
     <nav className="flex flex-col items-center justify-center gap-0 pb-3 lg:gap-2">
-      <Encouragement step={step} dir={dir} className="lg:hidden mb-4" />
+      <Encouragement step={step} dir={dir} className="mb-4 lg:hidden" />
       <span>
         {step}/{totalSteps}
       </span>
