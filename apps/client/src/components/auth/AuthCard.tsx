@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { type loginFormType } from '@/schemas/login';
 import { type stepFormType } from '@/schemas/register';
-import { Mail } from 'lucide-react';
+import { Mail, CircleCheckBig } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
 import { UseFormReturn } from 'react-hook-form';
@@ -164,7 +164,13 @@ const RegisterCard = () => {
   );
 };
 
-const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
+const StepOneCard = ({
+  form,
+  usernameVerified = true,
+}: {
+  form: UseFormReturn<stepFormType>;
+  usernameVerified?: boolean;
+}) => {
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <CardTitle className="text-base text-center text-foreground">
@@ -200,13 +206,20 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                 <FormItem>
                   <FormLabel>Identifiant unique</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="@vibequeen848"
-                      type="text"
-                      className="py-6"
-                      {...field}
-                      {...form.register('step1.username')}
-                    />
+                    <div className="relative">
+                      <Input
+                        placeholder="@vibequeen848"
+                        type="text"
+                        className="py-6"
+                        {...field}
+                        {...form.register('step1.username')}
+                      />
+                      {usernameVerified && (
+                        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-1 rounded-full bg-chart-4">
+                          <CircleCheckBig className="size-[18px]" />
+                        </span>
+                      )}
+                    </div>
                   </FormControl>
                   <FormDescription className="text-xs">
                     Ton identifiant sera visible par tous.
