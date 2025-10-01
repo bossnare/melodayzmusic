@@ -150,10 +150,7 @@ const RegisterCard = () => {
 
         <div className="flex flex-col gap-6 md:flex-row">
           <CardContent className="flex flex-col items-center justify-center gap-2 md:w-[45%]">
-            <AuthCtaButton
-              isPending={isPending}
-              handleClickTab={handleClickTab}
-            >
+            <AuthCtaButton isPending={isPending} onClick={handleClickTab}>
               Créer avec Email
             </AuthCtaButton>
           </CardContent>
@@ -169,7 +166,7 @@ const RegisterCard = () => {
 
 const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
-    <Card className="p-3 dark:bg-card/6 dark:backdrop-blur-sm lg:p-4">
+    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <CardTitle className="text-base text-center text-foreground">
         Crée ton identité
       </CardTitle>
@@ -227,7 +224,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
 
 const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
-    <Card className="p-3 dark:bg-card/6 dark:backdrop-blur-sm lg:p-4">
+    <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
       <CardTitle className="text-base text-center text-foreground">
         Un mot de passe qui suit ton rythme
       </CardTitle>
@@ -280,7 +277,7 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
 
 const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
-    <Card className="p-3 dark:bg-card/6 dark:backdrop-blur-sm lg:p-4">
+    <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
       <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
         Ton email, ton pass VIP <Mail className="size-4 lg:size-5" />
       </CardTitle>

@@ -23,9 +23,22 @@ import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 export default function StepPage() {
   const [step, setStep] = useState(1);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
+  const [isLoadingNext, setIsLoadingNext] = useState(false);
+
+  const handleClickNext = () => {
+    if (step < totalSteps) {
+      setIsLoadingNext(true);
+      setTimeout(() => {
+        setStep((step) => step + 1);
+        setDir('next');
+        setIsLoadingNext(false);
+      }, 1500);
+    }
+  };
 
   const form = useForm({
     resolver: zodResolver(registerSchema),
+    mode: 'onChange',
     defaultValues: {
       step1: { pseudo: '', username: '' },
       step2: { newPassword: '', confirmPassword: '' },
@@ -87,8 +100,10 @@ export default function StepPage() {
               {step === 3 && <StepThreeCard form={form} />}
             </StepCardWrapper>
             <AuthCtaButton
+              isPending={isLoadingNext}
+              onClick={handleClickNext}
               type={step >= totalSteps ? 'submit' : 'button'}
-              className="block mx-auto rounded-full w-8/9 sm:w-2/3"
+              className="mx-auto rounded-full w-8/9 sm:w-2/3"
             >
               {step >= totalSteps ? 'Créer mon compte' : 'Suivant'}
             </AuthCtaButton>

@@ -60,7 +60,7 @@ export default function LoginPage() {
               <div className="h-full text-destructive inset-y-0 flex items-center justify-center">
                 <CircleAlert />
               </div>
-              <div className="flex flex-col gap-1 grow">
+              <div className="flex flex-col grow">
                 <span className="font-medium text-sm">Oups!</span>
                 <span className="text-sm">
                   {error.message}
