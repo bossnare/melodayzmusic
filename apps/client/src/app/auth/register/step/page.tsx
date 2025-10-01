@@ -32,7 +32,7 @@ export default function StepPage() {
         setStep((step) => step + 1);
         setDir('next');
         setIsLoadingNext(false);
-      }, 1500);
+      }, 1200);
     }
   };
 
@@ -65,7 +65,7 @@ export default function StepPage() {
         <div className="absolute left-8 !size-10 hidden lg:block">
           <MotionButton
             onClick={() => {
-              setStep(step - 1);
+              setStep((step) => step - 1);
               setDir('prev');
             }}
             className={cn(
@@ -113,7 +113,7 @@ export default function StepPage() {
         <div className="absolute !size-10 right-14 hidden lg:block">
           <MotionButton
             onClick={() => {
-              setStep(step + 1);
+              setStep((step) => step + 1);
               setDir('next');
             }}
             className={cn(
