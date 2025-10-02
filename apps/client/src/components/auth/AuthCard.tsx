@@ -231,7 +231,7 @@ const StepOneCard = ({
                           setUsernameVerified(false);
                           form.setError('step1.username', {
                             message:
-                              "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
+                              "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
                           });
                         } else {
                           setUsernameVerified(true);
