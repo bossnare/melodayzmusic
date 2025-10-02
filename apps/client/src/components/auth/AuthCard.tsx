@@ -23,6 +23,7 @@ import { StepCardWrapper } from './AuthWrapper';
 import { Divide } from './Divide';
 import { PasswordInput, UsernameInput } from './PasswordInput';
 import { Provider } from './Provider';
+import api from '@/libs/api';
 
 function LoginCard({
   form,
@@ -227,6 +228,14 @@ const StepOneCard = ({
 };
 
 const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
+  const validateField = async <TResponse, TData extends object>(
+    url: string,
+    data: TData
+  ) => {
+    const res = await api.post<TResponse & { exist: boolean }>(url, data);
+    return res.data;
+  };
+
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
       <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
@@ -245,12 +254,30 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                   <FormControl>
                     <Input
                       {...form.register('step2.email')}
+                      {...field}
                       type="email"
                       className="py-6"
                       placeholder="Entre ton email magique ✨"
                       spellCheck="false"
                       autoCorrect="off"
-                      {...field}
+                      onChange={async (e) => {
+                        field.onChange(e);
+                        const { value } = e.target;
+                        const { exist } = await validateField(
+                          '/auth/email-check',
+                          {
+                            email: value,
+                          }
+                        );
+                        if (exist) {
+                          form.setError('step2.email', {
+                            type: 'manual',
+                            message: 'Email déjà existe.',
+                          });
+                        } else {
+                          form.clearErrors('step2.email');
+                        }
+                      }}
                     />
                   </FormControl>
                   <FormDescription className="text-xs">
