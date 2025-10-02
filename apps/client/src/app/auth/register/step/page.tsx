@@ -32,8 +32,6 @@ export default function StepPage() {
   const [step, setStep] = useState(1);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
-  const [validUsername, setValidUsername] = useState(true);
-  const [validEmail, setValidEmail] = useState(true);
 
   const form = useForm({
     resolver: zodResolver(registerSchema),
@@ -50,42 +48,32 @@ export default function StepPage() {
 
   const handleClickNext = async () => {
     const isValidStep = await form.trigger(stepFields[step]);
-    // check username validity
+
+    let canNext = isValidStep;
+
     if (step === 1) {
       const username = form.getValues('step1.username');
-      const { exist } = await checkField('/auth/username-check', {
-        username: username,
-      });
-
+      const { exist } = await checkField('/auth/username-check', { username });
       if (exist) {
-        setValidUsername(false);
         form.setError('step1.username', {
-          message:
-            "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
+          message: "Ce nom d'utilisateur est déjà pris.",
         });
-      } else {
-        setValidUsername(true);
+        canNext = false;
       }
     }
 
-    // check email validity
     if (step === 2) {
-      const username = form.getValues('step1.username');
-      const { exist } = await checkField('/auth/username-check', {
-        username: username,
-      });
-
+      const email = form.getValues('step2.email');
+      const { exist } = await checkField('/auth/email-check', { email });
       if (exist) {
-        setValidEmail(false);
         form.setError('step2.email', {
-          message: 'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
+          message: 'Cette adresse est déjà utilisée.',
         });
-      } else {
-        setValidEmail(true);
+        canNext = false;
       }
     }
 
-    if (step < totalSteps && isValidStep && validUsername && validEmail) {
+    if (step < totalSteps && canNext) {
       setIsLoadingNext(true);
       setTimeout(() => {
         setStep((step) => step + 1);
