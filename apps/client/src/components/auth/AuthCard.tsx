@@ -257,7 +257,7 @@ const StepTwoCard = ({
   form: UseFormReturn<stepFormType>;
   isLoading?: boolean;
 }) => {
-  const { checkField } = useCheckField();
+  const { checkField, isPending } = useCheckField();
 
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
@@ -302,6 +302,11 @@ const StepTwoCard = ({
                     Ton email sécurise ton compte et t&apos;identifie
                     facilement.
                   </FormDescription>
+                  {isPending && (
+                    <FormDescription className="text-xs opacity-80">
+                      vérification...
+                    </FormDescription>
+                  )}
                   <FormMessage />
                 </FormItem>
               )}
