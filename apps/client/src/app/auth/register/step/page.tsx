@@ -32,6 +32,7 @@ export default function StepPage() {
   const [step, setStep] = useState(1);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
+  const [validUsername, setValidUsername] = useState(true);
 
   const form = useForm({
     resolver: zodResolver(registerSchema),
@@ -48,19 +49,23 @@ export default function StepPage() {
 
   const handleClickNext = async () => {
     const isValidStep = await form.trigger(stepFields[step]);
-    if (step < totalSteps && isValidStep) {
-      const value = form.getValues('step1.username');
+    if (step === 1) {
+      const username = form.getValues('step1.username');
       const { exist } = await checkField('/auth/username-check', {
-        username: value,
+        username: username,
       });
+
       if (exist) {
+        setValidUsername(false);
         form.setError('step1.username', {
           type: 'manual',
           message:
             "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
         });
       }
+    }
 
+    if (step < totalSteps && isValidStep && validUsername) {
       setIsLoadingNext(true);
       setTimeout(() => {
         setStep((step) => step + 1);
