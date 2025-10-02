@@ -210,22 +210,25 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                       {...form.register('step1.username')}
                       onChange={async (e) => {
                         field.onChange(e);
+                        const valid = await form.trigger('step1.username');
                         const { value } = e.target;
-                        const { exist } = await checkField(
-                          '/auth/username-check',
-                          {
-                            username: value,
+                        if (valid) {
+                          const { exist } = await checkField(
+                            '/auth/username-check',
+                            {
+                              username: value,
+                            }
+                          );
+                          if (exist) {
+                            setUsernameVerified(false);
+                            form.setError('step1.username', {
+                              type: 'manual',
+                              message:
+                                "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
+                            });
+                          } else {
+                            setUsernameVerified(true);
                           }
-                        );
-                        if (exist) {
-                          setUsernameVerified(false);
-                          form.setError('step1.username', {
-                            type: 'manual',
-                            message:
-                              "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
-                          });
-                        } else {
-                          setUsernameVerified(true);
                         }
                       }}
                     />
