@@ -23,7 +23,8 @@ import { StepCardWrapper } from './AuthWrapper';
 import { Divide } from './Divide';
 import { PasswordInput, UsernameInput } from './PasswordInput';
 import { Provider } from './Provider';
-import api from '@/libs/api';
+import { checkField } from '@/libs/auth/check-field';
+import { useState } from 'react';
 
 function LoginCard({
   form,
@@ -165,13 +166,9 @@ const RegisterCard = () => {
   );
 };
 
-const StepOneCard = ({
-  form,
-  usernameVerified = true,
-}: {
-  form: UseFormReturn<stepFormType>;
-  usernameVerified?: boolean;
-}) => {
+const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
+  const [usernameVerified, setUsernameVerified] = useState(false);
+
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <CardTitle className="text-base text-center text-foreground">
@@ -211,6 +208,26 @@ const StepOneCard = ({
                       usernameVerified={usernameVerified}
                       {...field}
                       {...form.register('step1.username')}
+                      onChange={async (e) => {
+                        field.onChange(e);
+                        const { value } = e.target;
+                        const { exist } = await checkField(
+                          '/auth/username-check',
+                          {
+                            username: value,
+                          }
+                        );
+                        if (exist) {
+                          setUsernameVerified(false);
+                          form.setError('step1.username', {
+                            type: 'manual',
+                            message:
+                              "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
+                          });
+                        } else {
+                          setUsernameVerified(true);
+                        }
+                      }}
                     />
                   </FormControl>
                   <FormDescription className="text-xs">
@@ -228,14 +245,6 @@ const StepOneCard = ({
 };
 
 const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
-  const validateField = async <TResponse, TData extends object>(
-    url: string,
-    data: TData
-  ) => {
-    const res = await api.post<TResponse & { exist: boolean }>(url, data);
-    return res.data;
-  };
-
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
       <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
@@ -263,20 +272,18 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                       onChange={async (e) => {
                         field.onChange(e);
                         const { value } = e.target;
-                        const { exist } = await validateField(
+                        const { exist } = await checkField(
                           '/auth/email-check',
                           {
                             email: value,
                           }
                         );
-                        if (exist) {
+                        if (exist)
                           form.setError('step2.email', {
                             type: 'manual',
-                            message: 'Email déjà existe.',
+                            message:
+                              'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
                           });
-                        } else {
-                          form.clearErrors('step2.email');
-                        }
                       }}
                     />
                   </FormControl>
