@@ -64,7 +64,7 @@ export const UsernameInput = ({
         </span>
       )}
       {!isPending && usernameVerified && (
-        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full bg-chart-4">
+        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-chart-4">
           <CircleCheckBig className="size-[18px]" />
         </span>
       )}

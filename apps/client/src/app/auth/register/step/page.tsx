@@ -13,8 +13,8 @@ import {
 } from '@/components/auth/AuthWrapper';
 import { StepNavigation, totalSteps } from '@/components/auth/StepNavigation';
 import { MotionButton } from '@/components/motions/motionButton';
+import { useCheckField } from '@/hooks/useCheckField';
 import { cn } from '@/lib/utils';
-import { useCheckField } from '@/libs/auth/useCheckField';
 import { registerSchema } from '@/schemas/register';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
