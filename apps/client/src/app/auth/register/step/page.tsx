@@ -57,7 +57,8 @@ export default function StepPage() {
       const exist = await checkField('/auth/username-check', { username });
       if (exist) {
         form.setError('step1.username', {
-          message: "Ce nom d'utilisateur est déjà pris.",
+          message:
+            "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
         });
         canNext = false;
       }
@@ -68,7 +69,7 @@ export default function StepPage() {
       const exist = await checkField('/auth/email-check', { email });
       if (exist) {
         form.setError('step2.email', {
-          message: 'Cette adresse est déjà utilisée.',
+          message: 'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
         });
         canNext = false;
       }
@@ -133,9 +134,9 @@ export default function StepPage() {
               initial={{ x: dir === 'next' ? 100 : -100, opacity: 0 }}
               exit={{ x: dir === 'next' ? -100 : 100, opacity: 0 }}
             >
-              {step === 1 && <StepOneCard form={form} />}
-              {step === 2 && <StepTwoCard form={form} />}
-              {step === 3 && <StepThreeCard form={form} />}
+              {step === 1 && <StepOneCard isLoading={pending} form={form} />}
+              {step === 2 && <StepTwoCard isLoading={pending} form={form} />}
+              {step === 3 && <StepThreeCard isPending={pending} form={form} />}
             </StepCardWrapper>
             <AuthCtaButton
               isPending={pending}

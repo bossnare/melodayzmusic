@@ -59,7 +59,7 @@ export const UsernameInput = ({
         {...props}
       />
       {isPending && (
-        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full bg-chart-4">
+        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
           <div className="size-[18px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div>
         </span>
       )}
