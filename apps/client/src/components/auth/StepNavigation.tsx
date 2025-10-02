@@ -55,19 +55,19 @@ export const StepNavigation = ({
       {/* step navigation */}
       <div className="flex items-center justify-center w-full relative">
         {/* nav left */}
-        <div className="lg:hidden absolute left-0 -top-2">
+        <div className="lg:hidden absolute left-0 -top-4">
           <MotionButton
-          onClick={() => {
-            setStep(step - 1);
-            setDir('prev');
-          }}
-          className={cn(
-            step <= 1 && 'opacity-0 pointer-events-none',
-            'text-muted-foreground hover:text-foreground p-3'
-          )}
-        >
-          <ChevronLeft className="size-8" />
-        </MotionButton>
+            onClick={() => {
+              setStep(step - 1);
+              setDir('prev');
+            }}
+            className={cn(
+              step <= 1 && 'opacity-0 pointer-events-none',
+              'text-muted-foreground hover:text-foreground p-3'
+            )}
+          >
+            <ChevronLeft className="size-8" />
+          </MotionButton>
         </div>
         <span className="text-lg font-bold capitalize">étape {step}</span>
       </div>
