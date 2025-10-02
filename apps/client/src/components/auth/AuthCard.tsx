@@ -10,11 +10,13 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
+import { useCheckField } from '@/libs/auth/useCheckField';
 import { type loginFormType } from '@/schemas/login';
 import { type stepFormType } from '@/schemas/register';
 import { Mail } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { MelodayzMusic } from '../branding/logo';
 import { Button } from '../ui/button';
@@ -23,8 +25,6 @@ import { StepCardWrapper } from './AuthWrapper';
 import { Divide } from './Divide';
 import { PasswordInput, UsernameInput } from './PasswordInput';
 import { Provider } from './Provider';
-import { checkField } from '@/libs/auth/check-field';
-import { useState } from 'react';
 
 function LoginCard({
   form,
@@ -168,6 +168,7 @@ const RegisterCard = () => {
 
 const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
+  const { checkField, isPending } = useCheckField();
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -211,12 +212,9 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                       onChange={async (e) => {
                         field.onChange(e);
                         const { value } = e.target;
-                        const { exist } = await checkField(
-                          '/auth/username-check',
-                          {
-                            username: value,
-                          }
-                        );
+                        const exist = await checkField('/auth/username-check', {
+                          username: value,
+                        });
                         if (exist) {
                           setUsernameVerified(false);
                           form.setError('step1.username', {
@@ -244,6 +242,8 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
 };
 
 const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
+  const { checkField, isPending } = useCheckField();
+
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
       <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
@@ -271,12 +271,9 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                       onChange={async (e) => {
                         field.onChange(e);
                         const { value } = e.target;
-                        const { exist } = await checkField(
-                          '/auth/email-check',
-                          {
-                            email: value,
-                          }
-                        );
+                        const exist = await checkField('/auth/email-check', {
+                          email: value,
+                        });
                         if (exist)
                           form.setError('step2.email', {
                             message:
