@@ -108,8 +108,8 @@ export default function LoginPage() {
         open={isErrorCredentials}
         onOpenChange={() => setIsErrorCredentials(false)}
         title="Identifiants invalides"
-        description={`Oups ! La combinaison ${looksLikeEmail && 'email'}${
-          looksLikeUsername && "nom d'utilisateur"
+        description={`Oups ! La combinaison ${looksLikeEmail ? 'email' : ''}${
+          looksLikeUsername ? "nom d'utilisateur" : ''
         } et mot de passe est incorrecte. Vérifie et réessaye.`}
         close="D'accord"
       />
