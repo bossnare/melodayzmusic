@@ -19,6 +19,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, type stepFormType } from '@/schemas/register';
 import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
+import { useDebounce } from 'use-debounce';
 
 const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
   1: 'step1',
