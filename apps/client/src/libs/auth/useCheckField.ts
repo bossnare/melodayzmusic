@@ -10,6 +10,7 @@ export function useCheckField() {
     data: TData
   ) => {
     try {
+      setIsPending(true);
       const res = await api.post<TResponse & { exist: boolean }>(url, data);
       if (res.data.exist) {
         return true;
