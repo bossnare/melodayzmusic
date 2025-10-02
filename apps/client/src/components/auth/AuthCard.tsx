@@ -166,7 +166,13 @@ const RegisterCard = () => {
   );
 };
 
-const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
+const StepOneCard = ({
+  form,
+  isLoading,
+}: {
+  form: UseFormReturn<stepFormType>;
+  isLoading?: boolean;
+}) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
   const { checkField, isPending } = useCheckField();
 
@@ -187,6 +193,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                   <FormLabel>Ton pseudo</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isLoading}
                       type="text"
                       className="py-6"
                       placeholder="VibeQueen"
@@ -206,6 +213,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                   <FormLabel>Identifiant unique</FormLabel>
                   <FormControl>
                     <UsernameInput
+                      disabled={isLoading}
                       usernameVerified={usernameVerified}
                       isPending={isPending}
                       {...field}
@@ -242,8 +250,14 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   );
 };
 
-const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
-  const { checkField, isPending } = useCheckField();
+const StepTwoCard = ({
+  form,
+  isLoading,
+}: {
+  form: UseFormReturn<stepFormType>;
+  isLoading?: boolean;
+}) => {
+  const { checkField } = useCheckField();
 
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
@@ -264,6 +278,7 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                     <Input
                       {...form.register('step2.email')}
                       {...field}
+                      disabled={isLoading}
                       type="email"
                       className="py-6"
                       placeholder="Entre ton email magique ✨"
@@ -298,7 +313,13 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   );
 };
 
-const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
+const StepThreeCard = ({
+  form,
+  isPending,
+}: {
+  form: UseFormReturn<stepFormType>;
+  isPending?: boolean;
+}) => {
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
       <CardTitle className="text-base text-center text-foreground">
@@ -317,6 +338,7 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                   <FormControl>
                     <PasswordInput
                       {...form.register('step3.password')}
+                      disabled={isPending}
                       autoComplete="new-password"
                       placeholder="Crée ton mot de passe en béton"
                       {...field}
@@ -335,6 +357,7 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                   <FormControl>
                     <PasswordInput
                       {...form.register('step3.confirmPassword')}
+                      disabled={isPending}
                       autoComplete="new-password"
                       placeholder="Confirme ton mot de passe en béton"
                       {...field}
