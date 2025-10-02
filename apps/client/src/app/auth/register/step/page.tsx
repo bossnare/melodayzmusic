@@ -20,6 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, type stepFormType } from '@/schemas/register';
 import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 import { useDebounce } from 'use-debounce';
+import { checkField } from '@/libs/auth/check-field';
 
 const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
   1: 'step1',
@@ -48,6 +49,18 @@ export default function StepPage() {
   const handleClickNext = async () => {
     const isValidStep = await form.trigger(stepFields[step]);
     if (step < totalSteps && isValidStep) {
+      const value = form.getValues('step1.username');
+      const { exist } = await checkField('/auth/username-check', {
+        username: value,
+      });
+      if (exist) {
+        form.setError('step1.username', {
+          type: 'manual',
+          message:
+            "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
+        });
+      }
+
       setIsLoadingNext(true);
       setTimeout(() => {
         setStep((step) => step + 1);
