@@ -111,7 +111,7 @@ function LoginCard({
                     <Button
                       type="button"
                       variant="link"
-                      className="w-auto h-auto p-0 text-muted-foreground font-montserrat"
+                      className="w-auto h-auto p-0 text-ring dark:text-muted-foreground font-montserrat"
                     >
                       Mot de passe oublié ?
                     </Button>
@@ -175,6 +175,8 @@ const StepOneCard = ({
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
   const { checkField, isPending } = useCheckField();
+  const username = form.getValues("step1.username")
+  const validUsername = /^@[a-zA-Z0-9_]{3,20}$/.test(username);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -215,6 +217,7 @@ const StepOneCard = ({
                     <UsernameInput
                       disabled={isLoading}
                       usernameVerified={usernameVerified}
+                      validUsername={validUsername}
                       isPending={isPending}
                       {...field}
                       {...form.register('step1.username')}
@@ -298,15 +301,15 @@ const StepTwoCard = ({
                       }}
                     />
                   </FormControl>
-                  <FormDescription className="text-xs">
-                    Ton email sécurise ton compte et t&apos;identifie
-                    facilement.
-                  </FormDescription>
                   {isPending && (
                     <FormDescription className="text-xs opacity-80">
                       vérification...
                     </FormDescription>
                   )}
+                  <FormDescription className="text-xs">
+                    Ton email sécurise ton compte et t&apos;identifie
+                    facilement.
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
