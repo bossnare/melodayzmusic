@@ -7,7 +7,11 @@ import { User } from './decorators/user.decorator.js';
 import { ChangePasswordDto } from './dto/change-password.dto.js';
 import { ForgotPasswordDto } from './dto/forgot-password.dto.js';
 import { LoginDto } from './dto/login.dto.js';
-import { RegisterDto } from './dto/register.dto.js';
+import {
+  EmailCheckDto,
+  RegisterDto,
+  UsernameCheckDto,
+} from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
 
 @Controller('auth')
@@ -18,6 +22,18 @@ export class AuthController {
   @Post('register')
   register(@Body() registerDto: RegisterDto) {
     return this.authService.register(registerDto);
+  }
+
+  @Public()
+  @Post('email-check')
+  emailCheck(@Body() emailCheckDto: EmailCheckDto) {
+    return this.authService.checkEmailExist(emailCheckDto);
+  }
+
+  @Public()
+  @Post('username-check')
+  usernameCheck(@Body() usernameCheckDto: UsernameCheckDto) {
+    return this.authService.checkUsernameExist(usernameCheckDto);
   }
 
   @Public()
