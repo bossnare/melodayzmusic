@@ -1,26 +1,25 @@
 'use client';
 
-import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
-import { StepNavigation, totalSteps } from '@/components/auth/StepNavigation';
 import {
   StepOneCard,
   StepThreeCard,
   StepTwoCard,
 } from '@/components/auth/AuthCard';
-import { useState } from 'react';
+import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
+import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import {
   AuthPageWrapper,
   StepCardWrapper,
 } from '@/components/auth/AuthWrapper';
+import { StepNavigation, totalSteps } from '@/components/auth/StepNavigation';
 import { MotionButton } from '@/components/motions/motionButton';
-import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useForm, FormProvider } from 'react-hook-form';
+import { useCheckField } from '@/libs/auth/useCheckField';
+import { registerSchema } from '@/schemas/register';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerSchema, type stepFormType } from '@/schemas/register';
-import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
-import { useDebounce } from 'use-debounce';
-import { checkField } from '@/libs/auth/check-field';
+import { ChevronLeft } from 'lucide-react';
+import { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
   1: 'step1',
@@ -32,6 +31,8 @@ export default function StepPage() {
   const [step, setStep] = useState(1);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
+  const { checkField, isPending } = useCheckField();
+  const pending = isLoadingNext || isPending;
 
   const form = useForm({
     resolver: zodResolver(registerSchema),
@@ -53,7 +54,7 @@ export default function StepPage() {
 
     if (step === 1) {
       const username = form.getValues('step1.username');
-      const { exist } = await checkField('/auth/username-check', { username });
+      const exist = await checkField('/auth/username-check', { username });
       if (exist) {
         form.setError('step1.username', {
           message: "Ce nom d'utilisateur est déjà pris.",
@@ -64,7 +65,7 @@ export default function StepPage() {
 
     if (step === 2) {
       const email = form.getValues('step2.email');
-      const { exist } = await checkField('/auth/email-check', { email });
+      const exist = await checkField('/auth/email-check', { email });
       if (exist) {
         form.setError('step2.email', {
           message: 'Cette adresse est déjà utilisée.',
@@ -137,7 +138,7 @@ export default function StepPage() {
               {step === 3 && <StepThreeCard form={form} />}
             </StepCardWrapper>
             <AuthCtaButton
-              isPending={isLoadingNext}
+              isPending={pending}
               onClick={handleClickNext}
               type={step >= totalSteps ? 'submit' : 'button'}
               className="mx-auto rounded-full w-8/9 sm:w-2/3"
