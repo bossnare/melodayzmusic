@@ -33,6 +33,7 @@ export default function StepPage() {
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
   const [validUsername, setValidUsername] = useState(true);
+  const [validEmail, setValidEmail] = useState(true);
 
   const form = useForm({
     resolver: zodResolver(registerSchema),
@@ -49,6 +50,7 @@ export default function StepPage() {
 
   const handleClickNext = async () => {
     const isValidStep = await form.trigger(stepFields[step]);
+    // check username validity
     if (step === 1) {
       const username = form.getValues('step1.username');
       const { exist } = await checkField('/auth/username-check', {
@@ -58,14 +60,32 @@ export default function StepPage() {
       if (exist) {
         setValidUsername(false);
         form.setError('step1.username', {
-          type: 'manual',
           message:
             "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
         });
+      } else {
+        setValidUsername(true);
       }
     }
 
-    if (step < totalSteps && isValidStep && validUsername) {
+    // check email validity
+    if (step === 2) {
+      const username = form.getValues('step1.username');
+      const { exist } = await checkField('/auth/username-check', {
+        username: username,
+      });
+
+      if (exist) {
+        setValidEmail(false);
+        form.setError('step2.email', {
+          message: 'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
+        });
+      } else {
+        setValidEmail(true);
+      }
+    }
+
+    if (step < totalSteps && isValidStep && validUsername && validEmail) {
       setIsLoadingNext(true);
       setTimeout(() => {
         setStep((step) => step + 1);
