@@ -33,6 +33,11 @@ export default function LoginPage() {
     },
   });
 
+  // identifier
+  const identifier = form.getValues('email');
+  const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(identifier);
+  const looksLikeUsername = /^@[a-zA-Z0-9_]{3,20}$/.test(identifier);
+
   const handleLogin = async (credentials: loginFormType) => {
     try {
       setIsPending(true);
@@ -103,7 +108,9 @@ export default function LoginPage() {
         open={isErrorCredentials}
         onOpenChange={() => setIsErrorCredentials(false)}
         title="Identifiants invalides"
-        description="Oups ! La combinaison email/nom d'utilisateur et mot de passe est incorrecte. Vérifie et réessaye."
+        description={`Oups ! La combinaison ${looksLikeEmail && 'email'}${
+          looksLikeUsername && "nom d'utilisateur"
+        } et mot de passe est incorrecte. Vérifie et réessaye.`}
         close="D'accord"
       />
       {/* password dialog */}
