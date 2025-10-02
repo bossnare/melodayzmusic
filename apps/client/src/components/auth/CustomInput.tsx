@@ -48,11 +48,13 @@ export const PasswordInput = (
 type UsernameInputProps = {
   usernameVerified?: boolean;
   isPending?: boolean;
+  validUsername?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const UsernameInput = ({
   usernameVerified,
   isPending,
+  validUsername,
   ...props
 }: UsernameInputProps) => {
   return (
@@ -63,17 +65,17 @@ export const UsernameInput = ({
         className="py-6"
         {...props}
       />
-      {isPending && (
+      {validUsername && isPending && (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
           <div className="size-[18px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div>
         </span>
       )}
-      {!isPending && usernameVerified && (
+      {validUsername && !isPending && usernameVerified && (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-chart-4">
           <CircleCheckBig className="size-[18px]" />
         </span>
       )}
-      {!isPending && !usernameVerified && (
+      {validUsername && !isPending && !usernameVerified && (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-destructive/80">
           <AlertTriangle className="size-[18px]" />
         </span>
