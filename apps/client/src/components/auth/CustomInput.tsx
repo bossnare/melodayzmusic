@@ -2,7 +2,12 @@
 
 import { MotionButton } from '@/components/motions/motionButton';
 import { Input } from '@/components/ui/input';
-import { CircleCheckBig, EyeIcon, EyeOffIcon } from 'lucide-react';
+import {
+  CircleCheckBig,
+  AlertTriangle,
+  EyeIcon,
+  EyeOffIcon,
+} from 'lucide-react';
 import { useState } from 'react';
 
 export const PasswordInput = (
@@ -63,9 +68,13 @@ export const UsernameInput = ({
           <div className="size-[18px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div>
         </span>
       )}
-      {!isPending && usernameVerified && (
+      {!isPending && usernameVerified ? (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-chart-4">
           <CircleCheckBig className="size-[18px]" />
+        </span>
+      ) : (
+        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-destructive/80">
+          <AlertTriangle className="size-[18px]" />
         </span>
       )}
     </div>
