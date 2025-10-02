@@ -6,11 +6,11 @@ export const registerSchema = z.object({
     username: z.string().min(4),
   }),
   step2: z.object({
-    newPassword: z.string().min(6),
-    confirmPassword: z.string().min(6),
+    email: z.string().email(),
   }),
   step3: z.object({
-    email: z.string().email(),
+    password: z.string().min(6),
+    confirmPassword: z.string().min(6),
   }),
 });
 

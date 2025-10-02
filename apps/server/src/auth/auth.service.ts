@@ -11,7 +11,11 @@ import { Role } from '../generated/prisma/enums.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { ChangePasswordDto } from './dto/change-password.dto.js';
 import { LoginDto } from './dto/login.dto.js';
-import { RegisterDto } from './dto/register.dto.js';
+import {
+  EmailCheckDto,
+  RegisterDto,
+  UsernameCheckDto,
+} from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
 
 @Injectable()
@@ -48,10 +52,32 @@ export class AuthService {
         email: registerDto.email,
         pseudo: registerDto.pseudo,
         artistName: registerDto.artistName,
-        username: '@' + registerDto.pseudo.toLowerCase(),
+        username: registerDto.username,
         password: hashedPassword,
       },
     });
+  }
+
+  // check if exist email
+  async checkEmailExist(emailCheckDto: EmailCheckDto) {
+    const email = await this.prisma.user.findUnique({
+      where: { email: emailCheckDto.email },
+    });
+
+    if (email) {
+      return { message: 'Email exist', exist: true };
+    }
+  }
+
+  // check if exist username
+  async checkUsernameExist(usernameCheckDto: UsernameCheckDto) {
+    const username = await this.prisma.user.findUnique({
+      where: { username: usernameCheckDto.username },
+    });
+
+    if (username) {
+      return { message: 'Username exist', exist: true };
+    }
   }
 
   // user login
