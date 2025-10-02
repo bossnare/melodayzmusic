@@ -210,25 +210,21 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                       {...form.register('step1.username')}
                       onChange={async (e) => {
                         field.onChange(e);
-                        const valid = await form.trigger('step1.username');
                         const { value } = e.target;
-                        if (valid) {
-                          const { exist } = await checkField(
-                            '/auth/username-check',
-                            {
-                              username: value,
-                            }
-                          );
-                          if (exist) {
-                            setUsernameVerified(false);
-                            form.setError('step1.username', {
-                              type: 'manual',
-                              message:
-                                "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
-                            });
-                          } else {
-                            setUsernameVerified(true);
+                        const { exist } = await checkField(
+                          '/auth/username-check',
+                          {
+                            username: value,
                           }
+                        );
+                        if (exist) {
+                          setUsernameVerified(false);
+                          form.setError('step1.username', {
+                            message:
+                              "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
+                          });
+                        } else {
+                          setUsernameVerified(true);
                         }
                       }}
                     />
@@ -283,7 +279,6 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                         );
                         if (exist)
                           form.setError('step2.email', {
-                            type: 'manual',
                             message:
                               'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
                           });
