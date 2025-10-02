@@ -9,8 +9,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useCheckField } from '@/hooks/useCheckField';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
-import { useCheckField } from '@/libs/auth/useCheckField';
 import { type loginFormType } from '@/schemas/login';
 import { type stepFormType } from '@/schemas/register';
 import { Mail } from 'lucide-react';
@@ -22,8 +22,8 @@ import { MelodayzMusic } from '../branding/logo';
 import { Button } from '../ui/button';
 import { AuthCtaButton } from './AuthCtaButton';
 import { StepCardWrapper } from './AuthWrapper';
+import { PasswordInput, UsernameInput } from './CustomInput';
 import { Divide } from './Divide';
-import { PasswordInput, UsernameInput } from './PasswordInput';
 import { Provider } from './Provider';
 
 function LoginCard({
