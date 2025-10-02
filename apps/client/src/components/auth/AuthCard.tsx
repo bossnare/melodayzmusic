@@ -207,6 +207,7 @@ const StepOneCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
                   <FormControl>
                     <UsernameInput
                       usernameVerified={usernameVerified}
+                      isPending={isPending}
                       {...field}
                       {...form.register('step1.username')}
                       onChange={async (e) => {
