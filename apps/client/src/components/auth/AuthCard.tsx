@@ -229,8 +229,8 @@ const StepOneCard = ({
 const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
-      <CardTitle className="text-base text-center text-foreground">
-        Un mot de passe qui suit ton rythme
+      <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
+        Ton email, ton pass VIP <Mail className="size-4 lg:size-5" />
       </CardTitle>
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
@@ -238,36 +238,25 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
           <div className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
-              name="step2.newPassword"
+              name="step2.email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Mot de passe</FormLabel>
+                  <FormLabel>Adresse email</FormLabel>
                   <FormControl>
-                    <PasswordInput
-                      {...form.register('step2.newPassword')}
-                      autoComplete="new-password"
-                      placeholder="Crée ton mot de passe en béton"
+                    <Input
+                      {...form.register('step2.email')}
+                      type="email"
+                      className="py-6"
+                      placeholder="Entre ton email magique ✨"
+                      spellCheck="false"
+                      autoCorrect="off"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            ></FormField>
-            <FormField
-              control={form.control}
-              name="step2.confirmPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Confirmation</FormLabel>
-                  <FormControl>
-                    <PasswordInput
-                      {...form.register('step2.confirmPassword')}
-                      autoComplete="new-password"
-                      placeholder="Confirme ton mot de passe en béton"
-                      {...field}
-                    />
-                  </FormControl>
+                  <FormDescription className="text-xs">
+                    Ton email sécurise ton compte et t&apos;identifie
+                    facilement.
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -282,8 +271,8 @@ const StepTwoCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
 const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
-      <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
-        Ton email, ton pass VIP <Mail className="size-4 lg:size-5" />
+      <CardTitle className="text-base text-center text-foreground">
+        Un mot de passe qui suit ton rythme
       </CardTitle>
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
@@ -291,25 +280,36 @@ const StepThreeCard = ({ form }: { form: UseFormReturn<stepFormType> }) => {
           <div className="flex flex-col flex-1 gap-4">
             <FormField
               control={form.control}
-              name="step3.email"
+              name="step3.password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Adresse email</FormLabel>
+                  <FormLabel>Mot de passe</FormLabel>
                   <FormControl>
-                    <Input
-                      {...form.register('step3.email')}
-                      type="email"
-                      className="py-6"
-                      placeholder="Entre ton email magique ✨"
-                      spellCheck="false"
-                      autoCorrect="off"
+                    <PasswordInput
+                      {...form.register('step3.password')}
+                      autoComplete="new-password"
+                      placeholder="Crée ton mot de passe en béton"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-xs">
-                    Ton email sécurise ton compte et t&apos;identifie
-                    facilement.
-                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+            <FormField
+              control={form.control}
+              name="step3.confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Confirmation</FormLabel>
+                  <FormControl>
+                    <PasswordInput
+                      {...form.register('step3.confirmPassword')}
+                      autoComplete="new-password"
+                      placeholder="Confirme ton mot de passe en béton"
+                      {...field}
+                    />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}

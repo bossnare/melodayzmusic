@@ -36,9 +36,10 @@ export default function StepPage() {
     mode: 'onChange',
     defaultValues: {
       step1: { pseudo: '', username: '' },
-      step2: { newPassword: '', confirmPassword: '' },
+      step2: { email: '' },
       step3: {
-        email: '',
+        password: '',
+        confirmPassword: '',
       },
     },
   });
