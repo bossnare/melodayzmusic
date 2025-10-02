@@ -58,7 +58,7 @@ export default function StepPage() {
       if (exist) {
         form.setError('step1.username', {
           message:
-            "Ce nom d'utulisateur est déjà pris, choisissez-en un autre.",
+            "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
         });
         canNext = false;
       }
