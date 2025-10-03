@@ -157,10 +157,9 @@ export const Sidebar = () => {
               : 'opacity-0 pointer-events-none'
           )}
         >
-          <Loader className="size-8 border-6 border-white" />
+          <Loader className="size-10 border-white" />
         </div>
       </div>
     </>
   );
 };
-
