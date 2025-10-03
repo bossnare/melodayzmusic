@@ -81,7 +81,7 @@ export default function StepPage() {
         setStep((step) => step + 1);
         setDir('next');
         setIsLoadingNext(false);
-      }, 1000);
+      }, 800);
     }
   };
 
