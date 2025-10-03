@@ -20,6 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
 
 const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
   1: 'step1',
@@ -54,6 +55,7 @@ export default function StepPage() {
 
     if (step === 1) {
       const username = form.getValues('step1.username');
+      if (!USERNAME_REGEX.test(username)) return;
       const exist = await checkField('/auth/username-check', { username });
       if (exist) {
         form.setError('step1.username', {
@@ -66,6 +68,7 @@ export default function StepPage() {
 
     if (step === 2) {
       const email = form.getValues('step2.email');
+      if (!EMAIL_REGEX.test(email)) return;
       const exist = await checkField('/auth/email-check', { email });
       if (exist) {
         form.setError('step2.email', {

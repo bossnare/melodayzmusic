@@ -26,6 +26,7 @@ import { PasswordInput, UsernameInput } from './CustomInput';
 import { Divide } from './Divide';
 import { Provider } from './Provider';
 import axios from 'axios';
+import { USERNAME_REGEX, EMAIL_REGEX } from '@/libs/validators/regex';
 
 function LoginCard({
   form,
@@ -178,7 +179,7 @@ const StepOneCard = ({
   const [autocheckLoading, setAutocheckLoading] = useState(false);
   const { checkField, isPending } = useCheckField();
   const username = form.getValues('step1.username');
-  const validUsername = /^[a-zA-Z0-9_]{4,20}$/.test(username);
+  const validUsername = USERNAME_REGEX.test(username);
 
   useEffect(() => {
     if (username === '') {
@@ -260,17 +261,22 @@ const StepOneCard = ({
                       onChange={async (e) => {
                         field.onChange(e);
                         const { value } = e.target;
-                        const exist = await checkField('/auth/username-check', {
-                          username: value,
-                        });
-                        if (exist) {
-                          setUsernameVerified(false);
-                          form.setError('step1.username', {
-                            message:
-                              "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
-                          });
-                        } else {
-                          setUsernameVerified(true);
+                        if (USERNAME_REGEX.test(value)) {
+                          const exist = await checkField(
+                            '/auth/username-check',
+                            {
+                              username: value,
+                            }
+                          );
+                          if (exist) {
+                            setUsernameVerified(false);
+                            form.setError('step1.username', {
+                              message:
+                                "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
+                            });
+                          } else {
+                            setUsernameVerified(true);
+                          }
                         }
                       }}
                     />
@@ -326,14 +332,16 @@ const StepTwoCard = ({
                       onChange={async (e) => {
                         field.onChange(e);
                         const { value } = e.target;
-                        const exist = await checkField('/auth/email-check', {
-                          email: value,
-                        });
-                        if (exist)
-                          form.setError('step2.email', {
-                            message:
-                              'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
+                        if (EMAIL_REGEX.test(value)) {
+                          const exist = await checkField('/auth/email-check', {
+                            email: value,
                           });
+                          if (exist)
+                            form.setError('step2.email', {
+                              message:
+                                'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
+                            });
+                        }
                       }}
                     />
                   </FormControl>
