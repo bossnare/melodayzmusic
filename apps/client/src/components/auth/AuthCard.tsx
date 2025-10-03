@@ -69,8 +69,8 @@ function LoginCard({
                         <FormControl>
                           <Input
                             disabled={isPending}
-                            spellCheck="false"
                             autoComplete="username"
+                            spellCheck="false"
                             autoCorrect="off"
                             type="text"
                             className="py-[26px] border-[1.4px] md:py-6 rounded-lg"
@@ -175,7 +175,7 @@ const StepOneCard = ({
   isLoading?: boolean;
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
-  const [autocheckLoading, setAutocheckLoading] = useState(false)
+  const [autocheckLoading, setAutocheckLoading] = useState(false);
   const { checkField, isPending } = useCheckField();
   const username = form.getValues('step1.username');
   const validUsername = /^[a-zA-Z0-9_]{4,20}$/.test(username);
@@ -189,18 +189,21 @@ const StepOneCard = ({
 
     const fetchUsername = async () => {
       try {
-        setAutocheckLoading(true)
-        const res = await axios.post('https://melodayzmusic-api.onrender.com/api/v1/auth/username-check', {
-        username: username,
-      });
-      const exist = await res.data.exist;
-      if (exist) {
-        setUsernameVerified(false);
-      } else {
-        setUsernameVerified(true);
-      }
+        setAutocheckLoading(true);
+        const res = await axios.post(
+          'https://melodayzmusic-api.onrender.com/api/v1/auth/username-check',
+          {
+            username: username,
+          }
+        );
+        const exist = await res.data.exist;
+        if (exist) {
+          setUsernameVerified(false);
+        } else {
+          setUsernameVerified(true);
+        }
       } finally {
-        setAutocheckLoading(false)
+        setAutocheckLoading(false);
       }
     };
 
@@ -227,6 +230,8 @@ const StepOneCard = ({
                       disabled={isLoading}
                       type="text"
                       className="py-6"
+                      spellCheck="false"
+                      autoCorrect="off"
                       placeholder="VibeQueen"
                       {...field}
                       {...form.register('step1.pseudo')}
@@ -244,6 +249,8 @@ const StepOneCard = ({
                   <FormLabel>Identifiant unique</FormLabel>
                   <FormControl>
                     <UsernameInput
+                      spellCheck="false"
+                      autoCorrect="off"
                       disabled={isLoading}
                       usernameVerified={usernameVerified}
                       validUsername={validUsername}
@@ -332,7 +339,8 @@ const StepTwoCard = ({
                   </FormControl>
                   {isPending && (
                     <FormDescription className="text-xs opacity-80 flex gap-1">
-                      <div className="size-[16px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div> vérification...
+                      <div className="size-[16px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div>{' '}
+                      vérification...
                     </FormDescription>
                   )}
                   <FormDescription className="text-xs">
@@ -377,6 +385,8 @@ const StepThreeCard = ({
                       {...form.register('step3.password')}
                       disabled={isPending}
                       autoComplete="new-password"
+                      spellCheck="false"
+                      autoCorrect="off"
                       placeholder="Crée ton mot de passe en béton"
                       {...field}
                     />
