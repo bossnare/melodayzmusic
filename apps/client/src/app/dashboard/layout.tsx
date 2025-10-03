@@ -41,10 +41,10 @@ export default function DashboardLayout({
                 </div>
               )}
               {isAtProfil && <NavProfile />}
-              <nav className="left-0 flex w-full px-3 py-2 sm:px-5 lg:hidden">
+              <nav className="left-0 flex w-full px-3 py-1 sm:px-5 lg:hidden">
                 <SheetTrigger asChild>
                   <MotionButtonLeft
-                    className="p-0 hover:!bg-transparent hover:text-muted-foreground"
+                    className="p-1 hover:!bg-transparent hover:text-muted-foreground"
                     type="button"
                   >
                     <AlignLeft className="stroke-current size-7 stroke-[2.2]" />
