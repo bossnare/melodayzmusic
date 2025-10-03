@@ -36,7 +36,7 @@ export default function LoginPage() {
   // identifier
   const identifier = form.getValues('email');
   const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(identifier);
-  const looksLikeUsername = /^@[a-zA-Z0-9_]{3,20}$/.test(identifier);
+  const looksLikeUsername = /^[a-zA-Z0-9_]{3,20}$/.test(identifier);
 
   const handleLogin = async (credentials: loginFormType) => {
     try {
