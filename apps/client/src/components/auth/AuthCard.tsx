@@ -181,7 +181,24 @@ const StepOneCard = ({
     if (username === '' && !validUsername) {
       setUsernameVerified(false);
     }
-  }, [username, validUsername]);
+
+    const fetchUsername = async () => {
+      const exist = await checkField('/auth/username-check', {
+        username: username,
+      });
+      if (exist) {
+        setUsernameVerified(false);
+        form.setError('step1.username', {
+          message:
+            "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
+        });
+      } else {
+        setUsernameVerified(true);
+      }
+    };
+
+    fetchUsername();
+  }, [username, validUsername, form, checkField]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
