@@ -28,12 +28,6 @@ const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
 };
 
 export default function StepPage() {
-  const [step, setStep] = useState(1);
-  const [dir, setDir] = useState<'prev' | 'next'>('next');
-  const [isLoadingNext, setIsLoadingNext] = useState(false);
-  const { checkField, isPending } = useCheckField();
-  const pending = isLoadingNext || isPending;
-
   const form = useForm({
     resolver: zodResolver(registerSchema),
     mode: 'onChange',
@@ -46,6 +40,12 @@ export default function StepPage() {
       },
     },
   });
+
+  const [step, setStep] = useState(1);
+  const [dir, setDir] = useState<'prev' | 'next'>('next');
+  const [isLoadingNext, setIsLoadingNext] = useState(false);
+  const { checkField, isPending } = useCheckField();
+  const pending = isLoadingNext || isPending;
 
   const handleClickNext = async () => {
     const isValidStep = await form.trigger(stepFields[step]);

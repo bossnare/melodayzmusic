@@ -177,8 +177,9 @@ const StepOneCard = ({
   const { checkField, isPending } = useCheckField();
   const username = form.watch('step1.username');
   const validUsername = /^@[a-zA-Z0-9_]{3,20}$/.test(username);
+
   useEffect(() => {
-    if (username === '' && !validUsername) {
+    if (username === '') {
       setUsernameVerified(false);
     }
 
@@ -188,17 +189,13 @@ const StepOneCard = ({
       });
       if (exist) {
         setUsernameVerified(false);
-        form.setError('step1.username', {
-          message:
-            "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
-        });
       } else {
         setUsernameVerified(true);
       }
     };
 
     fetchUsername();
-  }, [username, validUsername, form, checkField]);
+  }, [username, validUsername, checkField]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
