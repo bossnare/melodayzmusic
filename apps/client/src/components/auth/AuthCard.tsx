@@ -25,6 +25,7 @@ import { StepCardWrapper } from './AuthWrapper';
 import { PasswordInput, UsernameInput } from './CustomInput';
 import { Divide } from './Divide';
 import { Provider } from './Provider';
+import axios from 'axios';
 
 function LoginCard({
   form,
@@ -174,28 +175,37 @@ const StepOneCard = ({
   isLoading?: boolean;
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
+  const [autocheckLoading, setAutocheckLoading] = useState(false)
   const { checkField, isPending } = useCheckField();
-  const username = form.watch('step1.username');
-  const validUsername = /^@[a-zA-Z0-9_]{3,20}$/.test(username);
+  const username = form.getValues('step1.username');
+  const validUsername = /^[a-zA-Z0-9_]{3,20}$/.test(username);
 
   useEffect(() => {
     if (username === '') {
       setUsernameVerified(false);
     }
 
+    if (usernameVerified) return;
+
     const fetchUsername = async () => {
-      const exist = await checkField('/auth/username-check', {
+      try {
+        setAutocheckLoading(false)
+        const res = await axios.post('https://melodayzmusic-api.onrender.com/api/v1/auth/username-check', {
         username: username,
       });
+      const exist = await res.data.exist;
       if (exist) {
         setUsernameVerified(false);
       } else {
         setUsernameVerified(true);
       }
+      } finally {
+        setAutocheckLoading(false)
+      }
     };
 
     fetchUsername();
-  }, [username, validUsername, checkField]);
+  }, [username, autocheckLoading, usernameVerified]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -237,7 +247,7 @@ const StepOneCard = ({
                       disabled={isLoading}
                       usernameVerified={usernameVerified}
                       validUsername={validUsername}
-                      isPending={isPending}
+                      isPending={autocheckLoading || isPending}
                       {...field}
                       {...form.register('step1.username')}
                       onChange={async (e) => {

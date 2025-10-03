@@ -60,11 +60,14 @@ export const UsernameInput = ({
   return (
     <div className="relative">
       <Input
-        placeholder="@vibequeen848"
+        placeholder="vibequeen848"
         type="text"
-        className="py-6"
+        className="py-6 pl-8"
         {...props}
       />
+      <span className="absolute -translate-y-1/2 left-2 lg:left-3 top-1/2 p-[2px] rounded-full">
+        @
+      </span>
       {validUsername && isPending && (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
           <div className="size-[18px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div>
