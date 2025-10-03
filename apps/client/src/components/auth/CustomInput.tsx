@@ -62,7 +62,7 @@ export const UsernameInput = ({
       <Input
         placeholder="vibequeen848"
         type="text"
-        className="py-6 pl-8"
+        className="py-6 pl-7 lg:pl-8"
         {...props}
       />
       <span className="absolute -translate-y-1/2 left-2 lg:left-3 top-1/2 p-[2px] rounded-full">

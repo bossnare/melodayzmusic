@@ -178,7 +178,7 @@ const StepOneCard = ({
   const [autocheckLoading, setAutocheckLoading] = useState(false)
   const { checkField, isPending } = useCheckField();
   const username = form.getValues('step1.username');
-  const validUsername = /^[a-zA-Z0-9_]{3,20}$/.test(username);
+  const validUsername = /^[a-zA-Z0-9_]{4,20}$/.test(username);
 
   useEffect(() => {
     if (username === '') {
@@ -189,7 +189,7 @@ const StepOneCard = ({
 
     const fetchUsername = async () => {
       try {
-        setAutocheckLoading(false)
+        setAutocheckLoading(true)
         const res = await axios.post('https://melodayzmusic-api.onrender.com/api/v1/auth/username-check', {
         username: username,
       });

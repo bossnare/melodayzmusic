@@ -8,7 +8,7 @@ export const loginSchema = z.object({
       (data) => {
         const value = data.trim();
         const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
-        const looksLikeUsername = /^[a-zA-Z0-9_]{3,20}$/.test(value);
+        const looksLikeUsername = /^[a-zA-Z0-9_]{4,20}$/.test(value);
 
         return looksLikeEmail || looksLikeUsername;
       },
