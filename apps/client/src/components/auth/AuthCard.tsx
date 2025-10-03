@@ -16,7 +16,7 @@ import { type stepFormType } from '@/schemas/register';
 import { Mail } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { MelodayzMusic } from '../branding/logo';
 import { Button } from '../ui/button';
@@ -175,8 +175,13 @@ const StepOneCard = ({
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
   const { checkField, isPending } = useCheckField();
-  const username = form.getValues("step1.username")
+  const username = form.watch('step1.username');
   const validUsername = /^@[a-zA-Z0-9_]{3,20}$/.test(username);
+  useEffect(() => {
+    if (username === '' && !validUsername) {
+      setUsernameVerified(false);
+    }
+  }, [username, validUsername]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
