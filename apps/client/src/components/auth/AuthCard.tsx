@@ -331,8 +331,8 @@ const StepTwoCard = ({
                     />
                   </FormControl>
                   {isPending && (
-                    <FormDescription className="text-xs opacity-80">
-                      vérification...
+                    <FormDescription className="text-xs opacity-80 flex gap-1">
+                      <div className="size-[16px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div> vérification...
                     </FormDescription>
                   )}
                   <FormDescription className="text-xs">
