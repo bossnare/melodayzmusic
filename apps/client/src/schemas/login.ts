@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
 
 export const loginSchema = z.object({
   email: z
@@ -7,8 +8,8 @@ export const loginSchema = z.object({
     .refine(
       (data) => {
         const value = data.trim();
-        const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
-        const looksLikeUsername = /^[a-zA-Z0-9_]{4,20}$/.test(value);
+        const looksLikeEmail = EMAIL_REGEX.test(value);
+        const looksLikeUsername = USERNAME_REGEX.test(value);
 
         return looksLikeEmail || looksLikeUsername;
       },
