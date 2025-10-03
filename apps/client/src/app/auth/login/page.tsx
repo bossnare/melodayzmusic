@@ -15,6 +15,7 @@ import { toast } from 'sonner';
 import { X, CircleAlert } from 'lucide-react';
 import { vibrate } from '@/utils/vibration';
 import { Button } from '@/components/ui/button';
+import { USERNAME_REGEX, EMAIL_REGEX } from '@/libs/validators/regex';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
@@ -35,8 +36,8 @@ export default function LoginPage() {
 
   // identifier
   const identifier = form.getValues('email');
-  const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(identifier);
-  const looksLikeUsername = /^[a-zA-Z0-9_]{4,20}$/.test(identifier);
+  const looksLikeEmail = EMAIL_REGEX.test(identifier);
+  const looksLikeUsername = USERNAME_REGEX.test(identifier);
 
   const handleLogin = async (credentials: loginFormType) => {
     try {
