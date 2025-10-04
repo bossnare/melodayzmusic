@@ -50,7 +50,7 @@ export default function StepPage() {
     },
   });
 
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(1);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
@@ -178,7 +178,7 @@ export default function StepPage() {
               {step === 1 && <StepOneCard isLoading={pending} form={form} />}
               {step === 2 && <StepTwoCard isLoading={pending} form={form} />}
               {step === 3 && <StepThreeCard isPending={pending} form={form} />}
-              {step === 4 && <StepFourCard isPending={false} form={form} />}
+              {step === 4 && <StepFourCard isPending={registerLoading} form={form} />}
             </StepCardWrapper>
             <AuthCtaButton
               isPending={pending}
