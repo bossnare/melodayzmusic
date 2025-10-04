@@ -1,7 +1,6 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Loader } from '../motions/Loader';
 import { Button } from '../ui/button';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { MelodayzMusic } from '../branding/logo';
@@ -10,6 +9,7 @@ import { MotionButton } from '../motions/motionButton';
 import { useRouter } from 'next/navigation';
 import { ModeToggle } from '../themes/mode-toggle';
 import { Encouragement } from './StepNavigation';
+import { Spinner } from '../ui/spinner';
 
 const AuthHeaderSwitch = ({
   href,
@@ -51,7 +51,7 @@ const AuthHeaderSwitch = ({
             )}
           >
             {isPending && (
-              <Loader className="size-5 lg:size-6 border-foreground" />
+              <Spinner className="size-5 lg:size-6 text-foreground" />
             )}
             {isPending ? 'Loading...' : 'Créer un compte'}
           </Button>
@@ -80,7 +80,7 @@ const AuthHeaderSwitch = ({
               )}
             >
               {isPending && (
-                <Loader className="size-5 lg:size-6 border-foreground" />
+                <Spinner className="size-5 lg:size-6 text-foreground" />
               )}
               {isPending ? 'Loading...' : 'Déjà inscrit'}
             </Button>
