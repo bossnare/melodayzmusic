@@ -53,12 +53,14 @@ export default function StepPage() {
   const [step, setStep] = useState(4);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
+  const [registerLoading, setRegisterLoading] = useState(false);
   const { checkField, isPending } = useCheckField();
-  const pending = isLoadingNext || isPending;
+  const pending = isLoadingNext || isPending || registerLoading;
   const router = useRouter();
 
   const handleRegister = async (data: stepFormType) => {
     try {
+      setRegisterLoading(true);
       const res = await api.post('/auth/register', data);
       if (res.data) {
         if (confirm('Your account created, go to login'))
@@ -68,6 +70,8 @@ export default function StepPage() {
       if (error instanceof AxiosError) {
         alert(error?.message);
       }
+    } finally {
+      setRegisterLoading(false);
     }
   };
 
