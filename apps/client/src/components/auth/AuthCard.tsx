@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import {
   Form,
@@ -186,11 +188,9 @@ const StepOneCard = ({
   let validUsername: boolean = USERNAME_REGEX.test(username);
 
   useEffect(() => {
-    if (username === '') {
+    if (username === '' || validUsername) {
       setUsernameVerified(false);
     }
-
-    if (usernameVerified) return;
 
     const fetchUsername = async () => {
       try {
@@ -213,7 +213,7 @@ const StepOneCard = ({
     };
 
     fetchUsername();
-  }, [username, autocheckLoading, usernameVerified]);
+  }, [username, autocheckLoading, usernameVerified, validUsername]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -451,53 +451,58 @@ const StepFourCard = ({
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
           <div className="flex flex-col flex-1 gap-5">
-            <FormField
-              control={form.control}
-              name="step3.password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    {/* <PasswordInput
-                      {...form.register('step3.password')}
-                      disabled={isPending}
-                      autoComplete="new-password"
-                      spellCheck="false"
-                      autoCorrect="off"
-                      placeholder="Crée ton mot de passe en béton"
-                      {...field}
-                    /> */}
-                    <DatePicker label="Date de naissance" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            ></FormField>
+            <div className="flex flex-col gap-5 sm:gap-6 sm:flex-row">
+              <FormField
+                control={form.control}
+                name="step4.birthday"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Date de naissance</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        value={field.value}
+                        onChangeAction={field.onChange}
+                        isPending={isPending}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              ></FormField>
 
-            {/* country */}
-            <FormField
-              control={form.control}
-              name="step3.confirmPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="pb-1">
-                    Vous venez de quel pays ?
-                  </FormLabel>
-                  <FormControl>
-                    <SelectScrollable />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            ></FormField>
+              {/* country */}
+              <FormField
+                control={form.control}
+                name="step4.country"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Vous venez de quel pays ?</FormLabel>
+                    <FormControl>
+                      <SelectScrollable
+                        value={field.value}
+                        onChange={field.onChange}
+                        isPending={isPending}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              ></FormField>
+            </div>
             {/* Genre */}
             <FormField
               control={form.control}
-              name="step3.confirmPassword"
+              name="step4.genre"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="pb-1">Quel est votre genre ?</FormLabel>
+                  <FormLabel>Quel est votre genre ?</FormLabel>
                   <FormControl>
-                    <RadioGroup1 className="flex" />
+                    <RadioGroup1
+                      onChange={field.onChange}
+                      value={field.value}
+                      className="flex"
+                      isPending={isPending}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
