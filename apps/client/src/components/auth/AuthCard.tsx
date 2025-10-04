@@ -188,7 +188,7 @@ const StepOneCard = ({
   let validUsername: boolean = USERNAME_REGEX.test(username);
 
   useEffect(() => {
-    if (username === '' || validUsername) {
+    if (username === '') {
       setUsernameVerified(false);
     }
 
@@ -213,7 +213,7 @@ const StepOneCard = ({
     };
 
     fetchUsername();
-  }, [username, autocheckLoading, usernameVerified, validUsername]);
+  }, [username, autocheckLoading, usernameVerified]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
