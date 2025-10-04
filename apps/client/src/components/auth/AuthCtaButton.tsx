@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import type { BaseProps } from '@/types/base.interface';
-import { Loader } from '../motions/Loader';
 import { cn } from '@/lib/utils';
+import { Spinner } from '../ui/spinner';
 
 export const AuthCtaButton = ({
   children,
@@ -34,7 +34,7 @@ export const AuthCtaButton = ({
       type={type}
     >
       {isPending && (
-        <Loader className="size-6 border-white dark:border-foreground" />
+        <Spinner className="size-6 text-white dark:text-foreground" />
       )}
       {isPending ? 'Loading...' : children}
       {/* grain overlay */}
