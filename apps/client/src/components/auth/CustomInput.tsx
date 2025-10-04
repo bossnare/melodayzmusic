@@ -81,14 +81,14 @@ const UsernameInput = ({
           }}
           animate={{
             opacity: 1,
-            scale: 1, // overshoot
+            scale: 1,
             rotate: 0,
           }}
           transition={{
             duration: 0.6,
             type: 'spring',
             stiffness: 200,
-            mass: 0.5,
+            mass: 0.5, // overshoot
             damping: 20,
           }}
           className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-chart-4"
