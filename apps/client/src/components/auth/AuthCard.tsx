@@ -27,7 +27,11 @@ import { Divide } from './Divide';
 import { Provider } from './Provider';
 import axios from 'axios';
 import { USERNAME_REGEX, EMAIL_REGEX } from '@/libs/validators/regex';
+import { DatePicker } from './date-picker';
+import { RadioGroup1 } from './radio-group1';
+import { SelectScrollable } from './select-scrollable';
 
+// login card
 function LoginCard({
   form,
   handleLogin,
@@ -431,4 +435,86 @@ const StepThreeCard = ({
   );
 };
 
-export { LoginCard, RegisterCard, StepOneCard, StepThreeCard, StepTwoCard };
+const StepFourCard = ({
+  form,
+  isPending,
+}: {
+  form: UseFormReturn<stepFormType>;
+  isPending?: boolean;
+}) => {
+  return (
+    <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
+      <CardTitle className="text-base text-center text-foreground">
+        Un peu plus sur toi
+      </CardTitle>
+      {/* Form Content */}
+      <CardContent className="flex flex-col p-1 md:flex-row">
+        <Form {...form}>
+          <div className="flex flex-col flex-1 gap-5">
+            <FormField
+              control={form.control}
+              name="step3.password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    {/* <PasswordInput
+                      {...form.register('step3.password')}
+                      disabled={isPending}
+                      autoComplete="new-password"
+                      spellCheck="false"
+                      autoCorrect="off"
+                      placeholder="Crée ton mot de passe en béton"
+                      {...field}
+                    /> */}
+                    <DatePicker label="Date de naissance" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+
+            {/* country */}
+            <FormField
+              control={form.control}
+              name="step3.confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="pb-1">
+                    Vous venez de quel pays ?
+                  </FormLabel>
+                  <FormControl>
+                    <SelectScrollable />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+            {/* Genre */}
+            <FormField
+              control={form.control}
+              name="step3.confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="pb-1">Quel est votre genre ?</FormLabel>
+                  <FormControl>
+                    <RadioGroup1 className="flex" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+          </div>
+        </Form>
+      </CardContent>
+    </Card>
+  );
+};
+
+export {
+  LoginCard,
+  RegisterCard,
+  StepOneCard,
+  StepThreeCard,
+  StepTwoCard,
+  StepFourCard,
+};
