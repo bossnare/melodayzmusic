@@ -1,10 +1,10 @@
 'use client';
 
-import { Loader } from '@/components/motions/Loader';
 import { Button } from '@/components/ui/button';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import Image from 'next/image';
 import AuthGuardLanding from '@/components/auth/AuthGuardLanding';
+import { Spinner } from '@/components/ui/spinner';
 
 export default function Page() {
   const { isPending, handleClickTab } = useLoadingPath('/auth/login');
@@ -37,7 +37,7 @@ export default function Page() {
           size="lg"
         >
           {isPending ? (
-            <Loader className="border-white size-5" />
+            <Spinner className="text-white size-5" />
           ) : (
             'Get started'
           )}

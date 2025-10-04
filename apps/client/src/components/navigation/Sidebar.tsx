@@ -26,7 +26,7 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { cn } from '@/lib/utils';
-import { Loader } from '../motions/Loader';
+import { Spinner } from '@/components/ui/spinner';
 import { motion } from 'motion/react';
 
 export const Sidebar = () => {
@@ -157,7 +157,7 @@ export const Sidebar = () => {
               : 'opacity-0 pointer-events-none'
           )}
         >
-          <Loader className="size-10 border-white" />
+          <Spinner className="size-10 text-white" />
         </div>
       </div>
     </>

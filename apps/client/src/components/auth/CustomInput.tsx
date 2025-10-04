@@ -2,6 +2,7 @@
 
 import { MotionButton } from '@/components/motions/motionButton';
 import { Input } from '@/components/ui/input';
+import { Spinner } from '@/components/ui/spinner';
 import {
   CircleCheckBig,
   OctagonAlert,
@@ -69,7 +70,7 @@ const UsernameInput = ({
       </span>
       {validUsername && isPending && (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
-          <div className="size-[18px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div>
+          <Spinner className="size-[18px] text-foreground/50" />
         </span>
       )}
       {validUsername && !isPending && usernameVerified && (
