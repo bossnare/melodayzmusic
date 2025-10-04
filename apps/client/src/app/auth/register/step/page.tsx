@@ -40,10 +40,14 @@ export default function StepPage() {
         password: '',
         confirmPassword: '',
       },
+      step4: {
+        country: '',
+        genre: '',
+      },
     },
   });
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(4);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
   const { checkField, isPending } = useCheckField();
@@ -103,7 +107,7 @@ export default function StepPage() {
       {/* content */}
       <div
         className="flex flex-col justify-center items-center gap-1 
-      w-full *:w-full md:*:w-2/3 lg:*:w-1/2 xl:*:w-[42%] min-h-[50%] md:min-h-[65%] transition-all duration-300 relative"
+      w-full *:w-full md:*:w-3/4 lg:*:w-1/2 xl:*:w-[42%] min-h-[50%] sm:min-h-auto xl:min-h-[65%] transition-all duration-300 relative"
       >
         <div className="absolute left-8 !size-10 hidden lg:block">
           <MotionButton
@@ -130,8 +134,8 @@ export default function StepPage() {
         {/* Step Card */}
         <FormProvider {...form}>
           <form
-            action=""
             className="flex flex-col justify-between space-y-3 grow"
+            onSubmit={form.handleSubmit(() => alert(''))}
           >
             <StepCardWrapper
               key={step}
@@ -141,7 +145,7 @@ export default function StepPage() {
               {step === 1 && <StepOneCard isLoading={pending} form={form} />}
               {step === 2 && <StepTwoCard isLoading={pending} form={form} />}
               {step === 3 && <StepThreeCard isPending={pending} form={form} />}
-              {step === 4 && <StepFourCard form={form} />}
+              {step === 4 && <StepFourCard isPending={false} form={form} />}
             </StepCardWrapper>
             <AuthCtaButton
               isPending={pending}

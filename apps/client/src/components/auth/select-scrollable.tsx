@@ -10,9 +10,17 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-export function SelectScrollable() {
+export function SelectScrollable({
+  value,
+  onChange,
+  isPending,
+}: {
+  value: string;
+  onChange?: (value: string) => void;
+  isPending?: boolean;
+}) {
   return (
-    <Select>
+    <Select disabled={isPending} value={value} onValueChange={onChange}>
       <SelectTrigger className="w-[280px]">
         <SelectValue placeholder="Selectionnez votre pays" />
       </SelectTrigger>

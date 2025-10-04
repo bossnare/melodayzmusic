@@ -23,6 +23,11 @@ export const registerSchema = z.object({
     password: z.string().min(6),
     confirmPassword: z.string().min(6),
   }),
+  step4: z.object({
+    birthday: z.date(),
+    country: z.string().min(1, 'Not null'),
+    genre: z.string().min(1, 'Not null'),
+  }),
 });
 
 export type stepFormType = z.infer<typeof registerSchema>;
