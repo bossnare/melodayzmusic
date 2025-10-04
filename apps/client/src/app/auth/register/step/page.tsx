@@ -4,6 +4,7 @@ import {
   StepOneCard,
   StepThreeCard,
   StepTwoCard,
+  StepFourCard,
 } from '@/components/auth/AuthCard';
 import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
@@ -140,6 +141,7 @@ export default function StepPage() {
               {step === 1 && <StepOneCard isLoading={pending} form={form} />}
               {step === 2 && <StepTwoCard isLoading={pending} form={form} />}
               {step === 3 && <StepThreeCard isPending={pending} form={form} />}
+              {step === 4 && <StepFourCard form={form} />}
             </StepCardWrapper>
             <AuthCtaButton
               isPending={pending}
