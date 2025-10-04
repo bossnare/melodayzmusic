@@ -50,7 +50,7 @@ export function DatePicker({
             selected={value}
             captionLayout="dropdown"
             onSelect={(date) => {
-              onChangeAction?.(date);
+              onChangeAction?.(new Date(date.toISOString()));
               setDate(date);
               setOpen(false);
             }}
