@@ -1,4 +1,8 @@
-import { USERNAME_REGEX, PSEUDO_REGEX } from '@/libs/validators/regex';
+import {
+  USERNAME_REGEX,
+  PSEUDO_REGEX,
+  PASS_REGEX,
+} from '@/libs/validators/regex';
 import { z } from 'zod';
 
 export const registerSchema = z.object({
@@ -20,13 +24,24 @@ export const registerSchema = z.object({
     email: z.string().email(),
   }),
   step3: z.object({
-    password: z.string().min(6),
-    confirmPassword: z.string().min(6),
+    password: z
+      .string()
+      .min(6, 'Le mot de passe doit contenir au moins 6 caractères.')
+      .regex(
+        PASS_REGEX,
+        'Le mot de passe doit contenir majuscule, minuscule et chiffre.'
+      ),
+    confirmPassword: z
+      .string()
+      .refine((val) => val.trim() !== '', { message: '' }),
   }),
   step4: z.object({
-    birthday: z.date(),
-    country: z.string().min(1, 'Not null'),
-    genre: z.string().min(1, 'Not null'),
+    birthday: z
+      .date().refine((val) => val instanceof Date && !isNaN(val.getTime()), {
+        message: 'Veuillez sélectionner votre date de naissance.',
+      }),
+    country: z.string().nonempty('Veuillez sélectionner votre pays.'),
+    genre: z.string().nonempty('Veuillez sélectionner votre genre.'),
   }),
 });
 

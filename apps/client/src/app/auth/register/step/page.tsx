@@ -16,12 +16,15 @@ import { StepNavigation, totalSteps } from '@/components/auth/StepNavigation';
 import { MotionButton } from '@/components/motions/motionButton';
 import { useCheckField } from '@/hooks/useCheckField';
 import { cn } from '@/lib/utils';
-import { registerSchema } from '@/schemas/register';
+import { registerSchema, type stepFormType } from '@/schemas/register';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
+import { useRouter } from 'next/navigation';
+import { AxiosError } from 'axios';
+import api from '@/libs/api';
 
 const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
   1: 'step1',
@@ -52,6 +55,21 @@ export default function StepPage() {
   const [isLoadingNext, setIsLoadingNext] = useState(false);
   const { checkField, isPending } = useCheckField();
   const pending = isLoadingNext || isPending;
+  const router = useRouter();
+
+  const handleRegister = async (data: stepFormType) => {
+    try {
+      const res = await api.post('/auth/register', data);
+      if (res.data) {
+        if (confirm('Your account created, go to login'))
+          router.replace('/auth/login');
+      }
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        alert(error?.message);
+      }
+    }
+  };
 
   const handleClickNext = async () => {
     const isValidStep = await form.trigger(stepFields[step]);
@@ -78,6 +96,17 @@ export default function StepPage() {
       if (exist) {
         form.setError('step2.email', {
           message: 'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
+        });
+        canNext = false;
+      }
+    }
+
+    if (step === 3) {
+      const password = form.getValues('step3.password');
+      const confirmPassword = form.getValues('step3.confirmPassword');
+      if (confirmPassword !== password) {
+        form.setError('step3.confirmPassword', {
+          message: 'Oops ! Les mots de passe ne correspondent pas.',
         });
         canNext = false;
       }
@@ -135,7 +164,7 @@ export default function StepPage() {
         <FormProvider {...form}>
           <form
             className="flex flex-col justify-between space-y-3 grow"
-            onSubmit={form.handleSubmit(() => alert(''))}
+            onSubmit={form.handleSubmit(handleRegister)}
           >
             <StepCardWrapper
               key={step}
