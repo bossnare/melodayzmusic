@@ -9,10 +9,9 @@ import {
   EyeOffIcon,
 } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from 'motion/react';
 
-export const PasswordInput = (
-  props: React.InputHTMLAttributes<HTMLInputElement>
-) => {
+const PasswordInput = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
   const [showPassword, setShowPassword] = useState(false);
   const [focused, setFocused] = useState(false);
 
@@ -51,7 +50,7 @@ type UsernameInputProps = {
   validUsername?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const UsernameInput = ({
+const UsernameInput = ({
   usernameVerified,
   isPending,
   validUsername,
@@ -74,9 +73,29 @@ export const UsernameInput = ({
         </span>
       )}
       {validUsername && !isPending && usernameVerified && (
-        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-chart-4">
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.5,
+            rotate: -45,
+            y: -20,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.6,
+            type: 'spring',
+            stiffness: 200,
+            damping: 20,
+          }}
+          className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-chart-4"
+        >
           <CircleCheckBig className="size-[18px]" />
-        </span>
+        </motion.div>
       )}
       {validUsername && !isPending && !usernameVerified && (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-destructive bg-destructive/20">
@@ -86,3 +105,5 @@ export const UsernameInput = ({
     </div>
   );
 };
+
+export { PasswordInput, UsernameInput };
