@@ -192,6 +192,8 @@ const StepOneCard = ({
       setUsernameVerified(false);
     }
 
+    if (usernameVerified) return;
+
     const fetchUsername = async () => {
       try {
         setAutocheckLoading(true);
