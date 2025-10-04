@@ -37,6 +37,9 @@ model User {
   username      String    @unique
   password      String
   role          Role      @default(USER)
+  birthday      DateTime
+  country       String
+  genre         String
   resetToken    String?
   resetTokenExp DateTime?
   verified      Boolean   @default(false)
