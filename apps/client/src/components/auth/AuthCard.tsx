@@ -191,9 +191,9 @@ const StepOneCard = ({
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
   const [autocheckLoading, setAutocheckLoading] = useState(false);
-  const [validUsername, setValidUsername] = useState(false);
   const { checkField, isPending } = useCheckField();
   const username = form.getValues('step1.username');
+  let validUsername: boolean = USERNAME_REGEX.test(username);
 
   useEffect(() => {
     if (username === '') {
@@ -275,25 +275,21 @@ const StepOneCard = ({
                       onChange={async (e) => {
                         field.onChange(e);
                         const { value } = e.target;
-                        if (USERNAME_REGEX.test(value)) {
-                          setValidUsername(true);
-                          const exist = await checkField(
-                            '/auth/username-check',
-                            {
-                              username: value,
-                            }
-                          );
-                          if (exist) {
-                            setUsernameVerified(false);
-                            form.setError('step1.username', {
-                              message:
-                                "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
-                            });
-                          } else {
-                            setUsernameVerified(true);
-                          }
+                        if (!USERNAME_REGEX.test(value)) {
+                          validUsername = false;
+                          return;
+                        }
+                        const exist = await checkField('/auth/username-check', {
+                          username: value,
+                        });
+                        if (exist) {
+                          setUsernameVerified(false);
+                          form.setError('step1.username', {
+                            message:
+                              "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
+                          });
                         } else {
-                          setValidUsername(false);
+                          setUsernameVerified(true);
                         }
                       }}
                     />
