@@ -51,6 +51,7 @@ export function DatePicker({
             captionLayout="dropdown"
             onSelect={(date) => {
               onChangeAction?.(date && date.toISOString());
+              console.log(value, date);
               setDate(date);
               setOpen(false);
             }}
