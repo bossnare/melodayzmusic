@@ -65,7 +65,10 @@ export const Sidebar = () => {
               width={1000}
               height={1000}
             />
-            <h2 className="text-xl font-black select-none font-montserrat">
+            <h2
+              translate="no"
+              className="text-xl font-black select-none font-montserrat"
+            >
               MELODAYZMUSIC
             </h2>
           </figure>
