@@ -60,9 +60,19 @@ export default function StepPage() {
   const router = useRouter();
 
   const handleRegister = async (data: stepFormType) => {
+    // fletten data 
+    const payload = {
+      pseudo: data.step1.pseudo,
+      username: data.step1.username,
+      email: data.step2.email,
+      password: data.step3.password,
+      birthday: data.step4.birthday,
+      country: data.step4.country,
+      genre: data.step4.genre
+    }
     try {
       setRegisterLoading(true);
-      const res = await api.post('/auth/register', data);
+      const res = await api.post('/auth/register', payload);
       if (res.data) {
         if (confirm('Your account created, go to login'))
           router.replace('/auth/login');
