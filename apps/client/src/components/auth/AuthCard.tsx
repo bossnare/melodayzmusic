@@ -283,11 +283,11 @@ const StepOneCard = ({
                           username: value,
                         });
                         if (exist) {
-                          setUsernameVerified(false);
                           form.setError('step1.username', {
                             message:
                               "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
                           });
+                          setUsernameVerified(false);
                         } else {
                           setUsernameVerified(true);
                         }
