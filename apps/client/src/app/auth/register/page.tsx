@@ -1,4 +1,4 @@
-// 'use client'
+'use client';
 
 import { RegisterCard } from '@/components/auth/AuthCard';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';

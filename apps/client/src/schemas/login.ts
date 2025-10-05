@@ -20,7 +20,7 @@ export const loginSchema = z.object({
   password: z
     .string()
     .refine((val) => val.trim() !== '', { message: '' })
-    .min(6, { message: 'Trop court (6 caractères min.)' }),
+    .min(8, { message: 'Trop court (8 caractères min.)' }),
 });
 
 export type loginFormType = z.infer<typeof loginSchema>;
