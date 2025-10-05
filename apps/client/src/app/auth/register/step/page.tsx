@@ -44,7 +44,7 @@ export default function StepPage() {
         confirmPassword: '',
       },
       step4: {
-        birthday: '',
+        // birthday: '',
         country: '',
         genre: '',
       },
@@ -70,6 +70,7 @@ export default function StepPage() {
     } catch (error) {
       if (error instanceof AxiosError) {
         alert(error?.message);
+        alert(JSON.stringify(data, null, 2))
       }
     } finally {
       setRegisterLoading(false);
