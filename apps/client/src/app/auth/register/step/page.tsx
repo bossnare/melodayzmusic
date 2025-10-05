@@ -51,7 +51,9 @@ export default function StepPage() {
     },
   });
 
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(
+    process.env.NODE_ENV === 'development' ? 4 : 1
+  );
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
@@ -60,7 +62,7 @@ export default function StepPage() {
   const router = useRouter();
 
   const handleRegister = async (data: stepFormType) => {
-    // fletten data 
+    // fletten data
     const payload = {
       pseudo: data.step1.pseudo,
       username: data.step1.username,
@@ -68,8 +70,8 @@ export default function StepPage() {
       password: data.step3.password,
       birthday: data.step4.birthday,
       country: data.step4.country,
-      genre: data.step4.genre
-    }
+      genre: data.step4.genre,
+    };
     try {
       setRegisterLoading(true);
       const res = await api.post('/auth/register', payload);
@@ -80,7 +82,7 @@ export default function StepPage() {
     } catch (error) {
       if (error instanceof AxiosError) {
         alert(error?.message);
-        alert(JSON.stringify(data, null, 2))
+        alert(JSON.stringify(data, null, 2));
       }
     } finally {
       setRegisterLoading(false);
