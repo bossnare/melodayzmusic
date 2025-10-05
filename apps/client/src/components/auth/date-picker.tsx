@@ -16,7 +16,7 @@ export function DatePicker({
   onChangeAction,
   isPending,
 }: {
-  value?: Date;
+  value?: string;
   onChangeAction?: (date: string | undefined) => void;
   isPending?: boolean;
 }) {
@@ -39,7 +39,7 @@ export function DatePicker({
             {date
               ? date.toLocaleDateString()
               : value
-              ? value.toLocaleDateString()
+              ? new Date(value).toLocaleDateString()
               : 'Selectionner une date'}
             <ChevronDownIcon />
           </Button>
@@ -47,7 +47,7 @@ export function DatePicker({
         <PopoverContent className="w-auto overflow-hidden p-0" align="start">
           <Calendar
             mode="single"
-            selected={value}
+            selected={new Date(value || date || '')}
             captionLayout="dropdown"
             onSelect={(date) => {
               onChangeAction?.(date && date.toISOString());
