@@ -178,7 +178,9 @@ export default function StepPage() {
               {step === 1 && <StepOneCard isLoading={pending} form={form} />}
               {step === 2 && <StepTwoCard isLoading={pending} form={form} />}
               {step === 3 && <StepThreeCard isPending={pending} form={form} />}
-              {step === 4 && <StepFourCard isPending={registerLoading} form={form} />}
+              {step === 4 && (
+                <StepFourCard isPending={registerLoading} form={form} />
+              )}
             </StepCardWrapper>
             <AuthCtaButton
               isPending={pending}

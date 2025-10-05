@@ -15,7 +15,7 @@ import { useCheckField } from '@/hooks/useCheckField';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { type loginFormType } from '@/schemas/login';
 import { type stepFormType } from '@/schemas/register';
-import { Mail } from 'lucide-react';
+import { Mail, Lock, UserRoundPen, NotebookPen } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -32,6 +32,14 @@ import { USERNAME_REGEX, EMAIL_REGEX } from '@/libs/validators/regex';
 import { DatePicker } from './date-picker';
 import { RadioGroup1 } from './radio-group1';
 import { SelectScrollable } from './select-scrollable';
+
+function Title({ children }: { children: React.ReactNode }) {
+  return (
+    <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
+      {children}
+    </CardTitle>
+  );
+}
 
 // login card
 function LoginCard({
@@ -219,9 +227,9 @@ const StepOneCard = ({
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
-      <CardTitle className="text-base text-center text-foreground">
-        Crée ton identité
-      </CardTitle>
+      <Title>
+        Crée ton identité <UserRoundPen className="size-4 lg:size-5" />{' '}
+      </Title>
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
@@ -314,9 +322,9 @@ const StepTwoCard = ({
 
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
-      <CardTitle className="flex items-center justify-center gap-2 text-base text-foreground">
+      <Title>
         Ton email, ton pass VIP <Mail className="size-4 lg:size-5" />
-      </CardTitle>
+      </Title>
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
@@ -383,9 +391,10 @@ const StepThreeCard = ({
 }) => {
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
-      <CardTitle className="text-base text-center text-foreground">
-        Un mot de passe qui suit ton rythme
-      </CardTitle>
+      <Title>
+        Un mot de passe qui suit ton rythme{' '}
+        <Lock className="size-4 lg:size-5" />
+      </Title>
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
@@ -446,9 +455,9 @@ const StepFourCard = ({
 }) => {
   return (
     <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
-      <CardTitle className="text-base text-center text-foreground">
-        Un peu plus sur toi
-      </CardTitle>
+      <Title>
+        Un peu plus sur toi <NotebookPen className="size-4 lg:size-5" />
+      </Title>
       {/* Form Content */}
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
