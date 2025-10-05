@@ -276,9 +276,10 @@ const StepOneCard = ({
                         field.onChange(e);
                         const { value } = e.target;
                         if (!USERNAME_REGEX.test(value)) {
-                           setValidUsername(false);
+                          setValidUsername(false);
                           return;
                         }
+                        setValidUsername(true);
                         const exist = await checkField('/auth/username-check', {
                           username: value,
                         });

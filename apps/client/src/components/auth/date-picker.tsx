@@ -17,7 +17,7 @@ export function DatePicker({
   isPending,
 }: {
   value?: Date;
-  onChangeAction?: (date: Date | undefined) => void;
+  onChangeAction?: (date: string | undefined) => void;
   isPending?: boolean;
 }) {
   const [open, setOpen] = React.useState(false);
@@ -50,7 +50,7 @@ export function DatePicker({
             selected={value}
             captionLayout="dropdown"
             onSelect={(date) => {
-              onChangeAction?.(date && new Date(date.toISOString()));
+              onChangeAction?.(date && date.toISOString());
               setDate(date);
               setOpen(false);
             }}
