@@ -37,9 +37,8 @@ export const registerSchema = z.object({
   }),
   step4: z.object({
     birthday: z
-      .date().refine((val) => val instanceof Date && !isNaN(val.getTime()), {
-        message: 'Veuillez sélectionner votre date de naissance.',
-      }),
+      .string()
+      .nonempty('Veuillez sélectionner votre date de naissance.'),
     country: z.string().nonempty('Veuillez sélectionner votre pays.'),
     genre: z.string().nonempty('Veuillez sélectionner votre genre.'),
   }),
