@@ -30,6 +30,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'MelodayzMusic - Feel the Beat, Anywhere You Go',
+  other: {
+    google: 'notranslate',
+  },
   description:
     'MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users',
   keywords: [
@@ -52,7 +55,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <meta name="google" content="notranslate" />
       <body
         className={`${inter.variable} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
       >
