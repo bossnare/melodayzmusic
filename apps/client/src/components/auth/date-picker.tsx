@@ -47,7 +47,7 @@ export function DatePicker({
         <PopoverContent className="w-auto overflow-hidden p-0" align="start">
           <Calendar
             mode="single"
-            selected={new Date(value || date || '')}
+            selected={new Date(value || date || undefined)}
             captionLayout="dropdown"
             onSelect={(date) => {
               onChangeAction?.(date && date.toISOString());
