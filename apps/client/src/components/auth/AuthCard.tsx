@@ -206,7 +206,7 @@ const StepOneCard = ({
       try {
         setAutocheckLoading(true);
         const res = await axios.post(
-          'https://melodayzmusic-api.onrender.com/api/v1/auth/username-check',
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/username-check`,
           {
             username: username,
           }
@@ -275,6 +275,7 @@ const StepOneCard = ({
                       onChange={async (e) => {
                         field.onChange(e);
                         const { value } = e.target;
+                        if (!usernameVerified) return;
                         if (USERNAME_REGEX.test(value)) {
                           const exist = await checkField(
                             '/auth/username-check',
