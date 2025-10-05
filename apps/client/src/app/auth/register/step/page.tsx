@@ -50,7 +50,7 @@ export default function StepPage() {
     },
   });
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(4);
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
