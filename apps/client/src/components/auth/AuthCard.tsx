@@ -191,9 +191,9 @@ const StepOneCard = ({
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
   const [autocheckLoading, setAutocheckLoading] = useState(false);
+  const [validUsername, setValidUsername] = useState(false);
   const { checkField, isPending } = useCheckField();
   const username = form.getValues('step1.username');
-  let validUsername: boolean = USERNAME_REGEX.test(username);
 
   useEffect(() => {
     if (username === '') {
@@ -276,7 +276,7 @@ const StepOneCard = ({
                         field.onChange(e);
                         const { value } = e.target;
                         if (!USERNAME_REGEX.test(value)) {
-                          validUsername = false;
+                           setValidUsername(false);
                           return;
                         }
                         const exist = await checkField('/auth/username-check', {
