@@ -10,7 +10,10 @@ const MelodayzMusic = () => {
         height={1000}
         width={1000}
       />
-      <span className="text-[18px] select-none hover:text-foreground/90 text-foreground dark:text-primary-foreground md:text-xl font-extrabold font-montserrat">
+      <span
+        translate="no"
+        className="text-[18px] select-none hover:text-foreground/90 text-foreground dark:text-primary-foreground md:text-xl font-extrabold font-montserrat"
+      >
         MelodayzMusic
       </span>
     </div>
@@ -32,7 +35,10 @@ const Logo = ({ onClick }: { onClick: () => void }) => {
           width={1000}
           height={1000}
         />
-        <h2 className="text-xl font-black tracking-wide transition-all duration-100 ease-in-out select-none will-change-auto font-montserrat">
+        <h2
+          translate="no"
+          className="text-xl font-black tracking-wide transition-all duration-100 ease-in-out select-none will-change-auto font-montserrat"
+        >
           MELODAYZMUSIC
         </h2>
       </figure>
