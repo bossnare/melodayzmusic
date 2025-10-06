@@ -21,7 +21,7 @@ export class BaseUserDto {
   password: string;
 
   @IsString()
-  birthday: Date;
+  birthday: string;
 
   @IsString()
   country: string;
