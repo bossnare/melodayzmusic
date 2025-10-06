@@ -223,7 +223,7 @@ const StepOneCard = ({
     };
 
     fetchUsername();
-  }, [username, autocheckLoading, checkField, usernameVerified]);
+  }, [username, autocheckLoading, usernameVerified]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -277,6 +277,7 @@ const StepOneCard = ({
                         const { value } = e.target;
                         if (!USERNAME_REGEX.test(value)) {
                           setValidUsername(false);
+                          setAutocheckLoading(false);
                           return;
                         }
                         setValidUsername(true);
