@@ -268,9 +268,9 @@ const StepOneCard = ({
                     <UsernameInput
                       spellCheck="false"
                       autoCorrect="off"
-                      disabled={isPending || autocheckLoading}
+                      disabled={isLoading}
                       usernameVerified={usernameVerified}
-                      isPending={isLoading}
+                      isPending={isPending || autocheckLoading}
                       {...field}
                       {...form.register('step1.username')}
                       onChange={async (e) => {
