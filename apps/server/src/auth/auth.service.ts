@@ -49,7 +49,7 @@ export class AuthService {
     const hashedPassword = await argon2.hash(registerDto.password);
     // make pretty exact bithday date
     const [year, month, day] = registerDto.birthday.split('-').map(Number);
-    const birthday = new Date(year, month - 1, day);
+    const birthday = new Date(Date.UTC(year, month - 1, day));
     return this.prisma.user.create({
       data: {
         email: registerDto.email,
