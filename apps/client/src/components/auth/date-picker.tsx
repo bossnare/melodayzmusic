@@ -50,7 +50,7 @@ export function DatePicker({
             selected={date || (value ? new Date(value) : undefined)}
             captionLayout="dropdown"
             onSelect={(date) => {
-              onChangeAction?.(date?.toISOString());
+              onChangeAction?.(date?.toISOString().split('T')[0]);
               console.log(value);
               setDate(date);
               setOpen(false);
