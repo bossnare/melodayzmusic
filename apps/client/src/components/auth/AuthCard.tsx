@@ -219,7 +219,7 @@ const StepOneCard = ({
       } finally {
         setAutocheckLoading(false);
       }
-    }, 500);
+    }, 0);
 
     return () => {
       controller.abort();
