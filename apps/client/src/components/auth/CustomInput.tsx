@@ -54,9 +54,12 @@ type UsernameInputProps = {
 const UsernameInput = ({
   usernameVerified,
   isPending,
+  validUsername,
   ...props
 }: UsernameInputProps) => {
   function renderingStatus() {
+    if (!validUsername) return null;
+
     if (isPending) {
       return (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">

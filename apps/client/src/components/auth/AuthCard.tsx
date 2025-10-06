@@ -270,6 +270,7 @@ const StepOneCard = ({
                       autoCorrect="off"
                       disabled={isLoading}
                       usernameVerified={usernameVerified}
+                      validUsername={validUsername}
                       isPending={isPending || autocheckLoading}
                       {...field}
                       {...form.register('step1.username')}
