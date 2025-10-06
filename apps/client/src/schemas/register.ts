@@ -36,9 +36,9 @@ export const registerSchema = z.object({
       .refine((val) => val.trim() !== '', { message: '' }),
   }),
   step4: z.object({
-    birthday: z.string().refine((val) => !!val, {
-      message: 'Veuillez sélectionner votre date de naissance.',
-    }),
+    birthday: z
+      .string()
+      .nonempty('Veuillez sélectionner votre date de naissance.'),
     country: z.string().nonempty('Veuillez sélectionner votre pays.'),
     genre: z.string().nonempty('Veuillez sélectionner votre genre.'),
   }),
