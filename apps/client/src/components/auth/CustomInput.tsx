@@ -57,23 +57,19 @@ const UsernameInput = ({
   validUsername,
   ...props
 }: UsernameInputProps) => {
-  return (
-    <div className="relative">
-      <Input
-        placeholder="vibequeen848"
-        type="text"
-        className="py-6 pl-7 lg:pl-8"
-        {...props}
-      />
-      <span className="absolute -translate-y-1/2 left-2 lg:left-3 top-1/2 p-[2px] rounded-full">
-        @
-      </span>
-      {validUsername && isPending && (
+  function renderingStatus() {
+    if (!validUsername) return;
+
+    if (isPending) {
+      return (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
           <Spinner className="size-[18px] text-foreground/50" />
         </span>
-      )}
-      {validUsername && !isPending && usernameVerified && (
+      );
+    }
+
+    if (usernameVerified) {
+      return (
         <motion.div
           initial={{
             opacity: 0,
@@ -96,12 +92,29 @@ const UsernameInput = ({
         >
           <CircleCheckBig className="size-[18px]" />
         </motion.div>
-      )}
-      {validUsername && !isPending && !usernameVerified && (
+      );
+    } else {
+      return (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-destructive bg-destructive/20">
           <OctagonAlert className="size-[18px]" />
         </span>
-      )}
+      );
+    }
+  }
+
+  return (
+    <div className="relative">
+      <Input
+        placeholder="vibequeen848"
+        type="text"
+        className="py-6 pl-7 lg:pl-8"
+        {...props}
+      />
+      <span className="absolute -translate-y-1/2 left-2 lg:left-3 top-1/2 p-[2px] rounded-full">
+        @
+      </span>
+
+      {renderingStatus()}
     </div>
   );
 };
