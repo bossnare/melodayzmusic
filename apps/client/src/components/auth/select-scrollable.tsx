@@ -1,14 +1,13 @@
-import * as React from 'react';
-
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
+  // SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import countryFlagEmoji from 'country-flag-emoji';
 
 export function SelectScrollable({
   value,
@@ -19,6 +18,8 @@ export function SelectScrollable({
   onChange?: (value: string) => void;
   isPending?: boolean;
 }) {
+  const country = countryFlagEmoji.list;
+
   return (
     <Select disabled={isPending} value={value} onValueChange={onChange}>
       <SelectTrigger className="w-[280px]">
@@ -26,6 +27,13 @@ export function SelectScrollable({
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
+          {country.map((c) => (
+            <SelectItem key={c.unicode} value={c.code.toLowerCase()}>
+              {c.name} {c.emoji} ({c.code})
+            </SelectItem>
+          ))}
+        </SelectGroup>
+        {/* <SelectGroup>
           <SelectLabel>North America</SelectLabel>
           <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
           <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
@@ -76,7 +84,7 @@ export function SelectScrollable({
           <SelectItem value="bot">Bolivia Time (BOT)</SelectItem>
           <SelectItem value="brt">Brasilia Time (BRT)</SelectItem>
           <SelectItem value="clt">Chile Standard Time (CLT)</SelectItem>
-        </SelectGroup>
+        </SelectGroup> */}
       </SelectContent>
     </Select>
   );

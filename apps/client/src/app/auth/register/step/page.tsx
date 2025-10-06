@@ -44,9 +44,9 @@ export default function StepPage() {
         confirmPassword: '',
       },
       step4: {
-        // birthday: '',
+        birthday: '',
         country: '',
-        genre: '',
+        genre: 'homme',
       },
     },
   });
