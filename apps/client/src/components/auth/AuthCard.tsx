@@ -191,7 +191,7 @@ const StepOneCard = ({
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
   const [autocheckLoading, setAutocheckLoading] = useState(false);
-  const [validUsername, setValidUsername] = useState(false);
+  const [validUsername, setValidUsername] = useState(true);
   const { checkField, isPending } = useCheckField();
   const username = form.getValues('step1.username');
 
@@ -285,11 +285,11 @@ const StepOneCard = ({
                           username: value,
                         });
                         if (exist) {
+                          setUsernameVerified(false);
                           form.setError('step1.username', {
                             message:
                               "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
                           });
-                          setUsernameVerified(false);
                         } else {
                           setUsernameVerified(true);
                         }
