@@ -207,8 +207,8 @@ const StepOneCard = ({
           `${process.env.NEXT_PUBLIC_API_URL}/auth/username-check`,
           {
             username: username,
-          }
-{ signal: controller.signal }
+          },
+          { signal: controller.signal }
         );
         const exist = await res.data.exist;
         if (exist) {
@@ -277,7 +277,10 @@ const StepOneCard = ({
                         field.onChange(e);
                         const { value } = e.target;
                         // check if invalid username
-                        if (!USERNAME_REGEX.test(value)) return;
+                        if (!USERNAME_REGEX.test(value)) {
+                          setUsernameVerified(false);
+                          return;
+                        }
                         const exist = await checkField('/auth/username-check', {
                           username: value,
                         });
