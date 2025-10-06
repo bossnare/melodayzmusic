@@ -47,12 +47,15 @@ export class AuthService {
   async register(registerDto: RegisterDto) {
     // hashing this plainpassword
     const hashedPassword = await argon2.hash(registerDto.password);
+    // make pretty exact bithday date
+    const [year, month, day] = registerDto.birthday.split('-').map(Number);
+    const birthday = new Date(year, month - 1, day);
     return this.prisma.user.create({
       data: {
         email: registerDto.email,
         pseudo: registerDto.pseudo,
         artistName: registerDto.artistName,
-        birthday: new Date(registerDto.birthday),
+        birthday: birthday,
         country: registerDto.country,
         genre: registerDto.genre,
         username: registerDto.username,
