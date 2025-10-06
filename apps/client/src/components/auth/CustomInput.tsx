@@ -100,13 +100,14 @@ const UsernameInput = ({
           <CircleCheckBig className="size-[18px]" />
         </motion.div>
       );
-    } else if (!usernameVerified) {
+    } else {
       return (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-destructive bg-destructive/20">
           <OctagonAlert className="size-[18px]" />
         </span>
       );
     }
+
     return null;
   }
 
