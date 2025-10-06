@@ -59,7 +59,15 @@ const UsernameInput = ({
   ...props
 }: UsernameInputProps) => {
   function renderingStatus() {
-    if (isPending || autocheckLoading) {
+    if (isPending) {
+      return (
+        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
+          <Spinner className="size-[18px] text-foreground/50" />
+        </span>
+      );
+    }
+
+    if (autocheckLoading) {
       return (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
           <Spinner className="size-[18px] text-foreground/50" />
