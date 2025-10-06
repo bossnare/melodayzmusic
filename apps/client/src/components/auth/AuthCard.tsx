@@ -191,9 +191,9 @@ const StepOneCard = ({
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
   const [autocheckLoading, setAutocheckLoading] = useState(false);
-  const [validUsername, setValidUsername] = useState(true);
   const { checkField, isPending } = useCheckField();
   const username = form.getValues('step1.username');
+  let validUsername = EMAIL_REGEX.test(username);
 
   useEffect(() => {
     if (username === '') {
@@ -223,7 +223,7 @@ const StepOneCard = ({
     };
 
     fetchUsername();
-  }, [username, autocheckLoading, usernameVerified]);
+  }, [username, autocheckLoading, checkField, usernameVerified]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -275,23 +275,24 @@ const StepOneCard = ({
                       onChange={async (e) => {
                         field.onChange(e);
                         const { value } = e.target;
-                        if (!USERNAME_REGEX.test(value)) {
-                          setValidUsername(false);
-                          setAutocheckLoading(false);
-                          return;
-                        }
-                        setValidUsername(true);
-                        const exist = await checkField('/auth/username-check', {
-                          username: value,
-                        });
-                        if (exist) {
-                          setUsernameVerified(false);
-                          form.setError('step1.username', {
-                            message:
-                              "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
-                          });
+                        if (USERNAME_REGEX.test(value)) {
+                          const exist = await checkField(
+                            '/auth/username-check',
+                            {
+                              username: value,
+                            }
+                          );
+                          if (exist) {
+                            setUsernameVerified(false);
+                            form.setError('step1.username', {
+                              message:
+                                "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
+                            });
+                          } else {
+                            setUsernameVerified(true);
+                          }
                         } else {
-                          setUsernameVerified(true);
+                          validUsername = false;
                         }
                       }}
                     />
