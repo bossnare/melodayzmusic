@@ -270,6 +270,7 @@ const StepOneCard = ({
                       usernameVerified={usernameVerified}
                       validUsername={validUsername}
                       isPending={isPending}
+                      autocheckLoading={autocheckLoading}
                       {...field}
                       {...form.register('step1.username')}
                       onChange={async (e) => {

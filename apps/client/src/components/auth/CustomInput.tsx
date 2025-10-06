@@ -49,18 +49,20 @@ type UsernameInputProps = {
   usernameVerified?: boolean;
   isPending?: boolean;
   validUsername?: boolean;
+  autocheckLoading?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 const UsernameInput = ({
   usernameVerified,
   isPending,
   validUsername,
+  autocheckLoading,
   ...props
 }: UsernameInputProps) => {
   function renderingStatus() {
     if (!validUsername) return;
 
-    if (isPending) {
+    if (isPending || autocheckLoading) {
       return (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
           <Spinner className="size-[18px] text-foreground/50" />
