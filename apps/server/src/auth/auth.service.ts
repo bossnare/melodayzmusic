@@ -17,7 +17,6 @@ import {
   UsernameCheckDto,
 } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
-import { dot } from 'node:test/reporters';
 
 @Injectable()
 export class AuthService {
