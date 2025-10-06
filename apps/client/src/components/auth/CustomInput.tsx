@@ -98,9 +98,8 @@ const UsernameInput = ({
           <OctagonAlert className="size-[18px]" />
         </span>
       );
-    } else {
-      return;
     }
+    return null;
   }
 
   return (
