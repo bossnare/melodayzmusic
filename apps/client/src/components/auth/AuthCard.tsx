@@ -192,7 +192,7 @@ const StepOneCard = ({
   const [usernameVerified, setUsernameVerified] = useState(false);
   const [autocheckLoading, setAutocheckLoading] = useState(false);
   const { checkField, isPending } = useCheckField();
-  const username = form.getValues('step1.username');
+  const username = form.watch('step1.username');
   let validUsername = USERNAME_REGEX.test(username);
 
   useEffect(() => {
@@ -223,7 +223,7 @@ const StepOneCard = ({
     };
 
     fetchUsername();
-  }, [username, autocheckLoading, checkField, usernameVerified]);
+  }, [username, autocheckLoading, usernameVerified]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -293,8 +293,6 @@ const StepOneCard = ({
                           }
                         } else {
                           validUsername = false;
-                          setAutocheckLoading(false);
-                          setUsernameVerified(false);
                         }
                       }}
                     />
