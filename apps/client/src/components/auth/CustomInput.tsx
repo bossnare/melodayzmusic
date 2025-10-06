@@ -57,8 +57,6 @@ const UsernameInput = ({
   ...props
 }: UsernameInputProps) => {
   function renderingStatus() {
-    if (!isPending && !usernameVerified) return null;
-
     if (isPending) {
       return (
         <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
