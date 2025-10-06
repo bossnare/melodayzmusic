@@ -293,6 +293,8 @@ const StepOneCard = ({
                           }
                         } else {
                           validUsername = false;
+                          setAutocheckLoading(false);
+                          setUsernameVerified(false);
                         }
                       }}
                     />
