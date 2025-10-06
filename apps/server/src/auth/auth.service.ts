@@ -52,7 +52,7 @@ export class AuthService {
         email: registerDto.email,
         pseudo: registerDto.pseudo,
         artistName: registerDto.artistName,
-        birthday: registerDto.birthday,
+        birthday: new Date(registerDto.birthday),
         country: registerDto.country,
         genre: registerDto.genre,
         username: registerDto.username,
