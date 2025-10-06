@@ -37,7 +37,7 @@ model User {
   username      String    @unique
   password      String
   role          Role      @default(USER)
-  birthday      DateTime
+  birthday      DateTime  @db.Date
   country       String
   genre         String
   resetToken    String?

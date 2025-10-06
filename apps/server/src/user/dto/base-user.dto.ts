@@ -3,9 +3,7 @@ import {
   IsOptional,
   IsString,
   MinLength,
-  IsDate,
 } from 'class-validator';
-import { Type } from "class-transformer";
 
 export class BaseUserDto {
   @IsEmail()
@@ -27,9 +25,7 @@ export class BaseUserDto {
   @MinLength(6)
   password: string;
 
-  @Type(() => Date)
-  @IsDate({ message: "La date de naissance doit être valide." })
-  @IsDate()
+  @IsString()
   birthday: Date;
 
   @IsString()
