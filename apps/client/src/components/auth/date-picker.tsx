@@ -34,7 +34,7 @@ export function DatePicker({
             disabled={isPending}
             variant="outline"
             id="date"
-            className="w-48 flex gap-2 font-normal"
+            className="w-48 flex gap-1 font-normal"
           >
             <CalendarIcon />
             {date
