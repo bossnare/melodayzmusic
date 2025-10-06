@@ -196,15 +196,11 @@ const StepOneCard = ({
   const validUsername = USERNAME_REGEX.test(username);
 
   useEffect(() => {
-    if (!validUsername) return;
+    if (!validUsername || username === '') return;
 
-    if (username === '') {
-      setUsernameVerified(false);
-    }
+    const controller = new AbortController();
 
-    if (usernameVerified) return;
-
-    const fetchUsername = async () => {
+    const timer = setTimeout(async () => {
       try {
         setAutocheckLoading(true);
         const res = await axios.post(
@@ -212,6 +208,7 @@ const StepOneCard = ({
           {
             username: username,
           }
+{ signal: controller.signal }
         );
         const exist = await res.data.exist;
         if (exist) {
@@ -222,10 +219,13 @@ const StepOneCard = ({
       } finally {
         setAutocheckLoading(false);
       }
-    };
+    }, 500);
 
-    fetchUsername();
-  }, [username, autocheckLoading, usernameVerified, validUsername]);
+    return () => {
+      controller.abort();
+      clearTimeout(timer);
+    };
+  }, [username, validUsername]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -268,10 +268,9 @@ const StepOneCard = ({
                     <UsernameInput
                       spellCheck="false"
                       autoCorrect="off"
-                      disabled={isLoading}
+                      disabled={isLoading || autocheckLoading}
                       usernameVerified={usernameVerified}
                       isPending={isPending}
-                      autocheckLoading={autocheckLoading}
                       {...field}
                       {...form.register('step1.username')}
                       onChange={async (e) => {
