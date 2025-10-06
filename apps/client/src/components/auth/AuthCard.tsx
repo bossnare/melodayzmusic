@@ -223,7 +223,7 @@ const StepOneCard = ({
     };
 
     fetchUsername();
-  }, [username, autocheckLoading, usernameVerified, checkField]);
+  }, [username, autocheckLoading, usernameVerified]);
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -269,7 +269,7 @@ const StepOneCard = ({
                       disabled={isLoading}
                       usernameVerified={usernameVerified}
                       validUsername={validUsername}
-                      isPending={autocheckLoading || isPending}
+                      isPending={isPending}
                       {...field}
                       {...form.register('step1.username')}
                       onChange={async (e) => {
@@ -322,7 +322,7 @@ const StepTwoCard = ({
   const { checkField, isPending } = useCheckField();
 
   return (
-    <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
+    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
         Ton email, ton pass VIP <Mail className="size-4 lg:size-5" />
       </Title>
@@ -363,7 +363,7 @@ const StepTwoCard = ({
                     />
                   </FormControl>
                   {isPending && (
-                    <FormDescription className="text-xs opacity-80 flex gap-1">
+                    <FormDescription className="flex gap-1 text-xs opacity-80">
                       <div className="size-[16px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div>{' '}
                       vérification...
                     </FormDescription>
@@ -391,7 +391,7 @@ const StepThreeCard = ({
   isPending?: boolean;
 }) => {
   return (
-    <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
+    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
         Un mot de passe qui suit ton rythme{' '}
         <Lock className="size-4 lg:size-5" />
@@ -455,7 +455,7 @@ const StepFourCard = ({
   isPending?: boolean;
 }) => {
   return (
-    <Card className="dark:bg-card/6 dark:backdrop-blur-sm p-4">
+    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
         Un peu plus sur toi <NotebookPen className="size-4 lg:size-5" />
       </Title>
