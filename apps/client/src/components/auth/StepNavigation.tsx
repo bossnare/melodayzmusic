@@ -40,7 +40,7 @@ export function Encouragement({
       exit={{ x: dir === 'prev' ? -100 : 100, opacity: 0 }}
       className={cn('!w-auto', className)}
     >
-      <h3 className="text-base flex items-center gap-1 font-medium text-foreground/80">
+      <h3 className="text-base *:size-4 flex items-center gap-1 font-medium text-foreground/80">
         {encouragements[step - 1]} {encouragementIcons[step - 1]}
       </h3>
     </StepCardWrapper>
