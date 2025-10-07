@@ -13,23 +13,23 @@ import {
 import { Input } from '@/components/ui/input';
 import { useCheckField } from '@/hooks/useCheckField';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
+import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
 import { type loginFormType } from '@/schemas/login';
 import { type stepFormType } from '@/schemas/register';
-import { Mail, Lock, UserRoundPen, NotebookPen } from 'lucide-react';
+import axios from 'axios';
+import { Lock, Mail, NotebookPen, UserRoundPen } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { MelodayzMusic } from '../branding/logo';
 import { Button } from '../ui/button';
 import { AuthCtaButton } from './AuthCtaButton';
 import { StepCardWrapper } from './AuthWrapper';
 import { PasswordInput, UsernameInput } from './CustomInput';
+import { DatePicker } from './date-picker';
 import { Divide } from './Divide';
 import { Provider } from './Provider';
-import axios from 'axios';
-import { USERNAME_REGEX, EMAIL_REGEX } from '@/libs/validators/regex';
-import { DatePicker } from './date-picker';
 import { RadioGroup1 } from './radio-group1';
 import { SelectScrollable } from './select-scrollable';
 
@@ -227,6 +227,37 @@ const StepOneCard = ({
     };
   }, [username, validUsername]);
 
+  // real-time ckecking
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleUsernameChange = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { value } = e.target;
+
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    // check if invalid username
+    debounceRef.current = setTimeout(async () => {
+      if (!USERNAME_REGEX.test(value)) {
+        setUsernameVerified(false);
+        return;
+      }
+      const exist = await checkField('/auth/username-check', {
+        username: value,
+      });
+      if (exist) {
+        setUsernameVerified(false);
+        setAutocheckLoading(false);
+        form.setError('step1.username', {
+          message:
+            "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
+        });
+      } else {
+        setUsernameVerified(true);
+      }
+    }, 500);
+  };
+
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
@@ -274,27 +305,9 @@ const StepOneCard = ({
                       isPending={isChecking || autocheckLoading}
                       {...field}
                       {...form.register('step1.username')}
-                      onChange={async (e) => {
+                      onChange={(e) => {
                         field.onChange(e);
-                        const { value } = e.target;
-                        // check if invalid username
-                        if (!USERNAME_REGEX.test(value)) {
-                          setUsernameVerified(false);
-                          return;
-                        }
-                        const exist = await checkField('/auth/username-check', {
-                          username: value,
-                        });
-                        if (exist) {
-                          setUsernameVerified(false);
-                          setAutocheckLoading(false);
-                          form.setError('step1.username', {
-                            message:
-                              "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
-                          });
-                        } else {
-                          setUsernameVerified(true);
-                        }
+                        handleUsernameChange(e);
                       }}
                     />
                   </FormControl>
@@ -530,8 +543,8 @@ const StepFourCard = ({
 export {
   LoginCard,
   RegisterCard,
+  StepFourCard,
   StepOneCard,
   StepThreeCard,
   StepTwoCard,
-  StepFourCard,
 };
