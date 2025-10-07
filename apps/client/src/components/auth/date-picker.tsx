@@ -37,11 +37,7 @@ export function DatePicker({
             className="w-48 flex gap-1 font-normal"
           >
             <CalendarIcon />
-            {date
-              ? date.toLocaleDateString()
-              : value
-              ? new Date(value).toLocaleDateString()
-              : 'Selectionner'}
+            {value ? new Date(value).toLocaleDateString() : 'Selectionner'}
             <ChevronDownIcon className="ml-auto" />
           </Button>
         </PopoverTrigger>
@@ -51,7 +47,9 @@ export function DatePicker({
             selected={date || (value ? new Date(value) : undefined)}
             captionLayout="dropdown"
             onSelect={(date) => {
-              onChangeAction?.(date?.toISOString().split('T')[0]);
+              const formattedDate =
+                date && new Date(date).toLocaleDateString('en-CA');
+              onChangeAction?.(formattedDate);
               console.log(value);
               setDate(date);
               setOpen(false);
