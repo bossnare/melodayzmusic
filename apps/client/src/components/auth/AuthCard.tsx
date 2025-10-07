@@ -463,7 +463,7 @@ const StepFourCard = ({
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
           <div className="flex flex-col flex-1 gap-5">
-            <div className="flex flex-col gap-5 sm:gap-6 sm:flex-row">
+            <div className="flex flex-col gap-4 items-start sm:gap-6 sm:flex-row">
               <FormField
                 control={form.control}
                 name="step4.birthday"
