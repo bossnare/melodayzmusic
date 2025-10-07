@@ -132,7 +132,7 @@ export default function StepPage() {
       }
     }
 
-    if (step < totalSteps && canNext) {
+    if (step < totalSteps - 1 && canNext) {
       setIsLoadingNext(true);
       setTimeout(() => {
         setStep((step) => step + 1);
@@ -201,7 +201,7 @@ export default function StepPage() {
             <AuthCtaButton
               isPending={pending}
               onClick={handleClickNext}
-              type={step >= totalSteps ? 'submit' : 'button'}
+              type={step >= totalSteps - 1 ? 'submit' : 'button'}
               className="mx-auto rounded-full w-8/9 sm:w-2/3"
             >
               {step >= totalSteps ? 'Créer mon compte' : 'Suivant'}
