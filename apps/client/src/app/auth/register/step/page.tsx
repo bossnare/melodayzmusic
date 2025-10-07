@@ -204,7 +204,7 @@ export default function StepPage() {
               type={step >= totalSteps - 1 ? 'submit' : 'button'}
               className="mx-auto rounded-full w-8/9 sm:w-2/3"
             >
-              {step >= totalSteps ? 'Créer mon compte' : 'Suivant'}
+              {step >= totalSteps - 1 ? 'Créer mon compte' : 'Suivant'}
             </AuthCtaButton>
           </form>
         </FormProvider>
