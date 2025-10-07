@@ -21,7 +21,7 @@ export const registerSchema = z.object({
       .regex(USERNAME_REGEX, "Nom d'utilisateur invalide."),
   }),
   step2: z.object({
-    email: z.string().email(),
+    email: z.string().email({ message: 'Email invalide.' }),
   }),
   step3: z.object({
     password: z
@@ -38,7 +38,7 @@ export const registerSchema = z.object({
   step4: z.object({
     birthday: z
       .string()
-      .refine((val) => val !== '', '...')
+      .refine((val) => val !== '', 'Date de naissance requise.')
       .nonempty('Veuillez sélectionner votre date de naissance.'),
     country: z.string().nonempty('Veuillez sélectionner votre pays.'),
     genre: z.string().nonempty('Veuillez sélectionner votre genre.'),

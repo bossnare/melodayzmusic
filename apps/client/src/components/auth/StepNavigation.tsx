@@ -1,6 +1,12 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { cn } from '@/lib/utils';
-import { ChevronLeft } from 'lucide-react';
+import {
+  ChevronLeft,
+  Smile,
+  HeartHandshake,
+  Flame,
+  Sparkles,
+} from 'lucide-react';
 import { Progress } from '../ui/progress';
 import { StepCardWrapper } from './AuthWrapper';
 
@@ -10,6 +16,12 @@ export const encouragements = [
   'Trop bien, on continue',
   'Encore un petit effort',
   'Tu y es presque',
+];
+export const encouragementIcons = [
+  <Smile key="1" />,
+  <HeartHandshake key="2" />,
+  <Flame key="3" />,
+  <Sparkles key="4" />,
 ];
 
 export function Encouragement({
@@ -28,8 +40,8 @@ export function Encouragement({
       exit={{ x: dir === 'prev' ? -100 : 100, opacity: 0 }}
       className={cn('!w-auto', className)}
     >
-      <h3 className="text-base font-medium text-foreground/80">
-        {encouragements[step - 1]}
+      <h3 className="text-base flex items-center gap-1 font-medium text-foreground/80">
+        {encouragements[step - 1]} {encouragementIcons[step - 1]}
       </h3>
     </StepCardWrapper>
   );
