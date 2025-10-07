@@ -4,13 +4,13 @@ import { useState } from 'react';
 import api from '@/libs/api';
 
 export function useCheckField() {
-  const [isPending, setIsPending] = useState(false);
+  const [isChecking, setIsChecking] = useState(false);
   const checkField = async <TResponse, TData extends object>(
     url: string,
     data: TData
   ) => {
     try {
-      setIsPending(true);
+      setIsChecking(true);
       const res = await api.post<TResponse & { exist: boolean }>(url, data);
       if (res.data.exist) {
         return true;
@@ -18,9 +18,9 @@ export function useCheckField() {
 
       return false;
     } finally {
-      setIsPending(false);
+      setIsChecking(false);
     }
   };
 
-  return { checkField, isPending };
+  return { checkField, isChecking };
 }

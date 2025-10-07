@@ -4,7 +4,7 @@ import { ChevronLeft } from 'lucide-react';
 import { Progress } from '../ui/progress';
 import { StepCardWrapper } from './AuthWrapper';
 
-export const totalSteps = 4;
+export const totalSteps = 5;
 export const encouragements = [
   'Crée ton compte et rejoins le groove',
   'Trop bien, on continue',
