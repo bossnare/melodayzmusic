@@ -184,14 +184,14 @@ const RegisterCard = () => {
 
 const StepOneCard = ({
   form,
-  isLoading,
+  isPending,
 }: {
   form: UseFormReturn<stepFormType>;
-  isLoading?: boolean;
+  isPending?: boolean;
 }) => {
   const [usernameVerified, setUsernameVerified] = useState(false);
   const [autocheckLoading, setAutocheckLoading] = useState(false);
-  const { checkField, isPending } = useCheckField();
+  const { checkField, isChecking } = useCheckField();
   const username = form.getValues('step1.username');
   const validUsername = USERNAME_REGEX.test(username);
 
@@ -244,7 +244,7 @@ const StepOneCard = ({
                   <FormLabel>Ton pseudo</FormLabel>
                   <FormControl>
                     <Input
-                      disabled={isLoading}
+                      disabled={isPending}
                       type="text"
                       className="py-6"
                       spellCheck="false"
@@ -268,10 +268,10 @@ const StepOneCard = ({
                     <UsernameInput
                       spellCheck="false"
                       autoCorrect="off"
-                      disabled={isLoading}
+                      disabled={isPending}
                       usernameVerified={usernameVerified}
                       validUsername={validUsername}
-                      isPending={isPending || autocheckLoading}
+                      isPending={isChecking || autocheckLoading}
                       {...field}
                       {...form.register('step1.username')}
                       onChange={async (e) => {
@@ -314,12 +314,12 @@ const StepOneCard = ({
 
 const StepTwoCard = ({
   form,
-  isLoading,
+  isPending,
 }: {
   form: UseFormReturn<stepFormType>;
-  isLoading?: boolean;
+  isPending?: boolean;
 }) => {
-  const { checkField, isPending } = useCheckField();
+  const { checkField, isChecking } = useCheckField();
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
@@ -340,7 +340,7 @@ const StepTwoCard = ({
                     <Input
                       {...form.register('step2.email')}
                       {...field}
-                      disabled={isLoading}
+                      disabled={isPending}
                       type="email"
                       className="py-6"
                       placeholder="Entre ton email magique ✨"
@@ -362,7 +362,7 @@ const StepTwoCard = ({
                       }}
                     />
                   </FormControl>
-                  {isPending && (
+                  {isChecking && (
                     <FormDescription className="flex gap-1 text-xs opacity-80">
                       <div className="size-[16px] border-2 border-foreground/50 border-t-transparent rounded-full animate-spin"></div>{' '}
                       vérification...

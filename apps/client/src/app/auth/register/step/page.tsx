@@ -19,7 +19,7 @@ import { cn } from '@/lib/utils';
 import { registerSchema, type stepFormType } from '@/schemas/register';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
 import { useRouter } from 'next/navigation';
@@ -57,8 +57,9 @@ export default function StepPage() {
   const [dir, setDir] = useState<'prev' | 'next'>('next');
   const [isLoadingNext, setIsLoadingNext] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
-  const { checkField, isPending } = useCheckField();
-  const pending = isLoadingNext || isPending || registerLoading;
+  const { checkField, isChecking } = useCheckField();
+  const [isPending, startTransition] = useTransition();
+  const pending = isLoadingNext || isChecking || registerLoading || isPending;
   const router = useRouter();
 
   const handleRegister = async (data: stepFormType) => {
@@ -76,8 +77,9 @@ export default function StepPage() {
       setRegisterLoading(true);
       const res = await api.post('/auth/register', payload);
       if (res.data) {
-        if (confirm('Your account created, go to login'))
-          router.replace('/auth/login');
+        startTransition(() => {
+          router.replace('/auth/register/congratulation');
+        });
       }
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -189,8 +191,8 @@ export default function StepPage() {
               initial={{ x: dir === 'next' ? 100 : -100, opacity: 0 }}
               exit={{ x: dir === 'next' ? -100 : 100, opacity: 0 }}
             >
-              {step === 1 && <StepOneCard isLoading={pending} form={form} />}
-              {step === 2 && <StepTwoCard isLoading={pending} form={form} />}
+              {step === 1 && <StepOneCard isPending={pending} form={form} />}
+              {step === 2 && <StepTwoCard isPending={pending} form={form} />}
               {step === 3 && <StepThreeCard isPending={pending} form={form} />}
               {step === 4 && (
                 <StepFourCard isPending={registerLoading} form={form} />
