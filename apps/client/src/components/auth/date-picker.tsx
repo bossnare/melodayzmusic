@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { ChevronDownIcon, CalendarIcon } from 'lucide-react';
+import { ChevronDownIcon, CakeIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
@@ -36,7 +36,7 @@ export function DatePicker({
             id="date"
             className="w-48 flex gap-1 font-normal"
           >
-            <CalendarIcon />
+            <CakeIcon />
             {value ? new Date(value).toLocaleDateString() : 'Selectionner'}
             <ChevronDownIcon className="ml-auto" />
           </Button>
