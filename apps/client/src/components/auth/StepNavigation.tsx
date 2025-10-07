@@ -41,7 +41,7 @@ export function Encouragement({
       className={cn('!w-auto', className)}
     >
       <h3 className="text-base flex items-center gap-1 font-medium text-foreground/80">
-        {encouragements[step - 1]} {encouragementicons[step - 1]}
+        {encouragements[step - 1]} {encouragementIcons[step - 1]}
       </h3>
     </StepCardWrapper>
   );
