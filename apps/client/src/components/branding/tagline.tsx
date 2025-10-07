@@ -9,19 +9,17 @@ export const Tagline = () => {
   const [isNeedLogo, setIsNeddLogo] = useState(false);
   const pathname = usePathname();
   useEffect(() => {
-
-        setIsNeddLogo(pathname === '/auth/register/congratulation');
+    setIsNeddLogo(pathname === '/auth/register/congratulation');
   }, [pathname]);
 
   return (
     <>
-      
-        {!isNeedLogo ? (
-          <div className="pb-3 lg:hidden">
+      {!isNeedLogo ? (
+        <div className="pb-3 lg:hidden">
           <ModeToggle />
-          </div>
-        ) : (
-        <div className="pb-3">
+        </div>
+      ) : (
+        <div className="pb-3 lg:hidden">
           <Image
             alt="MelodayzMusic"
             className="size-10 dark:ivert-0 invert"
@@ -29,9 +27,9 @@ export const Tagline = () => {
             height={1000}
             src="/icons/icon_x32.svg"
           />
-          </div>
-        )}
-      
+        </div>
+      )}
+
       <div className="hidden md:block">
         &copy; {new Date().getFullYear()} |{' '}
         <span className="text-foreground/90">
