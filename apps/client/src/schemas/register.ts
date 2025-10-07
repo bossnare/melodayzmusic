@@ -21,7 +21,7 @@ export const registerSchema = z.object({
       .regex(USERNAME_REGEX, "Nom d'utilisateur invalide."),
   }),
   step2: z.object({
-    email: z.string().email(),
+    email: z.string().email({ message: 'Email invalide.' }),
   }),
   step3: z.object({
     password: z

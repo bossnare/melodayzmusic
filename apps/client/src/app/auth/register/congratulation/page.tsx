@@ -12,8 +12,8 @@ export default function CongratulationPage() {
     <AuthPageWrapper>
       <StepCardWrapper
         key="congatulations"
-        initial={{ x: -100, opacity: 0 }}
-        exit={{ x: 100, opacity: 0 }}
+        initial={{ x: 100, opacity: 0 }}
+        exit={{ x: -100, opacity: 0 }}
         className="!w-[90%] md:!w-[40%] flex flex-col"
       >
         <h2 className="font-montserrat font-bold text-3xl flex flex-col gap-2 items-center mt-5">
