@@ -15,10 +15,13 @@ export const Tagline = () => {
 
   return (
     <>
-      <div className="pb-3 lg:hidden">
+      
         {!isNeedLogo ? (
+          <div className="pb-3 lg:hidden">
           <ModeToggle />
+          </div>
         ) : (
+        <div className="pb-3">
           <Image
             alt="MelodayzMusic"
             className="size-10 dark:ivert-0 invert"
@@ -26,8 +29,9 @@ export const Tagline = () => {
             height={1000}
             src="/icons/icon_x32.svg"
           />
+          </div>
         )}
-      </div>
+      
       <div className="hidden md:block">
         &copy; {new Date().getFullYear()} |{' '}
         <span className="text-foreground/90">
