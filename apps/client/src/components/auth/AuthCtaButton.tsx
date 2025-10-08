@@ -23,7 +23,8 @@ export const AuthCtaButton = ({
   };
 
   return (
-    <Button
+    <div className="active:bg-muted">
+      <Button
       onClick={handleClick}
       size={size}
       className={cn(
@@ -43,5 +44,6 @@ export const AuthCtaButton = ({
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
       ></span>
     </Button>
+    </div>
   );
 };
