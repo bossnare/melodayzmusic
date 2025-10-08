@@ -26,8 +26,8 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { cn } from '@/lib/utils';
-import { Spinner } from '@/components/ui/spinner';
 import { motion } from 'motion/react';
+import {Overlay} from '@/components/motions/Overlay'
 
 export const Sidebar = () => {
   const router = useRouter();
@@ -152,16 +152,7 @@ export const Sidebar = () => {
         </SheetContent>
 
         {/* ✅ Overlay */}
-        <div
-          className={cn(
-            'bg-black/50 z-60 fixed inset-0 flex items-center justify-center',
-            pending
-              ? 'opacity-100 pointer-events-auto'
-              : 'opacity-0 pointer-events-none'
-          )}
-        >
-          <Spinner className="size-10 text-white" />
-        </div>
+       <Overlay isPending={pending} />
       </div>
     </>
   );

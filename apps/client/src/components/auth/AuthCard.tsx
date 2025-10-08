@@ -118,8 +118,8 @@ function LoginCard({
                   <AuthCtaButton
                     size="xl"
                     type="submit"
-                    isPending={isPending}
                     className="rounded-2xl"
+                    textLoading="Connexion..."
                   >
                     Se connecter
                   </AuthCtaButton>
@@ -175,7 +175,7 @@ const RegisterCard = () => {
 
           {/* divide */}
           <Divide />
-          <Provider />
+          <Provider size={'xl'} />
         </div>
       </Card>
     </StepCardWrapper>
