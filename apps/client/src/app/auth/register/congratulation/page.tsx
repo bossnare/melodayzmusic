@@ -35,7 +35,7 @@ export default function CongratulationPage() {
           </p>
           <p>Découvre maintenant ta vibe musicale !</p>
         </div>
-        <div className="mt-14 mx-auto md:ml-0">
+        <div className="mt-14 mr-auto active:bg-muted">
           <AuthCtaButton>Commence à vibrer <Music /></AuthCtaButton>
         </div>
       </StepCardWrapper>
