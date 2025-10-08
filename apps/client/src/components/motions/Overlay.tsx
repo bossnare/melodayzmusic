@@ -1,7 +1,7 @@
 import { Spinner } from '@/components/ui/spinner';
 import {cn} from '@/lib/utils'
 
-export const Overlay = ({isPending}: {isPending: boolean}) => {
+export const Overlay = ({isPending}: {isPending?: boolean}) => {
   return (
      <div
           className={cn(
