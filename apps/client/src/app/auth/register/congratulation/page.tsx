@@ -4,7 +4,7 @@ import {
   AuthPageWrapper,
   StepCardWrapper,
 } from '@/components/auth/AuthWrapper';
-import { Music2, PartyPopper, CircleCheck } from 'lucide-react';
+import { Music2, Music, PartyPopper, CircleCheck } from 'lucide-react';
 import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 
 export default function CongratulationPage() {
@@ -14,7 +14,7 @@ export default function CongratulationPage() {
         key="congatulations"
         initial={{ x: 100, opacity: 0 }}
         exit={{ x: -100, opacity: 0 }}
-        className="!w-[90%] md:!w-[40%] flex flex-col"
+        className="!w-[90%] lg:!w-[40%] flex flex-col"
       >
         <h2 className="font-montserrat font-bold text-3xl flex flex-col gap-2 items-center mt-5">
           <PartyPopper className="size-10" />
@@ -24,7 +24,7 @@ export default function CongratulationPage() {
         <div className="mt-16">
           <h3 className="text-2xl flex items-center font-montserrat font-medium gap-2">
             Félicitations !{' '}
-            <span className="text-chart-2">
+            <span className="text-chart-2 bg-chart-2/20 rounded-full">
               <CircleCheck />
             </span>
           </h3>
@@ -35,8 +35,8 @@ export default function CongratulationPage() {
           </p>
           <p>Découvre maintenant ta vibe musicale !</p>
         </div>
-        <div className="mt-14 ml-auto md:ml-0">
-          <AuthCtaButton>Continuer</AuthCtaButton>
+        <div className="mt-14 mx-auto md:ml-0">
+          <AuthCtaButton>Commence à vibrer <Music /></AuthCtaButton>
         </div>
       </StepCardWrapper>
     </AuthPageWrapper>
