@@ -334,6 +334,28 @@ const StepTwoCard = ({
 }) => {
   const { checkField, isChecking } = useCheckField();
 
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleEmailChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    // field.onChange(e);
+    const { value } = e.target;
+
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    // check if invalid username
+    debounceRef.current = setTimeout(async () => {
+      if (EMAIL_REGEX.test(value)) {
+        const exist = await checkField('/auth/email-check', {
+          email: value,
+        });
+        if (exist)
+          form.setError('step2.email', {
+            message:
+              'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
+          });
+      }
+    }, 500);
+  };
+
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
@@ -359,19 +381,9 @@ const StepTwoCard = ({
                       placeholder="Entre ton email magique ✨"
                       spellCheck="false"
                       autoCorrect="off"
-                      onChange={async (e) => {
+                      onChange={(e) => {
                         field.onChange(e);
-                        const { value } = e.target;
-                        if (EMAIL_REGEX.test(value)) {
-                          const exist = await checkField('/auth/email-check', {
-                            email: value,
-                          });
-                          if (exist)
-                            form.setError('step2.email', {
-                              message:
-                                'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
-                            });
-                        }
+                        handleEmailChange(e);
                       }}
                     />
                   </FormControl>
