@@ -479,6 +479,11 @@ const StepFourCard = ({
   form: UseFormReturn<stepFormType>;
   isPending?: boolean;
 }) => {
+  const now = new Date();
+  const isNow =
+    form.watch('step4.birthday') ===
+    new Date(now).toLocaleDateString('en-CA');
+
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
@@ -502,6 +507,11 @@ const StepFourCard = ({
                         isPending={isPending}
                       />
                     </FormControl>
+                    {isNow && (
+                      <FormDescription className="text-xs">
+                        😳 Hé... On dirait que tu es né(e) aujourd&apos;hui !
+                      </FormDescription>
+                    )}
                     <FormMessage />
                   </FormItem>
                 )}

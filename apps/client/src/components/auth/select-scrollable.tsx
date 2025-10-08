@@ -29,7 +29,7 @@ export function SelectScrollable({
         <SelectGroup>
           {country.map((c) => (
             <SelectItem key={c.unicode} value={c.code.toLowerCase()}>
-              {c.name} {c.emoji} ({c.code})
+              {c.name} <span className="lg:hidden">{c.emoji}</span> ({c.code})
             </SelectItem>
           ))}
         </SelectGroup>
