@@ -19,9 +19,13 @@ export default function CongratulationPage() {
   const pending = isLoading || isPending;
 
   const handleLogin = async () => {
+    const credentials = {
+      email: tempData?.email,
+      password: tempData?.password,
+    };
     try {
       setIsPending(true);
-      const res = await api.post('/auth/login', tempData);
+      const res = await api.post('/auth/login', credentials);
       if (res.data.success) {
         // store token
         localStorage.setItem('access_token', res.data.access_token);
@@ -34,7 +38,7 @@ export default function CongratulationPage() {
       if (error instanceof AxiosError) {
         const res = error.response;
         console.log(error);
-        alert(error?.message);
+        alert(error?.message
       }
     } finally {
       setIsPending(false);
