@@ -38,7 +38,7 @@ export default function CongratulationPage() {
       if (error instanceof AxiosError) {
         const res = error.response;
         console.log(error);
-        alert(error?.message
+        alert(error?.message);
       }
     } finally {
       setIsPending(false);
