@@ -19,6 +19,8 @@ export default function CongratulationPage() {
   const pending = isLoading || isPending;
 
   const handleLogin = async () => {
+    if (!tempData) return;
+    const expiresAt = tempData?.expiresAt;
     const credentials = {
       email: tempData?.email,
       password: tempData?.password,
@@ -29,6 +31,7 @@ export default function CongratulationPage() {
       if (res.data.success) {
         // store token
         localStorage.setItem('access_token', res.data.access_token);
+        sessionStorage.removeItem('tempAuth');
         // redirect to dashboard
         startTransition(() => {
           router.replace('/dashboard');
