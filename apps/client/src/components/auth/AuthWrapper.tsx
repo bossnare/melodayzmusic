@@ -1,7 +1,7 @@
 import { type BaseProps } from '@/types/base.interface';
 import { AnimatePresence, motion, type MotionProps } from 'motion/react';
 import { Tagline } from '../branding/tagline';
-import {Overlay} from '@/components/motions/Overlay'
+import { Overlay } from '@/components/motions/Overlay';
 
 const StepCardWrapper = ({
   key,
@@ -26,16 +26,19 @@ const StepCardWrapper = ({
   );
 };
 
-const AuthPageWrapper = ({ children, isPending }: BaseProps & {isPending?: boolean}) => {
+const AuthPageWrapper = ({
+  children,
+  isPending,
+  textLoading,
+}: BaseProps & { isPending?: boolean; textLoading?: string }) => {
   return (
     <section
       className="relative flex flex-col items-center justify-between gap-2 sm:gap-6 lg:gap-2 px-2 md:px-10 lg:px-4 pb-[1.5rem]
       sm:h-auto lg:h-dvh h-dvh md:pb-4"
     >
-
       {children}
       {/* Overlay */}
-      <Overlay isPending={isPending} />
+      <Overlay isPending={isPending} textLoading={textLoading} />
       {/* tag */}
       <footer className="flex flex-col items-center text-xs text-muted-foreground font-montserrat">
         <Tagline />
