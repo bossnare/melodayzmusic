@@ -5,8 +5,7 @@ import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
 import { loginSchema, type loginFormType } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
-import { useState, useTransition } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
 import { toast } from 'sonner';
@@ -18,10 +17,8 @@ import { useLogin } from '@/hooks/useLogin';
 
 export default function LoginPage() {
   const [isErrorCredentials, setIsErrorCredentials] = useState(false);
-  const { handleLogin, isPending, error } = useLogin();
-  const [isSwitching, startTransition] = useTransition();
+  const { handleLogin, isPending, isSwitching, error } = useLogin();
   const loading = isPending || isSwitching;
-  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(loginSchema),
@@ -37,58 +34,46 @@ export default function LoginPage() {
   const looksLikeUsername = USERNAME_REGEX.test(identifier);
 
   const onSubmit = async (credentials: loginFormType) => {
-    const res = await handleLogin(credentials);
-    if (!res) return;
+    await handleLogin(credentials);
 
-    if (res.data.success) {
-      // store token
-      localStorage.setItem('access_token', res.data.access_token);
-      // redirect to dashboard
-      startTransition(() => {
-        router.replace('/dashboard');
-      });
-    }
+  const resError = error?.response?.data;
+  console.log(error);
 
-    const resError = error?.response?.data;
-    console.log(error);
+  const unauthorized =
+    resError?.type === 'account' || resError?.type === 'password';
 
-    if (!resError) return;
+  if (unauthorized) {
+    setIsErrorCredentials(true);
+    vibrate('soft');
+  }
 
-    const unauthorized =
-      resError.type === 'account' || resError.type === 'password';
-
-    if (error && !unauthorized) {
-      vibrate('medium');
-      toast.custom((t) => (
-        <div className="relative flex items-center gap-4 p-3 border shadow-lg bg-destructive-soft text-destructive-soft-foreground rounded-xl border-destructive-soft/80">
-          <div className="inset-y-0 flex items-center justify-center h-full text-destructive">
-            <CircleAlert />
-          </div>
-          <div className="flex flex-col grow">
-            <span className="text-sm font-medium">Oups!</span>
-            <span className="text-sm">
-              {error.message}
-              {error.code === 'ERR_NETWORK' && ', vérifier votre réseau.'}
-            </span>
-          </div>
-
-          <Button
-            onClick={() => toast.dismiss(t)}
-            variant="ghost"
-            size="icon"
-            className="hover:text-inherit"
-          >
-            <X className="size-4" />
-          </Button>
+  if (error && !unauthorized) {
+    vibrate('medium');
+    toast.custom((t) => (
+      <div className="relative flex items-center gap-4 p-3 border shadow-lg bg-destructive-soft text-destructive-soft-foreground rounded-xl border-destructive-soft/80">
+        <div className="inset-y-0 flex items-center justify-center h-full text-destructive">
+          <CircleAlert />
         </div>
-      ));
-    }
+        <div className="flex flex-col grow">
+          <span className="text-sm font-medium">Oups!</span>
+          <span className="text-sm">
+            {error.message}
+            {error.code === 'ERR_NETWORK' && ', vérifier votre réseau.'}
+          </span>
+        </div>
 
-    if (unauthorized) {
-      setIsErrorCredentials(true);
-      vibrate('soft');
-    }
-  };
+        <Button
+          onClick={() => toast.dismiss(t)}
+          variant="ghost"
+          size="icon"
+          className="hover:text-inherit"
+        >
+          <X className="size-4" />
+        </Button>
+      </div>
+    ));
+  }
+   };
 
   return (
     <AuthPageWrapper isPending={loading}>
