@@ -19,10 +19,10 @@ export const Tagline = () => {
           <ModeToggle />
         </div>
       ) : (
-        <div className="pb-3 lg:hidden">
+        <div className="pb-2">
           <Image
             alt="MelodayzMusic"
-            className="size-10 dark:ivert-0 invert"
+            className="size-10 dark:invert"
             width={1000}
             height={1000}
             src="/icons/icon_x32.svg"

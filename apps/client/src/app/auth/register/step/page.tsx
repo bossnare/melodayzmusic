@@ -77,6 +77,8 @@ export default function StepPage() {
       setRegisterLoading(true);
       const res = await api.post('/auth/register', payload);
       if (res.data) {
+        const expiresAt = Date.now() + 15 * 60 * 1000
+        sessionStorage.setItem("tempAuth", JSON.stringify({email: payload.email, password: payload.password, expiresAt}))
         startTransition(() => {
           router.replace('/auth/register/congratulation');
         });
@@ -84,7 +86,6 @@ export default function StepPage() {
     } catch (error) {
       if (error instanceof AxiosError) {
         alert(error?.message);
-        alert(JSON.stringify(data, null, 2));
       }
     } finally {
       setRegisterLoading(false);
