@@ -20,8 +20,6 @@ import { USERNAME_REGEX, EMAIL_REGEX } from '@/libs/validators/regex';
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
   const [isErrorCredentials, setIsErrorCredentials] = useState(false);
-  // const [isErrorPassword, setIsErrorPassword] = useState(false);
-
   const [isLoading, startTransition] = useTransition();
   const loading = isPending || isLoading;
   const router = useRouter();
@@ -90,10 +88,6 @@ export default function LoginPage() {
           setIsErrorCredentials(true);
           vibrate('soft');
         }
-
-        // if (res?.type === 'password') {
-        //   setIsErrorPassword(true);
-        // }
       }
     } finally {
       setIsPending(false);
