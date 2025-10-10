@@ -101,7 +101,7 @@ export default function LoginPage() {
   };
 
   return (
-    <AuthPageWrapper isPending={loading}>
+    <AuthPageWrapper isPending={loading} textLoading="Connexion...">
       {/* Header */}
       <AuthHeaderSwitch href="/auth/register" type="login" />
       {/* dialog for account */}
