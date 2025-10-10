@@ -18,7 +18,7 @@ export const Overlay = ({
       )}
     >
       <Spinner className="text-white size-10 md:size-6" />
-      <span>{textLoading}</span>
+      <span className="text-white dark:text-foreground">{textLoading}</span>
     </div>
   );
 };
