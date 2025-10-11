@@ -39,9 +39,17 @@ function OtpOverlay() {
             <span className="text-ring/80">christogervais@gmail.com</span>{' '}
           </p>
           <InputOTPPattern />
-          <AuthCtaButton size="xl" className="w-full md:w-[50%]">
-            Vérifier
-          </AuthCtaButton>
+          <div className="w-full md:w-[50%] text-center space-y-3">
+            <AuthCtaButton size="xl" className="w-full">
+              Vérifier
+            </AuthCtaButton>
+            <Button
+              variant="ghost"
+              className="h-auto p-0 hover:text-inherit text-muted-foreground"
+            >
+              Ignorer pour l&apos;instant
+            </Button>{' '}
+          </div>
           <div className="flex flex-col items-center gap-3 text-sm md:flex-row md:gap-1">
             <span>Pas encore reçu ?</span>
             <Button variant="link" className="h-auto p-0 text-ring">
