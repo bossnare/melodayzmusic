@@ -15,6 +15,7 @@ import NavProfile from '@/components/navigation/NavProfile';
 import RefreshWrapper from './pull-to-refresh';
 import { cn } from '@/lib/utils';
 import AuthGuard from '@/components/auth/AuthGuard';
+import { OtpOverlay } from '@/components/auth/OtpOverlay';
 
 export default function DashboardLayout({
   children,
@@ -86,9 +87,7 @@ export default function DashboardLayout({
           <Player />
         </nav>
 
-        {/* modal */}
-        {/* <Player />
-      <SongUpload /> */}
+        <OtpOverlay />
       </div>
     </AuthGuard>
   );
