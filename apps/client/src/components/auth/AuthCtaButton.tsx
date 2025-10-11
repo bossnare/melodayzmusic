@@ -10,7 +10,7 @@ export const AuthCtaButton = ({
   onClick,
   type = 'button',
   size = 'lg',
-  textLoading = 'Loading...'
+  textLoading = 'Loading...',
 }: BaseProps & {
   className?: string;
   isPending?: boolean;
@@ -25,7 +25,7 @@ export const AuthCtaButton = ({
   };
 
   return (
-      <Button
+    <Button
       onClick={handleClick}
       size={size}
       className={cn(
@@ -36,7 +36,7 @@ export const AuthCtaButton = ({
       type={type}
     >
       {isPending && (
-        <Spinner className="size-6 text-white dark:text-foreground" />
+        <Spinner className="text-white size-6 dark:text-foreground" />
       )}
       {isPending ? textLoading : children}
       {/* grain overlay */}
