@@ -5,7 +5,7 @@ import { ModeToggle } from '../themes/mode-toggle';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-export const Tagline = () => {
+export const Tagline = ({ showMore = true }: { showMore?: boolean }) => {
   const [isNeedLogo, setIsNeddLogo] = useState(false);
   const pathname = usePathname();
   useEffect(() => {
@@ -14,23 +14,27 @@ export const Tagline = () => {
 
   return (
     <>
-      {!isNeedLogo ? (
-        <div className="pb-3 lg:hidden">
-          <ModeToggle />
-        </div>
-      ) : (
-        <div className="pb-2">
-          <Image
-            alt="MelodayzMusic"
-            className="size-10 dark:invert"
-            width={1000}
-            height={1000}
-            src="/icons/icon_x32.svg"
-          />
-        </div>
+      {showMore && (
+        <>
+          {!isNeedLogo ? (
+            <div className="pb-3 lg:hidden">
+              <ModeToggle />
+            </div>
+          ) : (
+            <div className="pb-2">
+              <Image
+                alt="MelodayzMusic"
+                className="size-10 dark:invert"
+                width={1000}
+                height={1000}
+                src="/icons/icon_x32.svg"
+              />
+            </div>
+          )}
+        </>
       )}
 
-      <div className="hidden md:block">
+      <div className="hidden text-xs md:block font-montserrat text-muted-foreground">
         &copy; {new Date().getFullYear()} |{' '}
         <span className="text-foreground/90">
           MelodayzMusic - Feel the Beat, Anywhere You Go.
@@ -38,7 +42,7 @@ export const Tagline = () => {
         | Tous Droits Réservés.
       </div>
 
-      <div className="md:hidden flex flex-col gap-1 justify-center items-center">
+      <div className="flex flex-col items-center justify-center gap-1 text-xs text-muted-foreground md:hidden font-montserrat">
         <span className="text-foreground/90">
           MelodayzMusic - Feel the Beat, Anywhere You Go.
         </span>{' '}
