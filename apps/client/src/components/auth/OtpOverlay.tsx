@@ -35,7 +35,7 @@ function OtpOverlay() {
           <MelodayzMusic />
           <h2 className="pt-8 text-xl font-bold">Vérification du code</h2>
           <p className="text-center text-muted-foreground">
-            Un code à 6 chiffres vient d&apos;etre envoyé à ton adresse e-mail{' '}
+            Un code à 6 chiffres vient d&apos;être envoyé à ton adresse e-mail{' '}
             <span className="text-ring/80">christogervais@gmail.com</span>{' '}
           </p>
           <InputOTPPattern />
