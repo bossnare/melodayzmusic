@@ -40,6 +40,7 @@ export const Sidebar = () => {
     setTimeout(() => {
       setIsLoading(false);
       localStorage.removeItem('access_token');
+      sessionStorage.removeItem('ignore_otp')
       startTransition(() => router.replace('/auth/login'));
     }, 4000);
   };
