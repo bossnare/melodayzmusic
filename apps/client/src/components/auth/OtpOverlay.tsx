@@ -1,15 +1,19 @@
+"use client"
+
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog, DialogOverlay } from '../ui/dialog';
 import { Button } from '@/components/ui/button';
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
+  InputOTPSeparator
 } from '@/components/ui/input-otp';
 import { AuthCtaButton } from './AuthCtaButton';
 import { MelodayzMusic } from '../branding/logo';
 import { Tagline } from '../branding/tagline';
+import {Spinner} from "@/components/ui/spinner"
 
 export function InputOTPPattern() {
   return (
@@ -18,6 +22,9 @@ export function InputOTPPattern() {
         <InputOTPSlot className="text-xl p-7" index={0} />
         <InputOTPSlot className="text-xl p-7" index={1} />
         <InputOTPSlot className="text-xl p-7" index={2} />
+      </InputOTPGroup>
+        <InputOTPSeparator />
+      <InputOTPGroup>
         <InputOTPSlot className="text-xl p-7" index={3} />
         <InputOTPSlot className="text-xl p-7" index={4} />
         <InputOTPSlot className="text-xl p-7" index={5} />
@@ -27,13 +34,31 @@ export function InputOTPPattern() {
 }
 
 function OtpOverlay() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
+  const ignore_otp = sessionStorage.getItem("ignore_otp")
+
+  const handleIgnore = () => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setOpen(false)
+      setIsLoading(false)
+      sessionStorage.setItem("ignore_otp", "true")
+    }, (1000));
+  }
+
+  useEffect(() => {
+    if (!ignore_otp) setOpen(true)
+  }, [ignore_otp])
+
   return (
     <Dialog open={open}>
-      <DialogOverlay className="flex flex-col items-center py-4 bg-background">
-        <div className="flex flex-col items-center w-[90%] md:w-[40%] space-y-6">
+      <DialogOverlay className="flex flex-col items-center px-4 py-2 bg-background">
+        <div className="flex justify-center md:justify-start w-full">
           <MelodayzMusic />
-          <h2 className="pt-8 text-xl font-bold">Vérification du code</h2>
+        </div>
+        <div className="flex flex-col items-center w-[90%] md:w-[40%] space-y-6">
+          <h2 className="pt-8 md:pt-4 text-xl md:text-lg font-bold">Vérification du code</h2>
           <p className="text-center text-muted-foreground">
             Un code à 6 chiffres vient d&apos;être envoyé à ton adresse e-mail{' '}
             <span className="text-ring/80">christogervais@gmail.com</span>{' '}
@@ -44,13 +69,14 @@ function OtpOverlay() {
               Vérifier
             </AuthCtaButton>
             <Button
+            onClick={handleIgnore}
               variant="ghost"
               className="h-auto p-0 hover:text-inherit text-muted-foreground"
             >
-              Ignorer pour l&apos;instant
+              {isLoading && <Spinner  className="size-4" />} Ignorer pour l&apos;instant
             </Button>{' '}
           </div>
-          <div className="flex flex-col items-center gap-3 text-sm md:flex-row md:gap-1">
+          <div className="flex flex-col items-center gap-2 text-sm md:flex-row md:gap-1">
             <span>Pas encore reçu ?</span>
             <Button variant="link" className="h-auto p-0 text-ring">
               Renvoyer le code
