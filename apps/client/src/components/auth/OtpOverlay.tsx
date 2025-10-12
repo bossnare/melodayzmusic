@@ -60,7 +60,7 @@ function OtpOverlay() {
         <div className="flex flex-col items-center w-[90%] md:w-[40%] space-y-6">
           <h2 className="pt-8 md:pt-4 text-xl md:text-lg font-bold">Vérification du code</h2>
           <p className="text-center text-muted-foreground">
-            Un code à 6 chiffres vient d&apos;etre envoyé à ton adresse e-mail{' '}
+            Un code à 6 chiffres vient d&apos;être envoyé à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">christogervais@gmail.com</span>{' '}
           </p>
           <InputOTPPattern />
