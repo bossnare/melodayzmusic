@@ -19,15 +19,15 @@ export function InputOTPPattern() {
   return (
     <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
       <InputOTPGroup>
-        <InputOTPSlot className="text-xl p-7" index={0} />
-        <InputOTPSlot className="text-xl p-7" index={1} />
-        <InputOTPSlot className="text-xl p-7" index={2} />
+        <InputOTPSlot className="text-xl p-6" index={0} />
+        <InputOTPSlot className="text-xl p-6" index={1} />
+        <InputOTPSlot className="text-xl p-6" index={2} />
       </InputOTPGroup>
         <InputOTPSeparator />
       <InputOTPGroup>
-        <InputOTPSlot className="text-xl p-7" index={3} />
-        <InputOTPSlot className="text-xl p-7" index={4} />
-        <InputOTPSlot className="text-xl p-7" index={5} />
+        <InputOTPSlot className="text-xl p-6" index={3} />
+        <InputOTPSlot className="text-xl p-6" index={4} />
+        <InputOTPSlot className="text-xl p-6" index={5} />
       </InputOTPGroup>
     </InputOTP>
   );
@@ -53,7 +53,7 @@ function OtpOverlay() {
 
   return (
     <Dialog open={open}>
-      <DialogOverlay className="flex flex-col items-center px-4 py-2 bg-background">
+      <DialogOverlay className="flex flex-col items-center px-4 py-2 bg-background md:overflow-y-scroll md:h-auto lg:overflow-hidden">
         <div className="flex justify-center md:justify-start w-full">
           <MelodayzMusic />
         </div>
@@ -61,7 +61,7 @@ function OtpOverlay() {
           <h2 className="pt-8 md:pt-4 text-xl md:text-lg font-bold">Vérification du code</h2>
           <p className="text-center text-muted-foreground">
             Un code à 6 chiffres vient d&apos;etre envoyé à ton adresse e-mail{' '}
-            <span className="text-ring/80">christogervais@gmail.com</span>{' '}
+            <span className="text-foreground/90 md:text-sm tracking-wide">christogervais@gmail.com</span>{' '}
           </p>
           <InputOTPPattern />
           <div className="w-full md:w-[50%] text-center space-y-3">
