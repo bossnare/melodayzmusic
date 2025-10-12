@@ -62,6 +62,7 @@ export default function StepPage() {
   const pending = isLoadingNext || isChecking || registerLoading || isPending;
   const router = useRouter();
   const finalStep = step >= totalSteps - 1;
+  const textLoading = finalStep ? "Création du compte..." : "Un instant..."
 
   const handleRegister = async (data: stepFormType) => {
     // fletten data
@@ -201,7 +202,7 @@ export default function StepPage() {
               )}
             </StepCardWrapper>
             <AuthCtaButton
-              textLoading={finalStep && "Création du compte..."}
+              textLoading={textLoading}
               isPending={pending}
               onClick={handleClickNext}
               type={finalStep ? 'submit' : 'button'}
