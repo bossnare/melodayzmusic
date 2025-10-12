@@ -10,7 +10,7 @@ export const AuthCtaButton = ({
   onClick,
   type = 'button',
   size = 'lg',
-  textLoading = 'Loading...',
+  textLoading = 'Un instant...',
 }: BaseProps & {
   className?: string;
   isPending?: boolean;

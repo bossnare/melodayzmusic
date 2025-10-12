@@ -61,6 +61,8 @@ export default function StepPage() {
   const [isPending, startTransition] = useTransition();
   const pending = isLoadingNext || isChecking || registerLoading || isPending;
   const router = useRouter();
+  const finalStep = step >= totalSteps - 1;
+  const textLoading = finalStep ? "Création du compte..." : "Un instant..."
 
   const handleRegister = async (data: stepFormType) => {
     // fletten data
@@ -200,12 +202,13 @@ export default function StepPage() {
               )}
             </StepCardWrapper>
             <AuthCtaButton
+              textLoading={textLoading}
               isPending={pending}
               onClick={handleClickNext}
-              type={step >= totalSteps - 1 ? 'submit' : 'button'}
+              type={finalStep ? 'submit' : 'button'}
               className="mx-auto rounded-full w-8/9 sm:w-2/3"
             >
-              {step >= totalSteps - 1 ? 'Créer mon compte' : 'Suivant'}
+              {finalStep ? 'Créer mon compte' : 'Suivant'}
             </AuthCtaButton>
           </form>
         </FormProvider>
