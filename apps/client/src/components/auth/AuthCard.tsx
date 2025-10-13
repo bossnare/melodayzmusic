@@ -88,7 +88,7 @@ function LoginCard({
                             spellCheck="false"
                             autoCorrect="off"
                             type="text"
-                            className="py-[26px] border-[1.4px] md:py-6 rounded-lg"
+                            className="py-[26px] border-[1.4px] md:py-6 rounded-lg active:bg-muted-foreground"
                             placeholder="Email ou @username"
                             {...field}
                           />
@@ -106,7 +106,7 @@ function LoginCard({
                         <FormControl>
                           <PasswordInput
                             autoComplete="current-password"
-                            className="rounded-lg border-[1.4px] py-[26px] md:py-6"
+                            className="rounded-lg border-[1.4px] py-[26px] md:py-6 active:bg-muted-foreground"
                             disabled={isPending}
                             {...field}
                           />
