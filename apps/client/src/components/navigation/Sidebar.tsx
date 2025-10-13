@@ -153,8 +153,9 @@ export const Sidebar = () => {
         </SheetContent>
 
         {/* ✅ Overlay */}
-       <Overlay isPending={pending} />
+       <Overlay textLoading="Déconnexion..." isPending={pending} />
       </div>
     </>
   );
 };
+
