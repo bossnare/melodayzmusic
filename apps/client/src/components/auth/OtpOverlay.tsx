@@ -48,7 +48,7 @@ function OtpOverlay() {
   }
 
   useEffect(() => {
-    if (!ignore_otp) setOpen(true)
+    if (!ignore_otp) setOpen(true);
   }, [ignore_otp])
 
   return (
