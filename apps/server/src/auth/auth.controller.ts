@@ -1,4 +1,4 @@
-import { Body, Controller, Patch, Post, Res } from '@nestjs/common';
+import { Body, Controller, Patch, Post, Res, Get } from '@nestjs/common';
 import { Response } from 'express';
 import { User as UserEntity } from '../generated/prisma/client.js';
 import { AuthService } from './auth.service.js';
@@ -81,6 +81,11 @@ export class AuthController {
     return this.authService.resetPassword(resetPasswordDto);
   }
 
+  @Get('me')
+  account(@User() user: UserEntity) {
+    return user;
+  }
+
   @Patch('me/change-password')
   changePassword(
     @User() user: UserEntity,
@@ -88,5 +93,11 @@ export class AuthController {
   ) {
     const userId = user && user.id;
     return this.authService.changePassword(userId, changePasswordDto);
+  }
+
+  @Get('me/verify')
+  accountVerify(@User() user: UserEntity) {
+    const verified = user?.verified;
+    return { verified: verified ?? false };
   }
 }
