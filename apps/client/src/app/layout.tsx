@@ -61,7 +61,7 @@ export default function RootLayout({
         {/* ambiance overlay */}
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
