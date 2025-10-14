@@ -43,7 +43,7 @@ function OtpOverlay() {
   useEffect(() => {
     const handleCheckAccount = async () => {
       try {
-        const res = await api.get('/auth/me');
+        const res = await api.get('/auth/me/verify');
         if (res.data.verified) setIsVerified(true);
         alert(res.data.verified);
         alert(JSON.stringify(res.data));
