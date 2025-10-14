@@ -44,7 +44,7 @@ function OtpOverlay() {
       try {
         const res = api.get('/auth/me/verify');
         console.log(res);
-        alert(JSON.stringify(res, null, 2))
+        alert(JSON.stringify(res))
       } catch (e) {
         console.error(e);
       }
