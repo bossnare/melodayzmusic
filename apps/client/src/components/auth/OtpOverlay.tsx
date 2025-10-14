@@ -37,14 +37,14 @@ export function InputOTPPattern() {
 function OtpOverlay() {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isVerified, setIsVerified] = useState(false)
   const ignore_otp = sessionStorage.getItem('ignore_otp');
 
   useEffect(() => {
     const handleCheckAccount = async () => {
       try {
         const res = await api.get('/auth/me/verify');
-        console.log(res.data);
-        alert(JSON.stringify(res))
+        if (res.data.verified) setIsVerified(true)
       } catch (e) {
         console.error(e);
       }
@@ -63,8 +63,8 @@ function OtpOverlay() {
   };
 
   useEffect(() => {
-    if (!ignore_otp) setOpen(true);
-  }, [ignore_otp]);
+    if (!isVerified && !ignore_otp) setOpen(true);
+  }, [isVerified, ignore_otp]);
 
   return (
     <Dialog open={open}>
