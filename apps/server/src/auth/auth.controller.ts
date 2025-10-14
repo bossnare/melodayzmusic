@@ -13,10 +13,14 @@ import {
   UsernameCheckDto,
 } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
+import { PrismaService } from '../prisma/prisma.service.js';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly prisma: PrismaService,
+  ) {}
 
   @Public()
   @Post('register')
@@ -82,8 +86,12 @@ export class AuthController {
   }
 
   @Get('me')
-  account(@User() user: UserEntity) {
-    return user;
+  async account(@User() user: UserEntity) {
+    const id = user.id;
+    const me = await this.prisma.user.findUnique({
+      where: { id },
+    });
+    return me;
   }
 
   @Patch('me/change-password')
@@ -96,8 +104,12 @@ export class AuthController {
   }
 
   @Get('me/verify')
-  accountVerify(@User() user: UserEntity) {
-    const verified = user?.verified;
+  async accountVerify(@User() user: UserEntity) {
+    const id = user.id;
+    const account = await this.prisma.user.findUnique({
+      where: { id },
+    });
+    const verified = account?.verified;
     return { verified: verified };
   }
 }
