@@ -43,7 +43,7 @@ function OtpOverlay() {
     const handleCheckAccount = () => {
       try {
         const res = api.get('/auth/me/verify');
-        console.log(res);
+        console.log(res.data);
         alert(JSON.stringify(res))
       } catch (e) {
         console.error(e);
