@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { useState, useEffect } from 'react';
@@ -8,12 +8,13 @@ import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-  InputOTPSeparator
+  InputOTPSeparator,
 } from '@/components/ui/input-otp';
 import { AuthCtaButton } from './AuthCtaButton';
 import { MelodayzMusic } from '../branding/logo';
 import { Tagline } from '../branding/tagline';
-import {Spinner} from "@/components/ui/spinner"
+import { Spinner } from '@/components/ui/spinner';
+import api from '@/libs/api';
 
 export function InputOTPPattern() {
   return (
@@ -23,7 +24,7 @@ export function InputOTPPattern() {
         <InputOTPSlot className="text-xl p-6" index={1} />
         <InputOTPSlot className="text-xl p-6" index={2} />
       </InputOTPGroup>
-        <InputOTPSeparator />
+      <InputOTPSeparator />
       <InputOTPGroup>
         <InputOTPSlot className="text-xl p-6" index={3} />
         <InputOTPSlot className="text-xl p-6" index={4} />
@@ -35,21 +36,34 @@ export function InputOTPPattern() {
 
 function OtpOverlay() {
   const [open, setOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false)
-  const ignore_otp = sessionStorage.getItem("ignore_otp")
+  const [isLoading, setIsLoading] = useState(false);
+  const ignore_otp = sessionStorage.getItem('ignore_otp');
+
+  useEffect(() => {
+    const handleCheckAccount = () => {
+      try {
+        const res = api.get('/user');
+        console.log(res);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    handleCheckAccount();
+  }, []);
 
   const handleIgnore = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     setTimeout(() => {
-      setOpen(false)
-      setIsLoading(false)
-      sessionStorage.setItem("ignore_otp", "true")
-    }, (1000));
-  }
+      setOpen(false);
+      setIsLoading(false);
+      sessionStorage.setItem('ignore_otp', 'true');
+    }, 1000);
+  };
 
   useEffect(() => {
     if (!ignore_otp) setOpen(true);
-  }, [ignore_otp])
+  }, [ignore_otp]);
 
   return (
     <Dialog open={open}>
@@ -58,10 +72,14 @@ function OtpOverlay() {
           <MelodayzMusic />
         </div>
         <div className="flex flex-col items-center w-[90%] md:w-[40%] space-y-6">
-          <h2 className="pt-8 md:pt-4 text-xl md:text-lg font-bold">Vérification du code</h2>
+          <h2 className="pt-8 md:pt-4 text-xl md:text-lg font-bold">
+            Vérification du code
+          </h2>
           <p className="text-center text-muted-foreground">
             Un code à 6 chiffres vient d&apos;être envoyé à ton adresse e-mail{' '}
-            <span className="text-foreground/90 md:text-sm tracking-wide">christogervais@gmail.com</span>{' '}
+            <span className="text-foreground/90 md:text-sm tracking-wide">
+              christogervais@gmail.com
+            </span>{' '}
           </p>
           <InputOTPPattern />
           <div className="w-full md:w-[50%] text-center space-y-3">
@@ -69,11 +87,12 @@ function OtpOverlay() {
               Vérifier
             </AuthCtaButton>
             <Button
-            onClick={handleIgnore}
+              onClick={handleIgnore}
               variant="ghost"
               className="h-auto p-0 hover:text-inherit text-muted-foreground"
             >
-              {isLoading && <Spinner  className="size-4" />} Ignorer pour l&apos;instant
+              {isLoading && <Spinner className="size-4" />} Ignorer pour
+              l&apos;instant
             </Button>{' '}
           </div>
           <div className="flex flex-col items-center gap-2 text-sm md:flex-row md:gap-1">
