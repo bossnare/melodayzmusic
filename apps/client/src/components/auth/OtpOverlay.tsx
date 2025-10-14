@@ -40,9 +40,9 @@ function OtpOverlay() {
   const ignore_otp = sessionStorage.getItem('ignore_otp');
 
   useEffect(() => {
-    const handleCheckAccount = () => {
+    const handleCheckAccount = async () => {
       try {
-        const res = api.get('/auth/me/verify');
+        const res = await api.get('/auth/me/verify');
         console.log(res.data);
         alert(JSON.stringify(res))
       } catch (e) {
