@@ -10,6 +10,7 @@ import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import api from '@/libs/api';
 import { AxiosError } from 'axios';
+import Image from 'next/image';
 
 export default function CongratulationPage() {
   const tempData = JSON.parse(sessionStorage.getItem('tempAuth') || 'null');
@@ -65,10 +66,17 @@ export default function CongratulationPage() {
             C&apos;est fini !
           </h2>
         </div>
-        <div className="mt-16">
+        <div className="mt-14">
+          <Image
+          src="/icons/icon_512x512.png"
+          alt="MelodayzMusic"
+          className="size-18 lg:size-20 mb-2"
+          width={1000}
+          height={1000}
+          />
           <h3 className="flex items-center gap-2 text-2xl font-medium font-montserrat">
             Félicitations !{' '}
-            <span className="text-white rounded-full bg-chart-2/80">
+            <span className="text-white rounded-full bg-chart-2">
               <CircleCheck />
             </span>
           </h3>

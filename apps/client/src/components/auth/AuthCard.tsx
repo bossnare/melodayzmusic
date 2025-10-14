@@ -88,7 +88,7 @@ function LoginCard({
                             spellCheck="false"
                             autoCorrect="off"
                             type="text"
-                            className="py-[26px] border-[1.4px] md:py-6 rounded-lg active:bg-muted-foreground"
+                            className="py-[26px] border-[1.4px] md:py-6 rounded-lg active:bg-muted-foreground/10"
                             placeholder="Email ou @username"
                             {...field}
                           />
@@ -106,7 +106,7 @@ function LoginCard({
                         <FormControl>
                           <PasswordInput
                             autoComplete="current-password"
-                            className="rounded-lg border-[1.4px] py-[26px] md:py-6 active:bg-muted-foreground"
+                            className="rounded-lg border-[1.4px] py-[26px] md:py-6 active:bg-muted-foreground/10"
                             disabled={isPending}
                             {...field}
                           />
@@ -481,8 +481,7 @@ const StepFourCard = ({
 }) => {
   const now = new Date();
   const isNow =
-    form.watch('step4.birthday') ===
-    new Date(now).toLocaleDateString('en-CA');
+    form.watch('step4.birthday') === new Date(now).toLocaleDateString('en-CA');
 
   return (
     <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">

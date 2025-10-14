@@ -38,6 +38,7 @@ function OtpOverlay() {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+  const [email, setEmail] = useState('');
   const ignore_otp = sessionStorage.getItem('ignore_otp');
 
   useEffect(() => {
@@ -45,8 +46,7 @@ function OtpOverlay() {
       try {
         const res = await api.get('/auth/me/verify');
         if (res.data.verified) setIsVerified(true);
-        alert(res.data.verified);
-        alert(JSON.stringify(res.data));
+        setEmail(res.data.email);
       } catch (e) {
         console.error(e);
       }
@@ -65,7 +65,11 @@ function OtpOverlay() {
   };
 
   useEffect(() => {
-    if (!isVerified && !ignore_otp) setOpen(true);
+    if (isVerified && ignore_otp) {
+      setOpen(false);
+    } else {
+      setOpen(true);
+    }
   }, [isVerified, ignore_otp]);
 
   return (
@@ -81,7 +85,7 @@ function OtpOverlay() {
           <p className="text-center text-muted-foreground">
             Un code à 6 chiffres vient d&apos;être envoyé à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
-              christogervais@gmail.com
+              {email}
             </span>{' '}
           </p>
           <InputOTPPattern />

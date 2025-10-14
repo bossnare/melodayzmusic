@@ -109,7 +109,6 @@ export class AuthController {
     const account = await this.prisma.user.findUnique({
       where: { id },
     });
-    const verified = account?.verified;
-    return { verified: verified };
+    return { verified: account?.verified, email: account?.email };
   }
 }
