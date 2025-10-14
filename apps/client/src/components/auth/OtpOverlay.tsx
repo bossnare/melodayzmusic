@@ -45,6 +45,7 @@ function OtpOverlay() {
       try {
         const res = await api.get('/auth/me/verify');
         if (res.data.verified) setIsVerified(true)
+        alert(res.data.verified)
       } catch (e) {
         console.error(e);
       }
