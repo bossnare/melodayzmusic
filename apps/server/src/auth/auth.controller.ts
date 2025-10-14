@@ -98,6 +98,6 @@ export class AuthController {
   @Get('me/verify')
   accountVerify(@User() user: UserEntity) {
     const verified = user?.verified;
-    return { verified: verified ?? false };
+    return { verified: verified };
   }
 }
