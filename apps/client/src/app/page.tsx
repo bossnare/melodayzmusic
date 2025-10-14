@@ -26,8 +26,7 @@ export default function Page() {
           </span>
         </div>
         <p className="w-[80%] sm:w-[60%] lg:w-[40%] text-center text-muted-foreground">
-          Our app is currently in development. Some features may not be fully
-          available or may change frequently. Thank you for your patience and
+          Our app is currently in development. Thank you for your patience and
           understanding as we work to improve your experience!
         </p>
         <Button
