@@ -79,15 +79,16 @@ function OtpOverlay() {
           <MelodayzMusic />
         </div>
         <div className="flex flex-col items-center w-[90%] md:w-[40%] space-y-6">
-          <h2 className="pt-8 md:pt-4 text-xl md:text-lg font-bold">
+          <h2 className="pt-8 md:pt-4 text-xl font-bold">
             Vérification du code
           </h2>
           <p className="text-center text-muted-foreground">
-            Un code à 6 chiffres vient d&apos;être envoyé à ton adresse e-mail{' '}
+            Pour confirmer que cette adresse t&apos;appartient, nous t&apos;avons envoyé
+            un code à 6 chiffres à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
               {email}
-            </span>{' '}
-          </p>
+            </span>{' '} 
+          </p>       
           <InputOTPPattern />
           <div className="w-full md:w-[50%] text-center space-y-3">
             <AuthCtaButton size="xl" className="w-full">
