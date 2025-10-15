@@ -137,7 +137,7 @@ export const Sidebar = () => {
                   </AlertDialogHeader>
                   <AlertDialogFooter>
                     <AlertDialogCancel className="font-montserrat">
-                      Annuler
+                      Non
                     </AlertDialogCancel>
                     <AlertDialogAction
                       className="font-montserrat"
@@ -158,4 +158,5 @@ export const Sidebar = () => {
     </>
   );
 };
+
 
