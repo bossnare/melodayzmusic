@@ -68,11 +68,11 @@ export default function CongratulationPage() {
         </div>
         <div className="mt-14">
           <Image
-          src="/icons/icon_512x512.png"
-          alt="MelodayzMusic"
-          className="size-18 lg:size-20 mb-2"
-          width={1000}
-          height={1000}
+            src="/icons/icon_x32_color.svg"
+            alt="MelodayzMusic"
+            className="size-18 lg:size-20 mb-2"
+            width={1000}
+            height={1000}
           />
           <h3 className="flex items-center gap-2 text-2xl font-medium font-montserrat">
             Félicitations !{' '}
