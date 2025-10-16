@@ -39,7 +39,7 @@ function OtpOverlay() {
   const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [email, setEmail] = useState('');
-  const ignore_otp = sessionStorage.getItem('ignore_otp');
+  const ignored = sessionStorage.getItem('ignore_otp') === 'true';
 
   useEffect(() => {
     const handleCheckAccount = async () => {
@@ -74,12 +74,12 @@ function OtpOverlay() {
   };
 
   useEffect(() => {
-    if (isVerified && ignore_otp) {
+    if (isVerified || ignored) {
       setOpen(false);
     } else {
       setOpen(true);
     }
-  }, [isVerified, ignore_otp]);
+  }, [isVerified]);
 
   return (
     <Dialog open={open}>
