@@ -59,7 +59,7 @@ export class AuthService {
   async sendOtpEmail(toEmail: string, otp: string) {
     const mailOptions = {
       from: `${process.env.MAIL_FROM}`,
-      to: toEmail ?? 'razafimangagervaischristo@gmail.com',
+      to: String(toEmail),
       subject: 'Your OTP code - MelodayzMusic',
       html: `<p>Your OTP for <strong>MelodayzMusic</strong> is:</p>
     <h2>${otp}</h2>
