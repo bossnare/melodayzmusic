@@ -14,6 +14,7 @@ import {
 } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
 import { PrismaService } from '../prisma/prisma.service.js';
+// import { SendOtpDto } from './dto/send-otp.js';
 
 @Controller('auth')
 export class AuthController {
@@ -26,6 +27,13 @@ export class AuthController {
   @Post('register')
   register(@Body() registerDto: RegisterDto) {
     return this.authService.register(registerDto);
+  }
+
+  @Post('send-otp')
+  async sendOtp(@Body() email: string) {
+    const otp = this.authService.generatorOtp();
+    await this.authService.sendOtpEmail(email, otp);
+    return { message: 'OTP sent successfully', email, status: 'ok' };
   }
 
   @Public()

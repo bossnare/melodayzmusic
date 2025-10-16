@@ -17,12 +17,22 @@ import {
   UsernameCheckDto,
 } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
+import * as nodemailer from 'nodemailer';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
     private jwtService: JwtService,
+    private readonly transporter = nodemailer.createTransport({
+      host: process.env.MAIL_HOST,
+      port: Number(process.env.MAIL_PORT || 587),
+      secure: process.env.MAIL_SECURE === 'true',
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+      },
+    }),
   ) {}
 
   private async signToken(
@@ -42,6 +52,36 @@ export class AuthService {
 
     // return this generated token
     return { access_token: token };
+  }
+
+  // generator OTP
+  generatorOtp(length = 6) {
+    const digits = '0123456789';
+    let otp = '';
+    for (let i = 0; i < length; i++)
+      otp += digits[Math.floor(Math.random() * digits.length)];
+    return otp;
+  }
+
+  async sendOtpEmail(toEmail: string, otp: string) {
+    const mailOptions = {
+      from: `"MelodayzMusic" ${process.env.MAIL_FROM}`,
+      to: toEmail,
+      subject: 'Your OTP code - MelodayzMusic',
+      text: `Code OTP: ${otp} (valid for 10 minutes)`,
+      html: `<p>Your OTP for <strong>MelodayzMusic</strong> is:</p>
+    <h2>${otp}</h2>
+    <p>It expires in 10 minutes.</p>
+    `,
+    };
+
+    try {
+      const info = await this.transporter.sendMail(mailOptions);
+      console.log(info.messageId);
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }
 
   async register(registerDto: RegisterDto) {

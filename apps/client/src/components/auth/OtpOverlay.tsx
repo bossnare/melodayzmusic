@@ -55,6 +55,15 @@ function OtpOverlay() {
     handleCheckAccount();
   }, []);
 
+  const handleGenerateOtp = async () => {
+    try {
+      const res = await api.post('/auth/send-otp', { email });
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleIgnore = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -83,12 +92,12 @@ function OtpOverlay() {
             Vérification du code
           </h2>
           <p className="text-center text-muted-foreground">
-            Pour confirmer que cette adresse t&apos;appartient, nous t&apos;avons envoyé
-            un code à 6 chiffres à ton adresse e-mail{' '}
+            Pour confirmer que cette adresse t&apos;appartient, nous
+            t&apos;avons envoyé un code à 6 chiffres à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
               {email}
-            </span>{' '} 
-          </p>       
+            </span>{' '}
+          </p>
           <InputOTPPattern />
           <div className="w-full md:w-[50%] text-center space-y-3">
             <AuthCtaButton size="xl" className="w-full">
@@ -105,7 +114,12 @@ function OtpOverlay() {
           </div>
           <div className="flex flex-col items-center gap-2 text-sm md:flex-row md:gap-1">
             <span>Pas encore reçu ?</span>
-            <Button variant="link" className="h-auto p-0 text-ring">
+            <Button
+              disabled={email === ''}
+              onClick={handleGenerateOtp}
+              variant="link"
+              className="h-auto p-0 text-ring"
+            >
               Renvoyer le code
             </Button>{' '}
           </div>
