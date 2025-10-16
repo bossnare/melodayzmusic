@@ -20,23 +20,22 @@ import {
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
 import { Transporter } from 'nodemailer';
 
+const transporter: Transporter = nodemailer.createTransport({
+  host: process.env.MAIL_HOST,
+  port: Number(process.env.MAIL_PORT || 587),
+  secure: process.env.MAIL_SECURE === 'true',
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  },
+});
+
 @Injectable()
 export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
     private jwtService: JwtService,
-    private transporter: Transporter,
-  ) {
-    this.transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST,
-      port: Number(process.env.MAIL_PORT || 587),
-      secure: process.env.MAIL_SECURE === 'true',
-      auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
-      },
-    }) as Transporter;
-  }
+  ) {}
 
   private async signToken(
     id: string,
@@ -80,7 +79,7 @@ export class AuthService {
 
     try {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const info = await this.transporter.sendMail(mailOptions);
+      const info = await transporter.sendMail(mailOptions);
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       console.log(info.messageId);
     } catch (error) {
