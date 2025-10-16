@@ -45,7 +45,7 @@ function OtpOverlay() {
     const handleCheckAccount = async () => {
       try {
         const res = await api.get('/auth/me/verify');
-        if (res.data.verified) setIsVerified(true);
+        setIsVerified(Boolean(res.data.verified));
         setEmail(res.data.email);
       } catch (e) {
         console.error(e);
@@ -95,7 +95,7 @@ function OtpOverlay() {
             Pour confirmer que cette adresse t&apos;appartient, nous
             t&apos;avons envoyé un code à 6 chiffres à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
-              {email}
+              {email === '' ? <div className="animate-spin h-6 w-50 bg-muted rounded"></div> : email}
             </span>{' '}
           </p>
           <InputOTPPattern />
