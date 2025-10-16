@@ -313,6 +313,6 @@
   }
 
   .text-section {
-    @apply mb-3 text-lg font-semibold lg:mb-4 lg:text-xl font-montserrat;
+    @apply mb-3 text-xl font-bold lg:mb-4 lg:text-xl font-montserrat;
   }
 }
