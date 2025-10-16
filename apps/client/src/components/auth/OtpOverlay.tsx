@@ -57,7 +57,7 @@ function OtpOverlay() {
 
   const handleGenerateOtp = async () => {
     try {
-      const res = await api.post('/auth/send-otp', { email });
+      const res = await api.post('/auth/send-otp', { email: email });
       console.log(res.data);
     } catch (error) {
       console.log(error);
