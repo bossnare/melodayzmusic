@@ -7,6 +7,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
 import dayjs from 'dayjs';
+import * as nodemailer from 'nodemailer';
 import { Role } from '../generated/prisma/enums.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { ChangePasswordDto } from './dto/change-password.dto.js';
@@ -17,14 +18,16 @@ import {
   UsernameCheckDto,
 } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
-import * as nodemailer from 'nodemailer';
+import { Transporter } from 'nodemailer';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
     private jwtService: JwtService,
-    private readonly transporter = nodemailer.createTransport({
+    private transporter: Transporter,
+  ) {
+    this.transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: Number(process.env.MAIL_PORT || 587),
       secure: process.env.MAIL_SECURE === 'true',
@@ -32,8 +35,8 @@ export class AuthService {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
-    }),
-  ) {}
+    }) as Transporter;
+  }
 
   private async signToken(
     id: string,
@@ -64,7 +67,7 @@ export class AuthService {
   }
 
   async sendOtpEmail(toEmail: string, otp: string) {
-    const mailOptions = {
+    const mailOptions: nodemailer.SendMailOptions = {
       from: `"MelodayzMusic" ${process.env.MAIL_FROM}`,
       to: toEmail,
       subject: 'Your OTP code - MelodayzMusic',
@@ -76,7 +79,9 @@ export class AuthService {
     };
 
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const info = await this.transporter.sendMail(mailOptions);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       console.log(info.messageId);
     } catch (error) {
       console.log(error);
