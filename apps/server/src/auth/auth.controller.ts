@@ -30,7 +30,7 @@ export class AuthController {
   }
 
   @Post('send-otp')
-  async sendOtp(@Body() email: string) {
+  async sendOtp(@Body('email') email: string) {
     const otp = this.authService.generatorOtp();
     await this.authService.sendOtpEmail(email, otp);
     return { message: 'OTP sent successfully', email, status: 'ok' };
