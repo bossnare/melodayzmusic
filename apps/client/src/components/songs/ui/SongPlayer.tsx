@@ -20,7 +20,7 @@ const Player = () => {
       <div className="flex items-center gap-6 xl:min-w-64">
         <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
           <Image
-            src="/img/p4.webp"
+            src="/img/Aurora-Cover.jpg"
             alt="coverImage"
             className="object-cover size-full"
             height={1000}
