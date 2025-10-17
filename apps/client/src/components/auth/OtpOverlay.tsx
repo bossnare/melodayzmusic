@@ -73,10 +73,6 @@ function OtpOverlay() {
     }, 1000);
   };
 
-  if (ignored) {
-    setOpen(false);
-  }
-
   useEffect(() => {
     if (!isVerified && !ignored) {
       setOpen(true);
