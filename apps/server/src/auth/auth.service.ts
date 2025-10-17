@@ -58,11 +58,11 @@ export class AuthService {
 
   async sendOtpEmail(toEmail: string, otp: string) {
     const mailOptions = {
-      from: `Melodayz Team <${process.env.MAIL_FROM}>`,
+      from: `MelodayzMusic <${process.env.MAIL_FROM}>`,
       to: toEmail,
-      subject: 'Your OTP code - MelodayzMusic',
-      html: `<p>Your OTP for <strong>MelodayzMusic</strong> is:</p>
-    <h2>${otp}</h2>
+      subject: 'Code OTP (6 chiffres)',
+      html: `<p style="text-align: center">Your OTP for <strong>MelodayzMusic</strong> is:</p>
+    <h1 style="background: #00aaff; color: white; border-radius: 10px; padding: 10px; margin: 4px; text-align: center">${otp}</h1>
     <p>It expires in 10 minutes.</p>
     `,
     };
@@ -72,7 +72,6 @@ export class AuthService {
       console.log(info);
     } catch (error) {
       console.log(error);
-      throw error;
     }
   }
 
