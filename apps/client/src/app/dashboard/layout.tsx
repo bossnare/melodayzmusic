@@ -16,6 +16,8 @@ import RefreshWrapper from './pull-to-refresh';
 import { cn } from '@/lib/utils';
 import AuthGuard from '@/components/auth/AuthGuard';
 import { OtpOverlay } from '@/components/auth/OtpOverlay';
+import api from '@/libs/api';
+import { type UserInterface } from '@/types/users/user.interface';
 
 export default function DashboardLayout({
   children,
@@ -23,11 +25,21 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const [isAtProfil, setIsAtProfil] = useState(false);
+  const [user, setUser] = useState<UserInterface | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     setIsAtProfil(pathname === '/dashboard/profile');
   }, [pathname]);
+
+  const handleFetchMe = async () => {
+    try {
+      const { data } = await api.get('/auth/me');
+      setUser(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <AuthGuard>
@@ -45,6 +57,7 @@ export default function DashboardLayout({
               <nav className="left-0 flex w-full px-3 py-1 sm:px-5 lg:hidden">
                 <SheetTrigger asChild>
                   <MotionButtonLeft
+                    onClick={handleFetchMe}
                     className="p-1 hover:!bg-transparent hover:text-muted-foreground"
                     type="button"
                   >
@@ -74,7 +87,7 @@ export default function DashboardLayout({
           </div>
 
           {/* SheetContent */}
-          <Sidebar />
+          <Sidebar user={user} />
         </Sheet>
 
         {/* NavBottom -- Player and Navigation on mobile */}

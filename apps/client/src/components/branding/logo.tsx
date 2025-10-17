@@ -20,7 +20,7 @@ const MelodayzMusic = () => {
   );
 };
 
-const Logo = ({ onClick }: { onClick: () => void }) => {
+const Logo = ({ onClick }: { onClick?: () => void }) => {
   return (
     <div
       onClick={onClick}

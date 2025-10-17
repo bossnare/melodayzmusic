@@ -25,11 +25,15 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-import {Overlay} from '@/components/motions/Overlay'
+import { Overlay } from '@/components/motions/Overlay';
+import { type UserInterface } from '@/types/users/user.interface';
 
-export const Sidebar = () => {
+type Props = {
+  user: UserInterface | null;
+};
+
+export const Sidebar = ({ user }: Props) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +44,7 @@ export const Sidebar = () => {
     setTimeout(() => {
       setIsLoading(false);
       localStorage.removeItem('access_token');
-      sessionStorage.removeItem('ignore_otp')
+      sessionStorage.removeItem('ignore_otp');
       startTransition(() => router.replace('/auth/login'));
     }, 4000);
   };
@@ -53,10 +57,7 @@ export const Sidebar = () => {
         className="fixed text-sidebar-foreground lg:w-64 top-0 left-0 overflow-y-auto hidden 
         z-6 lg:block bg-sidebar md:h-[calc(100dvh-5rem)] px-3 border-r dark:border-border"
       >
-        <div
-          className="hidden py-2 cursor-pointer lg:block active:opacity-80 lg:hover:opacity-80"
-          onClick={() => router.push('/dashboard')}
-        >
+        <div className="hidden py-2 cursor-pointer lg:block active:opacity-80 lg:hover:opacity-80">
           <figure className="flex items-center gap-1">
             <Image
               className="w-8 drop-shadow-md dark:invert"
@@ -83,7 +84,7 @@ export const Sidebar = () => {
       <div className="block bg-sidebar lg:!hidden">
         <SheetContent side="left" className="w-6/7">
           <SheetTitle className="p-2">
-            <Logo onClick={() => router.push('/dashboard')} />
+            <Logo />
           </SheetTitle>
           {/* content */}
           <SheetDescription className="px-4">
@@ -98,10 +99,12 @@ export const Sidebar = () => {
                   <AvatarFallback>J</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
-                  <span className="text-base font-semibold text-foreground">
-                    Omah Lay
+                  <span className="text-base font-semibold font-montserrat text-foreground">
+                    {user?.pseudo}
                   </span>
-                  <span className="text-xs text-muted-foreground">Artiste</span>
+                  <span className="text-xs text-muted-foreground">
+                    {user?.role === 'USER' ? 'Fan' : 'Utilisateur'}
+                  </span>
                 </div>
               </figcaption>
               <Settings2 className="active:bg-muted size-8 cursor-pointer active:opacity-60 lg:hover:opacity-60" />
@@ -153,10 +156,8 @@ export const Sidebar = () => {
         </SheetContent>
 
         {/* ✅ Overlay */}
-       <Overlay textLoading="Déconnexion..." isPending={pending} />
+        <Overlay textLoading="Déconnexion..." isPending={pending} />
       </div>
     </>
   );
 };
-
-
