@@ -105,14 +105,14 @@ export const Sidebar = ({
                   {fetchingMe ? (
                    <>
                     <div className="w-8/9 h-5 rounded-sm bg-foreground/30 animate-pulse"></div>
-                     <div className="w-4/5 h-2 mt-1 rounded-sm bg-foreground/30 animate-pulse"></div>
+                     <div className="w-4/5 h-3 mt-1 rounded-sm bg-foreground/30 animate-pulse"></div>
                    </>
                   ) : (
                     <>
                       <span className="text-base capitalize font-semibold font-montserrat text-foreground/80">
                         {user?.pseudo}
                       </span>
-                      <span className="text-[14px] text-muted-foreground">
+                      <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
                         @{user?.username} • {user?.role === 'USER' ? 'Fan' : 'Utilisateur(e)'}
                       </span>
                     </>
@@ -173,4 +173,5 @@ export const Sidebar = ({
     </>
   );
 };
+
 
