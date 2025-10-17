@@ -83,7 +83,7 @@ const mockSongs = [
       activateProfilePicture: {
         pictureUrl: '/img/p3.jpg',
       },
-      defaultPicture: '/img/p1.jpg',
+      defaultPicture: '/img/p2.jpg',
     },
   },
   {
@@ -103,7 +103,7 @@ const mockSongs = [
     userOwner: {
       username: 'Yblack J.',
       activateProfilePicture: {
-        pictureUrl: '/img/p1.jpg',
+        pictureUrl: '/img/p2.jpg',
       },
       defaultPicture: 'null',
     },
@@ -124,7 +124,7 @@ const mockSongs = [
     userOwner: {
       username: 'Yblack J.',
       activateProfilePicture: {
-        pictureUrl: '/img/p1.jpg',
+        pictureUrl: '/img/p2.jpg',
       },
       defaultPicture: 'null',
     },
