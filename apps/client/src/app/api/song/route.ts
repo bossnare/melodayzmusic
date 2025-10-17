@@ -31,7 +31,7 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p1.jpg',
+      coverUrl: '/img/Aurora-Cover.jpg',
     },
     audioUrl:
       '/audio/xxxtentacion_lil_pump_arms_around_you_lyrics_ft._maluma_swae_lee_mp3_52702.mp3',
