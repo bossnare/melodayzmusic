@@ -33,7 +33,10 @@ type Props = {
   user: UserInterface | null;
 };
 
-export const Sidebar = ({ user }: Props) => {
+export const Sidebar = ({
+  user,
+  fetchingMe,
+}: Props & { fetchingMe?: boolean }) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
@@ -90,21 +93,27 @@ export const Sidebar = ({ user }: Props) => {
           <SheetDescription className="px-4">
             <figure className="flex items-center w-full gap-4 mt-2 mb-3">
               <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted lg:hover:bg-muted/50">
-                <Avatar className="size-14 ring-2 ring-primary">
+                <Avatar className="size-14 ring-2 border border-current ring-muted">
                   <AvatarImage
                     className="object-cover"
                     alt="omahlay"
-                    src="/img/profil/omah_lay.jpg"
+                    src="/img/profil/man-pp.jpg"
                   />
                   <AvatarFallback>J</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
-                  <span className="text-base font-semibold font-montserrat text-foreground">
-                    {user?.pseudo}
-                  </span>
-                  <span className="text-xs text-muted-foreground">
-                    {user?.role === 'USER' ? 'Fan' : 'Utilisateur'}
-                  </span>
+                  {fetchingMe ? (
+                    <div className="w-full h-10 rounded bg-foreground/30 animate-pulse"></div>
+                  ) : (
+                    <>
+                      <span className="text-base capitalize font-semibold font-montserrat text-foreground/80">
+                        {user?.pseudo}
+                      </span>
+                      <span className="text-[14px] text-muted-foreground">
+                        {user?.role === 'USER' ? 'Fan' : 'Utilisateur(e)'}
+                      </span>
+                    </>
+                  )}
                 </div>
               </figcaption>
               <Settings2 className="active:bg-muted size-8 cursor-pointer active:opacity-60 lg:hover:opacity-60" />

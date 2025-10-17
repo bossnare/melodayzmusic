@@ -26,6 +26,7 @@ export default function DashboardLayout({
 }>) {
   const [isAtProfil, setIsAtProfil] = useState(false);
   const [user, setUser] = useState<UserInterface | null>(null);
+  const [fetchingMe, setFetchingMe] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -34,10 +35,13 @@ export default function DashboardLayout({
 
   const handleFetchMe = async () => {
     try {
+      setFetchingMe(true);
       const { data } = await api.get('/auth/me');
       setUser(data);
     } catch (e) {
       console.log(e);
+    } finally {
+      setFetchingMe(false);
     }
   };
 
@@ -87,7 +91,7 @@ export default function DashboardLayout({
           </div>
 
           {/* SheetContent */}
-          <Sidebar user={user} />
+          <Sidebar user={user} fetchingMe={fetchingMe} />
         </Sheet>
 
         {/* NavBottom -- Player and Navigation on mobile */}

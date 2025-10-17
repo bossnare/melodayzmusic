@@ -17,16 +17,18 @@ export default function ProfilePage() {
           <AvatarImage
             className="object-cover"
             alt="omahlay"
-            src="/img/profil/omah_lay.jpg"
+            src="/img/profil/man-pp.jpg"
           />
           <AvatarFallback>US</AvatarFallback>
         </Avatar>
         {/* name */}
         <div className="space-y-1">
           <h3 className="text-2xl font-bold capitalize lg:text-3xl">
-            Omah lay
+            Utilisateur(e)
           </h3>
-          <p className="text-base text-muted-foreground lg:text-lg">Artiste</p>
+          <p className="text-base text-muted-foreground lg:text-lg">
+            Non défini
+          </p>
         </div>
         {/* btn action */}
         <div className="ml-auto">
