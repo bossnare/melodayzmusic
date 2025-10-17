@@ -101,9 +101,9 @@ export const Sidebar = ({
                   />
                   <AvatarFallback>J</AvatarFallback>
                 </Avatar>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                   {fetchingMe ? (
-                    <div className="w-full h-10 rounded bg-foreground/30 animate-pulse"></div>
+                    <div className="w-8/9 h-10 rounded bg-foreground/30 animate-pulse"></div>
                   ) : (
                     <>
                       <span className="text-base capitalize font-semibold font-montserrat text-foreground/80">
