@@ -93,7 +93,7 @@ function OtpOverlay() {
             Pour confirmer que cette adresse t&apos;appartient, nous
             t&apos;avons envoyé un code à 6 chiffres à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
-              {email === '' ? <div className="animate-pulse h-5 w-full bg-muted-foreground rounded-sm"></div> : email}
+              {email === '' ? <div className="animate-pulse h-4 w-full bg-muted rounded-sm"></div> : email}
             </span>{' '}
           </p>
           <InputOTPPattern />
