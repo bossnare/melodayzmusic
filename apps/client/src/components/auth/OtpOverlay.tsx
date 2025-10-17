@@ -81,7 +81,7 @@ function OtpOverlay() {
 
   return (
     <Dialog open={open}>
-      <DialogOverlay className="flex flex-col items-center px-4 py-2 bg-background md:overflow-y-scroll md:h-auto lg:overflow-hidden">
+      <DialogOverlay className="flex flex-col items-center px-4 py-3 bg-background md:overflow-y-scroll md:h-auto lg:overflow-hidden">
         <div className="flex justify-center md:justify-start w-full">
           <MelodayzMusic />
         </div>
@@ -93,7 +93,7 @@ function OtpOverlay() {
             Pour confirmer que cette adresse t&apos;appartient, nous
             t&apos;avons envoyé un code à 6 chiffres à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
-              {email === '' ? <div className="animate-pulse h-5 w-50 bg-muted rounded-sm"></div> : email}
+              {email === '' ? <div className="animate-pulse h-5 w-full bg-muted-foreground rounded-sm"></div> : email}
             </span>{' '}
           </p>
           <InputOTPPattern />
