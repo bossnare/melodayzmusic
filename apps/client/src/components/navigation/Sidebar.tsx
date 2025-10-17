@@ -138,7 +138,7 @@ export const Sidebar = ({
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -50, opacity: 0 }}
-                  transition={{ type: 'spring', stiffness: 500, damping: 50 }}
+                  transition={{ type: 'spring', stiffness: 250, damping: 50, mass: 1.2 }}
                   className="space-y-4"
                 >
                   <AlertDialogHeader>
@@ -173,5 +173,6 @@ export const Sidebar = ({
     </>
   );
 };
+
 
 
