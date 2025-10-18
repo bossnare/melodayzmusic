@@ -5,23 +5,43 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import { Tabs } from './Tab';
 import { navLabels } from './labels/navigation.link';
+import { useUser } from '@/hooks/useUser';
+import { useEffect } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const SidebarContentDesktop = () => {
+  const { user, isFetchingMe, fetchMe } = useUser();
+
+  useEffect(() => {
+    fetchMe();
+  }, [fetchMe]);
+
   return (
     <>
-      <figure className="flex items-center w-full gap-2 mt-4 mb-3">
+      <figure className="flex w-full gap-2 mt-4 mb-3">
         <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted/80 lg:hover:bg-muted/50">
           <Avatar className="size-10 ring-2 ring-primary">
             <AvatarImage
               className="object-cover"
               alt="omahlay"
-              src="/img/profil/omah_lay.jpg"
+              src="/img/profil/man-pp.jpg"
             />
             <AvatarFallback>U</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <span className="text-base font-semibold">John Doe</span>
-            <span className="text-xs text-muted-foreground">Fan</span>
+            {isFetchingMe ? (
+              <>
+                <Skeleton className="w-8/9 h-5 rounded-sm bg-foreground/30" />
+                <Skeleton className="w-4/5 h-3 mt-1 rounded-sm bg-foreground/30" />
+              </>
+            ) : (
+              <>
+                <span className="text-base font-semibold">{user?.pseudo}</span>
+                <span className="text-xs text-muted-foreground">
+                  @{user?.username}
+                </span>
+              </>
+            )}
           </div>
         </figcaption>
         <Settings2 className="cursor-pointer hover:opacity-60" />
