@@ -3,7 +3,6 @@ import {
   PSEUDO_REGEX,
   PASS_REGEX,
 } from '@/libs/validators/regex';
-import { toast } from 'sonner';
 import { z } from 'zod';
 
 const minAge = 13;
@@ -42,16 +41,7 @@ export const registerSchema = z.object({
   step4: z.object({
     birthday: z
       .string()
-      .refine((val) => {
-        const today = new Date(now).toLocaleDateString('en-CA');
-        if (val === today) {
-          toast.success('🎉 Joyeux anniversaire !', {
-            description: "On dirait que c'est ton jour aujourd'hui 😀🎊",
-          });
-        }
-        return true;
-      })
-      .refine((val) => typeof val === 'string', 'Date de naissance requise.')
+      .nonempty('Date de naissance requise.')
       .refine(
         (val) => {
           const bday = new Date(val);
@@ -66,8 +56,7 @@ export const registerSchema = z.object({
           return age >= minAge;
         },
         { message: 'Vous devez avoir au moins 13 ans pour continuer.' }
-      )
-      .nonempty('Veuillez sélectionner votre date de naissance.'),
+      ),
     country: z.string().nonempty('Veuillez sélectionner votre pays.'),
     genre: z.string().nonempty('Veuillez sélectionner votre genre.'),
   }),
