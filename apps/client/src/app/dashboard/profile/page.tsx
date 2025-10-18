@@ -14,7 +14,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     handleFetchMe();
-  }, [handleFetchMe]);
+  }, []);
 
   return (
     <section>
