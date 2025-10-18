@@ -32,7 +32,6 @@ export default function DashboardLayout({
   const [open, setOpen] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [email, setEmail] = useState('');
-  const ignored = sessionStorage.getItem('ignore_otp') === 'true';
 
   useEffect(() => {
     const handleCheckAccount = async () => {
@@ -53,6 +52,7 @@ export default function DashboardLayout({
   }, [pathname]);
 
   useEffect(() => {
+    const ignored = sessionStorage.getItem('ignore_otp') === 'true';
     if (ignored) {
       setOpen(false);
     } else {
