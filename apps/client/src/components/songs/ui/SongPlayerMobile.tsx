@@ -8,17 +8,17 @@ const SongPlayerMobile = () => {
     <AnimatePresence mode="wait">
       <motion.div
         style={{ boxShadow: '0 -10px 10px -5px rgba(0, 0, 0, 0.06)' }}
-        initial={{ y: 30, opacity: 0 }}
+        initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -30, opacity: 0 }}
+        exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-xl left-[2%] h-16 lg:hidden bottom-17 bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
+        className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-xl left-[2%] h-16 lg:hidden bottom-[102px] md:bottom-[66px] bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
       >
         <section className="relative flex items-center gap-2 px-2 py-2 size-full font-montserrat">
           {/* grain */}
           <span
-            className="absolute rounded-lg invert dark:invert-0 inset-0 opacity-20 pointer-events-none 
+            className="absolute rounded-lg invert dark:invert-0 inset-0 opacity-30 pointer-events-none 
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
           ></span>
           <div className="p-[6px] border rounded-md shadow-sm bg-gradient-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
