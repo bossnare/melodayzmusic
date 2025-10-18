@@ -41,7 +41,7 @@ export default function ProfilePage() {
                 {user?.pseudo}
               </h3>
               <p className="text-base text-muted-foreground lg:text-lg">
-                {user?.username}
+                @{user?.username}
               </p>
             </>
           )}
