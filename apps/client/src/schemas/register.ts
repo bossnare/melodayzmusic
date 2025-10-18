@@ -1,6 +1,7 @@
 import {
   USERNAME_REGEX,
   PSEUDO_REGEX,
+  EMAIL_REGEX,
   PASS_REGEX,
 } from '@/libs/validators/regex';
 import { z } from 'zod';
@@ -24,7 +25,7 @@ export const registerSchema = z.object({
       .regex(USERNAME_REGEX, "Nom d'utilisateur invalide."),
   }),
   step2: z.object({
-    email: z.string().email({ message: 'Email invalide.' }),
+    email: z.string().regex(EMAIL_REGEX, 'Email invalide.'),
   }),
   step3: z.object({
     password: z
