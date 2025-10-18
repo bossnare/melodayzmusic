@@ -51,16 +51,9 @@ const MotionButtonLeft = ({
   );
 };
 
-const MotionTab = ({
-  children,
-  className,
-  ...props
-}: {
-  children: React.ReactNode;
-  className: string;
-}) => {
+const MotionTab = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
-    <motion.div whileTap={{ scale: 0.8 }} className={className} {...props}>
+    <motion.div whileTap={{ scale: 0.8 }} {...props}>
       {children}
     </motion.div>
   );

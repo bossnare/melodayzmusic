@@ -15,6 +15,7 @@ import { MelodayzMusic } from '../branding/logo';
 import { Tagline } from '../branding/tagline';
 import { Spinner } from '@/components/ui/spinner';
 import api from '@/libs/api';
+import { Skeleton } from '../ui/skeleton';
 
 export function InputOTPPattern() {
   return (
@@ -77,6 +78,7 @@ function OtpOverlay() {
     if (!isVerified && !ignored) {
       setOpen(true);
     }
+    setOpen(false);
   }, [isVerified, ignored]);
 
   return (
@@ -94,7 +96,7 @@ function OtpOverlay() {
             t&apos;avons envoyé un code à 6 chiffres à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
               {email === '' ? (
-                <div className="animate-pulse h-4 w-full bg-muted rounded-sm"></div>
+                <Skeleton className="h-4 w-full bg-gradient-to-r from-transparent via-current to-transparent" />
               ) : (
                 email
               )}

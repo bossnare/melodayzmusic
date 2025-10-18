@@ -16,8 +16,7 @@ import RefreshWrapper from './pull-to-refresh';
 import { cn } from '@/lib/utils';
 import AuthGuard from '@/components/auth/AuthGuard';
 import { OtpOverlay } from '@/components/auth/OtpOverlay';
-import api from '@/libs/api';
-import { type UserInterface } from '@/types/users/user.interface';
+import { useUser } from '@/hooks/useUser';
 
 export default function DashboardLayout({
   children,
@@ -25,25 +24,13 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const [isAtProfil, setIsAtProfil] = useState(false);
-  const [user, setUser] = useState<UserInterface | null>(null);
-  const [fetchingMe, setFetchingMe] = useState(false);
   const pathname = usePathname();
+
+  const { user, handleFetchMe, isFetchingMe } = useUser();
 
   useEffect(() => {
     setIsAtProfil(pathname === '/dashboard/profile');
   }, [pathname]);
-
-  const handleFetchMe = async () => {
-    try {
-      setFetchingMe(true);
-      const { data } = await api.get('/auth/me');
-      setUser(data);
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setFetchingMe(false);
-    }
-  };
 
   return (
     <AuthGuard>
@@ -91,7 +78,7 @@ export default function DashboardLayout({
           </div>
 
           {/* SheetContent */}
-          <Sidebar user={user} fetchingMe={fetchingMe} />
+          <Sidebar user={user} isFetchingMe={isFetchingMe} />
         </Sheet>
 
         {/* NavBottom -- Player and Navigation on mobile */}
@@ -109,4 +96,3 @@ export default function DashboardLayout({
     </AuthGuard>
   );
 }
-
