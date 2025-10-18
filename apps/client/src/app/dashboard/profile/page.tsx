@@ -19,7 +19,7 @@ export default function ProfilePage() {
   return (
     <section>
       {/* Profile content */}
-      <div className="flex items-center flex-col md:flex-row gap-4 py-4 lg:pt-10">
+      <div className="flex md:items-center flex-col md:flex-row gap-4 py-4 lg:pt-10">
         <Avatar className="border size-40 lg:size-38 dark:border-primary-foreground ring-4 ring-muted ">
           <AvatarImage
             className="object-cover"
@@ -37,7 +37,7 @@ export default function ProfilePage() {
             </>
           ) : (
             <>
-              <h3 className="text-2xl font-bold capitalize lg:text-3xl">
+              <h3 className="text-2xl font-bold font-montserrat capitalize lg:text-3xl">
                 {user?.pseudo}
               </h3>
               <p className="text-base text-muted-foreground lg:text-lg">
@@ -47,7 +47,7 @@ export default function ProfilePage() {
           )}
 
           {/* btn action */}
-          <div className="ml-auto shrink-0">
+          {/* <div className="ml-auto shrink-0">
             <MotionButton onClick={() => setIsStar(!isStar)}>
               <Star
                 className={cn(
@@ -56,7 +56,7 @@ export default function ProfilePage() {
                 )}
               />
             </MotionButton>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
