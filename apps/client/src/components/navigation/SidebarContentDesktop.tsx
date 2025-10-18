@@ -37,10 +37,10 @@ const SidebarContentDesktop = () => {
             ) : (
               <>
                 <span className="text-base font-semibold capitalize">
-                  {user?.pseudo ?? 'Utilisateur(e)'}
+                  {user?.pseudo || 'Utilisateur(e)'}
                 </span>
                 <span className="text-xs text-muted-foreground">
-                  @{user?.username ?? 'utilisateur'}
+                  @{user?.username || 'utilisateur'}
                 </span>
               </>
             )}

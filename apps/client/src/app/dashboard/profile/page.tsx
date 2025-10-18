@@ -19,7 +19,7 @@ export default function ProfilePage() {
   return (
     <section>
       {/* Profile content */}
-      <div className="flex md:items-center flex-col md:flex-row gap-4 py-4 lg:pt-10">
+      <div className="flex flex-col gap-4 py-4 md:items-center md:flex-row lg:pt-10">
         <Avatar className="border size-40 lg:size-38 dark:border-primary-foreground ring-4 ring-muted ">
           <AvatarImage
             className="object-cover"
@@ -29,26 +29,26 @@ export default function ProfilePage() {
           <AvatarFallback>US</AvatarFallback>
         </Avatar>
         {/* name */}
-        <div className="grow relative">
+        <div className="relative grow">
           {isFetchingMe ? (
             <>
-              <Skeleton className="w-8/9 h-8 bg-foreground/30" />
+              <Skeleton className="h-8 w-8/9 bg-foreground/30" />
               <Skeleton className="w-4/5 h-4 mt-2 bg-foreground/30" />
             </>
           ) : (
             <>
-              <h3 className="text-2xl font-bold font-montserrat capitalize lg:text-3xl">
-                {user?.pseudo}
+              <h3 className="text-2xl font-bold capitalize font-montserrat lg:text-3xl">
+                {user?.pseudo || 'Utilisateur(e)'}
               </h3>
               <p className="text-base text-muted-foreground lg:text-lg">
-                @{user?.username}
+                @{user?.username || 'utilisateur'}
               </p>
             </>
           )}
 
           {/* btn action */}
           {!isFetchingMe && (
-            <div className="shrink-0 absolute right-0 top-0">
+            <div className="absolute top-0 right-0 shrink-0">
               <MotionButton onClick={() => setIsStar(!isStar)}>
                 <Star
                   className={cn(
