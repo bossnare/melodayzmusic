@@ -37,7 +37,7 @@ export default function ProfilePage() {
             </>
           ) : (
             <>
-              <h3 className="text-2xl font-bold capitalize lg:text-3xl">
+              <h3 className="text-2xl font-bold font-montserrat capitalize lg:text-3xl">
                 {user?.pseudo}
               </h3>
               <p className="text-base text-muted-foreground lg:text-lg">
