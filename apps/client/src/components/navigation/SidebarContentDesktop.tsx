@@ -28,17 +28,19 @@ const SidebarContentDesktop = () => {
             />
             <AvatarFallback>U</AvatarFallback>
           </Avatar>
-          <div className="flex flex-col">
+          <div className="flex flex-col grow">
             {isFetchingMe ? (
               <>
-                <Skeleton className="w-8/9 h-5 rounded-sm bg-foreground/30" />
+                <Skeleton className="h-5 rounded-sm w-8/9 bg-foreground/30" />
                 <Skeleton className="w-4/5 h-3 mt-1 rounded-sm bg-foreground/30" />
               </>
             ) : (
               <>
-                <span className="text-base font-semibold">{user?.pseudo}</span>
+                <span className="text-base font-semibold capitalize">
+                  {user?.pseudo ?? 'Utilisateur(e)'}
+                </span>
                 <span className="text-xs text-muted-foreground">
-                  @{user?.username}
+                  @{user?.username ?? 'utilisateur'}
                 </span>
               </>
             )}
