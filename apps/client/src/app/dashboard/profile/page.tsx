@@ -47,16 +47,18 @@ export default function ProfilePage() {
           )}
 
           {/* btn action */}
-          <div className="shrink-0 absolute right-0 top-0">
-            <MotionButton onClick={() => setIsStar(!isStar)}>
-              <Star
-                className={cn(
-                  isStar && 'fill-current stroke-current',
-                  'size-8 lg:size-10'
-                )}
-              />
-            </MotionButton>
-          </div>
+          {!isFetchingMe && (
+            <div className="shrink-0 absolute right-0 top-0">
+              <MotionButton onClick={() => setIsStar(!isStar)}>
+                <Star
+                  className={cn(
+                    isStar && 'fill-current stroke-current',
+                    'size-8 lg:size-10'
+                  )}
+                />
+              </MotionButton>
+            </div>
+          )}
         </div>
       </div>
     </section>
