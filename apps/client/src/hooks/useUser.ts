@@ -1,12 +1,12 @@
-import { fetcher } from '@/utils/fetcher';
-import { useState } from 'react';
 import { type UserInterface } from '@/types/users/user.interface';
+import { fetcher } from '@/utils/fetcher';
+import { useCallback, useState } from 'react';
 
 export const useUser = () => {
   const [user, setUser] = useState<UserInterface | null>(null);
   const [isFetchingMe, setIsFetchingMe] = useState(false);
 
-  const handleFetchMe = async () => {
+  const fetchMe = useCallback(async () => {
     try {
       setIsFetchingMe(true);
       const user = await fetcher('/auth/me');
@@ -16,7 +16,7 @@ export const useUser = () => {
     } finally {
       setIsFetchingMe(false);
     }
-  };
+  }, []);
 
-  return { user, handleFetchMe, isFetchingMe };
+  return { user, fetchMe, isFetchingMe };
 };
