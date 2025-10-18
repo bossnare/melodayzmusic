@@ -111,13 +111,13 @@ export const Sidebar = ({
                   ) : (
                     <>
                       <span className="text-base font-semibold capitalize font-montserrat text-foreground/80">
-                        {user?.pseudo ?? 'Utilisateur(e)'}
+                        {user?.pseudo || 'Utilisateur(e)'}
                       </span>
                       <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
-                        @{user?.username ?? 'utilisateur'} -{' '}
+                        @{user?.username || 'utilisateur'} -{' '}
                         {user?.role === 'USER'
                           ? 'Fan'
-                          : user?.role?.toLocaleUpperCase() ?? 'Fan'}
+                          : user?.role?.toLocaleUpperCase() || 'Fan'}
                       </span>
                     </>
                   )}
