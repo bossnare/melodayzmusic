@@ -8,9 +8,9 @@ const SongPlayerMobile = () => {
     <AnimatePresence mode="wait">
       <motion.div
         style={{ boxShadow: '0 -10px 10px -5px rgba(0, 0, 0, 0.06)' }}
-        initial={{ y: 20, opacity: 0 }}
+        initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -20, opacity: 0 }}
+        exit={{ y: -30, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
         className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-xl left-[2%] h-16 lg:hidden bottom-17 bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
