@@ -65,7 +65,7 @@ export default function DashboardLayout({
                     className="p-1 hover:!bg-transparent hover:text-muted-foreground"
                     type="button"
                   >
-                    <AlignLeft className="stroke-current size-7 stroke-[2.2]" />
+                    <AlignLeft className="stroke-current size-8 stroke-[2.2]" />
                   </MotionButtonLeft>
                 </SheetTrigger>
               </nav>
@@ -109,3 +109,4 @@ export default function DashboardLayout({
     </AuthGuard>
   );
 }
+
