@@ -91,7 +91,7 @@ export const Sidebar = ({
           </SheetTitle>
           {/* content */}
           <SheetDescription className="px-4">
-            <figure className="flex items-center w-full gap-4 mt-2 mb-3">
+            <figure className="flex w-full gap-4 mt-2 mb-3">
               <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted lg:hover:bg-muted/50">
                 <Avatar className="size-14 ring-2 border border-current ring-muted">
                   <AvatarImage
@@ -103,14 +103,17 @@ export const Sidebar = ({
                 </Avatar>
                 <div className="flex flex-col w-full">
                   {fetchingMe ? (
-                    <div className="w-8/9 h-10 rounded bg-foreground/30 animate-pulse"></div>
+                   <>
+                    <div className="w-8/9 h-5 rounded-sm bg-foreground/30 animate-pulse"></div>
+                     <div className="w-4/5 h-3 mt-1 rounded-sm bg-foreground/30 animate-pulse"></div>
+                   </>
                   ) : (
                     <>
                       <span className="text-base capitalize font-semibold font-montserrat text-foreground/80">
                         {user?.pseudo}
                       </span>
-                      <span className="text-[14px] text-muted-foreground">
-                        {user?.role === 'USER' ? 'Fan' : 'Utilisateur(e)'}
+                      <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
+                        @{user?.username} • {user?.role === 'USER' ? 'Fan' : 'Utilisateur(e)'}
                       </span>
                     </>
                   )}
@@ -135,7 +138,7 @@ export const Sidebar = ({
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -50, opacity: 0 }}
-                  transition={{ type: 'spring', stiffness: 500, damping: 50 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 50, mass: 1.2 }}
                   className="space-y-4"
                 >
                   <AlertDialogHeader>
@@ -170,3 +173,7 @@ export const Sidebar = ({
     </>
   );
 };
+
+
+
+
