@@ -2,8 +2,8 @@ import { cn } from '@/lib/utils';
 import { useActivePath } from '@/hooks/useActivePath';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
 import type { TabProps } from '@/types/navigation/tab.interface';
-import { MotionTab } from '../motions/motionButton';
-import { Loader } from '../motions/Loader';
+import { MotionTab } from '@/components/motions/motionButton';
+import { Loader } from '@/components/motions/Loader';
 
 export const Tabs = ({ href, Icon, label }: TabProps) => {
   const isActive = useActivePath(href);
@@ -22,11 +22,14 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
           'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[50%] font-semibold text-xs lg:text-sm rounded-sm items-center font-montserrat justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
-        <MotionTab className="*:!size-7 lg:*:!size-6">
+        <MotionTab>
           {isPending && !isActive ? (
-            <Loader className="border-foreground/90 !size-3 lg:!size-4" />
+            <Loader className="border-foreground/90 size-3 lg:size-4" />
           ) : (
-            <Icon weight={isActive ? 'fill' : 'bold'} />
+            <Icon
+              className="size-7 lg:size-6"
+              weight={isActive ? 'fill' : 'bold'}
+            />
           )}
         </MotionTab>
         <span>{label}</span>

@@ -28,6 +28,7 @@ import {
 import { motion } from 'motion/react';
 import { Overlay } from '@/components/motions/Overlay';
 import { type UserInterface } from '@/types/users/user.interface';
+import { Skeleton } from '@/components/ui/skeleton';
 
 type Props = {
   user: UserInterface | null;
@@ -35,8 +36,8 @@ type Props = {
 
 export const Sidebar = ({
   user,
-  fetchingMe,
-}: Props & { fetchingMe?: boolean }) => {
+  isFetchingMe,
+}: Props & { isFetchingMe?: boolean }) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
@@ -102,18 +103,19 @@ export const Sidebar = ({
                   <AvatarFallback>J</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col w-full">
-                  {fetchingMe ? (
-                   <>
-                    <div className="w-8/9 h-5 rounded-sm bg-foreground/30 animate-pulse"></div>
-                     <div className="w-4/5 h-3 mt-1 rounded-sm bg-foreground/30 animate-pulse"></div>
-                   </>
+                  {isFetchingMe ? (
+                    <>
+                      <Skeleton className="w-8/9 h-5 rounded-sm bg-foreground/30" />
+                      <Skeleton className="w-4/5 h-3 mt-1 rounded-sm bg-foreground/30" />
+                    </>
                   ) : (
                     <>
                       <span className="text-base capitalize font-semibold font-montserrat text-foreground/80">
                         {user?.pseudo}
                       </span>
                       <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
-                        @{user?.username} • {user?.role === 'USER' ? 'Fan' : 'Utilisateur(e)'}
+                        @{user?.username} •{' '}
+                        {user?.role === 'USER' ? 'Fan' : 'Utilisateur(e)'}
                       </span>
                     </>
                   )}
@@ -138,7 +140,12 @@ export const Sidebar = ({
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -50, opacity: 0 }}
-                  transition={{ type: 'spring', stiffness: 500, damping: 50, mass: 1.2 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 500,
+                    damping: 50,
+                    mass: 1.2,
+                  }}
                   className="space-y-4"
                 >
                   <AlertDialogHeader>
@@ -173,7 +180,3 @@ export const Sidebar = ({
     </>
   );
 };
-
-
-
-
