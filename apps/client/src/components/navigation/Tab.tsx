@@ -24,7 +24,7 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
       >
         <MotionTab>
           {isPending && !isActive ? (
-            <Loader className="border-foreground/90 size-6" />
+            <Loader className="border-foreground/90 size-7 lg:size-6" />
           ) : (
             <Icon
               className="size-7 lg:size-6"
