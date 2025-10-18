@@ -79,7 +79,7 @@ function OtpOverlay() {
     if (!isVerified) {
       setOpen(true);
     }
-  }, [isVerified, ignored]);
+  }, [isVerified]);
 
   return (
     <Dialog open={open}>
