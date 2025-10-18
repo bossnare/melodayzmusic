@@ -1,7 +1,7 @@
 'use client';
 
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Dialog, DialogOverlay } from '../ui/dialog';
 import { Button } from '@/components/ui/button';
 import {
@@ -35,35 +35,16 @@ export function InputOTPPattern() {
   );
 }
 
-function OtpOverlay() {
-  const [open, setOpen] = useState(false);
+function OtpOverlay({
+  email,
+  open,
+  setOpen,
+}: {
+  email?: string;
+  open?: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const [isLoading, setIsLoading] = useState(false);
-  const [isVerified, setIsVerified] = useState(false);
-  const [email, setEmail] = useState('');
-  const ignored = sessionStorage.getItem('ignore_otp') === 'true';
-
-  useEffect(() => {
-    const handleCheckAccount = async () => {
-      try {
-        const res = await api.get('/auth/me/verify');
-        setIsVerified(Boolean(res.data.verified));
-        setEmail(res.data.email);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-
-    handleCheckAccount();
-  }, []);
-
-  const handleGenerateOtp = async () => {
-    try {
-      const res = await api.post('/auth/send-otp', { email });
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleIgnore = () => {
     setIsLoading(true);
@@ -74,12 +55,14 @@ function OtpOverlay() {
     }, 1000);
   };
 
-  useEffect(() => {
-    if (ignored) setOpen(false);
-    if (!isVerified) {
-      setOpen(true);
+  const handleGenerateOtp = async () => {
+    try {
+      const res = await api.post('/auth/send-otp', { email });
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
     }
-  }, [isVerified]);
+  };
 
   return (
     <Dialog open={open}>
@@ -96,7 +79,7 @@ function OtpOverlay() {
             t&apos;avons envoyé un code à 6 chiffres à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
               {email === '' ? (
-                <Skeleton className="h-4 w-full bg-gradient-to-r from-transparent via-current to-transparent" />
+                <Skeleton className="h-4 w-full bg-gradient-to-r from-transparent via-foreground/30 to-transparent" />
               ) : (
                 email
               )}

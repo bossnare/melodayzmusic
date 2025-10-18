@@ -17,6 +17,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import RefreshWrapper from './pull-to-refresh';
 import SmoothScrollLayout from './SmoothScrollLayout';
+import { fetcher } from '@/utils/fetcher';
 
 export default function DashboardLayout({
   children,
@@ -28,9 +29,38 @@ export default function DashboardLayout({
 
   const { user, fetchMe, isFetchingMe } = useUser();
 
+  const [open, setOpen] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    const handleCheckAccount = async () => {
+      try {
+        const data = await fetcher('/auth/me/verify');
+        setIsVerified(Boolean(data.verified));
+        setEmail(data.email);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    handleCheckAccount();
+  }, []);
+
   useEffect(() => {
     setIsAtProfil(pathname === '/dashboard/profile');
   }, [pathname]);
+
+  useEffect(() => {
+    const ignored = sessionStorage.getItem('ignore_otp') === 'true';
+    if (ignored) {
+      setOpen(false);
+    } else {
+      if (!isVerified) {
+        setOpen(true);
+      }
+    }
+  }, [isVerified]);
 
   return (
     <AuthGuard>
@@ -91,7 +121,7 @@ export default function DashboardLayout({
           <Player />
         </nav>
 
-        <OtpOverlay />
+        <OtpOverlay email={email} open={open} setOpen={setOpen} />
       </div>
     </AuthGuard>
   );
