@@ -29,7 +29,7 @@ export default function ProfilePage() {
           <AvatarFallback>US</AvatarFallback>
         </Avatar>
         {/* name */}
-        <div className="grow">
+        <div className="grow relative">
           {isFetchingMe ? (
             <>
               <Skeleton className="w-8/9 h-8 bg-foreground/30" />
@@ -47,7 +47,7 @@ export default function ProfilePage() {
           )}
 
           {/* btn action */}
-          {/* <div className="ml-auto shrink-0">
+          <div className="shrink-0 absolute right-0 top-0">
             <MotionButton onClick={() => setIsStar(!isStar)}>
               <Star
                 className={cn(
@@ -56,7 +56,7 @@ export default function ProfilePage() {
                 )}
               />
             </MotionButton>
-          </div> */}
+          </div>
         </div>
       </div>
     </section>
