@@ -29,7 +29,7 @@ export default function ProfilePage() {
           <AvatarFallback>US</AvatarFallback>
         </Avatar>
         {/* name */}
-        <div className="space-y-1">
+        <div className="space-y-1 grow">
           {isFetchingMe ? (
             <>
               <Skeleton className="w-8/9 h-8 bg-foreground/30" />
