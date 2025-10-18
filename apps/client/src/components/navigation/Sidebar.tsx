@@ -94,7 +94,7 @@ export const Sidebar = ({
           <SheetDescription className="px-4">
             <figure className="flex w-full gap-4 mt-2 mb-3">
               <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted lg:hover:bg-muted/50">
-                <Avatar className="size-14 ring-2 border border-current ring-muted">
+                <Avatar className="border border-current size-14 ring-2 ring-muted">
                   <AvatarImage
                     className="object-cover"
                     alt="omahlay"
@@ -105,23 +105,25 @@ export const Sidebar = ({
                 <div className="flex flex-col w-full">
                   {isFetchingMe ? (
                     <>
-                      <Skeleton className="w-8/9 h-5 rounded-sm bg-foreground/30" />
+                      <Skeleton className="h-5 rounded-sm w-8/9 bg-foreground/30" />
                       <Skeleton className="w-4/5 h-3 mt-1 rounded-sm bg-foreground/30" />
                     </>
                   ) : (
                     <>
-                      <span className="text-base capitalize font-semibold font-montserrat text-foreground/80">
-                        {user?.pseudo}
+                      <span className="text-base font-semibold capitalize font-montserrat text-foreground/80">
+                        {user?.pseudo ?? 'Utilisateur(e)'}
                       </span>
                       <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
-                        @{user?.username} •{' '}
-                        {user?.role === 'USER' ? 'Fan' : 'Utilisateur(e)'}
+                        @{user?.username ?? 'utilisateur'} -{' '}
+                        {user?.role === 'USER'
+                          ? 'Fan'
+                          : user?.role?.toLocaleUpperCase() ?? 'Fan'}
                       </span>
                     </>
                   )}
                 </div>
               </figcaption>
-              <Settings2 className="active:bg-muted size-8 cursor-pointer active:opacity-60 lg:hover:opacity-60" />
+              <Settings2 className="p-2 cursor-pointer active:bg-muted size-12 active:opacity-60 text-foreground lg:hover:opacity-60" />
             </figure>
           </SheetDescription>
           <SheetFooter>
