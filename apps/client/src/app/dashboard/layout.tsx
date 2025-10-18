@@ -1,22 +1,22 @@
 'use client';
 
+import AuthGuard from '@/components/auth/AuthGuard';
+import { OtpOverlay } from '@/components/auth/OtpOverlay';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
 import { NavBar } from '@/components/navigation/Navbar';
 import { NavBottom } from '@/components/navigation/NavBottom';
+import NavProfile from '@/components/navigation/NavProfile';
 import { Sidebar } from '@/components/navigation/Sidebar';
 import Player from '@/components/songs/ui/SongPlayer';
 import { SongPlayerMobile } from '@/components/songs/ui/SongPlayerMobile';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
+import { useUser } from '@/hooks/useUser';
+import { cn } from '@/lib/utils';
 import { AlignLeft } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import SmoothScrollLayout from './SmoothScrollLayout';
-import NavProfile from '@/components/navigation/NavProfile';
 import RefreshWrapper from './pull-to-refresh';
-import { cn } from '@/lib/utils';
-import AuthGuard from '@/components/auth/AuthGuard';
-import { OtpOverlay } from '@/components/auth/OtpOverlay';
-import { useUser } from '@/hooks/useUser';
+import SmoothScrollLayout from './SmoothScrollLayout';
 
 export default function DashboardLayout({
   children,
@@ -26,7 +26,7 @@ export default function DashboardLayout({
   const [isAtProfil, setIsAtProfil] = useState(false);
   const pathname = usePathname();
 
-  const { user, handleFetchMe, isFetchingMe } = useUser();
+  const { user, fetchMe, isFetchingMe } = useUser();
 
   useEffect(() => {
     setIsAtProfil(pathname === '/dashboard/profile');
@@ -48,7 +48,7 @@ export default function DashboardLayout({
               <nav className="left-0 flex w-full px-3 py-1 sm:px-5 lg:hidden">
                 <SheetTrigger asChild>
                   <MotionButtonLeft
-                    onClick={handleFetchMe}
+                    onClick={fetchMe}
                     className="p-1 hover:!bg-transparent hover:text-muted-foreground"
                     type="button"
                   >
