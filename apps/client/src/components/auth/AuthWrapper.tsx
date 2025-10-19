@@ -36,7 +36,7 @@ const AuthPageWrapper = ({
       className="relative flex flex-col items-center justify-between gap-4 sm:gap-6 lg:gap-2 md:px-10 pb-[1.5rem]
       sm:h-auto lg:h-dvh h-dvh md:pb-4"
     >
-      <div className="w-full">{children}</div>
+      {children}
       {/* Overlay */}
       <Overlay isPending={isPending} textLoading={textLoading} />
       {/* tag */}
