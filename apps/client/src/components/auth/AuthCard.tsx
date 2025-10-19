@@ -64,7 +64,7 @@ function LoginCard({
           exit={{ y: 0.9, opacity: 0 }}
           transition={{
             type: 'spring',
-            stiffness: 240,
+            stiffness: 300,
             damping: 40,
             mass: 1.2,
           }}
