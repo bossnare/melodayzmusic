@@ -17,8 +17,8 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
         translate="no"
         className={cn(
           isActive
-            ? 'lg:bg-gradient-to-r lg:from-foreground/4 lg:via-foreground/8 lg:to-foreground/4 text-primary lg:w-full'
-            : 'hover:text-foreground/50 text-foreground lg:w-auto',
+            ? 'lg:bg-gradient-to-r lg:from-primary/4 lg:via-primary/8 lg:to-primary/4 text-primary lg:w-full'
+            : 'hover:text-foreground/80 text-foreground lg:w-auto',
           'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[50%] font-semibold text-xs lg:text-sm rounded-sm items-center font-montserrat justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
