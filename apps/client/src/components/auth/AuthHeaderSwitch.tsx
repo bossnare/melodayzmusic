@@ -47,7 +47,7 @@ const AuthHeaderSwitch = ({
             variant="ghost"
             size="lg"
             className={cn(
-              'rounded-full font-montserrat border border-current/50'
+              'rounded-full font-montserrat font-bold border-[1.4px] border-current/40 dark:border-input'
             )}
           >
             {isPending && (
@@ -76,7 +76,7 @@ const AuthHeaderSwitch = ({
               size="lg"
               className={cn(
                 step && step > 1 && 'opacity-0 pointer-events-none',
-                'rounded-full font-montserrat border border-current/50'
+                'rounded-full font-montserrat font-bold border-[1.4px] border-current/40 dark:border-input'
               )}
             >
               {isPending && (

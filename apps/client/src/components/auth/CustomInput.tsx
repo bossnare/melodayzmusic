@@ -4,7 +4,7 @@ import { MotionButton } from '@/components/motions/motionButton';
 import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 import {
-  CircleCheckBig,
+  Check,
   OctagonAlert,
   EyeIcon,
   EyeOffIcon,
@@ -90,7 +90,7 @@ const UsernameInput = ({
           }}
           className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-chart-4"
         >
-          <CircleCheckBig className="size-[18px]" />
+          <Check className="size-[18px] stroke-3" />
         </motion.div>
       );
     } else {
