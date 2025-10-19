@@ -33,10 +33,10 @@ const AuthPageWrapper = ({
 }: BaseProps & { isPending?: boolean; textLoading?: string }) => {
   return (
     <section
-      className="relative flex flex-col items-center justify-between gap-2 sm:gap-6 lg:gap-2 px-2 md:px-10 lg:px-4 pb-[1.5rem]
+      className="relative flex flex-col items-center justify-between gap-2 sm:gap-6 lg:gap-2 md:px-10 pb-[1.5rem]
       sm:h-auto lg:h-dvh h-dvh md:pb-4"
     >
-      {children}
+      <div className="px-2 lg:px-4">{children}</div>
       {/* Overlay */}
       <Overlay isPending={isPending} textLoading={textLoading} />
       {/* tag */}
