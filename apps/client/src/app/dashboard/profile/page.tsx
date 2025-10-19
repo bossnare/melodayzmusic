@@ -23,7 +23,7 @@ export default function ProfilePage() {
         <Avatar className="border size-40 lg:size-38 dark:border-primary-foreground ring-4 ring-muted ">
           <AvatarImage
             className="object-cover"
-            alt="omahlay"
+            alt="fallback"
             src="/img/profil/man-pp.jpg"
           />
           <AvatarFallback>US</AvatarFallback>

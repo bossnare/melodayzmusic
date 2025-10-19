@@ -1,13 +1,13 @@
 'use client';
 
+import { Skeleton } from '@/components/ui/skeleton';
+import { useUser } from '@/hooks/useUser';
 import { Settings2 } from 'lucide-react';
+import { useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import { Tabs } from './Tab';
 import { navLabels } from './labels/navigation.link';
-import { useUser } from '@/hooks/useUser';
-import { useEffect } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 
 const SidebarContentDesktop = () => {
   const { user, isFetchingMe, fetchMe } = useUser();
@@ -23,7 +23,7 @@ const SidebarContentDesktop = () => {
           <Avatar className="size-10 ring-2 ring-primary">
             <AvatarImage
               className="object-cover"
-              alt="omahlay"
+              alt="fallback"
               src="/img/profil/man-pp.jpg"
             />
             <AvatarFallback>U</AvatarFallback>

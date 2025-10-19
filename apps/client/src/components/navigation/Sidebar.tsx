@@ -1,19 +1,6 @@
 'use client';
 
-import { Settings2, LogOut } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { Logo } from '../branding/logo';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import {
-  SheetContent,
-  SheetDescription,
-  SheetTitle,
-  SheetFooter,
-} from '../ui/sheet';
-import { SidebarContentDesktop } from './SidebarContentDesktop';
-import { useTransition, useState } from 'react';
+import { Overlay } from '@/components/motions/Overlay';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -25,10 +12,23 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { motion } from 'motion/react';
-import { Overlay } from '@/components/motions/Overlay';
-import { type UserInterface } from '@/types/users/user.interface';
+import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
+import { type UserInterface } from '@/types/users/user.interface';
+import { LogOut, Settings2 } from 'lucide-react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState, useTransition } from 'react';
+import { Logo } from '../branding/logo';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import {
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetTitle,
+} from '../ui/sheet';
+import { SidebarContentDesktop } from './SidebarContentDesktop';
 
 type Props = {
   user: UserInterface | null;
@@ -97,7 +97,7 @@ export const Sidebar = ({
                 <Avatar className="border border-current size-14 ring-2 ring-muted">
                   <AvatarImage
                     className="object-cover"
-                    alt="omahlay"
+                    alt="fallback"
                     src="/img/profil/man-pp.jpg"
                   />
                   <AvatarFallback>J</AvatarFallback>
