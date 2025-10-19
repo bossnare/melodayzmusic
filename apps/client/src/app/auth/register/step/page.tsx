@@ -62,7 +62,7 @@ export default function StepPage() {
   const pending = isLoadingNext || isChecking || registerLoading || isPending;
   const router = useRouter();
   const finalStep = step >= totalSteps - 1;
-  const textLoading = finalStep ? "Création du compte..." : "Un instant..."
+  const textLoading = finalStep ? 'Création du compte...' : 'Un instant...';
 
   const handleRegister = async (data: stepFormType) => {
     // fletten data
@@ -79,8 +79,15 @@ export default function StepPage() {
       setRegisterLoading(true);
       const res = await api.post('/auth/register', payload);
       if (res.data) {
-        const expiresAt = Date.now() + 15 * 60 * 1000
-        sessionStorage.setItem("tempAuth", JSON.stringify({email: payload.email, password: payload.password, expiresAt}))
+        const expiresAt = Date.now() + 15 * 60 * 1000;
+        sessionStorage.setItem(
+          'tempAuth',
+          JSON.stringify({
+            email: payload.email,
+            password: payload.password,
+            expiresAt,
+          })
+        );
         startTransition(() => {
           router.replace('/auth/register/congratulation');
         });
@@ -159,7 +166,7 @@ export default function StepPage() {
       {/* content */}
       <div
         className="flex flex-col justify-center items-center gap-1 
-      w-full *:w-full md:*:w-3/4 lg:*:w-1/2 xl:*:w-[42%] min-h-[50%] sm:min-h-auto xl:min-h-[65%] transition-all duration-300 relative"
+      w-full px-2 *:w-full md:*:w-3/4 lg:*:w-1/2 xl:*:w-[42%] min-h-[50%] sm:min-h-auto xl:min-h-[65%] transition-all duration-300 relative"
       >
         <div className="absolute left-8 !size-10 hidden lg:block">
           <MotionButton
@@ -197,9 +204,7 @@ export default function StepPage() {
               {step === 1 && <StepOneCard isPending={pending} form={form} />}
               {step === 2 && <StepTwoCard isPending={pending} form={form} />}
               {step === 3 && <StepThreeCard isPending={pending} form={form} />}
-              {step === 4 && (
-                <StepFourCard isPending={pending} form={form} />
-              )}
+              {step === 4 && <StepFourCard isPending={pending} form={form} />}
             </StepCardWrapper>
             <AuthCtaButton
               textLoading={textLoading}

@@ -60,12 +60,12 @@ export default function LoginPage() {
         if (error && !unauthorized) {
           vibrate('medium');
           toast.custom((t) => (
-            <div className="relative flex gap-4 items-center bg-destructive-soft text-destructive-soft-foreground shadow-lg p-3 rounded-xl border border-destructive-soft/80">
-              <div className="h-full text-destructive inset-y-0 flex items-center justify-center">
+            <div className="relative flex items-center gap-4 p-3 border shadow-lg bg-destructive-soft text-destructive-soft-foreground rounded-xl border-destructive-soft/80">
+              <div className="inset-y-0 flex items-center justify-center h-full text-destructive">
                 <CircleAlert />
               </div>
               <div className="flex flex-col grow">
-                <span className="font-medium text-sm">Oups!</span>
+                <span className="text-sm font-medium">Oups!</span>
                 <span className="text-sm">
                   {error.message}
                   {error.code === 'ERR_NETWORK' && ', vérifier votre réseau.'}
@@ -117,7 +117,9 @@ export default function LoginPage() {
         close="D'accord"
       /> */}
       {/* card */}
-      <LoginCard form={form} isPending={loading} handleLogin={handleLogin} />
+      <div className="w-full px-2">
+        <LoginCard form={form} isPending={loading} handleLogin={handleLogin} />
+      </div>
     </AuthPageWrapper>
   );
 }
