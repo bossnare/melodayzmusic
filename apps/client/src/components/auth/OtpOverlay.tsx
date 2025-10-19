@@ -15,8 +15,6 @@ import { MelodayzMusic } from '../branding/logo';
 import { Tagline } from '../branding/tagline';
 import { Spinner } from '@/components/ui/spinner';
 import api from '@/libs/api';
-import { Skeleton } from '../ui/skeleton';
-import { Spinner } from '@/components/ui/spinner';
 
 export function InputOTPPattern() {
   return (
