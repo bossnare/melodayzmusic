@@ -123,7 +123,7 @@ export const Sidebar = ({
                   )}
                 </div>
               </figcaption>
-              <Settings2 className="p-2 cursor-pointer active:bg-muted size-12 active:opacity-60 text-foreground lg:hover:opacity-60" />
+              { !isFetchingMe && <Settings2 className="p-2 cursor-pointer active:bg-muted size-12 active:opacity-60 text-foreground lg:hover:opacity-60" />}
             </figure>
           </SheetDescription>
           <SheetFooter>
@@ -182,3 +182,4 @@ export const Sidebar = ({
     </>
   );
 };
+
