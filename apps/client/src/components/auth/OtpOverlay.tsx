@@ -16,6 +16,7 @@ import { Tagline } from '../branding/tagline';
 import { Spinner } from '@/components/ui/spinner';
 import api from '@/libs/api';
 import { Skeleton } from '../ui/skeleton';
+import { Spinner } from '@/components/ui/spinner';
 
 export function InputOTPPattern() {
   return (
@@ -79,7 +80,9 @@ function OtpOverlay({
             t&apos;avons envoyé un code à 6 chiffres à ton adresse e-mail{' '}
             <span className="text-foreground/90 md:text-sm tracking-wide">
               {email === '' ? (
-                <Skeleton className="h-4 w-full bg-gradient-to-r from-transparent via-foreground/30 to-transparent" />
+                <div className="w-full flex justify-center">
+                  <Spinner className="size-4 text-muted-foreground" />
+                </div>
               ) : (
                 email
               )}
