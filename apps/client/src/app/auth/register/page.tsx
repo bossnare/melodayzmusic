@@ -11,7 +11,7 @@ export default function RegisterPage() {
     <AuthPageWrapper>
       <AuthHeaderSwitch href={'/auth/login'} type="back" />
 
-      <div className="w-full lg:w-[60%]">
+      <div className="w-full px-2 lg:w-[60%]">
         <RegisterCard />
       </div>
     </AuthPageWrapper>
