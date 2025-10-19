@@ -59,7 +59,7 @@ function LoginCard({
         <motion.div
           key={pathname + 'login'}
           className="w-full lg:w-3/4"
-          initial={{ scale: 1.3, opacity: 0 }}
+          initial={{ scale: 1.2, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ y: 0.8, opacity: 0 }}
           transition={{
