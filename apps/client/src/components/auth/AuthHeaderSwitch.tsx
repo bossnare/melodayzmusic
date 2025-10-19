@@ -28,7 +28,7 @@ const AuthHeaderSwitch = ({
   return (
     <nav
       className={cn(
-        'flex items-center justify-between w-full gap-12 lg:gap-0 py-[6px] lg:py-2'
+        'flex items-center justify-between w-full gap-12 lg:gap-0 py-[6px] lg:py-2 bg-background px-2 lg:px-4'
       )}
     >
       {type === 'login' && (
@@ -47,7 +47,7 @@ const AuthHeaderSwitch = ({
             variant="ghost"
             size="lg"
             className={cn(
-              'rounded-full font-montserrat font-bold border-[1.4px] border-current/40 dark:border-input'
+              'rounded-full font-montserrat font-bold border-[1.4px] border-input'
             )}
           >
             {isPending && (
@@ -76,7 +76,7 @@ const AuthHeaderSwitch = ({
               size="lg"
               className={cn(
                 step && step > 1 && 'opacity-0 pointer-events-none',
-                'rounded-full font-montserrat font-bold border-[1.4px] border-current/40 dark:border-input'
+                'rounded-full font-montserrat font-bold border-[1.4px] border-input'
               )}
             >
               {isPending && (
