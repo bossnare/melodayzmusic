@@ -17,15 +17,15 @@ import {
   UsernameCheckDto,
 } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
-import { Resend } from 'resend';
-import * as nodemailer from 'nodemailer'
-import {Transporter} from 'nodemailer'
+// import { Resend } from 'resend';
+import * as nodemailer from 'nodemailer';
+import { Transporter } from 'nodemailer';
 
 // if you use Resend
 // const resend = new Resend(process.env.RESEND_API_KEY);
 const transporter: Transporter = nodemailer.createTransport({
-  service: "gmail",
-  host: "smtp.gmail.com",
+  service: 'gmail',
+  host: 'smtp.gmail.com',
   port: 587,
   secure: false, // true for 465, false for other ports.
   auth: {
@@ -93,21 +93,21 @@ export class AuthService {
       from: `MelodayzMusic <${process.env.EMAIL_USER}>`,
       to: toEmail,
       subject: 'OTP code (6 chiffres)',
-      text: "Your OTP code",
+      text: 'Your OTP code',
       html: `<p style="text-align: center">Your OTP for <strong>MelodayzMusic</strong> is:</p>
     <h1 style="background: #00aaff; color: white; border-radius: 10px; padding: 10px; margin: 4px; text-align: center">${otp}</h1>
     <p>It expires in 10 minutes.</p>
     `,
     };
 
-     try {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const info = await transporter.sendMail(mailOptions);
-      console.log("Message sent:", info.messageId);
-     }
-      catch (error) {
-        console.log(error)
-      }
-
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      console.log('Message sent:', info.messageId);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async register(registerDto: RegisterDto) {
