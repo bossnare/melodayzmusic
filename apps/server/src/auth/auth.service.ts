@@ -18,8 +18,21 @@ import {
 } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
 import { Resend } from 'resend';
+import as * nodemailer from 'nodemailer'
+import {Transporter} from 'nodemailer'
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// if you use Resend
+// const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter: Transporter = nodemailer.createTransport({
+  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // true for 465, false for other ports
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 @Injectable()
 export class AuthService {
@@ -56,23 +69,46 @@ export class AuthService {
     return otp;
   }
 
+  // if you use Resend
+  // async sendOtpEmail(toEmail: string, otp: string) {
+  //   const mailOptions = {
+  //     from: `MelodayzMusic <${process.env.MAIL_FROM}>`,
+  //     to: toEmail,
+  //     subject: 'Code OTP (6 chiffres)',
+  //     html: `<p style="text-align: center">Your OTP for <strong>MelodayzMusic</strong> is:</p>
+  //   <h1 style="background: #00aaff; color: white; border-radius: 10px; padding: 10px; margin: 4px; text-align: center">${otp}</h1>
+  //   <p>It expires in 10 minutes.</p>
+  //   `,
+  //   };
+
+  //   try {
+  //     const info = await resend.emails.send(mailOptions);
+  //     console.log(info);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+
   async sendOtpEmail(toEmail: string, otp: string) {
     const mailOptions = {
-      from: `MelodayzMusic <${process.env.MAIL_FROM}>`,
+      from: `MelodayzMusic <${process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: 'Code OTP (6 chiffres)',
-      html: `<p style="text-align: center">Your OTP for <strong>MelodayzMusic</strong> is:</p>
+      subject: 'OTP code (6 chiffres)',
+      text: "Your OTP code",
+      htmlContent: `<p style="text-align: center">Your OTP for <strong>MelodayzMusic</strong> is:</p>
     <h1 style="background: #00aaff; color: white; border-radius: 10px; padding: 10px; margin: 4px; text-align: center">${otp}</h1>
     <p>It expires in 10 minutes.</p>
     `,
     };
 
-    try {
-      const info = await resend.emails.send(mailOptions);
-      console.log(info);
-    } catch (error) {
-      console.log(error);
-    }
+     try {
+      const info = await transporter.sendMail(mailOptions);
+      console.log("Message sent:", info.messageId);
+     }
+      catch (error) {
+        console.log(error)
+      }
+
+  }
   }
 
   async register(registerDto: RegisterDto) {
