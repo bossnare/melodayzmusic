@@ -94,7 +94,7 @@ export class AuthService {
       to: toEmail,
       subject: 'OTP code (6 chiffres)',
       text: "Your OTP code",
-      htmlContent: `<p style="text-align: center">Your OTP for <strong>MelodayzMusic</strong> is:</p>
+      html: `<p style="text-align: center">Your OTP for <strong>MelodayzMusic</strong> is:</p>
     <h1 style="background: #00aaff; color: white; border-radius: 10px; padding: 10px; margin: 4px; text-align: center">${otp}</h1>
     <p>It expires in 10 minutes.</p>
     `,
