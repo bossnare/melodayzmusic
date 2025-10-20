@@ -44,7 +44,7 @@ model User {
   resetToken    String?
   resetTokenExp DateTime?
   verified      Boolean   @default(false)
-  otp           Int?
+  otp           String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   song          Song[]

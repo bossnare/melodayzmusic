@@ -53,7 +53,7 @@ const AuthHeaderSwitch = ({
             {isPending && (
               <Spinner className="size-5 lg:size-6 text-foreground" />
             )}
-            {isPending ? 'Loading...' : 'Créer un compte'}
+            {isPending ? 'Un instant...' : 'Créer un compte'}
           </Button>
         </>
       )}
@@ -82,7 +82,7 @@ const AuthHeaderSwitch = ({
               {isPending && (
                 <Spinner className="size-5 lg:size-6 text-foreground" />
               )}
-              {isPending ? 'Loading...' : 'Déjà inscrit'}
+              {isPending ? 'Un instant...' : 'Déjà inscrit'}
             </Button>
           </div>
         </>
