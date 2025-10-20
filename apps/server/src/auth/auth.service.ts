@@ -18,7 +18,7 @@ import {
 } from './dto/register.dto.js';
 import { ResetPasswordDto } from './dto/reset-password.dto.js';
 import { Resend } from 'resend';
-import as * nodemailer from 'nodemailer'
+import * as nodemailer from 'nodemailer'
 import {Transporter} from 'nodemailer'
 
 // if you use Resend
