@@ -109,7 +109,6 @@ export class AuthService {
       }
 
   }
-  }
 
   async register(registerDto: RegisterDto) {
     // hashing this plainpassword
