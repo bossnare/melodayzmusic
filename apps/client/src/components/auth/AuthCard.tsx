@@ -33,6 +33,7 @@ import { Provider } from './Provider';
 import { RadioGroup1 } from './radio-group1';
 import { SelectScrollable } from './select-scrollable';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { vibrate } from '@/utils/vibration';
 
 function Title({ children }: { children: React.ReactNode }) {
   return (
@@ -54,6 +55,7 @@ function LoginCard({
 }) {
   const pathname = usePathname();
   const isMobile = useIsMobile();
+  vibrate('soft');
 
   return (
     <>
