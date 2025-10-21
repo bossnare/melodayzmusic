@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 const publicRoutes = [
   '/auth/login',
   '/auth/register',
-  '/auth/register/step',
+  '/auth/register/onboarding',
   '/',
 ];
 const protectedRoutes = ['/dashboard'];
