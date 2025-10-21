@@ -64,8 +64,10 @@ function LoginCard({
           initial={
             isMobile ? { scale: 1.1, opacity: 0 } : { y: 100, opacity: 0 }
           }
-          animate={isMobile ? { scale: 1, opacity: 1 } : { y: 0, opacity: 1 }}
-          exit={isMobile ? { scale: 0.8, opacity: 0 } : { y: -100, opacity: 0 }}
+          animate={
+            isMobile ? { scale: 1, opacity: 1, y: 0 } : { y: 0, opacity: 1 }
+          }
+          exit={isMobile ? { scale: 0.8, opacity: 0 } : { y: 0, opacity: 0 }}
           transition={{
             type: 'spring',
             stiffness: isMobile ? 300 : 400,
