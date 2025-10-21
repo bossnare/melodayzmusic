@@ -1,7 +1,10 @@
-export function vibrate(type: 'soft' | 'medium' | 'strong') {
+export function vibrate(type: 'low' | 'soft' | 'medium' | 'strong') {
   if (!('vibrate' in navigator)) return;
 
   switch (type) {
+    case 'low':
+      navigator.vibrate(20);
+      break;
     case 'soft':
       navigator.vibrate(100);
       break;
