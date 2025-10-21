@@ -3,7 +3,7 @@ export function vibrate(type: 'low' | 'soft' | 'medium' | 'strong') {
 
   switch (type) {
     case 'low':
-      navigator.vibrate(40);
+      navigator.vibrate(20);
       break;
     case 'soft':
       navigator.vibrate(100);
