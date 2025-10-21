@@ -57,7 +57,7 @@ export default function CongratulationPage() {
         exit={{ x: -100, opacity: 0 }}
         className="!w-[90%] lg:!w-[40%] flex flex-col"
       >
-        <div className="flex flex-col items-center gap-2 mt-5">
+        <div className="flex flex-col items-center gap-2 mt-5 px-2">
           <div className="flex items-center gap-1">
             <PartyPopper className="size-10" />
             <Music2 className="size-8" />
