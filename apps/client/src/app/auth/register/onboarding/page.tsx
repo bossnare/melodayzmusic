@@ -25,6 +25,7 @@ import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
 import { useRouter } from 'next/navigation';
 import { AxiosError } from 'axios';
 import api from '@/libs/api';
+import { vibrate } from '@/utils/vibration';
 
 const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
   1: 'step1',
@@ -148,6 +149,7 @@ export default function StepPage() {
         setStep((step) => step + 1);
         setDir('next');
         setIsLoadingNext(false);
+        vibrate('soft');
       }, 800);
     }
   };
