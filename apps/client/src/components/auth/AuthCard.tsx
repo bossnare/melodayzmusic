@@ -60,16 +60,16 @@ function LoginCard({
       <AnimatePresence mode="wait">
         <motion.div
           key={pathname + 'login'}
-          className="w-full lg:w-3/4"
+          className="w-full"
           initial={
-            isMobile ? { scale: 1.1, opacity: 0 } : { y: -100, opacity: 0 }
+            isMobile ? { scale: 1.1, opacity: 0 } : { y: 100, opacity: 0 }
           }
           animate={isMobile ? { scale: 1, opacity: 1 } : { y: 0, opacity: 1 }}
           exit={isMobile ? { scale: 0.8, opacity: 0 } : { y: -100, opacity: 0 }}
           transition={{
             type: 'spring',
-            stiffness: 300,
-            damping: 40,
+            stiffness: isMobile ? 300 : 400,
+            damping: isMobile ? 30 : 26,
             mass: 1.2,
           }}
         >

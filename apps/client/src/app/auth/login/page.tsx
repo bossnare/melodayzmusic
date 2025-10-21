@@ -117,7 +117,7 @@ export default function LoginPage() {
         close="D'accord"
       /> */}
       {/* card */}
-      <div className="w-full px-2 md:px-10 lg:px-4 md:w-auto md:mx-auto">
+      <div className="w-full px-2 md:px-10 lg:px-4 flex justify-center lg:w-3/4">
         <LoginCard form={form} isPending={loading} handleLogin={handleLogin} />
       </div>
     </AuthPageWrapper>
