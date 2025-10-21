@@ -32,6 +32,7 @@ import { Divide } from './Divide';
 import { Provider } from './Provider';
 import { RadioGroup1 } from './radio-group1';
 import { SelectScrollable } from './select-scrollable';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 function Title({ children }: { children: React.ReactNode }) {
   return (
@@ -52,6 +53,7 @@ function LoginCard({
   isPending: boolean;
 }) {
   const pathname = usePathname();
+  const isMobile = useIsMobile();
 
   return (
     <>
@@ -59,9 +61,11 @@ function LoginCard({
         <motion.div
           key={pathname + 'login'}
           className="w-full lg:w-3/4"
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ y: 0.8, opacity: 0 }}
+          initial={
+            isMobile ? { scale: 1.1, opacity: 0 } : { y: -100, opacity: 0 }
+          }
+          animate={isMobile ? { scale: 1, opacity: 1 } : { y: 0, opacity: 1 }}
+          exit={isMobile ? { scale: 0.8, opacity: 0 } : { y: -100, opacity: 0 }}
           transition={{
             type: 'spring',
             stiffness: 300,
