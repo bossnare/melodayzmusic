@@ -18,7 +18,7 @@ const StepCardWrapper = ({
         initial={initial}
         animate={{ x: 0, opacity: 1 }}
         exit={exit}
-        transition={{ type: 'spring', stiffness: 300, damping: 30, mass: 1.2 }}
+        transition={{ type: 'spring', stiffness: 200, damping: 25, mass: 1.2 }}
       >
         {children}
       </motion.div>
