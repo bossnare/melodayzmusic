@@ -150,7 +150,7 @@ export default function StepPage() {
         setDir('next');
         setIsLoadingNext(false);
         vibrate('subtle');
-      }, 800);
+      }, 600);
     }
   };
 
