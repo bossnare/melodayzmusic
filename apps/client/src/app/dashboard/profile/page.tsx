@@ -3,14 +3,15 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useToggle } from '@/hooks/use-toggle';
 import { useUser } from '@/hooks/useUser';
 import { cn } from '@/lib/utils';
 import { Star } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export default function ProfilePage() {
-  const [isStar, setIsStar] = useState(false);
   const { user, fetchMe, isFetchingMe } = useUser();
+  const { value: isStar, toggle } = useToggle();
 
   useEffect(() => {
     fetchMe();
@@ -19,8 +20,8 @@ export default function ProfilePage() {
   return (
     <section>
       {/* Profile content */}
-      <div className="flex flex-col gap-4 py-4 md:items-center md:flex-row lg:pt-10">
-        <Avatar className="border size-40 lg:size-38 border-muted ring-2 -ring-offset-4 ring-current ">
+      <div className="flex gap-4 py-4 lg:pt-16">
+        <Avatar className="border size-20 lg:size-30 border-current/50 ring-2 -ring-offset-4 ring-muted ">
           <AvatarImage
             className="object-cover"
             alt="fallback"
@@ -29,15 +30,15 @@ export default function ProfilePage() {
           <AvatarFallback>US</AvatarFallback>
         </Avatar>
         {/* name */}
-        <div className="relative grow">
+        <div className="relative py-2 grow">
           {isFetchingMe ? (
             <>
-              <Skeleton className="h-8 w-8/9 bg-foreground/30" />
-              <Skeleton className="w-4/5 h-4 mt-2 bg-foreground/30" />
+              <Skeleton className="h-8 w-8/9 lg:w-2/3 bg-foreground/30" />
+              <Skeleton className="w-4/5 h-4 mt-2 lg:w-1/2 bg-foreground/30" />
             </>
           ) : (
             <>
-              <h3 className="text-2xl font-bold capitalize font-montserrat lg:text-3xl">
+              <h3 className="text-lg font-bold capitalize font-montserrat lg:text-2xl">
                 {user?.pseudo || 'Utilisateur(e)'}
               </h3>
               <p className="text-base text-muted-foreground lg:text-lg">
@@ -49,7 +50,7 @@ export default function ProfilePage() {
           {/* btn action */}
           {!isFetchingMe && (
             <div className="absolute top-0 right-0 shrink-0">
-              <MotionButton onClick={() => setIsStar(!isStar)}>
+              <MotionButton onClick={toggle}>
                 <Star
                   className={cn(
                     isStar && 'fill-current stroke-current',
