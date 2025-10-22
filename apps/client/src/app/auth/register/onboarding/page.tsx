@@ -149,8 +149,8 @@ export default function StepPage() {
         setStep((step) => step + 1);
         setDir('next');
         setIsLoadingNext(false);
-        vibrate('soft');
-      }, 800);
+        vibrate('subtle');
+      }, 600);
     }
   };
 

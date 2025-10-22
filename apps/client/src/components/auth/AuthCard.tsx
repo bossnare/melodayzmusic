@@ -55,7 +55,9 @@ function LoginCard({
 }) {
   const pathname = usePathname();
   const isMobile = useIsMobile();
-  vibrate('soft');
+  setTimeout(() => {
+    vibrate("low")
+  }, 500)
 
   return (
     <>

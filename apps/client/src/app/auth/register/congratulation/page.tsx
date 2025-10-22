@@ -4,7 +4,7 @@ import {
   AuthPageWrapper,
   StepCardWrapper,
 } from '@/components/auth/AuthWrapper';
-import { Music2, Music, PartyPopper, CircleCheck } from 'lucide-react';
+import { Music2, Music, PartyPopper, Check } from 'lucide-react';
 import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
@@ -76,8 +76,8 @@ export default function CongratulationPage() {
           />
           <h3 className="flex items-center gap-2 text-2xl font-medium font-montserrat">
             Félicitations !{' '}
-            <span className="text-white rounded-full bg-chart-2">
-              <CircleCheck />
+            <span className="text-white rounded-full bg-chart-2 p-1">
+              <Check className="stroke-[2.5px] />
             </span>
           </h3>
           <p className="mt-4">
