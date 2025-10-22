@@ -95,7 +95,7 @@ export const Sidebar = ({
           <SheetDescription className="px-4 space-y-4">
             <figure className="w-full mt-2 space-y-2">
               <figcaption className="flex justify-between">
-                <Avatar className="border border-muted size-14 ring-2 -ring-offset-4 ring-current">
+                <Avatar className="border border-current size-14 ring-2 -ring-offset-4 ring-muted">
                   <AvatarImage
                     className="object-cover"
                     alt="fallback"

@@ -20,7 +20,7 @@ export default function ProfilePage() {
     <section>
       {/* Profile content */}
       <div className="flex flex-col gap-4 py-4 md:items-center md:flex-row lg:pt-10">
-        <Avatar className="border size-40 lg:size-38 border-muted ring-2 -ring-offset-4 ring-current ">
+        <Avatar className="border size-40 lg:size-38 border-current ring-2 -ring-offset-4 ring-muted ">
           <AvatarImage
             className="object-cover"
             alt="fallback"
