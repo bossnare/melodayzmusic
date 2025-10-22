@@ -6,7 +6,7 @@ export function vibrate(type: 'low' | 'subtle' | 'soft' | 'medium' | 'strong') {
       navigator.vibrate(25);
       break;
     case 'subtle':
-      navigator.vibrate([40, 20, 45]);
+      navigator.vibrate([80, 40, 55]);
       break;
     case 'soft':
       navigator.vibrate(100);
