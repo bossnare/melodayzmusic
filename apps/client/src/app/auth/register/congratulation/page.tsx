@@ -77,7 +77,7 @@ export default function CongratulationPage() {
           <h3 className="flex items-center gap-2 text-2xl font-medium font-montserrat">
             Félicitations !{' '}
             <span className="text-white rounded-full bg-chart-2 p-1">
-              <Check className="stroke-[2.5px] />
+              <Check className="stroke-[2.5px]" />
             </span>
           </h3>
           <p className="mt-4">
