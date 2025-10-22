@@ -5,19 +5,22 @@ import {
   PlayIcon,
   SkipBackIcon,
   SkipForwardIcon,
+  HeartIcon,
 } from '@phosphor-icons/react';
 
 import Image from 'next/image';
 import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { Slider } from '@/components/ui/slider';
+import { useToggle } from '@/hooks/use-toggle';
 
 const Player = () => {
   const [isGo, setIsGo] = useState(false);
+  const { value: isFavorite, toggle } = useToggle();
   return (
     <div className="items-center justify-center hidden w-full h-full gap-4 py-1 lg:flex">
       {/* for image cover */}
-      <div className="flex items-center gap-6 xl:min-w-64">
+      <div className="flex justify-start h-full gap-3 xl:min-w-64">
         <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
           <Image
             src="/img/Aurora-Cover.jpg"
@@ -29,7 +32,16 @@ const Player = () => {
           />
         </div>
         {/* Title & other */}
-        <span className="text-muted-foreground">Pas en lecture</span>
+        <div className="flex flex-col items-start h-full pt-1 text-muted-foreground font-montserrat">
+          <h3 className="font-bold"> En attente de vibes</h3>
+          <p className="text-sm">Artiste inconnu</p>
+          <MotionButton onClick={toggle} className="p-0 mt-auto">
+            <HeartIcon
+              className="size-10"
+              weight={isFavorite ? 'fill' : 'regular'}
+            />
+          </MotionButton>
+        </div>
       </div>
       {/* for minimal info and controls */}
       <div className="flex flex-col flex-wrap items-center justify-center h-full space-y-4 grow">
@@ -40,7 +52,7 @@ const Player = () => {
           </MotionButton>
           <MotionButton
             disabled={true}
-            className="bg-muted-foreground/40 shadow-xs"
+            className="shadow-xs bg-muted-foreground/40"
             onClick={() => setIsGo(!isGo)}
           >
             {isGo ? (

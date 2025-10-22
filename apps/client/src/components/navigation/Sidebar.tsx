@@ -22,6 +22,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { Logo } from '../branding/logo';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Separator } from '../ui/separator';
 import {
   SheetContent,
   SheetDescription,
@@ -29,7 +30,6 @@ import {
   SheetTitle,
 } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
-import { Separator } from '../ui/separator';
 
 type Props = {
   user: UserInterface | null;
@@ -95,7 +95,7 @@ export const Sidebar = ({
           <SheetDescription className="px-4 space-y-4">
             <figure className="w-full mt-2 space-y-2">
               <figcaption className="flex justify-between">
-                <Avatar className="border border-current size-14 ring-2 -ring-offset-4 ring-muted">
+                <Avatar className="border border-current/50 size-14 ring-2 -ring-offset-4 ring-muted">
                   <AvatarImage
                     className="object-cover"
                     alt="fallback"
