@@ -29,6 +29,7 @@ import {
   SheetTitle,
 } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
+import { Separator } from '../ui/separator';
 
 type Props = {
   user: UserInterface | null;
@@ -50,7 +51,7 @@ export const Sidebar = ({
       localStorage.removeItem('access_token');
       sessionStorage.removeItem('ignore_otp');
       startTransition(() => router.replace('/auth/login'));
-    }, 4000);
+    }, 2500);
   };
 
   return (
@@ -91,10 +92,10 @@ export const Sidebar = ({
             <Logo />
           </SheetTitle>
           {/* content */}
-          <SheetDescription className="px-4">
-            <figure className="flex w-full gap-4 mt-2 mb-3">
-              <figcaption className="flex gap-3 cursor-pointer grow active:bg-muted lg:hover:bg-muted/50">
-                <Avatar className="border border-current size-14 ring-2 ring-muted">
+          <SheetDescription className="px-4 space-y-4">
+            <figure className="w-full mt-2 space-y-2">
+              <figcaption className="flex justify-between">
+                <Avatar className="border border-muted size-14 ring-2 -ring-offset-4 ring-current">
                   <AvatarImage
                     className="object-cover"
                     alt="fallback"
@@ -102,29 +103,31 @@ export const Sidebar = ({
                   />
                   <AvatarFallback>J</AvatarFallback>
                 </Avatar>
-                <div className="flex flex-col w-full">
-                  {isFetchingMe ? (
-                    <>
-                      <Skeleton className="h-5 rounded-sm w-8/9 bg-foreground/30" />
-                      <Skeleton className="w-4/5 h-3 mt-1 rounded-sm bg-foreground/30" />
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-base font-semibold capitalize font-montserrat text-foreground/80">
-                        {user?.pseudo || 'Utilisateur(e)'}
-                      </span>
-                      <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
-                        @{user?.username || 'utilisateur'} -{' '}
-                        {user?.role === 'USER'
-                          ? 'Fan'
-                          : user?.role?.toLocaleUpperCase() || 'Fan'}
-                      </span>
-                    </>
-                  )}
-                </div>
+                {!isFetchingMe && (
+                  <Settings2 className="p-2 cursor-pointer active:bg-muted size-12 active:opacity-60 text-foreground lg:hover:opacity-60" />
+                )}
               </figcaption>
-              { !isFetchingMe && <Settings2 className="p-2 cursor-pointer active:bg-muted size-12 active:opacity-60 text-foreground lg:hover:opacity-60" />}
+              {isFetchingMe ? (
+                <div className="w-full">
+                  <Skeleton className="h-6 rounded-sm w-8/9 bg-foreground/30" />
+                  <Skeleton className="w-4/5 h-4 mt-1 rounded-sm bg-foreground/30" />
+                </div>
+              ) : (
+                <div className="inline-flex flex-col cursor-pointer active:bg-muted lg:hover:bg-muted/50">
+                  <span className="text-base font-semibold capitalize font-montserrat text-foreground">
+                    {user?.pseudo || 'Utilisateur(e)'}
+                  </span>
+                  <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
+                    @{user?.username || 'utilisateur'} -{' '}
+                    {user?.role === 'USER'
+                      ? 'Fan'
+                      : user?.role?.toLocaleUpperCase() || 'Fan'}
+                  </span>
+                </div>
+              )}
             </figure>
+
+            <Separator />
           </SheetDescription>
           <SheetFooter>
             <AlertDialog>
@@ -182,4 +185,3 @@ export const Sidebar = ({
     </>
   );
 };
-
