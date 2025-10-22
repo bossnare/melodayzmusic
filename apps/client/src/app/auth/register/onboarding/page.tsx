@@ -175,6 +175,9 @@ export default function StepPage() {
             onClick={() => {
               setStep((step) => step - 1);
               setDir('prev');
+              setTimeout(() => {
+                vibrate('low');
+              }, 200);
             }}
             className={cn(
               step <= 1 && 'opacity-0 pointer-events-none',
