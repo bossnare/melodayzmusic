@@ -6,6 +6,11 @@ export const providerLabels = [
   },
   {
     id: 2,
+    label: 'Spotify',
+    icon: '/icons/spotify.svg',
+  },
+  {
+    id: 3,
     label: 'Facebook',
     icon: (
       <svg
