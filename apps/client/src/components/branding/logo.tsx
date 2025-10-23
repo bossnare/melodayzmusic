@@ -5,7 +5,7 @@ const MelodayzMusic = () => {
     <div className="flex items-center justify-center gap-1">
       <Image
         src="/icons/icon_x32.svg"
-        className="w-8 dark:invert md:w-8 drop-shadow-sm"
+        className="w-7 dark:invert md:w-8 drop-shadow-sm"
         alt="MelodayzMusic"
         height={1000}
         width={1000}
