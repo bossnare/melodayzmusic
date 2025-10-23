@@ -25,6 +25,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const [isAtProfil, setIsAtProfil] = useState(false);
+  const [isAtHome, setIsAtHome] = useState(false);
   const pathname = usePathname();
 
   const { user, fetchMe, isFetchingMe } = useUser();
@@ -49,6 +50,7 @@ export default function DashboardLayout({
 
   useEffect(() => {
     setIsAtProfil(pathname === '/dashboard/profile');
+    setIsAtHome(pathname === '/dashboard');
   }, [pathname]);
 
   useEffect(() => {
@@ -71,12 +73,13 @@ export default function DashboardLayout({
             <header className="sticky inset-x-0 top-0 z-5 bg-background">
               {!isAtProfil && (
                 <div className="w-full px-2 py-2 border-b sm:px-4 border-border lg:border-0">
-                  <NavBar />
+                  <NavBar isAtHome={isAtHome} />
                 </div>
               )}
               {isAtProfil && <NavProfile />}
               <nav className="left-0 flex w-full px-3 py-1 sm:px-5 lg:hidden">
-                <SheetTrigger asChild>
+                {
+                  isAtHome && (<SheetTrigger asChild>
                   <MotionButtonLeft
                     onClick={fetchMe}
                     className="p-1 hover:!bg-transparent hover:text-muted-foreground"
@@ -84,7 +87,8 @@ export default function DashboardLayout({
                   >
                     <AlignLeft className="stroke-current size-8 stroke-[2.2]" />
                   </MotionButtonLeft>
-                </SheetTrigger>
+                </SheetTrigger>)
+                }
               </nav>
             </header>
             {/* Main Layout */}
