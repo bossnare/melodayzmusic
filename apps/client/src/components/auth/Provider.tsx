@@ -14,7 +14,7 @@ export function Provider({ size = 'lg' }: { size?: 'lg' | 'xl' }) {
             md:w-auto"
             size={size}
           >
-            {provider.label === 'Google' ? (
+            {provider.label === 'Google' || provider.label === 'Spotify' ? (
               <Image
                 src={provider.icon as string}
                 alt={provider.label}
