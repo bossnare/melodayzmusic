@@ -9,8 +9,11 @@ import { SearchIcon } from 'lucide-react';
 import { Logo } from '../branding/logo';
 // import { motion, AnimatePresence } from 'motion/react';
 import { Command, CommandItem, CommandList } from '../ui/command';
+import { Sheet, SheetTrigger } from '@/components/ui/sheet';
+import { MotionButtonLeft } from '@/components/motions/motionButton';
+import { AlignLeft } from 'lucide-react';
 
-export const NavBar = () => {
+export const NavBar = ({map}: {map: boolean}) => {
   // const [notHome, setNotHome] = useState(false);
   const router = useRouter();
   // for search bar behavior
@@ -23,7 +26,24 @@ export const NavBar = () => {
 
   return (
     <nav className="relative flex items-center gap-3 lg:gap-4">
-      {!openSearch && <Logo onClick={() => router.push('/dashboard')} />}
+      <Sheet>
+        {isAtHome ? 
+         <>
+        {!openSearch && <Logo onClick={() => router.push('/dashboard')} />}
+        </> : (
+          <SheetTrigger asChild>
+                  <MotionButtonLeft
+                    // onClick={fetchMe}
+                    className="p-1 hover:!bg-transparent hover:text-muted-foreground"
+                    type="button"
+                  >
+                    <AlignLeft className="stroke-current size-8 stroke-[2.2]" />
+                  </MotionButtonLeft>
+                </SheetTrigger>
+        )
+      }
+      </Sheet>
+      
       {/* for search */}
       <SearchBar
         isNull={isNull}

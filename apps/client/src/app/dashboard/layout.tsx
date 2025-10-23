@@ -25,6 +25,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const [isAtProfil, setIsAtProfil] = useState(false);
+  const [isAtHome, setIsAtHome]
   const pathname = usePathname();
 
   const { user, fetchMe, isFetchingMe } = useUser();
@@ -49,6 +50,7 @@ export default function DashboardLayout({
 
   useEffect(() => {
     setIsAtProfil(pathname === '/dashboard/profile');
+    setIsAtHome(pathname === '/dashboard')
   }, [pathname]);
 
   useEffect(() => {
