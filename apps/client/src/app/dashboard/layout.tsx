@@ -119,7 +119,7 @@ export default function DashboardLayout({
         <SongPlayerMobile />
         <nav
           style={{ boxShadow: '0 -8px 8px -5px rgba(0, 0, 0, 0.06)' }}
-          className="fixed inset-x-0 bottom-0 z-10 h-16 px-2 border-t lg:shadow-lg lg:px-4 border-border lg:h-25 bg-nav backrop-blur-sm"
+          className="fixed inset-x-0 bottom-0 z-10 h-16 px-2 border-t lg:shadow-lg lg:px-4 border-border lg:h-25 bg-nav/40 backrop-blur-sm"
         >
           <NavBottom />
           <Player />
@@ -130,3 +130,4 @@ export default function DashboardLayout({
     </AuthGuard>
   );
 }
+
