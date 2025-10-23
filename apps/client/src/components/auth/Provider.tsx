@@ -10,7 +10,7 @@ export function Provider({ size = 'lg' }: { size?: 'lg' | 'xl' }) {
           <Button
             className="w-full rounded-full !bg-secondary-2 !text-secondary-2-foreground 
             dark:text-secondary-foreground hover:!bg-secondary-2/80 dark:!bg-secondary 
-            dark:hover:!bg-secondary/80 hover:!text-secondary-2-foreground/80 dark:hover:!text-secondary-foreground/80 
+            dark:hover:!bg-secondary/80 hover:!text-secondary-2-foreground/80 dark:active:brightness-110 dark:hover:!text-secondary-foreground/80 
             md:w-auto"
             size={size}
           >
