@@ -7,10 +7,6 @@ export const Tagline = ({ showMore = true }: { showMore?: boolean }) => {
 
   return (
     <>
-      {showMore ? ( <div className="pb-3 lg:hidden">
-              <ModeToggle />
-            </div>) : null}
-
       <div className="hidden text-xs md:block font-montserrat text-muted-foreground">
         &copy; {new Date().getFullYear()} |{' '}
         <span className="text-foreground/90">
