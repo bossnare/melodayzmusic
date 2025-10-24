@@ -27,7 +27,7 @@ const VibeCard = ({ song }: SongProps) => {
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
-          className="relative overflow-hidden rounded-md"
+          className="relative overflow-hidden rounded"
           // onClick={() => {
           //   // playTrack(song, navigate);
           // }}
@@ -90,7 +90,7 @@ const AlbumCard = ({ song }: SongProps) => {
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
-          className="relative overflow-hidden rounded-lg"
+          className="relative overflow-hidden rounded"
           // onClick={() => {
           //   // playTrack(song, navigate);..
 
