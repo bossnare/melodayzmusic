@@ -317,7 +317,7 @@ const StepOneCard = ({
                     <UsernameInput
                       spellCheck="false"
                       autoCorrect="off"
-                      disabled={isPending || autocheckLoading}
+                      disabled={isPending}
                       usernameVerified={usernameVerified}
                       validUsername={validUsername}
                       isPending={isChecking || autocheckLoading}
