@@ -1,10 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { ModeToggle } from '../themes/mode-toggle';
-
-export const Tagline = ({ showMore = true }: { showMore?: boolean }) => {
-
+export const Tagline = () => {
   return (
     <>
       <div className="hidden text-xs md:block font-montserrat text-muted-foreground">

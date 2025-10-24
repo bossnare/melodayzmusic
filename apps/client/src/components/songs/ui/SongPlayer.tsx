@@ -66,9 +66,11 @@ const Player = () => {
           </MotionButton>
         </div>
         {/* Slider control */}
-        <div className="w-[20%] pb-3">
-          <Slider className="shadow-xs" />
-        </div>
+        {isGo && (
+          <div className="w-[20%] pb-3">
+            <Slider className="shadow-xs" />
+          </div>
+        )}
       </div>
     </div>
   );
