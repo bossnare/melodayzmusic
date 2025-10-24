@@ -1,5 +1,5 @@
 import { MotionButton } from '@/components/motions/motionButton';
-import { PlayIcon, SkipBackIcon, SkipForwardIcon } from '@phosphor-icons/react';
+import { PlayIcon, SkipForwardIcon } from '@phosphor-icons/react';
 import { Music } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
