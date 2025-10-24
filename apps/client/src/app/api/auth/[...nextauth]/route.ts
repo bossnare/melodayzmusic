@@ -3,7 +3,7 @@ import SpotifyProvider from 'next-auth/providers/spotify';
 import GoogleProvider from 'next-auth/providers/google';
 import FacebookProvider from 'next-auth/providers/facebook';
 
-const handler = NextAuth({
+const { handlers } = NextAuth({
   providers: [
     SpotifyProvider({
       clientId: process.env.SPOTIFY_CLIENT_ID!,
@@ -19,6 +19,6 @@ const handler = NextAuth({
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET!,
-}) as unknown;
+});
 
-export { handler as GET, handler as POST };
+export { handlers as GET, handlers as POST };
