@@ -5,6 +5,7 @@ import { Button } from '../ui/button';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
+import { Spinner } from '@/components/ui/spinner';
 
 interface ProviderProps {
   size?: 'lg' | 'xl';
@@ -12,9 +13,11 @@ interface ProviderProps {
 
 export function Provider({ size = 'lg' }: ProviderProps) {
   const [error, setError] = useState<string | null>(null);
+  const [isPending, setIsPending] = useState(false);
 
   const handleClick = async (providerName: string) => {
     try {
+      setIsPending(true);
       const res = await signIn(providerName, {
         callbackUrl: '/dashboard',
         redirect: false,
@@ -24,6 +27,8 @@ export function Provider({ size = 'lg' }: ProviderProps) {
       }
     } catch (err) {
       setError('Something went wrong. Please try again.');
+    } finally {
+      setIsPending(false);
     }
   };
 
@@ -43,13 +48,19 @@ export function Provider({ size = 'lg' }: ProviderProps) {
             size={size}
           >
             {provider.label === 'Google' || provider.label === 'Spotify' ? (
-              <Image
-                src={provider.icon as string}
-                alt={provider.label}
-                className="w-5 lg:w-6"
-                height={500}
-                width={500}
-              />
+              <>
+                {isPending ? (
+                  <Spinner className="size-5 lg:size-6" />
+                ) : (
+                  <Image
+                    src={provider.icon as string}
+                    alt={provider.label}
+                    className="w-5 lg:w-6"
+                    height={500}
+                    width={500}
+                  />
+                )}
+              </>
             ) : (
               provider.icon
             )}
