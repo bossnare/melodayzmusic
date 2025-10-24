@@ -56,8 +56,8 @@ function LoginCard({
   const pathname = usePathname();
   const isMobile = useIsMobile();
   setTimeout(() => {
-    vibrate("low")
-  }, 500)
+    vibrate('low');
+  }, 500);
 
   return (
     <>
@@ -79,7 +79,7 @@ function LoginCard({
             mass: 1.2,
           }}
         >
-          <Card className="p-3 space-y-4 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
+          <Card className="p-3 space-y-4 border-0 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -142,7 +142,7 @@ function LoginCard({
                     <Button
                       type="button"
                       variant="link"
-                      className="w-auto h-auto p-0 text-ring dark:text-muted-foreground font-montserrat"
+                      className="w-auto h-auto p-0 text-muted-foreground font-montserrat"
                     >
                       Mot de passe oublié ?
                     </Button>

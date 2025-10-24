@@ -1,9 +1,9 @@
-import { cn } from '@/lib/utils';
+import { Loader } from '@/components/motions/Loader';
+import { MotionTab } from '@/components/motions/motionButton';
 import { useActivePath } from '@/hooks/useActivePath';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
+import { cn } from '@/lib/utils';
 import type { TabProps } from '@/types/navigation/tab.interface';
-import { MotionTab } from '@/components/motions/motionButton';
-import { Loader } from '@/components/motions/Loader';
 
 export const Tabs = ({ href, Icon, label }: TabProps) => {
   const isActive = useActivePath(href);

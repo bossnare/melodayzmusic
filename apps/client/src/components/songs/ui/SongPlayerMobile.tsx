@@ -1,5 +1,5 @@
 import { MotionButton } from '@/components/motions/motionButton';
-import { PlayIcon, SkipBackIcon, SkipForwardIcon } from '@phosphor-icons/react';
+import { PlayIcon, SkipForwardIcon } from '@phosphor-icons/react';
 import { Music } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -13,7 +13,7 @@ const SongPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[98%] md:w-[70%] md:left-[15%] overflow-hidden rounded left-[1%] h-16 lg:hidden bottom-[65px] bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
+        className="fixed w-[98%] md:w-[70%] md:left-[15%] overflow-hidden rounded-sm left-[1%] h-16 lg:hidden bottom-[65px] bg-gradient-to-br from-secondary/80 via-secondary to-secondary/70 backdrop-blur-sm"
       >
         <section className="relative flex items-center gap-2 px-2 py-1 size-full font-montserrat">
           {/* grain */}
