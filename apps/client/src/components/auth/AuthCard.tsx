@@ -79,7 +79,7 @@ function LoginCard({
             mass: 1.2,
           }}
         >
-          <Card className="p-3 space-y-4 border-0 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
+          <Card className="p-2 space-y-4 border-0 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -395,7 +395,7 @@ const StepTwoCard = ({
                       disabled={isPending}
                       type="email"
                       className="py-6"
-                      placeholder="Entre ton email magique ✨"
+                      placeholder="Entre ton email magique"
                       spellCheck="false"
                       autoCorrect="off"
                       onChange={(e) => {
