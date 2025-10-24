@@ -96,8 +96,7 @@ function OtpOverlay({
               variant="ghost"
               className="h-auto p-0 hover:text-inherit text-muted-foreground"
             >
-              {isLoading && <Spinner className="size-4" />} Ignorer pour
-              l&apos;instant
+              {isLoading ? <Spinner className="size-4" /> : "Ignorer pour l'instant"} 
             </Button>{' '}
           </div>
           <div className="flex flex-col items-center gap-2 text-sm md:flex-row md:gap-1">
