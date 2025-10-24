@@ -12,8 +12,8 @@ const SongPlayerMobile = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-        key={'PlayerMobile'}]
-        className="fixed w-[98%] md:w-[70%] md:left-[15%] overflow-hidden rounded left-[1%] h-16 lg:hidden bottom-[65px] bg-gradient-to-br from-[#1c1c1c]/90 to-[#2a2a2aq]/90 backdrop-blur-sm"
+        key={'PlayerMobile'}
+        className="fixed w-[98%] md:w-[70%] md:left-[15%] overflow-hidden rounded left-[1%] h-16 lg:hidden bottom-[65px] bg-gradient-to-br from-[#1c1c1c]/90 to-[#2a2a2a]/90 backdrop-blur-sm"
       >
         <section className="relative flex items-center gap-2 px-2 py-1 size-full font-montserrat">
           {/* grain */}
