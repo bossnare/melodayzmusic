@@ -1,6 +1,6 @@
 'use client';
 
-import { isValidToken } from '@/libs/auth/isValidToken';
+import { isValidToken } from '@/lib/auth/isValidToken';
 import { type BaseProps } from '@/types/base.interface';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';

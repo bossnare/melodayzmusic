@@ -1,20 +1,20 @@
 'use client';
 
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
-import { useState } from 'react';
-import { Dialog, DialogOverlay } from '../ui/dialog';
 import { Button } from '@/components/ui/button';
 import {
   InputOTP,
   InputOTPGroup,
-  InputOTPSlot,
   InputOTPSeparator,
+  InputOTPSlot,
 } from '@/components/ui/input-otp';
-import { AuthCtaButton } from './AuthCtaButton';
+import { Spinner } from '@/components/ui/spinner';
+import api from '@/lib/api';
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
+import { useState } from 'react';
 import { MelodayzMusic } from '../branding/logo';
 import { Tagline } from '../branding/tagline';
-import { Spinner } from '@/components/ui/spinner';
-import api from '@/libs/api';
+import { Dialog, DialogOverlay } from '../ui/dialog';
+import { AuthCtaButton } from './AuthCtaButton';
 
 export function InputOTPPattern() {
   return (

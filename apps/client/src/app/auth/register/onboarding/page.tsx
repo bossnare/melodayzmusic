@@ -1,10 +1,10 @@
 'use client';
 
 import {
+  StepFourCard,
   StepOneCard,
   StepThreeCard,
   StepTwoCard,
-  StepFourCard,
 } from '@/components/auth/AuthCard';
 import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
@@ -15,17 +15,17 @@ import {
 import { StepNavigation, totalSteps } from '@/components/auth/StepNavigation';
 import { MotionButton } from '@/components/motions/motionButton';
 import { useCheckField } from '@/hooks/useCheckField';
+import api from '@/lib/api';
 import { cn } from '@/lib/utils';
+import { EMAIL_REGEX, USERNAME_REGEX } from '@/lib/validators/regex';
 import { registerSchema, type stepFormType } from '@/schemas/register';
+import { vibrate } from '@/utils/vibration';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { AxiosError } from 'axios';
 import { ChevronLeft } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
-import { useRouter } from 'next/navigation';
-import { AxiosError } from 'axios';
-import api from '@/libs/api';
-import { vibrate } from '@/utils/vibration';
 
 const stepFields: Record<number, 'step1' | 'step2' | 'step3'> = {
   1: 'step1',

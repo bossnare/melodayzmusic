@@ -1,5 +1,5 @@
+import { EMAIL_REGEX, USERNAME_REGEX } from '@/lib/validators/regex';
 import { z } from 'zod';
-import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
 
 export const loginSchema = z.object({
   email: z

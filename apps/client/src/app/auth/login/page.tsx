@@ -3,19 +3,19 @@
 import { LoginCard } from '@/components/auth/AuthCard';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
-import api from '@/libs/api';
+import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
+import { Button } from '@/components/ui/button';
+import api from '@/lib/api';
+import { EMAIL_REGEX, USERNAME_REGEX } from '@/lib/validators/regex';
 import { loginSchema, type loginFormType } from '@/schemas/login';
+import { vibrate } from '@/utils/vibration';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AxiosError } from 'axios';
+import { CircleAlert, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
-import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
 import { toast } from 'sonner';
-import { X, CircleAlert } from 'lucide-react';
-import { vibrate } from '@/utils/vibration';
-import { Button } from '@/components/ui/button';
-import { USERNAME_REGEX, EMAIL_REGEX } from '@/libs/validators/regex';
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);

@@ -11,11 +11,13 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { useCheckField } from '@/hooks/useCheckField';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
-import { EMAIL_REGEX, USERNAME_REGEX } from '@/libs/validators/regex';
+import { EMAIL_REGEX, USERNAME_REGEX } from '@/lib/validators/regex';
 import { type loginFormType } from '@/schemas/login';
 import { type stepFormType } from '@/schemas/register';
+import { vibrate } from '@/utils/vibration';
 import axios from 'axios';
 import { Lock, Mail, NotebookPen, UserRoundPen } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
@@ -32,8 +34,6 @@ import { Divide } from './Divide';
 import { Provider } from './Provider';
 import { RadioGroup1 } from './radio-group1';
 import { SelectScrollable } from './select-scrollable';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { vibrate } from '@/utils/vibration';
 
 function Title({ children }: { children: React.ReactNode }) {
   return (
@@ -270,6 +270,7 @@ const StepOneCard = ({
             "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
         });
       } else {
+        form.clearErrors('step1.username');
         setUsernameVerified(true);
       }
     }, 500);
@@ -316,7 +317,7 @@ const StepOneCard = ({
                     <UsernameInput
                       spellCheck="false"
                       autoCorrect="off"
-                      disabled={isPending}
+                      disabled={isPending || autocheckLoading}
                       usernameVerified={usernameVerified}
                       validUsername={validUsername}
                       isPending={isChecking || autocheckLoading}
@@ -364,11 +365,14 @@ const StepTwoCard = ({
         const exist = await checkField('/auth/email-check', {
           email: value,
         });
-        if (exist)
+        if (exist) {
           form.setError('step2.email', {
             message:
               'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
           });
+        } else {
+          form.clearErrors('step2.email');
+        }
       }
     }, 500);
   };

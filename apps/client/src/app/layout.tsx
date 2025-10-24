@@ -1,4 +1,4 @@
-import ReactQueryProvider from '@/libs/react-query/ReactQueryProvider';
+import ReactQueryProvider from '@/lib/react-query/ReactQueryProvider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';

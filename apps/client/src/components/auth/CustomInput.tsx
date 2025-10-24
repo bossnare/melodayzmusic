@@ -3,22 +3,15 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
-import {
-  Check,
-  OctagonAlert,
-  EyeIcon,
-  EyeOffIcon,
-} from 'lucide-react';
-import { useState } from 'react';
+import { useToggle } from '@/hooks/use-toggle';
+import { cn } from '@/lib/utils';
+import { Check, EyeIcon, EyeOffIcon, OctagonAlert } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useState } from 'react';
 
 const PasswordInput = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const { value: showPassword, toggle } = useToggle();
   const [focused, setFocused] = useState(false);
-
-  const toggleShow = () => {
-    setShowPassword(!showPassword);
-  };
 
   return (
     <div className="relative">
@@ -35,7 +28,7 @@ const PasswordInput = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
             type="button"
             className="*:!size-5 p-3 lg:p-2 lg:*:!size-4"
             onMouseDown={(e) => e.preventDefault()}
-            onClick={toggleShow}
+            onClick={toggle}
           >
             {showPassword ? <EyeOffIcon /> : <EyeIcon />}
           </MotionButton>
@@ -110,7 +103,12 @@ const UsernameInput = ({
         className="py-6 pl-8"
         {...props}
       />
-      <span className="absolute -translate-y-1/2 left-3 top-1/2 p-[2px] rounded-full">
+      <span
+        className={cn(
+          !validUsername && 'text-muted-foreground',
+          'absolute -translate-y-1/2 left-3 top-1/2 p-[2px] rounded-full'
+        )}
+      >
         @
       </span>
 

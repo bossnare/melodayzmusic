@@ -1,7 +1,7 @@
 'use client';
 
+import api from '@/lib/api';
 import { useState } from 'react';
-import api from '@/libs/api';
 
 export function useCheckField() {
   const [isChecking, setIsChecking] = useState(false);
