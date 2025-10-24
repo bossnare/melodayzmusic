@@ -4,13 +4,14 @@ import { providerLabels } from '../navigation/labels/label.provider';
 import { Button } from '../ui/button';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
+import { useState } from 'react';
 
 interface ProviderProps {
   size?: 'lg' | 'xl';
 }
 
 export function Provider({ size = 'lg' }: ProviderProps) {
-  const [error, setError] = React.useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleClick = async (providerName: string) => {
     try {
