@@ -270,6 +270,7 @@ const StepOneCard = ({
             "Ce nom d'utilisateur est déjà pris, choisissez-en un autre.",
         });
       } else {
+        form.clearErrors('step1.username');
         setUsernameVerified(true);
       }
     }, 500);
@@ -316,7 +317,7 @@ const StepOneCard = ({
                     <UsernameInput
                       spellCheck="false"
                       autoCorrect="off"
-                      disabled={isPending}
+                      disabled={isPending || autocheckLoading}
                       usernameVerified={usernameVerified}
                       validUsername={validUsername}
                       isPending={isChecking || autocheckLoading}
@@ -364,11 +365,14 @@ const StepTwoCard = ({
         const exist = await checkField('/auth/email-check', {
           email: value,
         });
-        if (exist)
+        if (exist) {
           form.setError('step2.email', {
             message:
               'Oops ! Cette adresse est déjà utulisée, essayer une autre.',
           });
+        } else {
+          form.clearErrors('step2.email');
+        }
       }
     }, 500);
   };
