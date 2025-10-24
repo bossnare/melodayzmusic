@@ -1,14 +1,40 @@
+'use client';
+
 import { providerLabels } from '../navigation/labels/label.provider';
 import { Button } from '../ui/button';
 import Image from 'next/image';
+import { signIn } from 'next-auth/react';
 
-export function Provider({ size = 'lg' }: { size?: 'lg' | 'xl' }) {
+interface ProviderProps {
+  size?: 'lg' | 'xl';
+}
+
+export function Provider({ size = 'lg' }: ProviderProps) {
+  const [error, setError] = React.useState<string | null>(null);
+
+  const handleClick = async (providerName: string) => {
+    try {
+      const res = await signIn(providerName, {
+        callbackUrl: '/dashboard',
+        redirect: false,
+      });
+      if (res?.error) {
+        setError(res.error);
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    }
+  };
+
   return (
     <ul className="space-y-2 md:flex md:justify-center md:items-center md:flex-col md:flex-1">
+      <li className="text-center">
+        <p className="text-destructive/50">{error}</p>
+      </li>
       {providerLabels.map((provider) => (
         <li key={provider.id}>
           <Button
-            onClick={provider.fn}
+            onClick={() => handleClick(provider.name)}
             className="w-full rounded-full !bg-secondary-2 !text-secondary-2-foreground 
             dark:text-secondary-foreground hover:!bg-secondary-2/80 dark:!bg-secondary 
             dark:hover:!bg-secondary/80 hover:!text-secondary-2-foreground/80 active:brightness-50 dark:hover:!text-secondary-foreground/80 
