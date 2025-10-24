@@ -5,7 +5,6 @@ import { Button } from '../ui/button';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
-import { Spinner } from '@/components/ui/spinner';
 
 interface ProviderProps {
   size?: 'lg' | 'xl';
@@ -40,6 +39,7 @@ export function Provider({ size = 'lg' }: ProviderProps) {
       {providerLabels.map((provider) => (
         <li key={provider.id}>
           <Button
+            disabled={isPending}
             onClick={() => handleClick(provider.name)}
             className="w-full rounded-full !bg-secondary-2 !text-secondary-2-foreground 
             dark:text-secondary-foreground hover:!bg-secondary-2/80 dark:!bg-secondary 
@@ -48,19 +48,13 @@ export function Provider({ size = 'lg' }: ProviderProps) {
             size={size}
           >
             {provider.label === 'Google' || provider.label === 'Spotify' ? (
-              <>
-                {isPending ? (
-                  <Spinner className="size-5 lg:size-6" />
-                ) : (
-                  <Image
-                    src={provider.icon as string}
-                    alt={provider.label}
-                    className="w-5 lg:w-6"
-                    height={500}
-                    width={500}
-                  />
-                )}
-              </>
+              <Image
+                src={provider.icon as string}
+                alt={provider.label}
+                className="w-5 lg:w-6"
+                height={500}
+                width={500}
+              />
             ) : (
               provider.icon
             )}
