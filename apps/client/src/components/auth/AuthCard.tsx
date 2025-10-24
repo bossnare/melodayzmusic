@@ -276,7 +276,7 @@ const StepOneCard = ({
   };
 
   return (
-    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
+    <Card className="p-4 dark:px-2 dark:py-4 dark:md:p-4 dark:border-0 bg-card/80 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
         Crée ton identité <UserRoundPen className="size-4 lg:size-5" />{' '}
       </Title>
@@ -374,7 +374,7 @@ const StepTwoCard = ({
   };
 
   return (
-    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
+    <Card className="p-4 dark:px-2 dark:py-4 dark:md:p-4 dark:border-0 bg-card/80 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
         Ton email, ton pass VIP <Mail className="size-4 lg:size-5" />
       </Title>
@@ -433,7 +433,7 @@ const StepThreeCard = ({
   isPending?: boolean;
 }) => {
   return (
-    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
+    <Card className="p-4 dark:px-2 dark:py-4 dark:md:p-4 dark:border-0 bg-card/80 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
         Un mot de passe qui suit ton rythme{' '}
         <Lock className="size-4 lg:size-5" />
@@ -501,7 +501,7 @@ const StepFourCard = ({
     form.watch('step4.birthday') === new Date(now).toLocaleDateString('en-CA');
 
   return (
-    <Card className="p-4 dark:bg-card/6 dark:backdrop-blur-sm">
+    <Card className="p-4 dark:px-2 dark:py-4 dark:md:p-4 dark:border-0 bg-card/80 dark:bg-card/6 dark:backdrop-blur-sm">
       <Title>
         Un peu plus sur toi <NotebookPen className="size-4 lg:size-5" />
       </Title>
