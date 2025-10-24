@@ -79,7 +79,7 @@ function LoginCard({
             mass: 1.2,
           }}
         >
-          <Card className="p-2 space-y-4 border-0 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
+          <Card className="p-2 pb-8 space-y-4 border-0 md:pb-4 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -513,7 +513,7 @@ const StepFourCard = ({
       <CardContent className="flex flex-col p-1 md:flex-row">
         <Form {...form}>
           <div className="flex flex-col flex-1 gap-5">
-            <div className="flex flex-col gap-4 items-start sm:gap-6 sm:flex-row">
+            <div className="flex flex-col items-start gap-4 sm:gap-6 sm:flex-row">
               <FormField
                 control={form.control}
                 name="step4.birthday"
