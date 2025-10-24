@@ -1,4 +1,4 @@
-import api from '@/libs/api';
+import api from '@/lib/api';
 
 export const fetcher = async (url: string) => {
   const { data } = await api.get(url);

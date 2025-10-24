@@ -1,16 +1,16 @@
 'use client';
 
+import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
 import {
   AuthPageWrapper,
   StepCardWrapper,
 } from '@/components/auth/AuthWrapper';
-import { Music2, Music, PartyPopper, Check } from 'lucide-react';
-import { AuthCtaButton } from '@/components/auth/AuthCtaButton';
-import { useState, useTransition } from 'react';
-import { useRouter } from 'next/navigation';
-import api from '@/libs/api';
+import api from '@/lib/api';
 import { AxiosError } from 'axios';
+import { Check, Music, Music2, PartyPopper } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState, useTransition } from 'react';
 
 export default function CongratulationPage() {
   const tempData = JSON.parse(sessionStorage.getItem('tempAuth') || 'null');

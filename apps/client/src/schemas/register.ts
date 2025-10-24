@@ -1,9 +1,9 @@
 import {
-  USERNAME_REGEX,
-  PSEUDO_REGEX,
   EMAIL_REGEX,
   PASS_REGEX,
-} from '@/libs/validators/regex';
+  PSEUDO_REGEX,
+  USERNAME_REGEX,
+} from '@/lib/validators/regex';
 import { z } from 'zod';
 
 const minAge = 13;
