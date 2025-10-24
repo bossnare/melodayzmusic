@@ -6,7 +6,6 @@ import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
 import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
 import { Button } from '@/components/ui/button';
 import api from '@/lib/api';
-import { EMAIL_REGEX, USERNAME_REGEX } from '@/lib/validators/regex';
 import { loginSchema, type loginFormType } from '@/schemas/login';
 import { vibrate } from '@/utils/vibration';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -31,11 +30,6 @@ export default function LoginPage() {
       password: '',
     },
   });
-
-  // identifier
-  const identifier = form.getValues('email');
-  const looksLikeEmail = EMAIL_REGEX.test(identifier);
-  const looksLikeUsername = USERNAME_REGEX.test(identifier);
 
   const handleLogin = async (credentials: loginFormType) => {
     try {
@@ -103,9 +97,7 @@ export default function LoginPage() {
         open={isErrorCredentials}
         onOpenChange={() => setIsErrorCredentials(false)}
         title="Identifiants invalides"
-        description={`Oups ! La combinaison ${looksLikeEmail ? 'email' : ''}${
-          looksLikeUsername ? "nom d'utilisateur" : ''
-        } et mot de passe est incorrecte. Vérifie et réessaye.`}
+        description={`Oups ! La combinaison email et mot de passe est incorrecte. Vérifie et réessaye.`}
         close="D'accord"
       />
       {/* password dialog */}
@@ -117,7 +109,7 @@ export default function LoginPage() {
         close="D'accord"
       /> */}
       {/* card */}
-      <div className="w-full px-2 md:px-10 lg:px-4 flex justify-center lg:w-3/4">
+      <div className="flex justify-center w-full px-2 md:px-10 lg:px-4 lg:w-3/4">
         <LoginCard form={form} isPending={loading} handleLogin={handleLogin} />
       </div>
     </AuthPageWrapper>

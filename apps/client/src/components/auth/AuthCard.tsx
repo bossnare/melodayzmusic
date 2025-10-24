@@ -95,7 +95,7 @@ function LoginCard({
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email ou nom d&apos;utilisateur</FormLabel>
+                        <FormLabel>Adresse email</FormLabel>
                         <FormControl>
                           <Input
                             disabled={isPending}
@@ -104,7 +104,7 @@ function LoginCard({
                             autoCorrect="off"
                             type="text"
                             className="py-[26px] border-[1.4px] md:py-6 rounded-lg active:bg-muted-foreground/10"
-                            placeholder="Email ou @username"
+                            placeholder="Email associé à votre compte"
                             {...field}
                           />
                         </FormControl>
