@@ -26,7 +26,7 @@ const SongPlayerMobile = () => {
           </div>
           {/* info */}
           <div className="flex flex-col items-start justify-center gap-[2px]">
-            <p className="font-semibold text-muted-foreground/80">
+            <p className="font-semibold text-sm text-muted-foreground/80">
               En attente de vibes
             </p>
             <p className="text-xs text-muted-foreground">Artiste inconnu</p>
