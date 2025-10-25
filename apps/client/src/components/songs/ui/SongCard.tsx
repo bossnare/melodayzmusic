@@ -20,7 +20,6 @@ import {
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
-  // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer lg:hover:bg-muted/30 active:bg-accent/50">

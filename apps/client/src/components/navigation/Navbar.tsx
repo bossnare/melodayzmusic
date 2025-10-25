@@ -26,11 +26,9 @@ export const NavBar = ({ isAtHome, fetchMe }: { isAtHome?: boolean; fetchMe: () 
 
   return (
     <nav className="relative flex items-center gap-3 lg:gap-4">
-        {isAtHome ? (
+        {!openSearch && (
           <>
-            {!openSearch && <Logo onClick={() => router.push('/dashboard')} />}
-          </>
-        ) : (
+            {isAtHome ? (<Logo onClick={() => router.push('/dashboard')} />) : (
           <SheetTrigger asChild>
             <MotionButtonLeft
               onClick={fetchMe}
@@ -41,6 +39,9 @@ export const NavBar = ({ isAtHome, fetchMe }: { isAtHome?: boolean; fetchMe: () 
             </MotionButtonLeft>
           </SheetTrigger>
         )}
+        </>
+        )
+        }
 
       {/* for search */}
       <SearchBar

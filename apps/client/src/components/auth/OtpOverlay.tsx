@@ -65,7 +65,7 @@ function OtpOverlay({
 
   return (
     <Dialog open={open}>
-      <DialogOverlay className="flex flex-col items-center px-4 py-3 bg-background md:overflow-y-scroll md:h-auto lg:overflow-hidden">
+      <DialogOverlay className="flex flex-col items-center px-4 py-3 bg-gradient-to-b from-background-layer to-background md:overflow-y-scroll md:h-auto lg:overflow-hidden">
         <div className="flex justify-center md:justify-start w-full">
           <MelodayzMusic />
         </div>

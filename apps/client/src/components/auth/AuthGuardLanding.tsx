@@ -24,7 +24,7 @@ export default function AuthGuardLanding({ children }: BaseProps) {
 
   if (isLoading)
     return (
-      <div className="flex items-center justify-center h-dvh bg-background">
+      <div className="flex items-center justify-center h-dvh bg-background-layer">
         <div>
           <WaveLoader />
         </div>

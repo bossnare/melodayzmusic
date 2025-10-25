@@ -14,7 +14,7 @@ const AlbumStream = ({ children }: AlbumProps) => {
 
   return (
     <section>
-      <h3 className="text-section">Albums</h3>
+      <h3 className="text-section">Playlists tendance</h3>
       <div className="relative">
         <ChevronControl className="top-[39%]" />
         <div
