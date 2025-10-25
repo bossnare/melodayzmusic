@@ -18,7 +18,7 @@ const SongPlayerMobile = () => {
         <section className="relative flex items-center gap-2 px-2 py-1 size-full font-montserrat">
           {/* grain */}
           <span
-            className="absolute rounded-lg invert dark:invert-0 inset-0 opacity-25 pointer-events-none 
+            className="absolute rounded invert dark:invert-0 inset-0 opacity-25 pointer-events-none 
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
           ></span>
           <div className="p-[6px] border rounded-md shadow-sm bg-gradient-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
