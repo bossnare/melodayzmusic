@@ -1,5 +1,6 @@
 import {
-  CompassIcon,
+  // CompassIcon,
+  BinocularsIcon,
   FoldersIcon,
   UserIcon,
   HouseIcon,
@@ -17,7 +18,7 @@ export const navLabels = [
     id: 2,
     label: 'Explorer',
     href: '/dashboard/favoris',
-    icon: CompassIcon,
+    icon: BinocularsIcon //CompassIcon,
   },
   {
     id: 3,

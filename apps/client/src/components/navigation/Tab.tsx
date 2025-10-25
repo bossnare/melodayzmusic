@@ -17,17 +17,17 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
         translate="no"
         className={cn(
           isActive
-            ? 'lg:bg-gradient-to-r lg:from-muted lg:via-muted/80 lg:to-muted text-foreground lg:w-full lg:font-bold'
+            ? 'lg:bg-gradient-to-r lg:from-foreground/4 lg:via-foreground/10 lg:to-foreground/4 text-foreground lg:w-full lg:font-bold'
             : 'hover:text-foreground/85 text-foreground/70 lg:w-auto',
-          'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[50%] active:rounded-md lg:active:w-full active:bg-primary/10 font-medium text-xs lg:text-sm rounded-sm items-center font-montserrat justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
+          'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[50%] active:rounded-md lg:active:w-full active:bg-primary/10 font-medium lg:font-semibold text-xs lg:text-sm rounded-sm items-center font-montserrat justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
         <MotionTab>
           {isPending && !isActive ? (
-            <Loader className="border-foreground/90 size-[30px] lg:size-7" />
+            <Loader className="border-foreground/90 size-[30px] lg:size-6" />
           ) : (
             <Icon
-              className="size-[30px] lg:size-7"
+              className="size-[30px] lg:size-6"
               weight={isActive ? 'fill' : 'bold'}
             />
           )}

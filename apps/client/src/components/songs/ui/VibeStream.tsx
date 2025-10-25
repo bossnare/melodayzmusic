@@ -3,7 +3,7 @@ import ChevronControl from './ChevronControl';
 import SoftFade from './SoftFade';
 import { type VibeProps } from '@/types/songs/stream.interface';
 
-const VibeStream = ({ children }: VibeProps) => {
+const VibeStream = ({ children, pseudo }: VibeProps & {pseudo?: string}) => {
   const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
     false,
     1,
@@ -14,7 +14,7 @@ const VibeStream = ({ children }: VibeProps) => {
 
   return (
     <section>
-      <h3 className="text-section">Fresh Vibes</h3>
+      <h3 className="text-section">Fait pour {pseudo || 'vous'}</h3>
       <div className="relative">
         <ChevronControl className="top-[30%]" />
         <div

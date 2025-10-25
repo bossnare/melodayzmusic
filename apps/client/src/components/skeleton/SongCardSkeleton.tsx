@@ -6,7 +6,7 @@ export const SongCardSkeleton = () => {
     <>
       <div className="flex flex-col space-y-4">
         <AspectRatio ratio={1}>
-          <Skeleton className="size-full bg-foreground/30 rounded-xl" />
+          <Skeleton className="size-full bg-foreground/30 rounded" />
         </AspectRatio>
         <div className="space-y-2">
           <Skeleton className="h-4 bg-foreground/30 w-[80%]" />
