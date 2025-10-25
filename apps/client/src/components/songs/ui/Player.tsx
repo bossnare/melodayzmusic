@@ -20,7 +20,7 @@ const Player = () => {
         </div>
       </div>
       <div className="pb-16 flex justify-center">
-        <div className="flex opacit items-center gap-4">
+        <div className="flex opacit items-center gap-6">
           <MotionButton className="active:opacity-50">
             <SkipBackIcon weight={'fill'} className="size-11" />
           </MotionButton>
