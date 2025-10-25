@@ -13,7 +13,7 @@ const Player = () => {
         </MotionButton>
       </div>
       <div className="flex flex-col items-center gap-2 grow">
-        <div className="rounded-xs size-80 bg-gradient-to-tr from-muted/20 to-muted/80 border-muted-foreground/20"></div>
+        <div className="rounded-xs size-90 bg-gradient-to-tr from-muted/20 to-muted/80 border-muted-foreground/20"></div>
         <div className="w-full">
           <h3 className="text-xl font-bold">Song Played</h3>
           <p className="text-muted-foreground font-semibold">Album/Playlist</p>
@@ -22,13 +22,13 @@ const Player = () => {
       <div className="pb-16 flex justify-center">
         <div className="flex opacit items-center gap-4">
           <MotionButton className="active:opacity-50">
-            <SkipBackIcon weight={'fill'} className="size-8" />
+            <SkipBackIcon weight={'fill'} className="size-11" />
           </MotionButton>
           <MotionButton className="bg-foreground/18 p-4">
-            <PlayIcon weight={'fill'} className="size-7" />
+            <PlayIcon weight={'fill'} className="size-10" />
           </MotionButton>
           <MotionButton className="active:opacity-50">
-            <SkipForwardIcon weight={'fill'} className="size-8" />
+            <SkipForwardIcon weight={'fill'} className="size-11" />
           </MotionButton>
         </div>
       </div>
