@@ -41,7 +41,7 @@ export const AuthCtaButton = ({
       {isPending ? textLoading : children}
       {/* grain overlay */}
       <span
-        className="absolute inset-0 opacity-20 pointer-events-none 
+        className="absolute inset-0 opacity-16 pointer-events-none 
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
       ></span>
     </Button>
