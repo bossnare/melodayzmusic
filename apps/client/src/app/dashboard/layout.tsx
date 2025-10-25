@@ -18,6 +18,9 @@ import { useEffect, useState } from 'react';
 import RefreshWrapper from './pull-to-refresh';
 import SmoothScrollLayout from './SmoothScrollLayout';
 import { fetcher } from '@/utils/fetcher';
+import { Player as OverlayPlayer } from '@/components/songs/ui/Player';
+import { motion } from 'motion/react';
+import { usePlayer } from '@/context/playerContext';
 
 export default function DashboardLayout({
   children,
@@ -33,6 +36,8 @@ export default function DashboardLayout({
   const [open, setOpen] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [email, setEmail] = useState('');
+
+  const { show } = usePlayer();
 
   useEffect(() => {
     const handleCheckAccount = async () => {
@@ -116,6 +121,18 @@ export default function DashboardLayout({
         </Sheet>
 
         {/* NavBottom -- Player and Navigation on mobile */}
+        <motion.div
+          animate={{
+            y: show ? 0 : 100,
+            opacity: show ? 1 : 0,
+          }}
+          className={cn(
+            show ? 'pointer-events-auto h-auto' : 'pointer-events-none h-0',
+            'fixed inset-0 z-50 bg-background-layer'
+          )}
+        >
+          <OverlayPlayer />
+        </motion.div>
         <SongPlayerMobile />
         <nav
           style={{ boxShadow: '0 -8px 8px -5px rgba(0, 0, 0, 0.06)' }}

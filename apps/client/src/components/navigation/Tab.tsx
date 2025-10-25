@@ -18,8 +18,8 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
         className={cn(
           isActive
             ? 'lg:bg-gradient-to-r lg:from-muted lg:via-muted/80 lg:to-muted text-foreground lg:w-full lg:font-bold'
-            : 'hover:text-foreground/80 text-foreground/65 lg:w-auto',
-          'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[50%] active:rounded-lg lg:active:w-full active:bg-primary/10 font-medium text-xs lg:text-sm rounded-sm items-center font-montserrat justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
+            : 'hover:text-foreground/85 text-foreground/70 lg:w-auto',
+          'select-none flex flex-col p-1 md:p-2 w-[75%] md:w-[50%] active:rounded-md lg:active:w-full active:bg-primary/10 font-medium text-xs lg:text-sm rounded-sm items-center font-montserrat justify-center gap-1 md:gap-2 md:flex-row lg:justify-start'
         )}
       >
         <MotionTab>
