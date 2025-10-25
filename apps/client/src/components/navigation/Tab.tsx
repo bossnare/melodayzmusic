@@ -24,10 +24,10 @@ export const Tabs = ({ href, Icon, label }: TabProps) => {
       >
         <MotionTab>
           {isPending && !isActive ? (
-            <Loader className="border-foreground/90 size-8 lg:size-7" />
+            <Loader className="border-foreground/90 size-[30px] lg:size-7" />
           ) : (
             <Icon
-              className="size-8 lg:size-7"
+              className="size-[30px] lg:size-7"
               weight={isActive ? 'fill' : 'bold'}
             />
           )}

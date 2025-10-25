@@ -13,7 +13,7 @@ import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
 import { AlignLeft } from 'lucide-react';
 
-export const NavBar = ({ isAtHome }: { isAtHome?: boolean }) => {
+export const NavBar = ({ isAtHome, fetchMe }: { isAtHome?: boolean; fetchMe: () => void }) => {
   // const [notHome, setNotHome] = useState(false);
   const router = useRouter();
   // for search bar behavior
@@ -26,7 +26,6 @@ export const NavBar = ({ isAtHome }: { isAtHome?: boolean }) => {
 
   return (
     <nav className="relative flex items-center gap-3 lg:gap-4">
-      <Sheet>
         {isAtHome ? (
           <>
             {!openSearch && <Logo onClick={() => router.push('/dashboard')} />}
@@ -34,7 +33,7 @@ export const NavBar = ({ isAtHome }: { isAtHome?: boolean }) => {
         ) : (
           <SheetTrigger asChild>
             <MotionButtonLeft
-              // onClick={fetchMe}
+              onClick={fetchMe}
               className="p-1 hover:!bg-transparent hover:text-muted-foreground"
               type="button"
             >
@@ -42,7 +41,6 @@ export const NavBar = ({ isAtHome }: { isAtHome?: boolean }) => {
             </MotionButtonLeft>
           </SheetTrigger>
         )}
-      </Sheet>
 
       {/* for search */}
       <SearchBar
