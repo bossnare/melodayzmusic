@@ -68,7 +68,7 @@ const SidebarContentDesktop = () => {
         <Settings2 className="cursor-pointer hover:opacity-60" />
       </figure>
       <Separator />
-      <ul className="flex flex-col w-full p-1 mt-3 rounded-md bg-background/60 dark:bg-card/50">
+      <ul className="flex flex-col w-full p-1 mt-3 rounded-md bg-background/90 dark:bg-card/50">
         {navLabels.map((tab) => (
           <li key={tab.id}>
             {tab.label === 'Moi' || tab.label === 'create' ? null : (

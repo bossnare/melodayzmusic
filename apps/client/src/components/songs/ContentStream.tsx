@@ -33,6 +33,7 @@ export const ContentStream = ({ songs }: Props) => {
           ></div>
         ))}
       </TopArtist>
+      <div className="bg-gradient-to-r from-muted/70 rounded-md to-muted/90 w-1/2 h-50"></div>
     </div>
   );
 };
