@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
+        className={`${inter.variable} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-background to-muted/50 dark:from-background dark:to-background/80 min-h-screen flex flex-col`}
       >
         {/* ambiance overlay */}
         <ThemeProvider
