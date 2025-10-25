@@ -78,7 +78,7 @@ export default function DashboardLayout({
             <header className="sticky inset-x-0 top-0 z-5 bg-background">
               {!isAtProfil && (
                 <div className="w-full px-2 py-2 border-b sm:px-4 border-border lg:border-0">
-                  <NavBar isAtHome={isAtHome} />
+                  <NavBar fetchMe={fetchMe} isAtHome={isAtHome} />
                 </div>
               )}
               {isAtProfil && <NavProfile />}
@@ -107,7 +107,7 @@ export default function DashboardLayout({
                 <main
                   className={cn(
                     !isAtProfil && 'pt-10',
-                    'px-4 pb-[30rem] sm:px-6 bg-gradient-to-b from-background to-muted/50 dark:from-background dark:to-background/80 mt-[1px]'
+                    'px-4 pb-[30rem] sm:px-6 rounded bg-gradient-to-b from-background to-muted/50 dark:from-background dark:to-background/80 mt-[1px]'
                   )}
                 >
                   {children}
