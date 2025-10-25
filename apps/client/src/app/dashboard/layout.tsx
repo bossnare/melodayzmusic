@@ -102,7 +102,7 @@ export default function DashboardLayout({
                 <main
                   className={cn(
                     !isAtProfil && 'pt-10',
-                    'px-4 pb-[30rem] sm:px-6'
+                    'px-4 pb-[30rem] sm:px-6 bg-background mt-[1px]'
                   )}
                 >
                   {children}
