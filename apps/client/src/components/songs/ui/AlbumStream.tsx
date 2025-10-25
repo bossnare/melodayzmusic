@@ -5,7 +5,7 @@ import { useEmblaProgress } from '@/hooks/useEmblaProgress';
 
 const AlbumStream = ({ children }: AlbumProps) => {
   const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
-    false,
+    true,
     1,
     0.25,
     'start',
