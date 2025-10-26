@@ -86,7 +86,7 @@ export const Sidebar = ({
       </aside>
 
       {/*  mobile sidebar  */}
-      <div className="block bg-sidebar lg:!hidden">
+      <div className="block bg-sidebar lg:hidden!">
         <SheetContent side="left" className="w-6/7">
           <SheetTitle className="p-2">
             <Logo />
@@ -134,7 +134,7 @@ export const Sidebar = ({
               <AlertDialogTrigger asChild>
                 <Button
                   variant="outline"
-                  className="hover:!text-inherit lg:hover:text-primary active:!text-primary active:bg-muted"
+                  className="hover:text-inherit! lg:hover:text-primary active:text-primary! active:bg-muted"
                 >
                   <LogOut /> Quitter l&apos;espace
                 </Button>

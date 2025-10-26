@@ -55,35 +55,32 @@ export default function CongratulationPage() {
         key="congatulations"
         initial={{ x: 100, opacity: 0 }}
         exit={{ x: -100, opacity: 0 }}
-        className="!w-[90%] lg:!w-[40%] flex flex-col"
+        className="w-[90%]! lg:w-[40%]! flex flex-col"
       >
-        <div className="flex flex-col items-center gap-2 mt-5 px-2">
+        <div className="flex flex-col items-center gap-2 px-2 mt-5">
           <div className="flex items-center gap-1">
             <PartyPopper className="size-10" />
             <Music2 className="size-8" />
           </div>
-          <h2 className="text-3xl font-bold font-montserrat">
-            C&apos;est fini !
-          </h2>
+          <h2 className="text-3xl font-bold">C&apos;est fini !</h2>
         </div>
-        <div className="mt-14">
+        <div className="mt-14 font-montserrat">
           <Image
             src="/icons/icon_x32_color.svg"
             alt="MelodayzMusic"
-            className="size-18 lg:size-20 mb-2"
+            className="mb-2 size-18 lg:size-20"
             width={1000}
             height={1000}
           />
-          <h3 className="flex items-center gap-2 text-2xl font-medium font-montserrat">
+          <h3 className="flex items-center gap-2 text-2xl font-black">
             Félicitations !{' '}
-            <span className="text-white rounded-full bg-chart-2 p-1">
+            <span className="p-1 text-white rounded-full bg-chart-2">
               <Check className="stroke-[2.5px]" />
             </span>
           </h3>
           <p className="mt-4">
-            Ton compte{' '}
-            <span className="font-bold font-montserrat">MelodayzMusic</span> a
-            été créé avec succès.
+            Ton compte <span className="font-bold">MelodayzMusic</span> a été
+            créé avec succès.
           </p>
           <p>Découvre maintenant ta vibe musicale !</p>
         </div>
