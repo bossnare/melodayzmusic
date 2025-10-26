@@ -12,6 +12,7 @@ import { Command, CommandItem, CommandList } from '../ui/command';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
 import { AlignLeft } from 'lucide-react';
+import {waitVibrate} from '@/utils/vibration'
 
 export const NavBar = ({ isAtHome, fetchMe }: { isAtHome?: boolean; fetchMe: () => void }) => {
   // const [notHome, setNotHome] = useState(false);
@@ -31,7 +32,10 @@ export const NavBar = ({ isAtHome, fetchMe }: { isAtHome?: boolean; fetchMe: () 
             {isAtHome ? (<Logo onClick={() => router.push('/dashboard')} />) : (
           <SheetTrigger asChild>
             <MotionButtonLeft
-              onClick={fetchMe}
+              onClick={() => {
+                fetchMe()
+                waitVibrate()
+              }}
               className="p-1 hover:!bg-transparent hover:text-muted-foreground"
               type="button"
             >
@@ -74,3 +78,4 @@ export const NavBar = ({ isAtHome, fetchMe }: { isAtHome?: boolean; fetchMe: () 
     </nav>
   );
 };
+
