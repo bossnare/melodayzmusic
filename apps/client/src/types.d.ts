@@ -13,3 +13,11 @@ declare module 'country-flag-emoji' {
 
   export default countryFlagEmoji;
 }
+
+// for color thief lib
+declare module 'colorthief' {
+  export default class ColorThief {
+    getColor(image: HTMLImageElement | HTMLCanvasElement): number[];
+    getPalette(image: HTMLImageElement | HTMLCanvasElement, number: number): number[][];
+  }
+}
