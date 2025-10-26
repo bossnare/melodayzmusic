@@ -13,7 +13,7 @@ const Player = () => {
         </MotionButton>
       </div>
       <div className="flex flex-col items-center gap-2 grow">
-        <div className="rounded-xs size-90 bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20"></div>
+        <div className="rounded-xs size-85 bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20"></div>
         <div className="w-full">
           <h3 className="text-xl font-bold">Song Played</h3>
           <p className="font-semibold text-muted-foreground">Album/Playlist</p>
