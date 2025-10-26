@@ -58,9 +58,9 @@ const SearchBar = ({
       )}
       <div
         className={cn(
-          openSearch && 'bg-input/50',
+          openSearch && 'bg-muted/50',
           isNull && 'px-2',
-          'grow flex items-center transition-all lg:h-12 overflow-hidden duration-70 ease-in-out will-change-auto lg:has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full lg:p-1 has-[input:active]:bg-primary-foreground/4 lg:bg-input/50 has-[input:focus]:bg-input/40 lg:has-[input:focus]:bg-input/20 lg:has-[input:focus]:shadow-sm'
+          'grow flex items-center transition-all lg:h-12 overflow-hidden duration-70 ease-in-out will-change-auto lg:has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full lg:p-1 lg:bg-input/50 has-[input:focus]:bg-muted lg:has-[input:focus]:bg-input/20 lg:has-[input:focus]:shadow-sm'
         )}
       >
         {/* lg:has-[input:focus]:ring-ring/50 lg:has-[input:focus]:ring-[2px] */}
@@ -108,7 +108,7 @@ const SearchBar = ({
           {/* search only */}
           <MotionButton
             disabled={isNull}
-            className={`p-[6px] text-foreground/70 ${
+            className={`p-[6px] text-foreground/70 dark:text-foreground ${
               isNull ? 'hidden' : 'block'
             } bg-sidebar ${!openSearch && 'hidden'} lg:${
               isNull ? 'hidden' : 'block'
@@ -120,7 +120,7 @@ const SearchBar = ({
           {!openSearch && (
             <MotionButton
               onClick={handleOpenSearch}
-              className={`p-[6px] text-foreground/70 lg:hidden
+              className={`p-[6px] text-foreground/70 dark:text-foreground bg-muted! lg:hidden
             } bg-sidebar lg:bg-transparent lg:p-2`}
             >
               <MagnifyingGlassIcon weight={'bold'} className="size-6" />
