@@ -122,6 +122,7 @@ export default function DashboardLayout({
 
         {/* NavBottom -- Player and Navigation on mobile */}
         <motion.div
+          initial={{y: 100, opacity: 0}}
           animate={{
             y: show ? 0 : 100,
             opacity: show ? 1 : 0,
