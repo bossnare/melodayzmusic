@@ -45,7 +45,7 @@ const Player = () => {
         <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-gradient-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
           <Image
             ref={imgRef}
-            src="/img/b3.webp"
+            src="/img/b1.jpg"
             alt="fallback_cover"
             className="object-cover"
             width={1000}
