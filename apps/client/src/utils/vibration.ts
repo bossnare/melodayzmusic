@@ -22,7 +22,7 @@ export function vibrate(type: 'low' | 'subtle' | 'soft' | 'medium' | 'strong') {
   }
 }
 
-export const waitVibrate = (delay: number = 800) {
+export const waitVibrate = (delay: number = 800) => {
   setTimeout(() => {
     vibrate('soft')
   }, delay)
