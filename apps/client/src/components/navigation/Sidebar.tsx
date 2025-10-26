@@ -114,7 +114,7 @@ export const Sidebar = ({
                 </div>
               ) : (
                 <div className="inline-flex flex-col cursor-pointer active:bg-muted lg:hover:bg-muted/50">
-                  <span className="text-md font-bold capitalize font-montserrat text-foreground">
+                  <span className="text-lg font-bold capitalize font-montserrat text-foreground">
                     {user?.pseudo || 'Utilisateur(e)'}
                   </span>
                   <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
@@ -185,5 +185,6 @@ export const Sidebar = ({
     </>
   );
 };
+
 
 
