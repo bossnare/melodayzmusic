@@ -3,11 +3,11 @@ import ChevronControl from './ChevronControl';
 import SoftFade from './SoftFade';
 import { type VibeProps } from '@/types/songs/stream.interface';
 
-const VibeStream = ({ children, pseudo }: VibeProps & {pseudo?: string}) => {
+const VibeStream = ({ children, pseudo }: VibeProps & { pseudo?: string }) => {
   const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
     true,
     1,
-    0.25,
+    0.1,
     'start',
     true
   );
