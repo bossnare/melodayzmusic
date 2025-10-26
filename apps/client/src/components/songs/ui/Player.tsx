@@ -24,7 +24,7 @@ const Player = () => {
           <MotionButton className="active:opacity-50">
             <SkipBackIcon weight={'fill'} className="size-9" />
           </MotionButton>
-          <MotionButton className="bg-foreground/18 p-4">
+          <MotionButton className="p-4 bg-foreground/18">
             <PlayIcon weight={'fill'} className="size-8" />
           </MotionButton>
           <MotionButton className="active:opacity-50">
