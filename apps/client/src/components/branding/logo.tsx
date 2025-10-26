@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const MelodayzMusic = () => {
   return (
-    <div className="flex items-center justify-center cursor-pointer active:opacity-80 lg:hover:opacity-80 gap-1">
+    <div className="flex items-center justify-center gap-1 cursor-pointer active:opacity-80 lg:hover:opacity-80">
       <Image
         src="/icons/icon_x32.svg"
         className="w-7 dark:invert md:w-7 drop-shadow-sm"
