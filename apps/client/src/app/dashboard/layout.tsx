@@ -21,6 +21,7 @@ import { fetcher } from '@/utils/fetcher';
 import { Player as OverlayPlayer } from '@/components/songs/ui/Player';
 import { motion } from 'motion/react';
 import { usePlayer } from '@/context/playerContext';
+import {waitVibrate} from '@/utils/vibrate'
 
 export default function DashboardLayout({
   children,
@@ -86,7 +87,10 @@ export default function DashboardLayout({
                 {isAtHome && (
                   <SheetTrigger asChild>
                     <MotionButtonLeft
-                      onClick={fetchMe}
+                      onClick={() => {
+                        fetchMe()
+                        waitVibrate()
+                      }}
                       className="p-1 hover:bg-transparent! hover:text-muted-foreground"
                       type="button"
                     >
@@ -148,3 +152,4 @@ export default function DashboardLayout({
     </AuthGuard>
   );
 }
+
