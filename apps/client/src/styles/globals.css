@@ -298,7 +298,7 @@
 
 @layer components {
   .cta {
-    @apply bg-gradient-to-r from-[#9B8AF0] hover:opacity-90 shadow-[#00D4FF] via-[#6D28D9] transition font-montserrat to-[#00D4FF];
+    @apply bg-linear-to-r from-[#9B8AF0] hover:opacity-90 shadow-[#00D4FF] via-[#6D28D9] transition font-montserrat to-[#00D4FF];
   }
   .bg-premium {
     background: radial-gradient(
@@ -310,7 +310,7 @@
     @apply transition-all duration-300 font-montserrat lg:hover:brightness-110 active:brightness-110;
   }
   .text-gradient {
-    @apply bg-gradient-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
+    @apply bg-linear-to-r text-transparent bg-clip-text from-[#6D28D9] via-blue-500 to-[#00D4FF];
   }
 
   .text-section {

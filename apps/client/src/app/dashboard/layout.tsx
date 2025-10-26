@@ -87,7 +87,7 @@ export default function DashboardLayout({
                   <SheetTrigger asChild>
                     <MotionButtonLeft
                       onClick={fetchMe}
-                      className="p-1 hover:!bg-transparent hover:text-muted-foreground"
+                      className="p-1 hover:bg-transparent! hover:text-muted-foreground"
                       type="button"
                     >
                       <AlignLeft className="stroke-current size-8 stroke-[2.2]" />
@@ -107,7 +107,7 @@ export default function DashboardLayout({
                 <main
                   className={cn(
                     !isAtProfil && 'pt-10',
-                    'px-4 pb-[30rem] sm:px-6 rounded bg-gradient-to-b from-background to-muted/50 dark:from-background dark:to-background/50 mt-[1.5px]'
+                    'px-4 pb-120 sm:px-6 rounded bg-linear-to-b from-background to-muted/50 dark:from-background dark:to-background/50 mt-[1.5px]'
                   )}
                 >
                   {children}
@@ -122,7 +122,7 @@ export default function DashboardLayout({
 
         {/* NavBottom -- Player and Navigation on mobile */}
         <motion.div
-          initial={{y: 100, opacity: 0}}
+          initial={{ y: 100, opacity: 0 }}
           animate={{
             y: show ? 0 : 100,
             opacity: show ? 1 : 0,

@@ -6,10 +6,12 @@ const TopArtist = ({ children, pseudo }: TopArtistProps) => {
 
   return (
     <section>
-      <h3 className="flex items-center gap-2 text-section pb-4">Artistes recommandés pour { pseudo ||'vous'}</h3>
+      <h3 className="flex items-center gap-2 pb-4 text-section">
+        Artistes recommandés pour {pseudo || 'vous'}
+      </h3>
       <div
         ref={emblaRef}
-        className="overflow-hidden scroll-smooth scrollbar-none p-1"
+        className="p-1 overflow-hidden scroll-smooth scrollbar-none"
       >
         <div
           className="grid grid-flow-col auto-cols-[calc(100vw/3)] sm:auto-cols-[calc(100vw/6)] 

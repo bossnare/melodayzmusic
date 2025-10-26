@@ -42,11 +42,11 @@ const VibeCard = ({ song }: SongProps) => {
           />
           {/* shimmer loader */}
           {imgLoading && (
-            <div className="absolute inset-0 bg-gradient-to-br from-foreground/40 via-foreground/50 to-foreground/40 animate-pulse"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-foreground/40 via-foreground/50 to-foreground/40 animate-pulse"></div>
           )}
           {/* <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton
-              className="bg-gradient-to-t from-black/60 to-transparent shrink-0"
+              className="bg-linear-to-t from-black/60 to-transparent shrink-0"
               onClick={() => setIsPlaying(!isPlaying)}
             >
               {isPlaying ? (
@@ -106,11 +106,11 @@ const AlbumCard = ({ song }: SongProps) => {
           />
           {/* shimmer loader */}
           {imgLoading && (
-            <div className="absolute inset-0 bg-gradient-to-br from-foreground/40 via-foreground/50 to-foreground/40 animate-pulse"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-foreground/40 via-foreground/50 to-foreground/40 animate-pulse"></div>
           )}
           {/* <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton
-              className="bg-gradient-to-t from-black/60 to-transparent shrink-0"
+              className="bg-linear-to-t from-black/60 to-transparent shrink-0"
               onClick={() => setIsPlaying(!isPlaying)}
             >
               {isPlaying ? (

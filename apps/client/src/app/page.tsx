@@ -11,7 +11,7 @@ export default function Page() {
 
   return (
     <AuthGuardLanding>
-      <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-gradient-to-br dark:from-primary/16 dark:via-card/6 dark:to-ring/16 from-primary/20 via-card/8 to-ring/20">
+      <div className="flex flex-col items-center justify-center gap-4 h-dvh bg-linear-to-br dark:from-primary/16 dark:via-card/6 dark:to-ring/16 from-primary/20 via-card/8 to-ring/20">
         <div className="flex flex-col items-center gap-2">
           <Image
             className="dark:invert size-25 sm:size-28 drop-shadow-lg"

@@ -26,7 +26,7 @@ const PasswordInput = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
         <span className="absolute -translate-y-1/2 right-1 lg:right-2 top-1/2">
           <MotionButton
             type="button"
-            className="*:!size-5 p-3 lg:p-2 lg:*:!size-4"
+            className="*:size-5! p-3 lg:p-2 lg:*:size-4!"
             onMouseDown={(e) => e.preventDefault()}
             onClick={toggle}
           >
@@ -55,7 +55,7 @@ const UsernameInput = ({
 
     if (isPending) {
       return (
-        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full">
+        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-0.5 rounded-full">
           <Spinner className="size-[18px] text-foreground/50" />
         </span>
       );
@@ -81,14 +81,14 @@ const UsernameInput = ({
             mass: 0.5, // overshoot
             damping: 20,
           }}
-          className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-white dark:text-foreground bg-chart-4"
+          className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-0.5 rounded-full text-white dark:text-foreground bg-chart-4"
         >
           <Check className="size-[18px] stroke-3" />
         </motion.div>
       );
     } else {
       return (
-        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-[2px] rounded-full text-destructive bg-destructive/20">
+        <span className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-0.5 rounded-full text-destructive bg-destructive/20">
           <OctagonAlert className="size-[18px]" />
         </span>
       );
@@ -106,7 +106,7 @@ const UsernameInput = ({
       <span
         className={cn(
           !validUsername && 'text-muted-foreground',
-          'absolute -translate-y-1/2 left-3 top-1/2 p-[2px] rounded-full'
+          'absolute -translate-y-1/2 left-3 top-1/2 p-0.5 rounded-full'
         )}
       >
         @

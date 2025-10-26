@@ -79,7 +79,7 @@ function LoginCard({
             mass: 1.2,
           }}
         >
-          <Card className="p-2 pb-8 space-y-4 border-0 lg:border md:pb-4 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
+          <Card className="p-2 pb-8 space-y-4 border-0 lg:border md:pb-4 rounded-3xl md:p-4 xl:p-6 dark:bg-linear-to-br bg-linear-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
             <CardTitle>
               <MelodayzMusic />
             </CardTitle>
@@ -178,7 +178,7 @@ const RegisterCard = () => {
       <h3 className="py-4 mb-2 text-base font-medium text-center text-foreground/80">
         Choisis ta façon de t&apos;inscrire
       </h3>
-      <Card className="p-4 rounded-2xl bg-gradient-to-b lg:bg-gradient-to-br from-card/40 dark:via-card/10 via-transparent to-card/80 dark:lg:to-card/60 dark:to-card/40 backdrop-blur-sm md:p-8">
+      <Card className="p-4 rounded-2xl bg-linear-to-b lg:bg-linear-to-br from-card/40 dark:via-card/10 via-transparent to-card/80 dark:lg:to-card/60 dark:to-card/40 backdrop-blur-sm md:p-8">
         <CardTitle className="pb-4">
           <MelodayzMusic />
         </CardTitle>

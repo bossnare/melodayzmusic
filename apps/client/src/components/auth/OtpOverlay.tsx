@@ -20,15 +20,15 @@ export function InputOTPPattern() {
   return (
     <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
       <InputOTPGroup>
-        <InputOTPSlot className="text-xl p-6" index={0} />
-        <InputOTPSlot className="text-xl p-6" index={1} />
-        <InputOTPSlot className="text-xl p-6" index={2} />
+        <InputOTPSlot className="p-6 text-xl" index={0} />
+        <InputOTPSlot className="p-6 text-xl" index={1} />
+        <InputOTPSlot className="p-6 text-xl" index={2} />
       </InputOTPGroup>
       <InputOTPSeparator />
       <InputOTPGroup>
-        <InputOTPSlot className="text-xl p-6" index={3} />
-        <InputOTPSlot className="text-xl p-6" index={4} />
-        <InputOTPSlot className="text-xl p-6" index={5} />
+        <InputOTPSlot className="p-6 text-xl" index={3} />
+        <InputOTPSlot className="p-6 text-xl" index={4} />
+        <InputOTPSlot className="p-6 text-xl" index={5} />
       </InputOTPGroup>
     </InputOTP>
   );
@@ -65,20 +65,20 @@ function OtpOverlay({
 
   return (
     <Dialog open={open}>
-      <DialogOverlay className="flex flex-col items-center px-4 py-3 bg-gradient-to-b from-background-layer to-background md:overflow-y-scroll md:h-auto lg:overflow-hidden">
-        <div className="flex justify-center md:justify-start w-full">
+      <DialogOverlay className="flex flex-col items-center px-4 py-3 bg-linear-to-b from-background-layer to-background md:overflow-y-scroll md:h-auto lg:overflow-hidden">
+        <div className="flex justify-center w-full md:justify-start">
           <MelodayzMusic />
         </div>
         <div className="flex flex-col items-center w-[90%] md:w-[40%] space-y-6">
-          <h2 className="pt-8 md:pt-4 text-xl font-bold">
+          <h2 className="pt-8 text-xl font-bold md:pt-4">
             Vérification du code
           </h2>
           <p className="text-center text-muted-foreground">
             Pour confirmer que cette adresse t&apos;appartient, nous
             t&apos;avons envoyé un code à 6 chiffres à ton adresse e-mail{' '}
-            <span className="text-foreground/90 md:text-sm tracking-wide">
+            <span className="tracking-wide text-foreground/90 md:text-sm">
               {email === '' ? (
-                <div className="w-full flex justify-center">
+                <div className="flex justify-center w-full">
                   <Spinner className="size-4 text-muted-foreground" />
                 </div>
               ) : (
@@ -94,7 +94,7 @@ function OtpOverlay({
             <Button
               onClick={handleIgnore}
               variant="ghost"
-              className="h-auto p-0 hover:text-inherit text-muted-foreground"
+              className="h-auto p-0 hover:text-inherit text-muted-foreground font-montserrat"
             >
               {isLoading ? (
                 <Spinner className="size-4" />
@@ -103,7 +103,7 @@ function OtpOverlay({
               )}
             </Button>{' '}
           </div>
-          <div className="flex flex-col items-center gap-2 text-sm md:flex-row md:gap-1">
+          <div className="flex flex-col items-center gap-2 text-sm font-montserrat md:flex-row md:gap-1">
             <span>Pas encore reçu ?</span>
             <Button
               disabled={email === ''}
