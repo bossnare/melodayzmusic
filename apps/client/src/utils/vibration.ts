@@ -1,4 +1,6 @@
-export function vibrate(type: 'low' | 'subtle' | 'soft' | 'medium' | 'strong') {
+type VibrationType =  'low' | 'subtle' | 'soft' | 'medium' | 'strong'
+
+export function vibrate(type: VibrationType) {
   if (!('vibrate' in navigator)) return;
 
   switch (type) {
@@ -22,8 +24,8 @@ export function vibrate(type: 'low' | 'subtle' | 'soft' | 'medium' | 'strong') {
   }
 }
 
-export const waitVibrate = (delay: number = 800) => {
+export const waitVibrate = (delay: number = 800, type: VibrationType = 'low') => {
   setTimeout(() => {
-    vibrate('soft')
+    vibrate(type)
   }, delay)
 }
