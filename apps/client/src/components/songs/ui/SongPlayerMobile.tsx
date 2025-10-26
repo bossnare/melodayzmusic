@@ -17,12 +17,12 @@ const SongPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] md:w-[70%] md:left-[15%] active:brightness-120 overflow-hidden cursor-pointer rounded-[6px] left-[2%] h-15 lg:hidden bottom-[65px] bg-gradient-to-br from-secondary/80 to-secondary/70 dark:from-[#2b2b2b]/80 dark:to-[#1a1a1a]/80 backdrop-blur-sm"
+        className="fixed w-[96%] md:w-[70%] md:left-[15%] active:brightness-120 overflow-hidden cursor-pointer rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] bg-gradient-to-br from-secondary/80 to-secondary/70 dark:from-[#2b2b2b]/80 dark:to-[#1a1a1a]/80 backdrop-blur-sm"
       >
         <section className="relative flex items-center gap-2 px-2 py-1 size-full font-montserrat">
           {/* grain */}
           <span
-            className="absolute rounded-[6px] invert dark:invert-0 inset-0 opacity-10 pointer-events-none 
+            className="absolute rounded-[6.5px] invert dark:invert-0 inset-0 opacity-10 pointer-events-none 
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
           ></span>
           <div className="p-[6px] border rounded-[5px] shadow-sm bg-gradient-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">

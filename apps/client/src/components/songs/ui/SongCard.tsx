@@ -22,7 +22,7 @@ const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer lg:hover:bg-muted/30 active:bg-accent/50">
+    <Card className="p-0 bg-transparent border-none font-montserrat rounded-none shadow-none cursor-pointer lg:hover:bg-muted/30 active:bg-accent/50">
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
@@ -60,7 +60,7 @@ const VibeCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-[90%] capitalize text-foreground truncate line-clamp-1 text-[14px] lg:text-sm font-montserrat">
+        <CardTitle className="w-[90%] capitalize text-foreground truncate line-clamp-1 text-[14px] lg:text-sm">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-auto max-w-[90%] gap-2 sm:gap-0 sm:flex-row sm:items-center">
@@ -85,7 +85,7 @@ const AlbumCard = ({ song }: SongProps) => {
   // const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer lg:hover:bg-muted/30 active:bg-accent/50">
+    <Card className="p-0 bg-transparent border-none rounded-none font-montserrat shadow-none cursor-pointer lg:hover:bg-muted/30 active:bg-accent/50">
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
@@ -124,7 +124,7 @@ const AlbumCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-[90%] text-sm capitalize truncate text-foreground line-clamp-1 sm:text-[14px] md:text-base lg:text-sm font-montserrat">
+        <CardTitle className="w-[90%] text-sm capitalize truncate text-foreground line-clamp-1 sm:text-[14px] md:text-base lg:text-sm">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-auto max-w-[90%] gap-2 sm:gap-0 sm:flex-row sm:items-center">
