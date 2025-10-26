@@ -107,7 +107,7 @@ export default function DashboardLayout({
                 <main
                   className={cn(
                     !isAtProfil && 'pt-10',
-                    'px-4 pb-120 sm:px-6 rounded bg-linear-to-b from-background to-muted/50 dark:from-background dark:to-background/50 mt-[1.5px]'
+                    'px-4 pb-120 sm:px-6 rounded-[6px] bg-linear-to-b from-background to-muted/50 dark:from-background dark:to-background/50 mt-[1.5px]'
                   )}
                 >
                   {children}
@@ -129,7 +129,7 @@ export default function DashboardLayout({
           }}
           className={cn(
             show ? 'pointer-events-auto' : 'pointer-events-none',
-            'fixed inset-0 z-50 bg-background-layer'
+            'fixed inset-0 z-50 bg-background-layer overflow-y-auto scrollbar-none'
           )}
         >
           <OverlayPlayer />
