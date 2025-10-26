@@ -128,7 +128,7 @@ export default function DashboardLayout({
             opacity: show ? 1 : 0,
           }}
           className={cn(
-            show ? 'pointer-events-auto h-auto' : 'pointer-events-none h-0',
+            show ? 'pointer-events-auto' : 'pointer-events-none',
             'fixed inset-0 z-50 bg-background-layer'
           )}
         >
