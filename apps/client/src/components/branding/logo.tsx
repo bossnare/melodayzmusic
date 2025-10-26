@@ -12,7 +12,7 @@ const MelodayzMusic = () => {
       />
       <span
         translate="no"
-        className="text-[20px] hover:text-foreground/90 text-foreground dark:text-primary-foreground md:text-xl font-black font-montserrat"
+        className="text-[20px] select-none hover:text-foreground/90 text-foreground dark:text-primary-foreground md:text-xl font-black font-montserrat"
       >
         MelodayzMusic
       </span>
