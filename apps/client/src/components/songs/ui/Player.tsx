@@ -9,11 +9,33 @@ import {
   UserListIcon,
 } from '@phosphor-icons/react';
 import Image from 'next/image';
+import ColorThief from 'colorthief';
+import { useEffect, useRef, useState } from 'react';
 
 const Player = () => {
   const { setFalse } = usePlayer();
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [dominantColor, setDominantColor] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!imgRef.current) return;
+
+    const img = imgRef.current;
+    img.onload = () => {
+      if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
+      const colorThief = new ColorThief();
+      const color = colorThief.getColor(img);
+      setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
+    };
+  }, [imgRef]);
+
   return (
-    <div className="px-2 size-full font-montserrat bg-linear-to-b from-transparent to-[#1a1a1a]/90 flex flex-col">
+    <div
+      style={{
+        backgroundColor: `${dominantColor}`,
+      }}
+      className="px-2 size-full font-montserrat bg-linear-to-b from-transparent to-black/90 flex flex-col"
+    >
       <div className="flex h-16 py-1">
         <MotionButton onClick={setFalse}>
           <ChevronDown className="size-8" />
@@ -22,7 +44,8 @@ const Player = () => {
       <div className="flex flex-col items-center gap-2 px-4 md:flex-row">
         <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-gradient-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
           <Image
-            src="/img/p6.jpg"
+            ref={imgRef}
+            src="/img/b2.jpg"
             alt="fallback_cover"
             className="object-cover"
             width={1000}

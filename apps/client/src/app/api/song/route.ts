@@ -10,7 +10,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p2.jpg',
+      coverUrl: '/img/b2.jpg',
     },
     audioUrl: '/audio/vasa_treasure_mp3_26698.mp3',
     defaultCover: 'null',
@@ -39,7 +39,7 @@ const mockSongs = [
     userOwner: {
       username: 'XxxTentacion',
       activateProfilePicture: {
-        pictureUrl: '/img/p3.jpg',
+        pictureUrl: '/img/b3.webp',
       },
       defaultPicture: 'null',
     },
@@ -53,7 +53,7 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p3.jpg',
+      coverUrl: '/img/b3.webp',
     },
     audioUrl: '/audio/bnxn_phenomena_official_video_mp3_37814.mp3',
     defaultCover: 'null',
@@ -74,7 +74,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p5.jpg',
+      coverUrl: '/img/b1.jpg',
     },
     audioUrl: '/audio/zombie_mp3_73210.mp3',
     defaultCover: '/img/p2.jpg',
