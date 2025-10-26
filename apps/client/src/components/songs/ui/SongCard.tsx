@@ -26,7 +26,7 @@ const VibeCard = ({ song }: SongProps) => {
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
-          className="relative overflow-hidden rounded"
+          className="relative overflow-hidden rounded-[6.5px]"
           // onClick={() => {
           //   // playTrack(song, navigate);
           // }}
@@ -60,7 +60,7 @@ const VibeCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-[90%] capitalize text-foreground truncate line-clamp-1 text-[14px] lg:text-sm">
+        <CardTitle className="w-[90%] capitalize text-foreground truncate line-clamp-1 text-[14px] lg:text-sm font-bold">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-auto max-w-[90%] gap-2 sm:gap-0 sm:flex-row sm:items-center">
@@ -89,7 +89,7 @@ const AlbumCard = ({ song }: SongProps) => {
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
-          className="relative overflow-hidden rounded"
+          className="relative overflow-hidden rounded-[6.5px]"
           // onClick={() => {
           //   // playTrack(song, navigate);..
 
@@ -124,7 +124,7 @@ const AlbumCard = ({ song }: SongProps) => {
       </CardContent>
 
       <CardFooter className="flex flex-col items-start gap-2 p-0">
-        <CardTitle className="w-[90%] text-sm capitalize truncate text-foreground line-clamp-1 sm:text-[14px] md:text-base lg:text-sm">
+        <CardTitle className="w-[90%] text-sm capitalize truncate text-foreground line-clamp-1 sm:text-[14px] md:text-base lg:text-sm font-bold">
           {song.title}
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-auto max-w-[90%] gap-2 sm:gap-0 sm:flex-row sm:items-center">
