@@ -1,34 +1,58 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { ChevronDown } from 'lucide-react';
 import { usePlayer } from '@/context/playerContext';
-import { PlayIcon, SkipForwardIcon, SkipBackIcon } from '@phosphor-icons/react';
+import {
+  PlayIcon,
+  SkipForwardIcon,
+  SkipBackIcon,
+  QueueIcon,
+  UserListIcon,
+} from '@phosphor-icons/react';
+import Image from 'next/image';
 
 const Player = () => {
   const { setFalse } = usePlayer();
   return (
-    <div className="px-3 size-full font-montserrat bg-linear-to-b from-foreground/70 to-[#1a1a1a]/80 flex flex-col">
+    <div className="px-2 size-full font-montserrat bg-linear-to-b from-transparent to-[#1a1a1a]/90 flex flex-col">
       <div className="flex h-16 py-1">
         <MotionButton onClick={setFalse}>
           <ChevronDown className="size-8" />
         </MotionButton>
       </div>
-      <div className="flex flex-col items-center gap-2 grow">
-        <div className="rounded-sm size-85 bg-gradient-to-tr from-muted/20 to-muted/80 border-muted-foreground/20"></div>
+      <div className="flex flex-col items-center gap-2 px-4 md:flex-row">
+        <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-gradient-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
+          <Image
+            src="/img/p6.jpg"
+            alt="fallback_cover"
+            className="object-cover"
+            width={1000}
+            height={1000}
+          />
+        </div>
         <div className="w-full">
           <h3 className="text-xl font-bold">Song Played</h3>
           <p className="font-semibold text-muted-foreground">Album/Playlist</p>
         </div>
       </div>
-      <div className="flex justify-center pb-16">
-        <div className="flex items-center gap-6 opacit">
-          <MotionButton className="active:opacity-50">
+      <div className="flex justify-center pb-16 md:pb-4 grow">
+        <div className="flex items-center gap-5">
+          <MotionButton
+            disabled={true}
+            className="active:opacity-80 active:bg-transparent!"
+          >
+            <UserListIcon weight={'bold'} className="size-9" />
+          </MotionButton>
+          <MotionButton className="active:opacity-80 active:bg-transparent!">
             <SkipBackIcon weight={'fill'} className="size-9" />
           </MotionButton>
-          <MotionButton className="p-4 bg-foreground/18">
-            <PlayIcon weight={'fill'} className="size-8" />
+          <MotionButton className="p-5 bg-white hover:bg-white/80! active:opacity-80">
+            <PlayIcon weight={'fill'} className="size-7 text-black/90" />
           </MotionButton>
-          <MotionButton className="active:opacity-50">
+          <MotionButton className="active:opacity-80 active:bg-transparent!">
             <SkipForwardIcon weight={'fill'} className="size-9" />
+          </MotionButton>
+          <MotionButton className="active:opacity-80 active:bg-transparent!">
+            <QueueIcon weight={'bold'} className="size-9" />
           </MotionButton>
         </div>
       </div>
