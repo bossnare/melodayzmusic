@@ -21,7 +21,7 @@ import { fetcher } from '@/utils/fetcher';
 import { Player as OverlayPlayer } from '@/components/songs/ui/Player';
 import { motion } from 'motion/react';
 import { usePlayer } from '@/context/playerContext';
-import {waitVibrate} from '@/utils/vibrate'
+import {waitVibrate} from '@/utils/vibration'
 
 export default function DashboardLayout({
   children,
@@ -152,4 +152,5 @@ export default function DashboardLayout({
     </AuthGuard>
   );
 }
+
 
