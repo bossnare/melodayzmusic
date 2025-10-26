@@ -34,7 +34,7 @@ const Player = () => {
       style={{
         backgroundColor: `${dominantColor}`,
       }}
-      className="px-2 size-full font-montserrat bg-linear-to-b from-transparent to-black/90 flex flex-col"
+      className="px-2 size-full font-montserrat bg-linear-to-b from-transparent to-black/70 flex flex-col"
     >
       <div className="flex h-16 py-1">
         <MotionButton onClick={setFalse}>
