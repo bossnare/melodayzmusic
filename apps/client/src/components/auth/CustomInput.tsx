@@ -81,7 +81,7 @@ const UsernameInput = ({
             mass: 0.5, // overshoot
             damping: 20,
           }}
-          className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-0.5 rounded-full text-white dark:text-foreground bg-chart-4"
+          className="absolute -translate-y-1/2 right-2 lg:right-3 top-1/2 p-0.5 rounded-full text-[#E7E9EA] dark:text-foreground bg-chart-4"
         >
           <Check className="size-[18px] stroke-3" />
         </motion.div>
