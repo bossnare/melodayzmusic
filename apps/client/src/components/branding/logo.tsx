@@ -14,7 +14,7 @@ const MelodayzMusic = () => {
         translate="no"
         className="text-[20px] select-none hover:text-foreground/90 text-foreground dark:text-primary-foreground md:text-xl font-black font-montserrat"
       >
-        MelodayzMusic
+        Melodayz<span className="text-foreground font-bold">Music</span>
       </span>
     </div>
   );
