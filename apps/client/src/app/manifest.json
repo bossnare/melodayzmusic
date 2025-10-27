@@ -1,7 +1,7 @@
 {
-  "name": "MelodayzMusic",
+  "name": "Melodayz",
   "short-name": "Melodayz",
-  "description": "MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users",
+  "description": "Melodayz is a web application designed to provide an engaging and seamless music experience for users",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
