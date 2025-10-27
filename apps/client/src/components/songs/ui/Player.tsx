@@ -147,11 +147,10 @@ export function Content() {
 }
 
 const Player = () => {
-  const { setFalse } = usePlayer();
+  const { setFalse, togglePlaying, isPlaying } = usePlayer();
   const imgRef = useRef<HTMLImageElement>(null);
   const [dominantColor, setDominantColor] = useState<string | null>(null);
   const { value: isFavorite, toggle } = useToggle();
-  const { value: isPlaying, toggle: togglePlay } = useToggle();
 
   useEffect(() => {
     if (!imgRef.current) return;
@@ -179,7 +178,7 @@ const Player = () => {
           </MotionButton>
 
           <DrawerTrigger asChild>
-            <MotionButton className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/50! active:bg-accent/50!">
+            <MotionButton className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/30! active:bg-accent/30!">
               <DotsThreeVerticalIcon weight={'bold'} className="size-8" />
             </MotionButton>
           </DrawerTrigger>
@@ -217,15 +216,15 @@ const Player = () => {
           <div className="flex items-center gap-5">
             <MotionButton
               disabled={true}
-              className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!"
+              className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!"
             >
               <UserListIcon weight={'bold'} className="size-9" />
             </MotionButton>
-            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
+            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!">
               <SkipBackIcon weight={'fill'} className="size-9" />
             </MotionButton>
             <MotionButton
-              onClick={togglePlay}
+              onClick={togglePlaying}
               className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
             >
               {isPlaying ? (
@@ -234,10 +233,10 @@ const Player = () => {
                 <PlayIcon weight={'fill'} className="size-7 text-black/90" />
               )}
             </MotionButton>
-            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
+            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!">
               <SkipForwardIcon weight={'fill'} className="size-9" />
             </MotionButton>
-            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
+            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!">
               <QueueIcon weight={'bold'} className="size-9" />
             </MotionButton>
           </div>
