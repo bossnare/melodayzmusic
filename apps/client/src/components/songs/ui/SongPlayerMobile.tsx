@@ -25,6 +25,8 @@ const SongPlayerMobile = () => {
             className="absolute rounded-[6.5px] invert dark:invert-0 inset-0 opacity-10 pointer-events-none 
         mix-blend-overlay [background-image:url('https://grainy-gradients.vercel.app/noise.svg')]"
           ></span>
+          {/* progress */}
+          <div className="absolute bottom-0 left-[3%] w-[94%] rounded-md h-[3px] bg-foreground/60"></div>
           <div className="p-1.5 border rounded-[5px] shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
             <Music className="size-8 text-muted-foreground/80" />
           </div>
