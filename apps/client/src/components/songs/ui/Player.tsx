@@ -1,3 +1,5 @@
+'use client';
+
 import { MotionButton } from '@/components/motions/motionButton';
 import { usePlayer } from '@/context/playerContext';
 import { useToggle } from '@/hooks/use-toggle';
@@ -15,6 +17,134 @@ import ColorThief from 'colorthief';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+
+import * as React from 'react';
+import { Minus, Plus } from 'lucide-react';
+import { Bar, BarChart, ResponsiveContainer } from 'recharts';
+
+import { Button } from '@/components/ui/button';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer';
+
+const data = [
+  {
+    goal: 400,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 278,
+  },
+  {
+    goal: 189,
+  },
+  {
+    goal: 239,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 278,
+  },
+  {
+    goal: 189,
+  },
+  {
+    goal: 349,
+  },
+];
+
+export function Content() {
+  const [goal, setGoal] = React.useState(350);
+
+  function onClick(adjustment: number) {
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)));
+  }
+
+  return (
+    <DrawerContent>
+      <div className="mx-auto w-full max-w-sm">
+        <DrawerHeader>
+          <DrawerTitle>Move Goal</DrawerTitle>
+          <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+        </DrawerHeader>
+        <div className="p-4 pb-0">
+          <div className="flex items-center justify-center space-x-2">
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8 shrink-0 rounded-full"
+              onClick={() => onClick(-10)}
+              disabled={goal <= 200}
+            >
+              <Minus />
+              <span className="sr-only">Decrease</span>
+            </Button>
+            <div className="flex-1 text-center">
+              <div className="text-7xl font-bold tracking-tighter">{goal}</div>
+              <div className="text-muted-foreground text-[0.70rem] uppercase">
+                Calories/day
+              </div>
+            </div>
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8 shrink-0 rounded-full"
+              onClick={() => onClick(10)}
+              disabled={goal >= 400}
+            >
+              <Plus />
+              <span className="sr-only">Increase</span>
+            </Button>
+          </div>
+          <div className="mt-3 h-[120px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={data}>
+                <Bar
+                  dataKey="goal"
+                  style={
+                    {
+                      fill: 'hsl(var(--foreground))',
+                      opacity: 0.9,
+                    } as React.CSSProperties
+                  }
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <DrawerFooter>
+          <Button>Submit</Button>
+          <DrawerClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </div>
+    </DrawerContent>
+  );
+}
 
 const Player = () => {
   const { setFalse } = usePlayer();
@@ -42,72 +172,80 @@ const Player = () => {
       }}
       className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-90% flex flex-col"
     >
-      <div className="flex h-16 py-1 justify-between">
-        <MotionButton onClick={setFalse}>
-          <ChevronDown className="size-8" />
-        </MotionButton>
-        <MotionButton className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/50! active:bg-accent/50!">
-          <DotsThreeVerticalIcon weight={'bold'} className="size-8" />
-        </MotionButton>
-      </div>
-      <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
-        <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
-          <Image
-            ref={imgRef}
-            src="/img/b2.jpg"
-            alt="fallback_cover"
-            className="object-cover"
-            width={1000}
-            height={1000}
-          />
+      <Drawer>
+        <div className="flex h-16 py-1 justify-between">
+          <MotionButton onClick={setFalse}>
+            <ChevronDown className="size-8" />
+          </MotionButton>
+
+          <DrawerTrigger asChild>
+            <MotionButton className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/50! active:bg-accent/50!">
+              <DotsThreeVerticalIcon weight={'bold'} className="size-8" />
+            </MotionButton>
+          </DrawerTrigger>
         </div>
-        <div className="w-full flex">
-          <div className="grow">
-            <h3 className="text-xl font-bold">Song Played</h3>
-            <p className="font-semibold text-foreground/80">Album/Playlist</p>
+        <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
+          <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
+            <Image
+              ref={imgRef}
+              src="/img/b1.jpg"
+              alt="fallback_cover"
+              className="object-cover"
+              width={1000}
+              height={1000}
+            />
           </div>
-          <div>
+          <div className="w-full flex">
+            <div className="grow">
+              <h3 className="text-xl font-bold">Song Played</h3>
+              <p className="font-semibold text-foreground/80">Album/Playlist</p>
+            </div>
+            <div>
+              <MotionButton
+                onClick={toggle}
+                className="p-0 mt-auto active:opacity-80 hover:bg-transparent! lg:hover:opacity-80"
+              >
+                <HeartIcon
+                  className="size-12"
+                  weight={isFavorite ? 'fill' : 'regular'}
+                />
+              </MotionButton>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center pb-16 md:pb-4 grow">
+          <div className="flex items-center gap-5">
             <MotionButton
-              onClick={toggle}
-              className="p-0 mt-auto active:opacity-80 hover:bg-transparent! lg:hover:opacity-80"
+              disabled={true}
+              className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!"
             >
-              <HeartIcon
-                className="size-12"
-                weight={isFavorite ? 'fill' : 'regular'}
-              />
+              <UserListIcon weight={'bold'} className="size-9" />
+            </MotionButton>
+            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
+              <SkipBackIcon weight={'fill'} className="size-9" />
+            </MotionButton>
+            <MotionButton
+              onClick={togglePlay}
+              className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
+            >
+              {isPlaying ? (
+                <PauseIcon weight={'fill'} className="size-7 text-black/90" />
+              ) : (
+                <PlayIcon weight={'fill'} className="size-7 text-black/90" />
+              )}
+            </MotionButton>
+            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
+              <SkipForwardIcon weight={'fill'} className="size-9" />
+            </MotionButton>
+            <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
+              <QueueIcon weight={'bold'} className="size-9" />
             </MotionButton>
           </div>
         </div>
-      </div>
-      <div className="flex justify-center pb-16 md:pb-4 grow">
-        <div className="flex items-center gap-5">
-          <MotionButton
-            disabled={true}
-            className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!"
-          >
-            <UserListIcon weight={'bold'} className="size-9" />
-          </MotionButton>
-          <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
-            <SkipBackIcon weight={'fill'} className="size-9" />
-          </MotionButton>
-          <MotionButton
-            onClick={togglePlay}
-            className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
-          >
-            {isPlaying ? (
-              <PauseIcon weight={'fill'} className="size-7 text-black/90" />
-            ) : (
-              <PlayIcon weight={'fill'} className="size-7 text-black/90" />
-            )}
-          </MotionButton>
-          <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
-            <SkipForwardIcon weight={'fill'} className="size-9" />
-          </MotionButton>
-          <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
-            <QueueIcon weight={'bold'} className="size-9" />
-          </MotionButton>
-        </div>
-      </div>
+
+        {/* drawerContent */}
+        <Content />
+      </Drawer>
     </div>
   );
 };

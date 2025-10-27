@@ -571,7 +571,7 @@ const StepFourCard = ({
                     <RadioGroup1
                       onChange={field.onChange}
                       value={field.value}
-                      className="flex"
+                      className="flex py-6"
                       isPending={isPending}
                     />
                   </FormControl>
