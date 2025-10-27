@@ -76,7 +76,7 @@ const data = [
   },
 ];
 
-export function Content() {
+export function Content({className}: {className?: string}) {
   const [goal, setGoal] = React.useState(350);
 
   function onClick(adjustment: number) {
@@ -84,7 +84,7 @@ export function Content() {
   }
 
   return (
-    <DrawerContent>
+    <DrawerContent className={className}>
       <div className="mx-auto w-full max-w-sm">
         <DrawerHeader>
           <DrawerTitle>Move Goal</DrawerTitle>
@@ -197,7 +197,7 @@ const Player = () => {
           <div className="w-full flex">
             <div className="grow">
               <h3 className="text-xl font-bold">Song Played</h3>
-              <p className="font-semibold text-foreground/80">Album/Playlist</p>
+              <p className="text-foreground/80">Album/Playlist</p>
             </div>
             <div>
               <MotionButton
