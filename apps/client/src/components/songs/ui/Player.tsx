@@ -8,15 +8,18 @@ import {
   QueueIcon,
   UserListIcon,
   DotsThreeVerticalIcon,
+  HeartIcon,
 } from '@phosphor-icons/react';
 import Image from 'next/image';
 import ColorThief from 'colorthief';
 import { useEffect, useRef, useState } from 'react';
+import { useToggle } from '@/hooks/use-toggle';
 
 const Player = () => {
   const { setFalse } = usePlayer();
   const imgRef = useRef<HTMLImageElement>(null);
   const [dominantColor, setDominantColor] = useState<string | null>(null);
+  const { value: isFavorite, toggle } = useToggle();
 
   useEffect(() => {
     if (!imgRef.current) return;
@@ -45,7 +48,7 @@ const Player = () => {
           <DotsThreeVerticalIcon className="size-8" />
         </MotionButton>
       </div>
-      <div className="flex flex-col items-center gap-2 px-4 md:flex-row">
+      <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
         <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
           <Image
             ref={imgRef}
@@ -56,29 +59,41 @@ const Player = () => {
             height={1000}
           />
         </div>
-        <div className="w-full">
-          <h3 className="text-xl font-bold">Song Played</h3>
-          <p className="font-semibold text-muted-foreground">Album/Playlist</p>
+        <div className="w-full flex">
+          <div className="grow">
+            <h3 className="text-xl font-bold">Song Played</h3>
+            <p className="font-semibold text-muted-foreground">
+              Album/Playlist
+            </p>
+          </div>
+          <div>
+            <MotionButton onClick={toggle} className="[all:unset] mt-auto">
+              <HeartIcon
+                className="size-12"
+                weight={isFavorite ? 'fill' : 'regular'}
+              />
+            </MotionButton>
+          </div>
         </div>
       </div>
       <div className="flex justify-center pb-16 md:pb-4 grow">
         <div className="flex items-center gap-5">
           <MotionButton
             disabled={true}
-            className="active:opacity-80 active:bg-transparent!"
+            className="[all:unset] p-2! lg:hover:opacity-80 active:opacity-80"
           >
             <UserListIcon weight={'bold'} className="size-9" />
           </MotionButton>
-          <MotionButton className="active:opacity-80 active:bg-transparent!">
+          <MotionButton className="[all:unset] p-2! lg:hover:opacity-80 active:opacity-80">
             <SkipBackIcon weight={'fill'} className="size-9" />
           </MotionButton>
-          <MotionButton className="p-5 bg-white hover:bg-white/80! active:opacity-80">
+          <MotionButton className="[all:unset] p-5! rounded-full! bg-white! lg:hover:bg-white/80 active:opacity-80">
             <PlayIcon weight={'fill'} className="size-7 text-black/90" />
           </MotionButton>
-          <MotionButton className="active:opacity-80 active:bg-transparent!">
+          <MotionButton className="[all:unset] p-2! lg:hover:opacity-80 active:opacity-80">
             <SkipForwardIcon weight={'fill'} className="size-9" />
           </MotionButton>
-          <MotionButton className="active:opacity-80 active:bg-transparent!">
+          <MotionButton className="[all:unset] p-2! lg:hover:opacity-80 active:opacity-80">
             <QueueIcon weight={'bold'} className="size-9" />
           </MotionButton>
         </div>
