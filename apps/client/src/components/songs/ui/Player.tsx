@@ -7,6 +7,7 @@ import {
   SkipBackIcon,
   QueueIcon,
   UserListIcon,
+  DotsThreeVerticalIcon,
 } from '@phosphor-icons/react';
 import Image from 'next/image';
 import ColorThief from 'colorthief';
@@ -34,18 +35,21 @@ const Player = () => {
       style={{
         backgroundColor: `${dominantColor}`,
       }}
-      className="px-2 size-full font-montserrat bg-linear-to-b from-transparent to-black/90 flex flex-col"
+      className="px-2 size-full font-montserrat bg-linear-to-b from-transparent to-black/90 to-90% flex flex-col"
     >
-      <div className="flex h-16 py-1">
+      <div className="flex h-16 py-1 justify-between">
         <MotionButton onClick={setFalse}>
           <ChevronDown className="size-8" />
         </MotionButton>
+        <MotionButton>
+          <DotsThreeVerticalIcon className="size-8" />
+        </MotionButton>
       </div>
       <div className="flex flex-col items-center gap-2 px-4 md:flex-row">
-        <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-gradient-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
+        <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
           <Image
             ref={imgRef}
-            src="/img/b1.jpg"
+            src="/img/b2.jpg"
             alt="fallback_cover"
             className="object-cover"
             width={1000}
