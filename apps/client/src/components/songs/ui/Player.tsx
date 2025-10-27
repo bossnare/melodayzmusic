@@ -1,19 +1,19 @@
 import { MotionButton } from '@/components/motions/motionButton';
-import { ChevronDown } from 'lucide-react';
 import { usePlayer } from '@/context/playerContext';
+import { useToggle } from '@/hooks/use-toggle';
 import {
-  PlayIcon,
-  SkipForwardIcon,
-  SkipBackIcon,
-  QueueIcon,
-  UserListIcon,
   DotsThreeVerticalIcon,
   HeartIcon,
+  PlayIcon,
+  QueueIcon,
+  SkipBackIcon,
+  SkipForwardIcon,
+  UserListIcon,
 } from '@phosphor-icons/react';
-import Image from 'next/image';
 import ColorThief from 'colorthief';
+import { ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { useToggle } from '@/hooks/use-toggle';
 
 const Player = () => {
   const { setFalse } = usePlayer();
@@ -38,7 +38,7 @@ const Player = () => {
       style={{
         backgroundColor: `${dominantColor}`,
       }}
-      className="px-2 size-full font-montserrat text-white bg-linear-to-b from-transparent to-black/90 to-90% flex flex-col"
+      className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-90% flex flex-col"
     >
       <div className="flex h-16 py-1 justify-between">
         <MotionButton onClick={setFalse}>
@@ -90,7 +90,7 @@ const Player = () => {
           <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
             <SkipBackIcon weight={'fill'} className="size-9" />
           </MotionButton>
-          <MotionButton className="p-5 bg-white hover:bg-white/80! active:opacity-80">
+          <MotionButton className="p-5 bg-white hover:bg-[#E7E9EA]/80! active:opacity-80">
             <PlayIcon weight={'fill'} className="size-7 text-black/90" />
           </MotionButton>
           <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
