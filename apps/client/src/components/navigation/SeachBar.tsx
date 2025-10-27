@@ -58,7 +58,7 @@ const SearchBar = ({
       )}
       <div
         className={cn(
-          openSearch && 'bg-muted/50',
+          openSearch && 'bg-muted',
           isNull && 'px-2',
           'grow flex items-center transition-all lg:h-12 overflow-hidden duration-70 ease-in-out will-change-auto lg:has-[input:focus]:ring has-[input:focus]:ring-input lg:rounded-md rounded-full lg:p-1 lg:bg-input/50 has-[input:focus]:bg-muted lg:has-[input:focus]:bg-input/20 lg:has-[input:focus]:shadow-sm'
         )}
@@ -98,7 +98,7 @@ const SearchBar = ({
         >
           <MotionButton
             onClick={handleClickX}
-            className="text-muted-foreground"
+            className="text-muted-foreground bg-transparent! hover:bg-accent/20 active:bg-accent/30 p-1.5 rounded-full lg:p-2 lg:rounded-md"
           >
             <X className="size-auto" />
           </MotionButton>

@@ -1,26 +1,27 @@
 'use client';
 
+import { useToggle } from '@/hooks/use-toggle';
 import {
   createContext,
   useContext,
-  useState,
+  // useState,
   ReactNode,
-  useCallback,
+  // useCallback,
 } from 'react';
 
 type PlayerContextType = {
   setTrue: () => void;
   setFalse: () => void;
   show: boolean;
+  isPlaying: boolean;
+  togglePlaying: () => void;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
 
 export function PlayerProvider({ children }: { children: ReactNode }) {
-  const [show, setShow] = useState(false);
-
-  const setTrue = useCallback(() => setShow(true), []);
-  const setFalse = useCallback(() => setShow(false), []);
+  const { value: show, setTrue, setFalse } = useToggle();
+  const { value: isPlaying, toggle: togglePlaying } = useToggle();
 
   return (
     <PlayerContext
@@ -28,6 +29,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         setTrue,
         setFalse,
         show,
+        isPlaying,
+        togglePlaying,
       }}
     >
       {children}
