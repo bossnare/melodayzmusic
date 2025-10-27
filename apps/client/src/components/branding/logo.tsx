@@ -37,9 +37,10 @@ const Logo = ({ onClick }: { onClick?: () => void }) => {
         />
         <h2
           translate="no"
-          className="text-xl flex font-black tracking-wide transition-all duration-100 ease-in-out select-none will-change-auto font-montserrat"
+          className="text-xl flex gap-1 font-black tracking-wide transition-all duration-100 ease-in-out select-none will-change-auto font-montserrat"
         >
-          MELODAYZ <span className="text-foreground text-italic">Music</span>
+          MELODAYZ{' '}
+          <span className="text-foreground font-bold italic">Music</span>
         </h2>
       </figure>
     </div>
