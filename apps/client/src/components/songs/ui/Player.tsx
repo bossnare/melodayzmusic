@@ -64,9 +64,7 @@ const Player = () => {
         <div className="w-full flex">
           <div className="grow">
             <h3 className="text-xl font-bold">Song Played</h3>
-            <p className="font-semibold text-muted-foreground">
-              Album/Playlist
-            </p>
+            <p className="font-semibold text-foreground/80">Album/Playlist</p>
           </div>
           <div>
             <MotionButton
