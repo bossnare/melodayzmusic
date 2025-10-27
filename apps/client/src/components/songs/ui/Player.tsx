@@ -90,7 +90,7 @@ const Player = () => {
           <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
             <SkipBackIcon weight={'fill'} className="size-9" />
           </MotionButton>
-          <MotionButton className="p-5 bg-white active:bg-[#E7E9EA]/80! lg:hover:bg-[#E7E9EA]/80! active:opacity-80">
+          <MotionButton className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80">
             <PlayIcon weight={'fill'} className="size-7 text-black/90" />
           </MotionButton>
           <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
