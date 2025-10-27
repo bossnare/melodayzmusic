@@ -79,10 +79,10 @@ const SearchBar = ({
           name="querySearch"
           placeholder="Rechercher une vibe, un album ou une artiste..."
           className={cn(
-            !openSearch && '!hidden',
+            !openSearch && 'hidden!',
             'w-full',
             !isNull && 'ml-1',
-            'caret-primary lg:ml-0 px-1 rounded-full lg:rounded-md !bg-transparent shadow-none placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0'
+            'caret-primary lg:ml-0 px-1 rounded-full lg:rounded-md bg-transparent! shadow-none placeholder:text-sm border-0 outline-0 lg:!block focus-visible:ring-0'
           )}
         />
         <div
@@ -108,7 +108,7 @@ const SearchBar = ({
           {/* search only */}
           <MotionButton
             disabled={isNull}
-            className={`p-[6px] text-foreground/70 dark:text-foreground ${
+            className={`p-1.5 text-foreground/70 dark:text-foreground ${
               isNull ? 'hidden' : 'block'
             } bg-sidebar ${!openSearch && 'hidden'} lg:${
               isNull ? 'hidden' : 'block'
@@ -120,7 +120,7 @@ const SearchBar = ({
           {!openSearch && (
             <MotionButton
               onClick={handleOpenSearch}
-              className={`p-[6px] text-foreground/70 dark:text-foreground bg-muted! lg:hidden
+              className={`p-1.5 text-foreground/70 dark:text-foreground bg-muted! lg:hidden
             } bg-sidebar lg:bg-transparent lg:p-2`}
             >
               <MagnifyingGlassIcon weight={'bold'} className="size-6" />
