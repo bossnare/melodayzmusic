@@ -5,6 +5,7 @@ import {
   DotsThreeVerticalIcon,
   HeartIcon,
   PlayIcon,
+  PauseIcon,
   QueueIcon,
   SkipBackIcon,
   SkipForwardIcon,
@@ -20,6 +21,7 @@ const Player = () => {
   const imgRef = useRef<HTMLImageElement>(null);
   const [dominantColor, setDominantColor] = useState<string | null>(null);
   const { value: isFavorite, toggle } = useToggle();
+  const { value: isPlaying, toggle: togglePlay } = useToggle();
 
   useEffect(() => {
     if (!imgRef.current) return;
@@ -28,7 +30,7 @@ const Player = () => {
     img.onload = () => {
       if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
       const colorThief = new ColorThief();
-      const color = colorThief.getPalette(img, 3)[1]; // get second dominant color
+      const color = colorThief.getPalette(img, 2)[0];
       setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
     };
   }, [imgRef]);
@@ -90,8 +92,15 @@ const Player = () => {
           <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
             <SkipBackIcon weight={'fill'} className="size-9" />
           </MotionButton>
-          <MotionButton className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80">
-            <PlayIcon weight={'fill'} className="size-7 text-black/90" />
+          <MotionButton
+            onClick={togglePlay}
+            className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
+          >
+            {isPlaying ? (
+              <PauseIcon weight={'fill'} className="size-7 text-black/90" />
+            ) : (
+              <PlayIcon weight={'fill'} className="size-7 text-black/90" />
+            )}
           </MotionButton>
           <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
             <SkipForwardIcon weight={'fill'} className="size-9" />
