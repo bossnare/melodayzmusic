@@ -4,7 +4,8 @@ import { MotionButton } from '../motions/motionButton';
 import { navLabels } from './labels/navigation.link';
 import { Tabs } from './Tab';
 import {
-  DrawerTrigger
+  DrawerTrigger,
+  Drawer
 } from '@/components/ui/drawer';
 import {
   Content
