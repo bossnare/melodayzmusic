@@ -17,7 +17,7 @@ const mockSongs = [
     userOwner: {
       username: 'Yblack J.',
       activateProfilePicture: {
-        pictureUrl: '/img/p3.jpg',
+        pictureUrl: '/img/b5.webp',
       },
       defaultPicture: 'null',
     },
@@ -31,7 +31,7 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/Aurora-Cover.jpg',
+      coverUrl: '/img/b6.webp',
     },
     audioUrl:
       '/audio/xxxtentacion_lil_pump_arms_around_you_lyrics_ft._maluma_swae_lee_mp3_52702.mp3',
@@ -62,7 +62,7 @@ const mockSongs = [
       activateProfilePicture: {
         pictureUrl: '/img/p6.jpg',
       },
-      defaultPicture: '/img/p2.jpeg',
+      defaultPicture: '/img/b4.jpg',
     },
   },
   {
@@ -77,13 +77,13 @@ const mockSongs = [
       coverUrl: '/img/b1.jpg',
     },
     audioUrl: '/audio/zombie_mp3_73210.mp3',
-    defaultCover: '/img/p2.jpg',
+    defaultCover: '/img/b4.jpg',
     userOwner: {
       username: 'Travis Scott',
       activateProfilePicture: {
-        pictureUrl: '/img/p3.jpg',
+        pictureUrl: '/img/b5.webp',
       },
-      defaultPicture: '/img/p2.jpg',
+      defaultPicture: '/img/b4.jpg',
     },
   },
   {
@@ -95,7 +95,7 @@ const mockSongs = [
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p4.webp',
+      coverUrl: '/img/b4.jpg',
     },
     audioUrl:
       '/audio/powfu_death_bed_feat._beabadoobee_prod._otterpop_lyrics_lyric_video_mp3_40760.mp3',
@@ -103,7 +103,7 @@ const mockSongs = [
     userOwner: {
       username: 'Yblack J.',
       activateProfilePicture: {
-        pictureUrl: '/img/p2.jpg',
+        pictureUrl: '/img/b4.jpg',
       },
       defaultPicture: 'null',
     },
@@ -124,7 +124,7 @@ const mockSongs = [
     userOwner: {
       username: 'Yblack J.',
       activateProfilePicture: {
-        pictureUrl: '/img/p2.jpg',
+        pictureUrl: '/img/b4.jpg',
       },
       defaultPicture: 'null',
     },
