@@ -28,7 +28,7 @@ const Player = () => {
     img.onload = () => {
       if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
       const colorThief = new ColorThief();
-      const color = colorThief.getPalette(img, 2)[1]; // get second dominant color
+      const color = colorThief.getPalette(img, 3)[2]; // get second dominant color
       setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
     };
   }, [imgRef]);
