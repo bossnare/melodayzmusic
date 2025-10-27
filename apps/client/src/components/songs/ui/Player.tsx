@@ -52,7 +52,7 @@ const Player = () => {
         <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
           <Image
             ref={imgRef}
-            src="/img/b5.webp"
+            src="/img/b2.jpg"
             alt="fallback_cover"
             className="object-cover"
             width={1000}
@@ -90,7 +90,7 @@ const Player = () => {
           <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
             <SkipBackIcon weight={'fill'} className="size-9" />
           </MotionButton>
-          <MotionButton className="p-5 bg-white active:bg-[#E7E9EA]/80! lg:hover:bg-[#E7E9EA]/80! active:opacity-80">
+          <MotionButton className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80">
             <PlayIcon weight={'fill'} className="size-7 text-black/90" />
           </MotionButton>
           <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/50!">
