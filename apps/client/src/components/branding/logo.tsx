@@ -14,7 +14,7 @@ const MelodayzMusic = () => {
         translate="no"
         className="text-[20px] select-none hover:text-foreground/90 text-foreground dark:text-primary-foreground md:text-xl font-black font-montserrat"
       >
-        Melodayz<span className="text-foreground font-bold">Music</span>
+        MelodayzMusic
       </span>
     </div>
   );
@@ -37,7 +37,7 @@ const Logo = ({ onClick }: { onClick?: () => void }) => {
         />
         <h2
           translate="no"
-          className="text-xl flex gap-1 font-black tracking-wide transition-all duration-100 ease-in-out select-none will-change-auto font-montserrat"
+          className="text-xl flex gap-1 font-black transition-all duration-100 ease-in-out select-none will-change-auto font-montserrat"
         >
           MELODAYZ <span className="text-foreground font-bold">Music</span>
         </h2>
