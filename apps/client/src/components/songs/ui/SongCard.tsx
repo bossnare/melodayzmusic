@@ -65,7 +65,7 @@ const VibeCard = ({ song }: SongProps) => {
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-auto max-w-[90%] gap-2 sm:gap-0 sm:flex-row sm:items-center">
           <span
-            className="font-medium capitalize
+            className="font-semibold capitalize
           truncate transition-colors duration-100 ease-in cursor-pointer select-none hover:text-foreground text-xs lg:text-xs line-clamp-1"
           >
             {song.artist}
@@ -129,7 +129,7 @@ const AlbumCard = ({ song }: SongProps) => {
         </CardTitle>
         <CardDescription className="flex flex-col justify-between w-auto max-w-[90%] gap-2 sm:gap-0 sm:flex-row sm:items-center">
           <span
-            className="font-medium capitalize 
+            className="font-semibold capitalize 
           truncate transition-colors duration-100 ease-in cursor-pointer select-none hover:text-foreground text-xs lg:text-xs line-clamp-1"
           >
             {song.artist}
