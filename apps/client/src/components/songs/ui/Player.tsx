@@ -28,7 +28,7 @@ const Player = () => {
     img.onload = () => {
       if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
       const colorThief = new ColorThief();
-      const color = colorThief.getPalette(img, 3)[2]; // get second dominant color
+      const color = colorThief.getPalette(img, 3)[1]; // get second dominant color
       setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
     };
   }, [imgRef]);
@@ -52,7 +52,7 @@ const Player = () => {
         <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
           <Image
             ref={imgRef}
-            src="/img/b6.webp"
+            src="/img/b5.webp"
             alt="fallback_cover"
             className="object-cover"
             width={1000}
