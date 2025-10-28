@@ -176,6 +176,7 @@ const Player = () => {
     dominantColor,
     setDominantColor,
     currentSong,
+    setSecondaryColor,
   } = usePlayer();
   const { value: isFavorite, toggle } = useToggle();
   const imgRef = useRef<HTMLImageElement | null>(null);
@@ -190,8 +191,11 @@ const Player = () => {
       const colorThief = new ColorThief();
       const color = colorThief.getPalette(img, 2)[0];
       setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
+      setSecondaryColor(
+        `rgb(${color[0] + 30}, ${color[1] + 30}, ${color[2] + 30})`
+      );
     };
-  }, [imgRef, setDominantColor]);
+  }, [imgRef, setDominantColor, setSecondaryColor]);
 
   return (
     <div

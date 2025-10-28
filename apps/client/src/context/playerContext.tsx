@@ -1,16 +1,8 @@
 'use client';
 
 import { useToggle } from '@/hooks/use-toggle';
-import {
-  createContext,
-  useEffect,
-  useRef,
-  useContext,
-  useState,
-  ReactNode,
-} from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import type { SongInterface } from '@/types/songs/song.interface';
-import ColorThief from 'colorthief';
 
 type PlayerContextType = {
   setTrue: () => void;
@@ -22,6 +14,8 @@ type PlayerContextType = {
   setCurrentSong: (song: SongInterface | null) => void;
   dominantColor: string | null;
   setDominantColor: (color: string | null) => void;
+  secondaryColor: string | null;
+  setSecondaryColor: (color: string | null) => void;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
@@ -31,6 +25,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const { value: isPlaying, toggle: togglePlaying } = useToggle();
   const [currentSong, setCurrentSong] = useState<SongInterface | null>(null);
   const [dominantColor, setDominantColor] = useState<string | null>(null);
+  const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
 
   return (
     <PlayerContext
@@ -44,6 +39,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         setCurrentSong,
         dominantColor,
         setDominantColor,
+        secondaryColor,
+        setSecondaryColor,
       }}
     >
       {children}

@@ -21,12 +21,13 @@ import { usePlayer } from '@/context/playerContext';
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const { setCurrentSong } = usePlayer();
+  const { setCurrentSong, setTrue } = usePlayer();
 
   return (
     <Card
       onClick={() => {
-        if (song) setCurrentSong(song);
+        setCurrentSong(song);
+        setTrue();
       }}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
     >
@@ -86,10 +87,16 @@ const VibeCard = ({ song }: SongProps) => {
 // Album Card
 const AlbumCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
-  // const [isFavorite, setIsFavorite] = useState(false);
+  const { setCurrentSong, setTrue } = usePlayer();
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50">
+    <Card
+      onClick={() => {
+        setCurrentSong(song);
+        setTrue();
+      }}
+      className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
+    >
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
