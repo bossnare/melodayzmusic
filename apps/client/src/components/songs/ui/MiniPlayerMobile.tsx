@@ -22,7 +22,7 @@ const MiniPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] md:w-[70%] md:left-[15%] active:brightness-120 overflow-hidden cursor-pointer rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] font-montserrat"
+        className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden cursor-pointer rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] font-montserrat"
       >
         {!currentSong ? (
           <section className="relative flex items-center gap-2 px-2 py-1 size-full bg-linear-to-br from-secondary-foreground/80 to-secondary-foreground/70 dark:from-[#2b2b2b]/80 dark:to-[#1a1a1a]/80 backdrop-blur-sm">
@@ -58,7 +58,7 @@ const MiniPlayerMobile = () => {
         ) : (
           <section
             style={{ backgroundColor: `${dominantColor}` }}
-            className="relative flex items-center gap-2 px-2 py-1 size-full"
+            className="relative flex items-center gap-2 px-2 py-1 active:brightness-120 size-full"
           >
             <span
               className="absolute rounded-[6.5px] invert dark:invert-0 inset-0 opacity-10 pointer-events-none 
@@ -67,10 +67,10 @@ const MiniPlayerMobile = () => {
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div className="w-20 h-full bg-foreground"></div>
             </div>
-            <div className="rounded-[5px] shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
+            <div className="rounded-[5px] size-14 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
               <Image
                 src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
-                className="object-cover size-full"
+                className="object-cover"
                 alt={currentSong?.title || 'melodayz'}
                 width={1000}
                 height={1000}
