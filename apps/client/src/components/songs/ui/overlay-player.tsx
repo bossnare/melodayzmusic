@@ -34,6 +34,7 @@ import {
 import { cn } from '@/lib/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { motion } from 'motion/react';
+import { WhileTapMotion } from '@/components/motions/wrapper/wrapper';
 
 const data = [
   {
@@ -206,16 +207,18 @@ const Player = () => {
           </DrawerTrigger>
         </div>
         <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
-          <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
-            <Image
-              ref={imgRef}
-              src="/img/b1.jpg"
-              alt="fallback_cover"
-              className="object-cover"
-              width={1000}
-              height={1000}
-            />
-          </div>
+          <WhileTapMotion>
+            <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
+              <Image
+                ref={imgRef}
+                src="/img/b1.jpg"
+                alt="fallback_cover"
+                className="object-cover"
+                width={1000}
+                height={1000}
+              />
+            </div>
+          </WhileTapMotion>
           <div className="flex w-full">
             <div className="grow">
               <h3 className="text-xl font-bold">Song Played</h3>
@@ -227,7 +230,7 @@ const Player = () => {
                 className="p-0 mt-auto active:opacity-80 hover:bg-transparent! lg:hover:opacity-80"
               >
                 <HeartIcon
-                  className="size-12"
+                  className="size-10"
                   weight={isFavorite ? 'fill' : 'regular'}
                 />
               </MotionButton>
