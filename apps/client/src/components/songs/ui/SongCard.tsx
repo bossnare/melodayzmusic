@@ -16,13 +16,20 @@ import {
   CardFooter,
   CardTitle,
 } from '@/components/ui/card';
+import { usePlayer } from '@/context/playerContext';
 
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
+  const { setCurrentSong } = usePlayer();
 
   return (
-    <Card className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50">
+    <Card
+      onClick={() => {
+        if (song) setCurrentSong(song);
+      }}
+      className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
+    >
       <CardContent className="p-0 drop-shadow-xl">
         <AspectRatio
           ratio={1}
