@@ -34,8 +34,9 @@ export const NavBottom = () => {
         </li>
       ))}
       {/* content for this drawer */}
-      <Content className="bg-linear-to-b overflow-hidden from-90% from-background to-muted" />
+      <Content className="bg-muted" />
       </Drawer>
     </ul>
   );
 };
+
