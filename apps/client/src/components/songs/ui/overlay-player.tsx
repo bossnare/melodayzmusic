@@ -189,11 +189,9 @@ const Player = () => {
     img.onload = () => {
       if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
       const colorThief = new ColorThief();
-      const color = colorThief.getPalette(img, 2)[0];
+      const [color, second] = colorThief.getPalette(img, 2);
       setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
-      setSecondaryColor(
-        `rgb(${color[0] + 30}, ${color[1] + 30}, ${color[2] + 30})`
-      );
+      setSecondaryColor(`rgb(${second[0]}, ${second[1]}, ${second[2]})`);
     };
   }, [imgRef, setDominantColor, setSecondaryColor]);
 
