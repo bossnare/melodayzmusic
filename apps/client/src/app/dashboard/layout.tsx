@@ -126,21 +126,21 @@ export default function DashboardLayout({
         </Sheet>
 
         {/* NavBottom -- Player and Navigation on mobile */}
-        <Portal>
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{
-              y: show ? 0 : 100,
-              opacity: show ? 1 : 0,
-            }}
-            className={cn(
-              show ? 'pointer-events-auto' : 'pointer-events-none',
-              'fixed inset-0 z-50 bg-secondary-2 dark:bg-background-layer overflow-y-auto scrollbar-none'
-            )}
-          >
-            <OverlayPlayer />
-          </motion.div>
-        </Portal>
+        {/* <Portal> */}
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{
+            y: show ? 0 : 100,
+            opacity: show ? 1 : 0,
+          }}
+          className={cn(
+            show ? 'pointer-events-auto' : 'pointer-events-none',
+            'fixed inset-0 z-50 bg-secondary-2 dark:bg-background-layer overflow-y-auto scrollbar-none'
+          )}
+        >
+          <OverlayPlayer />
+        </motion.div>
+        {/* </Portal> */}
 
         <SongPlayerMobile />
         <nav
