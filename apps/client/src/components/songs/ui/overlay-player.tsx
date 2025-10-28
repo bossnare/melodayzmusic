@@ -162,7 +162,7 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
         initial={{ y: 80, opacity: 0 }}
         animate={{
           y: 0,
-          opacity: 0,
+          opacity: 1,
         }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         className={cn(
