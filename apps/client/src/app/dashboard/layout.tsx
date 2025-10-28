@@ -78,7 +78,7 @@ export default function DashboardLayout({
             <header className="sticky inset-x-0 top-0 z-5 bg-background">
               {!isAtProfil && (
                 <div className="w-full px-2 py-2 border-b sm:px-4 border-border lg:border-0">
-                  <NavBar fetchMe={fetchMe} isAtHome={isAtHome} />
+                  <NavBar fetchMeAction={fetchMe} isAtHome={isAtHome} />
                 </div>
               )}
               {isAtProfil && <NavProfile />}
