@@ -1,6 +1,7 @@
 import { useIsMobile } from '@/hooks/use-mobile';
 import type { BaseProps } from '@/types/base.interface';
 import { motion } from 'motion/react';
+import { useState } from 'react';
 
 const Wrapper = ({ children }: BaseProps) => {
   return (
@@ -23,10 +24,13 @@ const Wrapper = ({ children }: BaseProps) => {
 
 const WhileTapMotion = ({ children }: BaseProps) => {
   const isMobile = useIsMobile();
+  const [isScrolling, setIsScrolling] = useState(false);
   return (
     <motion.div
+      onTapStart={() => setIsScrolling(false)}
+      onTapCancel={() => setIsScrolling(true)}
       whileHover={!isMobile ? { scale: 1.01 } : {}}
-      whileTap={{ scale: 0.95 }}
+      whileTap={!isScrolling ? { scale: 0.95 } : {}}
     >
       {children}
     </motion.div>
