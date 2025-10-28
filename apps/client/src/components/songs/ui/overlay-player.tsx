@@ -86,7 +86,7 @@ export function Content({ className }: { className?: string }) {
 
   return (
     <DrawerContent className={className}>
-      <div className="mx-auto w-full max-w-sm">
+      <div className="w-full max-w-sm mx-auto">
         <DrawerHeader>
           <DrawerTitle>Move Goal</DrawerTitle>
           <DrawerDescription>Set your daily activity goal.</DrawerDescription>
@@ -96,7 +96,7 @@ export function Content({ className }: { className?: string }) {
             <Button
               variant="outline"
               size="icon"
-              className="h-8 w-8 shrink-0 rounded-full"
+              className="w-8 h-8 rounded-full shrink-0"
               onClick={() => onClick(-10)}
               disabled={goal <= 200}
             >
@@ -104,7 +104,7 @@ export function Content({ className }: { className?: string }) {
               <span className="sr-only">Decrease</span>
             </Button>
             <div className="flex-1 text-center">
-              <div className="text-7xl font-bold tracking-tighter">{goal}</div>
+              <div className="font-bold tracking-tighter text-7xl">{goal}</div>
               <div className="text-muted-foreground text-[0.70rem] uppercase">
                 Calories/day
               </div>
@@ -112,7 +112,7 @@ export function Content({ className }: { className?: string }) {
             <Button
               variant="outline"
               size="icon"
-              className="h-8 w-8 shrink-0 rounded-full"
+              className="w-8 h-8 rounded-full shrink-0"
               onClick={() => onClick(10)}
               disabled={goal >= 400}
             >
@@ -191,10 +191,10 @@ const Player = () => {
       style={{
         backgroundColor: `${dominantColor}`,
       }}
-      className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-90% flex flex-col"
+      className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-80% flex flex-col"
     >
       <Drawer>
-        <div className="flex h-16 py-1 justify-between">
+        <div className="flex justify-between h-16 py-1">
           <MotionButton onClick={setFalse}>
             <ChevronDown className="size-8" />
           </MotionButton>
@@ -216,7 +216,7 @@ const Player = () => {
               height={1000}
             />
           </div>
-          <div className="w-full flex">
+          <div className="flex w-full">
             <div className="grow">
               <h3 className="text-xl font-bold">Song Played</h3>
               <p className="text-foreground/80">Album/Playlist</p>

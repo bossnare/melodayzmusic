@@ -1,3 +1,4 @@
+import { useIsMobile } from '@/hooks/use-mobile';
 import type { BaseProps } from '@/types/base.interface';
 import { motion } from 'motion/react';
 
@@ -21,8 +22,12 @@ const Wrapper = ({ children }: BaseProps) => {
 };
 
 const WhileTapMotion = ({ children }: BaseProps) => {
+  const isMobile = useIsMobile();
   return (
-    <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.95 }}>
+    <motion.div
+      whileHover={!isMobile ? { scale: 1.01 } : {}}
+      whileTap={{ scale: 0.95 }}
+    >
       {children}
     </motion.div>
   );
