@@ -14,11 +14,9 @@ import {
   SkipForwardIcon,
   UserListIcon,
 } from '@phosphor-icons/react';
-import ColorThief from 'colorthief';
 import { ChevronDown, Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
 import * as React from 'react';
-import { useEffect, useRef, useState } from 'react';
 import { Bar, BarChart, ResponsiveContainer } from 'recharts';
 import { Button } from '@/components/ui/button';
 import {
@@ -169,22 +167,15 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
 }
 
 const Player = () => {
-  const { setFalse, togglePlaying, isPlaying } = usePlayer();
-  const imgRef = useRef<HTMLImageElement>(null);
-  const [dominantColor, setDominantColor] = useState<string | null>(null);
+  const {
+    setFalse,
+    togglePlaying,
+    isPlaying,
+    dominantColor,
+    imgRef,
+    currentSong,
+  } = usePlayer();
   const { value: isFavorite, toggle } = useToggle();
-
-  useEffect(() => {
-    if (!imgRef.current) return;
-
-    const img = imgRef.current;
-    img.onload = () => {
-      if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
-      const colorThief = new ColorThief();
-      const color = colorThief.getPalette(img, 2)[0];
-      setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
-    };
-  }, [imgRef]);
 
   return (
     <div
@@ -209,8 +200,8 @@ const Player = () => {
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
             <Image
               ref={imgRef}
-              src="/img/b1.jpg"
-              alt="fallback_cover"
+              src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
+              alt={currentSong?.title || 'melodayz'}
               className="object-cover"
               width={1000}
               height={1000}
