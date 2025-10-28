@@ -10,7 +10,7 @@ const getInitials = (pseudo?: string) => {
   .slice(0, 2)
 }
 
-const getNameRoots = (pseudo?: string; options: StageNameOptions = {}) => {
+const getNameRoots = (pseudo?: string, options: StageNameOptions = {}) => {
   if (!pseudo) return ""
 
   const {parts = 1} = options;
