@@ -29,7 +29,8 @@ import {
   SheetTitle,
 } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
-import {Wrapper} from '@/components/motions/wrapper/wrapper'
+import { Wrapper } from '@/components/motions/wrapper/wrapper';
+import { getInitials } from '@/utils/get-name.strings';
 
 type Props = {
   user: UserInterface | null;
@@ -96,12 +97,13 @@ export const Sidebar = ({
             <figure className="w-full mt-2 space-y-2">
               <figcaption className="flex justify-between">
                 <Avatar className="border border-current/50 size-14 ring-2 -ring-offset-4 ring-muted">
-                  <AvatarImage
-                    className="object-cover"
-                    alt="fallback"
-                    src="/img/profil/man-pp.jpg"
-                  />
-                  <AvatarFallback>J</AvatarFallback>
+                  {isFetchingMe ? (
+                    <Skeleton className="size-full rounded-full bg-foreground/30" />
+                  ) : (
+                    <div className="size-full text-muted-foreground flex justify-center items-center bg-muted text-lg font-black font-montserrat">
+                      {getInitials(user?.pseudo)}
+                    </div>
+                  )}
                 </Avatar>
                 {!isFetchingMe && (
                   <Settings2 className="p-2 cursor-pointer active:bg-muted size-12 active:opacity-60 text-foreground lg:hover:opacity-60" />
@@ -140,8 +142,7 @@ export const Sidebar = ({
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
-                <Wrapper
-                >
+                <Wrapper>
                   <AlertDialogHeader>
                     <AlertDialogTitle>
                       Confirmation de déconnexion
@@ -174,6 +175,3 @@ export const Sidebar = ({
     </>
   );
 };
-
-
-
