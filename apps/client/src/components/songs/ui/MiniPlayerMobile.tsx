@@ -17,7 +17,7 @@ const MiniPlayerMobile = () => {
         exit={{ y: -20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         key={'PlayerMobile'}
-        className="fixed w-[96%] md:w-[70%] md:left-[15%] active:brightness-120 overflow-hidden cursor-pointer rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] bg-linear-to-br from-secondary/80 to-secondary/70 dark:from-[#2b2b2b]/80 dark:to-[#1a1a1a]/80 backdrop-blur-sm"
+        className="fixed w-[96%] md:w-[70%] md:left-[15%] active:brightness-120 overflow-hidden cursor-pointer rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] bg-linear-to-br from-secondary-foreground/80 to-secondary-foreground/70 dark:from-[#2b2b2b]/80 dark:to-[#1a1a1a]/80 backdrop-blur-sm"
       >
         <section className="relative flex items-center gap-2 px-2 py-1 size-full font-montserrat">
           {/* grain */}
