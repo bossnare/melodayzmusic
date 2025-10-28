@@ -207,7 +207,7 @@ const Player = () => {
           </DrawerTrigger>
         </div>
         <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
-          <WhileTapMotion>
+          <WhileTapMotion scale={0.98}>
             <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
               <Image
                 ref={imgRef}
