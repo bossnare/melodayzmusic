@@ -136,7 +136,8 @@ export const Sidebar = ({
               <AlertDialogTrigger asChild>
                 <Button
                   variant="outline"
-                  className="hover:text-inherit! lg:hover:text-primary active:text-primary! active:bg-muted"
+                  className="hover:text-inherit! font-montserrat lg:hover:text-primary active:text-primary! active:bg-muted"
+                  size="xl"
                 >
                   <LogOut /> Quitter l&apos;espace
                 </Button>
@@ -153,11 +154,11 @@ export const Sidebar = ({
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
-                    <AlertDialogCancel className="font-montserrat">
+                    <AlertDialogCancel className="font-montserrat py-4">
                       Non
                     </AlertDialogCancel>
                     <AlertDialogAction
-                      className="font-montserrat"
+                      className="font-montserrat py-4"
                       onClick={logout}
                     >
                       Oui, quitter

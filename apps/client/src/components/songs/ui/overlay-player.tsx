@@ -164,7 +164,6 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
           y: 0,
           opacity: 1,
         }}
-        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         className={cn(
           open ? 'pointer-events-auto' : 'pointer-events-none',
           'fixed inset-0 z-50 bg-secondary-2 dark:bg-background-layer overflow-y-auto scrollbar-none'

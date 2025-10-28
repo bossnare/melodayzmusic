@@ -9,43 +9,57 @@ import { SearchIcon } from 'lucide-react';
 import { Logo } from '../branding/logo';
 // import { motion, AnimatePresence } from 'motion/react';
 import { Command, CommandItem, CommandList } from '../ui/command';
-import { Sheet, SheetTrigger } from '@/components/ui/sheet';
+import { SheetTrigger } from '@/components/ui/sheet';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
 import { AlignLeft } from 'lucide-react';
-import {waitVibrate} from '@/utils/vibration'
+import { waitVibrate } from '@/utils/vibration';
+import { usePlayer } from '@/context/playerContext';
 
-export const NavBar = ({ isAtHome, fetchMe }: { isAtHome?: boolean; fetchMe: () => void }) => {
+export const NavBar = ({
+  isAtHome,
+  fetchMeAction,
+}: {
+  isAtHome?: boolean;
+  fetchMeAction: () => void;
+}) => {
   // const [notHome, setNotHome] = useState(false);
   const router = useRouter();
   // for search bar behavior
   const [isNull, setIsNull] = useState(true);
   const [openSearch, setOpenSearch] = useState(false);
+  const { show } = usePlayer();
 
   // useEffect(() => {
   //   setNotHome(pathname !== '/dashboard');
   // }, [pathname]);
 
   return (
-    <nav className="relative flex items-center gap-3 lg:gap-4">
-        {!openSearch && (
-          <>
-            {isAtHome ? (<Logo onClick={() => router.push('/dashboard')} />) : (
-          <SheetTrigger asChild>
-            <MotionButtonLeft
-              onClick={() => {
-                fetchMe()
-                waitVibrate()
-              }}
-              className="p-1 hover:!bg-transparent hover:text-muted-foreground"
-              type="button"
-            >
-              <AlignLeft className="stroke-current size-8 stroke-[2.2]" />
-            </MotionButtonLeft>
-          </SheetTrigger>
-        )}
+    <nav
+      className={cn(
+        show && 'pointer-events-none',
+        'relative flex items-center gap-3 lg:gap-4'
+      )}
+    >
+      {!openSearch && (
+        <>
+          {isAtHome ? (
+            <Logo onClick={() => router.push('/dashboard')} />
+          ) : (
+            <SheetTrigger asChild>
+              <MotionButtonLeft
+                onClick={() => {
+                  fetchMeAction();
+                  waitVibrate();
+                }}
+                className="p-1 hover:!bg-transparent hover:text-muted-foreground"
+                type="button"
+              >
+                <AlignLeft className="stroke-current size-8 stroke-[2.2]" />
+              </MotionButtonLeft>
+            </SheetTrigger>
+          )}
         </>
-        )
-        }
+      )}
 
       {/* for search */}
       <SearchBar
@@ -78,4 +92,3 @@ export const NavBar = ({ isAtHome, fetchMe }: { isAtHome?: boolean; fetchMe: () 
     </nav>
   );
 };
-
