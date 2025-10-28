@@ -34,7 +34,6 @@ import {
 import { cn } from '@/lib/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { motion } from 'motion/react';
-import { WhileTapMotion } from '@/components/motions/wrapper/wrapper';
 
 const data = [
   {
@@ -207,22 +206,20 @@ const Player = () => {
           </DrawerTrigger>
         </div>
         <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
-          <WhileTapMotion scale={0.98}>
-            <div className="w-full overflow-hidden rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
-              <Image
-                ref={imgRef}
-                src="/img/b1.jpg"
-                alt="fallback_cover"
-                className="object-cover"
-                width={1000}
-                height={1000}
-              />
-            </div>
-          </WhileTapMotion>
+          <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
+            <Image
+              ref={imgRef}
+              src="/img/b1.jpg"
+              alt="fallback_cover"
+              className="object-cover"
+              width={1000}
+              height={1000}
+            />
+          </div>
           <div className="flex w-full">
             <div className="grow">
               <h3 className="text-xl font-bold">Song Played</h3>
-              <p className="font-semibold text-secondary-foreground/80 dark:text-foreground/80 font-inter">
+              <p className="text-sm font-semibold text-secondary-foreground/80 dark:text-foreground/80 font-inter">
                 Album/Playlist
               </p>
             </div>
