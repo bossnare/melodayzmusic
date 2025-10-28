@@ -35,7 +35,6 @@ import {
 } from '@/components/ui/drawer';
 import {Wrapper} from '@/components/motions/wrapper/wrapper'
 
-
 const data = [
   {
     goal: 400,
@@ -86,8 +85,8 @@ export function Content({className}: {className?: string}) {
   }
 
   return (
+    <Wrapper>
     <DrawerContent className={className}>
-      <Wrapper>
       <div className="mx-auto w-full max-w-sm">
         <DrawerHeader>
           <DrawerTitle>Move Goal</DrawerTitle>
@@ -145,8 +144,8 @@ export function Content({className}: {className?: string}) {
           </DrawerClose>
         </DrawerFooter>
       </div>
-      </Wrapper>
     </DrawerContent>
+    </Wrapper>
   );
 }
 
