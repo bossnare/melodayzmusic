@@ -22,6 +22,7 @@ import { Player as OverlayPlayer } from '@/components/songs/ui/Player';
 import { motion } from 'motion/react';
 import { usePlayer } from '@/context/playerContext';
 import { waitVibrate } from '@/utils/vibration';
+import { Portal } from '@radix-ui/react-dialog';
 
 export default function DashboardLayout({
   children,
@@ -125,19 +126,22 @@ export default function DashboardLayout({
         </Sheet>
 
         {/* NavBottom -- Player and Navigation on mobile */}
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{
-            y: show ? 0 : 100,
-            opacity: show ? 1 : 0,
-          }}
-          className={cn(
-            show ? 'pointer-events-auto' : 'pointer-events-none',
-            'fixed inset-0 z-50 bg-secondary-2 dark:bg-background-layer overflow-y-auto scrollbar-none'
-          )}
-        >
-          <OverlayPlayer />
-        </motion.div>
+        <Portal>
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{
+              y: show ? 0 : 100,
+              opacity: show ? 1 : 0,
+            }}
+            className={cn(
+              show ? 'pointer-events-auto' : 'pointer-events-none',
+              'fixed inset-0 z-50 bg-secondary-2 dark:bg-background-layer overflow-y-auto scrollbar-none'
+            )}
+          >
+            <OverlayPlayer />
+          </motion.div>
+        </Portal>
+
         <SongPlayerMobile />
         <nav
           style={{ boxShadow: '0 -8px 8px -5px rgba(0, 0, 0, 0.06)' }}
