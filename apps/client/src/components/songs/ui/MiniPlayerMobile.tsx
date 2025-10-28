@@ -6,16 +6,18 @@ import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 
 const MiniPlayerMobile = () => {
-  const { setTrue, currentSong, dominantColor, togglePlaying, isPlaying } =
-    usePlayer();
+  const {
+    setTrue,
+    currentSong,
+    dominantColor,
+    secondaryColor,
+    togglePlaying,
+    isPlaying,
+  } = usePlayer();
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        onClick={() => {
-          if (!currentSong) return;
-          setTrue();
-        }}
         style={{ boxShadow: '0 -10px 10px -5px rgba(0, 0, 0, 0.06)' }}
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -67,7 +69,7 @@ const MiniPlayerMobile = () => {
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div className="w-20 h-full bg-foreground"></div>
             </div>
-            <div className="rounded-[5px] size-14 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
+            <div className="rounded-[5px] overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
               <Image
                 src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
                 className="object-cover"
@@ -77,13 +79,16 @@ const MiniPlayerMobile = () => {
               />
             </div>
             {/* info */}
-            <div className="flex flex-col items-start justify-center gap-0.5">
-              <p className="text-sm font-bold text-foreground">
-                {currentSong?.title}
-              </p>
-              <p className="text-xs font-medium text-foreground">
-                {currentSong?.artist}
-              </p>
+            <div
+              style={{ color: `${secondaryColor}` }}
+              onClick={() => {
+                if (!currentSong) return;
+                setTrue();
+              }}
+              className="flex flex-col items-start justify-center gap-0.5"
+            >
+              <p className="text-sm font-bold">{currentSong?.title}</p>
+              <p className="text-xs font-medium">{currentSong?.artist}</p>
             </div>
             <div className="flex items-center gap-2 *:text-foreground ml-auto">
               {/* <MotionButton disabled={true}>
