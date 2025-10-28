@@ -33,6 +33,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
+import {Wrapper} from '@/components/motions/wrapper/wrapper'
+
 
 const data = [
   {
@@ -85,6 +87,7 @@ export function Content({className}: {className?: string}) {
 
   return (
     <DrawerContent className={className}>
+      <Wrapper>
       <div className="mx-auto w-full max-w-sm">
         <DrawerHeader>
           <DrawerTitle>Move Goal</DrawerTitle>
@@ -142,6 +145,7 @@ export function Content({className}: {className?: string}) {
           </DrawerClose>
         </DrawerFooter>
       </div>
+      </Wrapper>
     </DrawerContent>
   );
 }
