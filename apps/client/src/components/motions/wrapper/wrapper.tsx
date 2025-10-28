@@ -1,7 +1,6 @@
 import { useIsMobile } from '@/hooks/use-mobile';
 import type { BaseProps } from '@/types/base.interface';
 import { motion } from 'motion/react';
-import { useState } from 'react';
 
 const Wrapper = ({ children }: BaseProps) => {
   return (

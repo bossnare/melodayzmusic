@@ -51,7 +51,7 @@ export const NavBar = ({
                   fetchMeAction();
                   waitVibrate();
                 }}
-                className="p-1 hover:!bg-transparent hover:text-muted-foreground"
+                className="p-1 hover:bg-transparent! hover:text-muted-foreground"
                 type="button"
               >
                 <AlignLeft className="stroke-current size-8 stroke-[2.2]" />
