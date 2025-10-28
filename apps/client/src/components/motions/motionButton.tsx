@@ -2,14 +2,11 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { type MotionButtonProps } from '@/types/motions/motionButton.interface';
+import { WhileTapMotion } from '@/components/motions/wrapper/wrapper';
 
 const MotionButton = ({ children, className, ...props }: MotionButtonProps) => {
   return (
-    <motion.div
-      whileHover={{ scale: 1.01 }}
-      whileTap={{ scale: 0.95 }}
-      // transition={{ type: 'spring', stiffness: 200 }}
-    >
+    <WhileTapMotion>
       <Button
         variant="ghost"
         size="icon"
@@ -21,7 +18,7 @@ const MotionButton = ({ children, className, ...props }: MotionButtonProps) => {
       >
         {children}
       </Button>
-    </motion.div>
+    </WhileTapMotion>
   );
 };
 
