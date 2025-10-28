@@ -82,7 +82,7 @@ const SearchBar = ({
             !openSearch && 'hidden!',
             'w-full',
             !isNull && 'ml-1',
-            'caret-primary lg:ml-0 px-1 rounded-full lg:rounded-md bg-transparent! shadow-none placeholder:text-sm border-0 outline-0 lg:block! focus-visible:ring-0'
+            'lg:ml-0 px-1 rounded-full lg:rounded-md bg-transparent! shadow-none placeholder:text-sm border-0 outline-0 lg:block! focus-visible:ring-0'
           )}
         />
         <div
