@@ -32,6 +32,8 @@ import {
 import { cn } from '@/lib/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { motion } from 'motion/react';
+import { useEffect, useRef } from 'react';
+import ColorThief from 'colorthief';
 
 const data = [
   {
@@ -172,10 +174,24 @@ const Player = () => {
     togglePlaying,
     isPlaying,
     dominantColor,
-    imgRef,
+    setDominantColor,
     currentSong,
   } = usePlayer();
   const { value: isFavorite, toggle } = useToggle();
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  // get song cover dominant color
+  useEffect(() => {
+    if (!imgRef.current) return;
+
+    const img = imgRef.current;
+    img.onload = () => {
+      if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
+      const colorThief = new ColorThief();
+      const color = colorThief.getPalette(img, 2)[0];
+      setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
+    };
+  }, [imgRef, setDominantColor]);
 
   return (
     <div

@@ -21,7 +21,7 @@ type PlayerContextType = {
   currentSong: SongInterface | null;
   setCurrentSong: (song: SongInterface | null) => void;
   dominantColor: string | null;
-  imgRef: React.RefObject<HTMLImageElement | null>;
+  setDominantColor: (color: string | null) => void;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
@@ -30,21 +30,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const { value: show, setTrue, setFalse } = useToggle();
   const { value: isPlaying, toggle: togglePlaying } = useToggle();
   const [currentSong, setCurrentSong] = useState<SongInterface | null>(null);
-  const imgRef = useRef<HTMLImageElement | null>(null);
   const [dominantColor, setDominantColor] = useState<string | null>(null);
-
-  // get song cover dominant color
-  useEffect(() => {
-    if (!imgRef.current) return;
-
-    const img = imgRef.current;
-    img.onload = () => {
-      if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
-      const colorThief = new ColorThief();
-      const color = colorThief.getPalette(img, 2)[0];
-      setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
-    };
-  }, [imgRef]);
 
   return (
     <PlayerContext
@@ -57,7 +43,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         currentSong,
         setCurrentSong,
         dominantColor,
-        imgRef,
+        setDominantColor,
       }}
     >
       {children}
