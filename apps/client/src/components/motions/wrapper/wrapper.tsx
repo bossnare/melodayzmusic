@@ -24,13 +24,13 @@ const Wrapper = ({ children }: BaseProps) => {
 
 const WhileTapMotion = ({ children }: BaseProps) => {
   const isMobile = useIsMobile();
-  const [isScrolling, setIsScrolling] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   return (
     <motion.div
-      onTapStart={() => setIsScrolling(false)}
-      onTapCancel={() => setIsScrolling(true)}
+      onDragStart={() => setIsDragging(true)}
+      onDragEnd={() => setIsDragging(false)}
       whileHover={!isMobile ? { scale: 1.01 } : {}}
-      whileTap={!isScrolling ? { scale: 0.95 } : {}}
+      whileTap={{ scale: isDragging ? 1 : 0.95 }}
     >
       {children}
     </motion.div>
