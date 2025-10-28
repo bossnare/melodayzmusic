@@ -7,8 +7,8 @@ import { NavBar } from '@/components/navigation/Navbar';
 import { NavBottom } from '@/components/navigation/NavBottom';
 import NavProfile from '@/components/navigation/NavProfile';
 import { Sidebar } from '@/components/navigation/Sidebar';
-import Player from '@/components/songs/ui/SongPlayer';
-import { SongPlayerMobile } from '@/components/songs/ui/SongPlayerMobile';
+import MiniPlayer from '@/components/songs/ui/MiniPlayer';
+import { MiniPlayerMobile } from '@/components/songs/ui/MiniPlayerMobile';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { useUser } from '@/hooks/useUser';
 import { cn } from '@/lib/utils';
@@ -18,11 +18,9 @@ import { useEffect, useState } from 'react';
 import RefreshWrapper from './pull-to-refresh';
 import SmoothScrollLayout from './SmoothScrollLayout';
 import { fetcher } from '@/utils/fetcher';
-import { Player as OverlayPlayer } from '@/components/songs/ui/Player';
-import { motion } from 'motion/react';
+import { OverlayPlayer, Player } from '@/components/songs/ui/overlay-player';
 import { usePlayer } from '@/context/playerContext';
 import { waitVibrate } from '@/utils/vibration';
-import { Portal } from '@radix-ui/react-dialog';
 
 export default function DashboardLayout({
   children,
@@ -126,29 +124,17 @@ export default function DashboardLayout({
         </Sheet>
 
         {/* NavBottom -- Player and Navigation on mobile */}
-        {/* <Portal> */}
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{
-            y: show ? 0 : 100,
-            opacity: show ? 1 : 0,
-          }}
-          className={cn(
-            show ? 'pointer-events-auto' : 'pointer-events-none',
-            'fixed inset-0 z-50 bg-secondary-2 dark:bg-background-layer overflow-y-auto scrollbar-none'
-          )}
-        >
-          <OverlayPlayer />
-        </motion.div>
-        {/* </Portal> */}
+        <OverlayPlayer open={show}>
+          <Player />
+        </OverlayPlayer>
 
-        <SongPlayerMobile />
+        <MiniPlayerMobile />
         <nav
           style={{ boxShadow: '0 -8px 8px -5px rgba(0, 0, 0, 0.06)' }}
           className="fixed inset-x-0 bottom-0 z-10 h-16 px-2 border-t lg:shadow-lg lg:px-4 border-border lg:h-25 bg-nav/90 dark:bg-nav/90 dark:lg:bg-nav/98 lg:backdrop-blur-xs lg:bg-nav backrop-blur-sm"
         >
           <NavBottom />
-          <Player />
+          <MiniPlayer />
         </nav>
 
         <OtpOverlay email={email} open={open} setOpen={setOpen} />

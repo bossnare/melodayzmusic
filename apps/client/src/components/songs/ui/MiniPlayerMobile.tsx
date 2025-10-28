@@ -4,7 +4,7 @@ import { PlayIcon, SkipForwardIcon } from '@phosphor-icons/react';
 import { Music } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
-const SongPlayerMobile = () => {
+const MiniPlayerMobile = () => {
   const { setTrue } = usePlayer();
 
   return (
@@ -58,4 +58,4 @@ const SongPlayerMobile = () => {
   );
 };
 
-export { SongPlayerMobile };
+export { MiniPlayerMobile };

@@ -14,7 +14,7 @@ import { MotionButton } from '@/components/motions/motionButton';
 import { Slider } from '@/components/ui/slider';
 import { useToggle } from '@/hooks/use-toggle';
 
-const Player = () => {
+const MiniPlayer = () => {
   const [isGo, setIsGo] = useState(false);
   const { value: isFavorite, toggle } = useToggle();
   return (
@@ -76,4 +76,4 @@ const Player = () => {
   );
 };
 
-export default Player;
+export default MiniPlayer;
