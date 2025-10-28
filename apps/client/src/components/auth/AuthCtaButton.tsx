@@ -30,7 +30,7 @@ export const AuthCtaButton = ({
       size={size}
       className={cn(
         isPending && 'pointer-events-none',
-        'relative overflow-hidden bg-premium',
+        'relative overflow-hidden bg-premium font-semibold',
         className
       )}
       type={type}
