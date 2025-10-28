@@ -3,25 +3,25 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { usePlayer } from '@/context/playerContext';
 import { useToggle } from '@/hooks/use-toggle';
+import { type BaseProps } from '@/types/base.interface';
 import {
   DotsThreeVerticalIcon,
   HeartIcon,
-  PlayIcon,
   PauseIcon,
+  PlayIcon,
   QueueIcon,
   SkipBackIcon,
   SkipForwardIcon,
   UserListIcon,
 } from '@phosphor-icons/react';
 import ColorThief from 'colorthief';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-import { type BaseProps } from '@/types/base.interface';
 import * as React from 'react';
-import { Minus, Plus } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { Bar, BarChart, ResponsiveContainer } from 'recharts';
 
+import { Wrapper } from '@/components/motions/wrapper/wrapper';
 import { Button } from '@/components/ui/button';
 import {
   Drawer,
@@ -33,10 +33,9 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
-import { Wrapper } from '@/components/motions/wrapper/wrapper';
+import { cn } from '@/lib/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { motion } from 'motion/react';
-import { cn } from '@/lib/utils';
 
 const data = [
   {
@@ -166,7 +165,7 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
         }}
         className={cn(
           open ? 'pointer-events-auto' : 'pointer-events-none',
-          'fixed inset-0 z-50 bg-secondary-2 dark:bg-background-layer overflow-y-auto scrollbar-none'
+          'fixed inset-0 z-50 bg-secondary-foreground dark:bg-background-layer overflow-y-auto scrollbar-none'
         )}
       >
         {children}
@@ -278,4 +277,4 @@ const Player = () => {
   );
 };
 
-export { Player, OverlayPlayer };
+export { OverlayPlayer, Player };
