@@ -82,7 +82,6 @@ const MiniPlayerMobile = () => {
             <div
               style={{ color: `${secondaryColor}` }}
               onClick={() => {
-                if (!currentSong) return;
                 setTrue();
               }}
               className="flex flex-col items-start justify-center gap-0.5"
