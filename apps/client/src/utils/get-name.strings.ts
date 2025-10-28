@@ -5,7 +5,7 @@ type StageNameOptions = {
 const getInitials = (pseudo?: string) => {
   if (!pseudo) return ""
   return pseudo.split(" ")
-  .map(word => word.charAt(0).toUppercase())
+  .map(word => word.charAt(0).toUpperCase())
   .join("")
   .slice(0, 2)
 }
