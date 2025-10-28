@@ -158,7 +158,7 @@ export const Sidebar = ({
                       Non
                     </AlertDialogCancel>
                     <AlertDialogAction
-                      className="font-montserrat h-12 lg:h-auto bg-secondary text-secondary-foreground"
+                      className="font-montserrat h-12 lg:h-auto bg-secondary font-semibold text-secondary-foreground"
                       onClick={logout}
                     >
                       Oui, quitter
