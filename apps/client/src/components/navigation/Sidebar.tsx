@@ -16,7 +16,6 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { type UserInterface } from '@/types/users/user.interface';
 import { LogOut, Settings2 } from 'lucide-react';
-import { motion } from 'motion/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
@@ -30,6 +29,7 @@ import {
   SheetTitle,
 } from '../ui/sheet';
 import { SidebarContentDesktop } from './SidebarContentDesktop';
+import {Wrapper} from '@/components/motions/wrapper/wrapper'
 
 type Props = {
   user: UserInterface | null;
@@ -140,18 +140,7 @@ export const Sidebar = ({
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
-                <motion.div
-                  key={'logout'}
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -50, opacity: 0 }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 500,
-                    damping: 50,
-                    mass: 1.2,
-                  }}
-                  className="space-y-4"
+                <Wrapper
                 >
                   <AlertDialogHeader>
                     <AlertDialogTitle>
@@ -173,7 +162,7 @@ export const Sidebar = ({
                       Oui, quitter
                     </AlertDialogAction>
                   </AlertDialogFooter>
-                </motion.div>
+                </Wrapper>
               </AlertDialogContent>
             </AlertDialog>
           </SheetFooter>
