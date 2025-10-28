@@ -22,7 +22,7 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         // custom
         provider:
-          'bg-secondary-foreground text-secondary hover:bg-secondary-foreground/80 hover:text-secondary/80 dark:bg-secondary dark:text-secondary-foreground shadow-xs dark:hover:bg-secondary/80 dark:hover:text-secondary-foreground/80',
+          'dark:bg-secondary-foreground dark:text-secondary dark:hover:bg-secondary-foreground/80 dark:hover:text-secondary/80 bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 hover:text-secondary-foreground/80',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
