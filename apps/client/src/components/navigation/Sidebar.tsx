@@ -154,11 +154,11 @@ export const Sidebar = ({
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
-                    <AlertDialogCancel className="font-montserrat py-4">
+                    <AlertDialogCancel className="font-montserrat h-12 lg:h-auto border-none bg-muted">
                       Non
                     </AlertDialogCancel>
                     <AlertDialogAction
-                      className="font-montserrat py-4"
+                      className="font-montserrat h-12 lg:h-auto bg-secondary"
                       onClick={logout}
                     >
                       Oui, quitter
