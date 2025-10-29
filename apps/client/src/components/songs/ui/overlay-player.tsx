@@ -32,8 +32,6 @@ import {
 import { cn } from '@/lib/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { motion } from 'motion/react';
-import { useEffect, useRef } from 'react';
-import ColorThief from 'colorthief';
 import { handleWait } from '@/utils/handle-wait';
 
 const data = [
@@ -170,31 +168,9 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
 }
 
 const Player = () => {
-  const {
-    setFalse,
-    togglePlaying,
-    isPlaying,
-    dominantColor,
-    setDominantColor,
-    currentSong,
-    setSecondaryColor,
-  } = usePlayer();
+  const { setFalse, togglePlaying, isPlaying, dominantColor, currentSong } =
+    usePlayer();
   const { value: isFavorite, toggle } = useToggle();
-  const imgRef = useRef<HTMLImageElement | null>(null);
-
-  // get song cover dominant color
-  useEffect(() => {
-    if (!imgRef.current) return;
-
-    const img = imgRef.current;
-    img.onload = () => {
-      if (img.naturalWidth === 0 || img.naturalHeight === 0) return; // image not loaded properly
-      const colorThief = new ColorThief();
-      const [color, second] = colorThief.getPalette(img, 2);
-      setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
-      setSecondaryColor(`rgb(${second[0]}, ${second[1]}, ${second[2]})`);
-    };
-  }, [imgRef, setDominantColor, setSecondaryColor]);
 
   return (
     <div
@@ -223,7 +199,6 @@ const Player = () => {
         <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
             <Image
-              ref={imgRef}
               src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
               alt={currentSong?.title || 'melodayz'}
               className="object-cover"
