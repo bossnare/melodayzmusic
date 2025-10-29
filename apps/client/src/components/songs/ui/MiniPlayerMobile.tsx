@@ -130,7 +130,7 @@ const MiniPlayerMobile = () => {
                 onClick={togglePlaying}
                 size="icon"
                 variant="ghost"
-                className="active:opacity-90 tansition-none"
+                className="active:opacity-90 tansition-none hover:bg-transparent! hover:text-inherit"
               >
                 {playIcon}
               </Button>
@@ -138,7 +138,7 @@ const MiniPlayerMobile = () => {
                 disabled={true}
                 size="icon"
                 variant="ghost"
-                className="tansition-none"
+                className="tansition-none active:opacity-90 hover:bg-transparent! hover:text-inherit"
               >
                 <SkipForwardIcon weight={'fill'} className="size-5" />
               </Button>
