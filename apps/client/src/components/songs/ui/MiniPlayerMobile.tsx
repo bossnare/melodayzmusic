@@ -4,7 +4,7 @@ import { PlayIcon, SkipForwardIcon, PauseIcon } from '@phosphor-icons/react';
 import { Music } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const MiniPlayerMobile = () => {
   const {
@@ -18,15 +18,10 @@ const MiniPlayerMobile = () => {
 
   const [uiPlaying, setUiPlaying] = useState(isPlaying);
 
-  useEffect(() => {
-    setUiPlaying(isPlaying);
-  }, [isPlaying]);
-
   const handleToggle = () => {
     setUiPlaying((prev) => !prev);
+    requestAnimationFrame(() => togglePlaying());
   };
-
-  requestAnimationFrame(() => togglePlaying());
 
   return (
     <AnimatePresence mode="wait">
@@ -114,7 +109,7 @@ const MiniPlayerMobile = () => {
                 onClick={handleToggle}
                 className="active:opacity-80 active:bg-accent/20! hover:bg-transparent!"
               >
-                {isPlaying ? (
+                {uiPlaying ? (
                   <PauseIcon weight={'fill'} className="size-7" />
                 ) : (
                   <PlayIcon weight={'fill'} className="size-7" />
