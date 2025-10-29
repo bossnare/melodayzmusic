@@ -27,6 +27,7 @@ enum Role {
   FAN
   MODERATOR
   SUPERADMIN
+  DEV
 }
 
 // Model
