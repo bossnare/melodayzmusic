@@ -14,6 +14,7 @@ import {
 } from '@/components/auth/AuthWrapper';
 import { StepNavigation, totalSteps } from '@/components/auth/StepNavigation';
 import { MotionButton } from '@/components/motions/motionButton';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { useCheckField } from '@/hooks/useCheckField';
 import api from '@/lib/api';
 import { cn } from '@/lib/utils';
@@ -64,6 +65,7 @@ export default function StepPage() {
   const router = useRouter();
   const finalStep = step >= totalSteps - 1;
   const textLoading = finalStep ? 'Création du compte...' : 'Un instant...';
+  const isMobile = useIsMobile();
 
   const handleRegister = async (data: stepFormType) => {
     // fletten data
@@ -170,7 +172,7 @@ export default function StepPage() {
         className="flex flex-col justify-center items-center gap-1 
       w-full px-2 md:px-10 *:w-full md:*:w-3/4 lg:*:w-1/2 xl:*:w-[42%] min-h-[50%] sm:min-h-auto xl:min-h-[65%] transition-all duration-300 relative"
       >
-        <div className="absolute left-8 !size-10 hidden lg:block">
+        <div className="absolute left-8 size-10! hidden lg:block">
           <MotionButton
             onClick={() => {
               setStep((step) => step - 1);
@@ -216,6 +218,7 @@ export default function StepPage() {
               isPending={pending}
               onClick={handleClickNext}
               type={finalStep ? 'submit' : 'button'}
+              size={isMobile ? 'xl' : 'lg'}
               className="mx-auto rounded-full w-8/9 sm:w-2/3"
             >
               {finalStep ? 'Créer mon compte' : 'Suivant'}
