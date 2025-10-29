@@ -40,7 +40,7 @@ const AuthPageWrapper = ({
       {/* Overlay */}
       <Overlay isPending={isPending} textLoading={textLoading} />
       {/* tag */}
-      <footer className="flex flex-col items-center">
+      <footer className="sticky bottom-0 left-0 flex flex-col items-center">
         <Tagline />
       </footer>
     </section>
