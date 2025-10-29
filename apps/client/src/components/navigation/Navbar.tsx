@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from './SeachBar';
 import { ModeToggle } from '../themes/mode-toggle';
 import { SearchIcon } from 'lucide-react';
@@ -14,6 +14,7 @@ import { MotionButtonLeft } from '@/components/motions/motionButton';
 import { AlignLeft } from 'lucide-react';
 import { waitVibrate } from '@/utils/vibration';
 import { usePlayer } from '@/context/playerContext';
+import { useUser } from '@/hooks/useUser';
 
 export const NavBar = ({
   isAtHome,
@@ -29,9 +30,12 @@ export const NavBar = ({
   const [openSearch, setOpenSearch] = useState(false);
   const { show } = usePlayer();
 
-  // useEffect(() => {
-  //   setNotHome(pathname !== '/dashboard');
-  // }, [pathname]);
+  const { fetchMe, user } = useUser();
+  const userRole = user?.role || 'USER';
+
+  useEffect(() => {
+    fetchMe();
+  }, [fetchMe]);
 
   return (
     <nav
@@ -70,11 +74,13 @@ export const NavBar = ({
       />
 
       {/* theme toggle */}
-      <div
-        className={cn(openSearch ? 'hidden' : 'block', 'lg:block lg:ml-auto')}
-      >
-        <ModeToggle />
-      </div>
+      {userRole !== 'DEV' ? null : (
+        <div
+          className={cn(openSearch ? 'hidden' : 'block', 'lg:block lg:ml-auto')}
+        >
+          <ModeToggle />
+        </div>
+      )}
       {/* for search recommendation */}
       <Command
         className={cn(
