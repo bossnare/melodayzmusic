@@ -8,7 +8,7 @@ import { NavBottom } from '@/components/navigation/NavBottom';
 import NavProfile from '@/components/navigation/NavProfile';
 import { Sidebar } from '@/components/navigation/Sidebar';
 import MiniPlayer from '@/components/songs/ui/MiniPlayer';
-import { MiniPlayerMobile } from '@/components/songs/ui/MiniPlayerMobile';
+import MiniPlayerMobile from '@/components/songs/ui/MiniPlayerMobile';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { useUser } from '@/hooks/useUser';
 import { cn } from '@/lib/utils';
