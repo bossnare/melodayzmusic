@@ -32,9 +32,9 @@ const MiniPlayerMobile = () => {
     return (
       <>
         {isPlaying ? (
-          <PauseIcon weight={'fill'} className="size-7" />
+          <PauseIcon weight={'fill'} className="size-5" />
         ) : (
-          <PlayIcon weight={'fill'} className="size-7" />
+          <PlayIcon weight={'fill'} className="size-5" />
         )}
       </>
     );
@@ -130,7 +130,7 @@ const MiniPlayerMobile = () => {
                 onClick={togglePlaying}
                 size="icon"
                 variant="ghost"
-                className="active:opacity-90 tansition-none hover:bg-transparent! hover:text-inherit"
+                className="active:opacity-90 p-3 tansition-none hover:bg-transparent! hover:text-inherit"
               >
                 {playIcon}
               </Button>
