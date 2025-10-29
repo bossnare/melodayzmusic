@@ -33,7 +33,7 @@ const AuthPageWrapper = ({
 }: BaseProps & { isPending?: boolean; textLoading?: string }) => {
   return (
     <section
-      className="relative flex flex-col items-center justify-between gap-4 sm:gap-6 lg:gap-2 pb-6
+      className="relative flex flex-col items-center lg:justify-between gap-4 sm:gap-6 lg:gap-2 pb-6
       sm:h-auto lg:h-dvh h-dvh md:pb-4"
     >
       {children}
