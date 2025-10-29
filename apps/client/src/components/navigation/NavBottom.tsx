@@ -16,7 +16,7 @@ export const NavBottom = () => {
             key={tab.id}
           >
             {tab.label === 'create' ? (
-              <div>
+              <div className="active:bg-muted/50">
                 <DrawerTrigger asChild>
                   <MotionButton className="*:stroke-2 *:size-6! *:stroke-current text-foreground/70 active:text-muted-foreground lg:hover:text-muted-foreground bg-muted p-3 border-border border">
                     <tab.icon weight="bold" />
