@@ -219,7 +219,7 @@ export default function StepPage() {
               onClick={handleClickNext}
               type={finalStep ? 'submit' : 'button'}
               size={isMobile ? 'xl' : 'lg'}
-              className="mx-auto rounded-full w-8/9 sm:w-2/3"
+              className="mx-auto rounded-full w-8/9 sm:w-2/3 transition-none!"
             >
               {finalStep ? 'Créer mon compte' : 'Suivant'}
             </AuthCtaButton>
