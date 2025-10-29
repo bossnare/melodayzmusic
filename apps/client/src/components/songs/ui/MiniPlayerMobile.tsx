@@ -32,9 +32,9 @@ const MiniPlayerMobile = () => {
     return (
       <>
         {isPlaying ? (
-          <PauseIcon weight={'fill'} className="size-5" />
+          <PauseIcon weight={'fill'} className="size-6" />
         ) : (
-          <PlayIcon weight={'fill'} className="size-5" />
+          <PlayIcon weight={'fill'} className="size-6" />
         )}
       </>
     );
@@ -140,7 +140,7 @@ const MiniPlayerMobile = () => {
                 variant="ghost"
                 className="tansition-none active:opacity-90 hover:bg-transparent! hover:text-inherit"
               >
-                <SkipForwardIcon weight={'fill'} className="size-5" />
+                <SkipForwardIcon weight={'fill'} className="size-6" />
               </Button>
             </div>
           </div>
