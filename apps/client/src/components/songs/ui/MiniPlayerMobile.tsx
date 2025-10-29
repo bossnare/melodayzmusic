@@ -4,6 +4,7 @@ import { PlayIcon, SkipForwardIcon, PauseIcon } from '@phosphor-icons/react';
 import { Music } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const MiniPlayerMobile = () => {
   const {
@@ -14,6 +15,18 @@ const MiniPlayerMobile = () => {
     togglePlaying,
     isPlaying,
   } = usePlayer();
+
+  const [uiPlaying, setUiPlaying] = useState(isPlaying);
+
+  useEffect(() => {
+    setUiPlaying(isPlaying);
+  }, [isPlaying]);
+
+  const handleToggle = () => {
+    setUiPlaying((prev) => !prev);
+  };
+
+  requestAnimationFrame(() => togglePlaying());
 
   return (
     <AnimatePresence mode="wait">
@@ -60,7 +73,7 @@ const MiniPlayerMobile = () => {
         ) : (
           <section
             style={{ backgroundColor: `${dominantColor}` }}
-            className="relative flex items-center gap-2 px-2 py-1 active:brightness-120 size-full"
+            className="relative flex items-center gap-2 px-2 py-1 size-full"
           >
             <span
               className="absolute rounded-[6.5px] invert dark:invert-0 inset-0 opacity-10 pointer-events-none 
@@ -84,18 +97,22 @@ const MiniPlayerMobile = () => {
               onClick={() => {
                 setTrue();
               }}
-              className="flex flex-col items-start justify-center gap-0.5"
+              className="flex flex-col active:brightness-120 items-start justify-center gap-0.5 grow"
             >
-              <p className="text-sm font-bold">{currentSong?.title}</p>
-              <p className="text-xs font-medium">{currentSong?.artist}</p>
+              <p className="text-sm font-bold truncate line-clamp-1">
+                {currentSong?.title}
+              </p>
+              <p className="text-xs font-medium truncate line-clamp-1">
+                {currentSong?.artist}
+              </p>
             </div>
             <div className="flex items-center gap-2 *:text-foreground ml-auto">
               {/* <MotionButton disabled={true}>
               <SkipBackIcon weight={'fill'} className="size-5" />
             </MotionButton> */}
               <MotionButton
-                onClick={togglePlaying}
-                className="active:opacity-80 hover:bg-transparent!"
+                onClick={handleToggle}
+                className="active:opacity-80 active:bg-accent/20! hover:bg-transparent!"
               >
                 {isPlaying ? (
                   <PauseIcon weight={'fill'} className="size-7" />
