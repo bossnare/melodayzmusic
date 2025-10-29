@@ -149,7 +149,6 @@ export function Content({ className }: { className?: string }) {
 
 function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
   const { setFalse: hidePlayer } = usePlayer();
-  const controls = useAnimation();
 
   if (!open) return null;
   return (
@@ -161,15 +160,9 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
           opacity: 1,
         }}
         drag="y"
-        dragConstraints={{ top: 0, bottom: 200 }}
         onDragEnd={(e, info) => {
           if (info.offset.y > 100) {
             hidePlayer();
-          } else {
-            controls.start({
-              y: 0,
-              transition: { type: 'spring', stiffness: 300, damping: 25 },
-            });
           }
         }}
         className={cn(
