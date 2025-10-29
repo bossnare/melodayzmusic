@@ -20,7 +20,7 @@ const MiniPlayerMobile = () => {
 
   const handleToggle = () => {
     setUiPlaying((prev) => !prev);
-    requestAnimationFrame(() => togglePlaying());
+    togglePlaying();
   };
 
   return (
