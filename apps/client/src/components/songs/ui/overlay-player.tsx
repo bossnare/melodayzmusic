@@ -13,6 +13,7 @@ import {
   SkipBackIcon,
   SkipForwardIcon,
   UserListIcon,
+  VinylRecordIcon,
 } from '@phosphor-icons/react';
 import { ChevronDown, Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
@@ -31,7 +32,7 @@ import {
 } from '@/components/ui/drawer';
 import { cn } from '@/lib/utils';
 import { Portal } from '@radix-ui/react-portal';
-import { motion } from 'motion/react';
+import { motion, useAnimation } from 'motion/react';
 import { handleWait } from '@/utils/handle-wait';
 
 const data = [
@@ -148,6 +149,7 @@ export function Content({ className }: { className?: string }) {
 
 function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
   const { setFalse: hidePlayer } = usePlayer();
+  const controls = useAnimation();
 
   if (!open) return null;
   return (
@@ -161,7 +163,14 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
         drag="y"
         dragConstraints={{ top: 0, bottom: 200 }}
         onDragEnd={(e, info) => {
-          if (info.offset.y > 100) hidePlayer();
+          if (info.offset.y > 100) {
+            hidePlayer();
+          } else {
+            controls.start({
+              y: 0,
+              transition: { type: 'spring', stiffness: 300, damping: 25 },
+            });
+          }
         }}
         className={cn(
           open ? 'pointer-events-auto' : 'pointer-events-none',
@@ -178,6 +187,15 @@ const Player = () => {
   const { setFalse, togglePlaying, isPlaying, dominantColor, currentSong } =
     usePlayer();
   const { value: isFavorite, toggle } = useToggle();
+  const onLoadRef = React.useRef<HTMLImageElement | null>(null);
+  const [isLoaded, setIsLoaded] = React.useState(false);
+
+  if (!onLoadRef.current) return;
+  const img = onLoadRef.current;
+
+  img.onload = () => {
+    setIsLoaded(true);
+  };
 
   return (
     <div
@@ -205,13 +223,20 @@ const Player = () => {
         </div>
         <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
-            <Image
-              src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
-              alt={currentSong?.title || 'melodayz'}
-              className="object-cover"
-              width={1000}
-              height={1000}
-            />
+            {isLoaded ? (
+              <Image
+                ref={onLoadRef}
+                src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
+                alt={currentSong?.title || 'melodayz'}
+                className="object-cover"
+                width={1000}
+                height={1000}
+              />
+            ) : (
+              <div className="size-full bg-muted flex justify-center items-center text-muted-foreground">
+                <VinylRecordIcon weight={'duotone'} className="size-30" />
+              </div>
+            )}
           </div>
           <div className="flex w-full">
             <div className="grow">
