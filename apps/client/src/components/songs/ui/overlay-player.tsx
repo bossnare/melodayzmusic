@@ -210,7 +210,7 @@ const Player = () => {
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
             {isLoaded ? (
               <Image
-                onLoad={() => setisLoaded(false)}
+                onLoad={() => setIsLoaded(false)}
                 src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
                 alt={currentSong?.title || 'melodayz'}
                 className="object-cover"
