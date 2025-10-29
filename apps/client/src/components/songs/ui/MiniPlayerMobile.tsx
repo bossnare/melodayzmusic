@@ -7,6 +7,7 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import { useMemo } from 'react';
 import * as React from 'react';
+import { Button } from '@/components/ui/button';
 
 const MiniPlayerMobile = () => {
   const {
@@ -125,15 +126,22 @@ const MiniPlayerMobile = () => {
               </div>
             </div>
             <div className="flex items-center gap-2 *:text-foreground ml-auto">
-              <MotionButton
+              <Button
                 onClick={togglePlaying}
-                className="active:opacity-80 active:bg-accent/20! hover:bg-transparent!"
+                size="icon"
+                variant="ghost"
+                className="active:opacity-90 tansition-none"
               >
                 {playIcon}
-              </MotionButton>
-              <MotionButton disabled={true}>
+              </Button>
+              <Button
+                disabled={true}
+                size="icon"
+                variant="ghost"
+                className="tansition-none"
+              >
                 <SkipForwardIcon weight={'fill'} className="size-5" />
-              </MotionButton>
+              </Button>
             </div>
           </div>
         </div>
