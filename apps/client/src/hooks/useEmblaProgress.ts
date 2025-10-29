@@ -17,7 +17,7 @@ const useEmblaProgress = (
     inViewThreshold: threshold,
     align: align,
     containScroll: 'trimSnaps',
-    duration: 20,
+    duration: 22,
     skipSnaps: skipSnaps,
   });
 

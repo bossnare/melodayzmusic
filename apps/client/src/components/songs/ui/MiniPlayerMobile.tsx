@@ -4,7 +4,7 @@ import { PlayIcon, SkipForwardIcon, PauseIcon } from '@phosphor-icons/react';
 import { Music } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 const MiniPlayerMobile = () => {
   const {
@@ -18,10 +18,10 @@ const MiniPlayerMobile = () => {
 
   const [uiPlaying, setUiPlaying] = useState(isPlaying);
 
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     setUiPlaying((prev) => !prev);
     togglePlaying();
-  };
+  }, [togglePlaying]);
 
   return (
     <AnimatePresence mode="wait">
@@ -67,7 +67,9 @@ const MiniPlayerMobile = () => {
           </section>
         ) : (
           <section
-            style={{ backgroundColor: `${dominantColor}` }}
+            style={
+              { backgroundColor: `${dominantColor}` } as React.CSSProperties
+            }
             className="relative flex items-center gap-2 px-2 py-1 size-full"
           >
             <span
@@ -89,9 +91,7 @@ const MiniPlayerMobile = () => {
             {/* info */}
             <div
               style={{ color: `${secondaryColor}` }}
-              onClick={() => {
-                setTrue();
-              }}
+              onClick={setTrue}
               className="flex flex-col active:brightness-120 items-start justify-center gap-0.5 grow"
             >
               <p className="text-sm font-bold truncate line-clamp-1">
