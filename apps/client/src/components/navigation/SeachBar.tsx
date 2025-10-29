@@ -4,6 +4,7 @@ import { MotionButton } from '@/components/motions/motionButton';
 import { useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Input } from '../ui/input';
+import { handleWait } from '@/utils/handle-wait';
 
 const SearchBar = ({
   isNull,
@@ -47,11 +48,11 @@ const SearchBar = ({
       {openSearch && (
         <MotionButton
           onClick={() => {
-            setOpenSearch(false);
+            handleWait(() => setOpenSearch(false));
             setIsNull(true);
             if (inputRef.current) inputRef.current.value = '';
           }}
-          className={`p-1.5 text-foreground/80 active:bg-accent bg-sidebar lg:hidden`}
+          className={`p-1.5 text-foreground/80 active:bg-accent/20 bg-sidebar lg:hidden`}
         >
           <ChevronLeft className="size-8" />
         </MotionButton>
