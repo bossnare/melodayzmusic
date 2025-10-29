@@ -64,6 +64,7 @@ export default function StepPage() {
   const router = useRouter();
   const finalStep = step >= totalSteps - 1;
   const textLoading = finalStep ? 'Création du compte...' : 'Un instant...';
+  const isMobile = useIsMobile();
 
   const handleRegister = async (data: stepFormType) => {
     // fletten data
@@ -216,6 +217,7 @@ export default function StepPage() {
               isPending={pending}
               onClick={handleClickNext}
               type={finalStep ? 'submit' : 'button'}
+              size={isMobile ? 'xl' : 'lg'}
               className="mx-auto rounded-full w-8/9 sm:w-2/3"
             >
               {finalStep ? 'Créer mon compte' : 'Suivant'}

@@ -176,7 +176,7 @@ const Player = () => {
     <div
       style={
         {
-          backgroundColor: `${dominantColor}`,
+          backgroundColor: `${dominantColor || '#000000'}`,
         } as React.CSSProperties
       }
       className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-80% flex flex-col"
