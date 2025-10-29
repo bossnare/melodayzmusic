@@ -159,12 +159,12 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
           y: 0,
           opacity: 1,
         }}
-        drag="y"
-        onDragEnd={(e, info) => {
-          if (info.offset.y > 100) {
-            hidePlayer();
-          }
-        }}
+        // drag="y"
+        // onDragEnd={(e, info) => {
+        //   if (info.offset.y > 100) {
+        //     hidePlayer();
+        //   }
+        // }}
         className={cn(
           open ? 'pointer-events-auto' : 'pointer-events-none',
           'fixed inset-0 z-50 bg-secondary-foreground dark:bg-background-layer overflow-y-auto scrollbar-none'
@@ -180,15 +180,7 @@ const Player = () => {
   const { setFalse, togglePlaying, isPlaying, dominantColor, currentSong } =
     usePlayer();
   const { value: isFavorite, toggle } = useToggle();
-  const onLoadRef = React.useRef<HTMLImageElement | null>(null);
-  const [isLoaded, setIsLoaded] = React.useState(false);
-
-  if (!onLoadRef.current) return;
-  const img = onLoadRef.current;
-
-  img.onload = () => {
-    setIsLoaded(true);
-  };
+  const [isLoaded, setIsLoaded] = React.useState(true);
 
   return (
     <div
@@ -218,7 +210,7 @@ const Player = () => {
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
             {isLoaded ? (
               <Image
-                ref={onLoadRef}
+                onLoad={() => setIsLoaded(false)}
                 src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
                 alt={currentSong?.title || 'melodayz'}
                 className="object-cover"
