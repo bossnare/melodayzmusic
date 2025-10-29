@@ -1,10 +1,10 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { usePlayer } from '@/context/playerContext';
+import { handleWait } from '@/utils/handle-wait';
 import { PlayIcon, SkipForwardIcon, PauseIcon } from '@phosphor-icons/react';
 import { Music } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
-import { useState, useCallback } from 'react';
 
 const MiniPlayerMobile = () => {
   const {
@@ -84,7 +84,7 @@ const MiniPlayerMobile = () => {
             {/* info */}
             <div
               style={{ color: `${secondaryColor}` }}
-              onClick={setTrue}
+              onClick={() => handleWait(setTrue)}
               className="flex flex-col active:brightness-120 items-start justify-center gap-0.5 grow"
             >
               <p className="text-sm font-bold truncate line-clamp-1">
