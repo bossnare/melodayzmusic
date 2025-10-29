@@ -180,7 +180,6 @@ const Player = () => {
   const { setFalse, togglePlaying, isPlaying, dominantColor, currentSong } =
     usePlayer();
   const { value: isFavorite, toggle } = useToggle();
-  const [isLoaded, setIsLoaded] = React.useState(true);
 
   return (
     <div
@@ -208,26 +207,19 @@ const Player = () => {
         </div>
         <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
-            {isLoaded ? (
-              <Image
-                onLoad={() => setIsLoaded(false)}
-                src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
-                alt={currentSong?.title || 'melodayz'}
-                className="object-cover"
-                width={1000}
-                height={1000}
-              />
-            ) : (
-              <div className="size-full bg-muted flex justify-center items-center text-muted-foreground">
-                <VinylRecordIcon weight={'duotone'} className="size-30" />
-              </div>
-            )}
+            <Image
+              src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
+              alt={currentSong?.title || 'melodayz'}
+              className="object-cover"
+              width={1000}
+              height={1000}
+            />
           </div>
           <div className="flex w-full">
             <div className="grow">
-              <h3 className="text-xl font-bold">Song Played</h3>
+              <h3 className="text-xl font-bold">{currentSong?.title}</h3>
               <p className="text-sm font-semibold text-secondary-foreground/80 dark:text-foreground/80 font-inter">
-                Album/Playlist
+                {currentSong?.artist} - {currentSong?.userOwner.username}
               </p>
             </div>
             <div>
