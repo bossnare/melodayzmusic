@@ -75,9 +75,9 @@ const MiniPlayerMobile = () => {
 
             <div
               onClick={() => handleWait(setTrue)}
-              className="grow cursor-pointer select-none flex items-center gap-2 active:brightness-110"
+              className="grow cursor-pointer select-none flex items-center gap-2"
             >
-              <div className="rounded-[5px] overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
+              <div className="rounded-[5px] active:brightness-110 overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
                 <Image
                   src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
                   className="object-cover"
@@ -89,7 +89,7 @@ const MiniPlayerMobile = () => {
               {/* info */}
               <div
                 style={{ color: `${secondaryColor}` }}
-                className="flex flex-col items-start justify-center gap-0.5"
+                className="flex flex-col items-start justify-center active:brightness-120 gap-0.5"
               >
                 <p className="text-sm font-bold truncate line-clamp-1">
                   {currentSong?.title}
