@@ -195,6 +195,12 @@ const Player = () => {
     };
   }, [imgRef, setDominantColor, setSecondaryColor]);
 
+  function handleHide() {
+    setTimeout(() => {
+      setFalse();
+    }, 150);
+  }
+
   return (
     <div
       style={{
@@ -204,7 +210,7 @@ const Player = () => {
     >
       <Drawer>
         <div className="flex justify-between h-16 py-1">
-          <MotionButton onClick={setFalse}>
+          <MotionButton onClick={handleHide} className="active:opacity-80">
             <ChevronDown className="size-8" />
           </MotionButton>
 
