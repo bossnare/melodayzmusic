@@ -203,14 +203,19 @@ const Player = () => {
 
   return (
     <div
-      style={{
-        backgroundColor: `${dominantColor}`,
-      }}
+      style={
+        {
+          backgroundColor: `${dominantColor}`,
+        } as React.CSSProperties
+      }
       className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-80% flex flex-col"
     >
       <Drawer>
         <div className="flex justify-between h-16 py-1">
-          <MotionButton onClick={handleHide} className="active:opacity-80">
+          <MotionButton
+            onClick={handleHide}
+            className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/30! active:bg-accent/30!"
+          >
             <ChevronDown className="size-8" />
           </MotionButton>
 
