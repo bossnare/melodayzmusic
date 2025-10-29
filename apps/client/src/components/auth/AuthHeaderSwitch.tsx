@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 import { ModeToggle } from '../themes/mode-toggle';
 import { Encouragement } from './StepNavigation';
 import { Spinner } from '../ui/spinner';
+import { handleWait } from '@/utils/handle-wait';
 
 const AuthHeaderSwitch = ({
   href,
@@ -92,7 +93,7 @@ const AuthHeaderSwitch = ({
         <>
           <MotionButton
             className="hover:text-muted-foreground active:text-muted-foreground"
-            onClick={() => router.back()}
+            onClick={() => handleWait(router.back)}
           >
             <ArrowLeft className="size-7 lg:size-8" />
           </MotionButton>

@@ -16,13 +16,6 @@ const MiniPlayerMobile = () => {
     isPlaying,
   } = usePlayer();
 
-  const [uiPlaying, setUiPlaying] = useState(isPlaying);
-
-  const handleToggle = useCallback(() => {
-    setUiPlaying((prev) => !prev);
-    togglePlaying();
-  }, [togglePlaying]);
-
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -106,10 +99,10 @@ const MiniPlayerMobile = () => {
               <SkipBackIcon weight={'fill'} className="size-5" />
             </MotionButton> */}
               <MotionButton
-                onClick={handleToggle}
+                onClick={togglePlaying}
                 className="active:opacity-80 active:bg-accent/20! hover:bg-transparent!"
               >
-                {uiPlaying ? (
+                {isPlaying ? (
                   <PauseIcon weight={'fill'} className="size-7" />
                 ) : (
                   <PlayIcon weight={'fill'} className="size-7" />

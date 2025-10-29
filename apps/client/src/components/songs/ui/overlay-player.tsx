@@ -34,6 +34,7 @@ import { Portal } from '@radix-ui/react-portal';
 import { motion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 import ColorThief from 'colorthief';
+import { handleWait } from '@/utils/handle-wait';
 
 const data = [
   {
@@ -195,12 +196,6 @@ const Player = () => {
     };
   }, [imgRef, setDominantColor, setSecondaryColor]);
 
-  function handleHide() {
-    setTimeout(() => {
-      setFalse();
-    }, 150);
-  }
-
   return (
     <div
       style={
@@ -213,7 +208,7 @@ const Player = () => {
       <Drawer>
         <div className="flex justify-between h-16 py-1">
           <MotionButton
-            onClick={handleHide}
+            onClick={() => handleWait(setFalse)}
             className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/30! active:bg-accent/30!"
           >
             <ChevronDown className="size-8" />
