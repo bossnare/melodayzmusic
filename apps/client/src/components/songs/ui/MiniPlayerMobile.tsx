@@ -89,7 +89,7 @@ const MiniPlayerMobile = () => {
               {/* info */}
               <div
                 style={{ color: `${secondaryColor}` }}
-                className="flex flex-col items-start justify-center gap-0.5"
+                className="flex flex-col select-none items-start justify-center gap-0.5"
               >
                 <p className="text-sm font-bold truncate line-clamp-1">
                   {currentSong?.title}
@@ -105,7 +105,7 @@ const MiniPlayerMobile = () => {
             </MotionButton> */}
               <MotionButton
                 onClick={togglePlaying}
-                className="active:opacity-80 p-4 active:bg-accent/20! hover:bg-transparent!"
+                className="active:opacity-80 active:bg-accent/20! hover:bg-transparent!"
               >
                 {isPlaying ? (
                   <PauseIcon weight={'fill'} className="size-7" />
