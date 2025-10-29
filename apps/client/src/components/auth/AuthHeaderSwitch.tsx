@@ -29,7 +29,7 @@ const AuthHeaderSwitch = ({
   return (
     <nav
       className={cn(
-        'flex items-center justify-between w-full gap-12 lg:gap-0 py-1.5 lg:py-2 bg-background-layer dark:md:bg-transparent px-2 md:px-5 lg:px-4'
+        'sticky top-0 left-0 flex items-center justify-between w-full gap-12 lg:gap-0 py-1.5 lg:py-2 bg-background-layer dark:md:bg-transparent px-2 md:px-5 lg:px-4'
       )}
     >
       {type === 'login' && (
