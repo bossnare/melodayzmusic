@@ -147,6 +147,8 @@ export function Content({ className }: { className?: string }) {
 }
 
 function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
+  const { setFalse: hidePlayer } = usePlayer();
+
   if (!open) return null;
   return (
     <Portal>
@@ -155,6 +157,11 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
         animate={{
           y: 0,
           opacity: 1,
+        }}
+        drag="y"
+        dragConstraints={{ top: 0, bottom: 200 }}
+        onDragEnd={(e, info) => {
+          if (info.offset.y > 100) hidePlayer();
         }}
         className={cn(
           open ? 'pointer-events-auto' : 'pointer-events-none',
