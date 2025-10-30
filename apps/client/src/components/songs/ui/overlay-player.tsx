@@ -197,7 +197,7 @@ const Player = () => {
       className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-80% flex flex-col"
     >
       <Drawer>
-        <div className="flex justify-between h-16 py-1">
+        <div className="flex items-center justify-between h-16 py-1">
           <MotionButton
             onClick={() => handleWait(setFalse)}
             className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/30! active:bg-accent/30!"
