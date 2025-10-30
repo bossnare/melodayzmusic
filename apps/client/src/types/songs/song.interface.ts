@@ -8,6 +8,7 @@ interface SongInterface {
   songCover: {
     coverUrl: string;
   };
+  audioUrl: string;
   defaultCover: string;
   userOwner: {
     username: string;

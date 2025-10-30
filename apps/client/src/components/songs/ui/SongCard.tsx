@@ -21,12 +21,12 @@ import { usePlayer } from '@/context/playerContext';
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const { setCurrentSong, setTrue } = usePlayer();
+  const { playSong, setTrue } = usePlayer();
 
   return (
     <Card
       onClick={() => {
-        setCurrentSong(song);
+        playSong(song);
         setTrue();
       }}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
@@ -87,12 +87,12 @@ const VibeCard = ({ song }: SongProps) => {
 // Album Card
 const AlbumCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const { setCurrentSong, setTrue } = usePlayer();
+  const { playSong, setTrue } = usePlayer();
 
   return (
     <Card
       onClick={() => {
-        setCurrentSong(song);
+        playSong(song);
         setTrue();
       }}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
