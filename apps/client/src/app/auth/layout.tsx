@@ -7,7 +7,7 @@ export default function AuthLayout({
 }>) {
   return (
     <AuthGuard requireAuth={false}>
-      <div className="overflow-hidden sm:overflow-y-auto lg:overflow-hidden max-h-dvh scroll-smooth scrollbar-none bg-linear-to-br dark:from-primary/4 via-transparent dark:to-ring/6 from-primary/6 to-ring/4">
+      <div className="h-dvh scroll-smooth scrollbar-none bg-linear-to-br dark:from-primary/4 via-transparent dark:to-ring/6 from-primary/6 to-ring/4">
         {children}
       </div>
     </AuthGuard>
