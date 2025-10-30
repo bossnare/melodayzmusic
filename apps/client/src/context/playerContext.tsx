@@ -20,6 +20,7 @@ type PlayerContextType = {
   togglePlay: () => void;
   dominantColor: string | null;
   secondaryColor: string | null;
+  isLoading: boolean;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
@@ -34,6 +35,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   } = useToggle();
   const [currentSong, setCurrentSong] = useState<SongInterface | null>(null);
   const [dominantColor, setDominantColor] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -62,13 +64,37 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     if (!audioRef.current) {
       audioRef.current = new Audio();
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    if (!audioRef.current || !currentSong) return;
+    const audio = audioRef.current;
+
+    setIsLoading(true);
+    audio.pause();
+    audio.currentTime = 0;
+    audio.src = currentSong.audioUrl;
+    audio.load();
+
+    const handleCanPlay = () => {
+      setIsLoading(false);
+      audio
+        .play()
+        .then(() => setIsPlaying())
+        .catch(() => setIsPlayingFalse());
+    };
+
+    audio.addEventListener('canplay', handleCanPlay);
+
+    return () => {
+      audio.removeEventListener('canplay', handleCanPlay);
+    };
+  }, [currentSong, setIsPlayingFalse, setIsPlaying]);
 
   const playSong = (song: SongInterface | null) => {
     if (!audioRef.current) return;
     if (currentSong?.id !== song?.id) {
       setCurrentSong(song);
-      audioRef.current.src = song?.audioUrl || '';
     }
     audioRef.current.play();
     setIsPlaying();
@@ -86,6 +112,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const audio = audioRef.current;
+
     if (!audio) return;
 
     audio.addEventListener('ended', () => {
@@ -116,6 +143,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         // color
         dominantColor,
         secondaryColor,
+        // play
+        isLoading,
       }}
     >
       <PlayerTitleSync />
