@@ -10,11 +10,12 @@ export default function AudioWave({
       {[...Array(4)].map((_, i) => (
         <span
           key={i}
-          className={`w-1 transition-all! duration-500! bg-[${color}] ${
+          className={`w-1 transition-all! duration-500! ${
             active ? 'animate-wave' : 'h-1'
           }`}
           style={{
             animationDelay: `${i * 0.15}s`,
+            backgroundColor: `${color}`,
           }}
         />
       ))}
