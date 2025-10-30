@@ -148,7 +148,7 @@ export function Content({ className }: { className?: string }) {
 }
 
 function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
-  const { setFalse: hidePlayer } = usePlayer();
+  const { isLoading } = usePlayer();
 
   if (!open) return null;
   return (
@@ -170,7 +170,7 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
           'fixed inset-0 z-50 bg-secondary-foreground dark:bg-background-layer overflow-y-auto scrollbar-none'
         )}
       >
-        {children}
+        {isLoading ? null : children}
       </motion.div>
     </Portal>
   );
