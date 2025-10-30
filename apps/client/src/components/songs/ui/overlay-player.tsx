@@ -167,7 +167,10 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
         // }}
         className={cn(
           open ? 'pointer-events-auto' : 'pointer-events-none',
-          'fixed inset-0 z-50 bg-secondary-foreground dark:bg-background-layer overflow-y-auto scrollbar-none'
+          'fixed inset-0 z-50 overflow-y-auto scrollbar-none',
+          isLoading
+            ? 'bg-secondary-foreground/40 dark:bg-background-layer/40'
+            : 'bg-secondary-foreground dark:bg-background-layer'
         )}
       >
         {isLoading ? null : children}
