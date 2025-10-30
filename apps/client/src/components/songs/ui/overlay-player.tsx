@@ -177,8 +177,14 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
 }
 
 const Player = () => {
-  const { setFalse, togglePlaying, isPlaying, dominantColor, currentSong } =
-    usePlayer();
+  const {
+    setFalse,
+    togglePlaying,
+    isPlaying,
+    dominantColor,
+    currentSong,
+    togglePlay,
+  } = usePlayer();
   const { value: isFavorite, toggle } = useToggle();
 
   return (
@@ -247,7 +253,10 @@ const Player = () => {
               <SkipBackIcon weight={'fill'} className="size-9" />
             </MotionButton>
             <MotionButton
-              onClick={togglePlaying}
+              onClick={() => {
+                togglePlaying();
+                togglePlay();
+              }}
               className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
             >
               {isPlaying ? (

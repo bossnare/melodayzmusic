@@ -17,6 +17,7 @@ const MiniPlayerMobile = () => {
     secondaryColor,
     togglePlaying,
     isPlaying,
+    togglePlay,
   } = usePlayer();
 
   const songInfo = useMemo(() => {
@@ -101,7 +102,7 @@ const MiniPlayerMobile = () => {
 
             <div
               onClick={() => handleWait(setTrue)}
-              className="grow cursor-pointer select-none flex items-center gap-2"
+              className="flex items-center gap-2 cursor-pointer select-none grow"
             >
               <div className="rounded-[5px] active:brightness-110 overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
                 <Image
@@ -127,7 +128,10 @@ const MiniPlayerMobile = () => {
             </div>
             <div className="flex items-center gap-2 *:text-foreground ml-auto">
               <Button
-                onClick={togglePlaying}
+                onClick={() => {
+                  togglePlaying();
+                  togglePlay();
+                }}
                 size="icon"
                 variant="ghost"
                 className="active:opacity-90 p-3 tansition-none hover:bg-transparent! hover:text-inherit"
