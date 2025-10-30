@@ -44,7 +44,7 @@ const SidebarContentDesktop = () => {
               <AvatarFallback>U</AvatarFallback>
             </Avatar>
             {isPending && (
-              <div className="absolute -translate-x-1/2 -translate-y-1/2 border border-4 rounded-full left-1/2 top-1/2 size-12 border-primary/50 animate-spin border-t-transparent"></div>
+              <div className="absolute -translate-x-1/2 -translate-y-1/2 border-4 rounded-full left-1/2 top-1/2 size-12 border-primary/50 animate-spin border-t-transparent"></div>
             )}
           </div>
           <div className="flex flex-col grow">
@@ -55,7 +55,7 @@ const SidebarContentDesktop = () => {
               </>
             ) : (
               <>
-                <span className="text-base font-semibold capitalize">
+                <span className="text-base font-semibold capitalize truncate line-clamp-1">
                   {user?.pseudo || 'Utilisateur(e)'}
                 </span>
                 <span className="text-xs text-muted-foreground">
