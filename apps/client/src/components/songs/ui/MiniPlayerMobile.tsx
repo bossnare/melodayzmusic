@@ -18,6 +18,8 @@ const MiniPlayerMobile = () => {
     togglePlaying,
     isPlaying,
     togglePlay,
+    currentTime,
+    duration,
   } = usePlayer();
 
   const songInfo = useMemo(() => {
@@ -97,7 +99,10 @@ const MiniPlayerMobile = () => {
               mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"
             ></span>
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
-              <div className="w-20 h-full bg-foreground"></div>
+              <div
+                style={{ width: `${(currentTime / duration) * 100}%` }}
+                className="h-full bg-foreground"
+              ></div>
             </div>
 
             <div
