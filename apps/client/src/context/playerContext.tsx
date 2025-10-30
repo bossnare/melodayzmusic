@@ -79,6 +79,21 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     else playSong(currentSong);
   };
 
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.addEventListener('ended', () => {
+      setIsPlayingFalse();
+    });
+
+    return () => {
+      audio.removeEventListener('ended', () => {
+        setIsPlayingFalse();
+      });
+    };
+  }, [setIsPlayingFalse]);
+
   return (
     <PlayerContext
       value={{
