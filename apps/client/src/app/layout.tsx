@@ -8,7 +8,6 @@ import './custom.css';
 import { ThemeProvider } from '@/components/themes/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { PlayerProvider } from '@/context/playerContext';
-import PlayerTitleSync from './services/player-title-sync';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -60,8 +59,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background-layer min-h-screen flex flex-col`}
       >
-        {/* Player title sync */}
-        <PlayerTitleSync />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
