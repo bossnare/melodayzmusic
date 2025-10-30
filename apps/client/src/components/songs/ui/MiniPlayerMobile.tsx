@@ -134,7 +134,7 @@ const MiniPlayerMobile = () => {
                 }}
                 size="icon"
                 variant="ghost"
-                className="active:opacity-90 p-3 tansition-none hover:bg-transparent! hover:text-inherit"
+                className="active:opacity-90 p-3 active:scale-99 tansition-none hover:bg-transparent! hover:text-inherit"
               >
                 {playIcon}
               </Button>
