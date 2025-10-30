@@ -170,7 +170,7 @@ export default function StepPage() {
       {/* content */}
       <div
         className="flex flex-col justify-center items-center gap-1 
-      w-full px-2 md:px-10 *:w-full md:*:w-3/4 lg:*:w-1/2 xl:*:w-[42%] h-[50%] sm:min-h-auto h-[65%] transition-all duration-300 relative"
+      w-full px-2 md:px-10 *:w-full md:*:w-3/4 lg:*:w-1/2 xl:*:w-[42%] h-[50%] sm:min-h-auto xl:h-[65%] transition-all duration-300 relative"
       >
         <div className="absolute left-8 size-10! hidden lg:block">
           <MotionButton
