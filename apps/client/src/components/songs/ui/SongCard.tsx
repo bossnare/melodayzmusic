@@ -17,11 +17,12 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { usePlayer } from '@/context/playerContext';
+import AudioWave from '@/components/motions/AudioWave';
 
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const { playSong, setTrue } = usePlayer();
+  const { playSong, setTrue, isPlaying, isCurrent } = usePlayer();
 
   return (
     <Card
@@ -35,9 +36,6 @@ const VibeCard = ({ song }: SongProps) => {
         <AspectRatio
           ratio={1}
           className="relative overflow-hidden rounded-[6.5px]"
-          // onClick={() => {
-          //   // playTrack(song, navigate);
-          // }}
         >
           <Image
             src={song.songCover.coverUrl || song.defaultCover}
@@ -52,18 +50,11 @@ const VibeCard = ({ song }: SongProps) => {
           {imgLoading && (
             <div className="absolute inset-0 bg-linear-to-br from-foreground/40 via-foreground/50 to-foreground/40 animate-pulse"></div>
           )}
-          {/* <div className="absolute flex justify-end bottom-2 left-2">
-            <MotionButton
-              className="bg-linear-to-t from-black/60 to-transparent shrink-0"
-              onClick={() => setIsPlaying(!isPlaying)}
-            >
-              {isPlaying ? (
-                <Pause className="stroke-0 size-6 lg:size-5 fill-white dark:fill-foreground" />
-              ) : (
-                <Play className="stroke-0 size-6 lg:size-5 fill-white dark:fill-foreground" />
-              )}
-            </MotionButton>
-          </div> */}
+          {isCurrent(song) && (
+            <div className="absolute top-2 right-2">
+              <AudioWave active={isPlaying} />
+            </div>
+          )}
         </AspectRatio>
       </CardContent>
 

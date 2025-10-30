@@ -16,6 +16,7 @@ type PlayerContextType = {
   togglePlaying: () => void;
   playSong: (song: SongInterface | null) => void;
   currentSong: SongInterface | null;
+  isCurrent: (song: SongInterface) => boolean;
   togglePlay: () => void;
   dominantColor: string | null;
   secondaryColor: string | null;
@@ -36,6 +37,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const isCurrent = (song: SongInterface) => {
+    return currentSong?.id === song.id;
+  };
 
   // get song cover dominant color
   useEffect(() => {
@@ -107,6 +112,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         currentSong,
         playSong,
         togglePlay,
+        isCurrent,
         // color
         dominantColor,
         secondaryColor,

@@ -288,6 +288,21 @@
       background: var(--foreground);
     }
   }
+
+  /* AudioWave */
+  @keyframes wave {
+    0%,
+    100% {
+      height: 4px;
+    }
+    50% {
+      height: 16px;
+    }
+  }
+
+  .animate-wave {
+    animation: wave 0.8s ease-in-out infinite;
+  }
 }
 
 @layer components {
