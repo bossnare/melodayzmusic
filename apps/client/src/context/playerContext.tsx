@@ -78,9 +78,21 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
 
     const handleCanPlay = () => {
       setIsLoading(false);
+      audio.volume = 0;
       audio
         .play()
-        .then(() => setIsPlaying())
+        .then(() => {
+          setIsPlaying();
+
+          // fade in
+          const fade = setInterval(() => {
+            if (audio.volume < 1) {
+              audio.volume = Math.min(1, audio.volume + 0.1);
+            } else {
+              clearInterval(fade);
+            }
+          }, 100);
+        })
         .catch(() => setIsPlayingFalse());
     };
 
@@ -88,6 +100,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
 
     return () => {
       audio.removeEventListener('canplay', handleCanPlay);
+      audio.pause();
+      setIsPlayingFalse();
     };
   }, [currentSong, setIsPlayingFalse, setIsPlaying]);
 
