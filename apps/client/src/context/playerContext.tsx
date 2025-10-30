@@ -13,8 +13,9 @@ type PlayerContextType = {
   show: boolean;
   isPlaying: boolean;
   togglePlaying: () => void;
+  playSong: (song: SongInterface | null) => void;
   currentSong: SongInterface | null;
-  setCurrentSong: (song: SongInterface | null) => void;
+  togglePlay: () => void;
   dominantColor: string | null;
   secondaryColor: string | null;
 };
@@ -23,11 +24,17 @@ const PlayerContext = createContext<PlayerContextType | null>(null);
 
 export function PlayerProvider({ children }: { children: ReactNode }) {
   const { value: show, setTrue, setFalse } = useToggle();
-  const { value: isPlaying, toggle: togglePlaying } = useToggle();
+  const {
+    value: isPlaying,
+    toggle: togglePlaying,
+    setTrue: setIsPlaying,
+    setFalse: setIsPlayingFalse,
+  } = useToggle();
   const [currentSong, setCurrentSong] = useState<SongInterface | null>(null);
   const [dominantColor, setDominantColor] = useState<string | null>(null);
   const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // get song cover dominant color
   useEffect(() => {
@@ -45,16 +52,46 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     img.src = currentSong?.songCover.coverUrl || '/img/b1.jpg';
   }, [currentSong]);
 
+  useEffect(() => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio();
+    }
+  });
+
+  const playSong = (song: SongInterface | null) => {
+    if (!audioRef.current) return;
+    if (currentSong?.id !== song?.id) {
+      setCurrentSong(song);
+      audioRef.current.src = song?.audioUrl || '';
+    }
+    audioRef.current.play();
+    setIsPlaying();
+  };
+
+  const pauseSong = () => {
+    audioRef.current?.pause();
+    setIsPlayingFalse();
+  };
+
+  const togglePlay = () => {
+    if (isPlaying) pauseSong();
+    else playSong(currentSong);
+  };
+
   return (
     <PlayerContext
       value={{
+        // ux
         setTrue,
         setFalse,
         show,
+        // song
         isPlaying,
         togglePlaying,
         currentSong,
-        setCurrentSong,
+        playSong,
+        togglePlay,
+        // color
         dominantColor,
         secondaryColor,
       }}

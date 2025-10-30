@@ -25,7 +25,7 @@ export default function ProfilePage() {
           <AvatarImage
             className="object-cover"
             alt="fallback"
-            src="/img/profil/man-pp.jpg"
+            src="/img/fallback/man-pp.jpg"
           />
           <AvatarFallback>US</AvatarFallback>
         </Avatar>
