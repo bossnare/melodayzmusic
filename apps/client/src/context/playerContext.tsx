@@ -6,6 +6,7 @@ import type { SongInterface } from '@/types/songs/song.interface';
 import { useEffect, useRef } from 'react';
 import ColorThief from 'colorthief';
 import Image from 'next/image';
+import PlayerTitleSync from '@/app/services/player-title-sync';
 
 type PlayerContextType = {
   setTrue: () => void;
@@ -96,6 +97,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         secondaryColor,
       }}
     >
+      <PlayerTitleSync />
+
       {children}
       <Image src="" ref={imgRef} alt="" style={{ display: 'none' }} />
     </PlayerContext>

@@ -59,7 +59,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background-layer min-h-screen flex flex-col`}
       >
-        {/* ambiance overlay */}
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
