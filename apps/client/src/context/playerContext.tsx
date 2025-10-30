@@ -21,6 +21,8 @@ type PlayerContextType = {
   dominantColor: string | null;
   secondaryColor: string | null;
   isLoading: boolean;
+  duration: number;
+  currentTime: number;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
@@ -39,6 +41,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
   const isCurrent = (song: SongInterface) => {
     return currentSong?.id === song.id;
@@ -64,6 +68,22 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     if (!audioRef.current) {
       audioRef.current = new Audio();
     }
+  }, []);
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+    const audio = audioRef.current;
+
+    const handleLoaded = () => setDuration(audio.duration);
+    const handleTime = () => setCurrentTime(audio.currentTime);
+
+    audio.addEventListener('loadedmetadata', handleLoaded);
+    audio.addEventListener('timeupdate', handleTime);
+
+    return () => {
+      audio.removeEventListener('loadedmetadata', handleLoaded);
+      audio.removeEventListener('timeupdate', handleTime);
+    };
   }, []);
 
   useEffect(() => {
@@ -157,8 +177,9 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         // color
         dominantColor,
         secondaryColor,
-        // play
         isLoading,
+        duration,
+        currentTime,
       }}
     >
       <PlayerTitleSync />
