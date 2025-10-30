@@ -13,7 +13,6 @@ import {
   SkipBackIcon,
   SkipForwardIcon,
   UserListIcon,
-  VinylRecordIcon,
 } from '@phosphor-icons/react';
 import { ChevronDown, Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
@@ -34,6 +33,7 @@ import { cn } from '@/lib/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { motion, useAnimation } from 'motion/react';
 import { handleWait } from '@/utils/handle-wait';
+import AudioWave from '@/components/motions/AudioWave';
 
 const data = [
   {
@@ -205,6 +205,7 @@ const Player = () => {
             <ChevronDown className="size-8" />
           </MotionButton>
 
+          <AudioWave active={isPlaying} />
           <DrawerTrigger asChild>
             <MotionButton className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/30! active:bg-accent/30!">
               <DotsThreeVerticalIcon weight={'bold'} className="size-8" />
