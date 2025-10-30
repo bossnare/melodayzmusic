@@ -32,7 +32,7 @@ const AuthPageWrapper = ({
   textLoading,
 }: BaseProps & { isPending?: boolean; textLoading?: string }) => {
   return (
-    <section className="relative flex flex-col items-center gap-4 pb-6 lg:justify-between sm:gap-6 lg:gap-2 sm:h-auto h-dvh lg:h-dvh max-h-dvh md:pb-4">
+    <section className="relative flex flex-col items-center justify-between gap-4 pb-6 sm:gap-6 lg:gap-2 sm:h-auto h-dvh lg:h-dvh md:pb-4">
       {children}
       {/* Overlay */}
       <Overlay isPending={isPending} textLoading={textLoading} />

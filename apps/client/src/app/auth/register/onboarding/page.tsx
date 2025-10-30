@@ -200,7 +200,7 @@ export default function StepPage() {
         {/* Step Card */}
         <FormProvider {...form}>
           <form
-            className="flex flex-col justify-between space-y-3 grow"
+            className="flex flex-col justify-between space-y-3"
             onSubmit={form.handleSubmit(handleRegister)}
           >
             <StepCardWrapper
