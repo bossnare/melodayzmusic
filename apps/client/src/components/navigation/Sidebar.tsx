@@ -75,9 +75,9 @@ export const Sidebar = ({
             />
             <h2
               translate="no"
-              className="text-xl font-black select-none font-montserrat"
+              className="flex gap-1 text-xl font-black select-none font-montserrat"
             >
-              MELODAYZMUSIC
+              MELODAYZ <span className="font-bold text-foreground">Music</span>
             </h2>
           </figure>
         </div>
@@ -98,9 +98,9 @@ export const Sidebar = ({
               <figcaption className="flex justify-between">
                 <Avatar className="border border-current/50 size-14 ring-2 -ring-offset-4 ring-muted">
                   {isFetchingMe ? (
-                    <Skeleton className="size-full rounded-full bg-foreground/30" />
+                    <Skeleton className="rounded-full size-full bg-foreground/30" />
                   ) : (
-                    <div className="size-full text-muted-foreground flex justify-center items-center bg-muted text-lg font-black font-montserrat">
+                    <div className="flex items-center justify-center text-lg font-black size-full text-muted-foreground bg-muted font-montserrat">
                       {getInitials(user?.pseudo)}
                     </div>
                   )}
@@ -154,11 +154,11 @@ export const Sidebar = ({
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
-                    <AlertDialogCancel className="font-montserrat h-12 lg:h-auto border-none bg-muted">
+                    <AlertDialogCancel className="h-12 border-none font-montserrat lg:h-auto bg-muted">
                       Non
                     </AlertDialogCancel>
                     <AlertDialogAction
-                      className="font-montserrat h-12 lg:h-auto bg-secondary font-semibold text-secondary-foreground"
+                      className="h-12 font-semibold font-montserrat lg:h-auto bg-secondary text-secondary-foreground"
                       onClick={logout}
                     >
                       Oui, quitter
