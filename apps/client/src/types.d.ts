@@ -18,6 +18,9 @@ declare module 'country-flag-emoji' {
 declare module 'colorthief' {
   export default class ColorThief {
     getColor(image: HTMLImageElement | HTMLCanvasElement): number[];
-    getPalette(image: HTMLImageElement | HTMLCanvasElement, number: number): number[][];
+    getPalette(
+      image: HTMLImageElement | HTMLCanvasElement,
+      number: number
+    ): number[][];
   }
 }

@@ -169,11 +169,15 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
           open ? 'pointer-events-auto' : 'pointer-events-none',
           'fixed inset-0 z-50 overflow-y-auto scrollbar-none',
           isLoading
-            ? 'bg-secondary-foreground/40 dark:bg-background-layer/40'
+            ? 'bg-secondary-foreground/60 flex justify-center items-center dark:bg-background-layer/60'
             : 'bg-secondary-foreground dark:bg-background-layer'
         )}
       >
-        {isLoading ? null : children}
+        {isLoading ? (
+          <AudioWave active={isLoading} color="#FFFFFF" />
+        ) : (
+          children
+        )}
       </motion.div>
     </Portal>
   );
