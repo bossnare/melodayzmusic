@@ -65,7 +65,7 @@ const SidebarContentDesktop = () => {
             )}
           </div>
         </figcaption>
-        <Settings2 className="cursor-pointer hover:opacity-60" />
+        <Settings2 className="cursor-pointer shrink-0 hover:opacity-60" />
       </figure>
       <Separator />
       <ul className="flex flex-col w-full p-1 mt-3 rounded-md bg-background/90 dark:bg-card/50">
