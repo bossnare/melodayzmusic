@@ -17,12 +17,12 @@ import { useLoadingPath } from '@/hooks/useLoadingPath';
 import { EMAIL_REGEX, USERNAME_REGEX } from '@/lib/validators/regex';
 import { type loginFormType } from '@/schemas/login';
 import { type stepFormType } from '@/schemas/register';
-import { vibrate } from '@/utils/vibration';
+import { vibrate, waitVibrate } from '@/utils/vibration';
 import axios from 'axios';
 import { Lock, Mail, NotebookPen, UserRoundPen } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { MelodayzMusic } from '../branding/logo';
 import { Button } from '../ui/button';
@@ -55,110 +55,106 @@ function LoginCard({
 }) {
   const pathname = usePathname();
   const isMobile = useIsMobile();
-  setTimeout(() => {
-    vibrate('low');
-  }, 500);
+  useCallback(() => {
+    waitVibrate(500);
+  }, []);
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={pathname + 'login'}
-          className="w-full"
-          initial={
-            isMobile ? { scale: 1.1, opacity: 0 } : { y: 100, opacity: 0 }
-          }
-          animate={
-            isMobile ? { scale: 1, opacity: 1, y: 0 } : { y: 0, opacity: 1 }
-          }
-          exit={isMobile ? { scale: 0.8, opacity: 0 } : { y: 0, opacity: 0 }}
-          transition={{
-            type: 'spring',
-            stiffness: isMobile ? 300 : 400,
-            damping: isMobile ? 30 : 26,
-            mass: 1.2,
-          }}
-        >
-          <Card className="p-2 pb-8 space-y-4 border-0 lg:border md:pb-4 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
-            <CardTitle>
-              <MelodayzMusic />
-            </CardTitle>
-            {/* Form Content */}
-            <CardContent className="flex flex-col gap-3 p-1 md:gap-10 md:flex-row">
-              <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(handleLogin)}
-                  className="flex flex-col flex-1 gap-3"
+      <motion.div
+        key={pathname + 'login'}
+        className="w-full"
+        initial={isMobile ? { scale: 1.1, opacity: 0 } : { y: 100, opacity: 0 }}
+        animate={
+          isMobile ? { scale: 1, opacity: 1, y: 0 } : { y: 0, opacity: 1 }
+        }
+        exit={isMobile ? { scale: 0.8, opacity: 0 } : { y: 0, opacity: 0 }}
+        transition={{
+          type: 'spring',
+          stiffness: isMobile ? 300 : 400,
+          damping: isMobile ? 30 : 26,
+          mass: 1.2,
+        }}
+      >
+        <Card className="p-2 pb-8 space-y-4 border-0 lg:border md:pb-4 rounded-3xl md:p-4 xl:p-6 dark:bg-gradient-to-br bg-gradient-to-b dark:from-card/40 dark:via-card/10 dark:to-card/40 dark:lg:to-card/80 from-card via-card/50 to-card backdrop-blur-sm">
+          <CardTitle>
+            <MelodayzMusic />
+          </CardTitle>
+          {/* Form Content */}
+          <CardContent className="flex flex-col gap-3 p-1 md:gap-10 md:flex-row">
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(handleLogin)}
+                className="flex flex-col flex-1 gap-3"
+              >
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Adresse email</FormLabel>
+                      <FormControl>
+                        <Input
+                          disabled={isPending}
+                          autoComplete="username"
+                          spellCheck="false"
+                          autoCorrect="off"
+                          type="text"
+                          className="py-[26px] border-[1.4px] md:py-6 rounded-lg active:bg-muted-foreground/10"
+                          placeholder="Email associé à votre compte"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                ></FormField>
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Mot de passe</FormLabel>
+                      <FormControl>
+                        <PasswordInput
+                          autoComplete="current-password"
+                          className="rounded-lg border-[1.4px] py-[26px] md:py-6 active:bg-muted-foreground/10"
+                          disabled={isPending}
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                ></FormField>
+                <AuthCtaButton
+                  size="xl"
+                  type="submit"
+                  className="rounded-2xl"
+                  textLoading="Connexion..."
                 >
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Adresse email</FormLabel>
-                        <FormControl>
-                          <Input
-                            disabled={isPending}
-                            autoComplete="username"
-                            spellCheck="false"
-                            autoCorrect="off"
-                            type="text"
-                            className="py-[26px] border-[1.4px] md:py-6 rounded-lg active:bg-muted-foreground/10"
-                            placeholder="Email associé à votre compte"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  ></FormField>
-                  <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Mot de passe</FormLabel>
-                        <FormControl>
-                          <PasswordInput
-                            autoComplete="current-password"
-                            className="rounded-lg border-[1.4px] py-[26px] md:py-6 active:bg-muted-foreground/10"
-                            disabled={isPending}
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  ></FormField>
-                  <AuthCtaButton
-                    size="xl"
-                    type="submit"
-                    className="rounded-2xl"
-                    textLoading="Connexion..."
+                  Se connecter
+                </AuthCtaButton>
+                <div className="mx-auto md:mx-0">
+                  <Button
+                    type="button"
+                    variant="link"
+                    className="w-auto h-auto p-0 text-muted-foreground font-montserrat"
                   >
-                    Se connecter
-                  </AuthCtaButton>
-                  <div className="mx-auto md:mx-0">
-                    <Button
-                      type="button"
-                      variant="link"
-                      className="w-auto h-auto p-0 text-muted-foreground font-montserrat"
-                    >
-                      Mot de passe oublié ?
-                    </Button>
-                  </div>
-                </form>
-              </Form>
+                    Mot de passe oublié ?
+                  </Button>
+                </div>
+              </form>
+            </Form>
 
-              {/* divide */}
-              <Divide />
+            {/* divide */}
+            <Divide />
 
-              {/* login providers */}
-              <Provider size="xl" />
-            </CardContent>
-          </Card>
-        </motion.div>
-      </AnimatePresence>
+            {/* login providers */}
+            <Provider size="xl" />
+          </CardContent>
+        </Card>
+      </motion.div>
     </>
   );
 }
