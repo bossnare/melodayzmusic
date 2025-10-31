@@ -30,12 +30,6 @@ export function SearchProvider({ children }: BaseProps) {
   } = useToggle(true);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  useEffect(() => {
-    if (!inputRef.current) return;
-    const inputValue = inputRef.current.value;
-    if (inputValue === '') setIsNull();
-  }, [setIsNull]);
-
   return (
     <SearchContext
       value={{

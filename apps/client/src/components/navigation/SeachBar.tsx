@@ -26,8 +26,11 @@ const SearchBar = (
 
   const handleClickX = () => {
     inputRef.current?.focus();
-    if (inputRef.current) inputRef.current.value = '';
-    // setIsNull(true);
+    handleWait(() => {
+      if (!inputRef.current) return;
+      inputRef.current.value = '';
+      setIsNull();
+    });
   };
 
   const handleisOpenSearch = () => {
@@ -127,7 +130,7 @@ const SearchBar = (
           {!isOpenSearch && (
             <MotionButton
               onClick={() => handleWait(handleisOpenSearch)}
-              className={`p-1.5 text-foreground/70 dark:text-foreground bg-muted! lg:hidden
+              className={`p-1.5 text-foreground/80 active:opacity-80 dark:text-foreground bg-muted! lg:hidden
             } bg-sidebar lg:bg-transparent lg:p-2`}
             >
               <MagnifyingGlassIcon weight={'bold'} className="size-6" />
