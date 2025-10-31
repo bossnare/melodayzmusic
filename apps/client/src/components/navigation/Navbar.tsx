@@ -2,12 +2,11 @@
 
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import SearchBar from './SeachBar';
 import { ModeToggle } from '../themes/mode-toggle';
 import { SearchIcon } from 'lucide-react';
 import { Logo } from '../branding/logo';
-// import { motion, AnimatePresence } from 'motion/react';
 import { Command, CommandItem, CommandList } from '../ui/command';
 import { SheetTrigger } from '@/components/ui/sheet';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
@@ -15,6 +14,7 @@ import { AlignLeft } from 'lucide-react';
 import { waitVibrate } from '@/utils/vibration';
 import { usePlayer } from '@/context/playerContext';
 import { useUser } from '@/hooks/useUser';
+import { useSearch } from '@/context/searchContext';
 
 export const NavBar = ({
   isAtHome,
@@ -23,13 +23,10 @@ export const NavBar = ({
   isAtHome?: boolean;
   fetchMeAction: () => void;
 }) => {
-  // const [notHome, setNotHome] = useState(false);
   const router = useRouter();
   // for search bar behavior
-  const [isNull, setIsNull] = useState(true);
-  const [openSearch, setOpenSearch] = useState(false);
   const { show } = usePlayer();
-
+  const { isOpenSearch, isNull } = useSearch();
   const { fetchMe, user } = useUser();
   const userRole = user?.role || 'USER';
 
@@ -44,7 +41,7 @@ export const NavBar = ({
         'relative flex items-center gap-3 lg:gap-4'
       )}
     >
-      {!openSearch && (
+      {!isOpenSearch && (
         <>
           {isAtHome ? (
             <Logo onClick={() => router.push('/dashboard')} />
@@ -67,16 +64,19 @@ export const NavBar = ({
 
       {/* for search */}
       <SearchBar
-        isNull={isNull}
-        setIsNull={setIsNull}
-        openSearch={openSearch}
-        setOpenSearch={setOpenSearch}
+      // isNull={isNull}
+      // setIsNull={setIsNull}
+      // isOpenSearch={isOpenSearch}
+      // setisOpenSearch={setisOpenSearch}
       />
 
       {/* theme toggle */}
       {userRole !== 'DEV' ? null : (
         <div
-          className={cn(openSearch ? 'hidden' : 'block', 'lg:block lg:ml-auto')}
+          className={cn(
+            isOpenSearch ? 'hidden' : 'block',
+            'lg:block lg:ml-auto'
+          )}
         >
           <ModeToggle />
         </div>
@@ -85,7 +85,7 @@ export const NavBar = ({
       <Command
         className={cn(
           isNull ? 'lg:hidden' : 'lg:flex',
-          !openSearch ? 'hidden' : 'flex',
+          !isOpenSearch ? 'hidden' : 'flex',
           'absolute z-20 flex-col gap-1 items-center lg:justify-center justify-start w-full px-2 py-10 lg:rounded-xl lg:shadow-xl h-[calc(100dvh-5rem)] top-[54px] lg:top-[54px] lg:w-6/7 bg-background lg:bg-muted/95 backdrop-blur-sm lg:h-80'
         )}
       >
