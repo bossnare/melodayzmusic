@@ -8,7 +8,6 @@ import { useEffect, useRef } from 'react';
 import ColorThief from 'colorthief';
 import Image from 'next/image';
 import PlayerTitleSync from '@/app/services/player-title-sync';
-import throttle from 'lodash/throttle';
 
 type PlayerContextType = {
   setTrue: () => void;
@@ -78,16 +77,17 @@ export function PlayerProvider({ children }: BaseProps) {
     if (!audioRef.current) return;
     const audio = audioRef.current;
     const handleLoaded = () => setDuration(audio.duration);
-    const handleTime = throttle(() => {
-      setCurrentTime(audio.currentTime);
-    }, 100);
-
+    const handleTime = () => {
+      if (!audio.paused) {
+        setCurrentTime(audio.currentTime);
+      }
+    };
     audio.addEventListener('loadedmetadata', handleLoaded);
-    audio.addEventListener('timeupdate', handleTime);
+    const interval = setInterval(handleTime, 200);
 
     return () => {
       audio.removeEventListener('loadedmetadata', handleLoaded);
-      audio.removeEventListener('timeupdate', handleTime);
+      clearInterval(interval);
     };
   }, []);
 
