@@ -33,6 +33,15 @@ const SearchBar = (
     });
   };
 
+  const handleBack = () => {
+    if (!inputRef.current) return;
+    if (!isNull) {
+      inputRef.current.value = '';
+      setIsNull();
+    }
+    handleWait(() => setIsOpenSearchFalse());
+  };
+
   const handleisOpenSearch = () => {
     setIsOpenSearch();
     setTimeout(() => {
@@ -56,11 +65,7 @@ const SearchBar = (
       {/* for mobile only */}
       {isOpenSearch && (
         <MotionButton
-          onClick={() => {
-            handleWait(() => setIsOpenSearchFalse());
-            setIsNull();
-            if (inputRef.current) inputRef.current.value = '';
-          }}
+          onClick={handleBack}
           className={`p-1.5 text-foreground/80 active:bg-accent/20 bg-sidebar lg:hidden`}
         >
           <ChevronLeft className="size-8" />

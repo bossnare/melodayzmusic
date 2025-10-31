@@ -2,7 +2,7 @@
 
 import { useToggle } from '@/hooks/use-toggle';
 import { createContext, useContext } from 'react';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { type BaseProps } from '@/types/base.interface';
 
 type SearchContextType = {
