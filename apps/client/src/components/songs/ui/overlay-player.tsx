@@ -207,7 +207,7 @@ const Player = () => {
         <div className="flex items-center justify-between h-16 py-1">
           <MotionButton
             onClick={() => handleWait(setFalse)}
-            className="active:opacity-80 hover:bg-transparent! lg:hover:bg-accent/30! active:bg-accent/30!"
+            className="active:opacity-60 hover:bg-transparent! lg:hover:bg-accent/30!"
           >
             <ChevronDown className="size-8" />
           </MotionButton>
