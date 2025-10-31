@@ -18,8 +18,7 @@ const MiniPlayerMobile = () => {
     togglePlaying,
     isPlaying,
     togglePlay,
-    currentTime,
-    duration,
+    progress,
   } = usePlayer();
 
   const songInfo = useMemo(() => {
@@ -100,7 +99,7 @@ const MiniPlayerMobile = () => {
             ></span>
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div
-                style={{ width: `${(currentTime / duration) * 100}%` }}
+                style={{ width: `${progress()}%` }}
                 className="h-full bg-foreground"
               ></div>
             </div>

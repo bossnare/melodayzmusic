@@ -22,8 +22,6 @@ type PlayerContextType = {
   dominantColor: string | null;
   secondaryColor: string | null;
   isLoading: boolean;
-  duration: number;
-  currentTime: number;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
@@ -44,11 +42,16 @@ export function PlayerProvider({ children }: BaseProps) {
   const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
   const isCurrent = (song: SongInterface) => {
     return currentSong?.id === song.id;
+  };
+
+  const progress = () => {
+    if (!audioRef.current || !currentSong) return 0;
+    const audio = audioRef.current;
+    return (audio.currentTime / audio.duration) * 100 || 0;
   };
 
   // get song cover dominant color
@@ -76,17 +79,14 @@ export function PlayerProvider({ children }: BaseProps) {
   useEffect(() => {
     if (!audioRef.current) return;
     const audio = audioRef.current;
-    const handleLoaded = () => setDuration(audio.duration);
     const handleTime = () => {
       if (!audio.paused) {
         setCurrentTime(audio.currentTime);
       }
     };
-    audio.addEventListener('loadedmetadata', handleLoaded);
-    const interval = setInterval(handleTime, 200);
+    const interval = setInterval(handleTime, 300);
 
     return () => {
-      audio.removeEventListener('loadedmetadata', handleLoaded);
       clearInterval(interval);
     };
   }, []);
@@ -116,7 +116,7 @@ export function PlayerProvider({ children }: BaseProps) {
             } else {
               clearInterval(fade);
             }
-          }, 100);
+          }, 300);
         })
         .catch(() => setIsPlayingFalse());
     };
@@ -183,8 +183,6 @@ export function PlayerProvider({ children }: BaseProps) {
         dominantColor,
         secondaryColor,
         isLoading,
-        duration,
-        currentTime,
       }}
     >
       <PlayerTitleSync />
