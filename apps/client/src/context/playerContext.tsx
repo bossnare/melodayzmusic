@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react';
 import ColorThief from 'colorthief';
 import Image from 'next/image';
 import PlayerTitleSync from '@/app/services/player-title-sync';
+import throttle from 'lodash/throttle';
 
 type PlayerContextType = {
   setTrue: () => void;
@@ -76,16 +77,10 @@ export function PlayerProvider({ children }: BaseProps) {
   useEffect(() => {
     if (!audioRef.current) return;
     const audio = audioRef.current;
-    let lastUpdate = 0;
-
     const handleLoaded = () => setDuration(audio.duration);
-    const handleTime = () => {
-      const now = Date.now();
-      if (now - lastUpdate > 100) {
-        setCurrentTime(audio.currentTime);
-        lastUpdate = now;
-      }
-    };
+    const handleTime = throttle(() => {
+      setCurrentTime(audio.currentTime);
+    }, 100);
 
     audio.addEventListener('loadedmetadata', handleLoaded);
     audio.addEventListener('timeupdate', handleTime);
