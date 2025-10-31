@@ -8,6 +8,7 @@ import './custom.css';
 import { ThemeProvider } from '@/components/themes/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { PlayerProvider } from '@/context/playerContext';
+import { SearchProvider } from '@/context/searchContext';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -66,7 +67,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ReactQueryProvider>
-            <PlayerProvider>{children}</PlayerProvider>
+            <SearchProvider>
+              <PlayerProvider>{children}</PlayerProvider>
+            </SearchProvider>
           </ReactQueryProvider>
           {/* toast */}
           <Toaster richColors position="top-left" />

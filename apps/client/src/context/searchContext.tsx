@@ -1,0 +1,55 @@
+'use client';
+
+import { useToggle } from '@/hooks/use-toggle';
+import { createContext, useContext } from 'react';
+import { useEffect, useRef } from 'react';
+import { type BaseProps } from '@/types/base.interface';
+
+type SearchContextType = {
+  setIsOpenSearchFalse: () => void;
+  setIsOpenSearch: () => void;
+  isOpenSearch: boolean;
+  isNull: boolean;
+  inputRef: React.RefObject<HTMLInputElement | null>;
+  setIsNull: () => void;
+};
+
+const SearchContext = createContext<SearchContextType | null>(null);
+
+export function SearchProvider({ children }: BaseProps) {
+  const {
+    value: isOpenSearch,
+    setTrue: setIsOpenSearch,
+    setFalse: setIsOpenSearchFalse,
+  } = useToggle();
+  const { value: isNull, setTrue: setIsNull } = useToggle();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (!inputRef.current) return;
+    const inputValue = inputRef.current.value;
+    if (inputValue === '') setIsNull();
+  }, [setIsNull]);
+
+  return (
+    <SearchContext
+      value={{
+        // ux
+        isOpenSearch,
+        setIsOpenSearch,
+        setIsOpenSearchFalse,
+        isNull,
+        setIsNull,
+        inputRef,
+      }}
+    >
+      {children}
+    </SearchContext>
+  );
+}
+
+export function useSearch() {
+  const ctx = useContext(SearchContext);
+  if (!ctx) throw new Error('useSearch must be used inside SearchProvider');
+  return ctx;
+}

@@ -1,7 +1,8 @@
 'use client';
 
 import { useToggle } from '@/hooks/use-toggle';
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState } from 'react';
+import { type BaseProps } from '@/types/base.interface';
 import type { SongInterface } from '@/types/songs/song.interface';
 import { useEffect, useRef } from 'react';
 import ColorThief from 'colorthief';
@@ -27,8 +28,10 @@ type PlayerContextType = {
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
 
-export function PlayerProvider({ children }: { children: ReactNode }) {
+export function PlayerProvider({ children }: BaseProps) {
+  // for overlay player
   const { value: show, setTrue, setFalse } = useToggle();
+  // for song
   const {
     value: isPlaying,
     toggle: togglePlaying,
@@ -70,18 +73,17 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  let lastUpdate = 0
-
   useEffect(() => {
     if (!audioRef.current) return;
     const audio = audioRef.current;
+    let lastUpdate = 0;
 
     const handleLoaded = () => setDuration(audio.duration);
     const handleTime = () => {
-      const now = Date.now()
-      if(now - lastUpdate > 100) {
-      setCurrentTime(audio.currentTime)
-      lastUpdate = now
+      const now = Date.now();
+      if (now - lastUpdate > 100) {
+        setCurrentTime(audio.currentTime);
+        lastUpdate = now;
       }
     };
 
@@ -115,7 +117,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
           // fade in
           const fade = setInterval(() => {
             if (audio.volume < 1) {
-              audio.volume = Math.min(1, audio.volume + 0.1);          } else {
+              audio.volume = Math.min(1, audio.volume + 0.1);
+            } else {
               clearInterval(fade);
             }
           }, 100);
