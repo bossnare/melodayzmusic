@@ -35,11 +35,12 @@ const SearchBar = (
 
   const handleBack = () => {
     if (!inputRef.current) return;
-    if (!isNull) {
+    if (inputRef.current.value.trim()) {
       inputRef.current.value = '';
       setIsNull();
+    } else {
+      handleWait(() => setIsOpenSearchFalse());
     }
-    handleWait(() => setIsOpenSearchFalse());
   };
 
   const handleisOpenSearch = () => {
