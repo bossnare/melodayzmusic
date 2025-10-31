@@ -27,7 +27,7 @@ export function SearchProvider({ children }: BaseProps) {
     value: isNull,
     setTrue: setIsNull,
     setFalse: setIsNullFalse,
-  } = useToggle();
+  } = useToggle(true);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
