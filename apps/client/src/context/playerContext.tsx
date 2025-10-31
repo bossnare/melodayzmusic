@@ -22,6 +22,7 @@ type PlayerContextType = {
   dominantColor: string | null;
   secondaryColor: string | null;
   isLoading: boolean;
+  progress: () => number;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
@@ -183,6 +184,7 @@ export function PlayerProvider({ children }: BaseProps) {
         dominantColor,
         secondaryColor,
         isLoading,
+        progress,
       }}
     >
       <PlayerTitleSync />
