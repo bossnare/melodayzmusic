@@ -14,10 +14,10 @@ const SearchBar = (
     // setIsOpenSearch,
   }
 ) => {
-  // const inputRef = useRef<HTMLInputElement>(null)!;
   const {
     isNull,
     setIsNull,
+    setIsNullFalse,
     inputRef,
     isOpenSearch,
     setIsOpenSearch,
@@ -39,7 +39,8 @@ const SearchBar = (
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
-    if (!value) setIsNull()
+    if (!value) setIsNull();
+    else setIsNullFalse();
   };
 
   return (

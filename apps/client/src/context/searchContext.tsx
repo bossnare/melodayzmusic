@@ -12,6 +12,7 @@ type SearchContextType = {
   isNull: boolean;
   inputRef: React.RefObject<HTMLInputElement | null>;
   setIsNull: () => void;
+  setIsNullFalse: () => void;
 };
 
 const SearchContext = createContext<SearchContextType | null>(null);
@@ -22,7 +23,11 @@ export function SearchProvider({ children }: BaseProps) {
     setTrue: setIsOpenSearch,
     setFalse: setIsOpenSearchFalse,
   } = useToggle();
-  const { value: isNull, setTrue: setIsNull } = useToggle();
+  const {
+    value: isNull,
+    setTrue: setIsNull,
+    setFalse: setIsNullFalse,
+  } = useToggle();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -40,6 +45,7 @@ export function SearchProvider({ children }: BaseProps) {
         setIsOpenSearchFalse,
         isNull,
         setIsNull,
+        setIsNullFalse,
         inputRef,
       }}
     >
