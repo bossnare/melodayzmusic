@@ -70,12 +70,20 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  let lastUpdate = 0
+
   useEffect(() => {
     if (!audioRef.current) return;
     const audio = audioRef.current;
 
     const handleLoaded = () => setDuration(audio.duration);
-    const handleTime = () => setCurrentTime(audio.currentTime);
+    const handleTime = () => {
+      const now = Date.now()
+      if(now - lastUpdate > 100) {
+      setCurrentTime(audio.currentTime)
+      lastUpdate = now
+      }
+    };
 
     audio.addEventListener('loadedmetadata', handleLoaded);
     audio.addEventListener('timeupdate', handleTime);
@@ -107,8 +115,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
           // fade in
           const fade = setInterval(() => {
             if (audio.volume < 1) {
-              audio.volume = Math.min(1, audio.volume + 0.1);
-            } else {
+              audio.volume = Math.min(1, audio.volume + 0.1);          } else {
               clearInterval(fade);
             }
           }, 100);
