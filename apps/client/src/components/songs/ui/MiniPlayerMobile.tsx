@@ -39,7 +39,7 @@ const MiniPlayerMobile = () => {
     if (!audio) return;
     const handleTimeUpdate = throttle(() => {
       setCurrentTime(audio.currentTime);
-    }, 3000);
+    }, 1000);
 
     audio.addEventListener('timeupdate', handleTimeUpdate);
     return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
