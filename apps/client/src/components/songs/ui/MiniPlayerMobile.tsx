@@ -22,7 +22,14 @@ const MiniPlayerMobile = () => {
     togglePlaying,
     isPlaying,
     togglePlay,
+    audioRef,
   } = usePlayer();
+
+  const progress = () => {
+    if (!audioRef.current || !currentSong) return 0;
+    const audio = audioRef.current;
+    return (audio.currentTime / currentSong.duration) * 100;
+  };
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
@@ -102,7 +109,7 @@ const MiniPlayerMobile = () => {
             ></span>
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div
-                style={{ width: `${30}%` }}
+                style={{ width: `${progress()}%` }}
                 className="h-full bg-foreground"
               ></div>
             </div>

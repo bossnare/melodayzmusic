@@ -22,6 +22,7 @@ type PlayerContextType = {
   dominantColor: string | null;
   secondaryColor: string | null;
   isLoading: boolean;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
@@ -157,6 +158,7 @@ export function PlayerProvider({ children }: BaseProps) {
         playSong,
         togglePlay,
         isCurrent,
+        audioRef,
         // color
         dominantColor,
         secondaryColor,
