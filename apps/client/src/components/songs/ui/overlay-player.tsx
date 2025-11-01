@@ -16,7 +16,7 @@ import {
 import { usePlayer } from '@/context/playerContext';
 import { useToggle } from '@/hooks/use-toggle';
 import { cn } from '@/lib/utils';
-import { useAudioStore } from '@/store/ausioStore';
+import { useAudioStore } from '@/store/audioStore';
 import { type BaseProps } from '@/types/base.interface';
 import { handleWait } from '@/utils/handle-wait';
 import {
