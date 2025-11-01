@@ -1,13 +1,17 @@
 import { MotionButton } from '@/components/motions/motionButton';
+import { Button } from '@/components/ui/button';
 import { usePlayer } from '@/context/playerContext';
 import { handleWait } from '@/utils/handle-wait';
-import { PlayIcon, SkipForwardIcon, PauseIcon } from '@phosphor-icons/react';
+import {
+  PauseIcon,
+  PlayIcon,
+  SkipForwardIcon,
+} from '@phosphor-icons/react/dist/ssr';
 import { Music } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { useMemo } from 'react';
 import * as React from 'react';
-import { Button } from '@/components/ui/button';
+import { useMemo } from 'react';
 
 const MiniPlayerMobile = () => {
   const {
@@ -18,7 +22,6 @@ const MiniPlayerMobile = () => {
     togglePlaying,
     isPlaying,
     togglePlay,
-    progress,
   } = usePlayer();
 
   const songInfo = useMemo(() => {
@@ -99,7 +102,7 @@ const MiniPlayerMobile = () => {
             ></span>
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div
-                style={{ width: `${progress()}%` }}
+                style={{ width: `${30}%` }}
                 className="h-full bg-foreground"
               ></div>
             </div>

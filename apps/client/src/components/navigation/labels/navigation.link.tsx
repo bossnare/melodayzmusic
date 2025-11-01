@@ -2,10 +2,10 @@ import {
   // CompassIcon,
   BinocularsIcon,
   FoldersIcon,
-  UserIcon,
   HouseIcon,
   PlusIcon,
-} from '@phosphor-icons/react';
+  UserIcon,
+} from '@phosphor-icons/react/dist/ssr';
 
 export const navLabels = [
   {
@@ -18,7 +18,7 @@ export const navLabels = [
     id: 2,
     label: 'Explorer',
     href: '/dashboard/favoris',
-    icon: BinocularsIcon //CompassIcon,
+    icon: BinocularsIcon, //CompassIcon,
   },
   {
     id: 3,

@@ -22,7 +22,6 @@ type PlayerContextType = {
   dominantColor: string | null;
   secondaryColor: string | null;
   isLoading: boolean;
-  progress: () => number;
 };
 
 const PlayerContext = createContext<PlayerContextType | null>(null);
@@ -43,16 +42,9 @@ export function PlayerProvider({ children }: BaseProps) {
   const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [currentTime, setCurrentTime] = useState(0);
 
   const isCurrent = (song: SongInterface) => {
     return currentSong?.id === song.id;
-  };
-
-  const progress = () => {
-    if (!audioRef.current || !currentSong) return 0;
-    const audio = audioRef.current;
-    return (currentTime / audio.duration) * 100 || 0;
   };
 
   // get song cover dominant color
@@ -75,21 +67,6 @@ export function PlayerProvider({ children }: BaseProps) {
     if (!audioRef.current) {
       audioRef.current = new Audio();
     }
-  }, []);
-
-  useEffect(() => {
-    if (!audioRef.current) return;
-    const audio = audioRef.current;
-    const handleTime = () => {
-      if (!audio.paused) {
-        setCurrentTime(audio.currentTime);
-      }
-    };
-    const interval = setInterval(handleTime, 300);
-
-    return () => {
-      clearInterval(interval);
-    };
   }, []);
 
   useEffect(() => {
@@ -184,7 +161,6 @@ export function PlayerProvider({ children }: BaseProps) {
         dominantColor,
         secondaryColor,
         isLoading,
-        progress,
       }}
     >
       <PlayerTitleSync />
