@@ -35,6 +35,7 @@ const VibeCard = ({ song }: SongProps) => {
         setAudio(newAudio);
         setIsPlaying(true);
         setSong(song);
+        newAudio.play();
         setTrue();
       }}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
