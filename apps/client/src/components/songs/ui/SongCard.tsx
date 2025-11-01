@@ -24,8 +24,8 @@ import { useAudioStore } from '@/store/ausioStore';
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
   const { setTrue } = usePlayer();
-  const { setAudio, isPlaying, isCurrentSong } = useAudioStore();
-  const isCurrent = isCurrentSong(song.id);
+  const { setAudio, isPlaying } = useAudioStore();
+  const isCurrent = useAudioStore((s) => s.isCurrentSong(song.id));
 
   return (
     <Card
