@@ -24,12 +24,26 @@ const MiniPlayerMobile = () => {
     togglePlay,
     audioRef,
   } = usePlayer();
+  const [currentTime, setCurrentTime] = React.useState(0);
 
   const progress = () => {
-    if (!audioRef.current || !currentSong) return 0;
-    const audio = audioRef.current;
-    return (audio.currentTime / currentSong.duration) * 100;
+    if (!currentSong) return 0;
+    return (currentTime / currentSong.duration) * 100;
   };
+
+  React.useEffect(() => {
+    if (!audioRef.current) return;
+    const audio = audioRef.current;
+    const handleTime = () => {
+      setCurrentTime(audio.currentTime);
+    };
+
+    audio.addEventListener('timeupdate', handleTime);
+
+    return () => {
+      audio.removeEventListener('timeupdate', handleTime);
+    };
+  });
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
