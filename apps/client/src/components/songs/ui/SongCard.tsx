@@ -18,16 +18,19 @@ import {
 } from '@/components/ui/card';
 import { usePlayer } from '@/context/playerContext';
 import AudioWave from '@/components/motions/AudioWave';
+import { useAudioStore } from '@/store/ausioStore';
 
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const { playSong, setTrue, isPlaying, isCurrent } = usePlayer();
+  const { setTrue } = usePlayer();
+  const { setAudio, isPlaying, isCurrentSong } = useAudioStore();
+  const isCurrent = isCurrentSong(song.id);
 
   return (
     <Card
       onClick={() => {
-        playSong(song);
+        setAudio(song);
         setTrue();
       }}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
@@ -50,7 +53,7 @@ const VibeCard = ({ song }: SongProps) => {
           {imgLoading && (
             <div className="absolute inset-0 bg-linear-to-br from-foreground/40 via-foreground/50 to-foreground/40 animate-pulse"></div>
           )}
-          {isCurrent(song) && (
+          {isCurrent && (
             <div className="absolute top-2 right-2">
               <AudioWave active={isPlaying} />
             </div>

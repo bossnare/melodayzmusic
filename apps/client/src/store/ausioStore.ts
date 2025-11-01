@@ -7,12 +7,12 @@ interface AudioState {
   // togglePlaying: () => void;
   setAudio: (audio: SongInterface) => void;
   currentSong: SongInterface | null;
-  // isCurrent: (song: SongInterface) => boolean;
   // togglePlay: () => void;
   isLoading: boolean;
+  isCurrentSong: (id: string) => boolean;
 }
 
-export const useAudioStore = create<AudioState>((set) => ({
+export const useAudioStore = create<AudioState>((set, get) => ({
   audio: null,
   currentSong: null,
   isPlaying: false,
@@ -23,4 +23,5 @@ export const useAudioStore = create<AudioState>((set) => ({
     }),
   setIsPlaying: (isPlaying: boolean) => set({ isPlaying }),
   setIsLoading: (isLoading: boolean) => set({ isLoading }),
+  isCurrentSong: (id: string) => get().currentSong?.id === id,
 }));
