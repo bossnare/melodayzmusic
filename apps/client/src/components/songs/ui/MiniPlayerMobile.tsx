@@ -17,7 +17,7 @@ import { useMemo, useState } from 'react';
 
 const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor, togglePlay } = usePlayer();
-  const { isPlaying, currentSong } = useAudioStore();
+  const {audio, isPlaying, currentSong } = useAudioStore();
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
   const [currentTime, setCurrentTime] = useState(0);
   const getProgress = () =>
@@ -34,8 +34,6 @@ const MiniPlayerMobile = () => {
   }, [currentSong]);
 
   React.useEffect(() => {
-    const audio = useAudioStore.getState().audio;
-
     if (!audio) return;
     const handleTimeUpdate = throttle(() => {
       setCurrentTime(audio.currentTime);
@@ -43,7 +41,7 @@ const MiniPlayerMobile = () => {
 
     audio.addEventListener('timeupdate', handleTimeUpdate);
     return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
-  }, []);
+  }, [audio]);
 
   const playIcon = useMemo(() => {
     return (
