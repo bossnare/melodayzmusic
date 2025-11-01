@@ -52,7 +52,7 @@ export function PlayerProvider({ children }: BaseProps) {
   const progress = () => {
     if (!audioRef.current || !currentSong) return 0;
     const audio = audioRef.current;
-    return (audio.currentTime / audio.duration) * 100 || 0;
+    return (currentTime / audio.duration) * 100 || 0;
   };
 
   // get song cover dominant color
@@ -77,20 +77,20 @@ export function PlayerProvider({ children }: BaseProps) {
     }
   }, []);
 
-  // useEffect(() => {
-  //   if (!audioRef.current) return;
-  //   const audio = audioRef.current;
-  //   const handleTime = () => {
-  //     if (!audio.paused) {
-  //       setCurrentTime(audio.currentTime);
-  //     }
-  //   };
-  //   const interval = setInterval(handleTime, 300);
+  useEffect(() => {
+    if (!audioRef.current) return;
+    const audio = audioRef.current;
+    const handleTime = () => {
+      if (!audio.paused) {
+        setCurrentTime(audio.currentTime);
+      }
+    };
+    const interval = setInterval(handleTime, 300);
 
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   useEffect(() => {
     if (!audioRef.current || !currentSong) return;
