@@ -13,15 +13,14 @@ import { Music } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor, togglePlay } = usePlayer();
   const { isPlaying, currentSong } = useAudioStore();
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
-  const progress = useAudioStore((s) => s.progress);
-  const setProgress = useAudioStore((s) => s.setProgress);
-  const audio = useAudioStore((s) => s.audio);
+  const [currentTime, setCurrentTime] = useState(0);
+  const progress = currentSong ? (currentTime / currentSong.duration) * 100 : 0;
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
@@ -34,17 +33,16 @@ const MiniPlayerMobile = () => {
   }, [currentSong]);
 
   React.useEffect(() => {
-    if (!audio || !songInfo) return;
+    const audio = useAudioStore.getState().audio;
+
+    if (!audio) return;
     const handleTimeUpdate = throttle(() => {
-      const currentTime = audio.currentTime;
-      const duration = songInfo.duration || 0;
-      const prog = duration ? (currentTime / duration) * 100 : 0;
-      setProgress(prog);
+      setCurrentTime(audio.currentTime);
     }, 3000);
 
     audio.addEventListener('timeupdate', handleTimeUpdate);
     return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
-  }, [audio, songInfo, setProgress]);
+  }, []);
 
   const playIcon = useMemo(() => {
     return (
