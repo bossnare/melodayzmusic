@@ -1,23 +1,7 @@
 'use client';
 
+import AudioWave from '@/components/motions/AudioWave';
 import { MotionButton } from '@/components/motions/motionButton';
-import { usePlayer } from '@/context/playerContext';
-import { useToggle } from '@/hooks/use-toggle';
-import { type BaseProps } from '@/types/base.interface';
-import {
-  DotsThreeVerticalIcon,
-  HeartIcon,
-  PauseIcon,
-  PlayIcon,
-  QueueIcon,
-  SkipBackIcon,
-  SkipForwardIcon,
-  UserListIcon,
-} from '@phosphor-icons/react';
-import { ChevronDown, Minus, Plus } from 'lucide-react';
-import Image from 'next/image';
-import * as React from 'react';
-import { Bar, BarChart, ResponsiveContainer } from 'recharts';
 import { Button } from '@/components/ui/button';
 import {
   Drawer,
@@ -29,11 +13,27 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
+import { usePlayer } from '@/context/playerContext';
+import { useToggle } from '@/hooks/use-toggle';
 import { cn } from '@/lib/utils';
-import { Portal } from '@radix-ui/react-portal';
-import { motion, useAnimation } from 'motion/react';
+import { type BaseProps } from '@/types/base.interface';
 import { handleWait } from '@/utils/handle-wait';
-import AudioWave from '@/components/motions/AudioWave';
+import {
+  DotsThreeVerticalIcon,
+  HeartIcon,
+  PauseIcon,
+  PlayIcon,
+  QueueIcon,
+  SkipBackIcon,
+  SkipForwardIcon,
+  UserListIcon,
+} from '@phosphor-icons/react/dist/ssr';
+import { Portal } from '@radix-ui/react-portal';
+import { ChevronDown, Minus, Plus } from 'lucide-react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import * as React from 'react';
+import { Bar, BarChart, ResponsiveContainer } from 'recharts';
 
 const data = [
   {

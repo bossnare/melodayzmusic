@@ -1,10 +1,10 @@
-import { X, ChevronLeft } from 'lucide-react';
-import { MagnifyingGlassIcon } from '@phosphor-icons/react';
 import { MotionButton } from '@/components/motions/motionButton';
-import { cn } from '@/lib/utils';
-import { Input } from '../ui/input';
-import { handleWait } from '@/utils/handle-wait';
 import { useSearch } from '@/context/searchContext';
+import { cn } from '@/lib/utils';
+import { handleWait } from '@/utils/handle-wait';
+import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/ssr';
+import { ChevronLeft, X } from 'lucide-react';
+import { Input } from '../ui/input';
 
 const SearchBar = (
   {

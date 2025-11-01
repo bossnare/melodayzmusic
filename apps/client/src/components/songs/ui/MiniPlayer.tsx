@@ -1,18 +1,18 @@
 'use client';
 
 import {
+  HeartIcon,
   PauseIcon,
   PlayIcon,
   SkipBackIcon,
   SkipForwardIcon,
-  HeartIcon,
-} from '@phosphor-icons/react';
+} from '@phosphor-icons/react/dist/ssr';
 
-import Image from 'next/image';
-import { useState } from 'react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { Slider } from '@/components/ui/slider';
 import { useToggle } from '@/hooks/use-toggle';
+import Image from 'next/image';
+import { useState } from 'react';
 
 const MiniPlayer = () => {
   const [isGo, setIsGo] = useState(false);
