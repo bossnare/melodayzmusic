@@ -21,7 +21,7 @@ const MiniPlayerMobile = () => {
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
   const [currentTime, setCurrentTime] = useState(0);
   const getProgress = () =>
-    currentSong ? (currentTime / currentSong.duration) * 100 : 0;
+    currentSong ? (currentTime / currentSong.duration) * 100 : 50; // test mode
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
