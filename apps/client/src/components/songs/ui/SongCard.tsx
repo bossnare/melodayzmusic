@@ -4,11 +4,12 @@
 // import { Playing } from '@/animations/motion/Playing';
 // import { formatDuration as format } from '@/libs/formatDuration';
 // import timeAgo from '@/libs/timeAgo';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import type { SongProps } from '@/types/songs/song.interface';
 import Image from 'next/image';
 import { useState } from 'react';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 // import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import AudioWave from '@/components/motions/AudioWave';
 import {
   Card,
   CardContent,
@@ -17,20 +18,23 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { usePlayer } from '@/context/playerContext';
-import AudioWave from '@/components/motions/AudioWave';
-import { useAudioStore } from '@/store/ausioStore';
+import { useAudioStore } from '@/store/audioStore';
 
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
   const { setTrue } = usePlayer();
-  const { setAudio, isPlaying } = useAudioStore();
+  const { audio, setSong, setAudio, isPlaying, setIsPlaying } = useAudioStore();
   const isCurrent = useAudioStore((s) => s.isCurrentSong(song.id));
 
   return (
     <Card
       onClick={() => {
-        setAudio(song);
+        audio?.pause();
+        const newAudio = new Audio(song.audioUrl);
+        setAudio(newAudio);
+        setIsPlaying(true);
+        setSong(song);
         setTrue();
       }}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
@@ -81,12 +85,13 @@ const VibeCard = ({ song }: SongProps) => {
 // Album Card
 const AlbumCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const { playSong, setTrue } = usePlayer();
+  const { setTrue } = usePlayer();
+  const { setSong, setAudio } = useAudioStore();
 
   return (
     <Card
       onClick={() => {
-        playSong(song);
+        setSong(song);
         setTrue();
       }}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
@@ -142,4 +147,4 @@ const AlbumCard = ({ song }: SongProps) => {
   );
 };
 
-export { VibeCard, AlbumCard };
+export { AlbumCard, VibeCard };

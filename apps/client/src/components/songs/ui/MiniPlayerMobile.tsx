@@ -1,19 +1,19 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { Button } from '@/components/ui/button';
 import { usePlayer } from '@/context/playerContext';
+import { useAudioStore } from '@/store/audioStore';
 import { handleWait } from '@/utils/handle-wait';
 import {
   PauseIcon,
   PlayIcon,
   SkipForwardIcon,
 } from '@phosphor-icons/react/dist/ssr';
+import throttle from 'lodash/throttle';
 import { Music } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
 import { useMemo } from 'react';
-import { useAudioStore } from '@/store/ausioStore';
-import throttle from 'lodash/throttle';
 
 const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor, togglePlay } = usePlayer();
