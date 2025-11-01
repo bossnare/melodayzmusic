@@ -12,6 +12,7 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
 import { useMemo } from 'react';
+import throttle from 'lodash/throttle';
 
 const MiniPlayerMobile = () => {
   const {
@@ -34,9 +35,9 @@ const MiniPlayerMobile = () => {
   React.useEffect(() => {
     if (!audioRef.current) return;
     const audio = audioRef.current;
-    const handleTime = () => {
+    const handleTime = throttle(() => {
       setCurrentTime(audio.currentTime);
-    };
+    }, 300);
 
     audio.addEventListener('timeupdate', handleTime);
 
