@@ -16,6 +16,7 @@ import {
 import { usePlayer } from '@/context/playerContext';
 import { useToggle } from '@/hooks/use-toggle';
 import { cn } from '@/lib/utils';
+import { useAudioStore } from '@/store/ausioStore';
 import { type BaseProps } from '@/types/base.interface';
 import { handleWait } from '@/utils/handle-wait';
 import {
@@ -184,14 +185,8 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
 }
 
 const Player = () => {
-  const {
-    setFalse,
-    togglePlaying,
-    isPlaying,
-    dominantColor,
-    currentSong,
-    togglePlay,
-  } = usePlayer();
+  const { setFalse, togglePlaying, dominantColor, togglePlay } = usePlayer();
+  const { currentSong, isPlaying } = useAudioStore();
   const { value: isFavorite, toggle } = useToggle();
 
   return (
