@@ -185,8 +185,10 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
 }
 
 const Player = () => {
-  const { setFalse, togglePlaying, dominantColor, togglePlay } = usePlayer();
+  const { setFalse, dominantColor, togglePlay } = usePlayer();
   const { currentSong, isPlaying } = useAudioStore();
+  const togglePlaying = useAudioStore((s) => s.togglePlaying);
+
   const { value: isFavorite, toggle } = useToggle();
 
   return (
