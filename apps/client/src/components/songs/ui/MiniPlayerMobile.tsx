@@ -40,7 +40,7 @@ const MiniPlayerMobile = () => {
       const duration = songInfo.duration || 0;
       const prog = duration ? (currentTime / duration) * 100 : 0;
       setProgress(prog);
-    }, 300);
+    }, 3000);
 
     audio.addEventListener('timeupdate', handleTimeUpdate);
     return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
