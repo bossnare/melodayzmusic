@@ -37,13 +37,9 @@ const MiniPlayerMobile = () => {
     const audio = audioRef.current;
     const handleTime = throttle(() => {
       setCurrentTime(audio.currentTime);
-    }, 300);
+    }, 1000);
 
-    audio.addEventListener('timeupdate', handleTime);
-
-    return () => {
-      audio.removeEventListener('timeupdate', handleTime);
-    };
+    handleTime();
   });
 
   const songInfo = useMemo(() => {
