@@ -12,35 +12,12 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
 import { useMemo } from 'react';
-import throttle from 'lodash/throttle';
+import { useAudioStore } from '@/store/ausioStore';
 
 const MiniPlayerMobile = () => {
-  const {
-    setTrue,
-    currentSong,
-    dominantColor,
-    secondaryColor,
-    togglePlaying,
-    isPlaying,
-    togglePlay,
-    audioRef,
-  } = usePlayer();
-  const [currentTime, setCurrentTime] = React.useState(0);
-
-  const progress = () => {
-    if (!currentSong) return 0;
-    return (currentTime / currentSong.duration) * 100;
-  };
-
-  React.useEffect(() => {
-    if (!audioRef.current) return;
-    const audio = audioRef.current;
-    const handleTime = throttle(() => {
-      setCurrentTime(audio.currentTime);
-    }, 1000);
-
-    handleTime();
-  });
+  const { setTrue, dominantColor, secondaryColor, togglePlaying, togglePlay } =
+    usePlayer();
+  const { isPlaying, currentSong } = useAudioStore();
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
@@ -120,7 +97,7 @@ const MiniPlayerMobile = () => {
             ></span>
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div
-                style={{ width: `${progress()}%` }}
+                style={{ width: `${Math.random()}%` }}
                 className="h-full bg-foreground"
               ></div>
             </div>
