@@ -24,7 +24,7 @@ export const useAudioStore = create<AudioState>((set, get) => ({
     set({
       currentSong: song,
     }),
-  setAudio: (audio) => set({ audio }),
+  setAudio: (audio) => set({ audio: audio }),
   setIsPlaying: (isPlaying: boolean) => set({ isPlaying }),
   setIsLoading: (isLoading: boolean) => set({ isLoading }),
   isCurrentSong: (id: string) => get().currentSong?.id === id,
