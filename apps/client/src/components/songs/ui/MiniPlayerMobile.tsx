@@ -19,8 +19,7 @@ const MiniPlayerMobile = () => {
   const { isPlaying, currentSong } = useAudioStore();
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
   const audio = useAudioStore((s) => s.audio);
-  const [progress, setProgress] = useState(0);
-  const rafRef = useRef<number | null>(null);
+  const progressRef = useRef(0);
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
@@ -37,27 +36,13 @@ const MiniPlayerMobile = () => {
 
     const handleTimeUpdate = () => {
       const value = (audio.currentTime / audio.duration) * 100;
-      setProgress(value);
-      rafRef.current = requestAnimationFrame(handleTimeUpdate);
+      progressRef.current = value;
+      requestAnimationFrame(handleTimeUpdate);
     };
 
     if (!audio.paused) {
-      rafRef.current = requestAnimationFrame(handleTimeUpdate);
+      requestAnimationFrame(handleTimeUpdate);
     }
-
-    const handlePause = () => {
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-    };
-    audio.addEventListener('pause', handlePause);
-    audio.addEventListener('ended', handlePause);
-
-    return () => {
-      cancelAnimationFrame(rafRef.current!);
-      audio.removeEventListener('pause', handlePause);
-      audio.removeEventListener('ended', handlePause);
-    };
   }, [audio]);
 
   const playIcon = useMemo(() => {
@@ -129,7 +114,7 @@ const MiniPlayerMobile = () => {
             ></span>
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div
-                style={{ width: `${progress}%` }}
+                style={{ width: `${progressRef.current}%` }}
                 className="h-full bg-foreground"
               ></div>
             </div>
