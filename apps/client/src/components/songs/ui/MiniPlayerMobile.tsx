@@ -15,7 +15,7 @@ import * as React from 'react';
 import { useMemo, useState, useRef, useEffect } from 'react';
 
 const MiniPlayerMobile = () => {
-  const { setTrue, dominantColor, secondaryColor, togglePlay } = usePlayer();
+  const { setTrue, dominantColor, secondaryColor } = usePlayer();
   const { isPlaying, currentSong } = useAudioStore();
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
   const audio = useAudioStore((s) => s.audio);
@@ -153,7 +153,7 @@ const MiniPlayerMobile = () => {
                 className="flex flex-col items-start justify-center active:brightness-120 gap-0.5"
               >
                 <p className="text-sm font-bold truncate line-clamp-1">
-                  {songInfo?.title} {progress}
+                  {songInfo?.title}
                 </p>
                 <p className="text-xs font-medium truncate line-clamp-1">
                   {songInfo?.artist}
@@ -164,7 +164,7 @@ const MiniPlayerMobile = () => {
               <Button
                 onClick={() => {
                   togglePlaying();
-                  togglePlay();
+                  // togglePlay();
                 }}
                 size="icon"
                 variant="ghost"

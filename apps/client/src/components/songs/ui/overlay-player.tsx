@@ -149,7 +149,7 @@ export function Content({ className }: { className?: string }) {
 }
 
 function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
-  const { isLoading } = usePlayer();
+  const { isLoading } = useAudioStore();
 
   if (!open) return null;
   return (
@@ -185,7 +185,7 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
 }
 
 const Player = () => {
-  const { setFalse, dominantColor, togglePlay } = usePlayer();
+  const { setFalse, dominantColor } = usePlayer();
   const { currentSong, isPlaying } = useAudioStore();
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
 
@@ -260,7 +260,7 @@ const Player = () => {
             <MotionButton
               onClick={() => {
                 togglePlaying();
-                togglePlay();
+                // togglePlay();
               }}
               className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
             >

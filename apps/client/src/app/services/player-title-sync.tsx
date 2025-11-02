@@ -1,8 +1,8 @@
-import { usePlayer } from '@/context/playerContext';
+import { useAudioStore } from '@/store/audioStore';
 import { useEffect } from 'react';
 
 export default function PlayerTitleSync() {
-  const { currentSong } = usePlayer();
+  const { currentSong } = useAudioStore();
 
   useEffect(() => {
     if (currentSong) {
