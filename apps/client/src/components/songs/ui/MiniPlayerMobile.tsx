@@ -1,5 +1,6 @@
 import { MotionButton } from '@/components/motions/motionButton';
 import { Button } from '@/components/ui/button';
+import { useAudioElement } from '@/context/audioContext';
 import { usePlayer } from '@/context/playerContext';
 import { useAudioStore } from '@/store/audioStore';
 import { handleWait } from '@/utils/handle-wait';
@@ -12,14 +13,14 @@ import { Music } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
-import { useMemo, useState, useRef, useEffect } from 'react';
+import { useMemo, useEffect } from 'react';
 
 const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor } = usePlayer();
   const { isPlaying, currentSong } = useAudioStore();
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
-  const audio = useAudioStore((s) => s.audio);
-  const progressRef = useRef(0);
+  const audio = useAudioElement();
+  const progress = useAudioStore((s) => s.progress);
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
@@ -35,14 +36,13 @@ const MiniPlayerMobile = () => {
     if (!audio) return;
 
     const handleTimeUpdate = () => {
-      const value = (audio.currentTime / audio.duration) * 100;
-      progressRef.current = value;
-      requestAnimationFrame(handleTimeUpdate);
+      const { currentTime, duration } = audio;
+      const value = (currentTime / duration) * 100;
+      useAudioStore.getState().setProgress(value);
     };
 
-    if (!audio.paused) {
-      requestAnimationFrame(handleTimeUpdate);
-    }
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+    return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
   }, [audio]);
 
   const playIcon = useMemo(() => {
@@ -114,7 +114,7 @@ const MiniPlayerMobile = () => {
             ></span>
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div
-                style={{ width: `${progressRef.current}%` }}
+                style={{ width: `${progress}%` }}
                 className="h-full bg-foreground"
               ></div>
             </div>

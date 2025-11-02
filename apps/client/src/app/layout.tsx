@@ -9,6 +9,7 @@ import { ThemeProvider } from '@/components/themes/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { PlayerProvider } from '@/context/playerContext';
 import { SearchProvider } from '@/context/searchContext';
+import { AudioProvider } from '@/context/audioContext';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -68,7 +69,9 @@ export default function RootLayout({
         >
           <ReactQueryProvider>
             <SearchProvider>
-              <PlayerProvider>{children}</PlayerProvider>
+              <PlayerProvider>
+                <AudioProvider>{children}</AudioProvider>
+              </PlayerProvider>
             </SearchProvider>
           </ReactQueryProvider>
           {/* toast */}
