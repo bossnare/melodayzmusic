@@ -32,8 +32,8 @@ const VibeCard = ({ song }: SongProps) => {
   return (
     <Card
       onClick={async () => {
-        if (!currentSong) return;
         setSong(song);
+        if (!currentSong) return;
         audio.src = currentSong.audioUrl;
         await audio.play();
         setIsPlaying(true);
