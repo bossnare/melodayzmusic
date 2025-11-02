@@ -10,9 +10,9 @@ import PlayerTitleSync from '@/app/services/player-title-sync';
 import { useAudioStore } from '@/store/audioStore';
 
 type PlayerContextType = {
+  show: boolean;
   setTrue: () => void;
   setFalse: () => void;
-  show: boolean;
   dominantColor: string | null;
   secondaryColor: string | null;
 };
@@ -64,9 +64,9 @@ export function PlayerProvider({ children }: BaseProps) {
     <PlayerContext
       value={{
         // ux
+        show,
         setTrue,
         setFalse,
-        show,
         // color
         dominantColor,
         secondaryColor,
