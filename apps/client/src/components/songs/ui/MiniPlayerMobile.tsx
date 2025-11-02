@@ -153,7 +153,7 @@ const MiniPlayerMobile = () => {
                 className="flex flex-col items-start justify-center active:brightness-120 gap-0.5"
               >
                 <p className="text-sm font-bold truncate line-clamp-1">
-                  {songInfo?.title}
+                  {songInfo?.title} {progress}
                 </p>
                 <p className="text-xs font-medium truncate line-clamp-1">
                   {songInfo?.artist}
