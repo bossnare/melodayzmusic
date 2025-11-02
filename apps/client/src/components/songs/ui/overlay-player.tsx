@@ -252,10 +252,10 @@ const Player = () => {
               disabled={true}
               className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!"
             >
-              <UserListIcon weight={'bold'} className="size-9" />
+              <UserListIcon weight={'bold'} className="size-8" />
             </MotionButton>
             <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!">
-              <SkipBackIcon weight={'fill'} className="size-9" />
+              <SkipBackIcon weight={'fill'} className="size-8" />
             </MotionButton>
             <MotionButton
               onClick={() => {
@@ -265,16 +265,16 @@ const Player = () => {
               className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
             >
               {isPlaying ? (
-                <PauseIcon weight={'fill'} className="size-7 text-black/90" />
+                <PauseIcon weight={'fill'} className="size-6 text-black/90" />
               ) : (
-                <PlayIcon weight={'fill'} className="size-7 text-black/90" />
+                <PlayIcon weight={'fill'} className="size-6 text-black/90" />
               )}
             </MotionButton>
             <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!">
-              <SkipForwardIcon weight={'fill'} className="size-9" />
+              <SkipForwardIcon weight={'fill'} className="size-8" />
             </MotionButton>
             <MotionButton className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!">
-              <QueueIcon weight={'bold'} className="size-9" />
+              <QueueIcon weight={'bold'} className="size-8" />
             </MotionButton>
           </div>
         </div>
