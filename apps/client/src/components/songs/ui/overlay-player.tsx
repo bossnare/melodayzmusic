@@ -247,7 +247,7 @@ const Player = () => {
           </div>
         </div>
         <div className="flex justify-center pb-16 md:pb-4 grow">
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-6">
             <MotionButton
               disabled={true}
               className="active:opacity-80 active:bg-transparent! hover:bg-transparent! lg:hover:bg-accent/30!"

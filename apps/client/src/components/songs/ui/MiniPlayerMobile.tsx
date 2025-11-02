@@ -18,6 +18,7 @@ const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor, togglePlay } = usePlayer();
   const { isPlaying, currentSong } = useAudioStore();
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
+  const audio = useAudioStore((s) => s.audio);
   const [progress, setProgress] = useState(0);
   const rafRef = useRef<number | null>(null);
 
@@ -32,7 +33,6 @@ const MiniPlayerMobile = () => {
 
   // handle progress bar
   useEffect(() => {
-    const audio = useAudioStore.getState().audio;
     if (!audio) return;
 
     const handleTimeUpdate = () => {
@@ -58,7 +58,7 @@ const MiniPlayerMobile = () => {
       audio.removeEventListener('pause', handlePause);
       audio.removeEventListener('ended', handlePause);
     };
-  }, []);
+  }, [audio]);
 
   const playIcon = useMemo(() => {
     return (
