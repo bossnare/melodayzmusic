@@ -8,20 +8,18 @@ import {
   PlayIcon,
   SkipForwardIcon,
 } from '@phosphor-icons/react/dist/ssr';
-import throttle from 'lodash/throttle';
 import { Music } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
 
 const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor, togglePlay } = usePlayer();
-  const {audio, isPlaying, currentSong } = useAudioStore();
+  const { isPlaying, currentSong } = useAudioStore();
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
-  const [currentTime, setCurrentTime] = useState(0);
-  const getProgress = () =>
-    currentSong ? (currentTime / currentSong.duration) * 100 : 50; // test mode
+  const [progress, setProgress] = useState(0);
+  const rafRef = useRef<number | null>(null);
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
@@ -29,19 +27,38 @@ const MiniPlayerMobile = () => {
       title: currentSong.title,
       artist: currentSong.artist,
       cover: currentSong.songCover.coverUrl,
-      duration: currentSong.duration,
     };
   }, [currentSong]);
 
-  React.useEffect(() => {
+  // handle progress bar
+  useEffect(() => {
+    const audio = useAudioStore.getState().audio;
     if (!audio) return;
-    const handleTimeUpdate = throttle(() => {
-      setCurrentTime(audio.currentTime);
-    }, 1000);
 
-    audio.addEventListener('timeupdate', handleTimeUpdate);
-    return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
-  }, [audio]);
+    const handleTimeUpdate = () => {
+      const value = (audio.currentTime / audio.duration) * 100;
+      setProgress(value);
+      rafRef.current = requestAnimationFrame(handleTimeUpdate);
+    };
+
+    if (!audio.paused) {
+      rafRef.current = requestAnimationFrame(handleTimeUpdate);
+    }
+
+    const handlePause = () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+    audio.addEventListener('pause', handlePause);
+    audio.addEventListener('ended', handlePause);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current!);
+      audio.removeEventListener('pause', handlePause);
+      audio.removeEventListener('ended', handlePause);
+    };
+  }, []);
 
   const playIcon = useMemo(() => {
     return (
@@ -112,7 +129,7 @@ const MiniPlayerMobile = () => {
             ></span>
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
               <div
-                style={{ width: `${getProgress()}%` }}
+                style={{ width: `${progress}%` }}
                 className="h-full bg-foreground"
               ></div>
             </div>
