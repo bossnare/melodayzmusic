@@ -82,7 +82,7 @@ export default function DashboardLayout({
                 </div>
               )}
               {isAtProfil && <NavProfile />}
-              <nav className="left-0 flex w-full px-3 py-1 sm:px-5 lg:hidden">
+              <nav className="left-0 flex w-full px-2 py-1 sm:px-4 lg:hidden">
                 {isAtHome && (
                   <SheetTrigger asChild>
                     <MotionButtonLeft
