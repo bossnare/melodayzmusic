@@ -57,5 +57,4 @@ export const useAudioStore = create<AudioState>((set, get) => ({
     if (audio.paused) audio.play();
     else audio.pause();
   },
-  // setAudioRef: ()
 }));
