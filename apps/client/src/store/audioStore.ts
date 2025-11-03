@@ -2,7 +2,8 @@ import { create } from 'zustand';
 import type { SongInterface } from '@/types/songs/song.interface';
 
 interface AudioState {
-  audioRef: HTMLAudioElement;
+  audioRef: HTMLAudioElement | null;
+  initAudio: () => void;
   play: (song: SongInterface) => void;
   pause: () => void;
   isPlaying: boolean;
@@ -19,7 +20,11 @@ interface AudioState {
 }
 
 export const useAudioStore = create<AudioState>((set, get) => ({
-  audioRef: new Audio(),
+  audioRef: null,
+  initAudio: () => {
+    if (typeof window === 'undefined') return;
+    if (!get().audioRef) set({ audioRef: new Audio() });
+  },
   currentSong: null,
   isPlaying: false,
   isLoading: false,
@@ -34,6 +39,7 @@ export const useAudioStore = create<AudioState>((set, get) => ({
   // function
   play: async (song: SongInterface) => {
     const audio = get().audioRef;
+    if (!audio) return;
     try {
       set({ isLoading: true });
       if (audio.src !== song.audioUrl) audio.src = song.audioUrl;
@@ -49,12 +55,12 @@ export const useAudioStore = create<AudioState>((set, get) => ({
   },
 
   pause: () => {
-    get().audioRef.pause();
+    get().audioRef?.pause();
   },
 
   togglePlay: () => {
     const audio = get().audioRef;
-    if (audio.paused) audio.play();
-    else audio.pause();
+    if (audio?.paused) audio.play();
+    else audio?.pause();
   },
 }));
