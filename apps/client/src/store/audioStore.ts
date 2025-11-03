@@ -38,15 +38,20 @@ export const useAudioStore = create<AudioState>((set, get) => ({
 
   // function
   play: async (song: SongInterface) => {
-    const audio = get().audioRef;
-    if (!audio) return;
+    let audio = get().audioRef;
+    if (!audio) {
+      audio = new Audio();
+      set({ audioRef: audio });
+    }
+
     try {
       set({ isLoading: true });
-      if (audio.src !== song.audioUrl) audio.src = song.audioUrl;
+      if (audio.src !== song.audioUrl) {
+        audio.src = song.audioUrl;
+        audio.load();
+      }
       await audio.play();
-      set({ isLoading: false });
-      set({ currentSong: song });
-      set({ isPlaying: true });
+      set({ isLoading: false, currentSong: song, isPlaying: true });
     } catch (e) {
       set({ isPlaying: false });
       audio.pause();
@@ -56,6 +61,7 @@ export const useAudioStore = create<AudioState>((set, get) => ({
 
   pause: () => {
     get().audioRef?.pause();
+    set({ isPlaying: false });
   },
 
   togglePlay: () => {
