@@ -63,12 +63,7 @@ export const NavBar = ({
       )}
 
       {/* for search */}
-      <SearchBar
-      // isNull={isNull}
-      // setIsNull={setIsNull}
-      // isOpenSearch={isOpenSearch}
-      // setisOpenSearch={setisOpenSearch}
-      />
+      <SearchBar />
 
       {/* theme toggle */}
       {userRole !== 'DEV' ? null : (

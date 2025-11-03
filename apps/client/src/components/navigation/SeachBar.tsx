@@ -6,14 +6,7 @@ import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/ssr';
 import { ChevronLeft, X } from 'lucide-react';
 import { Input } from '../ui/input';
 
-const SearchBar = (
-  {
-    // isNull,
-    // setIsNull,
-    // isOpenSearch,
-    // setIsOpenSearch,
-  }
-) => {
+const SearchBar = () => {
   const {
     isNull,
     setIsNull,
@@ -60,7 +53,7 @@ const SearchBar = (
     <div
       className={cn(
         isOpenSearch ? 'w-full flex space-x-2' : 'w-12',
-        'ml-auto lg:ml-0 lg:w-[40%] transition-all duration-10 ease-in-out will-change-auto'
+        'ml-auto lg:ml-0 lg:w-[40%]'
       )}
     >
       {/* for mobile only */}
