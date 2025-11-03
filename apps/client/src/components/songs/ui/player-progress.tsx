@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { throttle } from 'lodash';
 import { useAudioStore } from '@/store/audioStore';

@@ -7,8 +7,8 @@ import { NavBar } from '@/components/navigation/Navbar';
 import { NavBottom } from '@/components/navigation/NavBottom';
 import NavProfile from '@/components/navigation/NavProfile';
 import { Sidebar } from '@/components/navigation/Sidebar';
-import MiniPlayer from '@/components/songs/ui/MiniPlayer';
-import MiniPlayerMobile from '@/components/songs/ui/MiniPlayerMobile';
+// import MiniPlayer from '@/components/songs/ui/MiniPlayer';
+// import MiniPlayerMobile from '@/components/songs/ui/MiniPlayerMobile';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { useUser } from '@/hooks/useUser';
 import { cn } from '@/lib/utils';
@@ -21,6 +21,14 @@ import { fetcher } from '@/utils/fetcher';
 import { OverlayPlayer, Player } from '@/components/songs/ui/overlay-player';
 import { usePlayer } from '@/context/playerContext';
 import { waitVibrate } from '@/utils/vibration';
+import dynamic from 'next/dynamic';
+const MiniPlayer = dynamic(() => import('@/components/songs/ui/MiniPlayer'), {
+  ssr: false,
+});
+const MiniPlayerMobile = dynamic(
+  () => import('@/components/songs/ui/MiniPlayerMobile'),
+  { ssr: false }
+);
 
 export default function DashboardLayout({
   children,

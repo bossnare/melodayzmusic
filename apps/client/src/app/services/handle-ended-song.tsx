@@ -1,3 +1,5 @@
+'use client';
+
 import { useAudioStore } from '@/store/audioStore';
 import { useEffect } from 'react';
 
