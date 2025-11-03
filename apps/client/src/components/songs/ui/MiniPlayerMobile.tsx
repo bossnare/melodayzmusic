@@ -1,6 +1,7 @@
+'use client';
+
 import { MotionButton } from '@/components/motions/motionButton';
 import { Button } from '@/components/ui/button';
-import { useAudioElement } from '@/context/audioContext';
 import { usePlayer } from '@/context/playerContext';
 import { useAudioStore } from '@/store/audioStore';
 import { handleWait } from '@/utils/handle-wait';
@@ -13,14 +14,15 @@ import { Music } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
-import { useMemo, useEffect } from 'react';
+import { useMemo } from 'react';
+import { PlayerProgress } from './player-progress';
 
 const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor } = usePlayer();
-  const { isPlaying, currentSong } = useAudioStore();
+  const { isPlaying } = useAudioStore();
+  const currentSong = useAudioStore((s) => s.currentSong);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
-  const audio = useAudioElement();
-  const progress = useAudioStore((s) => s.progress);
+  const togglePlay = useAudioStore((s) => s.togglePlay);
 
   const songInfo = useMemo(() => {
     if (!currentSong) return null;
@@ -30,20 +32,6 @@ const MiniPlayerMobile = () => {
       cover: currentSong.songCover.coverUrl,
     };
   }, [currentSong]);
-
-  // handle progress bar
-  useEffect(() => {
-    if (!audio) return;
-
-    const handleTimeUpdate = () => {
-      const { currentTime, duration } = audio;
-      const value = (currentTime / duration) * 100;
-      useAudioStore.getState().setProgress(value);
-    };
-
-    audio.addEventListener('timeupdate', handleTimeUpdate);
-    return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
-  }, []);
 
   const playIcon = useMemo(() => {
     return (
@@ -112,11 +100,9 @@ const MiniPlayerMobile = () => {
               className="absolute rounded-[6.5px] invert dark:invert-0 inset-0 opacity-10 pointer-events-none 
               mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"
             ></span>
+            {/* audio current time progress */}
             <div className="absolute bottom-0 left-[3%] overflow-hidden w-[94%] rounded-md h-[2.6px] bg-muted-foreground/50 dark:bg-muted-foreground">
-              <div
-                style={{ width: `${progress}%` }}
-                className="h-full bg-foreground"
-              ></div>
+              <PlayerProgress />
             </div>
 
             <div
@@ -149,7 +135,7 @@ const MiniPlayerMobile = () => {
               <Button
                 onClick={() => {
                   togglePlaying();
-                  // togglePlay();
+                  togglePlay();
                 }}
                 size="icon"
                 variant="ghost"
