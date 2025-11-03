@@ -2,7 +2,8 @@ import { useAudioStore } from '@/store/audioStore';
 import { useEffect } from 'react';
 
 function HandleEndedSong() {
-  const { audioRef, setIsPlaying } = useAudioStore();
+  const { setIsPlaying } = useAudioStore();
+  const audioRef = useAudioStore((s) => s.audioRef);
 
   useEffect(() => {
     const audio = audioRef;
