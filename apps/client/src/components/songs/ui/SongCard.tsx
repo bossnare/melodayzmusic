@@ -25,20 +25,29 @@ import { useAudioStore } from '@/store/audioStore';
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
   const { setTrue } = usePlayer();
-  const { setSong, isPlaying, setIsPlaying, currentSong } = useAudioStore();
+  const { setSong, isPlaying, setIsPlaying, setIsLoading } = useAudioStore();
   const isCurrent = useAudioStore((s) => s.isCurrentSong(song.id));
   const audio = useAudioElement();
 
+  const handlePlay = async () => {
+    try {
+      setIsLoading(true);
+      setSong(song);
+      audio.src = song?.audioUrl;
+      await audio.play();
+      setIsPlaying(true);
+      setTrue();
+    } catch (e) {
+      console.log(e);
+      setIsPlaying(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <Card
-      onClick={async () => {
-        setSong(song);
-        if (!currentSong) return;
-        audio.src = currentSong.audioUrl;
-        await audio.play();
-        setIsPlaying(true);
-        setTrue();
-      }}
+      onClick={handlePlay}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
     >
       <CardContent className="p-0 drop-shadow-xl">

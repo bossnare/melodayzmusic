@@ -12,6 +12,7 @@ interface AudioState {
   isCurrentSong: (id: string) => boolean;
   progress: number;
   setProgress: (progress: number) => void;
+  setIsLoading: (isLoading: boolean) => void;
 }
 
 export const useAudioStore = create<AudioState>((set, get) => ({

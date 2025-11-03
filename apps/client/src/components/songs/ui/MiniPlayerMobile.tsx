@@ -43,7 +43,7 @@ const MiniPlayerMobile = () => {
 
     audio.addEventListener('timeupdate', handleTimeUpdate);
     return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
-  }, [audio]);
+  }, []);
 
   const playIcon = useMemo(() => {
     return (
