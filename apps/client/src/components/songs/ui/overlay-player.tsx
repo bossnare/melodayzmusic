@@ -193,8 +193,9 @@ const Player = () => {
   const playerRef = React.useRef<HTMLDivElement | null>(null);
   const { value: isFavorite, toggle } = useToggle();
 
-  if (!playerRef.current) return;
-  playerRef.current.style.backgroundColor = dominantColor || '#000000';
+  if (playerRef.current) {
+    playerRef.current.style.backgroundColor = dominantColor || '#000000';
+  }
 
   return (
     <div
