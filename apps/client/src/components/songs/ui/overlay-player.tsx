@@ -186,18 +186,19 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
 
 const Player = () => {
   const { setFalse, dominantColor } = usePlayer();
-  const { currentSong, isPlaying } = useAudioStore();
+  const { isPlaying } = useAudioStore();
+  const togglePlay = useAudioStore((s) => s.togglePlay);
+  const currentSong = useAudioStore((s) => s.currentSong);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
-
+  const playerRef = React.useRef<HTMLDivElement | null>(null);
   const { value: isFavorite, toggle } = useToggle();
+
+  if (!playerRef.current) return;
+  playerRef.current.style.backgroundColor = dominantColor || '#000000';
 
   return (
     <div
-      style={
-        {
-          backgroundColor: `${dominantColor || '#000000'}`,
-        } as React.CSSProperties
-      }
+      ref={playerRef}
       className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-80% flex flex-col"
     >
       <Drawer>
@@ -260,7 +261,7 @@ const Player = () => {
             <MotionButton
               onClick={() => {
                 togglePlaying();
-                // togglePlay();
+                togglePlay();
               }}
               className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
             >

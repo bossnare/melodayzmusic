@@ -8,6 +8,7 @@ import ColorThief from 'colorthief';
 import Image from 'next/image';
 import PlayerTitleSync from '@/app/services/player-title-sync';
 import { useAudioStore } from '@/store/audioStore';
+import { HandleEndedSong } from '@/app/services/handle-ended-song';
 
 type PlayerContextType = {
   show: boolean;
@@ -44,22 +45,6 @@ export function PlayerProvider({ children }: BaseProps) {
     img.src = currentSong?.songCover.coverUrl || '/img/b1.jpg';
   }, [currentSong]);
 
-  // useEffect(() => {
-  //   const audio = audioRef.current;
-
-  //   if (!audio) return;
-
-  //   audio.addEventListener('ended', () => {
-  //     setIsPlayingFalse();
-  //   });
-
-  //   return () => {
-  //     audio.removeEventListener('ended', () => {
-  //       setIsPlayingFalse();
-  //     });
-  //   };
-  // }, [setIsPlayingFalse]);
-
   return (
     <PlayerContext
       value={{
@@ -73,6 +58,7 @@ export function PlayerProvider({ children }: BaseProps) {
       }}
     >
       <PlayerTitleSync />
+      <HandleEndedSong />
 
       {children}
       <Image src="" ref={imgRef} alt="" style={{ display: 'none' }} />

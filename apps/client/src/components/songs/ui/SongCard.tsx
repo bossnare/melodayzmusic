@@ -18,31 +18,18 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { usePlayer } from '@/context/playerContext';
-import { useAudioElement } from '@/context/audioContext';
 import { useAudioStore } from '@/store/audioStore';
 
 // Vibe Card
 const VibeCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
   const { setTrue } = usePlayer();
-  const { setSong, isPlaying, setIsPlaying, setIsLoading } = useAudioStore();
+  const { play, isPlaying } = useAudioStore();
   const isCurrent = useAudioStore((s) => s.isCurrentSong(song.id));
-  const audio = useAudioElement();
 
-  const handlePlay = async () => {
-    try {
-      setIsLoading(true);
-      setSong(song);
-      audio.src = song?.audioUrl;
-      await audio.play();
-      setIsPlaying(true);
-      setTrue();
-    } catch (e) {
-      console.log(e);
-      setIsPlaying(false);
-    } finally {
-      setIsLoading(false);
-    }
+  const handlePlay = () => {
+    play(song);
+    setTrue();
   };
 
   return (
@@ -97,12 +84,10 @@ const VibeCard = ({ song }: SongProps) => {
 const AlbumCard = ({ song }: SongProps) => {
   const [imgLoading, setImgLoading] = useState(true);
   const { setTrue } = usePlayer();
-  const { setSong } = useAudioStore();
 
   return (
     <Card
       onClick={() => {
-        setSong(song);
         setTrue();
       }}
       className="p-0 bg-transparent border-none rounded-none shadow-none cursor-pointer active:opacity-80 active:scale-95 font-montserrat lg:hover:bg-muted/30 active:bg-accent/50"
