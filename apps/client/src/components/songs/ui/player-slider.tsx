@@ -1,8 +1,9 @@
 import { Slider } from '@/components/ui/slider';
+import { cn } from '@/lib/utils';
 import { useAudioStore } from '@/store/audioStore';
 import { useEffect, useState } from 'react';
 
-export function PlayerSlider() {
+export function PlayerSlider({ className }: { className?: string }) {
   const [value, setValue] = useState(0);
   const audioRef = useAudioStore((s) => s.audioRef);
 
@@ -33,7 +34,7 @@ export function PlayerSlider() {
       onValueChange={handleChange}
       onValueCommit={handleCommit}
       step={1}
-      className="w-full cursor-pointer"
+      className={cn(className, 'cursor-pointer')}
     />
   );
 }
