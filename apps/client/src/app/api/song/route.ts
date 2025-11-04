@@ -117,7 +117,7 @@ const mockSongs = [
       'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
     createdAt: new Date().toISOString(),
     songCover: {
-      coverUrl: '/img/p6.jpg',
+      coverUrl: '/img/all_my_life.jpg',
     },
     audioUrl: '/audio/lil_durk_all_my_life_ft._j._cole_mp3_38751.mp3',
     defaultCover: 'null',
