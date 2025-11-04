@@ -15,8 +15,7 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
 import { useMemo } from 'react';
-import dynamic from 'next/dynamic'
-const PlayerProgress = dynamic(() => import('./player-progress'), {ssr: false});
+import { PlayerProgress } from './player-progress';
 
 const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor } = usePlayer();
