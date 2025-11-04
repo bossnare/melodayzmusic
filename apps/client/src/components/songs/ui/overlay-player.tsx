@@ -247,7 +247,7 @@ const Player = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4 pb-16 md:pb-4 grow">
+        <div className="flex flex-col items-center justify-center gap-4 pb-16 md:pb-4 grow">
           {/* slider */}
           <PlayerSlider />
           <div className="flex items-center gap-6">
