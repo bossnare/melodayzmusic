@@ -10,7 +10,9 @@ const mediaSessionMetadata = () => {
         album: '',
         artwork: [
           {
-            src: currentSong.songCover.coverUrl,
+            src:
+              currentSong.songCover.coverUrl ||
+              '/img/fallback/player_cover_fallback.png',
             sizes: '512x512',
             type: 'image/png',
           },
