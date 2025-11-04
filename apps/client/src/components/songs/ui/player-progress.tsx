@@ -23,5 +23,10 @@ export const PlayerProgress = () => {
     return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
   }, [audioRef]);
 
-  return <div ref={progressRef} className="h-full bg-foreground"></div>;
+  return (
+    <div
+      ref={progressRef}
+      className="h-full bg-foreground will-change-transform transform-gpu"
+    ></div>
+  );
 };
