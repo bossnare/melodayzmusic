@@ -1,4 +1,4 @@
-import { formatDuration } from '@/lib/formatDuration';
+import { formatDuration } from '@/utils/formatDuration';
 import { cn } from '@/lib/utils';
 import { useAudioStore } from '@/store/audioStore';
 import { useState, useEffect } from 'react';
