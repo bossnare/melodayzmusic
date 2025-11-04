@@ -21,9 +21,11 @@ const mediaSessionMetadata = () => {
     // behaviour
     navigator.mediaSession.setActionHandler('play', () => {
       useAudioStore.getState().togglePlaying();
+      useAudioStore.getState().togglePlay();
     });
     navigator.mediaSession.setActionHandler('pause', () => {
       useAudioStore.getState().togglePlaying();
+      useAudioStore.getState().togglePlay();
     });
   }
 };
