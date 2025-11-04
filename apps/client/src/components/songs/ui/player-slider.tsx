@@ -35,8 +35,8 @@ export function PlayerSlider({ className }: { className?: string }) {
       onValueCommit={handleCommit}
       step={1}
       className={cn(className, 'cursor-pointer touch-none')}
-      rangeClassName="bg-white"
-      thumbClassName="border-white bg-white ring-0 hover:ring-0 focus-visible:ring-0"
+      rangeClassName="bg-white!"
+      thumbClassName="border-white! bg-white! ring-0! hover:ring-0! focus-visible:ring-0!"
     />
   );
 }
