@@ -129,6 +129,27 @@ const mockSongs = [
       defaultPicture: 'null',
     },
   },
+  {
+    id: 'onze',
+    title: 'Karma',
+    artist: 'Di Nio',
+    duration: 201,
+    description:
+      'Discover the meaning and themes behind your favorite songs. Explore in-depth analyses.',
+    createdAt: new Date().toISOString(),
+    songCover: {
+      coverUrl: '',
+    },
+    audioUrl: '/audio/lil_durk_all_my_life_ft._j._cole_mp3_38751.mp3',
+    defaultCover: 'null',
+    userOwner: {
+      username: 'DiNio',
+      activateProfilePicture: {
+        pictureUrl: '/img/b4.jpg',
+      },
+      defaultPicture: 'null',
+    },
+  },
 ];
 
 export async function GET() {
