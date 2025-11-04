@@ -36,6 +36,7 @@ import Image from 'next/image';
 import * as React from 'react';
 import { Bar, BarChart, ResponsiveContainer } from 'recharts';
 import { PlayerSlider } from '@/components/songs/ui/player-slider';
+import { PlayerAnimateDuration } from './player-animate-duration';
 
 const data = [
   {
@@ -191,6 +192,7 @@ const Player = () => {
   const togglePlay = useAudioStore((s) => s.togglePlay);
   const currentSong = useAudioStore((s) => s.currentSong);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
+
   const { value: isFavorite, toggle } = useToggle();
 
   return (
@@ -251,10 +253,7 @@ const Player = () => {
           {/* slider */}
           <PlayerSlider className="w-[calc(100%-2rem)]" />
           {/* minutaire */}
-          <div className="flex justify-between w-[calc(100%-2rem)] py-1 text-muted-foreground text-sm">
-            <span>01:00</span>
-            <span>02:10</span>
-          </div>
+          <PlayerAnimateDuration className="w-[calc(100%-2rem)]" />
           <div className="flex items-center gap-6">
             <MotionButton
               disabled={true}
