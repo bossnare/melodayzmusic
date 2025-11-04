@@ -111,9 +111,12 @@ const MiniPlayerMobile = () => {
             >
               <div className="rounded-[5px] active:brightness-110 overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
                 <Image
-                  src={songInfo?.cover || '/img/b1.jpg'}
+                  src={
+                    songInfo?.cover || '/img/fallback/player_cover_fallback.png'
+                  }
                   className="object-cover"
                   alt={songInfo?.title || 'melodayz'}
+                  blurDataURL="/img/fallback/card_cover_fallback.png"
                   width={1000}
                   height={1000}
                 />

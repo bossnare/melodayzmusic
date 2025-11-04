@@ -7,9 +7,10 @@ import { useAudioStore } from '@/store/audioStore';
 export const PlayerProgress = () => {
   const audioRef = useAudioStore((s) => s.audioRef);
   const progressRef = useRef<HTMLDivElement | null>(null);
-  const valueRef = useRef(0);
+  const progressValueRef = useRef(0);
 
-  if (progressRef.current) progressRef.current.style.width = valueRef + '%';
+  if (progressRef.current)
+    progressRef.current.style.width = progressValueRef.current + '%';
 
   // handle progress bar
   useEffect(() => {
@@ -19,7 +20,7 @@ export const PlayerProgress = () => {
     const handleTimeUpdate = throttle(() => {
       const { currentTime, duration } = audio;
       const value = (currentTime / duration) * 100;
-      valueRef.current = value;
+      progressValueRef.current = value;
     }, 300);
 
     audio.addEventListener('timeupdate', handleTimeUpdate);

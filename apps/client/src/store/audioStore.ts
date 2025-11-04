@@ -10,11 +10,8 @@ interface AudioState {
   currentSong: SongInterface | null;
   togglePlaying: () => void;
   setIsPlaying: (isPlaying: boolean) => void;
-  // setIsLoading: (isLoading: boolean) => void;
   isLoading: boolean;
   isCurrentSong: (id: string) => boolean;
-  progress: number;
-  setProgress: (progress: number) => void;
   setIsLoading: (isLoading: boolean) => void;
   togglePlay: () => void;
 }
@@ -28,16 +25,15 @@ export const useAudioStore = create<AudioState>((set, get) => ({
   currentSong: null,
   isPlaying: false,
   isLoading: false,
-  progress: 0,
 
   togglePlaying: () => set((state) => ({ isPlaying: !state.isPlaying })),
   setIsPlaying: (isPlaying: boolean) => set({ isPlaying }),
   setIsLoading: (isLoading: boolean) => set({ isLoading }),
   isCurrentSong: (id: string) => get().currentSong?.id === id,
-  setProgress: (progress: number) => set({ progress }),
 
   // function
   play: async (song: SongInterface) => {
+    set({ isLoading: true });
     let audio = get().audioRef;
     if (!audio) {
       audio = new Audio();
@@ -45,7 +41,6 @@ export const useAudioStore = create<AudioState>((set, get) => ({
     }
 
     try {
-      set({ isLoading: true });
       if (audio.src !== song.audioUrl) {
         audio.src = song.audioUrl;
         audio.load();
