@@ -14,13 +14,17 @@
     @apply overflow-hidden;
   }
   html {
-    @apply scroll-smooth overflow-hidden;
+    @apply overflow-hidden scroll-smooth;
   }
 }
 
 @layer utilities {
   .scrollbar-none::-webkit-scrollbar {
     display: none;
+  }
+
+  [data-radix-slider-thumb] {
+    touch-action: none !important;
   }
 
   /* for smooth-scrollbar js plugin */
