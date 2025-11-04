@@ -35,6 +35,7 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
 import { Bar, BarChart, ResponsiveContainer } from 'recharts';
+import { PlayerSlider } from '@/components/songs/ui/player-slider';
 
 const data = [
   {
@@ -246,7 +247,9 @@ const Player = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center pb-16 md:pb-4 grow">
+        <div className="flex flex-col items-center gap-4 pb-16 md:pb-4 grow">
+          {/* slider */}
+          <PlayerSlider />
           <div className="flex items-center gap-6">
             <MotionButton
               disabled={true}
