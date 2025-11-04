@@ -191,6 +191,7 @@ const Player = () => {
   const currentSong = useAudioStore((s) => s.currentSong);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
   const { value: isFavorite, toggle } = useToggle();
+  const { value: imgLoading, setFalse: setImgLoadingFalse } = useToggle(true);
 
   return (
     <div
@@ -215,17 +216,27 @@ const Player = () => {
         </div>
         <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
-            <Image
-              src={
-                currentSong?.songCover.coverUrl ||
-                '/img/fallback/player_cover_fallback.png'
-              }
-              alt={currentSong?.title || 'melodayz'}
-              blurDataURL="/img/fallback/player_cover_fallback.png"
-              className="object-cover"
-              width={1000}
-              height={1000}
-            />
+            {imgLoading ? (
+              <Image
+                src="/img/fallback/player_cover_fallback.png"
+                alt={currentSong?.title || 'melodayz'}
+                className="object-cover"
+                width={1000}
+                height={1000}
+              />
+            ) : (
+              <Image
+                src={
+                  currentSong?.songCover.coverUrl ||
+                  '/img/fallback/player_cover_fallback.png'
+                }
+                onLoad={setImgLoadingFalse}
+                alt={currentSong?.title || 'melodayz'}
+                className="object-cover"
+                width={1000}
+                height={1000}
+              />
+            )}
           </div>
           <div className="flex w-full">
             <div className="grow">

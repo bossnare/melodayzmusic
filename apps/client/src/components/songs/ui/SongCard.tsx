@@ -42,17 +42,26 @@ const VibeCard = ({ song }: SongProps) => {
           ratio={1}
           className="relative overflow-hidden rounded-[6.5px]"
         >
-          <Image
-            src={
-              song.songCover.coverUrl || '/img/fallback/card_cover_fallback.png'
-            }
-            alt={song.title + '-' + song.id}
-            className="object-cover size-full"
-            blurDataURL="/img/fallback/card_cover_fallback.png"
-            loading="lazy"
-            width={1200}
-            height={1200}
-          />
+          {imgLoading ? (
+            <Image
+              src={'/img/fallback/card_cover_fallback.png'}
+              alt={song.title + '-' + song.id}
+              onLoad={() => setImgLoading(false)}
+              className="object-cover size-full"
+              width={1000}
+              height={1000}
+            />
+          ) : (
+            <Image
+              src={song.songCover.coverUrl || song.defaultCover}
+              alt={song.title + '-' + song.id}
+              onLoad={() => setImgLoading(false)}
+              className="object-cover size-full"
+              loading="lazy"
+              width={1200}
+              height={1200}
+            />
+          )}
           {isCurrent && (
             <div className="absolute top-2 right-2">
               <AudioWave active={isPlaying} />
