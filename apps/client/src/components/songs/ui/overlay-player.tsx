@@ -249,9 +249,9 @@ const Player = () => {
         </div>
         <div className="flex flex-col items-center justify-center gap-4 pb-16 md:pb-4 grow">
           {/* slider */}
-          <PlayerSlider className="w-[calc(100%-1rem)]" />
+          <PlayerSlider className="w-[calc(100%-2rem)]" />
           {/* minutaire */}
-          <div className="flex justify-between w-[calc(100%-1rem)] py-1 text-muted-foreground text-sm">
+          <div className="flex justify-between w-[calc(100%-2rem)] py-1 text-muted-foreground text-sm">
             <span>01:00</span>
             <span>02:10</span>
           </div>

@@ -23,10 +23,6 @@
     display: none;
   }
 
-  [data-radix-slider-thumb] {
-    touch-action: none !important;
-  }
-
   /* for smooth-scrollbar js plugin */
   .scrollbar-track,
   .scrollbar-thumb {
