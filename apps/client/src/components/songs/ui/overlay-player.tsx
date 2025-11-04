@@ -249,7 +249,7 @@ const Player = () => {
         </div>
         <div className="flex flex-col items-center justify-center gap-4 pb-16 md:pb-4 grow">
           {/* slider */}
-          <PlayerSlider />
+          <PlayerSlider className="w-[95%]" />
           <div className="flex items-center gap-6">
             <MotionButton
               disabled={true}
