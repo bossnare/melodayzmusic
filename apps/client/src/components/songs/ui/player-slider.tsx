@@ -37,7 +37,7 @@ export function PlayerSlider({ className }: { className?: string }) {
       onValueChange={handleChange}
       onValueCommit={handleCommit}
       step={0.1}
-      className={cn(className, 'cursor-pointer! touch-none!')}
+      className={cn(className, 'cursor-pointer! touch-none! select-none!')}
       rangeClassName="bg-white!"
       thumbClassName="border-white! bg-white! ring-0! hover:ring-0! focus-visible:ring-0!"
     />
