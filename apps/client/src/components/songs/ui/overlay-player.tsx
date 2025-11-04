@@ -249,11 +249,11 @@ const Player = () => {
         </div>
         <div className="flex flex-col items-center justify-center gap-4 pb-16 md:pb-4 grow">
           {/* slider */}
-          <PlayerSlider className="w-[95%]" />
+          <PlayerSlider className="w-[calc(100%-1rem)]" />
           {/* minutaire */}
-          <div className="flex justify-between py-1 text-muted-foreground">
-            <code>01:00</code>
-            <code>02:10</code>
+          <div className="flex justify-between w-[calc(100%-1rem)] py-1 text-muted-foreground text-sm">
+            <span>01:00</span>
+            <span>02:10</span>
           </div>
           <div className="flex items-center gap-6">
             <MotionButton
