@@ -140,7 +140,7 @@ const mockSongs = [
     songCover: {
       coverUrl: '',
     },
-    audioUrl: '/audio/lil_durk_all_my_life_ft._j._cole_mp3_38751.mp3',
+    audioUrl: '/audio/di_nio-karma_official_audio_mp3_40916.mp3',
     defaultCover: 'null',
     userOwner: {
       username: 'DiNio',

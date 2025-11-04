@@ -109,7 +109,7 @@ const MiniPlayerMobile = () => {
               onClick={() => handleWait(setTrue)}
               className="flex items-center gap-2 cursor-pointer select-none grow"
             >
-              <div className="rounded-[5px] active:brightness-110 overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
+              <div className="rounded-[5px] overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
                 <Image
                   src={
                     songInfo?.cover || '/img/fallback/player_cover_fallback.png'
@@ -124,7 +124,7 @@ const MiniPlayerMobile = () => {
               {/* info */}
               <div
                 style={{ color: `${secondaryColor}` }}
-                className="flex flex-col items-start justify-center active:brightness-120 gap-0.5"
+                className="flex flex-col items-start justify-center gap-0.5"
               >
                 <p className="text-sm font-bold truncate line-clamp-1">
                   {songInfo?.title}
@@ -142,7 +142,7 @@ const MiniPlayerMobile = () => {
                 }}
                 size="icon"
                 variant="ghost"
-                className="active:opacity-90 p-3 active:scale-99 tansition-none hover:bg-transparent! hover:text-inherit"
+                className="active:opacity-90 p-3 active:scale-98 tansition-none hover:bg-transparent! hover:text-inherit"
               >
                 {playIcon}
               </Button>
