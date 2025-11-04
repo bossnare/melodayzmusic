@@ -25,13 +25,13 @@ export default function Page() {
             MelodayzMusic
           </span>
         </div>
-        <p className="w-[80%] sm:w-[60%] lg:w-[40%] text-center text-muted-foreground">
+        <p className="w-[90%] sm:w-[60%] lg:w-[40%] text-center text-muted-foreground">
           Our app is currently in development. Thank you for your patience and
           understanding as we work to improve your experience!
         </p>
         <Button
           disabled={isPending}
-          className="min-w-30 w-20 font-montserrat bg-premium"
+          className="w-20 min-w-30 font-montserrat bg-premium"
           onClick={handleClickTab}
           size="lg"
         >

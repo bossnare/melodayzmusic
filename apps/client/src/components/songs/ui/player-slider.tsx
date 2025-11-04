@@ -34,7 +34,7 @@ export function PlayerSlider({ className }: { className?: string }) {
       onValueChange={handleChange}
       onValueCommit={handleCommit}
       step={1}
-      className={cn(className, 'cursor-pointer')}
+      className={cn(className, 'cursor-pointer touch-none')}
     />
   );
 }

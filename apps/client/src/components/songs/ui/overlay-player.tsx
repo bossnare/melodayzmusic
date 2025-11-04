@@ -250,6 +250,11 @@ const Player = () => {
         <div className="flex flex-col items-center justify-center gap-4 pb-16 md:pb-4 grow">
           {/* slider */}
           <PlayerSlider className="w-[95%]" />
+          {/* minutaire */}
+          <div className="flex justify-between py-1 text-muted-foreground">
+            <code>01:00</code>
+            <code>02:10</code>
+          </div>
           <div className="flex items-center gap-6">
             <MotionButton
               disabled={true}
