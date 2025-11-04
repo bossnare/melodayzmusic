@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server';
 const mockSongs = [
   {
     id: 'un1',
-    title: 'Party no dey stop',
-    artist: 'Adekunle',
+    title: 'Treasure',
+    artist: 'Vasa',
     duration: 210,
     description:
       'Dive into the world of music with our comprehensive song analyses. Uncover hidden meanings, lyrical interpretations',
@@ -124,7 +124,7 @@ const mockSongs = [
     userOwner: {
       username: 'Yblack J.',
       activateProfilePicture: {
-        pictureUrl: '/img/b4.jpg',
+        pictureUrl: '/img/all_my_life.jpg',
       },
       defaultPicture: 'null',
     },
