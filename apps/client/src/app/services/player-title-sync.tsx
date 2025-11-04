@@ -6,7 +6,7 @@ export default function PlayerTitleSync() {
 
   useEffect(() => {
     if (currentSong) {
-      document.title = `${currentSong.title} - ${currentSong.artist} - MelodayzMusic`;
+      document.title = `${currentSong.title} - ${currentSong.artist}`;
     } else {
       document.title = 'MelodayzMusic - Feel the Beat, Anywhere You Go';
     }
