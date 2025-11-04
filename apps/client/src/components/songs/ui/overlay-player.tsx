@@ -221,6 +221,7 @@ const Player = () => {
                 '/img/fallback/player_cover_fallback.png'
               }
               alt={currentSong?.title || 'melodayz'}
+              blurDataURL="/img/fallback/player_cover_fallback.png"
               className="object-cover"
               width={1000}
               height={1000}
