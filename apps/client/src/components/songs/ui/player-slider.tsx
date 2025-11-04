@@ -5,13 +5,16 @@ import { useEffect, useState } from 'react';
 
 export function PlayerSlider({ className }: { className?: string }) {
   const [value, setValue] = useState(0);
+  const [isSeeking, setIsSeeking] = useState(false);
   const audioRef = useAudioStore((s) => s.audioRef);
 
   const handleCommit = (val: number[]) => {
+    setIsSeeking(false);
     if (audioRef) audioRef.currentTime = val[0];
   };
 
   const handleChange = (val: number[]) => {
+    setIsSeeking(true);
     setValue(val[0]);
   };
 
@@ -21,11 +24,11 @@ export function PlayerSlider({ className }: { className?: string }) {
     if (!audio) return;
 
     const handleUpdate = () => {
-      setValue(audio.currentTime);
+      if (!isSeeking) setValue(audio.currentTime);
     };
     audio.addEventListener('timeupdate', handleUpdate);
     return () => audio.removeEventListener('timeupdate', handleUpdate);
-  }, [audioRef]);
+  }, [audioRef, isSeeking]);
 
   return (
     <Slider
