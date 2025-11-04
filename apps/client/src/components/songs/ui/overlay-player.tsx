@@ -155,7 +155,7 @@ function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
   return (
     <Portal>
       <motion.div
-        initial={{ y: 80, opacity: 0 }}
+        initial={{ y: 100, opacity: 0 }}
         animate={{
           y: 0,
           opacity: 1,
