@@ -53,7 +53,10 @@ const VibeCard = ({ song }: SongProps) => {
             />
           ) : (
             <Image
-              src={song.songCover.coverUrl || song.defaultCover}
+              src={
+                song.songCover.coverUrl ||
+                '/img/fallback/card_cover_fallback.png'
+              }
               alt={song.title + '-' + song.id}
               onLoad={() => setImgLoading(false)}
               className="object-cover size-full"
@@ -119,7 +122,10 @@ const AlbumCard = ({ song }: SongProps) => {
             />
           ) : (
             <Image
-              src={song.songCover.coverUrl || song.defaultCover}
+              src={
+                song.songCover.coverUrl ||
+                '/img/fallback/card_cover_fallback.png'
+              }
               alt={song.title + '-' + song.id}
               onLoad={() => setImgLoading(false)}
               className="object-cover size-full"
