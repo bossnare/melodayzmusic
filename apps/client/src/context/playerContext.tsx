@@ -10,6 +10,7 @@ import PlayerTitleSync from '@/app/services/player-title-sync';
 import { useAudioStore } from '@/store/audioStore';
 import { HandleEndedSong } from '@/app/services/handle-ended-song';
 import * as React from 'react';
+import { mediaSessionMetadata } from '@/app/services/media.session.api';
 
 type PlayerContextType = {
   show: boolean;
@@ -29,6 +30,9 @@ export function PlayerProvider({ children }: BaseProps) {
   const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const currentSong = useAudioStore((s) => s.currentSong);
+
+  // media session api navigator
+  mediaSessionMetadata();
 
   // get song cover dominant color
   useEffect(() => {
