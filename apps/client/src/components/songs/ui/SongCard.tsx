@@ -42,18 +42,25 @@ const VibeCard = ({ song }: SongProps) => {
           ratio={1}
           className="relative overflow-hidden rounded-[6.5px]"
         >
-          <Image
-            src={song.songCover.coverUrl || song.defaultCover}
-            alt={song.title + '-' + song.id}
-            onLoad={() => setImgLoading(false)}
-            className="object-cover size-full"
-            loading="lazy"
-            width={1200}
-            height={1200}
-          />
-          {/* shimmer loader */}
-          {imgLoading && (
-            <div className="absolute inset-0 bg-linear-to-br from-foreground/40 via-foreground/50 to-foreground/40 animate-pulse"></div>
+          {imgLoading ? (
+            <Image
+              src={'/img/fallback/card_cover_fallback.png'}
+              alt={song.title + '-' + song.id}
+              onLoad={() => setImgLoading(false)}
+              className="object-cover size-full"
+              width={1000}
+              height={1000}
+            />
+          ) : (
+            <Image
+              src={song.songCover.coverUrl || song.defaultCover}
+              alt={song.title + '-' + song.id}
+              onLoad={() => setImgLoading(false)}
+              className="object-cover size-full"
+              loading="lazy"
+              width={1200}
+              height={1200}
+            />
           )}
           {isCurrent && (
             <div className="absolute top-2 right-2">
@@ -101,18 +108,25 @@ const AlbumCard = ({ song }: SongProps) => {
 
           // }}
         >
-          <Image
-            src={song.songCover.coverUrl || song.defaultCover}
-            alt={song.title}
-            onLoad={() => setImgLoading(false)}
-            className="object-cover size-full"
-            loading="lazy"
-            width={1200}
-            height={1200}
-          />
-          {/* shimmer loader */}
-          {imgLoading && (
-            <div className="absolute inset-0 bg-linear-to-br from-foreground/40 via-foreground/50 to-foreground/40 animate-pulse"></div>
+          {imgLoading ? (
+            <Image
+              src={'/img/fallback/card_cover_fallback.png'}
+              alt={song.title + '-' + song.id}
+              onLoad={() => setImgLoading(false)}
+              className="object-cover size-full"
+              width={1000}
+              height={1000}
+            />
+          ) : (
+            <Image
+              src={song.songCover.coverUrl || song.defaultCover}
+              alt={song.title + '-' + song.id}
+              onLoad={() => setImgLoading(false)}
+              className="object-cover size-full"
+              loading="lazy"
+              width={1200}
+              height={1200}
+            />
           )}
           {/* <div className="absolute flex justify-end bottom-2 left-2">
             <MotionButton

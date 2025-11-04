@@ -190,16 +190,11 @@ const Player = () => {
   const togglePlay = useAudioStore((s) => s.togglePlay);
   const currentSong = useAudioStore((s) => s.currentSong);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
-  const playerRef = React.useRef<HTMLDivElement | null>(null);
   const { value: isFavorite, toggle } = useToggle();
-
-  if (playerRef.current) {
-    playerRef.current.style.backgroundColor = dominantColor || '#000000';
-  }
 
   return (
     <div
-      ref={playerRef}
+      style={{ backgroundColor: `${dominantColor || '#000000'}` }}
       className="px-2 size-full font-montserrat text-[#E7E9EA] bg-linear-to-b from-transparent to-black/90 to-80% flex flex-col"
     >
       <Drawer>
@@ -221,7 +216,10 @@ const Player = () => {
         <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
             <Image
-              src={currentSong?.songCover.coverUrl || '/img/b1.jpg'}
+              src={
+                currentSong?.songCover.coverUrl ||
+                '/img/fallback/player_cover_fallback.png'
+              }
               alt={currentSong?.title || 'melodayz'}
               className="object-cover"
               width={1000}

@@ -9,6 +9,7 @@ import Image from 'next/image';
 import PlayerTitleSync from '@/app/services/player-title-sync';
 import { useAudioStore } from '@/store/audioStore';
 import { HandleEndedSong } from '@/app/services/handle-ended-song';
+import * as React from 'react';
 
 type PlayerContextType = {
   show: boolean;
@@ -27,7 +28,7 @@ export function PlayerProvider({ children }: BaseProps) {
   const [dominantColor, setDominantColor] = useState<string | null>(null);
   const [secondaryColor, setSecondaryColor] = useState<string | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
-  const { currentSong } = useAudioStore();
+  const currentSong = useAudioStore((s) => s.currentSong);
 
   // get song cover dominant color
   useEffect(() => {
@@ -42,7 +43,9 @@ export function PlayerProvider({ children }: BaseProps) {
       setDominantColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
       setSecondaryColor(`rgb(${second[0]}, ${second[1]}, ${second[2]})`);
     };
-    img.src = currentSong?.songCover.coverUrl || '/img/b1.jpg';
+    img.src =
+      currentSong?.songCover.coverUrl ||
+      '/img/fallback/player_cover_fallback.png';
   }, [currentSong]);
 
   return (
