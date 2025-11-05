@@ -14,13 +14,12 @@ import {
 } from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { type UserInterface } from '@/types/users/user.interface';
 import { LogOut, Settings2 } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { Logo } from '../branding/logo';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Avatar } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import {
   SheetContent,
@@ -31,19 +30,14 @@ import {
 import { SidebarContentDesktop } from './SidebarContentDesktop';
 import { Wrapper } from '@/components/motions/wrapper/wrapper';
 import { getInitials } from '@/utils/get-name.strings';
+import { useUser } from '@/api/user.api';
 
-type Props = {
-  user: UserInterface | null;
-};
-
-export const Sidebar = ({
-  user,
-  isFetchingMe,
-}: Props & { isFetchingMe?: boolean }) => {
+export const Sidebar = () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
   const pending = isPending || isLoading;
+  const { data: user, isPending: isFetchingMe } = useUser();
 
   const logout = async () => {
     setIsLoading(true);

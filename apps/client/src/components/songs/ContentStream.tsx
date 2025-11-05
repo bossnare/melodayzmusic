@@ -1,26 +1,21 @@
 'use client';
 
 // import api from '@/libs/api';
+import { useUser } from '@/api/user.api';
 import { type SongInterface as Song } from '@/types/songs/song.interface';
+import { getNameRoots } from '@/utils/get-name.strings';
 import AlbumStream from './ui/AlbumStream';
-import { VibeCard, AlbumCard } from './ui/SongCard';
-import VibeStream from './ui/VibeStream';
+import { AlbumCard, VibeCard } from './ui/SongCard';
 import TopArtist from './ui/TopArtist';
-import {useUser} from '@/hooks/useUser'
-import {useEffect} from 'react'
-import {getNameRoots} from '@/utils/get-name.strings'
+import VibeStream from './ui/VibeStream';
 
 type Props = { songs: Song[] };
 
 export const ContentStream = ({ songs }: Props) => {
-  const {user, fetchMe} = useUser()
+  const { data: user } = useUser();
 
-  useEffect(() => {
-    fetchMe()
-  }, [fetchMe])
-
-  const firstPseudo = getNameRoots(user?.pseudo)
-  const twoPseudo = getNameRoots(user?.pseudo, {parts: 2})
+  const firstPseudo = getNameRoots(user?.pseudo);
+  const twoPseudo = getNameRoots(user?.pseudo, { parts: 2 });
 
   return (
     <div className="flex flex-col space-y-16 lg:space-y-16 lg:pb-80">

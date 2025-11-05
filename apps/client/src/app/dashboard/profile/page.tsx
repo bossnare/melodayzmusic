@@ -5,19 +5,13 @@ import { MotionButton } from '@/components/motions/motionButton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToggle } from '@/hooks/use-toggle';
-// import { useUser } from '@/hooks/useUser';
 import { cn } from '@/lib/utils';
 import { Star } from 'lucide-react';
-// import { useEffect } from 'react';
 
 export default function ProfilePage() {
   // const { user, fetchMe, isPending } = useUser();
   const { data: user, isPending } = useUser();
   const { value: isStar, toggle } = useToggle();
-
-  // useEffect(() => {
-  //   fetchMe();
-  // }, [fetchMe]);
 
   return (
     <section>
