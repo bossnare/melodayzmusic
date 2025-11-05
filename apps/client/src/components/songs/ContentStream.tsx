@@ -5,7 +5,7 @@ import { useUser } from '@/api/user.api';
 import { type SongInterface as Song } from '@/types/songs/song.interface';
 import { getNameRoots } from '@/utils/get-name.strings';
 import AlbumStream from './ui/AlbumStream';
-import { AlbumCard, VibeCard } from './ui/SongCard';
+import { MemoAlbumCard, MemoVibeCard } from './ui/SongCard';
 import TopArtist from './ui/TopArtist';
 import VibeStream from './ui/VibeStream';
 
@@ -22,13 +22,13 @@ export const ContentStream = ({ songs }: Props) => {
       {/* Vibes card */}
       <VibeStream pseudo={twoPseudo}>
         {songs.map((song) => (
-          <VibeCard key={song.id} song={song} />
+          <MemoVibeCard key={song.id} song={song} />
         ))}
       </VibeStream>
       {/* Albums card */}
       <AlbumStream>
         {songs.reverse().map((song) => (
-          <AlbumCard key={song.id} song={song} />
+          <MemoAlbumCard key={song.id} song={song} />
         ))}
       </AlbumStream>
       {/* Top Artists */}

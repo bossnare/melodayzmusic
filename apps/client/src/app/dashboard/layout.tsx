@@ -10,7 +10,10 @@ import { Sidebar } from '@/components/navigation/Sidebar';
 // import MiniPlayer from '@/components/songs/ui/MiniPlayer';
 // import MiniPlayerMobile from '@/components/songs/ui/MiniPlayerMobile';
 import { useSong } from '@/api/song.api';
-import { OverlayPlayer, Player } from '@/components/songs/ui/overlay-player';
+import {
+  OverlayPlayer,
+  MemoPlayer,
+} from '@/components/songs/ui/overlay-player';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { usePlayer } from '@/context/playerContext';
 import { useSearch } from '@/context/searchContext';
@@ -135,7 +138,7 @@ export default function DashboardLayout({
 
         {/* NavBottom -- Player and Navigation on mobile */}
         <OverlayPlayer open={show}>
-          <Player />
+          <MemoPlayer />
         </OverlayPlayer>
 
         {isOpenSearch ? null : <MiniPlayerMobile />}

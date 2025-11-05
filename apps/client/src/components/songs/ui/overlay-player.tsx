@@ -294,4 +294,6 @@ const Player = () => {
   );
 };
 
-export { OverlayPlayer, Player };
+const MemoPlayer = React.memo(Player);
+
+export { OverlayPlayer, MemoPlayer };
