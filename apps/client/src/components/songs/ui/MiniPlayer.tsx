@@ -9,21 +9,29 @@ import {
 } from '@phosphor-icons/react/dist/ssr';
 
 import { MotionButton } from '@/components/motions/motionButton';
-import { Slider } from '@/components/ui/slider';
 import { useToggle } from '@/hooks/use-toggle';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useCurrentSong } from '@/hooks/songs/use-current-song';
+import { usePlayer } from '@/context/playerContext';
+import { useAudioStore } from '@/store/audioStore';
+import { PlayerSlider } from './player-slider';
 
 const MiniPlayer = () => {
-  const [isGo, setIsGo] = useState(false);
   const { value: isFavorite, toggle } = useToggle();
+  const { title, cover, artist } = useCurrentSong();
+  const { secondaryColor } = usePlayer();
+  const currentSong = useAudioStore((s) => s.currentSong);
+  const isPlaying = useAudioStore((s) => s.isPlaying);
+  const togglePlaying = useAudioStore((s) => s.togglePlaying);
+  const togglePlay = useAudioStore((s) => s.togglePlay);
+
   return (
     <div className="items-center justify-center hidden w-full h-full gap-4 py-1 lg:flex">
       {/* for image cover */}
       <div className="flex justify-start h-full gap-3 xl:min-w-64">
         <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
           <Image
-            src="/img/Aurora-Cover.jpg"
+            src={cover || '/img/fallback/player_cover_fallback.png'}
             alt="coverImage"
             className="object-cover size-full"
             height={1000}
@@ -32,43 +40,73 @@ const MiniPlayer = () => {
           />
         </div>
         {/* Title & other */}
-        <div className="flex flex-col items-start h-full pt-1 text-muted-foreground font-montserrat">
-          <h3 className="font-bold"> En attente de vibes</h3>
-          <p className="text-sm">Artiste inconnu</p>
-          <MotionButton onClick={toggle} className="p-0 mt-auto">
-            <HeartIcon
-              className="size-10"
-              weight={isFavorite ? 'fill' : 'regular'}
-            />
-          </MotionButton>
-        </div>
+        {!currentSong ? (
+          <div className="flex flex-col items-start h-full pt-1 text-muted-foreground font-montserrat">
+            <h3 className="font-bold">En attentes de vibes</h3>
+            <p className="text-sm">Artiste inconnue</p>
+          </div>
+        ) : (
+          <div className="flex flex-col items-start h-full pt-1 font-montserrat">
+            <h3 style={{ color: `${secondaryColor}` }} className="font-bold">
+              {title}
+            </h3>
+            <p style={{ color: `${secondaryColor}` }} className="text-sm">
+              {artist}
+            </p>
+            <MotionButton onClick={toggle} className="p-0 mt-auto">
+              <HeartIcon
+                className="size-10"
+                weight={isFavorite ? 'fill' : 'regular'}
+              />
+            </MotionButton>
+          </div>
+        )}
       </div>
       {/* for minimal info and controls */}
       <div className="flex flex-col flex-wrap items-center justify-center h-full space-y-4 grow">
         {/* forward and back, pause/play controls */}
-        <div className="flex items-center justify-center *:text-muted-foreground w-full space-x-4">
-          <MotionButton disabled={true}>
-            <SkipBackIcon weight={'fill'} className="size-7" />
-          </MotionButton>
-          <MotionButton
-            disabled={true}
-            className="shadow-xs bg-muted-foreground/40"
-            onClick={() => setIsGo(!isGo)}
-          >
-            {isGo ? (
+        {!currentSong ? (
+          <div className="flex items-center justify-center *:text-muted-foreground w-full space-x-4">
+            <MotionButton disabled={true}>
+              <SkipBackIcon weight={'fill'} className="size-7" />
+            </MotionButton>
+            <MotionButton
+              disabled={true}
+              className="shadow-xs bg-muted-foreground/40"
+            >
               <PauseIcon weight={'fill'} className="size-8" />
-            ) : (
-              <PlayIcon weight={'fill'} className="size-8" />
-            )}
-          </MotionButton>
-          <MotionButton disabled={true}>
-            <SkipForwardIcon weight={'fill'} className="size-7" />
-          </MotionButton>
-        </div>
+            </MotionButton>
+            <MotionButton disabled={true}>
+              <SkipForwardIcon weight={'fill'} className="size-7" />
+            </MotionButton>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center *:text-muted-foreground w-full space-x-4">
+            <MotionButton>
+              <SkipBackIcon weight={'fill'} className="size-7" />
+            </MotionButton>
+            <MotionButton
+              className="shadow-xs bg-muted-foreground/40"
+              onClick={() => {
+                togglePlaying();
+                togglePlay();
+              }}
+            >
+              {isPlaying ? (
+                <PauseIcon weight={'fill'} className="size-8" />
+              ) : (
+                <PlayIcon weight={'fill'} className="size-8" />
+              )}
+            </MotionButton>
+            <MotionButton>
+              <SkipForwardIcon weight={'fill'} className="size-7" />
+            </MotionButton>
+          </div>
+        )}
         {/* Slider control */}
-        {isGo && (
+        {currentSong && (
           <div className="w-[20%] pb-3">
-            <Slider className="shadow-xs" />
+            <PlayerSlider className="w-full shadow-xs" />
           </div>
         )}
       </div>
