@@ -30,7 +30,7 @@ import {
   UserListIcon,
 } from '@phosphor-icons/react/dist/ssr';
 import { Portal } from '@radix-ui/react-portal';
-import { ChevronDown, Minus, Plus } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import * as React from 'react';
@@ -41,12 +41,13 @@ import { playerLabel } from '@/components/navigation/labels/player.label';
 
 export function Content({ className }: { className?: string }) {
   const { title, artist, cover } = useCurrentSong();
+  const isPlaying = useAudioStore((s) => s.isPlaying);
 
   return (
     <DrawerContent className={className}>
       <div className="w-full max-w-sm mx-auto">
         <DrawerHeader className="text-left ">
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <div className="rounded-[5px] overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
               <Image
                 src={cover || '/img/fallback/player_cover_fallback.png'}
@@ -57,31 +58,32 @@ export function Content({ className }: { className?: string }) {
                 height={1000}
               />
             </div>
-            <div>
-              <DrawerTitle>{title}</DrawerTitle>
-              <DrawerDescription>{artist}</DrawerDescription>
+            <div className="grow">
+              <DrawerTitle className="text-left">{title}</DrawerTitle>
+              <DrawerDescription className="text-left">
+                {artist}
+              </DrawerDescription>
+            </div>
+            <div className="shrink-0 size-12 flex justify-center items-center">
+              <AudioWave active={isPlaying} color="#FFFFFF" />
             </div>
           </div>
         </DrawerHeader>
         <div className="p-4 pb-0">
           <div className="flex flex-col justify-center space-x-2">
-            <ul className="text-muted-foreground space-y-3">
+            <ul className="text-muted-foreground space-y-4 text-lg font-semibold font-montserrat">
               {playerLabel.map((label) => (
                 <li key={label.id}>
                   {' '}
-                  <button>
-                    <label.icon /> {label.label}
+                  <button className="flex gap-2">
+                    <label.icon className="size-8" /> {label.label}
                   </button>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <DrawerFooter>
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
+        <DrawerFooter></DrawerFooter>
       </div>
     </DrawerContent>
   );
