@@ -17,7 +17,7 @@ export const navLabels = [
   {
     id: 2,
     label: 'Explorer',
-    href: '/dashboard/favoris',
+    href: '/dashboard/explore',
     icon: BinocularsIcon, //CompassIcon,
   },
   {
@@ -29,7 +29,7 @@ export const navLabels = [
   {
     id: 4,
     label: 'MyVibes',
-    href: '/dashboard/myvibe',
+    href: '/dashboard/library',
     icon: FoldersIcon,
   },
   {

@@ -47,7 +47,7 @@ export function Content({ className }: { className?: string }) {
     <DrawerContent className={className}>
       <div className="w-full max-w-sm mx-auto">
         <DrawerHeader className="text-left ">
-          <div className="flex gap-3">
+          <div className="flex gap-3 p-1 bg-muted rounded-sm">
             <div className="rounded-[5px] overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
               <Image
                 src={cover || '/img/fallback/player_cover_fallback.png'}
@@ -69,15 +69,19 @@ export function Content({ className }: { className?: string }) {
             </div>
           </div>
         </DrawerHeader>
-        <div className="p-4 pb-0">
+        <div className="p-4 pb-0 bg-muted rounded-sm">
           <div className="flex flex-col justify-center space-x-2">
-            <ul className="text-muted-foreground space-y-4 text-lg font-semibold font-montserrat">
+            <ul className="space-y-6 text-lg font-medium font-montserrat">
               {playerLabel.map((label) => (
                 <li key={label.id}>
                   {' '}
-                  <button className="flex gap-2">
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start rounded hover:text-inherit! 
+                  active:bg-muted-foreground lg:hover:bg-muted-foreground lg:active:opacity-80"
+                  >
                     <label.icon className="size-8" /> {label.label}
-                  </button>
+                  </Button>
                 </li>
               ))}
             </ul>
