@@ -9,6 +9,7 @@ import NavProfile from '@/components/navigation/NavProfile';
 import { Sidebar } from '@/components/navigation/Sidebar';
 // import MiniPlayer from '@/components/songs/ui/MiniPlayer';
 // import MiniPlayerMobile from '@/components/songs/ui/MiniPlayerMobile';
+import { useSong } from '@/api/song.api';
 import { OverlayPlayer, Player } from '@/components/songs/ui/overlay-player';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { usePlayer } from '@/context/playerContext';
@@ -38,6 +39,8 @@ export default function DashboardLayout({
   const [isAtProfil, setIsAtProfil] = useState(false);
   const [isAtHome, setIsAtHome] = useState(false);
   const pathname = usePathname();
+
+  const { refetch } = useSong();
 
   const [open, setOpen] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
@@ -108,7 +111,8 @@ export default function DashboardLayout({
             {/* Main Layout */}
             <RefreshWrapper
               onRefresh={async () => {
-                alert('Refresh');
+                // refetch song on dashHome
+                refetch();
               }}
             >
               <SmoothScrollLayout>
