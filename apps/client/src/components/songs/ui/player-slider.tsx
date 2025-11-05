@@ -44,6 +44,7 @@ export function PlayerSlider({
       onValueCommit={handleCommit}
       step={0.1}
       className={cn(className, 'cursor-pointer! touch-none! select-none!')}
+      trackClassName={needOveride ? 'bg-white/30!' : ''}
       rangeClassName={needOveride ? 'bg-white!' : ''}
       thumbClassName={
         needOveride

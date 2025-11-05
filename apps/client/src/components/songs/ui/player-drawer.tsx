@@ -53,8 +53,8 @@ export function PlayerDrawer({ className }: { className?: string }) {
                   <Button
                     variant="ghost"
                     size="xl"
-                    className="w-full justify-start rounded hover:text-inherit! hover:bg-transparent!
-                  active:bg-muted-foreground! lg:hover:bg-muted-foreground! lg:active:opacity-80"
+                    className="w-full justify-start rounded-sm hover:text-inherit! hover:bg-transparent!
+                  active:bg-muted-foreground/20! lg:hover:bg-muted-foreground/20! lg:active:opacity-80"
                   >
                     <label.icon className="size-7 md:size-6" /> {label.label}
                   </Button>

@@ -60,7 +60,7 @@ const SearchBar = () => {
       {isOpenSearch && (
         <MotionButton
           onClick={handleBack}
-          className={`p-1.5 text-foreground/80 active:bg-accent/20 bg-sidebar lg:hidden`}
+          className={`p-1.5 text-foreground/80 active:text-foreground active:bg-accent/20 hover:bg-transparent! bg-transparent! lg:hidden`}
         >
           <ChevronLeft className="size-8" />
         </MotionButton>
