@@ -16,6 +16,7 @@ import Image from 'next/image';
 import * as React from 'react';
 import { useMemo } from 'react';
 import { PlayerProgress } from './mini-player-progress';
+import { useCurrentSong } from '@/hooks/songs/use-current-song';
 
 const MiniPlayerMobile = () => {
   const { setTrue, dominantColor, secondaryColor } = usePlayer();
@@ -23,15 +24,7 @@ const MiniPlayerMobile = () => {
   const currentSong = useAudioStore((s) => s.currentSong);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
   const togglePlay = useAudioStore((s) => s.togglePlay);
-
-  const songInfo = useMemo(() => {
-    if (!currentSong) return null;
-    return {
-      title: currentSong.title,
-      artist: currentSong.artist,
-      cover: currentSong.songCover.coverUrl,
-    };
-  }, [currentSong]);
+  const { title, artist, cover } = useCurrentSong();
 
   const playIcon = useMemo(() => {
     return (
@@ -111,11 +104,9 @@ const MiniPlayerMobile = () => {
             >
               <div className="rounded-[5px] overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
                 <Image
-                  src={
-                    songInfo?.cover || '/img/fallback/player_cover_fallback.png'
-                  }
+                  src={cover || '/img/fallback/player_cover_fallback.png'}
                   className="object-cover"
-                  alt={songInfo?.title || 'melodayz'}
+                  alt={title || 'melodayz'}
                   loading="lazy"
                   width={1000}
                   height={1000}
@@ -127,10 +118,10 @@ const MiniPlayerMobile = () => {
                 className="flex flex-col items-start justify-center gap-0.5"
               >
                 <p className="text-sm font-bold truncate line-clamp-1">
-                  {songInfo?.title}
+                  {title}
                 </p>
                 <p className="text-xs font-medium truncate line-clamp-1">
-                  {songInfo?.artist}
+                  {artist}
                 </p>
               </div>
             </div>
