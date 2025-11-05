@@ -13,7 +13,6 @@ import { OverlayPlayer, Player } from '@/components/songs/ui/overlay-player';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { usePlayer } from '@/context/playerContext';
 import { useSearch } from '@/context/searchContext';
-import { useUser } from '@/hooks/useUser';
 import { fetcher } from '@/lib/fetcher';
 import { cn } from '@/lib/utils';
 import { waitVibrate } from '@/utils/vibration';
@@ -39,8 +38,6 @@ export default function DashboardLayout({
   const [isAtProfil, setIsAtProfil] = useState(false);
   const [isAtHome, setIsAtHome] = useState(false);
   const pathname = usePathname();
-
-  const { user, fetchMe, isFetchingMe } = useUser();
 
   const [open, setOpen] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
@@ -88,7 +85,7 @@ export default function DashboardLayout({
             <header className="sticky inset-x-0 top-0 z-5 bg-background">
               {!isAtProfil && (
                 <div className="w-full px-2 py-2 border-b sm:px-4 border-border lg:border-0">
-                  <NavBar fetchMeAction={fetchMe} isAtHome={isAtHome} />
+                  <NavBar isAtHome={isAtHome} />
                 </div>
               )}
               {isAtProfil && <NavProfile />}
@@ -97,7 +94,6 @@ export default function DashboardLayout({
                   <SheetTrigger asChild>
                     <MotionButtonLeft
                       onClick={() => {
-                        fetchMe();
                         waitVibrate();
                       }}
                       className="p-1 hover:bg-transparent! hover:text-muted-foreground"
@@ -130,7 +126,7 @@ export default function DashboardLayout({
           </div>
 
           {/* SheetContent */}
-          <Sidebar user={user} isFetchingMe={isFetchingMe} />
+          <Sidebar />
         </Sheet>
 
         {/* NavBottom -- Player and Navigation on mobile */}

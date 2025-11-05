@@ -2,7 +2,6 @@
 
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 import SearchBar from './SeachBar';
 import { ModeToggle } from '../themes/mode-toggle';
 import { SearchIcon } from 'lucide-react';
@@ -13,26 +12,16 @@ import { MotionButtonLeft } from '@/components/motions/motionButton';
 import { AlignLeft } from 'lucide-react';
 import { waitVibrate } from '@/utils/vibration';
 import { usePlayer } from '@/context/playerContext';
-import { useUser } from '@/hooks/useUser';
+import { useUser } from '@/api/user.api';
 import { useSearch } from '@/context/searchContext';
 
-export const NavBar = ({
-  isAtHome,
-  fetchMeAction,
-}: {
-  isAtHome?: boolean;
-  fetchMeAction: () => void;
-}) => {
+export const NavBar = ({ isAtHome }: { isAtHome?: boolean }) => {
   const router = useRouter();
   // for search bar behavior
   const { show } = usePlayer();
   const { isOpenSearch, isNull } = useSearch();
-  const { fetchMe, user } = useUser();
+  const { data: user } = useUser();
   const userRole = user?.role || 'USER';
-
-  useEffect(() => {
-    fetchMe();
-  }, [fetchMe]);
 
   return (
     <nav
@@ -49,7 +38,6 @@ export const NavBar = ({
             <SheetTrigger asChild>
               <MotionButtonLeft
                 onClick={() => {
-                  fetchMeAction();
                   waitVibrate();
                 }}
                 className="p-1 hover:bg-transparent! hover:text-muted-foreground"

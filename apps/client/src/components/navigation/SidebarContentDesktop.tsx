@@ -3,10 +3,9 @@
 import { Skeleton } from '@/components/ui/skeleton';
 import { useActivePath } from '@/hooks/useActivePath';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
-import { useUser } from '@/hooks/useUser';
+import { useUser } from '@/api/user.api';
 import { cn } from '@/lib/utils';
 import { Settings2 } from 'lucide-react';
-import { useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import { Tabs } from './Tab';
@@ -14,13 +13,9 @@ import { navLabels } from './labels/navigation.link';
 
 const SidebarContentDesktop = () => {
   const href = '/dashboard/profile';
-  const { user, isFetchingMe, fetchMe } = useUser();
+  const { data: user, isPending: isFetchingMe } = useUser();
   const isActive = useActivePath(href);
   const { isPending, handleClickTab } = useLoadingPath(href);
-
-  useEffect(() => {
-    fetchMe();
-  }, [fetchMe]);
 
   return (
     <>
