@@ -3,7 +3,13 @@ import { cn } from '@/lib/utils';
 import { useAudioStore } from '@/store/audioStore';
 import { useEffect, useState } from 'react';
 
-export function PlayerSlider({ className }: { className?: string }) {
+export function PlayerSlider({
+  className,
+  needOveride = true,
+}: {
+  className?: string;
+  needOveride?: boolean;
+}) {
   const [value, setValue] = useState(0);
   const [isSeeking, setIsSeeking] = useState(false);
   const audioRef = useAudioStore((s) => s.audioRef);
@@ -38,8 +44,12 @@ export function PlayerSlider({ className }: { className?: string }) {
       onValueCommit={handleCommit}
       step={0.1}
       className={cn(className, 'cursor-pointer! touch-none! select-none!')}
-      rangeClassName="bg-white!"
-      thumbClassName="border-white! bg-white! ring-0! hover:ring-0! focus-visible:ring-0!"
+      rangeClassName={needOveride ? 'bg-white!' : ''}
+      thumbClassName={
+        needOveride
+          ? 'border-white! bg-white! ring-0! hover:ring-0! focus-visible:ring-0!'
+          : ''
+      }
     />
   );
 }

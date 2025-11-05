@@ -4,7 +4,7 @@ import { MotionButton } from '../motions/motionButton';
 import { navLabels } from './labels/navigation.link';
 import { Tabs } from './Tab';
 import { DrawerTrigger, Drawer } from '@/components/ui/drawer';
-import { Content } from '@/components/songs/ui/overlay-player';
+import { PlayerDrawer } from '@/components/songs/ui/player-drawer';
 
 export const NavBottom = () => {
   return (
@@ -33,7 +33,7 @@ export const NavBottom = () => {
           </li>
         ))}
         {/* content for this drawer */}
-        <Content className="bg-linear-to-b from-80% from-background to-muted" />
+        <PlayerDrawer className="bg-linear-to-b from-80% from-background to-muted" />
       </Drawer>
     </ul>
   );
