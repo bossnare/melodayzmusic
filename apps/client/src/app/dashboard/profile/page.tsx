@@ -1,21 +1,23 @@
 'use client';
 
+import { useUser } from '@/api/user.api';
 import { MotionButton } from '@/components/motions/motionButton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToggle } from '@/hooks/use-toggle';
-import { useUser } from '@/hooks/useUser';
+// import { useUser } from '@/hooks/useUser';
 import { cn } from '@/lib/utils';
 import { Star } from 'lucide-react';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 export default function ProfilePage() {
-  const { user, fetchMe, isFetchingMe } = useUser();
+  // const { user, fetchMe, isPending } = useUser();
+  const { data: user, isPending } = useUser();
   const { value: isStar, toggle } = useToggle();
 
-  useEffect(() => {
-    fetchMe();
-  }, [fetchMe]);
+  // useEffect(() => {
+  //   fetchMe();
+  // }, [fetchMe]);
 
   return (
     <section>
@@ -31,7 +33,7 @@ export default function ProfilePage() {
         </Avatar>
         {/* name */}
         <div className="relative py-2 grow">
-          {isFetchingMe ? (
+          {isPending ? (
             <>
               <Skeleton className="h-8 w-8/9 lg:w-2/3 bg-foreground/30" />
               <Skeleton className="w-4/5 h-4 mt-2 lg:w-1/2 bg-foreground/30" />
@@ -48,7 +50,7 @@ export default function ProfilePage() {
           )}
 
           {/* btn action */}
-          {!isFetchingMe && (
+          {!isPending && (
             <div className="absolute top-0 right-0 shrink-0">
               <MotionButton onClick={toggle}>
                 <Star
