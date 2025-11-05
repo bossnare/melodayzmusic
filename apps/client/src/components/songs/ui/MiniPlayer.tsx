@@ -7,6 +7,7 @@ import {
   SkipBackIcon,
   SkipForwardIcon,
 } from '@phosphor-icons/react/dist/ssr';
+import { ChevronUp } from 'lucide-react';
 
 import { MotionButton } from '@/components/motions/motionButton';
 import { useToggle } from '@/hooks/use-toggle';
@@ -26,7 +27,12 @@ const MiniPlayer = () => {
   const togglePlay = useAudioStore((s) => s.togglePlay);
 
   return (
-    <div className="items-center justify-center hidden w-full h-full gap-4 py-1 lg:flex">
+    <div className="items-center relative justify-center hidden w-full h-full gap-4 py-1 lg:flex">
+      <div className="absolute right-4 -top-4">
+        <MotionButton className="p-3">
+          <ChevronUp className="size-8" />
+        </MotionButton>
+      </div>
       {/* for image cover */}
       <div className="flex justify-start h-full gap-3 xl:min-w-64">
         <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
