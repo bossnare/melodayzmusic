@@ -1,7 +1,6 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { useRouter } from 'next/navigation';
 import SearchBar from './SeachBar';
 import { ModeToggle } from '../themes/mode-toggle';
 import { SearchIcon } from 'lucide-react';
@@ -14,14 +13,15 @@ import { waitVibrate } from '@/utils/vibration';
 import { usePlayer } from '@/context/playerContext';
 import { useUser } from '@/api/user.api';
 import { useSearch } from '@/context/searchContext';
+import { useSong } from '@/api/song.api';
 
 export const NavBar = ({ isAtHome }: { isAtHome?: boolean }) => {
-  const router = useRouter();
   // for search bar behavior
   const { show } = usePlayer();
   const { isOpenSearch, isNull } = useSearch();
   const { data: user } = useUser();
   const userRole = user?.role || 'USER';
+  const { refetch } = useSong();
 
   return (
     <nav
@@ -33,7 +33,7 @@ export const NavBar = ({ isAtHome }: { isAtHome?: boolean }) => {
       {!isOpenSearch && (
         <>
           {isAtHome ? (
-            <Logo onClick={() => router.push('/dashboard')} />
+            <Logo onClick={() => refetch()} />
           ) : (
             <SheetTrigger asChild>
               <MotionButtonLeft
