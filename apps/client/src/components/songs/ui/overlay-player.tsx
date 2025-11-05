@@ -225,6 +225,7 @@ const Player = () => {
               }
               alt={currentSong?.title || 'melodayz'}
               className="object-cover"
+              loading="lazy"
               width={1000}
               height={1000}
             />

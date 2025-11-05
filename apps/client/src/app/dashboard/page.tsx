@@ -1,30 +1,13 @@
 'use client';
 
 import { ContentStream } from '@/components/songs/ContentStream';
-import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { DashboardHomeSkeleton } from '@/components/skeleton/DashboardHomeSkeleton';
-import axios from 'axios';
 import { Button } from '@/components/ui/button';
-import { SongInterface as Song } from '@/types/songs/song.interface';
+import { useSong } from '@/api/song.api';
 
 export default function DashboardHome() {
-  const fetchContentStream = async () => {
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_MOCK_API}/song`,
-      { timeout: 10000 }
-    );
-    const data = response.data;
-    return data;
-  };
-
-  const options = {
-    queryKey: ['songs'],
-    queryFn: fetchContentStream,
-    // refetchOnReconnect: true,
-    // refetchOnMount: true,
-    // refetchOnWindowsFocus: true,
-  };
+  const { data: songs, isPending, isError, refetch } = useSong();
   const navTarget = 'dashboard';
 
   useEffect(() => {
@@ -41,13 +24,6 @@ export default function DashboardHome() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const {
-    data: songs,
-    isPending,
-    isError,
-    refetch,
-  } = useQuery<Song[], Error>(options);
 
   if (isError) {
     return (

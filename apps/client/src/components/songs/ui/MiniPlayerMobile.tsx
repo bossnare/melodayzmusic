@@ -116,7 +116,7 @@ const MiniPlayerMobile = () => {
                   }
                   className="object-cover"
                   alt={songInfo?.title || 'melodayz'}
-                  blurDataURL="/img/fallback/card_cover_fallback.png"
+                  loading="lazy"
                   width={1000}
                   height={1000}
                 />
