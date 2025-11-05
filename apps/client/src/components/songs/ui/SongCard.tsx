@@ -7,6 +7,7 @@
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import type { SongProps } from '@/types/songs/song.interface';
 import Image from 'next/image';
+import * as React from 'react';
 import { useState } from 'react';
 // import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import AudioWave from '@/components/motions/AudioWave';
@@ -163,4 +164,7 @@ const AlbumCard = ({ song }: SongProps) => {
   );
 };
 
-export { AlbumCard, VibeCard };
+const MemoVibeCard = React.memo(VibeCard);
+const MemoAlbumCard = React.memo(AlbumCard);
+
+export { MemoVibeCard, MemoAlbumCard };
