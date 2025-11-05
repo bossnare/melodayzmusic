@@ -9,20 +9,20 @@ import NavProfile from '@/components/navigation/NavProfile';
 import { Sidebar } from '@/components/navigation/Sidebar';
 // import MiniPlayer from '@/components/songs/ui/MiniPlayer';
 // import MiniPlayerMobile from '@/components/songs/ui/MiniPlayerMobile';
+import { OverlayPlayer, Player } from '@/components/songs/ui/overlay-player';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
+import { usePlayer } from '@/context/playerContext';
+import { useSearch } from '@/context/searchContext';
 import { useUser } from '@/hooks/useUser';
+import { fetcher } from '@/lib/fetcher';
 import { cn } from '@/lib/utils';
+import { waitVibrate } from '@/utils/vibration';
 import { AlignLeft } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import RefreshWrapper from './pull-to-refresh';
 import SmoothScrollLayout from './SmoothScrollLayout';
-import { fetcher } from '@/utils/fetcher';
-import { OverlayPlayer, Player } from '@/components/songs/ui/overlay-player';
-import { usePlayer } from '@/context/playerContext';
-import { useSearch } from '@/context/searchContext';
-import { waitVibrate } from '@/utils/vibration';
-import dynamic from 'next/dynamic';
 const MiniPlayer = dynamic(() => import('@/components/songs/ui/MiniPlayer'), {
   ssr: false,
 });

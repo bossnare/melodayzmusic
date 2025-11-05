@@ -1,5 +1,5 @@
+import { fetcher } from '@/lib/fetcher';
 import { type UserInterface } from '@/types/users/user.interface';
-import { fetcher } from '@/utils/fetcher';
 import { useCallback, useState } from 'react';
 
 export const useUser = () => {
