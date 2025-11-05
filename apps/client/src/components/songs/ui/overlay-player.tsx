@@ -46,7 +46,7 @@ export function Content({ className }: { className?: string }) {
   return (
     <DrawerContent className={className}>
       <div className="w-full max-w-sm mx-auto">
-        <DrawerHeader className="text-left bg-muted rounded-sm">
+        <DrawerHeader className="text-left bg-muted rounded-sm my-2">
           <div className="flex gap-3">
             <div className="rounded-[5px] overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
               <Image
@@ -78,9 +78,9 @@ export function Content({ className }: { className?: string }) {
                   <Button
                     variant="ghost"
                     className="w-full justify-start rounded hover:text-inherit! 
-                  active:bg-muted-foreground lg:hover:bg-muted-foreground lg:active:opacity-80"
+                  active:bg-muted-foreground lg:hover:bg-muted-foreground! lg:active:opacity-80"
                   >
-                    <label.icon className="size-8 md:size-6" /> {label.label}
+                    <label.icon className="size-7 md:size-6" /> {label.label}
                   </Button>
                 </li>
               ))}
@@ -159,7 +159,7 @@ const Player = () => {
             </MotionButton>
           </DrawerTrigger>
         </div>
-        <div className="flex flex-col items-center gap-3 px-4 md:flex-row">
+        <div className="flex flex-col items-center gap-3 lg:gap-6 px-4 md:flex-row md:items-start">
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
             <Image
               src={
@@ -175,8 +175,10 @@ const Player = () => {
           </div>
           <div className="flex w-full">
             <div className="grow">
-              <h3 className="text-xl font-bold">{currentSong?.title}</h3>
-              <p className="text-sm font-semibold text-secondary-foreground/80 dark:text-foreground/80 font-inter">
+              <h3 className="text-xl lg:text-3xl font-bold">
+                {currentSong?.title}
+              </h3>
+              <p className="text-sm lg:text-lg font-semibold text-secondary-foreground/80 dark:text-foreground/80 font-inter">
                 {currentSong?.artist} - {currentSong?.userOwner.username}
               </p>
             </div>
@@ -213,7 +215,7 @@ const Player = () => {
                 togglePlaying();
                 togglePlay();
               }}
-              className="p-5 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
+              className="p-5 lg:p-4 bg-white active:bg-white/80! hover:bg-white! lg:hover:bg-white/80! active:opacity-80"
             >
               {isPlaying ? (
                 <PauseIcon weight={'fill'} className="size-6 text-black/90" />
