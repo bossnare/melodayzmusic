@@ -40,22 +40,38 @@ import { useCurrentSong } from '@/hooks/songs/use-current-song';
 import { playerLabel } from '@/components/navigation/labels/player.label';
 
 export function Content({ className }: { className?: string }) {
-  const { title, artist } = useCurrentSong();
+  const { title, artist, cover } = useCurrentSong();
 
   return (
     <DrawerContent className={className}>
       <div className="w-full max-w-sm mx-auto">
-        <DrawerHeader>
-          <DrawerTitle>{title}</DrawerTitle>
-          <DrawerDescription>{artist}</DrawerDescription>
+        <DrawerHeader className="text-left ">
+          <div className="flex gap-2">
+            <div className="rounded-[5px] overflow-hidden size-12 shadow-sm bg-linear-to-tr from-muted/20 via-muted to-muted/40 border-muted-foreground/20">
+              <Image
+                src={cover || '/img/fallback/player_cover_fallback.png'}
+                className="object-cover"
+                alt={title || 'melodayz'}
+                loading="lazy"
+                width={1000}
+                height={1000}
+              />
+            </div>
+            <div>
+              <DrawerTitle>{title}</DrawerTitle>
+              <DrawerDescription>{artist}</DrawerDescription>
+            </div>
+          </div>
         </DrawerHeader>
         <div className="p-4 pb-0">
           <div className="flex flex-col justify-center space-x-2">
-            <ul>
+            <ul className="text-muted-foreground space-y-3">
               {playerLabel.map((label) => (
                 <li key={label.id}>
                   {' '}
-                  <label.icon /> {label.label}
+                  <button>
+                    <label.icon /> {label.label}
+                  </button>
                 </li>
               ))}
             </ul>
