@@ -22,10 +22,11 @@ import { cn } from '@/lib/utils';
 import { waitVibrate } from '@/utils/vibration';
 import { AlignLeft } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import RefreshWrapper from './pull-to-refresh';
 import SmoothScrollLayout from './SmoothScrollLayout';
+import { useMap } from '@/hooks/use-map';
+import { useUser } from '@/api/user.api';
 const MiniPlayer = dynamic(() => import('@/components/songs/ui/MiniPlayer'), {
   ssr: false,
 });
@@ -39,18 +40,24 @@ export default function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isAtProfil, setIsAtProfil] = useState(false);
-  const [isAtHome, setIsAtHome] = useState(false);
-  const pathname = usePathname();
-
-  const { refetch } = useSong();
-
+  // global data cache
+  const { refetch: refreshSong } = useSong();
+  const { refetch: refreshMe } = useUser();
+  // local state
   const [open, setOpen] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [email, setEmail] = useState('');
-
+  // global state
   const { show } = usePlayer();
   const { isOpenSearch } = useSearch();
+  // path location
+  const { isAtHome, isAtProfil } = useMap();
+
+  const handleRefresh = () => {
+    if (isAtHome) refreshSong();
+    if (isAtProfil) refreshMe();
+    else return;
+  };
 
   useEffect(() => {
     const handleCheckAccount = async () => {
@@ -65,11 +72,6 @@ export default function DashboardLayout({
 
     handleCheckAccount();
   }, []);
-
-  useEffect(() => {
-    setIsAtProfil(pathname === '/dashboard/profile');
-    setIsAtHome(pathname === '/dashboard');
-  }, [pathname]);
 
   useEffect(() => {
     const ignored = sessionStorage.getItem('ignore_otp') === 'true';
@@ -112,12 +114,7 @@ export default function DashboardLayout({
               </nav>
             </header>
             {/* Main Layout */}
-            <RefreshWrapper
-              onRefresh={async () => {
-                // refetch song on dashHome
-                refetch();
-              }}
-            >
+            <RefreshWrapper onRefresh={async () => handleRefresh()}>
               <SmoothScrollLayout>
                 {/* Main content */}
                 <main
