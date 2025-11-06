@@ -36,8 +36,8 @@ const MiniPlayer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{
               type: 'spring',
-              stiffness: 300,
-              damping: 30,
+              stiffness: 500,
+              damping: 50,
               mass: 1.2,
             }}
             className="absolute right-6 -top-5"
