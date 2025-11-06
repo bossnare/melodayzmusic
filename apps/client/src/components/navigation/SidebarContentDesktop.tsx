@@ -43,7 +43,7 @@ const SidebarContentDesktop = () => {
               <div className="absolute -translate-x-1/2 -translate-y-1/2 border-4 rounded-full left-1/2 top-1/2 size-12 border-primary/50 animate-spin border-t-transparent"></div>
             )}
           </div>
-          <div className="flex flex-col w-[85%]">
+          <div className="flex flex-col w-[60%]">
             {isFetchingMe ? (
               <>
                 <Skeleton className="h-5 rounded-sm w-8/9 bg-foreground/30" />
