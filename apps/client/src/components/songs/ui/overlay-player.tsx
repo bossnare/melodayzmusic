@@ -27,15 +27,17 @@ import * as React from 'react';
 import { PlayerSlider } from '@/components/songs/ui/player-slider';
 import { PlayerAnimateDuration } from './player-animate-duration';
 import { PlayerDrawer } from './player-drawer';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
   const { isLoading } = useAudioStore();
+  const isMobile = useIsMobile();
 
   if (!open) return null;
   return (
     <Portal>
       <motion.div
-        initial={{ y: 100, opacity: 0 }}
+        initial={!isMobile ? { y: 20, opacity: 0 } : { y: 100, opacity: 0 }}
         animate={{
           y: 0,
           opacity: 1,
