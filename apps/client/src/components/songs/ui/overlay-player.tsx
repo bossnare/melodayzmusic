@@ -28,6 +28,7 @@ import { PlayerSlider } from '@/components/songs/ui/player-slider';
 import { PlayerAnimateDuration } from './player-animate-duration';
 import { PlayerDrawer } from './player-drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
+import {useCurrentSong} from '@/hooks/use-current-song
 
 function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
   const { isLoading } = useAudioStore();
@@ -72,6 +73,7 @@ const Player = () => {
   const togglePlay = useAudioStore((s) => s.togglePlay);
   const currentSong = useAudioStore((s) => s.currentSong);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
+  const {title, artist, cover } = useCurrentSong()
 
   const { value: isFavorite, toggle } = useToggle();
 
@@ -100,10 +102,10 @@ const Player = () => {
           <div className="w-full overflow-hidden transition-transform duration-150 active:scale-98 rounded-sm md:w-[30%] bg-linear-to-tr from-muted/20 to-muted/80 border-muted-foreground/20">
             <Image
               src={
-                currentSong?.songCover.coverUrl ||
+                cover ||
                 '/img/fallback/player_cover_fallback.png'
               }
-              alt={currentSong?.title || 'melodayz'}
+              alt={title || 'melodayz'}
               className="object-cover"
               loading="lazy"
               width={1000}
@@ -113,10 +115,10 @@ const Player = () => {
           <div className="flex w-full">
             <div className="grow">
               <h3 className="text-xl lg:text-3xl font-bold">
-                {currentSong?.title}
+                {title}
               </h3>
               <p className="text-sm lg:text-lg font-semibold text-secondary-foreground/80 dark:text-foreground/80 font-inter">
-                {currentSong?.artist} - {currentSong?.userOwner.username}
+                {artist} - {currentSong?.userOwner.username}
               </p>
             </div>
             <div>
