@@ -1,16 +1,16 @@
 'use client';
 
+import { useUser } from '@/api/user.api';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useActivePath } from '@/hooks/useActivePath';
 import { useLoadingPath } from '@/hooks/useLoadingPath';
-import { useUser } from '@/api/user.api';
 import { cn } from '@/lib/utils';
 import { Settings2 } from 'lucide-react';
+import { MotionButton } from '../motions/motionButton';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import { Tabs } from './Tab';
 import { navLabels } from './labels/navigation.link';
-import { MotionButton } from '../motions/motionButton';
 
 const SidebarContentDesktop = () => {
   const href = '/dashboard/profile';
@@ -35,7 +35,7 @@ const SidebarContentDesktop = () => {
               <AvatarImage
                 className="object-cover"
                 alt="fallback"
-                src="/img/profil/man-pp.jpg"
+                src="/img/profil/pp_fallback.png"
               />
               <AvatarFallback>U</AvatarFallback>
             </Avatar>
