@@ -28,7 +28,7 @@ import { PlayerSlider } from '@/components/songs/ui/player-slider';
 import { PlayerAnimateDuration } from './player-animate-duration';
 import { PlayerDrawer } from './player-drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
-import {useCurrentSong} from '@/hooks/use-current-song
+import {useCurrentSong} from '@/hooks/songs/use-current-song
 
 function OverlayPlayer({ children, open }: BaseProps & { open: boolean }) {
   const { isLoading } = useAudioStore();
