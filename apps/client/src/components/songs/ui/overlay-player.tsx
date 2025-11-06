@@ -73,7 +73,7 @@ const Player = () => {
   const togglePlay = useAudioStore((s) => s.togglePlay);
   const currentSong = useAudioStore((s) => s.currentSong);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
-  const {title, artist, cover } = useCurrentSong()
+  const {title, artist, cover, username } = useCurrentSong()
 
   const { value: isFavorite, toggle } = useToggle();
 
@@ -118,7 +118,7 @@ const Player = () => {
                 {title}
               </h3>
               <p className="text-sm lg:text-lg font-semibold text-secondary-foreground/80 dark:text-foreground/80 font-inter">
-                {artist} - {currentSong?.userOwner.username}
+                {artist} - {username}
               </p>
             </div>
             <div>
