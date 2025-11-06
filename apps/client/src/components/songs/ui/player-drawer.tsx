@@ -73,7 +73,7 @@ export function PlayerDrawer({ className }: { className?: string }) {
                     className="w-full transition-none pl-1! justify-start rounded-sm hover:text-inherit! hover:bg-transparent!
                   active:bg-muted-foreground/80! lg:hover:bg-muted-foreground/80! active:opacity-80!"
                   >
-                    <label.icon className="size-7 md:size-6" /> {label.label}
+                    <label.icon className="size-6" /> {label.label}
                   </Button>
                 </li>
               ))}

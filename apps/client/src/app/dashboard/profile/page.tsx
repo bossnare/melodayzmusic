@@ -1,17 +1,12 @@
 'use client';
 
 import { useUser } from '@/api/user.api';
-import { MotionButton } from '@/components/motions/motionButton';
+import { UserBadge } from '@/components/micro-ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
-import { useToggle } from '@/hooks/use-toggle';
-import { cn } from '@/lib/utils';
-import { Star } from 'lucide-react';
 
 export default function ProfilePage() {
-  // const { user, fetchMe, isPending } = useUser();
   const { data: user, isPending } = useUser();
-  const { value: isStar, toggle } = useToggle();
 
   return (
     <section>
@@ -46,14 +41,9 @@ export default function ProfilePage() {
           {/* btn action */}
           {!isPending && (
             <div className="absolute top-0 right-0 shrink-0">
-              <MotionButton onClick={toggle}>
-                <Star
-                  className={cn(
-                    isStar && 'fill-current stroke-current',
-                    'size-8 lg:size-10'
-                  )}
-                />
-              </MotionButton>
+              <div className="p-2">
+                <UserBadge userRole={user?.role} />
+              </div>
             </div>
           )}
         </div>

@@ -31,6 +31,8 @@ import { SidebarContentDesktop } from './SidebarContentDesktop';
 import { Wrapper } from '@/components/motions/wrapper/wrapper';
 import { getInitials } from '@/utils/get-name.strings';
 import { useUser } from '@/api/user.api';
+import { UserBadge } from '../micro-ui/badge';
+import { ROLE } from '@/constants/constants';
 
 export const Sidebar = () => {
   const router = useRouter();
@@ -38,6 +40,7 @@ export const Sidebar = () => {
   const [isLoading, setIsLoading] = useState(false);
   const pending = isPending || isLoading;
   const { data: user, isPending: isFetchingMe } = useUser();
+  const { USER } = ROLE;
 
   const logout = async () => {
     setIsLoading(true);
@@ -110,12 +113,13 @@ export const Sidebar = () => {
                 </div>
               ) : (
                 <div className="inline-flex flex-col cursor-pointer active:bg-muted lg:hover:bg-muted/50">
-                  <span className="text-lg font-bold capitalize font-montserrat text-foreground">
-                    {user?.pseudo || 'Utilisateur(e)'}
+                  <span className="text-lg font-bold capitalize font-montserrat text-foreground flex gap-2 flex-wrap">
+                    {user?.pseudo || 'Utilisateur(e)'}{' '}
+                    <UserBadge userRole={user?.role} />
                   </span>
                   <span className="text-[14px] text-muted-foreground truncate line-clamp-1">
                     @{user?.username || 'utilisateur'} -{' '}
-                    {user?.role === 'USER'
+                    {user?.role === USER
                       ? 'Fan'
                       : user?.role?.toLocaleUpperCase() || 'Fan'}
                   </span>
