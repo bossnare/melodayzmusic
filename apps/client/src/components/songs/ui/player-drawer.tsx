@@ -52,9 +52,9 @@ export function PlayerDrawer({ className }: { className?: string }) {
                     togglePlaying();
                   }}
                   size="icon"
-                  className="hover:bg-primary p-2! lg:hover:opacity-80! active:opacity-80! text-black"
+                  className="hover:bg-primary p-4! lg:hover:opacity-80! active:opacity-80! text-black"
                 >
-                  <PlayIcon className="size-8" weight={'fill'} />
+                  <PlayIcon className="size-6" weight={'fill'} />
                 </Button>
               )}
             </div>
