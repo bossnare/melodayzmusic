@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { useAudioStore } from '@/store/audioStore';
 import Image from 'next/image';
 import AudioWave from '@/components/motions/AudioWave';
-import { PauseIcon } from 'lucide-react';
+import { PauseIcon } from '@phosphor-icons/react/dist/ssr';
 
 export function PlayerDrawer({ className }: { className?: string }) {
   const { title, artist, cover } = useCurrentSong();
@@ -48,9 +48,9 @@ export function PlayerDrawer({ className }: { className?: string }) {
                 <Button
                   onClick={togglePlay}
                   size="icon"
-                  className="hover:bg-primary lg:hover:opacity-80! active:opacity-80! text-black"
+                  className="hover:bg-primary p-2 lg:hover:opacity-80! active:opacity-80! text-black"
                 >
-                  <PauseIcon className="size-8" />
+                  <PauseIcon className="size-8" weight={'fill'} />
                 </Button>
               )}
             </div>
@@ -65,7 +65,7 @@ export function PlayerDrawer({ className }: { className?: string }) {
                   <Button
                     variant="ghost"
                     size="xl"
-                    className="w-full justify-start rounded-sm hover:text-inherit! hover:bg-transparent!
+                    className="w-full transition-none justify-start rounded-sm hover:text-inherit! hover:bg-transparent!
                   active:bg-muted-foreground/20! lg:hover:bg-muted-foreground/20! lg:active:opacity-80"
                   >
                     <label.icon className="size-7 md:size-6" /> {label.label}
