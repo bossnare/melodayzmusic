@@ -21,7 +21,7 @@ const UserBadge = ({ userRole = USER }: UserBadgeType) => {
 
   return (
     <div className="w-auto relative">
-      <Badge className="size-8" />
+      <Badge className="size-6 fill-primary stroke-primary" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 inset-0 flex items-center justify-center *:size-3">
         {childrenRendu()}
       </div>
