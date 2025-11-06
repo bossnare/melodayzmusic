@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import { Tabs } from './Tab';
 import { navLabels } from './labels/navigation.link';
+import { MotionButton } from '../motions/motionButton';
 
 const SidebarContentDesktop = () => {
   const href = '/dashboard/profile';
@@ -42,7 +43,7 @@ const SidebarContentDesktop = () => {
               <div className="absolute -translate-x-1/2 -translate-y-1/2 border-4 rounded-full left-1/2 top-1/2 size-12 border-primary/50 animate-spin border-t-transparent"></div>
             )}
           </div>
-          <div className="flex flex-col max-w-[60%]">
+          <div className="flex flex-col w-[85%]">
             {isFetchingMe ? (
               <>
                 <Skeleton className="h-5 rounded-sm w-8/9 bg-foreground/30" />
@@ -60,7 +61,9 @@ const SidebarContentDesktop = () => {
             )}
           </div>
         </figcaption>
-        <Settings2 className="cursor-pointer shrink-0 hover:opacity-60" />
+        <MotionButton className="shrink-0 ml-auto">
+          <Settings2 className="cursor-pointer size-auto hover:opacity-60" />
+        </MotionButton>
       </figure>
       <Separator />
       <ul className="flex flex-col w-full p-1 mt-3 rounded-md bg-background/90 dark:bg-card/50">
