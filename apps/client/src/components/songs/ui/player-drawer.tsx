@@ -13,10 +13,12 @@ import { Button } from '@/components/ui/button';
 import { useAudioStore } from '@/store/audioStore';
 import Image from 'next/image';
 import AudioWave from '@/components/motions/AudioWave';
+import { PauseIcon } from 'lucide-react';
 
 export function PlayerDrawer({ className }: { className?: string }) {
   const { title, artist, cover } = useCurrentSong();
   const isPlaying = useAudioStore((s) => s.isPlaying);
+  const togglePlay = useAudioStore((s) => s.togglePlay);
 
   return (
     <DrawerContent className={className}>
@@ -40,7 +42,17 @@ export function PlayerDrawer({ className }: { className?: string }) {
               </DrawerDescription>
             </div>
             <div className="shrink-0 size-12 flex justify-center items-center">
-              <AudioWave active={isPlaying} color="#FFFFFF" />
+              {isPlaying ? (
+                <AudioWave active={isPlaying} />
+              ) : (
+                <Button
+                  onClick={togglePlay}
+                  size="icon"
+                  className="hover:bg-primary lg:hover:opacity-80! active:opacity-80! text-black"
+                >
+                  <PauseIcon className="size-8" />
+                </Button>
+              )}
             </div>
           </div>
         </DrawerHeader>

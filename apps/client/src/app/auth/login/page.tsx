@@ -1,6 +1,5 @@
 'use client';
 
-import { LoginCard } from '@/components/auth/AuthCard';
 import { AuthHeaderSwitch } from '@/components/auth/AuthHeaderSwitch';
 import { AuthPageWrapper } from '@/components/auth/AuthWrapper';
 import { DialogCloseButton } from '@/components/auth/DialogCloseButton';
@@ -11,10 +10,17 @@ import { vibrate } from '@/utils/vibration';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AxiosError } from 'axios';
 import { CircleAlert, X } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+const LoginCard = dynamic(
+  () => import('@/components/auth/AuthCard').then((mod) => mod.LoginCard),
+  {
+    ssr: false,
+  }
+);
 
 export default function LoginPage() {
   const [isPending, setIsPending] = useState(false);
