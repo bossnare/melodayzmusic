@@ -117,7 +117,7 @@ const Player = () => {
               <h3 className="text-xl lg:text-3xl font-bold">
                 {title}
               </h3>
-              <p className="text-sm lg:text-lg font-semibold text-secondary-foreground/80 dark:text-foreground/80 font-inter">
+              <p className="text-sm lg:text-lg font-medium text-secondary-foreground/80 dark:text-foreground/80 font-inter">
                 {artist} - {username}
               </p>
             </div>
