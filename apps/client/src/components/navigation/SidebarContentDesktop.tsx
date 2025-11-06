@@ -23,7 +23,7 @@ const SidebarContentDesktop = () => {
       <figure className="flex w-full gap-2 mt-4 mb-3">
         <figcaption
           onClick={handleClickTab}
-          className="flex gap-3 cursor-pointer grow active:bg-muted/80 lg:hover:bg-muted/50"
+          className="flex gap-3 cursor-pointer grow active:bg-muted/80 lg:hover:bg-muted/50 w-[85%]"
         >
           <div className="relative">
             <Avatar
@@ -43,7 +43,7 @@ const SidebarContentDesktop = () => {
               <div className="absolute -translate-x-1/2 -translate-y-1/2 border-4 rounded-full left-1/2 top-1/2 size-12 border-primary/50 animate-spin border-t-transparent"></div>
             )}
           </div>
-          <div className="flex flex-col w-[60%]">
+          <div className="flex flex-col">
             {isFetchingMe ? (
               <>
                 <Skeleton className="h-5 rounded-sm w-8/9 bg-foreground/30" />
@@ -61,7 +61,7 @@ const SidebarContentDesktop = () => {
             )}
           </div>
         </figcaption>
-        <MotionButton className="shrink-0">
+        <MotionButton className="ml-auto">
           <Settings2 className="cursor-pointer size-auto hover:opacity-60" />
         </MotionButton>
       </figure>
