@@ -61,7 +61,7 @@ const SidebarContentDesktop = () => {
             )}
           </div>
         </figcaption>
-        <MotionButton className="shrink-0 ml-auto">
+        <MotionButton className="shrink-0">
           <Settings2 className="cursor-pointer size-auto hover:opacity-60" />
         </MotionButton>
       </figure>

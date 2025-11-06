@@ -59,7 +59,7 @@ function LoginCard({
   waitVibrate(500);
 
   return (
-    <>
+    <AnimatePresence>
       <motion.div
         key={pathname + 'login'}
         className="w-full"
@@ -154,7 +154,7 @@ function LoginCard({
           </CardContent>
         </Card>
       </motion.div>
-    </>
+    </AnimatePresence>
   );
 }
 

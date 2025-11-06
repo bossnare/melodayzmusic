@@ -16,12 +16,12 @@ import { useCurrentSong } from '@/hooks/songs/use-current-song';
 import { usePlayer } from '@/context/playerContext';
 import { useAudioStore } from '@/store/audioStore';
 import { PlayerSlider } from './player-slider';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const MiniPlayer = () => {
   const { value: isFavorite, toggle } = useToggle();
   const { title, cover, artist } = useCurrentSong();
-  const { dominantColor, setTrue } = usePlayer();
+  const { dominantColor, setTrue, show } = usePlayer();
   const currentSong = useAudioStore((s) => s.currentSong);
   const isPlaying = useAudioStore((s) => s.isPlaying);
   const togglePlaying = useAudioStore((s) => s.togglePlaying);
@@ -29,26 +29,28 @@ const MiniPlayer = () => {
 
   return (
     <div className="items-center relative justify-center hidden w-full h-full gap-4 py-1 lg:flex">
-      {currentSong && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-            damping: 30,
-            mass: 1.2,
-          }}
-          className="absolute right-6 -top-5"
-        >
-          <MotionButton
-            onClick={setTrue}
-            className="p-3 border border-muted-foreground/20 bg-muted backdrop-blur-xs shadow-md"
+      <AnimatePresence>
+        {currentSong && !show && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 30,
+              mass: 1.2,
+            }}
+            className="absolute right-6 -top-5"
           >
-            <ChevronUp className="size-8" />
-          </MotionButton>
-        </motion.div>
-      )}
+            <MotionButton
+              onClick={setTrue}
+              className="p-3 border border-muted-foreground/20 bg-muted backdrop-blur-xs shadow-md"
+            >
+              <ChevronUp className="size-8" />
+            </MotionButton>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* for image cover */}
       <div className="flex justify-start h-full gap-3 xl:min-w-64">
         <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
