@@ -63,17 +63,17 @@ export function PlayerDrawer({ className }: { className?: string }) {
         </DrawerHeader>
         <div className="p-4 pb-0 bg-muted rounded-sm">
           <div className="flex flex-col justify-center space-x-2">
-            <ul className="space-y-3 md:space-y-2 text-lg font-medium font-montserrat">
+            <ul className="space-y-2 text-lg font-medium font-montserrat">
               {playerLabel.map((label) => (
                 <li key={label.id}>
                   {' '}
                   <Button
                     variant="ghost"
                     size="xl"
-                    className="w-full transition-none pl-1! justify-start rounded-xs hover:text-inherit! hover:bg-transparent!
-                  active:bg-muted-foreground/20! lg:hover:bg-muted-foreground/20! active:opacity-80!"
+                    className="w-full transition-none pl-1! justify-start rounded-sm hover:text-inherit! hover:bg-transparent!
+                  active:bg-muted-foreground/80! lg:hover:bg-muted-foreground/80! active:opacity-80!"
                   >
-                    <label.icon className="size-7 md:size-6" /> {label.label}
+                    <label.icon className="size-6" /> {label.label}
                   </Button>
                 </li>
               ))}

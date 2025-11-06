@@ -1,4 +1,4 @@
-import { Link, ListPlus, Forward, FolderHeart } from 'lucide-react';
+import { Link, ListPlus, Forward, HeartPlus } from 'lucide-react';
 
 export const playerLabel = [
   {
@@ -9,7 +9,7 @@ export const playerLabel = [
   {
     id: 2,
     label: 'Copier le lien',
-    icon: Link, //CompassIcon,
+    icon: Link,
   },
   {
     id: 3,
@@ -19,6 +19,6 @@ export const playerLabel = [
   {
     id: 4,
     label: 'Ajouter aux favoris',
-    icon: FolderHeart,
+    icon: HeartPlus,
   },
 ];
