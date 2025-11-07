@@ -113,7 +113,7 @@ export const Sidebar = () => {
                 </div>
               ) : (
                 <div className="inline-flex flex-col cursor-pointer active:bg-muted lg:hover:bg-muted/50">
-                  <span className="text-lg font-bold capitalize font-montserrat text-foreground flex gap-2 flex-wrap">
+                  <span className="text-lg font-bold capitalize font-montserrat text-foreground flex gap-2 flex-wrap items-center">
                     {user?.pseudo || 'Utilisateur(e)'}{' '}
                     <UserBadge userRole={user?.role} />
                   </span>
@@ -174,3 +174,4 @@ export const Sidebar = () => {
     </>
   );
 };
+
