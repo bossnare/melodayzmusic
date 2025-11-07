@@ -10,7 +10,7 @@ export default function AudioWave({
       {[...Array(3)].map((_, i) => (
         <span
           key={i}
-          className={`w-2 rounded-t ${active ? 'animate-wave' : 'h-1'}`}
+          className={`w-2 rounded-t-[1px] ${active ? 'animate-wave' : 'h-1'}`}
           style={{
             animationDelay: `${i * 0.15}s`,
             backgroundColor: `${color}`,
