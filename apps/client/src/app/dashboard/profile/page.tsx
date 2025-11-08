@@ -13,7 +13,7 @@ export default function ProfilePage() {
       {/* Profile content */}
       <div className="flex gap-4 py-4 pt-15 lg:pt-16">
         {isPending ? (
-          <Skeleton className="size-20 lg:size-30 bg-foreground/30" />
+          <Skeleton className="size-20 lg:size-30 rounded-full bg-foreground/30" />
         ) : (
           <Avatar className="border size-20 lg:size-30 border-current/50 ring-2 -ring-offset-4 ring-muted ">
             <AvatarImage
