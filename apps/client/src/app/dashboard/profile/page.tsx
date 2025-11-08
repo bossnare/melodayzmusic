@@ -12,14 +12,18 @@ export default function ProfilePage() {
     <section>
       {/* Profile content */}
       <div className="flex gap-4 py-4 pt-15 lg:pt-16">
-        <Avatar className="border size-20 lg:size-30 border-current/50 ring-2 -ring-offset-4 ring-muted ">
-          <AvatarImage
-            className="object-cover invert dark:invert-0"
-            alt="fallback"
-            src="/img/fallback/pp_fallback.png"
-          />
-          <AvatarFallback>US</AvatarFallback>
-        </Avatar>
+        {isPending ? (
+          <Skeleton className="size-20 lg:size-30 bg-foreground/30" />
+        ) : (
+          <Avatar className="border size-20 lg:size-30 border-current/50 ring-2 -ring-offset-4 ring-muted ">
+            <AvatarImage
+              className="object-cover invert dark:invert-0"
+              alt="fallback"
+              src="/img/fallback/pp_fallback.png"
+            />
+            <AvatarFallback>US</AvatarFallback>
+          </Avatar>
+        )}
         {/* name */}
         <div className="relative py-2 grow">
           {isPending ? (
