@@ -14,14 +14,16 @@ import { usePlayer } from '@/context/playerContext';
 import { useUser } from '@/api/user.api';
 import { useSearch } from '@/context/searchContext';
 import { useSong } from '@/api/song.api';
+import { useMap } from '@/hooks/use-map';
 
-export const NavBar = ({ isAtHome }: { isAtHome?: boolean }) => {
+export const NavBar = () => {
   // for search bar behavior
   const { show } = usePlayer();
   const { isOpenSearch, isNull } = useSearch();
   const { data: user } = useUser();
   const userRole = user?.role || 'USER';
   const { refetch } = useSong();
+  const { isAtHome } = useMap();
 
   return (
     <nav
