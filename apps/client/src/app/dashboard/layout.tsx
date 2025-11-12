@@ -1,19 +1,21 @@
 'use client';
 
+import { useSong } from '@/api/song.api';
+import { useUser } from '@/api/user.api';
 import AuthGuard from '@/components/auth/AuthGuard';
 import { OtpOverlay } from '@/components/auth/OtpOverlay';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
 import { NavBar } from '@/components/navigation/Navbar';
 import { NavBottom } from '@/components/navigation/NavBottom';
 import { Sidebar } from '@/components/navigation/Sidebar';
-import { useSong } from '@/api/song.api';
 import {
-  OverlayPlayer,
   MemoPlayer,
+  OverlayPlayer,
 } from '@/components/songs/ui/overlay-player';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { usePlayer } from '@/context/playerContext';
 import { useSearch } from '@/context/searchContext';
+import { useMap } from '@/hooks/use-map';
 import { fetcher } from '@/lib/fetcher';
 import { cn } from '@/lib/utils';
 import { waitVibrate } from '@/utils/vibration';
@@ -22,8 +24,6 @@ import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import RefreshWrapper from './pull-to-refresh';
 import SmoothScrollLayout from './SmoothScrollLayout';
-import { useMap } from '@/hooks/use-map';
-import { useUser } from '@/api/user.api';
 const MiniPlayer = dynamic(() => import('@/components/songs/ui/MiniPlayer'), {
   ssr: false,
 });

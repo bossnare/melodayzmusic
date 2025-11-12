@@ -11,6 +11,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 import { Tabs } from './Tab';
 import { navLabels } from './labels/navigation.link';
+import { getInitials } from '@/utils/get-name.strings';
 
 const SidebarContentDesktop = () => {
   const href = '/dashboard/profile';
@@ -37,7 +38,9 @@ const SidebarContentDesktop = () => {
                 alt="fallback"
                 src="/img/profil/pp_fallback.png"
               />
-              <AvatarFallback>U</AvatarFallback>
+              <AvatarFallback>
+                {getInitials(user?.pseudo) || 'U'}
+              </AvatarFallback>
             </Avatar>
             {isPending && (
               <div className="absolute -translate-x-1/2 -translate-y-1/2 border-4 rounded-full left-1/2 top-1/2 size-12 border-primary/50 animate-spin border-t-transparent"></div>

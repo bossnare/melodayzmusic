@@ -4,19 +4,18 @@ import { type AlbumProps } from '@/types/songs/stream.interface';
 import { useEmblaProgress } from '@/hooks/useEmblaProgress';
 
 const AlbumStream = ({ children }: AlbumProps) => {
-  const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
-    true,
-    2,
-    0.6,
-    'start',
-    true
-  );
+  const { emblaRef, showFadeStart, showFadeEnd, scrollPrev, scrollNext } =
+    useEmblaProgress(true, 2, 0.6, 'start', true);
 
   return (
     <section>
       <h3 className="text-section">Playlists tendance</h3>
       <div className="relative">
-        <ChevronControl className="top-[39%]" />
+        <ChevronControl
+          onClickLeft={scrollPrev}
+          onClickRight={scrollNext}
+          className="top-[39%]"
+        />
         <div
           ref={emblaRef}
           className="overflow-hidden scroll-smooth scrollbar-none"

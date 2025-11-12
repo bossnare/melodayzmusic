@@ -107,10 +107,6 @@ const AlbumCard = ({ song }: SongProps) => {
         <AspectRatio
           ratio={1}
           className="relative overflow-hidden rounded-[6.5px]"
-          // onClick={() => {
-          //   // playTrack(song, navigate);..
-
-          // }}
         >
           {imgLoading ? (
             <Image
@@ -144,7 +140,7 @@ const AlbumCard = ({ song }: SongProps) => {
                 <Pause className="stroke-0 size-7 sm:size-5 md:size-7 lg:size-5 fill-foreground" />
               ) : (
                 <Play className="stroke-0 size-7 sm:size-5 md:size-7 lg:size-5 fill-foreground" />
-              )}
+              )
             </MotionButton>
           </div> */}
         </AspectRatio>

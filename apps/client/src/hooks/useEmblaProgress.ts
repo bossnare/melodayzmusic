@@ -20,6 +20,11 @@ const useEmblaProgress = (
     skipSnaps: skipSnaps,
   });
 
+  // for desktop navigation
+  const scrollPrev = () => emblaApi?.scrollPrev();
+  const scrollNext = () => emblaApi?.scrollNext();
+
+  // for fade-in/out effect, track carousel progress
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -33,7 +38,15 @@ const useEmblaProgress = (
     emblaApi.on('reInit', updateProgress);
   }, [emblaApi, progress]);
 
-  return { emblaRef, progress, emblaApi, showFadeStart, showFadeEnd };
+  return {
+    emblaRef,
+    progress,
+    emblaApi,
+    showFadeStart,
+    showFadeEnd,
+    scrollPrev,
+    scrollNext,
+  };
 };
 
 export { useEmblaProgress };
