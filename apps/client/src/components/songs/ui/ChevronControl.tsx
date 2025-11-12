@@ -2,7 +2,17 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { MotionButton } from '@/components/motions/motionButton';
 import { cn } from '@/lib/utils';
 
-const ChevronControl = ({ className }: { className: string }) => {
+interface ControlInterface {
+  className: string;
+  onClickLeft: () => void;
+  onClickRight: () => void;
+}
+
+const ChevronControl = ({
+  className,
+  onClickLeft,
+  onClickRight,
+}: ControlInterface) => {
   return (
     <>
       {/* Prev */}
@@ -12,7 +22,10 @@ const ChevronControl = ({ className }: { className: string }) => {
           'absolute -left-2 z-6 hidden lg:block -translate-y-1/2'
         )}
       >
-        <MotionButton className="bg-background/50 text-foreground/90 hover:text-foreground">
+        <MotionButton
+          onClick={onClickLeft}
+          className="bg-background/50 text-foreground/90 hover:text-foreground"
+        >
           <ChevronLeft className="size-10" />
         </MotionButton>
       </div>
@@ -23,7 +36,10 @@ const ChevronControl = ({ className }: { className: string }) => {
           'absolute -right-2 z-6 hidden lg:block -translate-y-1/2'
         )}
       >
-        <MotionButton className="bg-background/50 text-foreground/90 hover:text-foreground">
+        <MotionButton
+          onClick={onClickRight}
+          className="bg-background/50 text-foreground/90 hover:text-foreground"
+        >
           <ChevronRight className="size-10" />
         </MotionButton>
       </div>

@@ -4,19 +4,18 @@ import SoftFade from './SoftFade';
 import { type VibeProps } from '@/types/songs/stream.interface';
 
 const VibeStream = ({ children, pseudo }: VibeProps & { pseudo?: string }) => {
-  const { emblaRef, showFadeStart, showFadeEnd } = useEmblaProgress(
-    true,
-    2,
-    0.6,
-    'start',
-    true
-  );
+  const { emblaRef, showFadeStart, showFadeEnd, scrollPrev, scrollNext } =
+    useEmblaProgress(true, 2, 0.6, 'start', true);
 
   return (
     <section>
       <h3 className="text-section">Fait pour {pseudo || 'vous'}</h3>
       <div className="relative">
-        <ChevronControl className="top-[30%]" />
+        <ChevronControl
+          onClickLeft={scrollPrev}
+          onClickRight={scrollNext}
+          className="top-[30%]"
+        />
         <div
           ref={emblaRef}
           className="overflow-hidden scroll-smooth scrollbar-none"

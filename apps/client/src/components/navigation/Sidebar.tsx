@@ -98,7 +98,7 @@ export const Sidebar = () => {
                     <Skeleton className="rounded-full size-full bg-foreground/30" />
                   ) : (
                     <div className="flex items-center justify-center text-lg font-black size-full text-muted-foreground bg-muted font-montserrat">
-                      {getInitials(user?.pseudo)}
+                      {getInitials(user?.pseudo) || 'U'}
                     </div>
                   )}
                 </Avatar>
@@ -174,4 +174,3 @@ export const Sidebar = () => {
     </>
   );
 };
-
