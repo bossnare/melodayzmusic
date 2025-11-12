@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Inter, Montserrat } from 'next/font/google';
-import '../styles/globals.css';
+import '@/styles/globals.css';
 import './custom.css';
 import { ThemeProvider } from '@/components/themes/theme-provider';
 import { Toaster } from '@/components/ui/sonner';

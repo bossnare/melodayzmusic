@@ -5,10 +5,7 @@ import { OtpOverlay } from '@/components/auth/OtpOverlay';
 import { MotionButtonLeft } from '@/components/motions/motionButton';
 import { NavBar } from '@/components/navigation/Navbar';
 import { NavBottom } from '@/components/navigation/NavBottom';
-import NavProfile from '@/components/navigation/NavProfile';
 import { Sidebar } from '@/components/navigation/Sidebar';
-// import MiniPlayer from '@/components/songs/ui/MiniPlayer';
-// import MiniPlayerMobile from '@/components/songs/ui/MiniPlayerMobile';
 import { useSong } from '@/api/song.api';
 import {
   OverlayPlayer,
@@ -91,12 +88,9 @@ export default function DashboardLayout({
           {/* real wrapper */}
           <div className="flex-1 overflow-hidden transition-all duration-200 ease-in-out h-dvh lg:ml-64 will-change-transform">
             <header className="sticky inset-x-0 top-0 z-5 bg-background">
-              {!isAtProfil && (
-                <div className="w-full px-2 py-2 border-b sm:px-4 border-border lg:border-0">
-                  <NavBar isAtHome={isAtHome} />
-                </div>
-              )}
-              {isAtProfil && <NavProfile />}
+              <div className="w-full px-2 py-2 border-b sm:px-4 border-border lg:border-0">
+                <NavBar />
+              </div>
               <nav className="left-0 flex w-full px-2 py-1 sm:px-4 lg:hidden">
                 {isAtHome && (
                   <SheetTrigger asChild>
