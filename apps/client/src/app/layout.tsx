@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   other: {
     google: 'notranslate',
   },
+  themeColor: '#000', // browser top bar color
   description:
     'MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users',
   keywords: [

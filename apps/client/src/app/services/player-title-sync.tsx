@@ -16,7 +16,7 @@ export default function PlayerTitleSync() {
       meta?.setAttribute('content', `${dominantColor}`); // browser top bar color
     } else {
       document.title = 'MelodayzMusic - Feel the Beat, Anywhere You Go';
-      meta?.setAttribute('content', `#000`); // browser top bar color if nothing currentSong
+      // meta?.setAttribute('content', `#000`); // browser top bar color if nothing currentSong
     }
   }, [currentSong, dominantColor]);
 
