@@ -44,7 +44,7 @@ const MiniPlayer = () => {
           >
             <MotionButton
               onClick={setTrue}
-              className="p-3 border border-muted-foreground/20 bg-muted backdrop-blur-xs shadow-md"
+              className="border border-muted-foreground/20 bg-muted backdrop-blur-xs shadow-md"
             >
               <ChevronUp className="size-8" />
             </MotionButton>
@@ -52,8 +52,11 @@ const MiniPlayer = () => {
         )}
       </AnimatePresence>
       {/* for image cover */}
-      <div className="flex justify-start h-full gap-3 xl:min-w-64">
-        <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square">
+      <div
+        onClick={setTrue}
+        className="flex justify-start h-full gap-3 xl:min-w-64 cursor-pointer select-none active:bg-muted"
+      >
+        <div className="overflow-hidden rounded-lg w-25 h-23 aspect-square active:opacity-80">
           <Image
             src={cover || '/img/fallback/player_cover_fallback.png'}
             alt="coverImage"
@@ -77,12 +80,12 @@ const MiniPlayer = () => {
             <p style={{ color: `${dominantColor}` }} className="text-sm">
               {artist}
             </p>
-            <MotionButton onClick={toggle} className="p-0 mt-auto">
+            {/* <MotionButton onClick={toggle} className="p-0 mt-auto">
               <HeartIcon
                 className="size-8"
                 weight={isFavorite ? 'fill' : 'regular'}
               />
-            </MotionButton>
+            </MotionButton> */}
           </div>
         )}
       </div>
@@ -105,7 +108,7 @@ const MiniPlayer = () => {
             </MotionButton>
           </div>
         ) : (
-          <div className="flex items-center justify-center *:text-muted-foreground w-full space-x-4">
+          <div className="flex items-center justify-center *:text-foreground w-full space-x-4">
             <MotionButton>
               <SkipBackIcon weight={'fill'} className="size-7" />
             </MotionButton>

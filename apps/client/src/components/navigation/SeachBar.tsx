@@ -60,7 +60,7 @@ const SearchBar = () => {
       {isOpenSearch && (
         <MotionButton
           onClick={handleBack}
-          className={`p-1.5 text-foreground/80 active:text-foreground active:bg-accent/20 hover:bg-transparent! bg-transparent! lg:hidden`}
+          className={`p-1.5 text-muted-foreground active:text-foreground active:bg-accent/20 hover:bg-transparent! bg-transparent! lg:hidden`}
         >
           <ChevronLeft className="size-8" />
         </MotionButton>
@@ -90,7 +90,7 @@ const SearchBar = () => {
           className={cn(
             !isOpenSearch && 'hidden!',
             'w-full',
-            !isNull && 'ml-1',
+            !isNull && 'ml-2',
             'lg:ml-0 px-1 rounded-full lg:rounded-md bg-transparent! shadow-none placeholder:text-sm border-0 outline-0 lg:block! focus-visible:ring-0'
           )}
         />
