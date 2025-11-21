@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   other: {
     google: 'notranslate',
   },
-  themeColor: '#000', // browser top bar color
+  // themeColor: '#000', // browser top bar color
   description:
     'MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users',
   keywords: [
@@ -58,6 +58,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="theme-color" content="#000" />
+      </head>
       <body
         className={`${inter.variable} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background-layer min-h-screen flex flex-col`}
       >
