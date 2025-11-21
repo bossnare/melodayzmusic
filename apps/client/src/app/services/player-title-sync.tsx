@@ -12,6 +12,7 @@ export default function PlayerTitleSync() {
 
   useEffect(() => {
     const meta = document.querySelector("meta[name='theme-color']");
+    console.log('meta:', meta);
 
     if (currentSong) {
       document.title = `${title} - ${artist}`;

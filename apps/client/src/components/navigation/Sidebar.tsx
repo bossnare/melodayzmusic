@@ -91,8 +91,8 @@ export const Sidebar = () => {
           </SheetTitle>
           {/* content */}
           <SheetDescription className="px-4 space-y-4">
-            <figure className="w-full mt-2 space-y-2">
-              <figcaption className="flex justify-between">
+            <div className="w-full mt-2 space-y-2">
+              <div className="flex justify-between">
                 <Avatar className="border border-current/50 size-14 ring-2 -ring-offset-4 ring-muted">
                   {isFetchingMe ? (
                     <Skeleton className="rounded-full size-full bg-foreground/30" />
@@ -103,9 +103,9 @@ export const Sidebar = () => {
                   )}
                 </Avatar>
                 {!isFetchingMe && (
-                  <Settings2 className="p-2 cursor-pointer active:bg-muted size-12 active:opacity-60 text-foreground lg:hover:opacity-60" />
+                  <Settings2 className="p-2 rounded-full cursor-pointer active:bg-muted size-12 active:opacity-60 text-foreground lg:hover:opacity-60" />
                 )}
-              </figcaption>
+              </div>
               {isFetchingMe ? (
                 <div className="w-full">
                   <Skeleton className="h-6 rounded-sm w-8/9 bg-foreground/30" />
@@ -113,7 +113,7 @@ export const Sidebar = () => {
                 </div>
               ) : (
                 <div className="inline-flex flex-col cursor-pointer active:bg-muted lg:hover:bg-muted/50">
-                  <span className="text-lg font-bold capitalize font-montserrat text-foreground flex gap-2 flex-wrap items-center">
+                  <span className="flex flex-wrap items-center gap-2 text-lg font-bold capitalize font-montserrat text-foreground">
                     {user?.pseudo || 'Utilisateur(e)'}{' '}
                     <UserBadge userRole={user?.role} />
                   </span>
@@ -125,7 +125,7 @@ export const Sidebar = () => {
                   </span>
                 </div>
               )}
-            </figure>
+            </div>
 
             <Separator />
           </SheetDescription>
