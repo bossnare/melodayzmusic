@@ -45,7 +45,7 @@ const MiniPlayerMobile = () => {
           style={{ boxShadow: '0 -10px 10px -5px rgba(0, 0, 0, 0.06)' }}
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] font-montserrat"
+          className="fixed z-20 w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] font-montserrat"
         >
           <div className="relative cursor-pointer flex items-center gap-2 px-2 py-1 size-full bg-linear-to-br from-secondary-foreground/80 to-secondary-foreground/70 dark:from-[#2b2b2b]/80 dark:to-[#1a1a1a]/80 backdrop-blur-sm">
             {/* grain */}
@@ -79,9 +79,11 @@ const MiniPlayerMobile = () => {
           </div>
         </motion.div>
       ) : (
-        <div
+        <motion.div
           style={{ boxShadow: '0 -10px 10px -5px rgba(0, 0, 0, 0.06)' }}
-          className="fixed w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] font-montserrat"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="fixed z-20 w-[96%] md:w-[70%] md:left-[15%] overflow-hidden rounded-[6.5px] left-[2%] h-15 lg:hidden bottom-[65px] font-montserrat"
         >
           <div
             style={
@@ -147,7 +149,7 @@ const MiniPlayerMobile = () => {
               </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );
