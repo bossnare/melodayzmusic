@@ -1,7 +1,7 @@
 import ReactQueryProvider from '@/lib/react-query/ReactQueryProvider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono, Inter, Montserrat } from 'next/font/google';
 import '@/styles/globals.css';
 import './custom.css';
@@ -30,12 +30,25 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+export const viewport: Viewport = {
+  // browser top-bar
+  themeColor: [
+    {
+      media: '(prefers-color-scheme: light)',
+      color: '#ffffff',
+    },
+    {
+      media: '(prefers-color-scheme: dark)',
+      color: '#1A1A1A',
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   title: 'MelodayzMusic - Feel the Beat, Anywhere You Go',
   other: {
     google: 'notranslate',
   },
-  // themeColor: '#000', // browser top bar color
   description:
     'MelodayzMusic is a web application designed to provide an engaging and seamless music experience for users',
   keywords: [
@@ -58,9 +71,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="theme-color" content="#000" />
-      </head>
       <body
         className={`${inter.variable} ${montserrat.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-background-layer min-h-screen flex flex-col`}
       >
