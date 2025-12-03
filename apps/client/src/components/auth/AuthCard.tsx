@@ -545,7 +545,7 @@ const StepFourCard = ({
                     <FormLabel>Vous venez de quel pays ?</FormLabel>
                     <FormControl>
                       <SelectScrollable
-                        value={field.value}
+                        value={field.value || ''}
                         onChange={field.onChange}
                         isPending={isPending}
                       />
@@ -565,7 +565,7 @@ const StepFourCard = ({
                   <FormControl>
                     <RadioGroup1
                       onChange={field.onChange}
-                      value={field.value}
+                      value={field.value || ''}
                       className="flex py-6"
                       isPending={isPending}
                     />

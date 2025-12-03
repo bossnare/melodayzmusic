@@ -31,7 +31,7 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  // browser top-bar
+  // browser top-bar color
   themeColor: [
     {
       media: '(prefers-color-scheme: light)',
