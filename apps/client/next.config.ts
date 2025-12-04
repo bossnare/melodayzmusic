@@ -16,10 +16,14 @@ const withPWA = withPWAInit({
 });
 
 const nextConfig: NextConfig = {
+  // skip turbo pack
+  // experimental: {
+  //   turbo: false,
+  // },
   /* config options here */
-  eslint: {
-    ignoreDuringBuilds: true, // Atsahatra tanteraka ny lint amin'ny build
-  },
+  // eslint: {
+  //   ignoreDuringBuilds: true, // Atsahatra tanteraka ny lint amin'ny build
+  // },
 
   // cache controle
   async headers() {
